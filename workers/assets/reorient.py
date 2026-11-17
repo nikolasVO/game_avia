@@ -50,8 +50,9 @@ def main():
         backup=out/('pre-postprocess-'+revision);backup.mkdir(exist_ok=False)
         for path in out.iterdir():
             if path.is_file() and path.suffix in ('.glb','.png','.json'):shutil.copy2(path,backup/path.name)
-        run_process(store,task,owner,fence,[str(root/'tools/blender-5.2.4-linux-x64/blender'),'--background','--factory-startup','--threads','2','--python',str(repo/'scripts/blender_optimize.py'),'--','--input',str(out/'original.glb'),'--output-dir',str(out),'--manifest-name','blender-manifest.json',*(['--symmetry-x'] if desired.symmetry_policy=='mirror_x' else []),'--rotate-z-degrees',str(a.yaw),'--triangles',str(task['spec']['triangle_budget']),'--texture-size','1024','--dimensions',*[str(task['spec']['dimensions_m'][i]) for i in (0,2,1)]],out/('blender-postprocess-'+revision+'.private.log'),time.monotonic()+300)
+        run_process(store,task,owner,fence,[str(root/'tools/blender-5.2.4-linux-x64/blender'),'--background','--factory-startup','--threads','2','--python-exit-code','1','--python',str(repo/'scripts/blender_optimize.py'),'--','--input',str(out/'original.glb'),'--output-dir',str(out),'--manifest-name','blender-manifest.json',*(['--symmetry-x'] if desired.symmetry_policy=='mirror_x' else []),'--rotate-z-degrees',str(a.yaw),'--triangles',str(task['spec']['triangle_budget']),'--texture-size','1024','--dimensions',*[str(task['spec']['dimensions_m'][i]) for i in (0,2,1)]],out/('blender-postprocess-'+revision+'.private.log'),time.monotonic()+300)
         geometry=json.loads((out/'blender-manifest.json').read_text())
+        if not geometry.get('verified'):raise RuntimeError('blender_geometry_not_verified')
         geometry.update({k:old[k] for k in ('source_kind','generation','reference','license')})
         geometry['godot_import_tested']=False
         geometry['postprocess_revision']=revision

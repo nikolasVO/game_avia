@@ -66,7 +66,7 @@ def run_asset(store,task,owner,root,repo_root=None):
             store.finish_tool(operation,{"sha256":sha256(original)})
         elif not original.is_file() or sha256(original)!=cached["sha256"]:
             raise RuntimeError("cached_generation_hash_mismatch")
-        run_process(store,task,owner,fence,[str(root/"tools/blender-5.2.4-linux-x64/blender"),"--background","--factory-startup","--threads","2",
+        run_process(store,task,owner,fence,[str(root/"tools/blender-5.2.4-linux-x64/blender"),"--background","--factory-startup","--threads","2","--python-exit-code","1",
             "--python",str(repo_root/"scripts/blender_optimize.py"),"--","--input",str(original),"--output-dir",str(out),
             "--manifest-name","blender-manifest.json",*(["--symmetry-x"] if spec.symmetry_policy=="mirror_x" else []),"--rotate-z-degrees",str(spec.source_yaw_degrees),"--triangles",str(spec.triangle_budget),"--texture-size",str(spec.texture_budget),"--dimensions",*[str(spec.dimensions_m[i]) for i in (0,2,1)]],out/"blender.private.log",deadline)
         manifest=json.loads((out/"blender-manifest.json").read_text())

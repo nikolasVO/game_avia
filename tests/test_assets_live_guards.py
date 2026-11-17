@@ -90,3 +90,16 @@ def test_generation_refuses_model_substitution_before_import(tmp_path):
     models={k:str(tmp_path/'checkpoint') for k in ('sparse_structure_flow_model','sparse_structure_decoder','shape_slat_flow_model_512','shape_slat_decoder','tex_slat_flow_model_512','tex_slat_decoder')}
     with pytest.raises(RuntimeError,match='only_pinned_local_BiRefNet_allowed'):
         validate_compact({'args':{'default_pipeline_type':'512','models':models,'rembg_model':{'name':'Other'}}},tmp_path)
+
+def test_publication_refuses_failed_geometry_and_changed_output(tmp_path):
+    import json
+    from workers.assets.godot_validate import checked_geometry
+    from workers.assets.files import sha256
+    (tmp_path/'optimized.glb').write_bytes(b'mesh')
+    m={'verified':False,'checks':{'lod_budget':False},'files':{'optimized.glb':{'sha256':sha256(tmp_path/'optimized.glb')}}}
+    p=tmp_path/'geometry-manifest.json';p.write_text(json.dumps(m))
+    with pytest.raises(RuntimeError,match='unverified_geometry'):checked_geometry(tmp_path)
+    m.update(verified=True,checks={'lod_budget':True});p.write_text(json.dumps(m))
+    assert checked_geometry(tmp_path)['verified']
+    (tmp_path/'optimized.glb').write_bytes(b'changed after validation')
+    with pytest.raises(RuntimeError,match='geometry_artifact_hash'):checked_geometry(tmp_path)

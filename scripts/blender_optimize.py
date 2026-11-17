@@ -53,17 +53,25 @@ def remesh_far_lod(obj,dimensions,budget,symmetric):
                     samples.append(pixels[offset:offset+3])
                 if samples:color=tuple(sum(v[i] for v in samples)/len(samples) for i in range(3))+(1,)
     bpy.context.view_layer.objects.active=obj
-    mod=obj.modifiers.new('FarTopologyRepair','REMESH');mod.mode='VOXEL';mod.voxel_size=max(dimensions)*.002
-    voxel=mod.voxel_size
-    bpy.ops.object.modifier_apply(modifier=mod.name)
+    # Rebuild each attempt from the unmodified near geometry. Thin fragmented wings
+    # can leave a floor above the budget after a fine voxel pass and decimation.
+    source_mesh=obj.data.copy();attempts=[]
+    for fraction in (.002,.003,.004,.006):
+        obj.data=source_mesh.copy()
+        mod=obj.modifiers.new('FarTopologyRepair','REMESH');mod.mode='VOXEL';mod.voxel_size=max(dimensions)*fraction
+        voxel=mod.voxel_size
+        bpy.ops.object.modifier_apply(modifier=mod.name)
+        if symmetric:mirror_decimate(obj,budget)
+        elif triangles(obj)>budget:
+            mod=obj.modifiers.new('FarBudget','DECIMATE');mod.ratio=budget/triangles(obj)*.97;bpy.ops.object.modifier_apply(modifier=mod.name)
+        bpy.context.view_layer.update()
+        attempts.append({'voxel_size_m':voxel,'triangles':triangles(obj),'dimensions_blender':list(obj.dimensions)})
+        if triangles(obj)<=2000:break
     plain=bpy.data.materials.new('FarSampledAlbedo');plain.use_nodes=True;plain.diffuse_color=color
     plain.node_tree.nodes.get('Principled BSDF').inputs['Base Color'].default_value=color
     plain.node_tree.nodes.get('Principled BSDF').inputs['Roughness'].default_value=.9
     obj.data.materials.clear();obj.data.materials.append(plain)
-    if symmetric:mirror_decimate(obj,budget)
-    elif triangles(obj)>budget:
-        mod=obj.modifiers.new('FarBudget','DECIMATE');mod.ratio=budget/triangles(obj)*.97;bpy.ops.object.modifier_apply(modifier=mod.name)
-    return {'method':'voxel topology repair then decimation','voxel_size_m':voxel,'material':'plain sampled albedo; no far texture/UV required','rgba':list(color)}
+    return {'method':'voxel topology repair then decimation','attempts':attempts,'voxel_size_m':voxel,'material':'plain sampled albedo; no far texture/UV required','rgba':list(color)}
 
 def main():
     p=argparse.ArgumentParser();p.add_argument("--manifest-name",default="manifest.json");p.add_argument("--input");p.add_argument("--fixture",action="store_true");p.add_argument("--output-dir",required=True)
@@ -128,7 +136,9 @@ def main():
             mod=o.modifiers.new("LOD","DECIMATE");mod.ratio=ratio;bpy.ops.object.modifier_apply(modifier=mod.name)
         repair=None
         target=6000 if level==1 else 1500
-        if level==2 and triangles(o)>target:repair=remesh_far_lod(o,a.dimensions,target,a.symmetry_x)
+        if level==2 and triangles(o)>target:
+            o.data=base.data.copy()
+            repair=remesh_far_lod(o,a.dimensions,target,a.symmetry_x)
         o.hide_render=True
         bpy.context.view_layer.update()
         lods.append({"name":o.name,"triangles":triangles(o),"far_repair":repair,"dimensions_blender":list(o.dimensions)})

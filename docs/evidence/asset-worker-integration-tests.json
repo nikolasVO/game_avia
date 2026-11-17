@@ -20,5 +20,18 @@
     "seconds": 25.62,
     "scope": "after owner sequencing merge; Python/Blender fixtures pass. Actual F-16C far-LOD topology repair still requires its own real run.",
     "blender_script_sha256": "f686635493b9bed04f9ec7abe8a47afb9a8f23c3d5c759bba14f732f549af431"
+  },
+  "publication_guard_followup": {
+    "tests": 70,
+    "seconds": 26.75,
+    "scope": "installed Blender exception exit regression and failed/changed artifact publication guard plus previous tests",
+    "source_files_sha256": {
+      "scripts/blender_optimize.py": "43f383b37d422eb76aa0395dce9e3cd41fb3fc3a18e8fa36dcd9c3d25d1b437a",
+      "workers/assets/reorient.py": "a19e3150bb1f65807f15bbb9ba5f3a3cfe6e65ac767881b8237d9d002b577c28",
+      "workers/assets/run.py": "3edd655f8ac2358fd68d75ab6e4e9a5521c23925f303ad4f75b16026e14d75a5",
+      "workers/assets/godot_validate.py": "222ee71fcb9d295b260b3b0b8a78ee2f39e268aadbcccb958e4d10a3aca2fec3",
+      "workers/assets/godot_validate.gd": "ff2745fd818277323dd332fb13aea22234b8535104b3fb769b73e875076b5668"
+    },
+    "godot": "actual existing F16 candidate reimport/render, all 3LODs x4 views; production recognition not implied"
   }
 }

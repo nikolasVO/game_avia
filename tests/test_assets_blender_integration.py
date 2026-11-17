@@ -13,7 +13,7 @@ def test_actual_blender_staged_manifest_and_import_license(tmp_path):
     script=Path(__file__).resolve().parents[1]/'scripts/blender_optimize.py'
     fixture=tmp_path/'fixture';imported=tmp_path/'imported';rotated=tmp_path/'rotated'
     for out,source in ((fixture,['--fixture']),(imported,['--input',str(fixture/'original.glb')]),(rotated,['--input',str(fixture/'original.glb'),'--rotate-z-degrees','-90'])):
-        result=subprocess.run([BLENDER,'--background','--factory-startup','--threads','2','--python',str(script),'--',*source,'--output-dir',str(out),'--manifest-name','geometry-manifest.json'],capture_output=True,text=True,timeout=120)
+        result=subprocess.run([BLENDER,'--background','--factory-startup','--threads','2','--python-exit-code','1','--python',str(script),'--',*source,'--output-dir',str(out),'--manifest-name','geometry-manifest.json'],capture_output=True,text=True,timeout=120)
         assert result.returncode==0,result.stdout[-2000:]+result.stderr[-2000:]
         assert not (out/'manifest.json').exists()
         manifest=json.loads((out/'geometry-manifest.json').read_text())
@@ -32,10 +32,15 @@ def test_actual_blender_repairs_asymmetric_reference(tmp_path):
     script=Path(__file__).resolve().parents[1]/'scripts/blender_optimize.py'
     before=tmp_path/'before';after=tmp_path/'after'
     for out,extra in ((before,[]),(after,['--symmetry-x'])):
-        r=subprocess.run([BLENDER,'--background','--factory-startup','--threads','2','--python',str(script),'--','--fixture','--fixture-asymmetric','--output-dir',str(out),*extra],capture_output=True,text=True,timeout=120)
+        r=subprocess.run([BLENDER,'--background','--factory-startup','--threads','2','--python-exit-code','1','--python',str(script),'--','--fixture','--fixture-asymmetric','--output-dir',str(out),*extra],capture_output=True,text=True,timeout=120)
         assert r.returncode==0,r.stdout[-2000:]+r.stderr[-2000:]
     a=json.loads((before/'manifest.json').read_text());b=json.loads((after/'manifest.json').read_text())
     assert a['geometry']['symmetry']['max_distance_m']>.01
     assert b['verified'] and b['geometry']['symmetry']['max_distance_m']<1e-4
     assert b['symmetry_enforced_x'] and b['geometry']['degenerate_triangles']==0
     assert b['triangles_lod0']<=5000
+
+def test_actual_blender_python_failure_returns_nonzero(tmp_path):
+    script=tmp_path/'failure.py';script.write_text('raise RuntimeError("expected QA failure")')
+    r=subprocess.run([BLENDER,'--background','--factory-startup','--threads','2','--python-exit-code','1','--python',str(script)],capture_output=True,text=True,timeout=30)
+    assert r.returncode!=0 and 'expected QA failure' in r.stdout+r.stderr

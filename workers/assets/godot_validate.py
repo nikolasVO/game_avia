@@ -7,11 +7,22 @@ import tempfile
 from pathlib import Path
 from workers.assets.files import atomic_json,sha256
 
+def checked_geometry(out):
+    manifest=json.loads((out/'geometry-manifest.json').read_text())
+    if not manifest.get('verified') or not manifest.get('checks') or not all(manifest['checks'].values()):
+        raise RuntimeError('unverified_geometry_cannot_be_published')
+    for name,record in manifest['files'].items():
+        path=(out/name).resolve()
+        if not path.is_relative_to(out.resolve()) or not path.is_file() or sha256(path)!=record['sha256']:
+            raise RuntimeError('geometry_artifact_hash_mismatch')
+    return manifest
+
 
 def main():
     p=argparse.ArgumentParser();p.add_argument('--artifact-dir',required=True);p.add_argument('--godot',required=True)
     p.add_argument('--dimensions',type=float,nargs=3,required=True);p.add_argument('--render',action='store_true')
     a=p.parse_args();out=Path(a.artifact_dir).resolve()
+    manifest=checked_geometry(out)
     with tempfile.TemporaryDirectory(prefix='avia-asset-import-') as tmp:
         project=Path(tmp)
         shutil.copy2(out/'optimized.glb',project/'optimized.glb')
@@ -21,10 +32,10 @@ def main():
         for i,command in enumerate(commands):
             result=subprocess.run(command,capture_output=True,text=True,timeout=180)
             (out/('godot-import.log' if i==0 else 'godot-validation.log')).write_text(result.stdout+result.stderr)
-            if result.returncode:raise RuntimeError('godot_validation_failed; see isolated log')
+            if result.returncode or any(x in result.stdout+result.stderr for x in ('SCRIPT ERROR','ERROR:','Parse Error')):raise RuntimeError('godot_validation_failed; see isolated log')
         result=json.loads((out/'godot-validation.json').read_text())
         if not result['import_passed'] or (a.render and not result['preview_rendered']):raise RuntimeError('godot_geometry_or_preview_failed')
-        manifest=json.loads((out/'geometry-manifest.json').read_text())
+        checked_geometry(out)
         manifest.update({'asset_id':out.name,'source_type':'AI','godot_import_tested':True,'godot_import':result,'pipeline_verified':True,'production_accepted':False})
         for name in ('original.glb','godot-validation.json','inference-evidence.json',*result.get("preview_files",[])):
             manifest['files'][name]={'sha256':sha256(out/name),'bytes':(out/name).stat().st_size}
