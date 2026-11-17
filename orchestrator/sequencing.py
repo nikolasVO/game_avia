@@ -86,7 +86,7 @@ def confirm(store, task_id, owner, operation_id, pid):
                 raise RuntimeError("handoff_pid_mismatch")
             return prior
         t = c.execute("SELECT status,owner FROM tasks WHERE id=?", (task_id,)).fetchone()
-        if t["status"] != "planning" or t["owner"] != owner:
+        if t["status"] not in ("planning", "running") or t["owner"] != owner:
             raise RuntimeError("successor_no_longer_reserved")
         now = time.time()
         result = {"task_id": task_id, "pid": pid, "status": "running", "receipt_pending": True}
