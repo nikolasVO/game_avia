@@ -76,6 +76,38 @@ func _run() -> void:
   h.open_for(i)
   check(h.selected_index()==i and h.detail.text.contains(AviaFlight.PLANES[i].name) and not str(AviaFlight.PLANES[i].get("hangar",{}).get("ru","")).is_empty(),"all playable cards and stable selection "+AviaFlight.PLANES[i].aircraft_id)
  h.open_for(0);check(h.detail.text.contains("Форсаж: отсутствует"),"original aircraft card does not advertise an unsupported afterburner")
+ h.reset.pressed.emit();h.availability.select(1);h.availability.item_selected.emit(1);await settle()
+ check(rows(h)==["f14","fa18e","mig31"] and h.second.item_count==9,"preview availability contains only three materialized planned candidates; comparator stays playable")
+ check(h.model!=null and h.current_id=="f14" and h.selected_index()==-1 and h.choose.disabled and h.favorite.disabled and not h.first.disabled,"candidate creates actual inspectable model while flight/favorite actions stay disabled")
+ check(h.model.sweep_wings.size()==6 and h.detail.text.contains("ТОЛЬКО ПРОСМОТР"),"planned F14 imports articulated three-LOD assembly and explicit pending status")
+ emitted=-1;h._choose();h._toggle_favorite()
+ check(emitted==-1 and h.visible and not h.favorites.has("f14") and ui.select_plane.item_count==9,"direct candidate actions cannot emit flight selection or change admission menu")
+ await capture("hangar-candidate-f14")
+ h.first.select(2);h.first.item_selected.emit(2);await settle()
+ check(h.current_id=="mig31" and h.model.get_node_or_null("AIModel")!=null and h.compare.text.contains("MiG-31") and h.detail.text.contains("3000"),"candidate stable ID renders actual MiG31 body and comparison/balance values")
+ var body: MeshInstance3D=h.model.find_child("LOD0",true,false)
+ var in_frame: bool=body!=null
+ if body:
+  for angle: float in [0.0,PI*.25,PI*.5,PI]:
+   h.model.rotation.y=angle
+   for corner: int in 8:
+    var point: Vector2=h.inspection_camera.unproject_position(body.global_transform*body.mesh.get_aabb().get_endpoint(corner))
+    if not Rect2(Vector2.ZERO,Vector2(h.viewport.size)).has_point(point):in_frame=false
+  h.model.rotation.y=-.25
+ check(in_frame,"long MiG31 body fits actual camera projection through four inspection rotations")
+ h.lang="en";h.localize();await settle()
+ check(h.current_id=="mig31" and h.availability.selected==1 and h.detail.text.contains("CANDIDATE · PREVIEW ONLY") and h.choose.disabled,"localization preserves candidate identity, availability and disabled flight action")
+ await capture("hangar-candidate-mig31")
+ pick_filter(h.country,"Russia");pick_filter(h.aircraft_class,"interceptor")
+ check(rows(h)==["mig31"] and h.selected_index()==-1,"country/class filters intersect preview models without changing stable flight indices")
+ h.favorites_only.button_pressed=true;await settle()
+ check(h.first.item_count==0 and h.model==null and h.first.disabled and h.choose.disabled,"playable-only favorites cannot expose candidate as flight-ready")
+ h.reset.pressed.emit();h.availability.select(2);h.availability.item_selected.emit(2)
+ check(rows(h).size()==12 and AviaFlight.PLANES.size()==9 and AviaCatalog.index_of("mig31")==-1,"all-model inspection leaves the authoritative playable catalog unchanged")
+ h.open_for(4);await settle()
+ check(h.current_id=="su27" and h.selected_index()==4 and not h.choose.disabled,"opening playable menu selection after candidate filters restores valid flight action")
+ h.availability.select(1);h.availability.item_selected.emit(1);h.open_for(8)
+ check(h.availability.selected==0 and h.selected_index()==8,"menu selection clears excluding candidate-only filter")
  saved=ConfigFile.new();saved.load("user://settings.cfg")
  check(saved.get_value("flight","aircraft_id","")=="su35s","collection writes preserve menu settings file")
  collection=ConfigFile.new();collection.set_value("collection","favorites",42);collection.save("user://hangar.cfg")

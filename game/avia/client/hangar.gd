@@ -4,6 +4,7 @@ signal selected(index: int)
 var viewport: SubViewport
 var model: Node3D
 var model_root: Node3D
+var inspection_camera: Camera3D
 var detail: Label
 var first: OptionButton
 var second: OptionButton
@@ -18,6 +19,7 @@ var country: OptionButton
 var aircraft_class: OptionButton
 var speed: OptionButton
 var agility: OptionButton
+var availability: OptionButton
 var favorites_only: CheckBox
 var favorite: Button
 var reset: Button
@@ -25,7 +27,7 @@ var count: Label
 var scroll: ScrollContainer
 var favorites: Array[String]=[]
 var current_id: String="f16c"
-const CLASS_NAMES: Dictionary={"original":["Original","Авторский"],"light_fighter":["Light fighter","Лёгкий истребитель"],"heavy_fighter":["Heavy fighter","Тяжёлый истребитель"],"multirole":["Multirole","Многоцелевой"]}
+const CLASS_NAMES: Dictionary={"original":["Original","Авторский"],"light_fighter":["Light fighter","Лёгкий истребитель"],"heavy_fighter":["Heavy fighter","Тяжёлый истребитель"],"multirole":["Multirole","Многоцелевой"],"interceptor":["Interceptor","Перехватчик"],"carrier_fighter":["Carrier fighter","Палубный истребитель"]}
 const COUNTRY_RU: Dictionary={"Game Avia":"Game Avia","USA":"США","Russia":"Россия","France":"Франция","Sweden":"Швеция"}
 func _ready() -> void:
  position=Vector2(110,25);size=Vector2(1060,665)
@@ -38,6 +40,7 @@ func _ready() -> void:
  country=OptionButton.new();aircraft_class=OptionButton.new()
  for control: OptionButton in [country,aircraft_class]:
   control.size_flags_horizontal=Control.SIZE_EXPAND_FILL;control.custom_minimum_size.y=44;filters.add_child(control);control.item_selected.connect(func(_i: int):_rebuild_list())
+ availability=OptionButton.new();availability.custom_minimum_size.y=44;column.add_child(availability);availability.item_selected.connect(func(_i: int):_rebuild_list())
  var limits: HBoxContainer=HBoxContainer.new();column.add_child(limits)
  speed=OptionButton.new();agility=OptionButton.new()
  for control: OptionButton in [speed,agility]:
@@ -67,6 +70,7 @@ func _ready() -> void:
   AviaAircraft._box(structure,Vector3(x,-1.38,0),Vector3(.04,.02,30),Color("b9c3ad"))
  AviaAircraft._mesh(structure,model_root,"HangarStructure",0,150)
  var camera: Camera3D=Camera3D.new();model_root.add_child(camera);camera.position=Vector3(11,7,-17);camera.look_at(Vector3.ZERO);camera.fov=44;camera.current=true
+ inspection_camera=camera
  detail=Label.new();detail.custom_minimum_size.x=380;detail.size_flags_horizontal=Control.SIZE_EXPAND_FILL;detail.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;detail.add_theme_font_size_override("font_size",16);content.add_child(detail)
  surface.gui_input.connect(func(event: InputEvent):
   if event is InputEventMouseButton:dragging=event.pressed
@@ -87,14 +91,14 @@ func _ready() -> void:
     if id is String and AviaCatalog.index_of(id)>=0 and not favorites.has(id):favorites.append(id)
  localize()
 func localize() -> void:
- title.text="АНГАР · ЛЁТНЫЕ ПРОТОТИПЫ" if lang=="ru" else "HANGAR · FLIGHT PROTOTYPES"
+ title.text="АНГАР · ПРОТОТИПЫ И КАНДИДАТЫ" if lang=="ru" else "HANGAR · PROTOTYPES & CANDIDATES"
  choose.text="Выбрать самолёт" if lang=="ru" else "Select aircraft"
  close.text="Назад" if lang=="ru" else "Back"
  var country_value: String="" if country.item_count==0 else str(country.get_item_metadata(country.selected))
  var class_value: String="" if aircraft_class.item_count==0 else str(aircraft_class.get_item_metadata(aircraft_class.selected))
  country.clear();country.add_item("Все страны" if lang=="ru" else "All countries");country.set_item_metadata(0,"")
  aircraft_class.clear();aircraft_class.add_item("Все классы" if lang=="ru" else "All classes");aircraft_class.set_item_metadata(0,"")
- for spec: Dictionary in AviaFlight.PLANES:
+ for spec: Dictionary in inspection_catalog():
   _add_filter_value(country,str(spec.country),str(COUNTRY_RU.get(spec.country,spec.country)) if lang=="ru" else str(spec.country),country_value)
   var key: String=str(spec["class"])
   var caption: String=str(CLASS_NAMES.get(key,[key,key])[1 if lang=="ru" else 0])
@@ -104,6 +108,10 @@ func localize() -> void:
  for label: String in (["Любая скорость","От 1000 км/ч","От 2000 км/ч"] if lang=="ru" else ["Any speed","At least 1000 km/h","At least 2000 km/h"]):speed.add_item(label)
  for label: String in (["Любая манёвренность","Манёвренность от 85","Манёвренность от 90"] if lang=="ru" else ["Any manoeuvrability","Manoeuvrability 85+","Manoeuvrability 90+"]):agility.add_item(label)
  speed.select(speed_index);agility.select(agility_index)
+ var availability_index: int=maxi(0,availability.selected)
+ availability.clear()
+ for label: String in (["Доступны для полёта","Кандидаты · только просмотр","Все подготовленные модели"] if lang=="ru" else ["Available for flight","Candidates · preview only","All prepared models"]):availability.add_item(label)
+ availability.select(availability_index)
  favorites_only.text="Избранное" if lang=="ru" else "Favorites"
  reset.text="Сброс" if lang=="ru" else "Reset"
  _rebuild_list()
@@ -113,25 +121,41 @@ func _add_filter_value(control: OptionButton,value: String,caption: String,previ
  control.add_item(caption);var index: int=control.item_count-1;control.set_item_metadata(index,value)
  if previous==value:control.select(index)
 func _reset_filters() -> void:
- country.select(0);aircraft_class.select(0);speed.select(0);agility.select(0);favorites_only.set_pressed_no_signal(false);_rebuild_list()
+ country.select(0);aircraft_class.select(0);speed.select(0);agility.select(0);availability.select(0);favorites_only.set_pressed_no_signal(false);_rebuild_list()
+func inspection_catalog() -> Array[Dictionary]:
+ # Only materialized candidate scenes can enter inspection. Never mutate the flight catalog.
+ var rows: Array[Dictionary]=[]
+ for spec: Dictionary in AviaCatalog.all():
+  if bool(spec.playable) or (spec.has("visual") and ResourceLoader.exists(str(spec.visual.scene))):rows.append(spec)
+ return rows
 func _rebuild_list() -> void:
  first.clear()
  var min_speed: float=[0.0,1000.0,2000.0][maxi(0,speed.selected)]
  var min_agility: float=[0.0,85.0,90.0][maxi(0,agility.selected)]
- for index: int in AviaFlight.PLANES.size():
-  var spec: Dictionary=AviaFlight.PLANES[index]
+ var visible_catalog: Array[Dictionary]=inspection_catalog()
+ for spec: Dictionary in visible_catalog:
+  var index: int=AviaCatalog.index_of(str(spec.aircraft_id))
+  if availability.selected==0 and index<0:continue
+  if availability.selected==1 and index>=0:continue
   if country.selected>0 and country.get_item_metadata(country.selected)!=spec.country:continue
   if aircraft_class.selected>0 and aircraft_class.get_item_metadata(aircraft_class.selected)!=spec["class"]:continue
   if float(spec.flight.max_speed_altitude_kmh)<min_speed or float(spec.handling.maneuverability)<min_agility:continue
   if favorites_only.button_pressed and not favorites.has(spec.aircraft_id):continue
-  first.add_item(("★ " if favorites.has(spec.aircraft_id) else "")+spec.name,index)
+  var suffix: String=(" · кандидат" if lang=="ru" else " · candidate") if index<0 else ""
+  first.add_item(("★ " if favorites.has(spec.aircraft_id) else "")+str(spec.display_name)+suffix)
   first.set_item_metadata(first.item_count-1,spec.aircraft_id)
   if spec.aircraft_id==current_id:first.select(first.item_count-1)
  if first.item_count>0:current_id=str(first.get_item_metadata(first.selected))
- count.text=("Показано %d из %d лётных прототипов" if lang=="ru" else "Showing %d of %d flight prototypes") % [first.item_count,AviaFlight.PLANES.size()]
+ count.text=("Показано %d из %d моделей · приёмка типов не завершена" if lang=="ru" else "Showing %d of %d models · aircraft acceptance pending") % [first.item_count,visible_catalog.size()]
  refresh()
 func selected_index() -> int:
- return -1 if first.selected<0 else first.get_selected_id()
+ return -1 if first.selected<0 else AviaCatalog.index_of(str(first.get_item_metadata(first.selected)))
+func selected_spec() -> Dictionary:
+ if first.selected<0:return {}
+ var id: String=str(first.get_item_metadata(first.selected))
+ for spec: Dictionary in inspection_catalog():
+  if spec.aircraft_id==id:return spec
+ return {}
 func open_for(index: int) -> void:
  if index>=0 and index<AviaFlight.PLANES.size():
   current_id=AviaFlight.PLANES[index].aircraft_id
@@ -153,27 +177,51 @@ func _toggle_favorite() -> void:
 func refresh() -> void:
  if model:model.free();model=null
  var index: int=selected_index()
- choose.disabled=index<0;favorite.disabled=index<0;first.disabled=index<0
+ var spec: Dictionary=selected_spec()
+ choose.disabled=index<0;favorite.disabled=index<0;first.disabled=spec.is_empty()
  favorite.text=("Убрать ★" if lang=="ru" else "Remove ★") if favorites.has(current_id) else ("В избранное ☆" if lang=="ru" else "Favorite ☆")
- if index<0:
+ if spec.is_empty():
   detail.text="Нет совпадений. Измените фильтры или нажмите «Сброс»." if lang=="ru" else "No matches. Change filters or choose Reset."
   compare.text="";chart.queue_redraw();return
- var spec: Dictionary=AviaFlight.PLANES[index]
- model=AviaAircraft.build(index);model_root.add_child(model);model.rotation.y=-.25
+ model=AviaAircraft.build(index) if index>=0 else AviaFighterVisual.create_spec(spec,true)
+ model_root.add_child(model);model.rotation.y=-.25
+ _frame_model()
+ if index<0 and not model.sweep_wings.is_empty():model.pose_sweep(0)
  var f: Dictionary=spec.flight
  var pattern: String="%s\n%s\n\nGAME BALANCE\nSea level: %d km/h\nAltitude speed limit: %d km/h\nStall: %d km/h\nApproach: %d km/h\nAcceleration: %.1f m/s²\nAfterburner: %.1f m/s²\n\nProcedural flight prototype"
  if lang=="ru":pattern="%s\n%s\n\nИГРОВЫЕ ПАРАМЕТРЫ\nУ земли: %d км/ч\nПредел на высоте: %d км/ч\nСваливание: %d км/ч\nПосадка: %d км/ч\nРазгон: %.1f м/с²\nФорсаж: %.1f м/с²\n\nПроцедурный лётный прототип"
- detail.text=pattern % [spec.name,COUNTRY_RU.get(spec.country,spec.country) if lang=="ru" else spec.country,f.max_speed_sea_kmh,f.max_speed_altitude_kmh,f.stall_speed_kmh,f.landing_speed_kmh,f.acceleration_mps2,f.afterburner_acceleration_mps2]
+ detail.text=pattern % [spec.display_name,COUNTRY_RU.get(spec.country,spec.country) if lang=="ru" else spec.country,f.max_speed_sea_kmh,f.max_speed_altitude_kmh,f.stall_speed_kmh,f.landing_speed_kmh,f.acceleration_mps2,f.afterburner_acceleration_mps2]
  if not bool(spec.systems.afterburner):
   detail.text=detail.text.replace("Afterburner: %.1f m/s²" % f.afterburner_acceleration_mps2,"Afterburner: unavailable").replace("Форсаж: %.1f м/с²" % f.afterburner_acceleration_mps2,"Форсаж: отсутствует")
  detail.text=detail.text.replace("Procedural flight prototype","Flight prototype · model review pending" if spec.has("visual") else "Original Game Avia aircraft").replace("Процедурный лётный прототип","Лётный прототип · проверка модели не завершена" if spec.has("visual") else "Авторский самолёт Game Avia")
+ if index<0:
+  detail.text=detail.text.replace("Flight prototype · model review pending","Prepared AI model · review pending").replace("Лётный прототип · проверка модели не завершена","Подготовленная AI-модель · проверка не завершена")
+  detail.text=("КАНДИДАТ · ТОЛЬКО ПРОСМОТР\nПолёт и приёмка типа не доступны.\n\n" if lang=="ru" else "CANDIDATE · PREVIEW ONLY\nFlight and aircraft acceptance pending.\n\n")+detail.text
  var card: Dictionary=spec.get("hangar",{})
  if card.has(lang):detail.text+="\n\n"+str(card[lang])
- compare.text="%s  /  %s · %s" % [spec.name,AviaFlight.PLANES[second.get_selected_id()].name,"Вращайте модель" if lang=="ru" else "Drag to rotate"]
+ compare.text="%s  /  %s · %s" % [spec.display_name,AviaFlight.PLANES[second.get_selected_id()].name,"Вращайте модель" if lang=="ru" else "Drag to rotate"]
  chart.queue_redraw()
+func _frame_model() -> void:
+ # Fit a rotation-independent sphere around actual prepared assembly bounds.
+ # Use every explicit LOD, and instance transforms for authored gear/surfaces.
+ var extent: Vector3=Vector3.ONE
+ for node: Node in model.find_children("*","GeometryInstance3D",true,false):
+  var bounds: AABB
+  if node is MeshInstance3D and node.mesh:bounds=node.mesh.get_aabb()
+  elif node is MultiMeshInstance3D and node.multimesh:
+   bounds=node.multimesh.get_aabb()
+  else:continue
+  var relative: Transform3D=model.global_transform.affine_inverse()*node.global_transform
+  for corner: int in 8:
+   var point: Vector3=relative*bounds.get_endpoint(corner)
+   extent=extent.max(point.abs())
+ var distance: float=extent.length()/sin(deg_to_rad(inspection_camera.fov*.5)) * 1.08
+ inspection_camera.position=Vector3(11,7,-17).normalized()*maxf(21,distance)
+ inspection_camera.look_at(Vector3.ZERO)
 func _draw_comparison() -> void:
- if selected_index()<0:return
- var spec_a: Dictionary=AviaFlight.PLANES[selected_index()];var spec_b: Dictionary=AviaFlight.PLANES[second.get_selected_id()]
+ var spec_a: Dictionary=selected_spec()
+ if spec_a.is_empty():return
+ var spec_b: Dictionary=AviaFlight.PLANES[second.get_selected_id()]
  var a: Dictionary=spec_a.handling;var b: Dictionary=spec_b.handling
  var font: Font=get_theme_default_font()
  var keys: Array[String]=["maneuverability","stability","inertia","low_speed_control"]
@@ -185,7 +233,7 @@ func _draw_comparison() -> void:
   chart.draw_rect(Rect2(305,y+11,300,8),Color("203640"));chart.draw_rect(Rect2(305,y+11,3*float(b[keys[i]]),8),Color("74b6bd"))
   chart.draw_string(font,Vector2(630,y+17),"%d / %d" % [a[keys[i]],b[keys[i]]],HORIZONTAL_ALIGNMENT_LEFT,-1,16,Color.WHITE)
  var max_speed: float=1.0
- for spec: Dictionary in AviaFlight.PLANES:max_speed=maxf(max_speed,float(spec.flight.max_speed_altitude_kmh))
+ for spec: Dictionary in inspection_catalog():max_speed=maxf(max_speed,float(spec.flight.max_speed_altitude_kmh))
  chart.draw_string(font,Vector2(0,117),"Предел на высоте" if lang=="ru" else "Altitude speed limit",HORIZONTAL_ALIGNMENT_LEFT,-1,16,Color("e5e5d6"))
  chart.draw_rect(Rect2(305,100,300,8),Color("203640"));chart.draw_rect(Rect2(305,100,300*float(spec_a.flight.max_speed_altitude_kmh)/max_speed,8),Color("dfb66c"))
  chart.draw_rect(Rect2(305,111,300,8),Color("203640"));chart.draw_rect(Rect2(305,111,300*float(spec_b.flight.max_speed_altitude_kmh)/max_speed,8),Color("74b6bd"))

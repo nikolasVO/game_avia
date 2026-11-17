@@ -1,0 +1,302 @@
+{
+  "status": "PASS",
+  "source_base": "86d96c1db1d3f381055436bf9a4bf8b89130c757",
+  "engine": "Godot 4.7.2 Compatibility actual desktop renderer",
+  "visual": {
+    "checks": [
+      {
+        "check": "opening follows menu aircraft stable ID",
+        "ok": true
+      },
+      {
+        "check": "saved favorites discard duplicates, unavailable IDs and invalid types",
+        "ok": true
+      },
+      {
+        "check": "both selectors retain nine playable prototypes; no planned aircraft exposed",
+        "ok": true
+      },
+      {
+        "check": "country filtering preserves selected stable ID",
+        "ok": true
+      },
+      {
+        "check": "combined class/agility filters map row zero to catalog index six",
+        "ok": true
+      },
+      {
+        "check": "favorite button persists stable IDs",
+        "ok": true
+      },
+      {
+        "check": "new hangar instance restores persisted favorite IDs",
+        "ok": true
+      },
+      {
+        "check": "filtered actual Select signal updates menu with Su35, not row zero",
+        "ok": true
+      },
+      {
+        "check": "opening another menu aircraft clears excluding filters",
+        "ok": true
+      },
+      {
+        "check": "favorites filter intersects available catalog and retains selected Gripen",
+        "ok": true
+      },
+      {
+        "check": "removing selected favorite safely selects remaining result",
+        "ok": true
+      },
+      {
+        "check": "empty favorites clears model and disables actions",
+        "ok": true
+      },
+      {
+        "check": "empty results cannot emit an aircraft selection",
+        "ok": true
+      },
+      {
+        "check": "render capture hangar-empty",
+        "ok": true
+      },
+      {
+        "check": "inclusive 2000 km/h and 90 agility boundaries retain Rafale",
+        "ok": true
+      },
+      {
+        "check": "filtered comparison and authored English handling card use correct aircraft",
+        "ok": true
+      },
+      {
+        "check": "render capture hangar-en",
+        "ok": true
+      },
+      {
+        "check": "translation preserves all filter identities and thresholds",
+        "ok": true
+      },
+      {
+        "check": "Russian flight card and country caption are localized",
+        "ok": true
+      },
+      {
+        "check": "render capture hangar-ru",
+        "ok": true
+      },
+      {
+        "check": "scrolling content keeps Select and Back pinned inside viewport",
+        "ok": true
+      },
+      {
+        "check": "scrolled comparison chart is reachable",
+        "ok": true
+      },
+      {
+        "check": "render capture hangar-comparison",
+        "ok": true
+      },
+      {
+        "check": "mutually exclusive speed/class filters return empty safely",
+        "ok": true
+      },
+      {
+        "check": "Reset restores playable list from empty filters",
+        "ok": true
+      },
+      {
+        "check": "all playable cards and stable selection kite",
+        "ok": true
+      },
+      {
+        "check": "all playable cards and stable selection tern",
+        "ok": true
+      },
+      {
+        "check": "all playable cards and stable selection swift",
+        "ok": true
+      },
+      {
+        "check": "all playable cards and stable selection f16c",
+        "ok": true
+      },
+      {
+        "check": "all playable cards and stable selection su27",
+        "ok": true
+      },
+      {
+        "check": "all playable cards and stable selection f15c",
+        "ok": true
+      },
+      {
+        "check": "all playable cards and stable selection su35s",
+        "ok": true
+      },
+      {
+        "check": "all playable cards and stable selection rafale",
+        "ok": true
+      },
+      {
+        "check": "all playable cards and stable selection gripen",
+        "ok": true
+      },
+      {
+        "check": "original aircraft card does not advertise an unsupported afterburner",
+        "ok": true
+      },
+      {
+        "check": "preview availability contains only three materialized planned candidates; comparator stays playable",
+        "ok": true
+      },
+      {
+        "check": "candidate creates actual inspectable model while flight/favorite actions stay disabled",
+        "ok": true
+      },
+      {
+        "check": "planned F14 imports articulated three-LOD assembly and explicit pending status",
+        "ok": true
+      },
+      {
+        "check": "direct candidate actions cannot emit flight selection or change admission menu",
+        "ok": true
+      },
+      {
+        "check": "render capture hangar-candidate-f14",
+        "ok": true
+      },
+      {
+        "check": "candidate stable ID renders actual MiG31 body and comparison/balance values",
+        "ok": true
+      },
+      {
+        "check": "long MiG31 body fits actual camera projection through four inspection rotations",
+        "ok": true
+      },
+      {
+        "check": "localization preserves candidate identity, availability and disabled flight action",
+        "ok": true
+      },
+      {
+        "check": "render capture hangar-candidate-mig31",
+        "ok": true
+      },
+      {
+        "check": "country/class filters intersect preview models without changing stable flight indices",
+        "ok": true
+      },
+      {
+        "check": "playable-only favorites cannot expose candidate as flight-ready",
+        "ok": true
+      },
+      {
+        "check": "all-model inspection leaves the authoritative playable catalog unchanged",
+        "ok": true
+      },
+      {
+        "check": "opening playable menu selection after candidate filters restores valid flight action",
+        "ok": true
+      },
+      {
+        "check": "menu selection clears excluding candidate-only filter",
+        "ok": true
+      },
+      {
+        "check": "collection writes preserve menu settings file",
+        "ok": true
+      },
+      {
+        "check": "malformed favorite collection falls back safely",
+        "ok": true
+      }
+    ],
+    "event": "hangar_summary",
+    "scope": "actual rendered desktop UI/config/selector signals; not phone input, production aircraft or public multiplayer acceptance",
+    "status": "PASS"
+  },
+  "rendered_checks": 51,
+  "screenshots": 6,
+  "regressions": {
+    "status": "PASS",
+    "results": [
+      {
+        "script": "flight_check",
+        "exit_code": 0,
+        "ok": true
+      },
+      {
+        "script": "fighter_check",
+        "exit_code": 0,
+        "ok": true
+      },
+      {
+        "script": "fighter_circuit_check",
+        "exit_code": 0,
+        "ok": true
+      },
+      {
+        "script": "interceptor_flight_check",
+        "exit_code": 0,
+        "ok": true
+      },
+      {
+        "script": "sweep_flight_check",
+        "exit_code": 0,
+        "ok": true
+      }
+    ]
+  },
+  "pytest": {
+    "passed": 9,
+    "suites": [
+      "test_aircraft_production.py",
+      "test_mobile_archive_guards.py"
+    ]
+  },
+  "files": {
+    "hangar-candidate-f14.png": {
+      "bytes": 96234,
+      "sha256": "1321a099179ae849877b488a5eea38ecb7e9a4cb8461304c08970180032ed340"
+    },
+    "hangar-candidate-mig31.png": {
+      "bytes": 97088,
+      "sha256": "75f292ba260abeeeac3ab378c7ca0f4bc85781cf29535cddc81294abc1c9c039"
+    },
+    "hangar-comparison.png": {
+      "bytes": 113491,
+      "sha256": "549a42788c34ece25ed15390d3b85660ddaa5517f26ae8eca65aff089af8bed0"
+    },
+    "hangar-empty.png": {
+      "bytes": 60688,
+      "sha256": "459abbda5ffd795ced4b32ad9fc23ef7af939ed0d1540c993a440c73be6425fc"
+    },
+    "hangar-en.png": {
+      "bytes": 94897,
+      "sha256": "7f5bb9bb86b3b203411198547eb8d9f2a632e30c86c780fd11285f3b9371b9c4"
+    },
+    "hangar-ru.png": {
+      "bytes": 94944,
+      "sha256": "963e253dada08a334c8007c5438c103925f67b8749be2ba1ec1194fabda6f0a6"
+    },
+    "report.json": {
+      "bytes": 6031,
+      "sha256": "0c7a05add09e6ffc3e8f8b91083c3d57ffea2a781017120ad1460d95fd0cd86d"
+    },
+    "runtime.log": {
+      "bytes": 4684,
+      "sha256": "71ac9cb160001ea07774177862875826766158d32abd35e77ed98c25852948d6"
+    }
+  },
+  "contact": {
+    "path": "docs/evidence/hangar-candidates.png",
+    "sha256": "d2da9de6e68258b476d18d36a806b70f4b85b5ad04ddced302ba36247956efcc"
+  },
+  "flight_entries": 9,
+  "inspection_entries": 12,
+  "planned_candidates": [
+    "f14",
+    "fa18e",
+    "mig31"
+  ],
+  "production_accepted": false,
+  "scope": "Actual desktop rendered preview, camera bounds, localization, persistent favorites and selection signals. No new inference or playable aircraft promotion; physical Android/iPhone, external UDP, recognition and full 15-gate aircraft acceptance remain open."
+}
