@@ -1,0 +1,190 @@
+{
+  "status": "PASS",
+  "source_base": "e378fdf9ba749bb5e0c8fd0e184d911b87444ad5",
+  "engine": "Godot4.7.2",
+  "geometry": {
+    "bounds": "[P: (-3.575, -0.75, -7.35), S: (7.15, 3.4, 14.7)]",
+    "checks": [
+      {
+        "check": "planned reference preserves nine flight selections",
+        "ok": true
+      },
+      {
+        "check": "reference uses only own geometry",
+        "ok": true
+      },
+      {
+        "check": "single engine, fin and exhaust",
+        "ok": true
+      },
+      {
+        "check": "annular nose inlet with protruding separate cone, no chin/side intake",
+        "ok": true
+      },
+      {
+        "check": "delta main wing and separate aft tailplane",
+        "ok": true
+      },
+      {
+        "check": "three authored LODs have finite nondegenerate triangles and unit normals",
+        "ok": true
+      },
+      {
+        "check": "three authored LODs are exactly mirrored",
+        "ok": true
+      },
+      {
+        "check": "explicit decreasing geometry tiers",
+        "ok": true
+      },
+      {
+        "check": "rendered bounds match provisional dimensions",
+        "ok": true
+      },
+      {
+        "check": "no invented sweep/vectoring; existing gear available",
+        "ok": true
+      },
+      {
+        "check": "reference construction leaves catalog immutable",
+        "ok": true
+      }
+    ],
+    "event": "delta_reference_summary",
+    "playable": false,
+    "production_accepted": false,
+    "scope": "own conditioning geometry only; primary variant/recognition/rights and all aircraft gates remain open",
+    "status": "PASS",
+    "triangles": [
+      332,
+      260,
+      148
+    ]
+  },
+  "flight": {
+    "checks": [
+      {
+        "check": "mig21: afterburner changes actual acceleration",
+        "ok": true
+      },
+      {
+        "check": "mig21: achievable speed changes with density/altitude inside current world",
+        "ok": true
+      },
+      {
+        "check": "f16c: afterburner changes actual acceleration",
+        "ok": true
+      },
+      {
+        "check": "f16c: achievable speed changes with density/altitude inside current world",
+        "ok": true
+      },
+      {
+        "check": "historical delta has materially lower low-speed control than light F16",
+        "ok": true
+      },
+      {
+        "check": "historical jet accelerates more slowly under identical commands",
+        "ok": true
+      },
+      {
+        "check": "isolated planned test preserves playable catalog",
+        "ok": true
+      }
+    ],
+    "event": "delta_flight_summary",
+    "measurements": [
+      {
+        "aircraft_id": "mig21",
+        "altitude4s_mps": 445.643981933594,
+        "boost4s_mps": 265.848602294922,
+        "dry4s_mps": 222.090972900391,
+        "fast_bank_rad": 0.399295818184813,
+        "low_speed_bank_rad": 0.286848188440005,
+        "residual_roll_fraction": 0.51204433134077,
+        "sea4s_mps": 412.018951416016
+      },
+      {
+        "aircraft_id": "f16c",
+        "altitude4s_mps": 425.839569091797,
+        "boost4s_mps": 276.142761230469,
+        "dry4s_mps": 226.199417114258,
+        "fast_bank_rad": 0.595823261886835,
+        "low_speed_bank_rad": 0.554347192496061,
+        "residual_roll_fraction": 0.464736994516118,
+        "sea4s_mps": 392.492340087891
+      }
+    ],
+    "scope": "actual shared-force game balance only; no real flight, human/network/phone or production acceptance",
+    "status": "PASS"
+  },
+  "circuit": {
+    "aircraft_id": "mig21",
+    "commands_valid": true,
+    "crashed": false,
+    "distance_m": 15113.6617934704,
+    "event": "planned_circuit_summary",
+    "final_speed_mps": 1.97675549983978,
+    "landing_seconds": 157.566666666667,
+    "maximum_altitude_m": 246.335845947266,
+    "maximum_speed_mps": 101.973609924316,
+    "production_accepted": false,
+    "scope": "planned-only command-driven parked/takeoff/circuit/approach/braked-stop simulation; no coordinate injection; no human/network/device acceptance",
+    "stage": 4,
+    "status": "PASS",
+    "takeoff_seconds": 3.03333333333333
+  },
+  "regressions": {
+    "status": "PASS",
+    "results": [
+      {
+        "script": "flight_check",
+        "exit_code": 0,
+        "ok": true
+      },
+      {
+        "script": "fighter_check",
+        "exit_code": 0,
+        "ok": true
+      },
+      {
+        "script": "fighter_circuit_check",
+        "exit_code": 0,
+        "ok": true
+      },
+      {
+        "script": "interceptor_reference_check",
+        "exit_code": 0,
+        "ok": true
+      },
+      {
+        "script": "carrier_reference_check",
+        "exit_code": 0,
+        "ok": true
+      },
+      {
+        "script": "sweep_reference_check",
+        "exit_code": 0,
+        "ok": true
+      },
+      {
+        "script": "catalog_check",
+        "exit_code": 0,
+        "ok": true
+      }
+    ],
+    "rendered_gear_checks": 60
+  },
+  "pytest": 15,
+  "rendered_views": 4,
+  "source_files": {
+    "side.png": "8fa89486167ff9b7d83b3c576bfd69a9adc4a98098886a8e2dc0f970ae43ab0c",
+    "reference.png": "24d40d036d57643032f99752d2d5d5e85c4bd8985b71e168ed775ae87602aed9",
+    "top.png": "4aaeea442ac96e855cdfb7ab65c74d0e5da05f1f693f9901221aa2ea9412b3f0",
+    "manifest.json": "05a33303750b881a7cc1aa3494f6ed303a73f621d0f2782515f46b0dbab933b4",
+    "front.png": "3914c44fdc4b86193809451c63202118c9a5d49a25ea1dcccd6c8767c3c4a353"
+  },
+  "playable": false,
+  "production_accepted": false,
+  "scope": "Own provisional reference and actual shared arcade forces only. No verified primary variant dimensions or recognition. No inference/production/human/network/device/rights acceptance in this milestone."
+}

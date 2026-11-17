@@ -1,0 +1,22 @@
+{
+  "asset_id": "mig21_candidate_20261118_v1",
+  "purpose": "Own provisional MiG21-style historical delta candidate, not production acceptance",
+  "description": "Own authored slender tubular single-engine fuselage, annular nose intake with protruding cone, compact delta main wings, separate aft horizontal tailplanes, one swept vertical fin and one rear nozzle. No logos, copied pixels or external model. Primary variant dimensions unverified; game proportions only.",
+  "style": "coherent stylized Game Avia aviation",
+  "reference_images": [
+    "production-mig21-v1/reference.png"
+  ],
+  "dimensions_m": [
+    7.15,
+    3.5,
+    14.7
+  ],
+  "source_yaw_degrees": 180,
+  "symmetry_policy": "mirror_x",
+  "triangle_budget": 19300,
+  "texture_budget": 1024,
+  "deadline_seconds": 1800,
+  "cost_limit": 0,
+  "seed": 45,
+  "pipeline_type": "512"
+}

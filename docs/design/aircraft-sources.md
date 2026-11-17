@@ -21,3 +21,7 @@ The own-authored F14-style conditioning render is a provisional game silhouette:
 ## MiG-31 reference work, 18 November 2026
 
 Primary-source search/retrieval returned no usable page in this runtime; no new source-derived dimensions or performance facts are claimed. The22.7m/13.5m catalogue dimensions and all speed/handling figures remain provisional authored game values. The own render uses a long nose, tandem-style canopy, broad rectangular rear fuselage/side intakes, swept clipped wings and paired angular fins. No external image/model/logo was copied. Independent primary-reference/variant recognition and commercial rights remain open. Shared-force tests use100m/2000m within the existing2500m world ceiling; the proposed high-altitude speed is not a reachable gameplay guarantee.
+
+## MiG-21 reference work, 18 November 2026
+
+Primary museum-source searches returned no usable result in this runtime; no retrieved aircraft facts or verified variant dimensions are claimed. Existing14.7m/7.15m remain provisional game geometry. Own authored reference uses an annular nose intake with separate protruding cone, slender circular sections, compact delta wing, distinct aft tailplanes and one fin/nozzle. All speeds/handling scores remain authored balance; recognition and commercial name/design rights need independent review. No third-party pixels/models/logos used.

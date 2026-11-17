@@ -42,6 +42,10 @@ static func create_spec(spec: Dictionary, use_imported: bool=false) -> AviaAircr
   var st: SurfaceTool=SurfaceTool.new();st.begin(Mesh.PRIMITIVE_TRIANGLES)
   var sides: int=8 if lod==0 else 6 if lod==1 else 4
   if g.has("box_body_sections_m"):_box_body(st,g.box_body_sections_m,color)
+  elif g.has("body_sections_m"):
+   var body_sections: Array[Vector3]=[]
+   for section: Array in g.body_sections_m:body_sections.append(Vector3(float(section[0]),float(section[1]),float(section[2])))
+   AviaAircraft._loft(st,body_sections,0,color,sides)
   else:AviaAircraft._loft(st,[Vector3(-length*.51,.04,.06),Vector3(-length*.3,width*.55,height*.9),Vector3(-length*.12,width,height),Vector3(length*.17,width*1.1,height*.9),Vector3(length*.44,width*.65,height*.55)],0.1,color,sides)
   # Cropped swept wing or canard delta; source geometry is authored independently.
   if bool(spec.systems.get("variable_sweep",false)):
@@ -56,15 +60,17 @@ static func create_spec(spec: Dictionary, use_imported: bool=false) -> AviaAircr
   if g.has("stabilizer_outline_m"):_surface_pair(st,g.stabilizer_outline_m,.12,.12,color.darkened(.06))
   elif not delta:AviaAircraft._wing(st,span*.24,length*.13,length*.34,.12,length*.08,color.darkened(.06))
   if canard:AviaAircraft._wing(st,span*.22,length*.10,-length*.21,.2,length*.04,color.lightened(.05))
-  var fins: Array=[-1.0,1.0] if twin and not delta else [0.0]
+  var fins: Array=[-1.0,1.0] if int(g.get("fin_count",2 if twin and not delta else 1))==2 else [0.0]
   for side: float in fins:
    var x: float=side*float(g.get("fin_half_spacing_m",length*.08))
    var fin_height: float=float(g.get("fin_height_m",length*.16));var tip_x: float=x+side*tan(deg_to_rad(float(g.get("fin_cant_degrees",0))))*fin_height
    if g.has("fin_outline_m"):_fin(st,g.fin_outline_m,x,side,float(g.get("fin_cant_degrees",0)),color)
    else:AviaAircraft._solid(st,[Vector3(x-.07,.25,length*.23),Vector3(x+.07,.25,length*.23),Vector3(x+.07,.25,length*.44),Vector3(x-.07,.25,length*.44),Vector3(tip_x-.07,fin_height,length*.34),Vector3(tip_x+.07,fin_height,length*.34),Vector3(tip_x+.07,fin_height*.7,length*.44),Vector3(tip_x-.07,fin_height*.7,length*.44)],color)
+  if str(g.get("intake_layout",""))=="nose_ring":_nose_intake(st,g.nose_intake,color,sides)
   if lod<2:
    # Intake count and engine count differ: Gripen has side intakes and one nozzle.
-   var intake_sides: Array=[-1.0,1.0] if str(g.get("intake_layout","side_pair" if twin else "chin_single"))=="side_pair" else [0.0]
+   var layout: String=str(g.get("intake_layout","side_pair" if twin else "chin_single"))
+   var intake_sides: Array=[] if layout=="nose_ring" else [-1.0,1.0] if layout=="side_pair" else [0.0]
    for side: float in intake_sides:
     var x: float=side*maxf(width,float(g.get("engine_spacing_m",length*.11))*.5)
     var intake_size: Array=g.get("intake_size_m",[.75,.65,length*.16])
@@ -221,3 +227,19 @@ static func _build_flaps(root: AviaAircraft,spec: Dictionary,color: Color) -> vo
   root.flap_axes.append(Vector3(side*width,0,sweep).normalized())
   root.flap_angles.append(side*deg_to_rad(float(config.angle_degrees)))
  root._pose_flaps()
+
+static func _nose_intake(st: SurfaceTool,config: Dictionary,color: Color,sides: int) -> void:
+ # Own annular lip and exposed cone: no generic chin box on nose-intake references.
+ var z: float=float(config.lip_z_m);var outer: float=float(config.outer_radius_m)
+ var inner: float=float(config.inner_radius_m);var depth: Vector3=Vector3(0,0,float(config.depth_m))
+ for segment: int in sides:
+  var a: float=TAU*segment/sides;var b: float=TAU*(segment+1)/sides
+  var oa: Vector3=Vector3(cos(a)*outer,sin(a)*outer,z);var ob: Vector3=Vector3(cos(b)*outer,sin(b)*outer,z)
+  var ia: Vector3=Vector3(cos(a)*inner,sin(a)*inner,z);var ib: Vector3=Vector3(cos(b)*inner,sin(b)*inner,z)
+  var radial: Vector3=Vector3(cos((a+b)*.5),sin((a+b)*.5),0)
+  AviaAircraft._face(st,[oa,ob,ib,ia],color.lightened(.12),Vector3.FORWARD)
+  AviaAircraft._face(st,[ia,ib,ib+depth,ia+depth],Color("162931"),-radial)
+  AviaAircraft._face(st,[ob,oa,oa+depth,ob+depth],color,radial)
+ var sections: Array[Vector3]=[]
+ for section: Array in config.cone_sections_m:sections.append(Vector3(float(section[0]),float(section[1]),float(section[2])))
+ AviaAircraft._loft(st,sections,0,Color("647b72"),sides)
