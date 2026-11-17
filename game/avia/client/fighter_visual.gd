@@ -46,14 +46,18 @@ static func create_spec(spec: Dictionary, use_imported: bool=false) -> AviaAircr
   if bool(spec.systems.get("variable_sweep",false)):
    # Fixed glove; articulated panels are separate from every body LOD.
    AviaAircraft._wing(st,float(g.get("glove_half_span_m",span*.18)),length*.31,-.35,-.1,.9,color)
+  elif g.has("wing_outline_m"):
+   _surface_pair(st,g.wing_outline_m,-.1,.16,color)
   else:
    AviaAircraft._wing(st,span*.5,float(g.get("wing_root_chord_m",length*(.36 if delta else .23))),length*.02,-.1,float(g.get("wing_sweep_m",length*(.22 if delta else .13))),color)
+  if g.has("lerx_outline_m"):_surface_pair(st,g.lerx_outline_m,-.02,.14,color)
   if g.has("lerx_half_span_m") and not delta:AviaAircraft._wing(st,float(g.lerx_half_span_m),float(g.lerx_chord_m),float(g.lerx_z_m),-.02,0.6,color)
-  if not delta:AviaAircraft._wing(st,span*.24,length*.13,length*.34,.12,length*.08,color.darkened(.06))
+  if g.has("stabilizer_outline_m"):_surface_pair(st,g.stabilizer_outline_m,.12,.12,color.darkened(.06))
+  elif not delta:AviaAircraft._wing(st,span*.24,length*.13,length*.34,.12,length*.08,color.darkened(.06))
   if canard:AviaAircraft._wing(st,span*.22,length*.10,-length*.21,.2,length*.04,color.lightened(.05))
   var fins: Array=[-1.0,1.0] if twin and not delta else [0.0]
   for side: float in fins:
-   var x: float=side*length*.08
+   var x: float=side*float(g.get("fin_half_spacing_m",length*.08))
    var fin_height: float=float(g.get("fin_height_m",length*.16));var tip_x: float=x+side*tan(deg_to_rad(float(g.get("fin_cant_degrees",0))))*fin_height
    AviaAircraft._solid(st,[Vector3(x-.07,.25,length*.23),Vector3(x+.07,.25,length*.23),Vector3(x+.07,.25,length*.44),Vector3(x-.07,.25,length*.44),Vector3(tip_x-.07,fin_height,length*.34),Vector3(tip_x+.07,fin_height,length*.34),Vector3(tip_x+.07,fin_height*.7,length*.44),Vector3(tip_x-.07,fin_height*.7,length*.44)],color)
   if lod<2:
@@ -61,13 +65,19 @@ static func create_spec(spec: Dictionary, use_imported: bool=false) -> AviaAircr
    var intake_sides: Array=[-1.0,1.0] if str(g.get("intake_layout","side_pair" if twin else "chin_single"))=="side_pair" else [0.0]
    for side: float in intake_sides:
     var x: float=side*maxf(width,float(g.get("engine_spacing_m",length*.11))*.5)
-    AviaAircraft._box(st,Vector3(x,-.35,-length*.08),Vector3(.75,.65,length*.16),dark)
+    var intake_size: Array=g.get("intake_size_m",[.75,.65,length*.16])
+    AviaAircraft._box(st,Vector3(x,-.35,float(g.get("intake_z_m",-length*.08))),Vector3(float(intake_size[0]),float(intake_size[1]),float(intake_size[2])),dark)
    for side: float in ([-1.0,1.0] if twin else [0.0]):
     var intake_x: float=side*float(g.get("engine_spacing_m",length*.11))*.5
     if twin and float(g.get("engine_channel_length_m",0))>0:
      AviaAircraft._loft(st,[Vector3(length*.46-float(g.engine_channel_length_m),.45,.40),Vector3(length*.25,.56,.48),Vector3(length*.44,.43,.38)],-.15,color.darkened(.06),sides,intake_x)
     AviaAircraft._loft(st,[Vector3(length*.29,.48,.42),Vector3(length*.46,.40,.36)],-.1,dark,sides,intake_x)
-   AviaAircraft._loft(st,[Vector3(-length*.30,.03,.05),Vector3(-length*.22,.42,.60),Vector3(-length*.10,.4,.50),Vector3(-length*.02,.04,.05)],.65,glass,sides)
+   var canopy: Array[Vector3]=[]
+   for section: Array in g.get("canopy_sections_m",[[-length*.30,.03,.05],[-length*.22,.42,.60],[-length*.10,.4,.50],[-length*.02,.04,.05]]):canopy.append(Vector3(float(section[0]),float(section[1]),float(section[2])))
+   AviaAircraft._loft(st,canopy,.65,glass,sides)
+   if g.has("wingtip_rail_m"):
+    var rail: Array=g.wingtip_rail_m
+    for side: float in [-1.0,1.0]:AviaAircraft._box(st,Vector3(side*span*.5,float(rail[0]),float(rail[1])),Vector3(.12,.12,float(rail[2])),dark)
   AviaAircraft._mesh(st,root,"Airframe" if lod==0 else "LOD1" if lod==1 else "Distant",[0,250,800][lod],[250,800,4500][lod])
  if imported and bool(spec.visual.get("nozzle_repair",false)):
   # Explicitly labelled authored repair: the AI candidate lacks clear engine exits.
@@ -122,6 +132,21 @@ static func create_spec(spec: Dictionary, use_imported: bool=false) -> AviaAircr
  root.exhaust.hide()
  _build_airbrakes(root,spec,color)
  return root
+
+static func _surface_pair(st: SurfaceTool,outline: Array,y: float,thickness: float,color: Color) -> void:
+ # Explicit authored convex half-planform, mirrored exactly; metres, nose -Z.
+ for side: float in [-1.0,1.0]:
+  var top: Array[Vector3]=[];var bottom: Array[Vector3]=[]
+  for point: Array in outline:
+   top.append(Vector3(side*float(point[0]),y+thickness*.5,float(point[1])))
+   bottom.append(Vector3(side*float(point[0]),y-thickness*.5,float(point[1])))
+  AviaAircraft._face(st,top.duplicate(),color,Vector3.UP);AviaAircraft._face(st,bottom.duplicate(),color,Vector3.DOWN)
+  var center: Vector3=Vector3.ZERO
+  for point: Vector3 in top:center+=point/float(top.size())
+  for i: int in top.size():
+   var j: int=(i+1)%top.size()
+   var outward: Vector3=(top[i]+top[j])*.5-center;outward.y=0
+   AviaAircraft._face(st,[bottom[i],bottom[j],top[j],top[i]],color,outward)
 
 static func _build_airbrakes(root: AviaAircraft,spec: Dictionary,color: Color) -> void:
  var config: Dictionary=spec.get("visual",{}).get("airbrake_animation",{})

@@ -154,8 +154,8 @@
       "job_id": "aircraft-fa18e-v1",
       "aircraft_id": "fa18e",
       "state": "queued",
-      "source_type": "AI/procedural repair planned",
-      "stage": "reference",
+      "source_type": "own provisional data-driven conditioning geometry",
+      "stage": "reference_ready",
       "attempts": 0,
       "max_attempts": 2,
       "heartbeat": null,
@@ -164,7 +164,7 @@
         "GPU lease",
         "10GiB reserve"
       ],
-      "next_action": "Author recognizable multi-reference-checked silhouette; TRELLIS compact512; Blender symmetry/parts/LOD; Godot validation",
+      "next_action": "11 authored geometry checks and four rendered views PASS. Source commit and single guarded TRELLIS512 attempt next; primary variant proportions, recognition and 15 production gates open.",
       "acceptance": "15 aircraft gates in brief section20; not accepted by config alone"
     },
     {

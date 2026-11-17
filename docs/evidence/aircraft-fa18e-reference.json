@@ -1,0 +1,92 @@
+{
+  "source_base": "876d54904aa4bd15d891d18dd68b94cdf9801510",
+  "geometry": {
+    "bounds": "[P: (-6.86, -0.775, -9.333), S: (13.72, 3.425, 17.751)]",
+    "checks": [
+      {
+        "check": "FA18E stays planned; nine existing playable prototypes preserved",
+        "ok": true
+      },
+      {
+        "check": "conditioning uses authored geometry and leaves catalog untouched",
+        "ok": true
+      },
+      {
+        "check": "explicit clipped wing, broad LERX and separate tail half-planforms",
+        "ok": true
+      },
+      {
+        "check": "paired canted fins, close engines and paired intakes configured",
+        "ok": true
+      },
+      {
+        "check": "all three authored LODs have finite nondegenerate triangles",
+        "ok": true
+      },
+      {
+        "check": "all authored body vertices retain exact left/right mirror symmetry",
+        "ok": true
+      },
+      {
+        "check": "authored tiers reduce geometry without a high triangle conditioning mesh",
+        "ok": true
+      },
+      {
+        "check": "model fits its labelled provisional game dimensions",
+        "ok": true
+      },
+      {
+        "check": "no invented swing wing or thrust vectoring; two exhaust cues",
+        "ok": true
+      },
+      {
+        "check": "existing deployable gear assembly preserved",
+        "ok": true
+      },
+      {
+        "check": "carrier reference has distinct authored topology from F15C",
+        "ok": true
+      }
+    ],
+    "event": "carrier_reference_summary",
+    "scope": "own provisional conditioning geometry only; recognition, variant facts, inference and 15 production gates remain open",
+    "status": "PASS",
+    "triangles": [
+      424,
+      348,
+      132
+    ]
+  },
+  "render": {
+    "views": 4,
+    "input": "reference.png only",
+    "source_manifest": "assets/source/production-fa18e-v1/manifest.json",
+    "visual_review": "Four views inspected; clipped wings, distinct paired LERX, outward twin fins and short canopy visible. Provisional stylized reference; variant recognition unverified."
+  },
+  "regressions": {
+    "flight_check": {
+      "exit_code": 0,
+      "errors": false
+    },
+    "fighter_check": {
+      "exit_code": 0,
+      "errors": false
+    },
+    "fighter_geometry_check": {
+      "exit_code": 0,
+      "errors": false
+    },
+    "sweep_reference_check": {
+      "exit_code": 0,
+      "errors": false
+    },
+    "catalog_check": {
+      "exit_code": 0,
+      "errors": false
+    }
+  },
+  "primary_source_access": "Built-in search returned no sources; direct NAVAIR request failed DNS. No real dimensions or performance claim asserted. All proportions labelled authored game values.",
+  "production_accepted": false,
+  "mobile_accepted": false,
+  "generation": "not run yet; one compact512 job next under existing sole lease"
+}
