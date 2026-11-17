@@ -14,14 +14,17 @@
   "trusted_installer_signature": "Unity Technologies SF (9QW8UQUTAA)",
   "deep_strict_app_codesign_passed": true,
   "hub_sha512_and_codesign_passed": true,
-  "batchmode_exit_code": 198,
-  "status": "blocked_license",
-  "reason": "No valid Unity Editor license found. Please activate your license.",
+  "batchmode_exit_code": 0,
+  "status": "license_active_build_unverified",
+  "reason": "Owner activated license; actual batchmode created a project and exited 0. Game remains on chosen Godot; no Unity GLB import/build claim.",
   "editor_scripts_compiled": false,
   "unity_import_tested": false,
   "build_passed": false,
   "screenshot_tested": false,
   "full_xcode_installed": false,
   "android_modules_installed": false,
-  "ios_signing_configured": false
+  "ios_signing_configured": false,
+  "license_activation_verified": true,
+  "proof_log_sha256": "85ef7c9d9e959afe69a4dd21f9a76407c8c2e04ae66ead697fc43ebf36b98bb8",
+  "empty_project_creation_passed": true
 }
