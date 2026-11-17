@@ -5,4 +5,4 @@ func _ready() -> void:
  if result!=OK:get_tree().quit(1)
  for arg: String in OS.get_cmdline_user_args():
   if arg.begins_with("--stats="):session.stats_path=arg.trim_prefix("--stats=")
- duration=60
+ duration=80

@@ -1,0 +1,54 @@
+{
+  "status": "PASS",
+  "source_commit": "c1922c74a29112818ce9ee523a9cdc81eb211180",
+  "release": "https://github.com/nikolasVO/game_avia/releases/tag/game-avia-prototype-20261117-r2",
+  "prerelease": true,
+  "assets": [
+    {
+      "name": "game-avia-0.1.0-debug.apk",
+      "bytes": 57084430,
+      "sha256": "c365fc7ee47dc3c735813efc83a35a92e60dd5e4c057a7ae73f8cc3ea145a98b",
+      "remote_digest": "sha256:c365fc7ee47dc3c735813efc83a35a92e60dd5e4c057a7ae73f8cc3ea145a98b",
+      "remote_size": 57084430,
+      "url": "https://github.com/nikolasVO/game_avia/releases/download/game-avia-prototype-20261117-r2/game-avia-0.1.0-debug.apk",
+      "match": true
+    },
+    {
+      "name": "game-avia-0.1.0-unsigned.aab",
+      "bytes": 52374487,
+      "sha256": "4b3fde1a95a51b222e09f8012ec53a3b8003e58d719a330b295f3ee7f1bd2fdb",
+      "remote_digest": "sha256:4b3fde1a95a51b222e09f8012ec53a3b8003e58d719a330b295f3ee7f1bd2fdb",
+      "remote_size": 52374487,
+      "url": "https://github.com/nikolasVO/game_avia/releases/download/game-avia-prototype-20261117-r2/game-avia-0.1.0-unsigned.aab",
+      "match": true
+    },
+    {
+      "name": "game-avia-c1922c7.mp4",
+      "bytes": 343995,
+      "sha256": "7b2180dcb28a9711493aa0c9645bdd1ab2e44b3bd8d480b9ec8a8dba5e606ae2",
+      "remote_digest": "sha256:7b2180dcb28a9711493aa0c9645bdd1ab2e44b3bd8d480b9ec8a8dba5e606ae2",
+      "remote_size": 343995,
+      "url": "https://github.com/nikolasVO/game_avia/releases/download/game-avia-prototype-20261117-r2/game-avia-c1922c7.mp4",
+      "match": true
+    },
+    {
+      "name": "game-avia-server.x86_64",
+      "bytes": 73656080,
+      "sha256": "f6b1aea7fc5790e538d75eeafd69a0361cdd9013249208242be05fb8c2e1ed63",
+      "remote_digest": "sha256:f6b1aea7fc5790e538d75eeafd69a0361cdd9013249208242be05fb8c2e1ed63",
+      "remote_size": 73656080,
+      "url": "https://github.com/nikolasVO/game_avia/releases/download/game-avia-prototype-20261117-r2/game-avia-server.x86_64",
+      "match": true
+    },
+    {
+      "name": "GameAvia.zip",
+      "bytes": 64508331,
+      "sha256": "c7747a1237f57ec0daa733fc078c53a65883192ce02b4dca2682ce80bea2c861",
+      "remote_digest": "sha256:c7747a1237f57ec0daa733fc078c53a65883192ce02b4dca2682ce80bea2c861",
+      "remote_size": 64508331,
+      "url": "https://github.com/nikolasVO/game_avia/releases/download/game-avia-prototype-20261117-r2/GameAvia.zip",
+      "match": true
+    }
+  ],
+  "apk_redownload_sha256": "c365fc7ee47dc3c735813efc83a35a92e60dd5e4c057a7ae73f8cc3ea145a98b"
+}

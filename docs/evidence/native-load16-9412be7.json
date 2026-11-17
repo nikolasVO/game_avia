@@ -1,0 +1,3710 @@
+{
+  "accepted_inputs_per_second_per_client": 29.99962837837838,
+  "accepted_inputs_during_16": 887989,
+  "status": "PASS",
+  "scope": "Thunder loopback, 16 active protocol bots, actual exported dedicated server; not humans/phones/external network",
+  "server_exit": 0,
+  "requested_client_seconds": 1860,
+  "continuous_16_connections_seconds_conservative": 1850.0,
+  "max_reported_simulation_tick_p95_ms": 3.352,
+  "server_engine_errors": [
+    "ERROR: TLS handshake error: -30464",
+    "ERROR: TLS handshake error: -30464",
+    "ERROR: TLS handshake error: -30464",
+    "ERROR: TLS handshake error: -30464",
+    "ERROR: TLS handshake error: -30464",
+    "ERROR: TLS handshake error: -30464",
+    "ERROR: TLS handshake error: -30464",
+    "ERROR: TLS handshake error: -30464",
+    "ERROR: TLS handshake error: -30464",
+    "ERROR: TLS handshake error: -30464",
+    "ERROR: TLS handshake error: -30464",
+    "ERROR: TLS handshake error: -30464",
+    "ERROR: TLS handshake error: -30464",
+    "ERROR: TLS handshake error: -30464",
+    "ERROR: TLS handshake error: -30464",
+    "ERROR: TLS handshake error: -30464"
+  ],
+  "known_dtls_shutdown_diagnostic": true,
+  "health": [
+    {
+      "accepted": 1085,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 211356.0,
+      "rejected": 0,
+      "sent_bytes_10s": 851978.0,
+      "tick": 300,
+      "tick_p95_ms": 3.091,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 0,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 5882,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 913221.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3685104.0,
+      "tick": 600,
+      "tick_p95_ms": 3.214,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 16,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 10680,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 911908.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670264.0,
+      "tick": 900,
+      "tick_p95_ms": 3.221,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 16,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 15480,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912418.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670122.0,
+      "tick": 1200,
+      "tick_p95_ms": 3.21,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 16,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 20280,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912530.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670402.0,
+      "tick": 1500,
+      "tick_p95_ms": 3.215,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 16,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 25080,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912438.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670272.0,
+      "tick": 1800,
+      "tick_p95_ms": 3.215,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 16,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 29880,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912286.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670264.0,
+      "tick": 2100,
+      "tick_p95_ms": 3.214,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 16,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 34680,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912504.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670252.0,
+      "tick": 2400,
+      "tick_p95_ms": 3.233,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 16,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 39480,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912444.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670272.0,
+      "tick": 2700,
+      "tick_p95_ms": 3.228,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 16,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 44279,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912255.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670272.0,
+      "tick": 3000,
+      "tick_p95_ms": 3.224,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 16,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 49079,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912366.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670394.0,
+      "tick": 3300,
+      "tick_p95_ms": 3.218,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 16,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 53879,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912418.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670122.0,
+      "tick": 3600,
+      "tick_p95_ms": 3.217,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 16,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 58678,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912243.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670272.0,
+      "tick": 3900,
+      "tick_p95_ms": 3.214,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 16,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 63478,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912542.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670402.0,
+      "tick": 4200,
+      "tick_p95_ms": 3.211,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 16,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 68277,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912093.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670264.0,
+      "tick": 4500,
+      "tick_p95_ms": 3.21,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 16,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 73077,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912426.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670122.0,
+      "tick": 4800,
+      "tick_p95_ms": 3.213,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 16,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 77875,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912126.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670402.0,
+      "tick": 5100,
+      "tick_p95_ms": 3.228,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 16,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 82675,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912412.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670272.0,
+      "tick": 5400,
+      "tick_p95_ms": 3.234,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 16,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 87475,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912270.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670304.0,
+      "tick": 5700,
+      "tick_p95_ms": 3.235,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 16,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 92275,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912452.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670212.0,
+      "tick": 6000,
+      "tick_p95_ms": 3.257,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 16,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 97075,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912410.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670272.0,
+      "tick": 6300,
+      "tick_p95_ms": 3.263,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 16,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 101875,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912438.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670312.0,
+      "tick": 6600,
+      "tick_p95_ms": 3.26,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 16,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 106675,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912318.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670354.0,
+      "tick": 6900,
+      "tick_p95_ms": 3.256,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 16,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 111475,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912382.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670122.0,
+      "tick": 7200,
+      "tick_p95_ms": 3.255,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 16,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 116275,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912442.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670322.0,
+      "tick": 7500,
+      "tick_p95_ms": 3.257,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 16,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 121075,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912462.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670352.0,
+      "tick": 7800,
+      "tick_p95_ms": 3.252,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 16,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 125875,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912254.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670264.0,
+      "tick": 8100,
+      "tick_p95_ms": 3.254,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 16,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 130680,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 917903.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3699592.0,
+      "tick": 8400,
+      "tick_p95_ms": 3.253,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 16,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 135480,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 914574.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3685022.0,
+      "tick": 8700,
+      "tick_p95_ms": 3.252,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 32,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 140278,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 911842.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670174.0,
+      "tick": 9000,
+      "tick_p95_ms": 3.259,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 32,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 145078,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912410.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670322.0,
+      "tick": 9300,
+      "tick_p95_ms": 3.271,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 32,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 149878,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912392.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670302.0,
+      "tick": 9600,
+      "tick_p95_ms": 3.278,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 32,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 154678,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912394.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670302.0,
+      "tick": 9900,
+      "tick_p95_ms": 3.279,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 32,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 159477,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912067.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670194.0,
+      "tick": 10200,
+      "tick_p95_ms": 3.274,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 32,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 164277,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912392.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670302.0,
+      "tick": 10500,
+      "tick_p95_ms": 3.269,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 32,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 169077,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912384.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670302.0,
+      "tick": 10800,
+      "tick_p95_ms": 3.281,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 32,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 173877,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912420.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670322.0,
+      "tick": 11100,
+      "tick_p95_ms": 3.281,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 32,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 178677,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912240.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670174.0,
+      "tick": 11400,
+      "tick_p95_ms": 3.29,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 32,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 183477,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912406.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670312.0,
+      "tick": 11700,
+      "tick_p95_ms": 3.299,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 32,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 188276,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912213.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670322.0,
+      "tick": 12000,
+      "tick_p95_ms": 3.297,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 32,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 193076,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912372.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670282.0,
+      "tick": 12300,
+      "tick_p95_ms": 3.296,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 32,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 197876,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912254.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670194.0,
+      "tick": 12600,
+      "tick_p95_ms": 3.303,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 32,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 202676,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912406.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670312.0,
+      "tick": 12900,
+      "tick_p95_ms": 3.303,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 32,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 207476,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912392.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670292.0,
+      "tick": 13200,
+      "tick_p95_ms": 3.302,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 32,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 212276,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912436.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670312.0,
+      "tick": 13500,
+      "tick_p95_ms": 3.303,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 32,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 217076,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912278.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670192.0,
+      "tick": 13800,
+      "tick_p95_ms": 3.299,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 32,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 221876,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912442.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670304.0,
+      "tick": 14100,
+      "tick_p95_ms": 3.297,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 32,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 226676,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912430.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670302.0,
+      "tick": 14400,
+      "tick_p95_ms": 3.295,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 32,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 231476,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912444.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670322.0,
+      "tick": 14700,
+      "tick_p95_ms": 3.297,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 32,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 236276,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912280.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670182.0,
+      "tick": 15000,
+      "tick_p95_ms": 3.297,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 32,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 241076,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912422.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670294.0,
+      "tick": 15300,
+      "tick_p95_ms": 3.3,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 32,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 245876,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912432.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3664214.0,
+      "tick": 15600,
+      "tick_p95_ms": 3.299,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 32,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 250676,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912422.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3667238.0,
+      "tick": 15900,
+      "tick_p95_ms": 3.299,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 32,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 255475,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912097.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670192.0,
+      "tick": 16200,
+      "tick_p95_ms": 3.3,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 32,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 260275,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 915972.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3695094.0,
+      "tick": 16500,
+      "tick_p95_ms": 3.305,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 32,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 265075,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 915486.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3689560.0,
+      "tick": 16800,
+      "tick_p95_ms": 3.309,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 48,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 269875,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912274.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670154.0,
+      "tick": 17100,
+      "tick_p95_ms": 3.309,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 48,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 274675,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912448.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670302.0,
+      "tick": 17400,
+      "tick_p95_ms": 3.311,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 48,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 279474,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912271.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670342.0,
+      "tick": 17700,
+      "tick_p95_ms": 3.312,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 48,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 284274,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912394.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3668745.0,
+      "tick": 18000,
+      "tick_p95_ms": 3.31,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 48,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 289074,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912300.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670212.0,
+      "tick": 18300,
+      "tick_p95_ms": 3.31,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 48,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 293874,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912428.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670304.0,
+      "tick": 18600,
+      "tick_p95_ms": 3.312,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 48,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 298674,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912418.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670282.0,
+      "tick": 18900,
+      "tick_p95_ms": 3.315,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 48,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 303474,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912426.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670312.0,
+      "tick": 19200,
+      "tick_p95_ms": 3.319,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 48,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 308274,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912316.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670222.0,
+      "tick": 19500,
+      "tick_p95_ms": 3.319,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 48,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 313074,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912400.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670254.0,
+      "tick": 19800,
+      "tick_p95_ms": 3.321,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 48,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 317874,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912442.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670322.0,
+      "tick": 20100,
+      "tick_p95_ms": 3.32,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 48,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 322674,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912442.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670332.0,
+      "tick": 20400,
+      "tick_p95_ms": 3.321,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 48,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 327480,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 913410.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670292.0,
+      "tick": 20700,
+      "tick_p95_ms": 3.327,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 48,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 332280,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912386.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670202.0,
+      "tick": 21000,
+      "tick_p95_ms": 3.333,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 48,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 337079,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912213.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670302.0,
+      "tick": 21300,
+      "tick_p95_ms": 3.335,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 48,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 341878,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912203.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670292.0,
+      "tick": 21600,
+      "tick_p95_ms": 3.336,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 48,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 346678,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912270.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670324.0,
+      "tick": 21900,
+      "tick_p95_ms": 3.335,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 48,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 351478,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912322.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3633544.0,
+      "tick": 22200,
+      "tick_p95_ms": 3.337,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 48,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 356277,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912119.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3638205.0,
+      "tick": 22500,
+      "tick_p95_ms": 3.336,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 48,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 361077,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912368.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3632157.0,
+      "tick": 22800,
+      "tick_p95_ms": 3.335,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 48,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 365877,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912214.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3632129.0,
+      "tick": 23100,
+      "tick_p95_ms": 3.334,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 48,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 370677,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912244.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3549529.0,
+      "tick": 23400,
+      "tick_p95_ms": 3.335,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 48,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 375477,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912282.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3546665.0,
+      "tick": 23700,
+      "tick_p95_ms": 3.335,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 48,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 380277,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912266.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3548122.0,
+      "tick": 24000,
+      "tick_p95_ms": 3.332,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 48,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 385077,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912098.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3552705.0,
+      "tick": 24300,
+      "tick_p95_ms": 3.329,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 48,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 389876,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 914565.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3570497.0,
+      "tick": 24600,
+      "tick_p95_ms": 3.327,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 48,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 394676,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 916598.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3699664.0,
+      "tick": 24900,
+      "tick_p95_ms": 3.326,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 64,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 399476,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912326.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3638087.0,
+      "tick": 25200,
+      "tick_p95_ms": 3.324,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 64,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 404276,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912370.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3633654.0,
+      "tick": 25500,
+      "tick_p95_ms": 3.322,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 64,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 409076,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912322.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3632157.0,
+      "tick": 25800,
+      "tick_p95_ms": 3.32,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 64,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 413876,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912200.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3636688.0,
+      "tick": 26100,
+      "tick_p95_ms": 3.321,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 64,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 418676,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912368.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3636610.0,
+      "tick": 26400,
+      "tick_p95_ms": 3.325,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 64,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 423476,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912432.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670312.0,
+      "tick": 26700,
+      "tick_p95_ms": 3.328,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 64,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 428276,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912402.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670272.0,
+      "tick": 27000,
+      "tick_p95_ms": 3.326,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 64,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 433076,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912296.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670332.0,
+      "tick": 27300,
+      "tick_p95_ms": 3.327,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 64,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 437876,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912420.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3653415.0,
+      "tick": 27600,
+      "tick_p95_ms": 3.334,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 64,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 442676,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912370.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3648886.0,
+      "tick": 27900,
+      "tick_p95_ms": 3.336,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 64,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 447476,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912374.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3650461.0,
+      "tick": 28200,
+      "tick_p95_ms": 3.34,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 64,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 452276,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912246.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3647417.0,
+      "tick": 28500,
+      "tick_p95_ms": 3.34,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 64,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 457075,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912173.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3647267.0,
+      "tick": 28800,
+      "tick_p95_ms": 3.338,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 64,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 461875,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912384.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3636710.0,
+      "tick": 29100,
+      "tick_p95_ms": 3.339,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 64,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 466675,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912414.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3633674.0,
+      "tick": 29400,
+      "tick_p95_ms": 3.339,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 64,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 471475,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912224.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3633634.0,
+      "tick": 29700,
+      "tick_p95_ms": 3.338,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 64,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 476274,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912193.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3606078.0,
+      "tick": 30000,
+      "tick_p95_ms": 3.342,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 64,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 481074,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912364.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3604643.0,
+      "tick": 30300,
+      "tick_p95_ms": 3.352,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 64,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 485874,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912344.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3613783.0,
+      "tick": 30600,
+      "tick_p95_ms": 3.352,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 64,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 490674,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912236.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3627576.0,
+      "tick": 30900,
+      "tick_p95_ms": 3.351,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 64,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 495474,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912304.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3589271.0,
+      "tick": 31200,
+      "tick_p95_ms": 3.349,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 64,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 500274,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912366.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3647359.0,
+      "tick": 31500,
+      "tick_p95_ms": 3.349,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 64,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 505074,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912444.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670322.0,
+      "tick": 31800,
+      "tick_p95_ms": 3.346,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 64,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 509874,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912288.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670322.0,
+      "tick": 32100,
+      "tick_p95_ms": 3.346,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 64,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 514674,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912398.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3639632.0,
+      "tick": 32400,
+      "tick_p95_ms": 3.344,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 64,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 519474,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 912442.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670314.0,
+      "tick": 32700,
+      "tick_p95_ms": 3.343,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 64,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 524274,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 918974.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3718066.0,
+      "tick": 33000,
+      "tick_p95_ms": 3.344,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 80,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 529080,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 923074.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3665816.0,
+      "tick": 33300,
+      "tick_p95_ms": 3.349,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 80,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 533880,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 921978.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3675072.0,
+      "tick": 33600,
+      "tick_p95_ms": 3.348,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 80,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 538679,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 921837.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3675152.0,
+      "tick": 33900,
+      "tick_p95_ms": 3.349,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 80,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 543478,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 921777.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3675092.0,
+      "tick": 34200,
+      "tick_p95_ms": 3.347,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 80,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 548278,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 921852.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3674974.0,
+      "tick": 34500,
+      "tick_p95_ms": 3.346,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 80,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 553078,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 922008.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3675122.0,
+      "tick": 34800,
+      "tick_p95_ms": 3.346,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 80,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 557877,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 921807.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3675102.0,
+      "tick": 35100,
+      "tick_p95_ms": 3.344,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 80,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 562677,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 921974.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3675092.0,
+      "tick": 35400,
+      "tick_p95_ms": 3.343,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 80,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 567477,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 921870.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3675004.0,
+      "tick": 35700,
+      "tick_p95_ms": 3.344,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 80,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 572277,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 921984.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3675092.0,
+      "tick": 36000,
+      "tick_p95_ms": 3.346,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 80,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 577077,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 922012.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3675112.0,
+      "tick": 36300,
+      "tick_p95_ms": 3.345,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 80,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 581877,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 921994.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3675112.0,
+      "tick": 36600,
+      "tick_p95_ms": 3.344,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 80,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 586677,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 921850.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3674984.0,
+      "tick": 36900,
+      "tick_p95_ms": 3.342,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 80,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 591476,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 921803.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3675092.0,
+      "tick": 37200,
+      "tick_p95_ms": 3.342,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 80,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 596276,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 922016.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3675132.0,
+      "tick": 37500,
+      "tick_p95_ms": 3.344,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 80,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 601076,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 921968.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3675092.0,
+      "tick": 37800,
+      "tick_p95_ms": 3.343,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 80,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 605876,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 921850.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3674984.0,
+      "tick": 38100,
+      "tick_p95_ms": 3.342,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 80,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 610676,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 922020.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3675112.0,
+      "tick": 38400,
+      "tick_p95_ms": 3.344,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 80,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 615476,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 922034.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3675102.0,
+      "tick": 38700,
+      "tick_p95_ms": 3.343,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 80,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 620276,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 922020.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3675102.0,
+      "tick": 39000,
+      "tick_p95_ms": 3.343,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 80,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 625076,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 921904.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3675014.0,
+      "tick": 39300,
+      "tick_p95_ms": 3.344,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 80,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 629876,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 922012.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3675072.0,
+      "tick": 39600,
+      "tick_p95_ms": 3.344,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 80,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 634676,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 922038.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3675122.0,
+      "tick": 39900,
+      "tick_p95_ms": 3.343,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 80,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 639476,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 922034.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3675132.0,
+      "tick": 40200,
+      "tick_p95_ms": 3.342,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 80,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 644276,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 921868.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3674954.0,
+      "tick": 40500,
+      "tick_p95_ms": 3.342,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 80,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 649076,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 922038.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3675112.0,
+      "tick": 40800,
+      "tick_p95_ms": 3.341,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 80,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 653876,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 928696.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3719228.0,
+      "tick": 41100,
+      "tick_p95_ms": 3.341,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 96,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 658675,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 921803.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3675142.0,
+      "tick": 41400,
+      "tick_p95_ms": 3.34,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 96,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 663475,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 922008.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3675062.0,
+      "tick": 41700,
+      "tick_p95_ms": 3.339,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 96,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 668275,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 922038.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3675122.0,
+      "tick": 42000,
+      "tick_p95_ms": 3.339,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 96,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 673075,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 921910.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3675032.0,
+      "tick": 42300,
+      "tick_p95_ms": 3.338,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 96,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 677874,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 921819.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3675062.0,
+      "tick": 42600,
+      "tick_p95_ms": 3.336,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 96,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 682674,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 922052.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3675122.0,
+      "tick": 42900,
+      "tick_p95_ms": 3.335,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 96,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 687474,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 922044.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3675132.0,
+      "tick": 43200,
+      "tick_p95_ms": 3.335,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 96,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 692274,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 921848.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3674944.0,
+      "tick": 43500,
+      "tick_p95_ms": 3.335,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 96,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 697074,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 922048.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3675122.0,
+      "tick": 43800,
+      "tick_p95_ms": 3.336,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 96,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 701874,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 922050.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3675132.0,
+      "tick": 44100,
+      "tick_p95_ms": 3.335,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 96,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 706674,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 922002.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3675062.0,
+      "tick": 44400,
+      "tick_p95_ms": 3.335,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 96,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 711474,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 921894.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3675004.0,
+      "tick": 44700,
+      "tick_p95_ms": 3.334,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 96,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 716274,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 922046.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3675132.0,
+      "tick": 45000,
+      "tick_p95_ms": 3.333,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 96,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 721074,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 922012.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3675072.0,
+      "tick": 45300,
+      "tick_p95_ms": 3.333,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 96,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 725874,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 922034.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3675112.0,
+      "tick": 45600,
+      "tick_p95_ms": 3.332,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 96,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 730680,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 922978.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3620096.0,
+      "tick": 45900,
+      "tick_p95_ms": 3.331,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 96,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 735480,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 921922.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3569463.0,
+      "tick": 46200,
+      "tick_p95_ms": 3.331,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 96,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 740278,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 921552.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3566561.0,
+      "tick": 46500,
+      "tick_p95_ms": 3.332,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 96,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 745078,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 921948.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3566563.0,
+      "tick": 46800,
+      "tick_p95_ms": 3.331,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 96,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 749878,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 921762.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3569581.0,
+      "tick": 47100,
+      "tick_p95_ms": 3.333,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 96,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 754678,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 921922.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3567974.0,
+      "tick": 47400,
+      "tick_p95_ms": 3.332,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 96,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 759477,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 921761.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3565024.0,
+      "tick": 47700,
+      "tick_p95_ms": 3.331,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 96,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 764277,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 921928.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3566523.0,
+      "tick": 48000,
+      "tick_p95_ms": 3.33,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 96,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 769077,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 921796.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3571170.0,
+      "tick": 48300,
+      "tick_p95_ms": 3.329,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 96,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 773877,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 921844.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3519026.0,
+      "tick": 48600,
+      "tick_p95_ms": 3.328,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 96,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 778677,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 921866.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3538991.0,
+      "tick": 48900,
+      "tick_p95_ms": 3.327,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 96,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 783477,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 928644.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3685494.0,
+      "tick": 49200,
+      "tick_p95_ms": 3.327,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 112,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 788276,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 921777.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3675142.0,
+      "tick": 49500,
+      "tick_p95_ms": 3.327,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 112,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 793076,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 921984.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3675082.0,
+      "tick": 49800,
+      "tick_p95_ms": 3.327,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 112,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 797876,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 921982.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3675102.0,
+      "tick": 50100,
+      "tick_p95_ms": 3.326,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 112,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 802676,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 921884.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3675024.0,
+      "tick": 50400,
+      "tick_p95_ms": 3.326,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 112,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 807476,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 921968.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3675062.0,
+      "tick": 50700,
+      "tick_p95_ms": 3.326,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 112,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 812276,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 922020.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3675102.0,
+      "tick": 51000,
+      "tick_p95_ms": 3.325,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 112,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 817076,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 922038.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3675152.0,
+      "tick": 51300,
+      "tick_p95_ms": 3.325,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 112,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 821876,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 921866.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3674954.0,
+      "tick": 51600,
+      "tick_p95_ms": 3.324,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 112,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 826676,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 922016.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3675082.0,
+      "tick": 51900,
+      "tick_p95_ms": 3.323,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 112,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 836276,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 921992.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3675072.0,
+      "tick": 52500,
+      "tick_p95_ms": 3.321,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 112,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 841076,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 921876.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3674974.0,
+      "tick": 52800,
+      "tick_p95_ms": 3.321,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 112,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 845876,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 922056.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3675142.0,
+      "tick": 53100,
+      "tick_p95_ms": 3.32,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 112,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 850676,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 922010.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3675072.0,
+      "tick": 53400,
+      "tick_p95_ms": 3.32,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 112,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 855475,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 921823.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3675102.0,
+      "tick": 53700,
+      "tick_p95_ms": 3.319,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 112,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 860275,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 921928.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3675034.0,
+      "tick": 54000,
+      "tick_p95_ms": 3.319,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 112,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 865075,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 921994.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3675062.0,
+      "tick": 54300,
+      "tick_p95_ms": 3.319,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 112,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 869875,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 922032.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3675102.0,
+      "tick": 54600,
+      "tick_p95_ms": 3.32,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 112,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 874675,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 922058.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3675152.0,
+      "tick": 54900,
+      "tick_p95_ms": 3.321,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 112,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 879474,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 921675.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3674954.0,
+      "tick": 55200,
+      "tick_p95_ms": 3.321,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 112,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 884274,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 922018.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3675092.0,
+      "tick": 55500,
+      "tick_p95_ms": 3.321,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 112,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 889074,
+      "connections": 16,
+      "event": "health",
+      "received_bytes_10s": 922058.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3675152.0,
+      "tick": 55800,
+      "tick_p95_ms": 3.321,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 112,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 893474,
+      "connections": 8,
+      "event": "health",
+      "received_bytes_10s": 845934.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3159987.0,
+      "tick": 56100,
+      "tick_p95_ms": 3.321,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 112,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 893870,
+      "connections": 0,
+      "event": "health",
+      "received_bytes_10s": 76330.0,
+      "rejected": 0,
+      "sent_bytes_10s": 115007.0,
+      "tick": 56400,
+      "tick_p95_ms": 3.32,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 112,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 893870,
+      "connections": 0,
+      "event": "health",
+      "received_bytes_10s": 0.0,
+      "rejected": 0,
+      "sent_bytes_10s": 0.0,
+      "tick": 56700,
+      "tick_p95_ms": 3.32,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 112,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 893870,
+      "connections": 0,
+      "event": "health",
+      "received_bytes_10s": 0.0,
+      "rejected": 0,
+      "sent_bytes_10s": 0.0,
+      "tick": 57000,
+      "tick_p95_ms": 3.319,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 112,
+        "landings": 0,
+        "races": 0
+      }
+    }
+  ],
+  "source_commit": "9412be74cb37b9cb028d260acca12692cdae265a",
+  "binary_sha256": "eb4f5eae2e700f51c0e0e68e93a4cdc5ea144a782a08a2e81bcb1d091cd9aeac",
+  "max_rss_mib": 92.0,
+  "cpu_median_one_core_percent": 6.797,
+  "cpu_max_one_core_percent": 8.197,
+  "monitor_wall_seconds": 1895.718,
+  "client_summaries": [
+    {
+      "name": "client-0",
+      "ok": true,
+      "summary": {
+        "commands_sent": 55780,
+        "connection_status": "Connected",
+        "correction_max_m": 2507.57177734375,
+        "correction_p95_m": 0.0,
+        "enet_rtt_ms": 21.0,
+        "event": "summary",
+        "frame_p50_ms": 0,
+        "frame_p95_ms": 0,
+        "joined": true,
+        "last_input_ack": 55778,
+        "pending_inputs": 2,
+        "rejected": 0,
+        "renderer": "gl_compatibility",
+        "seconds": 1860.0092519986,
+        "seen_peers": 16,
+        "server": false,
+        "snapshots": 27777,
+        "state": {
+          "age": 6983,
+          "crashed": false,
+          "distance": 12545.5421332121,
+          "grounded": false,
+          "health": 100.0,
+          "landed": false,
+          "p": "(125.806, 2163.049, 159.2346)",
+          "pitch": -0.0199999995021179,
+          "plane": 0,
+          "respawns": 0,
+          "roll": -0.23749999779582,
+          "v": "(-45.26257, 9.160906, -29.61447)",
+          "was_airborne": true,
+          "yaw": -36.7478072821563
+        },
+        "static_memory_mb": 25.9392671585083
+      }
+    },
+    {
+      "name": "client-1",
+      "ok": true,
+      "summary": {
+        "commands_sent": 55792,
+        "connection_status": "Connected",
+        "correction_max_m": 2508.58984375,
+        "correction_p95_m": 1.19209289550781e-07,
+        "enet_rtt_ms": 19.0,
+        "event": "summary",
+        "frame_p50_ms": 0,
+        "frame_p95_ms": 0,
+        "joined": true,
+        "last_input_ack": 55790,
+        "pending_inputs": 2,
+        "rejected": 0,
+        "renderer": "gl_compatibility",
+        "seconds": 1860.4090549986,
+        "seen_peers": 16,
+        "server": false,
+        "snapshots": 27783,
+        "state": {
+          "age": 6995,
+          "crashed": false,
+          "distance": 12567.4864600897,
+          "grounded": false,
+          "health": 100.0,
+          "landed": false,
+          "p": "(108.1383, 2166.714, 146.7527)",
+          "pitch": -0.0199999996033833,
+          "plane": 0,
+          "respawns": 0,
+          "roll": -0.23749999779582,
+          "v": "(-43.21491, 9.160906, -32.52981)",
+          "was_airborne": true,
+          "yaw": -36.8136832892364
+        },
+        "static_memory_mb": 25.9248704910278
+      }
+    },
+    {
+      "name": "client-2",
+      "ok": true,
+      "summary": {
+        "commands_sent": 55798,
+        "connection_status": "Connected",
+        "correction_max_m": 2510.10961914062,
+        "correction_p95_m": 0.0,
+        "enet_rtt_ms": 19.0,
+        "event": "summary",
+        "frame_p50_ms": 0,
+        "frame_p95_ms": 0,
+        "joined": true,
+        "last_input_ack": 55795,
+        "pending_inputs": 3,
+        "rejected": 0,
+        "renderer": "gl_compatibility",
+        "seconds": 1860.80782799865,
+        "seen_peers": 16,
+        "server": false,
+        "snapshots": 27785,
+        "state": {
+          "age": 7001,
+          "crashed": false,
+          "distance": 12578.4333151579,
+          "grounded": false,
+          "health": 100.0,
+          "landed": false,
+          "p": "(99.61546, 2168.541, 140.0893)",
+          "pitch": -0.0199999995329878,
+          "plane": 0,
+          "respawns": 0,
+          "roll": -0.237499998104405,
+          "v": "(-42.12514, 9.160906, -33.92918)",
+          "was_airborne": true,
+          "yaw": -36.8464747934848
+        },
+        "static_memory_mb": 25.911789894104
+      }
+    },
+    {
+      "name": "client-3",
+      "ok": true,
+      "summary": {
+        "commands_sent": 55813,
+        "connection_status": "Connected",
+        "correction_max_m": 2509.67358398438,
+        "correction_p95_m": 0.0,
+        "enet_rtt_ms": 19.0,
+        "event": "summary",
+        "frame_p50_ms": 0,
+        "frame_p95_ms": 0,
+        "joined": true,
+        "last_input_ack": 55811,
+        "pending_inputs": 2,
+        "rejected": 0,
+        "renderer": "gl_compatibility",
+        "seconds": 1861.2036029986,
+        "seen_peers": 16,
+        "server": false,
+        "snapshots": 27792,
+        "state": {
+          "age": 7015,
+          "crashed": false,
+          "distance": 12604.059707284,
+          "grounded": false,
+          "health": 100.0,
+          "landed": false,
+          "p": "(80.63934, 2172.822, 123.4541)",
+          "pitch": -0.0200000013509081,
+          "plane": 0,
+          "respawns": 0,
+          "roll": -0.23749999779582,
+          "v": "(-39.39028, 9.160906, -37.06916)",
+          "was_airborne": true,
+          "yaw": -36.9234779059356
+        },
+        "static_memory_mb": 25.8960657119751
+      }
+    },
+    {
+      "name": "client-4",
+      "ok": true,
+      "summary": {
+        "commands_sent": 55824,
+        "connection_status": "Connected",
+        "correction_max_m": 2510.8154296875,
+        "correction_p95_m": 0.0,
+        "enet_rtt_ms": 23.0,
+        "event": "summary",
+        "frame_p50_ms": 0,
+        "frame_p95_ms": 0,
+        "joined": true,
+        "last_input_ack": 55822,
+        "pending_inputs": 2,
+        "rejected": 0,
+        "renderer": "gl_compatibility",
+        "seconds": 1861.6017639986,
+        "seen_peers": 16,
+        "server": false,
+        "snapshots": 27911,
+        "state": {
+          "age": 7026,
+          "crashed": false,
+          "distance": 12624.1495528221,
+          "grounded": false,
+          "health": 100.0,
+          "landed": false,
+          "p": "(66.64227, 2176.177, 109.408)",
+          "pitch": -0.0199999996096362,
+          "plane": 0,
+          "respawns": 0,
+          "roll": -0.23749999779582,
+          "v": "(-37.08709, 9.160906, -39.37339)",
+          "was_airborne": true,
+          "yaw": -36.9837196051544
+        },
+        "static_memory_mb": 25.8816690444946
+      }
+    },
+    {
+      "name": "client-5",
+      "ok": true,
+      "summary": {
+        "commands_sent": 55838,
+        "connection_status": "Connected",
+        "correction_max_m": 2509.82690429688,
+        "correction_p95_m": 5.96046447753906e-08,
+        "enet_rtt_ms": 10.0,
+        "event": "summary",
+        "frame_p50_ms": 0,
+        "frame_p95_ms": 0,
+        "joined": true,
+        "last_input_ack": 55837,
+        "pending_inputs": 1,
+        "rejected": 0,
+        "renderer": "gl_compatibility",
+        "seconds": 1862.0093709986,
+        "seen_peers": 16,
+        "server": false,
+        "snapshots": 27810,
+        "state": {
+          "age": 7041,
+          "crashed": false,
+          "distance": 12651.5806356668,
+          "grounded": false,
+          "health": 100.0,
+          "landed": false,
+          "p": "(48.98588, 2180.758, 88.93189)",
+          "pitch": -0.0200000014402005,
+          "plane": 0,
+          "respawns": 0,
+          "roll": -0.237499997437,
+          "v": "(-33.72286, 9.160906, -42.29049)",
+          "was_airborne": true,
+          "yaw": -37.066063293784
+        },
+        "static_memory_mb": 25.8659524917603
+      }
+    },
+    {
+      "name": "client-6",
+      "ok": true,
+      "summary": {
+        "commands_sent": 55847,
+        "connection_status": "Connected",
+        "correction_max_m": 2511.25048828125,
+        "correction_p95_m": 0.0,
+        "enet_rtt_ms": 23.0,
+        "event": "summary",
+        "frame_p50_ms": 0,
+        "frame_p95_ms": 0,
+        "joined": true,
+        "last_input_ack": 55846,
+        "pending_inputs": 1,
+        "rejected": 0,
+        "renderer": "gl_compatibility",
+        "seconds": 1862.4145299986,
+        "seen_peers": 16,
+        "server": false,
+        "snapshots": 27923,
+        "state": {
+          "age": 7050,
+          "crashed": false,
+          "distance": 12668.064032793,
+          "grounded": false,
+          "health": 100.0,
+          "landed": false,
+          "p": "(39.23843, 2183.512, 75.95709)",
+          "pitch": -0.0199999994692102,
+          "plane": 0,
+          "respawns": 0,
+          "roll": -0.237499997437,
+          "v": "(-31.58669, 9.160906, -43.90898)",
+          "was_airborne": true,
+          "yaw": -37.1156162112645
+        },
+        "static_memory_mb": 25.851544380188
+      }
+    },
+    {
+      "name": "client-7",
+      "ok": true,
+      "summary": {
+        "commands_sent": 55864,
+        "connection_status": "Connected",
+        "correction_max_m": 2507.71508789062,
+        "correction_p95_m": 0.0,
+        "enet_rtt_ms": 18.0,
+        "event": "summary",
+        "frame_p50_ms": 0,
+        "frame_p95_ms": 0,
+        "joined": true,
+        "last_input_ack": 55861,
+        "pending_inputs": 3,
+        "rejected": 0,
+        "renderer": "gl_compatibility",
+        "seconds": 1862.8134039986,
+        "seen_peers": 16,
+        "server": false,
+        "snapshots": 27818,
+        "state": {
+          "age": 7067,
+          "crashed": false,
+          "distance": 12699.1256915331,
+          "grounded": false,
+          "health": 100.0,
+          "landed": false,
+          "p": "(22.57597, 2188.699, 50.24956)",
+          "pitch": -0.0199999995329866,
+          "plane": 0,
+          "respawns": 0,
+          "roll": -0.237499998104405,
+          "v": "(-27.36416, 9.160906, -46.65746)",
+          "was_airborne": true,
+          "yaw": -37.2087985544711
+        },
+        "static_memory_mb": 25.8397836685181
+      }
+    },
+    {
+      "name": "client-8",
+      "ok": true,
+      "summary": {
+        "commands_sent": 55871,
+        "connection_status": "Connected",
+        "correction_max_m": 2508.40942382812,
+        "correction_p95_m": 0.0,
+        "enet_rtt_ms": 23.0,
+        "event": "summary",
+        "frame_p50_ms": 0,
+        "frame_p95_ms": 0,
+        "joined": true,
+        "last_input_ack": 55870,
+        "pending_inputs": 1,
+        "rejected": 0,
+        "renderer": "gl_compatibility",
+        "seconds": 1863.2115159986,
+        "seen_peers": 16,
+        "server": false,
+        "snapshots": 27931,
+        "state": {
+          "age": 7073,
+          "crashed": false,
+          "distance": 12710.0982114077,
+          "grounded": false,
+          "health": 100.0,
+          "landed": false,
+          "p": "(17.28366, 2190.531, 40.81502)",
+          "pitch": -0.0199999995771677,
+          "plane": 0,
+          "respawns": 0,
+          "roll": -0.237499997437,
+          "v": "(-25.81279, 9.160906, -47.53331)",
+          "was_airborne": true,
+          "yaw": -37.2417339175633
+        },
+        "static_memory_mb": 25.8227472305298
+      }
+    },
+    {
+      "name": "client-9",
+      "ok": true,
+      "summary": {
+        "commands_sent": 55886,
+        "connection_status": "Connected",
+        "correction_max_m": 2510.96875,
+        "correction_p95_m": 0.0,
+        "enet_rtt_ms": 23.0,
+        "event": "summary",
+        "frame_p50_ms": 0,
+        "frame_p95_ms": 0,
+        "joined": true,
+        "last_input_ack": 55885,
+        "pending_inputs": 1,
+        "rejected": 0,
+        "renderer": "gl_compatibility",
+        "seconds": 1863.6121869986,
+        "seen_peers": 16,
+        "server": false,
+        "snapshots": 27943,
+        "state": {
+          "age": 7089,
+          "crashed": false,
+          "distance": 12739.3570019007,
+          "grounded": false,
+          "health": 100.0,
+          "landed": false,
+          "p": "(4.718372, 2195.418, 14.85767)",
+          "pitch": -0.0199999995771677,
+          "plane": 0,
+          "respawns": 0,
+          "roll": -0.237499997437,
+          "v": "(-21.54353, 9.160906, -49.61444)",
+          "was_airborne": true,
+          "yaw": -37.3295711368016
+        },
+        "static_memory_mb": 25.8083429336548
+      }
+    },
+    {
+      "name": "client-10",
+      "ok": true,
+      "summary": {
+        "commands_sent": 55899,
+        "connection_status": "Connected",
+        "correction_max_m": 2508.74267578125,
+        "correction_p95_m": 4.76837158203125e-07,
+        "enet_rtt_ms": 27.0,
+        "event": "summary",
+        "frame_p50_ms": 0,
+        "frame_p95_ms": 0,
+        "joined": true,
+        "last_input_ack": 55898,
+        "pending_inputs": 1,
+        "rejected": 0,
+        "renderer": "gl_compatibility",
+        "seconds": 1864.0094559986,
+        "seen_peers": 16,
+        "server": false,
+        "snapshots": 27289,
+        "state": {
+          "age": 7102,
+          "crashed": false,
+          "distance": 12763.1792677641,
+          "grounded": false,
+          "health": 100.0,
+          "landed": false,
+          "p": "(-3.694564, 2199.399, -7.023636)",
+          "pitch": -0.0199999995771677,
+          "plane": 0,
+          "respawns": 0,
+          "roll": -0.237499997437,
+          "v": "(-17.92859, 9.160906, -51.03216)",
+          "was_airborne": true,
+          "yaw": -37.4013751834325
+        },
+        "static_memory_mb": 25.7938966751099
+      }
+    },
+    {
+      "name": "client-11",
+      "ok": true,
+      "summary": {
+        "commands_sent": 55906,
+        "connection_status": "Connected",
+        "correction_max_m": 2509.43676757812,
+        "correction_p95_m": 1.19209289550781e-07,
+        "enet_rtt_ms": 23.0,
+        "event": "summary",
+        "frame_p50_ms": 0,
+        "frame_p95_ms": 0,
+        "joined": true,
+        "last_input_ack": 55904,
+        "pending_inputs": 2,
+        "rejected": 0,
+        "renderer": "gl_compatibility",
+        "seconds": 1864.4106189986,
+        "seen_peers": 16,
+        "server": false,
+        "snapshots": 27948,
+        "state": {
+          "age": 7108,
+          "crashed": false,
+          "distance": 12774.101698637,
+          "grounded": false,
+          "health": 100.0,
+          "landed": false,
+          "p": "(-7.175797, 2201.221, -17.2516)",
+          "pitch": -0.019999999603747,
+          "plane": 0,
+          "respawns": 0,
+          "roll": -0.23749999779582,
+          "v": "(-16.26081, 9.160906, -51.58781)",
+          "was_airborne": true,
+          "yaw": -37.4338767706817
+        },
+        "static_memory_mb": 25.7808618545532
+      }
+    },
+    {
+      "name": "client-12",
+      "ok": true,
+      "summary": {
+        "commands_sent": 55919,
+        "connection_status": "Connected",
+        "correction_max_m": 2510.52197265625,
+        "correction_p95_m": 9.5367431640625e-07,
+        "enet_rtt_ms": 23.0,
+        "event": "summary",
+        "frame_p50_ms": 0,
+        "frame_p95_ms": 0,
+        "joined": true,
+        "last_input_ack": 55917,
+        "pending_inputs": 2,
+        "rejected": 0,
+        "renderer": "gl_compatibility",
+        "seconds": 1864.8148619986,
+        "seen_peers": 16,
+        "server": false,
+        "snapshots": 27735,
+        "state": {
+          "age": 7122,
+          "crashed": false,
+          "distance": 12799.7286558151,
+          "grounded": false,
+          "health": 100.0,
+          "landed": false,
+          "p": "(-13.73175, 2205.502, -41.63574)",
+          "pitch": -0.0199999995021179,
+          "plane": 0,
+          "respawns": 0,
+          "roll": -0.23749999779582,
+          "v": "(-12.2442, 9.160906, -52.68583)",
+          "was_airborne": true,
+          "yaw": -37.5108764349883
+        },
+        "static_memory_mb": 25.7664575576782
+      }
+    },
+    {
+      "name": "client-13",
+      "ok": true,
+      "summary": {
+        "commands_sent": 55935,
+        "connection_status": "Connected",
+        "correction_max_m": 2507.9970703125,
+        "correction_p95_m": 0.0,
+        "enet_rtt_ms": 23.0,
+        "event": "summary",
+        "frame_p50_ms": 0,
+        "frame_p95_ms": 0,
+        "joined": true,
+        "last_input_ack": 55933,
+        "pending_inputs": 2,
+        "rejected": 0,
+        "renderer": "gl_compatibility",
+        "seconds": 1865.2036969986,
+        "seen_peers": 16,
+        "server": false,
+        "snapshots": 27962,
+        "state": {
+          "age": 7137,
+          "crashed": false,
+          "distance": 12827.1593177319,
+          "grounded": false,
+          "health": 100.0,
+          "landed": false,
+          "p": "(-18.69, 2210.083, -68.21456)",
+          "pitch": -0.0199999996096361,
+          "plane": 0,
+          "respawns": 0,
+          "roll": -0.23749999779582,
+          "v": "(-7.869145, 9.160906, -53.51442)",
+          "was_airborne": true,
+          "yaw": -37.5932243048614
+        },
+        "static_memory_mb": 25.7520532608032
+      }
+    },
+    {
+      "name": "client-14",
+      "ok": true,
+      "summary": {
+        "commands_sent": 55946,
+        "connection_status": "Connected",
+        "correction_max_m": 2509.02514648438,
+        "correction_p95_m": 1.19209289550781e-07,
+        "enet_rtt_ms": 23.0,
+        "event": "summary",
+        "frame_p50_ms": 0,
+        "frame_p95_ms": 0,
+        "joined": true,
+        "last_input_ack": 55944,
+        "pending_inputs": 2,
+        "rejected": 0,
+        "renderer": "gl_compatibility",
+        "seconds": 1865.6050029986,
+        "seen_peers": 16,
+        "server": false,
+        "snapshots": 27972,
+        "state": {
+          "age": 7148,
+          "crashed": false,
+          "distance": 12847.2491608858,
+          "grounded": false,
+          "health": 100.0,
+          "landed": false,
+          "p": "(-20.96759, 2213.438, -87.89302)",
+          "pitch": -0.0199999995021179,
+          "plane": 0,
+          "respawns": 0,
+          "roll": -0.23749999779582,
+          "v": "(-4.633082, 9.160906, -53.89109)",
+          "was_airborne": true,
+          "yaw": -37.6534621893829
+        },
+        "static_memory_mb": 25.737645149231
+      }
+    },
+    {
+      "name": "client-15",
+      "ok": true,
+      "summary": {
+        "commands_sent": 55955,
+        "connection_status": "Connected",
+        "correction_max_m": 2511.66162109375,
+        "correction_p95_m": 2.38418579101562e-07,
+        "enet_rtt_ms": 23.0,
+        "event": "summary",
+        "frame_p50_ms": 0,
+        "frame_p95_ms": 0,
+        "joined": true,
+        "last_input_ack": 55950,
+        "pending_inputs": 5,
+        "rejected": 0,
+        "renderer": "gl_compatibility",
+        "seconds": 1866.0149579986,
+        "seen_peers": 16,
+        "server": false,
+        "snapshots": 27748,
+        "state": {
+          "age": 7158,
+          "crashed": false,
+          "distance": 12865.5613771677,
+          "grounded": false,
+          "health": 100.0,
+          "landed": false,
+          "p": "(-21.92585, 2216.497, -105.918)",
+          "pitch": -0.0199999996726748,
+          "plane": 0,
+          "respawns": 0,
+          "roll": -0.237499998598018,
+          "v": "(-1.661244, 9.160906, -54.06438)",
+          "was_airborne": true,
+          "yaw": -37.7085055559051
+        },
+        "static_memory_mb": 25.7271966934204
+      }
+    }
+  ],
+  "raw_sha256": {
+    "report.json": "5fd8bfdeed196f22c443bb4062e1fc4f0d69a1fd345747d76dc077e1c0faacee",
+    "resources.json": "5dfcb2bebae1e9d952ac67126c09ff146872fd5c1bf8f7717cae008cad3bd36c",
+    "clients/report.json": "45dc456b304b047b80bc1dd7c8dc050f62e48ebd2d6f67177244ee6fbb52261d",
+    "native-server.log": "57b799783d5e15690b2bf2d1bf62f2a31bd6e926a33b52fbbd7a66b7452dc666"
+  },
+  "client_c1922c7_comparison": "main.gd, project.godot, net/session.gd, net/server.crt and all shared/*.gd are byte-identical at9412be7 andc1922c7. Capacity measured on9412 exported binary; c192 exported binary separately passed20s two-client smoke. No second31min claim for c192 binary."
+}

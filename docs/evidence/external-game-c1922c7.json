@@ -1,0 +1,76 @@
+{
+  "environment": "headless-protocol-bots",
+  "host_kind": "remote_endpoint",
+  "external_server_process": true,
+  "clients": 2,
+  "requested_seconds": 12,
+  "processes": [
+    {
+      "name": "client-0",
+      "exit": 0,
+      "ok": false,
+      "summary": {
+        "commands_sent": 0,
+        "connection_status": "Disconnected \u2014 retry from menu",
+        "correction_max_m": 0.0,
+        "correction_p95_m": 0,
+        "enet_rtt_ms": 0.0,
+        "event": "summary",
+        "frame_p50_ms": 0,
+        "frame_p95_ms": 0,
+        "joined": false,
+        "last_input_ack": 0,
+        "pending_inputs": 0,
+        "rejected": 0,
+        "renderer": "gl_compatibility",
+        "seconds": 12.0113756666668,
+        "seen_peers": 0,
+        "server": false,
+        "snapshots": 0,
+        "state": {},
+        "static_memory_mb": 23.9480886459351
+      },
+      "engine_errors": [],
+      "known_dtls_shutdown_diagnostic": false,
+      "events": [
+        "summary"
+      ],
+      "health": []
+    },
+    {
+      "name": "client-1",
+      "exit": 0,
+      "ok": false,
+      "summary": {
+        "commands_sent": 0,
+        "connection_status": "Disconnected \u2014 retry from menu",
+        "correction_max_m": 0.0,
+        "correction_p95_m": 0,
+        "enet_rtt_ms": 0.0,
+        "event": "summary",
+        "frame_p50_ms": 0,
+        "frame_p95_ms": 0,
+        "joined": false,
+        "last_input_ack": 0,
+        "pending_inputs": 0,
+        "rejected": 0,
+        "renderer": "gl_compatibility",
+        "seconds": 12.4118700000002,
+        "seen_peers": 0,
+        "server": false,
+        "snapshots": 0,
+        "state": {},
+        "static_memory_mb": 23.9480886459351
+      },
+      "engine_errors": [],
+      "known_dtls_shutdown_diagnostic": false,
+      "events": [
+        "summary"
+      ],
+      "health": []
+    }
+  ],
+  "status": "FAIL",
+  "source_commit": "c1922c74a29112818ce9ee523a9cdc81eb211180",
+  "external_scope": "Actual owner Mac to public Thunder endpoint UDP24567 after c192 deployment. No SSH tunnel or localhost transport substitution."
+}

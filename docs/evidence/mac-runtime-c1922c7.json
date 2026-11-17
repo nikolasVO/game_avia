@@ -1,0 +1,41 @@
+{
+  "status": "PASS",
+  "source_commit": "c1922c74a29112818ce9ee523a9cdc81eb211180",
+  "scope": "Actual exported unsigned macOS app headless native runtime; not GUI/notarization/iOS proof. Separate Godot server.",
+  "summary": {
+    "commands_sent": 427,
+    "connection_status": "Connected",
+    "correction_max_m": 1.7793904542923,
+    "correction_p95_m": 1.74221682548523,
+    "enet_rtt_ms": 24.0,
+    "event": "summary",
+    "frame_p50_ms": 0,
+    "frame_p95_ms": 0,
+    "joined": true,
+    "last_input_ack": 424,
+    "pending_inputs": 3,
+    "rejected": 0,
+    "renderer": "gl_compatibility",
+    "seconds": 15.0073734848488,
+    "seen_peers": 1,
+    "server": false,
+    "snapshots": 210,
+    "state": {
+      "age": 428,
+      "crashed": false,
+      "distance": 559.693298339844,
+      "grounded": false,
+      "health": 100.0,
+      "landed": false,
+      "p": "(60.60216, 160.631, -333.7744)",
+      "pitch": -0.0199511894825983,
+      "plane": 0,
+      "respawns": 0,
+      "roll": -0.237499998104405,
+      "v": "(34.52658, 9.342197, -39.76761)",
+      "was_airborne": true,
+      "yaw": -0.751592782071223
+    },
+    "static_memory_mb": 22.8998193740845
+  }
+}

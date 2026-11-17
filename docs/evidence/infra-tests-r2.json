@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "environment": "Thunder Ubuntu22.04, existing Python3.12 core venv; source9412be7 before client-only c192 changes",
+  "command": "/srv/game-avia/venvs/core/bin/python -m pytest -q",
+  "tests_passed": 36,
+  "seconds": 1.59,
+  "scope": "Infrastructure unit tests; no game/mobile/provider inference claim. Local Python3.11 lacked pytest; no replacement dependency installation or paid probe performed."
+}

@@ -6,6 +6,7 @@ var elapsed: float=0
 var sent: bool=false
 var tick_sent: bool=false
 var begin: Dictionary={}
+var actor_id: int=0
 func _initialize() -> void:
  _start.call_deferred()
 func _start() -> void:
@@ -26,6 +27,7 @@ func _start() -> void:
   session.multiplayer.multiplayer_peer=session.peer
  else:
   session.connect_to("127.0.0.1",int(options.port),{"plane":0,"mode":"free","private":false})
+  actor_id=session.multiplayer.get_unique_id()
 func _process(delta: float) -> bool:
  elapsed+=delta
  if session.joined and not sent and elapsed>1.0:
@@ -34,6 +36,7 @@ func _process(delta: float) -> bool:
    session.set_physics_process(false)
    _attack()
   elif scenario=="held-recovery":session.controls.respawn=true
+  elif scenario=="peaceful-fire":session.controls.fire=true
   elif scenario=="rapid-leave":session.disconnect_session()
  if elapsed>=6:
   var ok: bool=not session.joined if scenario in ["plain","expired","wrong-cert","rapid-leave","version"] else session.joined
@@ -42,7 +45,7 @@ func _process(delta: float) -> bool:
   if scenario=="held-recovery":ok=ok and int(session.local_state.get("age",0))>90
   if scenario=="plain":ok=ok and session.peer.get_connection_status()!=MultiplayerPeer.CONNECTION_CONNECTED
   if scenario=="invalid":ok=ok and not session.local_state.is_empty() and session.local_state.p.distance_to(begin.p)<0.1
-  print(JSON.stringify({"event":"actor_summary","scenario":scenario,"joined":session.joined,"connection_status":session.status,"snapshots":session.snapshots,"status":"PASS" if ok else "FAIL"}))
+  print(JSON.stringify({"event":"actor_summary","peer_id":actor_id,"scenario":scenario,"joined":session.joined,"connection_status":session.status,"snapshots":session.snapshots,"status":"PASS" if ok else "FAIL"}))
   quit(0 if ok else 1)
  return false
 

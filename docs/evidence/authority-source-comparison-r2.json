@@ -1,0 +1,49 @@
+{
+  "status": "PASS",
+  "authority_source_comparison": [
+    {
+      "file": "main.gd",
+      "sha256": "811a4af0848d7748e0b45c3f99d4c6350c46da25d8fc513b4dadd8d88c06bb85",
+      "identical": true
+    },
+    {
+      "file": "project.godot",
+      "sha256": "95cfc9347538cae864bc3b175670e4022b3c845a94141e8f8c49f10cb382d8a0",
+      "identical": true
+    },
+    {
+      "file": "net/session.gd",
+      "sha256": "35ae605c9714656c1eff99db012fe65c2544d03e3cf4dabdb404265bfe7d70f4",
+      "identical": true
+    },
+    {
+      "file": "net/server.crt",
+      "sha256": "5fd7be577f16b438a6c6e8cede227bb1539fce8ed779332409eebcf65d7c49c4",
+      "identical": true
+    },
+    {
+      "file": "shared/flight.gd",
+      "sha256": "8aa503c232e93dc7c5693907875ba9e768301cf95b67c3bc7e20d82e49afa17c",
+      "identical": true
+    },
+    {
+      "file": "shared/rules.gd",
+      "sha256": "483686152b97582d41778dc5a36940cc7d62b6d51a04aca8ed6a4bee1d582cc0",
+      "identical": true
+    },
+    {
+      "file": "shared/wire.gd",
+      "sha256": "2ead0f98a905e447f795533b9e2ea07b818e6908a84f6462b4bdc7cd7641e17d",
+      "identical": true
+    }
+  ],
+  "capacity_binary": {
+    "commit": "9412be74cb37b9cb028d260acca12692cdae265a",
+    "sha256": "eb4f5eae2e700f51c0e0e68e93a4cdc5ea144a782a08a2e81bcb1d091cd9aeac"
+  },
+  "deployed_binary": {
+    "commit": "c1922c74a29112818ce9ee523a9cdc81eb211180",
+    "sha256": "f6b1aea7fc5790e538d75eeafd69a0361cdd9013249208242be05fb8c2e1ed63"
+  },
+  "scope": "31-minute capacity source9412be7 retained exactly; deployedc192 has byte-identical authority source and separate native/post-deploy two-client runtime checks."
+}

@@ -8,9 +8,9 @@ def run(name,args):
 server=run('server',['res://tests/audit_main.tscn','--',f'--stats={a.out.resolve()}/progress.json']);deadline=time.monotonic()+15
 while 'server_ready' not in (a.out/'server.log').read_text() and time.monotonic()<deadline:time.sleep(.1)
 actors=[]
-for scenario in ['invalid','replay','expired','plain','wrong-cert','held-recovery','rapid-leave','version']:
+for scenario in ['invalid','replay','expired','plain','wrong-cert','held-recovery','rapid-leave','version','peaceful-fire']:
  actor=run(scenario,['--script','res://tests/protocol_actor.gd','--',f'--port={port}',f'--scenario={scenario}']);actors.append((scenario,actor));actor.wait(timeout=15)
-server.wait(timeout=15)
+server.wait(timeout=30)
 for f in files:f.close()
 checks=[]
 for name,proc in actors:
@@ -42,5 +42,12 @@ for attack in sent:
  delivery.append(dict(attack,expected=expected,received=matches,ok=len(matches)==1 and matches[0]['result']==expected))
 invalid_peer=sent[0]['peer'] if sent else -1
 ticket_rejected=any(t['peer']==invalid_peer and t['result']=='missing_ticket' for t in ticket_receipts)
-report={'packet_delivery':delivery,'ticket_receipts':ticket_receipts,'invalid_ticket_rejected':ticket_rejected,'checks':checks,'server_rejected':rejects,'status':'PASS' if all(x['ok'] for x in checks) and len(delivery)==6 and all(d['ok'] for d in delivery) and ticket_rejected else 'FAIL','scope':'Real localhost ENet/DTLS; opt-in server observer records actual production handler receipt/rejection by peer and unique sequence. Missing delivery fails; no rejection inferred from stationary aircraft.'}
+replay_peer=next((x['summary'].get('peer_id') for x in checks if x['scenario']=='replay'),None)
+expired_peer=next((x['summary'].get('peer_id') for x in checks if x['scenario']=='expired'),None)
+peaceful_peer=next((x['summary'].get('peer_id') for x in checks if x['scenario']=='peaceful-fire'),None)
+replay_observed=all(any(t['peer']==replay_peer and t['result']==reason for t in ticket_receipts) for reason in ['accepted','missing_ticket'])
+expiry_observed=any(t['peer']==expired_peer and t['result']=='expired_ticket' for t in ticket_receipts)
+fire_accepted=sum(r['peer']==peaceful_peer and r['result']=='accepted' and r.get('fire') for r in receipts)
+peaceful_suppression=fire_accepted>=30 and '"event":"shot"' not in (a.out/'server.log').read_text()
+report={'replay_observed':replay_observed,'expiry_observed':expiry_observed,'peaceful_fire_received_count':fire_accepted,'peaceful_shot_suppression':peaceful_suppression,'packet_delivery':delivery,'ticket_receipts':ticket_receipts,'invalid_ticket_rejected':ticket_rejected,'checks':checks,'server_rejected':rejects,'status':'PASS' if all(x['ok'] for x in checks) and len(delivery)==6 and all(d['ok'] for d in delivery) and ticket_rejected and replay_observed and expiry_observed and peaceful_suppression else 'FAIL','scope':'Real localhost ENet/DTLS; opt-in server observer records actual production handler receipt/rejection by peer and unique sequence. Missing delivery fails; no rejection inferred from stationary aircraft.'}
 (a.out/'report.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2));raise SystemExit(0 if report['status']=='PASS' else 1)

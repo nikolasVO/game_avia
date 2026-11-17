@@ -1,0 +1,24 @@
+{
+  "flight_deployment": "c1922c74a29112818ce9ee523a9cdc81eb211180",
+  "coordinator_api_executor_release": "97bd7ddc5f65be86e0272144915d8dbbb4b133ca",
+  "core_health": "ok, secrets_scoped true",
+  "core_service_pids": {
+    "api": 115785,
+    "coordinator": 115786,
+    "executor": 115787
+  },
+  "game_pid": 121265,
+  "point_preserved_pids": [
+    12876,
+    37381
+  ],
+  "server_free_disk_gib_observed": 39,
+  "reserve_gib": 10,
+  "paid_calls_this_implementation": 0,
+  "DINOv3": "pending Meta approval; no gate polling; owner will configure HF_TOKEN afterwards",
+  "Unity": "activation probe passed project creation only; Godot retained",
+  "full_xcode": "BLOCKED; xcodebuild requires Xcode, active directory CommandLineTools",
+  "physical_android_adb_count": 0,
+  "ios_usb_enumeration": "NOT VERIFIED; no device observed but system_profiler returned IOCreatePlugInInterfaceForService0xe00002be errors",
+  "emulator_and_gradle": "Owned emulator stopped after evidence; owned Gradle daemon stopped. No unknown processes stopped."
+}

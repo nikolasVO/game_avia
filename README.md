@@ -2,9 +2,9 @@
 
 Нативный прототип Godot **4.7.2 stable**: отдельный авторитетный ENet/DTLS-сервер, три процедурных самолёта, остров с двумя полосами, свободный полёт, гонка и аркадный PvP. Есть touch controls, EN/RU, выбор самолёта, приватные комнаты и настройки. Рабочий подзаголовок Tidal Wings пока не прошёл проверку названия для публикации.
 
-**Это проверяемый вертикальный срез, а не принятая версия 0.1.** Историческое измерение3417828: на Thunder16 подключённых клиентов непрерывно получали snapshots1850 s: максимальный отчётный p95 симуляции 3.398 ms, RSS 103.7 MiB. Приватная комната на16 мест, отказ17-му и изоляция публичной комнаты проверены отдельными процессами. После обнаружения ограничения bandwidth этот старый результат не доказывает устойчивую доставку input. Новый9412be7 тест дополнительно измеряет accepted input rate. Это loopback и боты, не16 человек/телефонов. Внешний UDP24567 с Mac до публичного endpoint Thunder не прошёл.
+**Это проверяемый прототип, версия 0.1 ещё НЕ ПРИНЯТА.** После исправления реального ограничения ENet проверены16 клиентов минимум1850 секунд при~30 accepted input/s каждый: p95 тела симуляции3.352ms, RSS92MiB. Измерение относится к серверу9412be7; authority-файлы текущегоc1922c7 идентичны и его бинарник отдельно проверен. Это loopback и управляющие боты, не телефоны/люди.
 
-Первый опубликованный комплект APK/AAB/macOS/server относится к `3417828170d35a3ab2acac0c3fc1ad5ab2bf1046`. Ветка: [task/game-implementation-20261117](https://github.com/nikolasVO/game_avia/tree/task/game-implementation-20261117). Итоговая матрица — [STATUS](STATUS.md), артефакты/хеши — [handoff](docs/handoffs/game-prototype-20261117.md).
+Текущие исходники, развёрнутый игровой сервер и [новый prerelease APK/AAB/macOS/server](https://github.com/nikolasVO/game_avia/releases/tag/game-avia-prototype-20261117-r2): `c1922c74a29112818ce9ee523a9cdc81eb211180`. [Хеши](docs/evidence/artifact-index-r2.json), [handoff r2](docs/handoffs/game-prototype-r2-20261117.md), [STATUS](STATUS.md), [backlog](docs/backlog.md). Первый3417828 release/FAIL evidence сохранён отдельно. Main содержит интегрированные проверенные milestones.
 
 Для запуска из checkout с Git LFS:
 
@@ -35,7 +35,7 @@ python3 tools/build_game.py --godot "$GODOT" --target aab
 
 Android SDK/JDK/debug key задаются во внешних Godot editor settings. APK подписан debug-ключом, release AAB собран без release-подписи; это не готовая магазинная публикация. iOS заблокирован отсутствием полного Xcode/SDK/Team ID/подписи; Xcode-проект и IPA не заявлены. Физические Android/iPhone, тепловые20–30-минутные замеры и16KB runtime пока NOT VERIFIED.
 
-Android9412be7 из чистого commit прошёл реальный300-секундный сеанс эмулятора с touch-взлётом, вторым участником, Home/возвратом, повторным входом и recovery:8115 команд,4045 снимков. Это не телефон и не полная мобильная приёмка: p50 кадра88ms/p95149ms в SwiftShader не достигают30FPS. Предыдущий3417828 FAIL сохранён отдельно. В текущем client-art milestone добавлены процедурные самолёты с LOD, контекстный тормоз/прицел, предупреждения границ и low-quality render scale; его Android перепроверка отдельная. См. [реальный9412 runtime](docs/evidence/android-runtime-9412be7.json).
+APK9412be7 прошёл300s, APKc1922c7 —120s реального эмулятора с touch-взлётом, вторым участником и Home/возвратом/rejoin. Есть нормальный18.74s screenrecord без ускорения. Это **не физический телефон и не принятая производительность**: уc1922c7 p50 кадра69ms/p95152ms в SwiftShader, цель30FPS FAIL. Прямое подключение Mac→Thunder UDP24567 после нового deploy снова FAIL:0 snapshots; для внешнего тестирования нужен доступный UDP mapping/путь. [Точные результаты](docs/evidence/android-runtime-c1922c7.json).
 
 - [Движок и renderer](docs/decisions/engine.md), [сеть](docs/network.md), [mobile](docs/mobile.md)
 - [Полный бриф](docs/briefs/game-avia-20261117.md), [backlog](docs/backlog.md), [privacy/data map](docs/privacy-draft.md)

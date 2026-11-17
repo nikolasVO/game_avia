@@ -12,5 +12,6 @@
   "already_verified_reports": "Earlier9 owner-report outbox records were sent; later artifact/handoff delivery not reverified after access failure",
   "pending_journal_reconciliation": "After SSH access returns, inspect implementation-20261117-final-docs-push and actual branch SHA; mark known successful publication done, then enqueue one handoff_final event. Do not repeat commit/push/deployment or instantiate Telegram.",
   "server_current_availability": "Last verified running native3417828 before auth failure; not reverified afterward",
-  "full_0_1": "NOT ACCEPTED"
+  "full_0_1": "NOT ACCEPTED",
+  "historical_resolution": "Continuation restored explicit identity SSH; parent-owned handoff_final was observed sent in existing outbox. It was not resent by implementation agent. New reports use separate events."
 }

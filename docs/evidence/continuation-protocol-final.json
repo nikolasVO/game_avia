@@ -1,0 +1,314 @@
+{
+  "replay_observed": true,
+  "expiry_observed": true,
+  "peaceful_fire_received_count": 150,
+  "peaceful_shot_suppression": true,
+  "packet_delivery": [
+    {
+      "enet_deceleration": 2.0,
+      "enet_rtt_ms": 22.0,
+      "enet_throttle": 32.0,
+      "enet_throttle_limit": 32.0,
+      "event": "sent_attack",
+      "label": "nan",
+      "number": 10,
+      "peer": 821390261,
+      "expected": "invalid_input",
+      "received": [
+        {
+          "event": "input_receipt",
+          "fire": false,
+          "number": 10,
+          "peer": 821390261,
+          "result": "invalid_input"
+        }
+      ],
+      "ok": true
+    },
+    {
+      "enet_deceleration": 2.0,
+      "enet_rtt_ms": 22.0,
+      "enet_throttle": 32.0,
+      "enet_throttle_limit": 32.0,
+      "event": "sent_attack",
+      "label": "inf",
+      "number": 11,
+      "peer": 821390261,
+      "expected": "invalid_input",
+      "received": [
+        {
+          "event": "input_receipt",
+          "fire": false,
+          "number": 11,
+          "peer": 821390261,
+          "result": "invalid_input"
+        }
+      ],
+      "ok": true
+    },
+    {
+      "enet_deceleration": 2.0,
+      "enet_rtt_ms": 22.0,
+      "enet_throttle": 32.0,
+      "enet_throttle_limit": 32.0,
+      "event": "sent_attack",
+      "label": "3.0",
+      "number": 12,
+      "peer": 821390261,
+      "expected": "invalid_input",
+      "received": [
+        {
+          "event": "input_receipt",
+          "fire": false,
+          "number": 12,
+          "peer": 821390261,
+          "result": "invalid_input"
+        }
+      ],
+      "ok": true
+    },
+    {
+      "enet_deceleration": 2.0,
+      "enet_rtt_ms": 22.0,
+      "enet_throttle": 32.0,
+      "enet_throttle_limit": 32.0,
+      "event": "sent_attack",
+      "label": "teleport",
+      "number": 13,
+      "peer": 821390261,
+      "expected": "invalid_input",
+      "received": [
+        {
+          "event": "input_receipt",
+          "fire": false,
+          "number": 13,
+          "peer": 821390261,
+          "result": "invalid_input"
+        }
+      ],
+      "ok": true
+    },
+    {
+      "enet_deceleration": 2.0,
+      "enet_rtt_ms": 22.0,
+      "enet_throttle": 32.0,
+      "enet_throttle_limit": 32.0,
+      "event": "sent_attack",
+      "label": "replay",
+      "number": -10,
+      "peer": 821390261,
+      "expected": "replayed_sequence",
+      "received": [
+        {
+          "event": "input_receipt",
+          "fire": false,
+          "number": -10,
+          "peer": 821390261,
+          "result": "replayed_sequence"
+        }
+      ],
+      "ok": true
+    },
+    {
+      "enet_deceleration": 2.0,
+      "enet_rtt_ms": 21.0,
+      "enet_throttle": 32.0,
+      "enet_throttle_limit": 32.0,
+      "event": "sent_attack",
+      "label": "sequence_jump",
+      "number": 10014,
+      "peer": 821390261,
+      "expected": "sequence_jump",
+      "received": [
+        {
+          "event": "input_receipt",
+          "fire": false,
+          "number": 10014,
+          "peer": 821390261,
+          "result": "sequence_jump"
+        }
+      ],
+      "ok": true
+    }
+  ],
+  "ticket_receipts": [
+    {
+      "event": "ticket_receipt",
+      "peer": 821390261,
+      "result": "accepted"
+    },
+    {
+      "event": "ticket_receipt",
+      "peer": 821390261,
+      "result": "missing_ticket"
+    },
+    {
+      "event": "ticket_receipt",
+      "peer": 2006403549,
+      "result": "accepted"
+    },
+    {
+      "event": "ticket_receipt",
+      "peer": 2006403549,
+      "result": "missing_ticket"
+    },
+    {
+      "event": "ticket_receipt",
+      "peer": 755586801,
+      "result": "expired_ticket"
+    },
+    {
+      "event": "ticket_receipt",
+      "peer": 1029112368,
+      "result": "accepted"
+    },
+    {
+      "event": "ticket_receipt",
+      "peer": 1917688501,
+      "result": "accepted"
+    },
+    {
+      "event": "ticket_receipt",
+      "peer": 924305569,
+      "result": "accepted"
+    },
+    {
+      "event": "ticket_receipt",
+      "peer": 1667895291,
+      "result": "accepted"
+    }
+  ],
+  "invalid_ticket_rejected": true,
+  "checks": [
+    {
+      "scenario": "invalid",
+      "exit": 0,
+      "summary": {
+        "connection_status": "Connected",
+        "event": "actor_summary",
+        "joined": true,
+        "peer_id": 821390261,
+        "scenario": "invalid",
+        "snapshots": 78,
+        "status": "PASS"
+      },
+      "ok": true
+    },
+    {
+      "scenario": "replay",
+      "exit": 0,
+      "summary": {
+        "connection_status": "Connected",
+        "event": "actor_summary",
+        "joined": true,
+        "peer_id": 2006403549,
+        "scenario": "replay",
+        "snapshots": 78,
+        "status": "PASS"
+      },
+      "ok": true
+    },
+    {
+      "scenario": "expired",
+      "exit": 0,
+      "summary": {
+        "connection_status": "Disconnected \u2014 retry from menu",
+        "event": "actor_summary",
+        "joined": false,
+        "peer_id": 755586801,
+        "scenario": "expired",
+        "snapshots": 0,
+        "status": "PASS"
+      },
+      "ok": true
+    },
+    {
+      "scenario": "plain",
+      "exit": 0,
+      "summary": {
+        "connection_status": "Menu",
+        "event": "actor_summary",
+        "joined": false,
+        "peer_id": 0,
+        "scenario": "plain",
+        "snapshots": 0,
+        "status": "PASS"
+      },
+      "ok": true
+    },
+    {
+      "scenario": "wrong-cert",
+      "exit": 0,
+      "summary": {
+        "connection_status": "Disconnected \u2014 retry from menu",
+        "event": "actor_summary",
+        "joined": false,
+        "peer_id": 0,
+        "scenario": "wrong-cert",
+        "snapshots": 0,
+        "status": "PASS"
+      },
+      "ok": true
+    },
+    {
+      "scenario": "held-recovery",
+      "exit": 0,
+      "summary": {
+        "connection_status": "Connected",
+        "event": "actor_summary",
+        "joined": true,
+        "peer_id": 1029112368,
+        "scenario": "held-recovery",
+        "snapshots": 78,
+        "status": "PASS"
+      },
+      "ok": true
+    },
+    {
+      "scenario": "rapid-leave",
+      "exit": 0,
+      "summary": {
+        "connection_status": "Menu",
+        "event": "actor_summary",
+        "joined": false,
+        "peer_id": 1917688501,
+        "scenario": "rapid-leave",
+        "snapshots": 2,
+        "status": "PASS"
+      },
+      "ok": true
+    },
+    {
+      "scenario": "version",
+      "exit": 0,
+      "summary": {
+        "connection_status": "Version mismatch",
+        "event": "actor_summary",
+        "joined": false,
+        "peer_id": 924305569,
+        "scenario": "version",
+        "snapshots": 0,
+        "status": "PASS"
+      },
+      "ok": true
+    },
+    {
+      "scenario": "peaceful-fire",
+      "exit": 0,
+      "summary": {
+        "connection_status": "Connected",
+        "event": "actor_summary",
+        "joined": true,
+        "peer_id": 1667895291,
+        "scenario": "peaceful-fire",
+        "snapshots": 66,
+        "status": "PASS"
+      },
+      "ok": true
+    }
+  ],
+  "server_rejected": 9,
+  "status": "PASS",
+  "scope": "Real localhost ENet/DTLS; opt-in server observer records actual production handler receipt/rejection by peer and unique sequence. Missing delivery fails; no rejection inferred from stationary aircraft.",
+  "game_source": "c1922c7 (authority same9412be7); test fixtures in containing evidence commit"
+}

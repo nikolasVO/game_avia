@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "source_commit": "c1922c74a29112818ce9ee523a9cdc81eb211180",
+  "clean_checkout_dirty": false,
+  "published_apk_sha256": "c365fc7ee47dc3c735813efc83a35a92e60dd5e4c057a7ae73f8cc3ea145a98b",
+  "fresh_checkout_apk_sha256": "6dfe9c608384d53ae1e3de681c719d80e9d656154f9e6bd1a7e3ce549234148e",
+  "byte_identical": false,
+  "source_hashes_identical": true,
+  "fresh_bytes": 57084430,
+  "scope": "Separate detached c192 checkout with LFS objects; real pinned Godot Android export, same external SDK/JDK/debug key. This is a build reproduction, not a repeated device session.",
+  "different_entry_bytes": [
+    "META-INF/ANDROIDD.RSA",
+    "META-INF/ANDROIDD.SF",
+    "META-INF/MANIFEST.MF",
+    "assets/.godot/exported/133200997/export-3070c538c03ee49b7677ff960a3f5195-main.scn",
+    "assets/assets.sparsepck"
+  ],
+  "same_payload_changed_zip_times": 130,
+  "total_zip_entries": 135,
+  "byte_identical_status": "FAIL",
+  "generated_scene_comparison": "After engine decode, only generated ExtResource IDs and node unique_id differ; normalized scene text matches.",
+  "generated_scene_normalized_equal": true,
+  "remaining_payload_note": "Changed APK entries are main.scn, sparse pack index and signature metadata; all other entry payloads match,130 ZIP timestamps differ. No bit-for-bit reproducibility claimed."
+}
