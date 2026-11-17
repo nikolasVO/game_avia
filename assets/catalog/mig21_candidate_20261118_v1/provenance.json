@@ -1,0 +1,124 @@
+{
+  "asset_id": "mig21_candidate_20261118_v1",
+  "source_type": "AI with authored procedural single nozzle/cavity repair, landing gear/effects",
+  "source_commit": "d678a32b821209c8e4e6a8a87f2418790ff2f04f",
+  "generation": "TRELLIS.2 image-to-3D compact512",
+  "seed": 45,
+  "inference": {
+    "inference_succeeded": true,
+    "seconds": 243.95975756199914,
+    "vertices": 276832,
+    "faces": 559378,
+    "peak_vram_allocated_bytes": 2815540224,
+    "peak_vram_reserved_bytes": 2860515328,
+    "reference_sha256": "24d40d036d57643032f99752d2d5d5e85c4bd8985b71e168ed775ae87602aed9"
+  },
+  "reference": {
+    "path": "assets/source/production-mig21-v1/reference.png",
+    "sha256": "24d40d036d57643032f99752d2d5d5e85c4bd8985b71e168ed775ae87602aed9",
+    "source_type": "project-authored provisional geometry/render",
+    "input_rights": "Own geometry/render, no copied third-party pixels/models/logos; primary variant proportions and commercial designation/design review pending"
+  },
+  "model_revisions": {
+    "microsoft/TRELLIS.2-4B": "af44b45f2e35a493886929c6d786e563ec68364d",
+    "microsoft/TRELLIS-image-large": "25e0d31ffbebe4b5a97464dd851910efc3002d96",
+    "facebook/dinov3-vitl16-pretrain-lvd1689m": "ea8dc2863c51be0a264bab82070e3e8836b02d51",
+    "ZhengPeng7/BiRefNet": "e2bf8e4460fc8fa32bba5ea4d94b3233d367b0e4"
+  },
+  "original_glb_sha256": "83b9d8770425e30cd97300f242ddc4efaee2fb2452e21dfed608cd139757ef52",
+  "paid_image_api_calls": 0,
+  "reconciliation": "Single successful243.959757562s inference recovered after SSH exit255; no repeated inference. Initial yaw180/mirrorX numerical PASS visually rejected duplicated fins/wings. Same original reprocessed yaw90 BEFORE mirrorX; rejected historical output retained privately, corrected output orientation-v2.",
+  "forward_axis": "-Z",
+  "postprocess": [
+    "Blender5.2.4 yaw90 BEFORE exact mirrorX; initial yaw180 numerical PASS visually rejected for duplicated fins; repaired SAME original",
+    "near UV/1024 textures retained",
+    "far voxel topology repair and sampled material",
+    "one authored eight-sided nozzle plus eight dark cavity triangles repair generated exit",
+    "explicit3LOD and procedural landing gear/afterburners"
+  ],
+  "game_import": {
+    "explicit_asset_lods": true,
+    "generate_additional_lods": false,
+    "mesh_compression_disabled": false,
+    "actual_triangles": [
+      19254,
+      5966,
+      1466
+    ]
+  },
+  "game_assets": {
+    "game/avia/assets/mig21_ai_candidate.glb": {
+      "sha256": "753cae3b0c7246dc02d51ed7284460542090eb5b70f3fdfb20df53adbaa02c28",
+      "bytes": 2350016
+    },
+    "game/avia/assets/mig21_ai_candidate.glb.import": {
+      "sha256": "d7513a7a953557fe97f48ea4c35203e322ab58d29fcd6db6e206e4a3d51585d4",
+      "bytes": 1177
+    },
+    "game/avia/assets/mig21_ai_candidate_Image_0.png": {
+      "sha256": "7d831af3287738893eced76aca76a7ad84b4ab6d2d86a1172d172da5d95904eb",
+      "bytes": 976932
+    },
+    "game/avia/assets/mig21_ai_candidate_Image_0.png.import": {
+      "sha256": "3c299647775988ec3a61117984a4320624a757b0e898663c8c803da019ca0071",
+      "bytes": 1055
+    },
+    "game/avia/assets/mig21_ai_candidate_Image_1.png": {
+      "sha256": "bc45e89db6e76c1bf07c45dc73aef82616fd29bb2ed3fe19df55c0d779f033af",
+      "bytes": 172852
+    },
+    "game/avia/assets/mig21_ai_candidate_Image_1.png.import": {
+      "sha256": "4d1e7474f90aa30f7e4c7e69a9276043243ff7e7b6c136e7cf1d1dcc35a8a48b",
+      "bytes": 1055
+    }
+  },
+  "assembly_code_sha256": {
+    "game/avia/client/fighter_visual.gd": "cd34b46608c9edeb0c28cd74aa980453d7c06c2c27f0e07bd4ba8f539896dab6",
+    "game/avia/client/aircraft.gd": "a7b54d492f65a0cba85b840937470f82ff0c40042d21f03f37880b7425ed6274",
+    "game/avia/tests/delta_candidate_check.gd": "fe0736eecacc6bfa5b0b3ec9188ee24cfa61ce74d8f323472b508ee08814665d"
+  },
+  "game_validation": {
+    "file": "delta-candidate-validation.json",
+    "sha256": "0b6096d9feb526b646b710f48a95d07bddd579e6bab3ef2ddc9c32491201f8e3",
+    "checks": 46,
+    "assembly_rendered_views": 15,
+    "isolated_body_rendered_views": 12,
+    "worst_case_assembly_triangles": [
+      {
+        "distance_m": 100,
+        "limit": 20000,
+        "triangles": 19402
+      },
+      {
+        "distance_m": 400,
+        "limit": 7000,
+        "triangles": 6114
+      },
+      {
+        "distance_m": 600,
+        "limit": 7000,
+        "triangles": 6042
+      },
+      {
+        "distance_m": 950,
+        "limit": 2000,
+        "triangles": 1466
+      }
+    ],
+    "hangar_checks": 54
+  },
+  "visual_review": "Corrected single centerline aft fin, annular intake/cone, slender fuselage, delta wings and separate tailplane. Initial yaw180 numerical PASS visually REJECTED duplicated fins; raw nose+X corrected with yaw90 before mirrorX from SAME original. Proportions and primary variant recognition remain unverified.",
+  "production_accepted": false,
+  "playable": false,
+  "status": "planned candidate only; existing nine selectable prototypes preserved",
+  "remaining": [
+    "independent primary-source variant/proportions/recognition audit",
+    "movable flaps/aileron/rudder and interceptor-specific gear fidelity",
+    "full human takeoff/flight/landing/world/multiplayer acceptance",
+    "suitable individual sound",
+    "physical Android/iPhone performance and controls",
+    "commercial designation/design/material rights",
+    "all15 owner section20 gates"
+  ],
+  "output_license_clearance": "NOT VERIFIED for commercial publication; TRELLIS MIT, gated DINOv3 custom license, BiRefNet MIT and reference/design terms apply"
+}

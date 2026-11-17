@@ -1,0 +1,9 @@
+{
+  "inference_succeeded": true,
+  "seconds": 243.95975756199914,
+  "vertices": 276832,
+  "faces": 559378,
+  "peak_vram_allocated_bytes": 2815540224,
+  "peak_vram_reserved_bytes": 2860515328,
+  "reference_sha256": "24d40d036d57643032f99752d2d5d5e85c4bd8985b71e168ed775ae87602aed9"
+}

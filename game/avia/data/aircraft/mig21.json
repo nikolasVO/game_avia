@@ -5,7 +5,7 @@
   "class": "historical_fighter",
   "status": "planned",
   "playable": false,
-  "source_type": "procedural_placeholder",
+  "source_type": "AI_with_procedural_gear_and_effects",
   "physics_model": "fighter_v1",
   "color": "aab6b6",
   "flight": {
@@ -180,7 +180,8 @@
           0.45
         ]
       ]
-    }
+    },
+    "nozzle_center_y_m": 0.42
   },
   "reference": {
     "status": "Own provisional MiG21-style game silhouette; primary-source web retrieval yielded no usable result2026-11-18; no verified variant dimensions",
@@ -195,5 +196,14 @@
     "free",
     "combat"
   ],
-  "balance_notice": "Authored arcade values; not real aircraft technical specifications."
+  "balance_notice": "Authored arcade values; not real aircraft technical specifications.",
+  "visual": {
+    "scene": "res://assets/mig21_ai_candidate.glb",
+    "offset_y_m": -0.55,
+    "provenance": "assets/catalog/mig21_candidate_20261118_v1/provenance.json",
+    "status": "planned candidate; corrected original orientation, recognition/animation/mobile/rights QA pending",
+    "gear_retract_seconds": 1.1,
+    "nozzle_repair": true,
+    "nozzle_inner_baffle": true
+  }
 }

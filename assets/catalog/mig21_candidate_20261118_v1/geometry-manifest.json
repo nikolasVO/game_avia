@@ -1,0 +1,142 @@
+{
+  "source_kind": "TRELLIS.2_image_to_3D",
+  "blender_version": "5.2.4 LTS",
+  "triangles_lod0": 19254,
+  "materials_lod0": 1,
+  "lods": [
+    {
+      "name": "LOD1",
+      "triangles": 5966,
+      "far_repair": null,
+      "dimensions_blender": [
+        7.166773319244385,
+        14.697702407836914,
+        3.5139236450195312
+      ]
+    },
+    {
+      "name": "LOD2",
+      "triangles": 1466,
+      "far_repair": {
+        "method": "voxel topology repair then decimation",
+        "attempts": [
+          {
+            "voxel_size_m": 0.029400000348687172,
+            "triangles": 1466,
+            "dimensions_blender": [
+              7.1361260414123535,
+              14.720710754394531,
+              3.486858606338501
+            ]
+          }
+        ],
+        "voxel_size_m": 0.029400000348687172,
+        "material": "plain sampled albedo; no far texture/UV required",
+        "rgba": [
+          0.7559508193832959,
+          0.7706643022423567,
+          0.7767746551612089,
+          1
+        ]
+      },
+      "dimensions_blender": [
+        7.1361260414123535,
+        14.720710754394531,
+        3.486858606338501
+      ]
+    }
+  ],
+  "collision": "box metadata only; engine binding required",
+  "geometry": {
+    "uv_layers": 1,
+    "degenerate_triangles": 0,
+    "finite_vertices_and_normals": true,
+    "texture_sizes": [
+      [
+        1024,
+        1024
+      ],
+      [
+        1024,
+        1024
+      ]
+    ],
+    "symmetry": {
+      "mirror_axis": "Blender X",
+      "mean_distance_m": 7.824280479267168e-10,
+      "max_distance_m": 9.830249609876773e-07,
+      "mean_fraction_width": 1.0943049475393169e-10
+    }
+  },
+  "generator_script_sha256": "43f383b37d422eb76aa0395dce9e3cd41fb3fc3a18e8fa36dcd9c3d25d1b437a",
+  "dimensions_m": [
+    7.150000095367432,
+    3.5,
+    14.699999809265137
+  ],
+  "pivot": "bottom_center",
+  "source_yaw_degrees": 90.0,
+  "symmetry_enforced_x": true,
+  "export_axes": "glTF Y-up",
+  "unity_import_tested": false,
+  "license": "TRELLIS.2 MIT; DINOv3 custom license; BiRefNet MIT; reference terms apply; see provenance",
+  "checks": {
+    "triangle_budget": true,
+    "material_budget": true,
+    "finite_bounds": true,
+    "finite_geometry": true,
+    "no_degenerate_triangles": true,
+    "uv_present": true,
+    "texture_budget": true,
+    "lod_budgets": true,
+    "lod_silhouette_bounds": true,
+    "exact_mirror_symmetry": true
+  },
+  "files": {
+    "optimized.glb": {
+      "sha256": "753cae3b0c7246dc02d51ed7284460542090eb5b70f3fdfb20df53adbaa02c28",
+      "bytes": 2350016
+    },
+    "preview.png": {
+      "sha256": "32f3b22466a753001b804d3327506c232682bc4f3f10ca12e0e6f64df58dc837",
+      "bytes": 123374
+    },
+    "lod0.glb": {
+      "sha256": "91c43cd581a21f9d3c8d383d0752432d8b76517d421f58f469c63746cb8bdd17",
+      "bytes": 1931564
+    },
+    "lod1.glb": {
+      "sha256": "d4d36019f2cde3e18917d734c3b1c43bfefdaa0f90ce4135c2dd292b7520ff4c",
+      "bytes": 1452024
+    },
+    "lod2.glb": {
+      "sha256": "6cc08fc384ff3dedf08aad0f3e6aa66cd945096a910c4351a1820fae9f483a8e",
+      "bytes": 115460
+    }
+  },
+  "verified": true,
+  "generation": {
+    "pipeline_type": "512",
+    "seed": 45,
+    "original_sha256": "83b9d8770425e30cd97300f242ddc4efaee2fb2452e21dfed608cd139757ef52",
+    "models": {
+      "microsoft/TRELLIS.2-4B": "af44b45f2e35a493886929c6d786e563ec68364d",
+      "microsoft/TRELLIS-image-large": "25e0d31ffbebe4b5a97464dd851910efc3002d96",
+      "facebook/dinov3-vitl16-pretrain-lvd1689m": "ea8dc2863c51be0a264bab82070e3e8836b02d51",
+      "ZhengPeng7/BiRefNet": "e2bf8e4460fc8fa32bba5ea4d94b3233d367b0e4"
+    }
+  },
+  "reference": [
+    {
+      "name": "reference.png",
+      "sha256": "24d40d036d57643032f99752d2d5d5e85c4bd8985b71e168ed775ae87602aed9"
+    }
+  ],
+  "godot_import_tested": false,
+  "orientation_repair": {
+    "original_sha256": "83b9d8770425e30cd97300f242ddc4efaee2fb2452e21dfed608cd139757ef52",
+    "source_yaw_degrees": 90,
+    "reason": "Actual raw GLB nose +X, span Z, up Y. Old180 yaw mirrored tail longitudinally and created two fins. Correct90 Blender yaw BEFORE mirrorX, same original, no inference.",
+    "output": "/srv/game-avia/artifacts/mig21_candidate_20261118_v1/orientation-v2"
+  }
+}

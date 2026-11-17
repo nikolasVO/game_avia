@@ -102,6 +102,12 @@ static func create_spec(spec: Dictionary, use_imported: bool=false) -> AviaAircr
     AviaAircraft._face(tube,[outer_a,outer_b,outer_b+depth,outer_a+depth],dark,radial)
     AviaAircraft._face(tube,[inner_b,inner_a,inner_a+depth,inner_b+depth],Color("11222a"),-radial)
     AviaAircraft._face(tube,[outer_a+depth,outer_b+depth,inner_b+depth,inner_a+depth],Color("687c83"),Vector3.BACK)
+   if bool(spec.visual.get("nozzle_inner_baffle",false)):
+    # Optional authored dark cavity closes a defective generated exit without another body.
+    for segment: int in 8:
+     var a: float=TAU*segment/8.0;var b: float=TAU*(segment+1)/8.0
+     var z: float=(length*.06+.35)*.8
+     AviaAircraft._face(tube,[Vector3(0,0,z),Vector3(cos(a)*.34,sin(a)*.34,z),Vector3(cos(b)*.34,sin(b)*.34,z)],Color("11222a"),Vector3.BACK)
    AviaAircraft._mesh(tube,nozzle,"Nozzle",0,800)
    if bool(spec.systems.get("thrust_vectoring",false)):root.vectoring_nozzles.append(nozzle)
   root.airframe_source="AI candidate body with procedural nozzle repair, landing gear/effects; production QA pending"

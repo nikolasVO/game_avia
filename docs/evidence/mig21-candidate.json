@@ -1,0 +1,129 @@
+{
+  "status": "PASS",
+  "scope": "planned corrected body/assembly/hangar geometry/render only; not aircraft acceptance",
+  "candidate": "assets/catalog/mig21_candidate_20261118_v1",
+  "source_commit": "d678a32b821209c8e4e6a8a87f2418790ff2f04f",
+  "inference_seconds": 243.95975756199914,
+  "inference_rerun": false,
+  "orientation_repair": "Corrected single centerline aft fin, annular intake/cone, slender fuselage, delta wings and separate tailplane. Initial yaw180 numerical PASS visually REJECTED duplicated fins; raw nose+X corrected with yaw90 before mirrorX from SAME original. Proportions and primary variant recognition remain unverified.",
+  "assembly_checks": 46,
+  "assembly_views": 15,
+  "body_views": 12,
+  "body_triangles": [
+    19254,
+    5966,
+    1466
+  ],
+  "assembly_budgets": [
+    {
+      "distance_m": 100,
+      "limit": 20000,
+      "triangles": 19402
+    },
+    {
+      "distance_m": 400,
+      "limit": 7000,
+      "triangles": 6114
+    },
+    {
+      "distance_m": 600,
+      "limit": 7000,
+      "triangles": 6042
+    },
+    {
+      "distance_m": 950,
+      "limit": 2000,
+      "triangles": 1466
+    }
+  ],
+  "hangar_checks": 54,
+  "hangar_screenshots": 7,
+  "regressions": {
+    "status": "PASS",
+    "results": [
+      {
+        "script": "flight_check",
+        "ok": true,
+        "exit_code": 0
+      },
+      {
+        "script": "fighter_check",
+        "ok": true,
+        "exit_code": 0
+      },
+      {
+        "script": "fighter_geometry_check",
+        "ok": true,
+        "exit_code": 0
+      },
+      {
+        "script": "catalog_check",
+        "ok": true,
+        "exit_code": 0
+      },
+      {
+        "script": "sweep_flight_check",
+        "ok": true,
+        "exit_code": 0
+      },
+      {
+        "script": "carrier_flight_check",
+        "ok": true,
+        "exit_code": 0
+      },
+      {
+        "script": "interceptor_flight_check",
+        "ok": true,
+        "exit_code": 0
+      },
+      {
+        "script": "delta_reference_check",
+        "ok": true,
+        "exit_code": 0
+      },
+      {
+        "script": "delta_flight_check",
+        "ok": true,
+        "exit_code": 0
+      }
+    ]
+  },
+  "rendered_regressions": {
+    "status": "PASS",
+    "results": [
+      {
+        "script": "aircraft_systems_check",
+        "ok": true,
+        "exit_code": 0
+      },
+      {
+        "script": "airbrake_check",
+        "ok": true,
+        "exit_code": 0
+      },
+      {
+        "script": "flap_check",
+        "ok": true,
+        "exit_code": 0
+      },
+      {
+        "script": "interceptor_candidate_check",
+        "ok": true,
+        "exit_code": 0
+      },
+      {
+        "script": "carrier_candidate_check",
+        "ok": true,
+        "exit_code": 0
+      },
+      {
+        "script": "sweep_candidate_check",
+        "ok": true,
+        "exit_code": 0
+      }
+    ]
+  },
+  "pytest_tests": 15,
+  "production_accepted": false,
+  "playable": false
+}

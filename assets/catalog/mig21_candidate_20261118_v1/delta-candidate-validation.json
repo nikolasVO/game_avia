@@ -1,0 +1,247 @@
+{
+  "assembly_budgets": [
+    {
+      "distance_m": 100,
+      "limit": 20000,
+      "triangles": 19402
+    },
+    {
+      "distance_m": 400,
+      "limit": 7000,
+      "triangles": 6114
+    },
+    {
+      "distance_m": 600,
+      "limit": 7000,
+      "triangles": 6042
+    },
+    {
+      "distance_m": 950,
+      "limit": 2000,
+      "triangles": 1466
+    }
+  ],
+  "body_triangles": [
+    19254,
+    5966,
+    1466
+  ],
+  "checks": [
+    {
+      "check": "planned single-engine delta stays outside nine admitted prototypes",
+      "ok": true
+    },
+    {
+      "check": "actual imported body selected without procedural fallback",
+      "ok": true
+    },
+    {
+      "check": "single-engine/single-fin configuration creates exactly one afterburner",
+      "ok": true
+    },
+    {
+      "check": "one centered authored nozzle repairs unclear generated engine exit",
+      "ok": true
+    },
+    {
+      "check": "single eight-sided nozzle includes eight dark cavity faces",
+      "ok": true
+    },
+    {
+      "check": "actual near geometry has one centerline aft fin; rejected longitudinal-mirror orientation cannot pass",
+      "ok": true
+    },
+    {
+      "check": "actual pointed nose/cone faces -Z ahead of intake",
+      "ok": true
+    },
+    {
+      "check": "authoring collider stays hidden",
+      "ok": true
+    },
+    {
+      "check": "body has explicit LOD identity",
+      "ok": true
+    },
+    {
+      "check": "LOD0 actual vertices/normals/triangles finite and nondegenerate",
+      "ok": true
+    },
+    {
+      "check": "LOD0 explicit visibility interval preserved",
+      "ok": true
+    },
+    {
+      "check": "body has explicit LOD identity",
+      "ok": true
+    },
+    {
+      "check": "LOD1 actual vertices/normals/triangles finite and nondegenerate",
+      "ok": true
+    },
+    {
+      "check": "LOD1 explicit visibility interval preserved",
+      "ok": true
+    },
+    {
+      "check": "body has explicit LOD identity",
+      "ok": true
+    },
+    {
+      "check": "LOD2 actual vertices/normals/triangles finite and nondegenerate",
+      "ok": true
+    },
+    {
+      "check": "LOD2 explicit visibility interval preserved",
+      "ok": true
+    },
+    {
+      "check": "LOD0 one body within triangle budget",
+      "ok": true
+    },
+    {
+      "check": "LOD0 bounds and mirrored centre preserved",
+      "ok": true
+    },
+    {
+      "check": "LOD1 one body within triangle budget",
+      "ok": true
+    },
+    {
+      "check": "LOD1 bounds and mirrored centre preserved",
+      "ok": true
+    },
+    {
+      "check": "LOD2 one body within triangle budget",
+      "ok": true
+    },
+    {
+      "check": "LOD2 bounds and mirrored centre preserved",
+      "ok": true
+    },
+    {
+      "check": "body/gear/single afterburner fit budget at 100m",
+      "ok": true
+    },
+    {
+      "check": "body/gear/single afterburner fit budget at 400m",
+      "ok": true
+    },
+    {
+      "check": "body/gear/single afterburner fit budget at 600m",
+      "ok": true
+    },
+    {
+      "check": "body/gear/single afterburner fit budget at 950m",
+      "ok": true
+    },
+    {
+      "check": "snapshot establishes deployed gear without changing simulation",
+      "ok": true
+    },
+    {
+      "check": "replicated flags drive intermediate gear and afterburners",
+      "ok": true
+    },
+    {
+      "check": "gear reaches exact hidden endpoint",
+      "ok": true
+    },
+    {
+      "check": "crash suppresses afterburners",
+      "ok": true
+    },
+    {
+      "check": "render delta-lod0-orbit.png",
+      "ok": true
+    },
+    {
+      "check": "render delta-lod0-top.png",
+      "ok": true
+    },
+    {
+      "check": "render delta-lod0-front.png",
+      "ok": true
+    },
+    {
+      "check": "render delta-lod0-side.png",
+      "ok": true
+    },
+    {
+      "check": "render delta-lod0-rear.png",
+      "ok": true
+    },
+    {
+      "check": "render delta-lod1-orbit.png",
+      "ok": true
+    },
+    {
+      "check": "render delta-lod1-top.png",
+      "ok": true
+    },
+    {
+      "check": "render delta-lod1-front.png",
+      "ok": true
+    },
+    {
+      "check": "render delta-lod1-side.png",
+      "ok": true
+    },
+    {
+      "check": "render delta-lod1-rear.png",
+      "ok": true
+    },
+    {
+      "check": "render delta-lod2-orbit.png",
+      "ok": true
+    },
+    {
+      "check": "render delta-lod2-top.png",
+      "ok": true
+    },
+    {
+      "check": "render delta-lod2-front.png",
+      "ok": true
+    },
+    {
+      "check": "render delta-lod2-side.png",
+      "ok": true
+    },
+    {
+      "check": "render delta-lod2-rear.png",
+      "ok": true
+    }
+  ],
+  "engine": {
+    "build": "official",
+    "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+    "hex": 263938,
+    "major": 4,
+    "minor": 7,
+    "patch": 2,
+    "status": "stable",
+    "string": "4.7.2-stable (official)",
+    "timestamp": 0
+  },
+  "playable": false,
+  "preview_files": [
+    "delta-lod0-orbit.png",
+    "delta-lod0-top.png",
+    "delta-lod0-front.png",
+    "delta-lod0-side.png",
+    "delta-lod0-rear.png",
+    "delta-lod1-orbit.png",
+    "delta-lod1-top.png",
+    "delta-lod1-front.png",
+    "delta-lod1-side.png",
+    "delta-lod1-rear.png",
+    "delta-lod2-orbit.png",
+    "delta-lod2-top.png",
+    "delta-lod2-front.png",
+    "delta-lod2-side.png",
+    "delta-lod2-rear.png"
+  ],
+  "production_accepted": false,
+  "scope": "actual planned-only single-engine delta assembly geometry/render/system animation; recognition/human/network/phone/rights and15-gate acceptance pending",
+  "status": "PASS"
+}

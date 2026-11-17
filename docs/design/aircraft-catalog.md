@@ -18,7 +18,7 @@ Data: `game/avia/data/aircraft/`, schema1; stable original indices0–2. 24 name
 |fa18e|F/A-18E Super Hornet|USA|planned|1216/1900|200/238|56|procedural_placeholder|
 |f22|F-22 Raptor|USA|planned|1504/2350|215/256|50|procedural_placeholder|
 |f35a|F-35A Lightning II|USA|planned|1216/1900|225/268|61|procedural_placeholder|
-|mig21|MiG-21|Russia|planned|1408/2200|270/321|42|procedural_placeholder|
+|mig21|MiG-21|Russia|planned|1408/2200|270/321|42|AI_with_procedural_gear_and_effects|
 |mig29|MiG-29|Russia|planned|1536/2400|225/268|43|procedural_placeholder|
 |mig31|MiG-31|Russia|planned|1920/3000|290/345|96|procedural_placeholder|
 |su30sm|Su-30SM|Russia|planned|1344/2100|245/292|76|procedural_placeholder|
