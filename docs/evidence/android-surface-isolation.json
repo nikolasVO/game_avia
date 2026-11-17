@@ -1,0 +1,1025 @@
+{
+  "status": "PASS diagnostic recovery scenarios; game runtime NOT VERIFIED for patch",
+  "engine_commit": "ed1daf0bf001b61586d9930840f2f1394092c079",
+  "environment": "owned Mac host-GPU GameAviaTest Android emulator, 2cores1536MiB; not physical device",
+  "stock_template_first_run": {
+    "status": "FAIL fixture frame progression stopped",
+    "engine_library_equivalence": "all4 native.so hashes equal actual game1cf APK",
+    "fixture_apk_sha256": "a0835bddeb06069cffb0bb4636d4f18196c7929945db534adc946d227463d7ba",
+    "environment": "same owned host-GPU GameAviaTest AVD",
+    "modes": [
+      {
+        "mode": "2d",
+        "cycles": [
+          {
+            "cycle": 1,
+            "before_frames": 1,
+            "after_frames": 55,
+            "advanced": true
+          },
+          {
+            "cycle": 2,
+            "before_frames": 82,
+            "after_frames": 117,
+            "advanced": true
+          },
+          {
+            "cycle": 3,
+            "before_frames": 146,
+            "after_frames": 188,
+            "advanced": true
+          },
+          {
+            "cycle": 4,
+            "before_frames": 214,
+            "after_frames": 267,
+            "advanced": true
+          },
+          {
+            "cycle": 5,
+            "before_frames": 267,
+            "after_frames": 335,
+            "advanced": true
+          },
+          {
+            "cycle": 6,
+            "before_frames": 335,
+            "after_frames": 390,
+            "advanced": true
+          },
+          {
+            "cycle": 7,
+            "before_frames": 413,
+            "after_frames": 473,
+            "advanced": true
+          },
+          {
+            "cycle": 8,
+            "before_frames": 473,
+            "after_frames": 538,
+            "advanced": true
+          },
+          {
+            "cycle": 9,
+            "before_frames": 538,
+            "after_frames": 597,
+            "advanced": true
+          },
+          {
+            "cycle": 10,
+            "before_frames": 597,
+            "after_frames": 665,
+            "advanced": true
+          }
+        ],
+        "ready": {
+          "engine": {
+            "build": "official",
+            "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+            "hex": 263938,
+            "major": 4,
+            "minor": 7,
+            "patch": 2,
+            "status": "stable",
+            "string": "4.7.2-stable (official)",
+            "timestamp": 0
+          },
+          "event": "surface_ready",
+          "mode": "2d",
+          "renderer": "gl_compatibility",
+          "thread_model": 1
+        },
+        "egl_bad_surface_diagnostics": 16
+      },
+      {
+        "mode": "3d",
+        "cycles": [
+          {
+            "cycle": 1,
+            "before_frames": 1,
+            "after_frames": 1,
+            "advanced": false
+          }
+        ],
+        "ready": {
+          "engine": {
+            "build": "official",
+            "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+            "hex": 263938,
+            "major": 4,
+            "minor": 7,
+            "patch": 2,
+            "status": "stable",
+            "string": "4.7.2-stable (official)",
+            "timestamp": 0
+          },
+          "event": "surface_ready",
+          "mode": "3d",
+          "renderer": "gl_compatibility",
+          "thread_model": 1
+        },
+        "egl_bad_surface_diagnostics": 0
+      }
+    ]
+  },
+  "stock_extended_observation": {
+    "observation": "After first5s harness deadline, original fixture3D process3446 remained stuck beyond shader completion and was still waiting in GLThread.guardedRun at native-stack capture; later second Home/resume revived it. A5s deadline alone does not prove a hang.",
+    "native_stack_sha256": "2c7da5fad871db0daad903f68ce345fd09e7057ee2fbb952224404f1e95fc099",
+    "limits": "Native stack retained protected locally, only diagnostic finding/hash published; not every black-screen cause."
+  },
+  "patched_gradle": {
+    "status": "PASS tested fixture only",
+    "apk_sha256": "fcb4458dd4a6a444f7b6407dec755f07719abcfaf9e910e6c3569456d2bf9083",
+    "cold": {
+      "before": {
+        "draws": 0,
+        "event": "surface_frame",
+        "frames": 1,
+        "mode": "3d",
+        "physics": 8,
+        "ticks_ms": 35793
+      },
+      "after": {
+        "draws": 37,
+        "event": "surface_frame",
+        "frames": 38,
+        "mode": "3d",
+        "physics": 78,
+        "ticks_ms": 90384
+      },
+      "recovered": true
+    },
+    "warm_cycles": [
+      {
+        "cycle": 1,
+        "before": {
+          "draws": 59,
+          "event": "surface_frame",
+          "frames": 60,
+          "mode": "3d",
+          "physics": 110,
+          "ticks_ms": 91472
+        },
+        "after": {
+          "draws": 85,
+          "event": "surface_frame",
+          "frames": 86,
+          "mode": "3d",
+          "physics": 146,
+          "ticks_ms": 92851
+        },
+        "advanced": true
+      },
+      {
+        "cycle": 2,
+        "before": {
+          "draws": 85,
+          "event": "surface_frame",
+          "frames": 86,
+          "mode": "3d",
+          "physics": 146,
+          "ticks_ms": 92851
+        },
+        "after": {
+          "draws": 113,
+          "event": "surface_frame",
+          "frames": 114,
+          "mode": "3d",
+          "physics": 177,
+          "ticks_ms": 93889
+        },
+        "advanced": true
+      },
+      {
+        "cycle": 3,
+        "before": {
+          "draws": 127,
+          "event": "surface_frame",
+          "frames": 128,
+          "mode": "3d",
+          "physics": 198,
+          "ticks_ms": 94897
+        },
+        "after": {
+          "draws": 151,
+          "event": "surface_frame",
+          "frames": 152,
+          "mode": "3d",
+          "physics": 231,
+          "ticks_ms": 96117
+        },
+        "advanced": true
+      },
+      {
+        "cycle": 4,
+        "before": {
+          "draws": 151,
+          "event": "surface_frame",
+          "frames": 152,
+          "mode": "3d",
+          "physics": 231,
+          "ticks_ms": 96117
+        },
+        "after": {
+          "draws": 193,
+          "event": "surface_frame",
+          "frames": 194,
+          "mode": "3d",
+          "physics": 287,
+          "ticks_ms": 98178
+        },
+        "advanced": true
+      },
+      {
+        "cycle": 5,
+        "before": {
+          "draws": 193,
+          "event": "surface_frame",
+          "frames": 194,
+          "mode": "3d",
+          "physics": 287,
+          "ticks_ms": 98178
+        },
+        "after": {
+          "draws": 232,
+          "event": "surface_frame",
+          "frames": 233,
+          "mode": "3d",
+          "physics": 337,
+          "ticks_ms": 100651
+        },
+        "advanced": true
+      },
+      {
+        "cycle": 6,
+        "before": {
+          "draws": 232,
+          "event": "surface_frame",
+          "frames": 233,
+          "mode": "3d",
+          "physics": 337,
+          "ticks_ms": 100651
+        },
+        "after": {
+          "draws": 275,
+          "event": "surface_frame",
+          "frames": 276,
+          "mode": "3d",
+          "physics": 416,
+          "ticks_ms": 103742
+        },
+        "advanced": true
+      },
+      {
+        "cycle": 7,
+        "before": {
+          "draws": 275,
+          "event": "surface_frame",
+          "frames": 276,
+          "mode": "3d",
+          "physics": 416,
+          "ticks_ms": 103742
+        },
+        "after": {
+          "draws": 302,
+          "event": "surface_frame",
+          "frames": 303,
+          "mode": "3d",
+          "physics": 471,
+          "ticks_ms": 106193
+        },
+        "advanced": true
+      },
+      {
+        "cycle": 8,
+        "before": {
+          "draws": 302,
+          "event": "surface_frame",
+          "frames": 303,
+          "mode": "3d",
+          "physics": 471,
+          "ticks_ms": 106193
+        },
+        "after": {
+          "draws": 359,
+          "event": "surface_frame",
+          "frames": 360,
+          "mode": "3d",
+          "physics": 561,
+          "ticks_ms": 109423
+        },
+        "advanced": true
+      },
+      {
+        "cycle": 9,
+        "before": {
+          "draws": 359,
+          "event": "surface_frame",
+          "frames": 360,
+          "mode": "3d",
+          "physics": 561,
+          "ticks_ms": 109423
+        },
+        "after": {
+          "draws": 399,
+          "event": "surface_frame",
+          "frames": 400,
+          "mode": "3d",
+          "physics": 622,
+          "ticks_ms": 111711
+        },
+        "advanced": true
+      },
+      {
+        "cycle": 10,
+        "before": {
+          "draws": 399,
+          "event": "surface_frame",
+          "frames": 400,
+          "mode": "3d",
+          "physics": 622,
+          "ticks_ms": 111711
+        },
+        "after": {
+          "draws": 439,
+          "event": "surface_frame",
+          "frames": 440,
+          "mode": "3d",
+          "physics": 679,
+          "ticks_ms": 113885
+        },
+        "advanced": true
+      },
+      {
+        "cycle": 11,
+        "before": {
+          "draws": 439,
+          "event": "surface_frame",
+          "frames": 440,
+          "mode": "3d",
+          "physics": 679,
+          "ticks_ms": 113885
+        },
+        "after": {
+          "draws": 472,
+          "event": "surface_frame",
+          "frames": 473,
+          "mode": "3d",
+          "physics": 735,
+          "ticks_ms": 115910
+        },
+        "advanced": true
+      },
+      {
+        "cycle": 12,
+        "before": {
+          "draws": 472,
+          "event": "surface_frame",
+          "frames": 473,
+          "mode": "3d",
+          "physics": 735,
+          "ticks_ms": 115910
+        },
+        "after": {
+          "draws": 512,
+          "event": "surface_frame",
+          "frames": 513,
+          "mode": "3d",
+          "physics": 798,
+          "ticks_ms": 118018
+        },
+        "advanced": true
+      },
+      {
+        "cycle": 13,
+        "before": {
+          "draws": 524,
+          "event": "surface_frame",
+          "frames": 525,
+          "mode": "3d",
+          "physics": 827,
+          "ticks_ms": 119030
+        },
+        "after": {
+          "draws": 563,
+          "event": "surface_frame",
+          "frames": 564,
+          "mode": "3d",
+          "physics": 889,
+          "ticks_ms": 121129
+        },
+        "advanced": true
+      },
+      {
+        "cycle": 14,
+        "before": {
+          "draws": 563,
+          "event": "surface_frame",
+          "frames": 564,
+          "mode": "3d",
+          "physics": 889,
+          "ticks_ms": 121129
+        },
+        "after": {
+          "draws": 620,
+          "event": "surface_frame",
+          "frames": 621,
+          "mode": "3d",
+          "physics": 977,
+          "ticks_ms": 124300
+        },
+        "advanced": true
+      },
+      {
+        "cycle": 15,
+        "before": {
+          "draws": 620,
+          "event": "surface_frame",
+          "frames": 621,
+          "mode": "3d",
+          "physics": 977,
+          "ticks_ms": 124300
+        },
+        "after": {
+          "draws": 659,
+          "event": "surface_frame",
+          "frames": 660,
+          "mode": "3d",
+          "physics": 1043,
+          "ticks_ms": 126617
+        },
+        "advanced": true
+      },
+      {
+        "cycle": 16,
+        "before": {
+          "draws": 659,
+          "event": "surface_frame",
+          "frames": 660,
+          "mode": "3d",
+          "physics": 1043,
+          "ticks_ms": 126617
+        },
+        "after": {
+          "draws": 700,
+          "event": "surface_frame",
+          "frames": 701,
+          "mode": "3d",
+          "physics": 1104,
+          "ticks_ms": 128865
+        },
+        "advanced": true
+      },
+      {
+        "cycle": 17,
+        "before": {
+          "draws": 700,
+          "event": "surface_frame",
+          "frames": 701,
+          "mode": "3d",
+          "physics": 1104,
+          "ticks_ms": 128865
+        },
+        "after": {
+          "draws": 719,
+          "event": "surface_frame",
+          "frames": 720,
+          "mode": "3d",
+          "physics": 1135,
+          "ticks_ms": 129882
+        },
+        "advanced": true
+      },
+      {
+        "cycle": 18,
+        "before": {
+          "draws": 735,
+          "event": "surface_frame",
+          "frames": 736,
+          "mode": "3d",
+          "physics": 1162,
+          "ticks_ms": 130976
+        },
+        "after": {
+          "draws": 756,
+          "event": "surface_frame",
+          "frames": 757,
+          "mode": "3d",
+          "physics": 1194,
+          "ticks_ms": 131995
+        },
+        "advanced": true
+      },
+      {
+        "cycle": 19,
+        "before": {
+          "draws": 772,
+          "event": "surface_frame",
+          "frames": 773,
+          "mode": "3d",
+          "physics": 1219,
+          "ticks_ms": 133039
+        },
+        "after": {
+          "draws": 794,
+          "event": "surface_frame",
+          "frames": 795,
+          "mode": "3d",
+          "physics": 1250,
+          "ticks_ms": 134047
+        },
+        "advanced": true
+      },
+      {
+        "cycle": 20,
+        "before": {
+          "draws": 806,
+          "event": "surface_frame",
+          "frames": 807,
+          "mode": "3d",
+          "physics": 1278,
+          "ticks_ms": 135080
+        },
+        "after": {
+          "draws": 830,
+          "event": "surface_frame",
+          "frames": 831,
+          "mode": "3d",
+          "physics": 1313,
+          "ticks_ms": 136993
+        },
+        "advanced": true
+      }
+    ],
+    "recovery_markers": [
+      "11-17 18:55:06.746  4033  4094 I GLThread: GAME_AVIA_SURFACE_RECOVERY 1->2",
+      "11-17 18:55:08.370  4033  4094 I GLThread: GAME_AVIA_SURFACE_RECOVERY 3->4",
+      "11-17 18:55:10.020  4033  4094 I GLThread: GAME_AVIA_SURFACE_RECOVERY 5->6",
+      "11-17 18:55:11.823  4033  4094 I GLThread: GAME_AVIA_SURFACE_RECOVERY 7->8",
+      "11-17 18:55:13.990  4033  4094 I GLThread: GAME_AVIA_SURFACE_RECOVERY 9->10",
+      "11-17 18:55:17.345  4033  4094 I GLThread: GAME_AVIA_SURFACE_RECOVERY 11->12",
+      "11-17 18:55:19.697  4033  4094 I GLThread: GAME_AVIA_SURFACE_RECOVERY 13->14",
+      "11-17 18:55:25.543  4033  4094 I GLThread: GAME_AVIA_SURFACE_RECOVERY 17->18",
+      "11-17 18:55:27.673  4033  4094 I GLThread: GAME_AVIA_SURFACE_RECOVERY 19->20",
+      "11-17 18:55:29.749  4033  4094 I GLThread: GAME_AVIA_SURFACE_RECOVERY 21->22",
+      "11-17 18:55:32.379  4033  4094 I GLThread: GAME_AVIA_SURFACE_RECOVERY 23->24",
+      "11-17 18:55:35.091  4033  4094 I GLThread: GAME_AVIA_SURFACE_RECOVERY 25->26",
+      "11-17 18:55:37.769  4033  4094 I GLThread: GAME_AVIA_SURFACE_RECOVERY 27->28",
+      "11-17 18:55:40.497  4033  4094 I GLThread: GAME_AVIA_SURFACE_RECOVERY 29->30",
+      "11-17 18:55:42.737  4033  4094 I GLThread: GAME_AVIA_SURFACE_RECOVERY 31->32",
+      "11-17 18:55:44.618  4033  4094 I GLThread: GAME_AVIA_SURFACE_RECOVERY 33->34",
+      "11-17 18:55:46.420  4033  4094 I GLThread: GAME_AVIA_SURFACE_RECOVERY 35->36",
+      "11-17 18:55:48.585  4033  4094 I GLThread: GAME_AVIA_SURFACE_RECOVERY 37->38",
+      "11-17 18:55:50.341  4033  4094 I GLThread: GAME_AVIA_SURFACE_RECOVERY 39->40"
+    ],
+    "egl_bad_surface_diagnostic_lines": 38,
+    "limits": "owned emulator, diagnostic fixture; not game or phone acceptance",
+    "additional_log_sha256": "30ccce000efdd83190a9f259abc1aac941fc2518536eb1a33d156ec78a89c5ee",
+    "note": "Original capture filtered GLThread:W, info recovery markers were subsequently recovered from same PID4033 logcat without rerun"
+  },
+  "stock_gradle_control": {
+    "status": "PASS tested fixture only",
+    "apk_sha256": "704b4a74f60411258fbe53ad3332203052e3b4a767629ce31acf8f6c1f444432",
+    "cold": {
+      "before": {
+        "draws": 0,
+        "event": "surface_frame",
+        "frames": 1,
+        "mode": "3d",
+        "physics": 8,
+        "ticks_ms": 23469
+      },
+      "after": {
+        "draws": 75,
+        "event": "surface_frame",
+        "frames": 76,
+        "mode": "3d",
+        "physics": 110,
+        "ticks_ms": 46946
+      },
+      "recovered": true
+    },
+    "warm_cycles": [
+      {
+        "cycle": 1,
+        "before": {
+          "draws": 75,
+          "event": "surface_frame",
+          "frames": 76,
+          "mode": "3d",
+          "physics": 110,
+          "ticks_ms": 46946
+        },
+        "after": {
+          "draws": 127,
+          "event": "surface_frame",
+          "frames": 128,
+          "mode": "3d",
+          "physics": 174,
+          "ticks_ms": 49078
+        },
+        "advanced": true
+      },
+      {
+        "cycle": 2,
+        "before": {
+          "draws": 127,
+          "event": "surface_frame",
+          "frames": 128,
+          "mode": "3d",
+          "physics": 174,
+          "ticks_ms": 49078
+        },
+        "after": {
+          "draws": 163,
+          "event": "surface_frame",
+          "frames": 164,
+          "mode": "3d",
+          "physics": 231,
+          "ticks_ms": 51315
+        },
+        "advanced": true
+      },
+      {
+        "cycle": 3,
+        "before": {
+          "draws": 163,
+          "event": "surface_frame",
+          "frames": 164,
+          "mode": "3d",
+          "physics": 231,
+          "ticks_ms": 51315
+        },
+        "after": {
+          "draws": 204,
+          "event": "surface_frame",
+          "frames": 205,
+          "mode": "3d",
+          "physics": 290,
+          "ticks_ms": 53390
+        },
+        "advanced": true
+      },
+      {
+        "cycle": 4,
+        "before": {
+          "draws": 204,
+          "event": "surface_frame",
+          "frames": 205,
+          "mode": "3d",
+          "physics": 290,
+          "ticks_ms": 53390
+        },
+        "after": {
+          "draws": 239,
+          "event": "surface_frame",
+          "frames": 240,
+          "mode": "3d",
+          "physics": 343,
+          "ticks_ms": 55473
+        },
+        "advanced": true
+      },
+      {
+        "cycle": 5,
+        "before": {
+          "draws": 239,
+          "event": "surface_frame",
+          "frames": 240,
+          "mode": "3d",
+          "physics": 343,
+          "ticks_ms": 55473
+        },
+        "after": {
+          "draws": 280,
+          "event": "surface_frame",
+          "frames": 281,
+          "mode": "3d",
+          "physics": 399,
+          "ticks_ms": 57662
+        },
+        "advanced": true
+      },
+      {
+        "cycle": 6,
+        "before": {
+          "draws": 280,
+          "event": "surface_frame",
+          "frames": 281,
+          "mode": "3d",
+          "physics": 399,
+          "ticks_ms": 57662
+        },
+        "after": {
+          "draws": 320,
+          "event": "surface_frame",
+          "frames": 321,
+          "mode": "3d",
+          "physics": 461,
+          "ticks_ms": 60080
+        },
+        "advanced": true
+      },
+      {
+        "cycle": 7,
+        "before": {
+          "draws": 320,
+          "event": "surface_frame",
+          "frames": 321,
+          "mode": "3d",
+          "physics": 461,
+          "ticks_ms": 60080
+        },
+        "after": {
+          "draws": 367,
+          "event": "surface_frame",
+          "frames": 368,
+          "mode": "3d",
+          "physics": 526,
+          "ticks_ms": 62457
+        },
+        "advanced": true
+      },
+      {
+        "cycle": 8,
+        "before": {
+          "draws": 367,
+          "event": "surface_frame",
+          "frames": 368,
+          "mode": "3d",
+          "physics": 526,
+          "ticks_ms": 62457
+        },
+        "after": {
+          "draws": 404,
+          "event": "surface_frame",
+          "frames": 405,
+          "mode": "3d",
+          "physics": 588,
+          "ticks_ms": 64640
+        },
+        "advanced": true
+      },
+      {
+        "cycle": 9,
+        "before": {
+          "draws": 404,
+          "event": "surface_frame",
+          "frames": 405,
+          "mode": "3d",
+          "physics": 588,
+          "ticks_ms": 64640
+        },
+        "after": {
+          "draws": 437,
+          "event": "surface_frame",
+          "frames": 438,
+          "mode": "3d",
+          "physics": 645,
+          "ticks_ms": 66904
+        },
+        "advanced": true
+      },
+      {
+        "cycle": 10,
+        "before": {
+          "draws": 437,
+          "event": "surface_frame",
+          "frames": 438,
+          "mode": "3d",
+          "physics": 645,
+          "ticks_ms": 66904
+        },
+        "after": {
+          "draws": 474,
+          "event": "surface_frame",
+          "frames": 475,
+          "mode": "3d",
+          "physics": 700,
+          "ticks_ms": 68988
+        },
+        "advanced": true
+      },
+      {
+        "cycle": 11,
+        "before": {
+          "draws": 474,
+          "event": "surface_frame",
+          "frames": 475,
+          "mode": "3d",
+          "physics": 700,
+          "ticks_ms": 68988
+        },
+        "after": {
+          "draws": 511,
+          "event": "surface_frame",
+          "frames": 512,
+          "mode": "3d",
+          "physics": 755,
+          "ticks_ms": 71079
+        },
+        "advanced": true
+      },
+      {
+        "cycle": 12,
+        "before": {
+          "draws": 511,
+          "event": "surface_frame",
+          "frames": 512,
+          "mode": "3d",
+          "physics": 755,
+          "ticks_ms": 71079
+        },
+        "after": {
+          "draws": 554,
+          "event": "surface_frame",
+          "frames": 555,
+          "mode": "3d",
+          "physics": 820,
+          "ticks_ms": 73458
+        },
+        "advanced": true
+      },
+      {
+        "cycle": 13,
+        "before": {
+          "draws": 554,
+          "event": "surface_frame",
+          "frames": 555,
+          "mode": "3d",
+          "physics": 820,
+          "ticks_ms": 73458
+        },
+        "after": {
+          "draws": 593,
+          "event": "surface_frame",
+          "frames": 594,
+          "mode": "3d",
+          "physics": 876,
+          "ticks_ms": 75711
+        },
+        "advanced": true
+      },
+      {
+        "cycle": 14,
+        "before": {
+          "draws": 593,
+          "event": "surface_frame",
+          "frames": 594,
+          "mode": "3d",
+          "physics": 876,
+          "ticks_ms": 75711
+        },
+        "after": {
+          "draws": 616,
+          "event": "surface_frame",
+          "frames": 617,
+          "mode": "3d",
+          "physics": 907,
+          "ticks_ms": 76744
+        },
+        "advanced": true
+      },
+      {
+        "cycle": 15,
+        "before": {
+          "draws": 635,
+          "event": "surface_frame",
+          "frames": 636,
+          "mode": "3d",
+          "physics": 940,
+          "ticks_ms": 78271
+        },
+        "after": {
+          "draws": 671,
+          "event": "surface_frame",
+          "frames": 672,
+          "mode": "3d",
+          "physics": 1000,
+          "ticks_ms": 80342
+        },
+        "advanced": true
+      },
+      {
+        "cycle": 16,
+        "before": {
+          "draws": 671,
+          "event": "surface_frame",
+          "frames": 672,
+          "mode": "3d",
+          "physics": 1000,
+          "ticks_ms": 80342
+        },
+        "after": {
+          "draws": 708,
+          "event": "surface_frame",
+          "frames": 709,
+          "mode": "3d",
+          "physics": 1053,
+          "ticks_ms": 82428
+        },
+        "advanced": true
+      },
+      {
+        "cycle": 17,
+        "before": {
+          "draws": 708,
+          "event": "surface_frame",
+          "frames": 709,
+          "mode": "3d",
+          "physics": 1053,
+          "ticks_ms": 82428
+        },
+        "after": {
+          "draws": 737,
+          "event": "surface_frame",
+          "frames": 738,
+          "mode": "3d",
+          "physics": 1104,
+          "ticks_ms": 84548
+        },
+        "advanced": true
+      },
+      {
+        "cycle": 18,
+        "before": {
+          "draws": 737,
+          "event": "surface_frame",
+          "frames": 738,
+          "mode": "3d",
+          "physics": 1104,
+          "ticks_ms": 84548
+        },
+        "after": {
+          "draws": 773,
+          "event": "surface_frame",
+          "frames": 774,
+          "mode": "3d",
+          "physics": 1158,
+          "ticks_ms": 86747
+        },
+        "advanced": true
+      },
+      {
+        "cycle": 19,
+        "before": {
+          "draws": 773,
+          "event": "surface_frame",
+          "frames": 774,
+          "mode": "3d",
+          "physics": 1158,
+          "ticks_ms": 86747
+        },
+        "after": {
+          "draws": 815,
+          "event": "surface_frame",
+          "frames": 816,
+          "mode": "3d",
+          "physics": 1218,
+          "ticks_ms": 89027
+        },
+        "advanced": true
+      },
+      {
+        "cycle": 20,
+        "before": {
+          "draws": 815,
+          "event": "surface_frame",
+          "frames": 816,
+          "mode": "3d",
+          "physics": 1218,
+          "ticks_ms": 89027
+        },
+        "after": {
+          "draws": 852,
+          "event": "surface_frame",
+          "frames": 853,
+          "mode": "3d",
+          "physics": 1278,
+          "ticks_ms": 91249
+        },
+        "advanced": true
+      }
+    ],
+    "recovery_markers": [],
+    "egl_bad_surface_diagnostic_lines": 32,
+    "limits": "owned emulator, diagnostic fixture; not game or phone acceptance"
+  },
+  "native_libraries_identical_in_all_three_apks": {
+    "lib/arm64-v8a/libc++_shared.so": "c4c2fe5cbcb1fba0003a31fc7ab29a9bb12df6cc187ec45a806462540e83d93b",
+    "lib/arm64-v8a/libgodot_android.so": "6517cb725565b0b3f009e6a559d8c0a5f66093384a6f48b5d18e2dc0998e1159",
+    "lib/x86_64/libc++_shared.so": "683a1c7cd2f6829fd40bf805739166c5fce35235bf60d2c4e4a95e9f65a342ef",
+    "lib/x86_64/libgodot_android.so": "7a103707ecbf1d24a053f59b90ddcd9945f4524e9ebbe87d513e0d60eff80443"
+  },
+  "licensed_source_classes_identical_to_tested_patch": true,
+  "patch_java_source_sha256": "ab21e6cafd19a4acc39d90f78e3aaedb94491eec0f9e6cb6e78960821d0d3b92",
+  "public_builder_aar_sha256": "fc690a7c9d1496d66a4ffa369a5dadc8cf1264428aba79639bfe32d2f4afa024",
+  "important_limits": [
+    "Stock matchingGradle control also passed20cycles: race is intermittent, no100% failure rate or universal fix claim.",
+    "19 actual patched recovery info lines recovered from samePID4033 after initial warning-only log filter; no test rerun.",
+    "Patched fixture uses uncompressednative packaging and a different diagnostic package; game unchanged and not tested with patch yet.",
+    "Current1cf gameplayAPK original blackFAIL remains open, despite repeatPASS.",
+    "Surface-generation mechanism inferred from exact source plus observations, not upstream-confirmed defect.",
+    "No phone/iOS/physical30FPS/externalUDP acceptance."
+  ]
+}

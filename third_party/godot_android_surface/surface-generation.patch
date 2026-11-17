@@ -1,0 +1,83 @@
+--- a/platform/android/java/lib/src/main/java/org/godotengine/godot/gl/GLSurfaceView.java
++++ b/platform/android/java/lib/src/main/java/org/godotengine/godot/gl/GLSurfaceView.java
+@@ -1321,6 +1321,21 @@
+ 				mEglHelper.destroySurface();
+ 			}
+ 		}
++		// Both callers hold sGLThreadManager. Never wait on the Android UI thread.
++		private void handleSurfaceFailureLocked() {
++			if (mEglSurfaceGeneration != mSurfaceGeneration) {
++				// A failed in-flight frame belongs to an older SurfaceHolder lifecycle.
++				// Drop its EGL surface and let the existing loop bind the current holder.
++				Log.i("GLThread", "GAME_AVIA_SURFACE_RECOVERY " + mEglSurfaceGeneration + "->" + mSurfaceGeneration);
++				stopEglSurfaceLocked();
++				mSurfaceIsBad = false;
++				mRequestRender = true;
++			} else {
++				// Preserve stock handling for a failure of the current generation.
++				mSurfaceIsBad = true;
++			}
++		}
++
+ 
+ 		/*
+ 		 * This private method should only be called inside a
+@@ -1502,6 +1517,9 @@
+ 									sGLThreadManager.notifyAll();
+ 									if (mWantRenderNotification) {
+ 										wantRenderNotification = true;
++									}
++									if (createEglSurface) {
++										mEglSurfaceGeneration = mSurfaceGeneration;
+ 									}
+ 									break;
+ 								}
+@@ -1550,7 +1568,7 @@
+ 						} else {
+ 							synchronized(sGLThreadManager) {
+ 								mFinishedCreatingEglSurface = true;
+-								mSurfaceIsBad = true;
++								handleSurfaceFailureLocked();
+ 								sGLThreadManager.notifyAll();
+ 							}
+ 							continue;
+@@ -1628,7 +1646,7 @@
+ 								EglHelper.logEglErrorAsWarning("GLThread", "eglSwapBuffers", swapError);
+ 
+ 								synchronized (sGLThreadManager) {
+-									mSurfaceIsBad = true;
++									handleSurfaceFailureLocked();
+ 									sGLThreadManager.notifyAll();
+ 								}
+ 								break;
+@@ -1734,6 +1752,7 @@
+ 					Log.i("GLThread", "surfaceCreated tid=" + getId());
+ 				}
+ 				mHasSurface = true;
++				mSurfaceGeneration++;
+ 				mFinishedCreatingEglSurface = false;
+ 				sGLThreadManager.notifyAll();
+ 			}
+@@ -1745,6 +1764,7 @@
+ 					Log.i("GLThread", "surfaceDestroyed tid=" + getId());
+ 				}
+ 				mHasSurface = false;
++				mSurfaceGeneration++;
+ 				sGLThreadManager.notifyAll();
+ 			}
+ 		}
+@@ -1852,6 +1872,8 @@
+ 		private boolean mPaused;
+ 		private boolean mHasSurface;
+ 		private boolean mSurfaceIsBad;
++		private long mSurfaceGeneration;
++		private long mEglSurfaceGeneration;
+ 		private boolean mWaitingForSurface;
+ 		private boolean mHaveEglContext;
+ 		private boolean mHaveEglSurface;
+@@ -1955,3 +1977,5 @@
+ 	private int mEGLContextClientVersion;
+ 	private boolean mPreserveEGLContextOnPause;
+ }
++
++// Modified by Game Avia contributors, 2026-11-17: SurfaceHolder generation recovery.

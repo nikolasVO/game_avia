@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "commit": "a7dd8ab2d2d7dcb715ff49f8fe2911f8ab21ec73",
+  "manifest_files_checked": 21,
+  "lfs_fsck": true,
+  "scope": "fresh remote fetch/LFS materialization, not phone/production acceptance"
+}

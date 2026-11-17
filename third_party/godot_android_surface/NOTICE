@@ -1,0 +1,8 @@
+GLSurfaceView.java
+Copyright (C) 2008 The Android Open Source Project
+Apache License, Version 2.0.
+
+Based on Godot4.7.2 commit ed1daf0bf001b61586d9930840f2f1394092c079.
+Modified by Game Avia contributors on 2026-11-17 to track SurfaceHolder generations
+and retry stale EGL surface failures without blocking the Android UI thread.
+No native Godot libraries are modified.
