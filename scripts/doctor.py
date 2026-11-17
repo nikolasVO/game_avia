@@ -17,7 +17,7 @@ def doctor():
             "budget":{"configured":bool(os.getenv("GAME_AVIA_DAILY_COST_LIMIT")),"status":"budget_not_configured" if not os.getenv("GAME_AVIA_DAILY_COST_LIMIT") else "configured"},
             "trellis":readiness(base/"models/trellis512"),"disk":{"free_bytes":shutil.disk_usage(base).free,"reserve_bytes":10*1024**3},
             "unity":{"installed":False,"configured":False,"tested":False,"blocked":"Unity Editor and full Xcode not found on inspected Mac"},
-            "backup":{"local_tested":s.kv("backup_tested")=="true","off_server_configured":False},
+            "backup":{"local_tested":s.kv("backup_tested")=="true","off_server_configured":s.kv("off_server_backup_tested")=="true"},
             "providers":{"configured":[],"agent_tested":[]}}
     for k,v in os.environ.items():
         if k.endswith("_API_KEY") and len(v)>15:result["providers"]["configured"].append(k[:-8])
@@ -28,6 +28,15 @@ def doctor():
         r=subprocess.run(["nvidia-smi","--query-gpu=name,memory.free,utilization.gpu","--format=csv,noheader,nounits"],capture_output=True,text=True,timeout=10)
         result["gpu"]={"installed":r.returncode==0,"measurement":r.stdout.strip()}
     except OSError:result["gpu"]={"installed":False}
+    result["sandbox"]=json.loads(s.kv("sandbox_probe") or "{}")
+    result["local_worker"]=json.loads((base/"state/local-smoke.json").read_text()) if (base/"state/local-smoke.json").is_file() else {"tested":False}
+    result["image_generation"]=json.loads((base/"state/image-smoke.json").read_text()) if (base/"state/image-smoke.json").is_file() else {"tested":False}
+    result["official_codex_runtime"]={"installed":(base/"tools/codex/node_modules/.bin/codex").exists(),"agent_tested":False,"blocked":"Responses route not validated within bootstrap cap"}
+    with s.db() as c:
+        usage=c.execute("SELECT COALESCE(SUM(requests),0),COALESCE(SUM(tokens),0) FROM usage_ledger WHERE created>?",(__import__("time").time()-86400,)).fetchone()
+    result["budget"]["attempts_24h"]=usage[0]
+    result["budget"]["reserved_tokens_24h"]=usage[1]
+    s.kv("models",json.dumps(result["providers"],ensure_ascii=False)[:3500])
     s.kv("doctor",json.dumps(result,ensure_ascii=False))
     s.kv("disk",json.dumps(result["disk"]))
     s.kv("gpu",json.dumps(result.get("gpu")))

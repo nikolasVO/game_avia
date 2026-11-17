@@ -1,0 +1,145 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "asset_id": {
+      "pattern": "^[a-zA-Z0-9_-]{1,64}$",
+      "title": "Asset Id",
+      "type": "string"
+    },
+    "purpose": {
+      "title": "Purpose",
+      "type": "string"
+    },
+    "description": {
+      "title": "Description",
+      "type": "string"
+    },
+    "style": {
+      "default": "technical test prop",
+      "title": "Style",
+      "type": "string"
+    },
+    "reference_images": {
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 4,
+      "minItems": 1,
+      "title": "Reference Images",
+      "type": "array"
+    },
+    "dimensions_m": {
+      "default": [
+        1,
+        1,
+        1
+      ],
+      "maxItems": 3,
+      "minItems": 3,
+      "prefixItems": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "number"
+        },
+        {
+          "type": "number"
+        }
+      ],
+      "title": "Dimensions M",
+      "type": "array"
+    },
+    "orientation": {
+      "const": "Y-up",
+      "default": "Y-up",
+      "title": "Orientation",
+      "type": "string"
+    },
+    "pivot": {
+      "const": "bottom_center",
+      "default": "bottom_center",
+      "title": "Pivot",
+      "type": "string"
+    },
+    "triangle_budget": {
+      "default": 5000,
+      "maximum": 100000,
+      "minimum": 100,
+      "title": "Triangle Budget",
+      "type": "integer"
+    },
+    "texture_budget": {
+      "default": 1024,
+      "maximum": 4096,
+      "minimum": 128,
+      "title": "Texture Budget",
+      "type": "integer"
+    },
+    "lod_policy": {
+      "const": "LOD0,LOD1,LOD2",
+      "default": "LOD0,LOD1,LOD2",
+      "title": "Lod Policy",
+      "type": "string"
+    },
+    "collision_policy": {
+      "const": "box",
+      "default": "box",
+      "title": "Collision Policy",
+      "type": "string"
+    },
+    "output_formats": {
+      "items": {
+        "const": "glb",
+        "type": "string"
+      },
+      "maxItems": 1,
+      "minItems": 1,
+      "title": "Output Formats",
+      "type": "array"
+    },
+    "license_constraints": {
+      "default": "owned_or_permitted",
+      "title": "License Constraints",
+      "type": "string"
+    },
+    "deadline_seconds": {
+      "default": 1800,
+      "maximum": 7200,
+      "minimum": 30,
+      "title": "Deadline Seconds",
+      "type": "integer"
+    },
+    "cost_limit": {
+      "anyOf": [
+        {
+          "minimum": 0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Cost Limit"
+    },
+    "seed": {
+      "default": 42,
+      "title": "Seed",
+      "type": "integer"
+    },
+    "pipeline_type": {
+      "default": "512",
+      "title": "Pipeline Type",
+      "type": "string"
+    }
+  },
+  "required": [
+    "asset_id",
+    "purpose",
+    "description",
+    "reference_images"
+  ],
+  "title": "AssetSpec",
+  "type": "object"
+}

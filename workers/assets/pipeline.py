@@ -23,10 +23,10 @@ class AssetSpec(BaseModel):
     texture_budget:int=Field(default=1024,ge=128,le=4096)
     lod_policy:Literal["LOD0,LOD1,LOD2"]="LOD0,LOD1,LOD2"
     collision_policy:Literal["box"]="box"
-    output_formats:list[Literal["glb"]]=["glb"]
+    output_formats:list[Literal["glb"]]=Field(default_factory=lambda:["glb"],min_length=1,max_length=1)
     license_constraints:str="owned_or_permitted"
     deadline_seconds:int=Field(default=1800,ge=30,le=7200)
-    cost_limit:float|None=None
+    cost_limit:float|None=Field(default=None,ge=0,allow_inf_nan=False)
     seed:int=42
     pipeline_type:str="512"
     @field_validator("pipeline_type")

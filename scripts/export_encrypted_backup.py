@@ -27,14 +27,17 @@ def main():
         nonce=os.urandom(12)
         encrypted=nonce+AESGCM(key).encrypt(nonce,plain.read_bytes(),b"game_avia_sqlite_backup_v1")
         final=destination/"coordinator.sqlite3.aesgcm"
-        final.write_bytes(encrypted);final.chmod(0o600)
-        # Verify the saved ciphertext, not the original in-memory data.
-        saved=final.read_bytes()
+        candidate=destination/"coordinator.sqlite3.aesgcm.candidate"
+        candidate.write_bytes(encrypted);candidate.chmod(0o600)
+        # Verify the saved ciphertext before replacing the previous good snapshot.
+        saved=candidate.read_bytes()
         restored=Path(temp)/"restored.sqlite3"
         restored.write_bytes(AESGCM(key).decrypt(saved[:12],saved[12:],b"game_avia_sqlite_backup_v1"));restored.chmod(0o600)
         with sqlite3.connect(restored) as c:
             assert c.execute("PRAGMA integrity_check").fetchone()[0]=="ok"
             count=c.execute("SELECT COUNT(*) FROM tasks").fetchone()[0]
+        if final.exists():final.replace(destination/"coordinator.sqlite3.aesgcm.previous")
+        candidate.replace(final)
     report={"off_server_encrypted_backup":"passed","restore_integrity":"ok","restored_tasks":count,"key_outside_git":True}
     (destination/"restore-check.json").write_text(json.dumps(report,indent=2))
     print(json.dumps(report))
