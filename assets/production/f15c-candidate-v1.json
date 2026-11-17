@@ -1,0 +1,22 @@
+{
+  "asset_id": "f15c_candidate_20261117_v1",
+  "purpose": "F-15C authored twin-engine game body AI candidate; recognition/articulation/mobile QA pending",
+  "description": "Own gray stylized twin-engine/twin-fin, side intakes and cropped swept wings. No copied pixels/models/logos. Complete symmetric silhouette; provisional game proportions require variant review.",
+  "style": "coherent stylized Game Avia aviation",
+  "reference_images": [
+    "production-f15c-v1/reference.png"
+  ],
+  "dimensions_m": [
+    13.0,
+    4.2,
+    19.44
+  ],
+  "source_yaw_degrees": 180,
+  "symmetry_policy": "mirror_x",
+  "triangle_budget": 19400,
+  "texture_budget": 1024,
+  "deadline_seconds": 1800,
+  "cost_limit": 0,
+  "seed": 42,
+  "pipeline_type": "512"
+}
