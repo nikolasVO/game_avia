@@ -1,0 +1,16 @@
+.env
+*.private.*
+__pycache__/
+.pytest_cache/
+.venv/
+*.egg-info/
+state/
+runtime/
+Library/
+Temp/
+Logs/
+obj/
+node_modules/
+*.sqlite3*
+*.log
+.DS_Store
