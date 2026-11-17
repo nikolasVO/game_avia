@@ -1,0 +1,376 @@
+{
+  "assembly_budgets": [
+    {
+      "budget": 20000,
+      "distance_m": 100,
+      "parts": {
+        "AIModel/f14_ai_lod0/LOD0WingLeft": 2724,
+        "AIModel/f14_ai_lod0/LOD0WingRight": 2724,
+        "AIModel/f14_ai_lod0/LOD0_001": 13658,
+        "Afterburner/Flame-1_0": 20,
+        "Afterburner/Flame1_0": 20,
+        "LandingGear/Gear": 72,
+        "PivotGloveLOD0": 96
+      },
+      "triangles": 19314
+    },
+    {
+      "budget": 7000,
+      "distance_m": 400,
+      "parts": {
+        "AIModel/f14_ai_lod1/LOD1WingLeft": 875,
+        "AIModel/f14_ai_lod1/LOD1WingRight": 875,
+        "AIModel/f14_ai_lod1/LOD1_001": 4717,
+        "Afterburner/Flame-1_0": 20,
+        "Afterburner/Flame1_0": 20,
+        "LandingGear/Gear": 72,
+        "PivotGloveLOD1": 96
+      },
+      "triangles": 6675
+    },
+    {
+      "budget": 7000,
+      "distance_m": 600,
+      "parts": {
+        "AIModel/f14_ai_lod1/LOD1WingLeft": 875,
+        "AIModel/f14_ai_lod1/LOD1WingRight": 875,
+        "AIModel/f14_ai_lod1/LOD1_001": 4717,
+        "Afterburner/Flame-1_0": 20,
+        "Afterburner/Flame1_0": 20,
+        "PivotGloveLOD1": 96
+      },
+      "triangles": 6603
+    },
+    {
+      "budget": 2000,
+      "distance_m": 950,
+      "parts": {
+        "AIModel/f14_ai_lod2/LOD2WingLeft": 208,
+        "AIModel/f14_ai_lod2/LOD2WingRight": 208,
+        "AIModel/f14_ai_lod2/LOD2_001": 1347,
+        "PivotGloveLOD2": 96
+      },
+      "triangles": 1859
+    }
+  ],
+  "checks": [
+    {
+      "check": "planned candidate stays outside nine admitted aircraft",
+      "ok": true
+    },
+    {
+      "check": "six imported panels registered across three explicit LODs",
+      "ok": true
+    },
+    {
+      "check": "full assembly counter includes all three 24-triangle gear units",
+      "ok": true
+    },
+    {
+      "check": "worst-case full assembly fits budget at 100m including gear/afterburners",
+      "ok": true
+    },
+    {
+      "check": "worst-case full assembly fits budget at 400m including gear/afterburners",
+      "ok": true
+    },
+    {
+      "check": "worst-case full assembly fits budget at 600m including gear/afterburners",
+      "ok": true
+    },
+    {
+      "check": "worst-case full assembly fits budget at 950m including gear/afterburners",
+      "ok": true
+    },
+    {
+      "check": "LOD0 imported triangles finite/nondegenerate and within budget",
+      "ok": true
+    },
+    {
+      "check": "LOD0 has two moving panels and no static wing duplicate",
+      "ok": true
+    },
+    {
+      "check": "LOD0 body and both panels share exact explicit visibility range",
+      "ok": true
+    },
+    {
+      "check": "three authored pivot-cover LODs present",
+      "ok": true
+    },
+    {
+      "check": "LOD0 combined AI panels/body and authored gloves fit budget",
+      "ok": true
+    },
+    {
+      "check": "LOD0 pose0 keeps symmetric panel travel",
+      "ok": true
+    },
+    {
+      "check": "render sweep-lod0-pose0-orbit.png",
+      "ok": true
+    },
+    {
+      "check": "render sweep-lod0-pose0-top.png",
+      "ok": true
+    },
+    {
+      "check": "render sweep-lod0-pose0-front.png",
+      "ok": true
+    },
+    {
+      "check": "LOD0 pose1 keeps symmetric panel travel",
+      "ok": true
+    },
+    {
+      "check": "render sweep-lod0-pose1-orbit.png",
+      "ok": true
+    },
+    {
+      "check": "render sweep-lod0-pose1-top.png",
+      "ok": true
+    },
+    {
+      "check": "render sweep-lod0-pose1-front.png",
+      "ok": true
+    },
+    {
+      "check": "LOD0 pose2 keeps symmetric panel travel",
+      "ok": true
+    },
+    {
+      "check": "render sweep-lod0-pose2-orbit.png",
+      "ok": true
+    },
+    {
+      "check": "render sweep-lod0-pose2-top.png",
+      "ok": true
+    },
+    {
+      "check": "render sweep-lod0-pose2-front.png",
+      "ok": true
+    },
+    {
+      "check": "LOD0 actual imported sweep reduces span",
+      "ok": true
+    },
+    {
+      "check": "LOD1 imported triangles finite/nondegenerate and within budget",
+      "ok": true
+    },
+    {
+      "check": "LOD1 has two moving panels and no static wing duplicate",
+      "ok": true
+    },
+    {
+      "check": "LOD1 body and both panels share exact explicit visibility range",
+      "ok": true
+    },
+    {
+      "check": "three authored pivot-cover LODs present",
+      "ok": true
+    },
+    {
+      "check": "LOD1 combined AI panels/body and authored gloves fit budget",
+      "ok": true
+    },
+    {
+      "check": "LOD1 pose0 keeps symmetric panel travel",
+      "ok": true
+    },
+    {
+      "check": "render sweep-lod1-pose0-orbit.png",
+      "ok": true
+    },
+    {
+      "check": "render sweep-lod1-pose0-top.png",
+      "ok": true
+    },
+    {
+      "check": "render sweep-lod1-pose0-front.png",
+      "ok": true
+    },
+    {
+      "check": "LOD1 pose1 keeps symmetric panel travel",
+      "ok": true
+    },
+    {
+      "check": "render sweep-lod1-pose1-orbit.png",
+      "ok": true
+    },
+    {
+      "check": "render sweep-lod1-pose1-top.png",
+      "ok": true
+    },
+    {
+      "check": "render sweep-lod1-pose1-front.png",
+      "ok": true
+    },
+    {
+      "check": "LOD1 pose2 keeps symmetric panel travel",
+      "ok": true
+    },
+    {
+      "check": "render sweep-lod1-pose2-orbit.png",
+      "ok": true
+    },
+    {
+      "check": "render sweep-lod1-pose2-top.png",
+      "ok": true
+    },
+    {
+      "check": "render sweep-lod1-pose2-front.png",
+      "ok": true
+    },
+    {
+      "check": "LOD1 actual imported sweep reduces span",
+      "ok": true
+    },
+    {
+      "check": "LOD2 imported triangles finite/nondegenerate and within budget",
+      "ok": true
+    },
+    {
+      "check": "LOD2 has two moving panels and no static wing duplicate",
+      "ok": true
+    },
+    {
+      "check": "LOD2 body and both panels share exact explicit visibility range",
+      "ok": true
+    },
+    {
+      "check": "three authored pivot-cover LODs present",
+      "ok": true
+    },
+    {
+      "check": "LOD2 combined AI panels/body and authored gloves fit budget",
+      "ok": true
+    },
+    {
+      "check": "LOD2 pose0 keeps symmetric panel travel",
+      "ok": true
+    },
+    {
+      "check": "render sweep-lod2-pose0-orbit.png",
+      "ok": true
+    },
+    {
+      "check": "render sweep-lod2-pose0-top.png",
+      "ok": true
+    },
+    {
+      "check": "render sweep-lod2-pose0-front.png",
+      "ok": true
+    },
+    {
+      "check": "LOD2 pose1 keeps symmetric panel travel",
+      "ok": true
+    },
+    {
+      "check": "render sweep-lod2-pose1-orbit.png",
+      "ok": true
+    },
+    {
+      "check": "render sweep-lod2-pose1-top.png",
+      "ok": true
+    },
+    {
+      "check": "render sweep-lod2-pose1-front.png",
+      "ok": true
+    },
+    {
+      "check": "LOD2 pose2 keeps symmetric panel travel",
+      "ok": true
+    },
+    {
+      "check": "render sweep-lod2-pose2-orbit.png",
+      "ok": true
+    },
+    {
+      "check": "render sweep-lod2-pose2-top.png",
+      "ok": true
+    },
+    {
+      "check": "render sweep-lod2-pose2-front.png",
+      "ok": true
+    },
+    {
+      "check": "LOD2 actual imported sweep reduces span",
+      "ok": true
+    },
+    {
+      "check": "first fast snapshot establishes imported rig closed baseline",
+      "ok": true
+    },
+    {
+      "check": "all six imported panels animate continuously from replicated gear flag",
+      "ok": true
+    },
+    {
+      "check": "all imported pivots return to exact open endpoint",
+      "ok": true
+    }
+  ],
+  "engine": {
+    "build": "official",
+    "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+    "hex": 263938,
+    "major": 4,
+    "minor": 7,
+    "patch": 2,
+    "status": "stable",
+    "string": "4.7.2-stable (official)",
+    "timestamp": 0
+  },
+  "event": "sweep_candidate_summary",
+  "lod_triangles": [
+    19202,
+    6563,
+    1859
+  ],
+  "preview_files": [
+    "sweep-lod0-pose0-orbit.png",
+    "sweep-lod0-pose0-top.png",
+    "sweep-lod0-pose0-front.png",
+    "sweep-lod0-pose1-orbit.png",
+    "sweep-lod0-pose1-top.png",
+    "sweep-lod0-pose1-front.png",
+    "sweep-lod0-pose2-orbit.png",
+    "sweep-lod0-pose2-top.png",
+    "sweep-lod0-pose2-front.png",
+    "sweep-lod1-pose0-orbit.png",
+    "sweep-lod1-pose0-top.png",
+    "sweep-lod1-pose0-front.png",
+    "sweep-lod1-pose1-orbit.png",
+    "sweep-lod1-pose1-top.png",
+    "sweep-lod1-pose1-front.png",
+    "sweep-lod1-pose2-orbit.png",
+    "sweep-lod1-pose2-top.png",
+    "sweep-lod1-pose2-front.png",
+    "sweep-lod2-pose0-orbit.png",
+    "sweep-lod2-pose0-top.png",
+    "sweep-lod2-pose0-front.png",
+    "sweep-lod2-pose1-orbit.png",
+    "sweep-lod2-pose1-top.png",
+    "sweep-lod2-pose1-front.png",
+    "sweep-lod2-pose2-orbit.png",
+    "sweep-lod2-pose2-top.png",
+    "sweep-lod2-pose2-front.png"
+  ],
+  "scope": "actual rendered planned AI assembly; full recognition/flight/network/device/rights/15-gate acceptance pending",
+  "spans": [
+    {
+      "closed_m": 10.3878440856934,
+      "open_m": 19.5
+    },
+    {
+      "closed_m": 10.4059534072876,
+      "open_m": 19.5010108947754
+    },
+    {
+      "closed_m": 10.3606042861938,
+      "open_m": 19.4784564971924
+    }
+  ],
+  "status": "PASS"
+}

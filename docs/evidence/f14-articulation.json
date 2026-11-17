@@ -1,0 +1,43 @@
+{
+  "status": "PASS",
+  "scope": "planned candidate geometry/render/animation; not aircraft acceptance",
+  "candidate": "assets/catalog/f14_candidate_20261117_v1",
+  "checks": 64,
+  "rendered_views": 27,
+  "worst_case_assembly_triangles": [
+    19314,
+    6675,
+    1859
+  ],
+  "validation_sha256": "fa2413ecfe920b45251e244fc1ca1d024130608179120681e917db50436de337",
+  "source_commit": "60ec272316d865cf1e6e807b4060e6dd99256298",
+  "shared_regressions": [
+    {
+      "script": "flight_check",
+      "ok": true,
+      "exit": 0
+    },
+    {
+      "script": "fighter_check",
+      "ok": true,
+      "exit": 0
+    },
+    {
+      "script": "fighter_geometry_check",
+      "ok": true,
+      "exit": 0
+    },
+    {
+      "script": "fighter_circuit_check",
+      "ok": true,
+      "exit": 0
+    }
+  ],
+  "other_checks": {
+    "authored_geometry": 13,
+    "sweep_forces": 7,
+    "existing_rendered_gear": 60
+  },
+  "production_accepted": false,
+  "playable": false
+}

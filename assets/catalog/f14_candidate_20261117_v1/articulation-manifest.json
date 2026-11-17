@@ -1,0 +1,97 @@
+{
+  "method": "exact plane partition; original UV and materials retained",
+  "axes": "glTF/Godot Y-up, -Z forward",
+  "source_files": {
+    "lod0.glb": "90ea99773bc33a81defdd4e42b7ef3ed336ded485530efd9fb41c12c42f41115",
+    "lod1.glb": "a3e10a44cbd6bcae9112cdff19d0b4f54bddf517fe202fbedb03278aa1ca119a",
+    "lod2.glb": "51ef675522bf023326aa740a04c1be66321e5d7786d103faf8e695245c1ed9a1"
+  },
+  "script_sha256": "c384857fff16ce40dbbc9a40cc8c371b52954cb2e96c69c9391ec31dfeafbf0c",
+  "blender_version": "5.2.4 LTS",
+  "hinge_m": [
+    2.8,
+    1.27,
+    -0.5
+  ],
+  "aft_limit_z_m": 4.8,
+  "production_accepted": false,
+  "lods": [
+    {
+      "level": 0,
+      "triangles": 19106,
+      "parts": [
+        {
+          "name": "LOD0.001",
+          "triangles": 13658
+        },
+        {
+          "name": "LOD0WingLeft",
+          "triangles": 2724
+        },
+        {
+          "name": "LOD0WingRight",
+          "triangles": 2724
+        }
+      ],
+      "source_area_m2": 637.6073276528259,
+      "partition_area_m2": 637.6073272532618,
+      "triangles_before_budget": 21156
+    },
+    {
+      "level": 1,
+      "triangles": 6467,
+      "parts": [
+        {
+          "name": "LOD1.001",
+          "triangles": 4717
+        },
+        {
+          "name": "LOD1WingLeft",
+          "triangles": 875
+        },
+        {
+          "name": "LOD1WingRight",
+          "triangles": 875
+        }
+      ],
+      "source_area_m2": 639.7494085833441,
+      "partition_area_m2": 639.7494075870468,
+      "triangles_before_budget": 7116
+    },
+    {
+      "level": 2,
+      "triangles": 1763,
+      "parts": [
+        {
+          "name": "LOD2.001",
+          "triangles": 1347
+        },
+        {
+          "name": "LOD2WingLeft",
+          "triangles": 208
+        },
+        {
+          "name": "LOD2WingRight",
+          "triangles": 208
+        }
+      ],
+      "source_area_m2": 349.1120169274509,
+      "partition_area_m2": 349.1120170678478,
+      "triangles_before_budget": 1812
+    }
+  ],
+  "files": {
+    "articulated-lod0.glb": {
+      "sha256": "c2d6747da2eb817fff7c78e8fe6e32839146d74ebdbdb1bdc41e03c9d2da9967",
+      "bytes": 1703820
+    },
+    "articulated-lod1.glb": {
+      "sha256": "8866284950eba6648dfa300231f3f7fb92428889d39490a39bca24b7a14aced2",
+      "bytes": 1294204
+    },
+    "articulated-lod2.glb": {
+      "sha256": "cd2751d589d25d54d8a131f364c12eba2738c191090c97459a0495d20576d995",
+      "bytes": 129192
+    }
+  }
+}

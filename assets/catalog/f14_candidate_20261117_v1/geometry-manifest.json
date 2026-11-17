@@ -1,0 +1,136 @@
+{
+  "source_kind": "TRELLIS.2_image_to_3D",
+  "blender_version": "5.2.4 LTS",
+  "triangles_lod0": 19264,
+  "materials_lod0": 1,
+  "lods": [
+    {
+      "name": "LOD1",
+      "triangles": 5966,
+      "far_repair": null,
+      "dimensions_blender": [
+        19.50101089477539,
+        19.129528045654297,
+        4.87253999710083
+      ]
+    },
+    {
+      "name": "LOD2",
+      "triangles": 1468,
+      "far_repair": {
+        "method": "voxel topology repair then decimation",
+        "attempts": [
+          {
+            "voxel_size_m": 0.039000000804662704,
+            "triangles": 1468,
+            "dimensions_blender": [
+              19.478456497192383,
+              19.067604064941406,
+              4.887938976287842
+            ]
+          }
+        ],
+        "voxel_size_m": 0.039000000804662704,
+        "material": "plain sampled albedo; no far texture/UV required",
+        "rgba": [
+          0.49873843592728756,
+          0.5587171541396961,
+          0.6698282937439837,
+          1
+        ]
+      },
+      "dimensions_blender": [
+        19.478456497192383,
+        19.067604064941406,
+        4.887938976287842
+      ]
+    }
+  ],
+  "collision": "box metadata only; engine binding required",
+  "geometry": {
+    "uv_layers": 1,
+    "degenerate_triangles": 0,
+    "finite_vertices_and_normals": true,
+    "texture_sizes": [
+      [
+        1024,
+        1024
+      ],
+      [
+        1024,
+        1024
+      ]
+    ],
+    "symmetry": {
+      "mirror_axis": "Blender X",
+      "mean_distance_m": 0.0,
+      "max_distance_m": 0.0,
+      "mean_fraction_width": 0.0
+    }
+  },
+  "generator_script_sha256": "43f383b37d422eb76aa0395dce9e3cd41fb3fc3a18e8fa36dcd9c3d25d1b437a",
+  "dimensions_m": [
+    19.5,
+    4.900000095367432,
+    19.100000381469727
+  ],
+  "pivot": "bottom_center",
+  "source_yaw_degrees": 180.0,
+  "symmetry_enforced_x": true,
+  "export_axes": "glTF Y-up",
+  "unity_import_tested": false,
+  "license": "TRELLIS.2 MIT; DINOv3 custom license; BiRefNet MIT; reference terms apply; see provenance",
+  "checks": {
+    "triangle_budget": true,
+    "material_budget": true,
+    "finite_bounds": true,
+    "finite_geometry": true,
+    "no_degenerate_triangles": true,
+    "uv_present": true,
+    "texture_budget": true,
+    "lod_budgets": true,
+    "lod_silhouette_bounds": true,
+    "exact_mirror_symmetry": true
+  },
+  "files": {
+    "optimized.glb": {
+      "sha256": "297f0ed3d7788dda0a20cf0551e30d21904e9213ae35f554e2947c1118a0bc7e",
+      "bytes": 2069536
+    },
+    "preview.png": {
+      "sha256": "99b432ce753f4312824845e205fb63fd2f09280d1683c0f43d606e62ce23ec77",
+      "bytes": 129108
+    },
+    "lod0.glb": {
+      "sha256": "90ea99773bc33a81defdd4e42b7ef3ed336ded485530efd9fb41c12c42f41115",
+      "bytes": 1693516
+    },
+    "lod1.glb": {
+      "sha256": "a3e10a44cbd6bcae9112cdff19d0b4f54bddf517fe202fbedb03278aa1ca119a",
+      "bytes": 1268284
+    },
+    "lod2.glb": {
+      "sha256": "51ef675522bf023326aa740a04c1be66321e5d7786d103faf8e695245c1ed9a1",
+      "bytes": 115520
+    }
+  },
+  "verified": true,
+  "generation": {
+    "pipeline_type": "512",
+    "seed": 42,
+    "original_sha256": "a454a1c6e7e9f38353bcee84ae02f76c59bfea6ca5ce09a82ec16e344dcf3b43",
+    "models": {
+      "microsoft/TRELLIS.2-4B": "af44b45f2e35a493886929c6d786e563ec68364d",
+      "microsoft/TRELLIS-image-large": "25e0d31ffbebe4b5a97464dd851910efc3002d96",
+      "facebook/dinov3-vitl16-pretrain-lvd1689m": "ea8dc2863c51be0a264bab82070e3e8836b02d51",
+      "ZhengPeng7/BiRefNet": "e2bf8e4460fc8fa32bba5ea4d94b3233d367b0e4"
+    }
+  },
+  "reference": [
+    {
+      "name": "reference.png",
+      "sha256": "14c4baa2d949e75193aa9149adcb73f45206b60e349220dcb5298f66a75e16b9"
+    }
+  ],
+  "godot_import_tested": false
+}

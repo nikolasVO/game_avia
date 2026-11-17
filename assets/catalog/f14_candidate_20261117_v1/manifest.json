@@ -1,0 +1,464 @@
+{
+  "source_kind": "TRELLIS.2_image_to_3D",
+  "blender_version": "5.2.4 LTS",
+  "triangles_lod0": 19264,
+  "materials_lod0": 1,
+  "lods": [
+    {
+      "name": "LOD1",
+      "triangles": 5966,
+      "far_repair": null,
+      "dimensions_blender": [
+        19.50101089477539,
+        19.129528045654297,
+        4.87253999710083
+      ]
+    },
+    {
+      "name": "LOD2",
+      "triangles": 1468,
+      "far_repair": {
+        "method": "voxel topology repair then decimation",
+        "attempts": [
+          {
+            "voxel_size_m": 0.039000000804662704,
+            "triangles": 1468,
+            "dimensions_blender": [
+              19.478456497192383,
+              19.067604064941406,
+              4.887938976287842
+            ]
+          }
+        ],
+        "voxel_size_m": 0.039000000804662704,
+        "material": "plain sampled albedo; no far texture/UV required",
+        "rgba": [
+          0.49873843592728756,
+          0.5587171541396961,
+          0.6698282937439837,
+          1
+        ]
+      },
+      "dimensions_blender": [
+        19.478456497192383,
+        19.067604064941406,
+        4.887938976287842
+      ]
+    }
+  ],
+  "collision": "box metadata only; engine binding required",
+  "geometry": {
+    "uv_layers": 1,
+    "degenerate_triangles": 0,
+    "finite_vertices_and_normals": true,
+    "texture_sizes": [
+      [
+        1024,
+        1024
+      ],
+      [
+        1024,
+        1024
+      ]
+    ],
+    "symmetry": {
+      "mirror_axis": "Blender X",
+      "mean_distance_m": 0.0,
+      "max_distance_m": 0.0,
+      "mean_fraction_width": 0.0
+    }
+  },
+  "generator_script_sha256": "43f383b37d422eb76aa0395dce9e3cd41fb3fc3a18e8fa36dcd9c3d25d1b437a",
+  "dimensions_m": [
+    19.5,
+    4.900000095367432,
+    19.100000381469727
+  ],
+  "pivot": "bottom_center",
+  "source_yaw_degrees": 180.0,
+  "symmetry_enforced_x": true,
+  "export_axes": "glTF Y-up",
+  "unity_import_tested": false,
+  "license": "TRELLIS.2 MIT; DINOv3 custom license; BiRefNet MIT; reference terms apply; see provenance",
+  "checks": {
+    "triangle_budget": true,
+    "material_budget": true,
+    "finite_bounds": true,
+    "finite_geometry": true,
+    "no_degenerate_triangles": true,
+    "uv_present": true,
+    "texture_budget": true,
+    "lod_budgets": true,
+    "lod_silhouette_bounds": true,
+    "exact_mirror_symmetry": true
+  },
+  "files": {
+    "articulated-contact.png": {
+      "sha256": "0dd8509dbcae0934b5d7a7b5b9082fe4301f21072800fb369e394f44922e7150",
+      "bytes": 161487
+    },
+    "articulated-lod0.glb": {
+      "sha256": "c2d6747da2eb817fff7c78e8fe6e32839146d74ebdbdb1bdc41e03c9d2da9967",
+      "bytes": 1703820
+    },
+    "articulated-lod1.glb": {
+      "sha256": "8866284950eba6648dfa300231f3f7fb92428889d39490a39bca24b7a14aced2",
+      "bytes": 1294204
+    },
+    "articulated-lod2.glb": {
+      "sha256": "cd2751d589d25d54d8a131f364c12eba2738c191090c97459a0495d20576d995",
+      "bytes": 129192
+    },
+    "articulation-manifest.json": {
+      "sha256": "a7966ea4e1aebdf4ea53fd9f35650bca09d84d23f4487506f3b295ef8d1132bd",
+      "bytes": 2443
+    },
+    "blender-manifest.json": {
+      "sha256": "331eccfca099eef34d54159f7a4a49e40223702322b61c24681251e79a05dc1f",
+      "bytes": 3002
+    },
+    "contact.png": {
+      "sha256": "43c7dabe3760fa56cb808255825444facff4a43cbf5cff99b6e825cc2f2399d1",
+      "bytes": 158314
+    },
+    "geometry-manifest.json": {
+      "sha256": "d34ad687980970d175a951360a7d80d13bde23af08e170f4f3118d51515b2034",
+      "bytes": 3737
+    },
+    "godot-front.png": {
+      "sha256": "b800d2812b12b09d62b02e7f5b71cf572fac1943f6a3dfe8e75d29fab055c06e",
+      "bytes": 18536
+    },
+    "godot-lod1-front.png": {
+      "sha256": "cbac208e673923533fc7dfa74e29769af321ff84c525f013da5fb44f93fd9de3",
+      "bytes": 18842
+    },
+    "godot-lod1-orbit.png": {
+      "sha256": "8a1fa7622e78cef6e50e186348be5079e49d57d5c0a76fe00c6ccaa04cedb288",
+      "bytes": 47026
+    },
+    "godot-lod1-side.png": {
+      "sha256": "4e4c171f3ad79b32e2fc4b8a04fbec79d3fcd8894dfff4063096655b26011022",
+      "bytes": 23144
+    },
+    "godot-lod1-top.png": {
+      "sha256": "3b252d37e20263022531b64d22095119ec7d0320586eff82bbf296b2540ffbde",
+      "bytes": 64865
+    },
+    "godot-lod2-front.png": {
+      "sha256": "741f02730d7b1d6c7e970329b2a5535d140162273a469dd3a56c106d7bd0ee25",
+      "bytes": 8451
+    },
+    "godot-lod2-orbit.png": {
+      "sha256": "8219492d036b6517a79c5cb13aaf76d8c39f7587d3ea28938ac5638021fb2fa6",
+      "bytes": 19165
+    },
+    "godot-lod2-side.png": {
+      "sha256": "bd87e9b8976956a76489ba859774cc62c78b18fd1eb4edfbfa27a344234502c4",
+      "bytes": 8539
+    },
+    "godot-lod2-top.png": {
+      "sha256": "b613cabf1b44083b7dda2872342997417450b9cdf0a7504add1c9cb225e7c732",
+      "bytes": 19062
+    },
+    "godot-preview.png": {
+      "sha256": "3ac52e65a84da0f62aee06e2bedda63f30ab81742cf0c915aab7b9bb340e0967",
+      "bytes": 44414
+    },
+    "godot-side.png": {
+      "sha256": "1bb0a7861bdd1f66fac8539d8c284fd1a3f996e5bf686a438a0a328f99d3a0cd",
+      "bytes": 21648
+    },
+    "godot-top.png": {
+      "sha256": "28ec0ed98c5c6ffaaf0c2176af2bdcbd12ca7a6cbbd38185de4a6753d38e2d07",
+      "bytes": 58784
+    },
+    "godot-validation.json": {
+      "sha256": "77d42f5f955cb63782dfa2857c7204d582762c7f4c015afb64d6fcf15a09ed9b",
+      "bytes": 2127
+    },
+    "inference-evidence.json": {
+      "sha256": "33ec72be5bf442e68c47d1349532b8ebeb09ce28c0cee480dea1b53f638d9a8e",
+      "bytes": 282
+    },
+    "lod0.glb": {
+      "sha256": "90ea99773bc33a81defdd4e42b7ef3ed336ded485530efd9fb41c12c42f41115",
+      "bytes": 1693516
+    },
+    "lod1.glb": {
+      "sha256": "a3e10a44cbd6bcae9112cdff19d0b4f54bddf517fe202fbedb03278aa1ca119a",
+      "bytes": 1268284
+    },
+    "lod2.glb": {
+      "sha256": "51ef675522bf023326aa740a04c1be66321e5d7786d103faf8e695245c1ed9a1",
+      "bytes": 115520
+    },
+    "optimized.glb": {
+      "sha256": "297f0ed3d7788dda0a20cf0551e30d21904e9213ae35f554e2947c1118a0bc7e",
+      "bytes": 2069536
+    },
+    "original.glb": {
+      "sha256": "a454a1c6e7e9f38353bcee84ae02f76c59bfea6ca5ce09a82ec16e344dcf3b43",
+      "bytes": 3993908
+    },
+    "preview.png": {
+      "sha256": "99b432ce753f4312824845e205fb63fd2f09280d1683c0f43d606e62ce23ec77",
+      "bytes": 129108
+    },
+    "provenance.json": {
+      "sha256": "b619ea183b4d7c4496d87e8cfef6d059feb39f7bfb4c85c41c01866eab674dcd",
+      "bytes": 8705
+    },
+    "sweep-candidate-validation.json": {
+      "sha256": "fa2413ecfe920b45251e244fc1ca1d024130608179120681e917db50436de337",
+      "bytes": 9089
+    },
+    "sweep-lod0-pose0-front.png": {
+      "sha256": "05aa0d404d56409c0e664b6bd9128c7ad34b5ebcfc353dfaeca964ead693acfc",
+      "bytes": 17431
+    },
+    "sweep-lod0-pose0-orbit.png": {
+      "sha256": "84bb71fa2442db725a7c21b26ca5718f2ad42e83e48046bcfc014c25b363ed14",
+      "bytes": 43864
+    },
+    "sweep-lod0-pose0-top.png": {
+      "sha256": "572787c5ea60e15a0818e45fcc8595040adbc71da38d39ab83956559a5a49746",
+      "bytes": 70965
+    },
+    "sweep-lod0-pose1-front.png": {
+      "sha256": "c97509ce8dfff91984027193417f44063414737cef67b434211c45687a012089",
+      "bytes": 17974
+    },
+    "sweep-lod0-pose1-orbit.png": {
+      "sha256": "e7352a4308439ff3e98f3268f74e843f14b3b4e0c76f72398bb66699639113a2",
+      "bytes": 41709
+    },
+    "sweep-lod0-pose1-top.png": {
+      "sha256": "f1845f7d08b1ac0a4b8ba841e8a6b169753dbe04e007c40344426051bd0fbade",
+      "bytes": 70514
+    },
+    "sweep-lod0-pose2-front.png": {
+      "sha256": "d473b18a002d46f69ee7787b2d910ad11f41ad3a2452fb9ea8096d912194e3ce",
+      "bytes": 17169
+    },
+    "sweep-lod0-pose2-orbit.png": {
+      "sha256": "24a5e1961e30d67d109a7186828fd57f05e309fda0d096df4c1655a5c6872518",
+      "bytes": 40542
+    },
+    "sweep-lod0-pose2-top.png": {
+      "sha256": "59d679b232b581a3c1ef4a6e00363a11a6a5c7c74f8112cad0be07263927ac33",
+      "bytes": 65676
+    },
+    "sweep-lod1-pose0-front.png": {
+      "sha256": "d70ee8b5875f64e743bf9d55bc1fca8b75e722abe66485ad68574f4e0bcb515f",
+      "bytes": 17883
+    },
+    "sweep-lod1-pose0-orbit.png": {
+      "sha256": "15b72563db30c1bfded3731497edd3f7219c42a76db51d61a9009445e50484f5",
+      "bytes": 46501
+    },
+    "sweep-lod1-pose0-top.png": {
+      "sha256": "67c43bc88a3fb772477d7ca9ec2e158c1f2699e0b87198225d0ffa8e3f7bb780",
+      "bytes": 78262
+    },
+    "sweep-lod1-pose1-front.png": {
+      "sha256": "4cce0ed7d8d1e2969b7ae044d2726de5367fc3e15cdaea344661c8d2f2a5834b",
+      "bytes": 18263
+    },
+    "sweep-lod1-pose1-orbit.png": {
+      "sha256": "2b1e14c209b8866f00d0470cd2c80c00607b6ea459ba955a7d8faab21ecee7e1",
+      "bytes": 44109
+    },
+    "sweep-lod1-pose1-top.png": {
+      "sha256": "a20af0c1e0ff05a447269f3831bac16e598d8f9543d8383c51ff867869eaecd7",
+      "bytes": 74065
+    },
+    "sweep-lod1-pose2-front.png": {
+      "sha256": "ea2dc44d1c3ade5b4fcdb07baabc81a6fd0c3f2c1327ae7104fe6de2b7e304d4",
+      "bytes": 17202
+    },
+    "sweep-lod1-pose2-orbit.png": {
+      "sha256": "59a7810bf69dc241b328ec8ee685350f0f418c3454b96177fde6f03877106645",
+      "bytes": 42003
+    },
+    "sweep-lod1-pose2-top.png": {
+      "sha256": "d654cc04de8de92a037037b40900e89ad915b7e544eb37b53a82bc663f15c7ee",
+      "bytes": 68818
+    },
+    "sweep-lod2-pose0-front.png": {
+      "sha256": "d94509211007b95724dabd28f9e5f24f30cff22f62f708f47db45d7b1d1f2ccc",
+      "bytes": 7212
+    },
+    "sweep-lod2-pose0-orbit.png": {
+      "sha256": "6e1dc3a39c5a8947b44f28064bc360f1a1d2e4ec54d63599c1ff7ed13ef7a659",
+      "bytes": 16023
+    },
+    "sweep-lod2-pose0-top.png": {
+      "sha256": "4057792c7675d20c99ce99c850ab48cde93ac745c344e92a16bf668d08bb1e41",
+      "bytes": 20973
+    },
+    "sweep-lod2-pose1-front.png": {
+      "sha256": "bfd563d109770e751990bfc9b2595b1f9f35d5421f4779b2d31bef47a08a357d",
+      "bytes": 7951
+    },
+    "sweep-lod2-pose1-orbit.png": {
+      "sha256": "b86cbef85afb93fdbbbcfcc9488f6151d124b570bb1f66e7619a68e36ae1ad38",
+      "bytes": 15787
+    },
+    "sweep-lod2-pose1-top.png": {
+      "sha256": "344f07f9988fcc45655571635228354fcac20d58181bede03cf106c11cee70f6",
+      "bytes": 22496
+    },
+    "sweep-lod2-pose2-front.png": {
+      "sha256": "525b612357cc1789ad04af4888b18102989db29a49d2bbbf8ad88119cc6e07f4",
+      "bytes": 7642
+    },
+    "sweep-lod2-pose2-orbit.png": {
+      "sha256": "3c14f8cbf014daaf9be6df01f098349efbd9864777a115214db7d6ad98f2d23e",
+      "bytes": 14899
+    },
+    "sweep-lod2-pose2-top.png": {
+      "sha256": "5b4bf681be247e3170e1045c064d2cdf43e0ea780e34756261cf38197f5dfd02",
+      "bytes": 20399
+    },
+    "validation-result.json": {
+      "sha256": "f9f6a01b2023220e98e5d7f53cb2559bbd46de4efefdc01827bb44a4cca972d6",
+      "bytes": 4121
+    }
+  },
+  "verified": true,
+  "generation": {
+    "pipeline_type": "512",
+    "seed": 42,
+    "original_sha256": "a454a1c6e7e9f38353bcee84ae02f76c59bfea6ca5ce09a82ec16e344dcf3b43",
+    "models": {
+      "microsoft/TRELLIS.2-4B": "af44b45f2e35a493886929c6d786e563ec68364d",
+      "microsoft/TRELLIS-image-large": "25e0d31ffbebe4b5a97464dd851910efc3002d96",
+      "facebook/dinov3-vitl16-pretrain-lvd1689m": "ea8dc2863c51be0a264bab82070e3e8836b02d51",
+      "ZhengPeng7/BiRefNet": "e2bf8e4460fc8fa32bba5ea4d94b3233d367b0e4"
+    }
+  },
+  "reference": [
+    {
+      "name": "reference.png",
+      "sha256": "14c4baa2d949e75193aa9149adcb73f45206b60e349220dcb5298f66a75e16b9"
+    }
+  ],
+  "godot_import_tested": true,
+  "asset_id": "f14_candidate_20261117_v1",
+  "source_type": "AI",
+  "godot_import": {
+    "bounds_position": [
+      -9.75,
+      0.0,
+      -9.55000019073486
+    ],
+    "dimensions": [
+      19.5,
+      4.90000009536743,
+      19.1000003814697
+    ],
+    "dimensions_ok": true,
+    "display": "macOS",
+    "engine": {
+      "build": "official",
+      "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+      "hex": 263938,
+      "major": 4,
+      "minor": 7,
+      "patch": 2,
+      "status": "stable",
+      "string": "4.7.2-stable (official)",
+      "timestamp": 0
+    },
+    "import_passed": true,
+    "lod_triangles": [
+      19264,
+      5964,
+      1468
+    ],
+    "meshes": [
+      {
+        "degenerate_triangles": 0,
+        "materials": 1,
+        "name": "COLLISION_BOX",
+        "nonfinite_normals": 0,
+        "nonfinite_vertices": 0,
+        "surfaces": 1,
+        "textures": 0,
+        "triangles": 12
+      },
+      {
+        "degenerate_triangles": 0,
+        "materials": 1,
+        "name": "LOD0",
+        "nonfinite_normals": 0,
+        "nonfinite_vertices": 0,
+        "surfaces": 1,
+        "textures": 1,
+        "triangles": 19264
+      },
+      {
+        "degenerate_triangles": 0,
+        "materials": 1,
+        "name": "LOD1",
+        "nonfinite_normals": 0,
+        "nonfinite_vertices": 0,
+        "surfaces": 1,
+        "textures": 1,
+        "triangles": 5964
+      },
+      {
+        "degenerate_triangles": 0,
+        "materials": 1,
+        "name": "LOD2",
+        "nonfinite_normals": 0,
+        "nonfinite_vertices": 0,
+        "surfaces": 1,
+        "textures": 0,
+        "triangles": 1468
+      }
+    ],
+    "pivot_ok": true,
+    "preview_files": [
+      "godot-preview.png",
+      "godot-top.png",
+      "godot-front.png",
+      "godot-side.png",
+      "godot-lod1-orbit.png",
+      "godot-lod1-top.png",
+      "godot-lod1-front.png",
+      "godot-lod1-side.png",
+      "godot-lod2-orbit.png",
+      "godot-lod2-top.png",
+      "godot-lod2-front.png",
+      "godot-lod2-side.png"
+    ],
+    "preview_rendered": true,
+    "mesh_compression_disabled": false,
+    "explicit_lods_preserved": true,
+    "validator_files_sha256": {
+      "workers/assets/godot_validate.py": "dbd2430432f9ae6df25ecf37761e433eb2eea2e2af6e0467a0f7bb3cdfe303bb",
+      "workers/assets/godot_validate.gd": "927fe87a667b03f4b57f199dcb61be6a5a91cacf82dbf477e6c69c5274ff9a0f"
+    }
+  },
+  "pipeline_verified": true,
+  "production_accepted": false,
+  "verification_scope": "Original static TRELLIS/Blender/Godot pipeline plus separate authored articulated assembly checks; not production acceptance",
+  "articulated_assembly": {
+    "manifest": "articulation-manifest.json",
+    "validation": "sweep-candidate-validation.json",
+    "provenance": "provenance.json",
+    "planned_only": true,
+    "worst_case_assembly_triangles": [
+      19314,
+      6675,
+      1859
+    ],
+    "body_panels_gloves_triangles": [
+      19202,
+      6563,
+      1859
+    ]
+  }
+}

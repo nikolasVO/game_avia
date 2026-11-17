@@ -81,5 +81,16 @@
     "closed_drag_ratio": 0.82,
     "closed_control_ratio": 0.84,
     "notice": "Authored automatic arcade schedule; not a real F14 flight/control envelope. Physical sweep lags the deterministic target cosmetically."
+  },
+  "visual": {
+    "scene": "res://assets/f14_ai_lod0.glb",
+    "articulated_lods": [
+      "res://assets/f14_ai_lod0.glb",
+      "res://assets/f14_ai_lod1.glb",
+      "res://assets/f14_ai_lod2.glb"
+    ],
+    "offset_y_m": -1.37,
+    "provenance": "assets/catalog/f14_candidate_20261117_v1/provenance.json",
+    "status": "planned-only articulated AI candidate; recognition/mobile/full acceptance pending"
   }
 }

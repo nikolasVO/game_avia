@@ -14,9 +14,30 @@ static func create_spec(spec: Dictionary, use_imported: bool=false) -> AviaAircr
  var delta: bool=str(g.planform).contains("delta");var canard: bool=str(g.planform).contains("canard")
  var imported: bool=use_imported and spec.has("visual") and ResourceLoader.exists(str(spec.visual.scene))
  if imported:
-  var body: Node3D=AviaCatalogProp.build(load(str(spec.visual.scene)) as PackedScene)
+  var body: Node3D
+  if spec.visual.has("articulated_lods"):
+   body=Node3D.new()
+   for path: String in spec.visual.articulated_lods:
+    var tier: Node3D=AviaCatalogProp.build(load(path) as PackedScene);body.add_child(tier)
+    for panel: Node in tier.find_children("*Wing*","MeshInstance3D",true,false):
+     root.sweep_wings.append(panel);root.sweep_sides.append(-1.0 if str(panel.name).contains("Left") else 1.0)
+  else:body=AviaCatalogProp.build(load(str(spec.visual.scene)) as PackedScene)
   body.name="AIModel";body.position.y=float(spec.visual.offset_y_m);root.add_child(body)
   root.airframe_source="AI candidate with procedural landing gear/effects; production QA pending"
+  if spec.visual.has("articulated_lods"):
+   # Authored glove covers the cut pivot seam throughout travel, never a static wing.
+   for lod: int in 3:
+    var glove: SurfaceTool=SurfaceTool.new();glove.begin(Mesh.PRIMITIVE_TRIANGLES)
+    for side: float in [-1.0,1.0]:
+     var center: Vector3=Vector3(side*float(g.sweep_pivot_x_m),-.08,float(g.sweep_pivot_z_m))
+     for segment: int in 12:
+      var a: float=TAU*segment/12.0;var b: float=TAU*(segment+1)/12.0
+      var pa: Vector3=Vector3(cos(a)*1.1,0,sin(a)*2.35);var pb: Vector3=Vector3(cos(b)*1.1,0,sin(b)*2.35)
+      AviaAircraft._face(glove,[center+Vector3(0,.10,0),center+pa+Vector3(0,.10,0),center+pb+Vector3(0,.10,0)],color,Vector3.UP)
+      AviaAircraft._face(glove,[center-Vector3(0,.10,0),center+pb-Vector3(0,.10,0),center+pa-Vector3(0,.10,0)],color,Vector3.DOWN)
+      AviaAircraft._face(glove,[center+pa-Vector3(0,.10,0),center+pb-Vector3(0,.10,0),center+pb+Vector3(0,.10,0),center+pa+Vector3(0,.10,0)],color,Vector3(cos(a),0,sin(a)))
+    AviaAircraft._mesh(glove,root,"PivotGloveLOD"+str(lod),[0,350,900][lod],[350,900,2500][lod])
+   root.airframe_source="Articulated AI candidate with authored pivot gloves/gear/effects; production QA pending"
  for lod: int in (0 if imported else 3):
   var st: SurfaceTool=SurfaceTool.new();st.begin(Mesh.PRIMITIVE_TRIANGLES)
   var sides: int=8 if lod==0 else 6 if lod==1 else 4
