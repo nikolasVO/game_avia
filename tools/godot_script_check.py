@@ -4,7 +4,7 @@ import argparse,json,subprocess
 from pathlib import Path
 p=argparse.ArgumentParser();p.add_argument('--godot',required=True);p.add_argument('--out',type=Path,required=True);a=p.parse_args();a.out.mkdir(parents=True,exist_ok=True)
 project=Path(__file__).resolve().parents[1]/'game/avia';results=[]
-for script in ['flight_check','fighter_check','fighter_geometry_check']:
+for script in ['flight_check','fighter_check','fighter_geometry_check','fighter_circuit_check']:
  r=subprocess.run([a.godot,'--headless','--path',str(project),'--script',f'res://tests/{script}.gd'],text=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,timeout=60)
  (a.out/(script+'.log')).write_text(r.stdout)
  events=[]

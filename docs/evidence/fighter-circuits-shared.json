@@ -1,0 +1,152 @@
+{
+  "status": "PASS",
+  "scope": "six actual shared30Hz simulations from parked spawn to full circuit, configured final approach, touchdown and stop using only development-pilot inputs; not network/human/device acceptance",
+  "measured_force_source": "f702b8129415bd40eca81b1d505b96dae4523283",
+  "results": [
+    {
+      "aircraft_id": "f16c",
+      "crashed": false,
+      "final_position": "(9.492247, 1.4, -58.02941)",
+      "final_speed_mps": 1.94517433643341,
+      "landing_seconds": 160.366666666667,
+      "max_bank_rad": 1.27915695162956,
+      "stage": 4,
+      "status": "PASS",
+      "takeoff_seconds": 2.13333333333333
+    },
+    {
+      "aircraft_id": "su27",
+      "crashed": false,
+      "final_position": "(10.88243, 1.4, -105.5562)",
+      "final_speed_mps": 1.94914948940277,
+      "landing_seconds": 158.466666666667,
+      "max_bank_rad": 1.37640257601112,
+      "stage": 4,
+      "status": "PASS",
+      "takeoff_seconds": 2.4
+    },
+    {
+      "aircraft_id": "f15c",
+      "crashed": false,
+      "final_position": "(13.40419, 1.4, -130.6724)",
+      "final_speed_mps": 1.90066754817963,
+      "landing_seconds": 156.566666666667,
+      "max_bank_rad": 1.37427175870301,
+      "stage": 4,
+      "status": "PASS",
+      "takeoff_seconds": 2.26666666666667
+    },
+    {
+      "aircraft_id": "su35s",
+      "crashed": false,
+      "final_position": "(9.869051, 1.4, -51.48325)",
+      "final_speed_mps": 1.93544411659241,
+      "landing_seconds": 159.266666666667,
+      "max_bank_rad": 1.40626243064665,
+      "stage": 4,
+      "status": "PASS",
+      "takeoff_seconds": 1.66666666666667
+    },
+    {
+      "aircraft_id": "rafale",
+      "crashed": false,
+      "final_position": "(9.142431, 1.4, -15.1034)",
+      "final_speed_mps": 1.9692919254303,
+      "landing_seconds": 162.033333333333,
+      "max_bank_rad": 1.33342508819405,
+      "stage": 4,
+      "status": "PASS",
+      "takeoff_seconds": 2.06666666666667
+    },
+    {
+      "aircraft_id": "gripen",
+      "crashed": false,
+      "final_position": "(9.208413, 1.4, 12.78692)",
+      "final_speed_mps": 1.89983153343201,
+      "landing_seconds": 162.633333333333,
+      "max_bank_rad": 1.26979064900273,
+      "stage": 4,
+      "status": "PASS",
+      "takeoff_seconds": 2.03333333333333
+    }
+  ],
+  "previous_failure": {
+    "status": "FAIL",
+    "cause": "generic pilot aimed too late, F15C touched down but overran runway; no force/terrain/acceptance threshold changes",
+    "results": [
+      {
+        "aircraft_id": "f16c",
+        "crashed": false,
+        "final_position": "(10.18198, 1.4, -273.3337)",
+        "final_speed_mps": 1.94308841228485,
+        "landing_seconds": 163.333333333333,
+        "max_bank_rad": 1.27915695162956,
+        "stage": 4,
+        "status": "PASS",
+        "takeoff_seconds": 2.13333333333333
+      },
+      {
+        "aircraft_id": "su27",
+        "crashed": false,
+        "final_position": "(10.20962, 1.4, -316.8413)",
+        "final_speed_mps": 1.94808709621429,
+        "landing_seconds": 161.166666666667,
+        "max_bank_rad": 1.37640257601112,
+        "stage": 4,
+        "status": "PASS",
+        "takeoff_seconds": 2.4
+      },
+      {
+        "aircraft_id": "f15c",
+        "crashed": true,
+        "final_position": "(11.73434, 0.270369, -337.9917)",
+        "final_speed_mps": 0.0,
+        "landing_seconds": 159.133333333333,
+        "max_bank_rad": 1.37427175870301,
+        "stage": 4,
+        "status": "FAIL",
+        "takeoff_seconds": 2.26666666666667
+      },
+      {
+        "aircraft_id": "su35s",
+        "crashed": false,
+        "final_position": "(10.0198, 1.4, -267.3856)",
+        "final_speed_mps": 1.93385541439056,
+        "landing_seconds": 162.266666666667,
+        "max_bank_rad": 1.40626243064665,
+        "stage": 4,
+        "status": "PASS",
+        "takeoff_seconds": 1.66666666666667
+      },
+      {
+        "aircraft_id": "rafale",
+        "crashed": false,
+        "final_position": "(11.27316, 1.4, -237.6554)",
+        "final_speed_mps": 1.96710133552551,
+        "landing_seconds": 165.3,
+        "max_bank_rad": 1.33342508819405,
+        "stage": 4,
+        "status": "PASS",
+        "takeoff_seconds": 2.06666666666667
+      },
+      {
+        "aircraft_id": "gripen",
+        "crashed": false,
+        "final_position": "(11.86394, 1.4, -207.2603)",
+        "final_speed_mps": 1.8980633020401,
+        "landing_seconds": 166.0,
+        "max_bank_rad": 1.26979064900273,
+        "stage": 4,
+        "status": "PASS",
+        "takeoff_seconds": 2.03333333333333
+      }
+    ]
+  },
+  "correction": "pilot glide path now aims first third atZ+120, rather than beyond runway center; wider margin for heavier/faster approach",
+  "hashes": {
+    "game/avia/tests/circuit_pilot.gd": "5646848a78b1a653dae8dcdcbb12f86d5db739daebb2f654ebaad6317a00f2e6",
+    "game/avia/tests/fighter_circuit_check.gd": "1a9e6da765c34bfdf41d689d16de03b5cb240625cef1f2618470044cf2bff5e1",
+    "game/avia/shared/fighter.gd": "367fb14c6d019a86dda887607bd41cf6839c3561c5b8c8d2619a1640b52e2f32"
+  },
+  "network_harness": "written/compiled; real native6-client circuit verification pending"
+}
