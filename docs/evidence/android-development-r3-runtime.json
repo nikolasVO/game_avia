@@ -1,0 +1,255 @@
+{
+  "status": "PASS tested emulator scenario",
+  "error": null,
+  "commit": "46427c0a8ea8cec35681d8c627b2e1271fab4699",
+  "apk_sha256": "bd62d94d5525236cf987198694db743f16d94e2a7009467c281b34dd8eed9135",
+  "summary": {
+    "commands_sent": 3421,
+    "connection_status": "Connected",
+    "correction_max_m": 17.5024757385254,
+    "correction_p95_m": 0.00531435385346413,
+    "enet_rtt_ms": 139.0,
+    "event": "summary",
+    "frame_p50_ms": 33.913,
+    "frame_p95_ms": 98.615,
+    "joined": true,
+    "last_input_ack": 2708,
+    "pending_inputs": 10,
+    "rejected": 0,
+    "renderer": "gl_compatibility",
+    "seconds": 120.099999999998,
+    "seen_peers": 2,
+    "server": false,
+    "snapshots": 1850,
+    "state": {
+      "afterburner": true,
+      "age": 2803,
+      "airbrake": false,
+      "crashed": true,
+      "distance": 6140.357421875,
+      "flaps": true,
+      "gear": false,
+      "grounded": false,
+      "health": 0.0,
+      "landed": false,
+      "p": "(37.37437, 1223.031, -5500.9)",
+      "pitch": 0.0250000339001417,
+      "plane": 6,
+      "profile": 0,
+      "rates": "(0.0, 0.0, 0.0)",
+      "respawns": 0,
+      "roll": 0.0,
+      "v": "(0.0, 0.0, 0.0)",
+      "was_airborne": true,
+      "yaw": 0.0
+    },
+    "static_memory_mb": 51.6401386260986,
+    "wall_seconds": 144.55
+  },
+  "welcome_aircraft": [
+    6,
+    6
+  ],
+  "own_peer_ids": [
+    217552607,
+    491276144
+  ],
+  "authoritative_own_samples": 250,
+  "airborne_samples": 85,
+  "gear_up_samples": 204,
+  "afterburner_samples": 193,
+  "flaps_samples": 230,
+  "recovery_markers": [
+    "11-17 21:04:12.587  1829  1860 I GLThread: GAME_AVIA_SURFACE_RECOVERY 1->2"
+  ],
+  "runtime_log_sha256": "42ebf277a2d8af0dc0b301aa67b4444569878f815450bc69516b7177d91dbf2c",
+  "harness_wall_s": 183.592,
+  "adb_actions": [
+    {
+      "command": [
+        "shell",
+        "am"
+      ],
+      "wall_s": 0.34
+    },
+    {
+      "command": [
+        "shell",
+        "run-as"
+      ],
+      "wall_s": 0.446
+    },
+    {
+      "command": [
+        "shell",
+        "am"
+      ],
+      "wall_s": 0.606
+    },
+    {
+      "command": [
+        "shell",
+        "input"
+      ],
+      "wall_s": 0.54
+    },
+    {
+      "command": [
+        "shell",
+        "input"
+      ],
+      "wall_s": 0.718
+    },
+    {
+      "command": [
+        "shell",
+        "input"
+      ],
+      "wall_s": 6.544
+    },
+    {
+      "command": [
+        "shell",
+        "input"
+      ],
+      "wall_s": 0.182
+    },
+    {
+      "command": [
+        "shell",
+        "input"
+      ],
+      "wall_s": 0.181
+    },
+    {
+      "command": [
+        "exec-out",
+        "screencap"
+      ],
+      "wall_s": 0.657
+    },
+    {
+      "command": [
+        "shell",
+        "input"
+      ],
+      "wall_s": 0.233
+    },
+    {
+      "command": [
+        "shell",
+        "input"
+      ],
+      "wall_s": 5.212
+    },
+    {
+      "command": [
+        "pull",
+        "/sdcard/game-avia-r3-flight.mp4"
+      ],
+      "wall_s": 0.072
+    },
+    {
+      "command": [
+        "shell",
+        "input"
+      ],
+      "wall_s": 0.182
+    },
+    {
+      "command": [
+        "shell",
+        "am"
+      ],
+      "wall_s": 0.181
+    },
+    {
+      "command": [
+        "exec-out",
+        "screencap"
+      ],
+      "wall_s": 0.603
+    },
+    {
+      "command": [
+        "shell",
+        "input"
+      ],
+      "wall_s": 0.23
+    },
+    {
+      "command": [
+        "shell",
+        "input"
+      ],
+      "wall_s": 0.23
+    },
+    {
+      "command": [
+        "shell",
+        "input"
+      ],
+      "wall_s": 0.231
+    },
+    {
+      "command": [
+        "shell",
+        "input"
+      ],
+      "wall_s": 6.246
+    },
+    {
+      "command": [
+        "shell",
+        "input"
+      ],
+      "wall_s": 0.181
+    },
+    {
+      "command": [
+        "shell",
+        "input"
+      ],
+      "wall_s": 0.178
+    },
+    {
+      "command": [
+        "exec-out",
+        "screencap"
+      ],
+      "wall_s": 0.764
+    }
+  ],
+  "scope": "fresh owned host-GPU emulator, current PID recorded separately, existing AVD data, no simultaneous local Godot import/export/Gradle during runtime; separate Mac authoritative server and Gripen C bot (plane8); not phone, human landing, physical multitouch, public UDP or full aircraft acceptance",
+  "metadata_correction": "Peer label corrected from inherited F16 caption; actual harness and authority peer plane8. No runtime rerun.",
+  "acceptance": {
+    "emulator_scenario": "passed",
+    "30fps": "failed",
+    "physical_android": "not_verified",
+    "ios": "blocked_no_xcode_provisioning",
+    "public_udp": "not_verified",
+    "full_aircraft": "not_accepted"
+  },
+  "video": {
+    "programs": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "r_frame_rate": "90000/1"
+      },
+      {
+        "r_frame_rate": "0/0"
+      },
+      {
+        "r_frame_rate": "0/0"
+      }
+    ],
+    "format": {
+      "duration": "15.041900",
+      "size": "521155"
+    },
+    "sha256": "51be2cac228a340bd2320b5046875b0d7f2fcb4def40dffca5c80725e6251027"
+  }
+}

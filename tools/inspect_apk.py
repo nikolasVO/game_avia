@@ -12,7 +12,13 @@ with zipfile.ZipFile(a.apk) as z:
   for i in range(count):
    offset=phoff+i*entry_size;kind=struct.unpack_from(end+'I',data,offset)[0]
    if kind==1:aligns.append(struct.unpack_from(end+'Q',data,offset+48)[0])
-  libs.append({'path':name,'load_alignments':aligns,'16kb_elf_alignment':all(n>=16384 for n in aligns)})
- prohibited=[n for n in z.namelist() if any(x in n.lower() for x in ['.keystore','.sqlite3','.env','private.key','/models/','trellis'])]
- result={'artifact':a.apk.name,'bytes':a.apk.stat().st_size,'sha256':hashlib.sha256(a.apk.read_bytes()).hexdigest(),'native_libraries':libs,'prohibited_paths':prohibited,'status':'PASS' if all(x['16kb_elf_alignment'] for x in libs) and not prohibited else 'FAIL','scope':'Static ELF LOAD alignment and package path inspection; not 16KB device runtime'}
+  libs.append({'path':name,'load_alignments':aligns,'16kb_elf_alignment':bool(aligns) and all(n>=16384 and n & (n-1)==0 for n in aligns)})
+ # A TRELLIS-produced game mesh is allowed; model weights/keys/databases are not.
+ prohibited=[]
+ for name in z.namelist():
+  path=Path(name.lower())
+  if (path.suffix in ('.keystore','.jks','.key','.p12','.pfx','.sqlite3','.sqlite','.db','.safetensors','.pt','.pth','.ckpt','.onnx','.pkl') or path.name=='.env' or path.name.startswith('.env.') or '.git' in path.parts):prohibited.append(name)
+ result={'artifact':a.apk.name,'bytes':a.apk.stat().st_size,'sha256':hashlib.sha256(a.apk.read_bytes()).hexdigest(),'native_libraries':libs,'prohibited_paths':prohibited,'status':'PASS' if libs and all(x['16kb_elf_alignment'] for x in libs) and not prohibited else 'FAIL','scope':'Static ELF LOAD alignment and package path inspection; not 16KB device runtime'}
 a.out.write_text(json.dumps(result,indent=2)+'\n');print(json.dumps(result,indent=2))
+
+raise SystemExit(0 if result["status"]=="PASS" else 1)

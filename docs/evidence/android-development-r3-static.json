@@ -1,0 +1,155 @@
+{
+  "artifacts": [
+    {
+      "target": "apk",
+      "source": "46427c0a8ea8cec35681d8c627b2e1271fab4699",
+      "sha256": "bd62d94d5525236cf987198694db743f16d94e2a7009467c281b34dd8eed9135",
+      "bytes": 76975815,
+      "signature": "existing external debug key",
+      "source_files_matched_git": 151,
+      "lfs_oids_matched": 24,
+      "native_libraries": {
+        "lib/arm64-v8a/libc++_shared.so": "c4c2fe5cbcb1fba0003a31fc7ab29a9bb12df6cc187ec45a806462540e83d93b",
+        "lib/arm64-v8a/libgodot_android.so": "6517cb725565b0b3f009e6a559d8c0a5f66093384a6f48b5d18e2dc0998e1159",
+        "lib/x86_64/libc++_shared.so": "683a1c7cd2f6829fd40bf805739166c5fce35235bf60d2c4e4a95e9f65a342ef",
+        "lib/x86_64/libgodot_android.so": "7a103707ecbf1d24a053f59b90ddcd9945f4524e9ebbe87d513e0d60eff80443"
+      }
+    },
+    {
+      "target": "aab",
+      "source": "46427c0a8ea8cec35681d8c627b2e1271fab4699",
+      "sha256": "aeebd792587bc02f0d74535b72c8fa8f813b9aef11dc877d48192516c06856c2",
+      "bytes": 66634918,
+      "signature": "unsigned; no release key configured",
+      "source_files_matched_git": 151,
+      "lfs_oids_matched": 24,
+      "native_libraries": {
+        "base/lib/arm64-v8a/libc++_shared.so": "c4c2fe5cbcb1fba0003a31fc7ab29a9bb12df6cc187ec45a806462540e83d93b",
+        "base/lib/arm64-v8a/libgodot_android.so": "6b1cbfa830c7f6addec89bb5a4a444be53b3527472668fede03ca8637e040198",
+        "base/lib/x86_64/libc++_shared.so": "683a1c7cd2f6829fd40bf805739166c5fce35235bf60d2c4e4a95e9f65a342ef",
+        "base/lib/x86_64/libgodot_android.so": "7ce311ee6319c21d11740c29d636720ab219db13c7d17de4847fb6dd778e860f"
+      }
+    }
+  ],
+  "static_validation": {
+    "status": "PASS build/static only",
+    "source": "46427c0a8ea8cec35681d8c627b2e1271fab4699",
+    "checks": {
+      "apk_signature": {
+        "exit": 0,
+        "output": [
+          "Verifies",
+          "Verified using v1 scheme (JAR signing): false",
+          "Verified using v2 scheme (APK Signature Scheme v2): true",
+          "Verified using v3 scheme (APK Signature Scheme v3): false",
+          "Verified using v3.1 scheme (APK Signature Scheme v3.1): false",
+          "Verified using v4 scheme (APK Signature Scheme v4): false",
+          "Verified for SourceStamp: false",
+          "Number of signers: 1"
+        ]
+      },
+      "apk_zipalign": {
+        "exit": 0,
+        "output": "actual validator exit0; full output retained locally"
+      },
+      "aab_bundletool": {
+        "exit": 0,
+        "output": "actual validator exit0; full output retained locally"
+      },
+      "aab_unsigned_signature_entries": [],
+      "apk_elf_and_paths": {
+        "artifact": "game-avia-surface-debug.apk",
+        "bytes": 76975815,
+        "sha256": "bd62d94d5525236cf987198694db743f16d94e2a7009467c281b34dd8eed9135",
+        "native_libraries": [
+          {
+            "path": "lib/arm64-v8a/libc++_shared.so",
+            "load_alignments": [
+              16384,
+              16384,
+              16384
+            ],
+            "16kb_elf_alignment": true
+          },
+          {
+            "path": "lib/arm64-v8a/libgodot_android.so",
+            "load_alignments": [
+              16384,
+              16384,
+              16384
+            ],
+            "16kb_elf_alignment": true
+          },
+          {
+            "path": "lib/x86_64/libc++_shared.so",
+            "load_alignments": [
+              16384,
+              16384,
+              16384
+            ],
+            "16kb_elf_alignment": true
+          },
+          {
+            "path": "lib/x86_64/libgodot_android.so",
+            "load_alignments": [
+              16384,
+              16384,
+              16384
+            ],
+            "16kb_elf_alignment": true
+          }
+        ],
+        "prohibited_paths": [],
+        "status": "PASS",
+        "scope": "Static ELF LOAD alignment and package path inspection; not 16KB device runtime"
+      },
+      "aab_elf_and_paths": {
+        "artifact": "game-avia-surface-unsigned.aab",
+        "bytes": 66634918,
+        "sha256": "aeebd792587bc02f0d74535b72c8fa8f813b9aef11dc877d48192516c06856c2",
+        "native_libraries": [
+          {
+            "path": "base/lib/arm64-v8a/libc++_shared.so",
+            "load_alignments": [
+              16384,
+              16384,
+              16384
+            ],
+            "16kb_elf_alignment": true
+          },
+          {
+            "path": "base/lib/arm64-v8a/libgodot_android.so",
+            "load_alignments": [
+              16384,
+              16384,
+              16384
+            ],
+            "16kb_elf_alignment": true
+          },
+          {
+            "path": "base/lib/x86_64/libc++_shared.so",
+            "load_alignments": [
+              16384,
+              16384,
+              16384
+            ],
+            "16kb_elf_alignment": true
+          },
+          {
+            "path": "base/lib/x86_64/libgodot_android.so",
+            "load_alignments": [
+              16384,
+              16384,
+              16384
+            ],
+            "16kb_elf_alignment": true
+          }
+        ],
+        "prohibited_paths": [],
+        "status": "PASS",
+        "scope": "Static ELF LOAD alignment and package path inspection; not 16KB device runtime"
+      }
+    },
+    "limits": "Static validators passed. Emulator runtime is reported separately; no phone/16KB runtime/release signing/iOS acceptance."
+  }
+}

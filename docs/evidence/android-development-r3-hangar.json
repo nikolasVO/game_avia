@@ -1,0 +1,44 @@
+{
+  "source": "46427c0a8ea8cec35681d8c627b2e1271fab4699",
+  "apk_sha256": "bd62d94d5525236cf987198694db743f16d94e2a7009467c281b34dd8eed9135",
+  "status": "PASS recorded emulator visual review",
+  "actions": [
+    {
+      "aircraft": "f16c",
+      "dropdown_y": 236,
+      "png_sha256": "684ef1d0c2ac9bfa9e53cbc58d1f01e90194b26a645f9d8975f24e9bf4416ddf"
+    },
+    {
+      "aircraft": "su27",
+      "dropdown_y": 270,
+      "png_sha256": "548be7f98f999bdc3614ea156a1fc5aff09967725367932ee5b8e4860f09d62f"
+    },
+    {
+      "aircraft": "f15c",
+      "dropdown_y": 304,
+      "png_sha256": "e806aa5751f24e7eea7049a2eaacef324c8184328e33b9253a00dec529c574ac"
+    },
+    {
+      "aircraft": "su35s",
+      "dropdown_y": 338,
+      "png_sha256": "786e25eafdab0a58e23457e395d52d0d7fe381e884ca30f5e12fcca110711f38"
+    },
+    {
+      "aircraft": "rafale",
+      "dropdown_y": 372,
+      "png_sha256": "700ff0eab38c19d054433fd11521edfa7343006e94ddac550a6927a8916611f8"
+    },
+    {
+      "aircraft": "gripen",
+      "dropdown_y": 406,
+      "png_sha256": "db21231a3929bec8fecf29d09320cb8af9e1bf235c0258b08cc8f0bcec23eba5"
+    }
+  ],
+  "observed": [
+    "six selected AI candidate bodies render with visible landing gear and comparison values",
+    "Gripen drag changes model angle",
+    "Select aircraft returns Gripen to connection menu"
+  ],
+  "contact_sheet": "android-hangar-46427c0-contact.png",
+  "limits": "Existing screenshots reviewed after provider recovery. No new runtime; no physical controls/FPS or recognition/model acceptance."
+}

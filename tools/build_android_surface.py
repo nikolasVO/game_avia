@@ -16,6 +16,10 @@ def main():
  p.add_argument('--target',choices=['apk','aab'],default='apk')
  a=p.parse_args();root=Path(__file__).resolve().parents[1];source=root/'game/avia';out=a.out.resolve()
  assert not out.exists(),'use a new owned output directory; never overwrite an earlier build'
+ storage_path=out.parent
+ while not storage_path.exists():storage_path=storage_path.parent
+ storage=shutil.disk_usage(storage_path)
+ if storage.free<16*1024**3:raise SystemExit('build requires6GiB workspace plus10GiB reserve; no files changed')
  assert source not in out.parents and root!=out,'output must be outside the game project'
  assert subprocess.check_output([str(a.godot),'--version'],text=True).strip()=='4.7.2.stable.official.ed1daf0bf'
  check_materialized_assets(source);original_hashes=hashes(source)
@@ -53,6 +57,6 @@ def main():
  with zipfile.ZipFile(apk) as z:
   native={n:hashlib.sha256(z.read(n)).hexdigest() for n in z.namelist() if n.endswith('.so')}
   assert len(native)==4 and all(java['native_libraries_unchanged']['jni/'+n.partition('lib/')[2]]==h for n,h in native.items())
- manifest={'target':a.target,'commit':commit,'dirty':dirty,'engine':'4.7.2.stable.official.ed1daf0bf','android_java':'custom SurfaceHolder generation recovery; not stock Java','source_files_sha256':original_hashes,'java_build':java,'artifact':apk.name,'sha256':hashlib.sha256(apk.read_bytes()).hexdigest(),'bytes':apk.stat().st_size,'signature':'existing external debug key' if a.target=='apk' else 'unsigned; no release key configured','runtime':'NOT VERIFIED by export; keep separate actual scenario evidence','installed_templates_modified':False,'working_game_modified':False,'native_libraries':native}
+ manifest={'storage_preflight':{'free_bytes':storage.free,'reserve_bytes':10*1024**3,'workspace_budget_bytes':6*1024**3},'target':a.target,'commit':commit,'dirty':dirty,'engine':'4.7.2.stable.official.ed1daf0bf','android_java':'custom SurfaceHolder generation recovery; not stock Java','source_files_sha256':original_hashes,'java_build':java,'artifact':apk.name,'sha256':hashlib.sha256(apk.read_bytes()).hexdigest(),'bytes':apk.stat().st_size,'signature':'existing external debug key' if a.target=='apk' else 'unsigned; no release key configured','runtime':'NOT VERIFIED by export; keep separate actual scenario evidence','installed_templates_modified':False,'working_game_modified':False,'native_libraries':native}
  (out/(apk.name+'.json')).write_text(json.dumps(manifest,indent=2)+'\n');print(json.dumps({k:manifest[k] for k in ('commit','dirty','sha256','bytes','android_java')}))
 if __name__=='__main__':main()
