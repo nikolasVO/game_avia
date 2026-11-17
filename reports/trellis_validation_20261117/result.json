@@ -26,7 +26,7 @@
     "approximate_symmetry": "PASS; mean mirror distance 0.02972 m, max 0.36892 m over 10 m span",
     "actual_asset_cache_no_new_operation": "PASS",
     "unit_and_real_Blender_tests": "PASS; 18 tests (17 unit/store + 1 real Blender integration with 3 invocations)",
-    "GitHub_LFS_roundtrip": "NOT VERIFIED until remote verification",
+    "GitHub_LFS_roundtrip": "PASS; fresh GitHub clone, all LFS pulled, fsck OK, 22 manifest file hashes matched; real Godot import/render repeated from downloaded plane",
     "mobile_materials_FPS_memory": "NOT VERIFIED",
     "animated_surfaces_and_engine_physics_collider": "NOT VERIFIED",
     "paid_image_aircraft_pipeline": "BLOCKED; no configured new paid-call budget",
@@ -223,5 +223,7 @@
   },
   "paid_calls_this_session": 0,
   "packages_installed_this_session": 0,
-  "production_accepted": false
+  "production_accepted": false,
+  "asset_deployment_sha": "8aa3635dc71b6b3c2477dcaa42ad7a470438b50d",
+  "remote_verification": "remote-verification.json"
 }

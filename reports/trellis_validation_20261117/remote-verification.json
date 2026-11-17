@@ -1,0 +1,7 @@
+{
+  "checkout_sha": "8aa3635dc71b6b3c2477dcaa42ad7a470438b50d",
+  "verified_file_count": 22,
+  "all_manifest_hashes_match": true,
+  "git_lfs_fsck": "PASS",
+  "lfs_local_setup": "git lfs install --local required in fresh clone; all tracked LFS then pulled successfully"
+}
