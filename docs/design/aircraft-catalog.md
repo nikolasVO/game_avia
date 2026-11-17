@@ -25,7 +25,7 @@ Data: `game/avia/data/aircraft/`, schema1; stable original indices0–2. 24 name
 |su34|Su-34|Russia|planned|1216/1900|270/321|94|procedural_placeholder|
 |su57|Su-57|Russia|planned|1600/2500|220/262|54|procedural_placeholder|
 |typhoon|Eurofighter Typhoon|Europe|planned|1568/2450|215/256|44|procedural_placeholder|
-|tornado|Panavia Tornado|Europe|planned|1472/2300|265/315|85|procedural_placeholder|
+|tornado|Panavia Tornado|Europe|planned|1472/2300|265/315|85|AI_with_authored_articulation_gear_and_effects|
 |j10c|J-10C|China|planned|1472/2300|225/268|46|procedural_placeholder|
 |j20|J-20|China|planned|1472/2300|250/298|83|procedural_placeholder|
 |f2|Mitsubishi F-2|Japan|planned|1344/2100|210/250|48|procedural_placeholder|
@@ -38,4 +38,4 @@ Authored visual proportions now live in each P1 JSON: body width/height, wing ch
 
 All six P1 bodies now have actual local TRELLIS/Blender/strict Godot validation and six separate rendered desktop clients. Su35 nozzle exits are an explicitly authored repair with cosmetic low-speed gimbals. Gripen requires full-precision mesh import to avoid two compressed LOD1 degenerates. Explicit supplied LODs are used without extra engine-generated LODs. These checks do not close the15 production gates. Android R3 is published from exact source46427c0 with all six candidate bodies; it remains emulator evidence with failed FPS, not physical acceptance.
 
-Tornado planned slot now has an own single-fin/twin-engine/tandem reference and separate42degree variable-sweep panels with a type-specific authored automatic schedule. Actual shared lift/drag/control effects and full command circuit passed; no flight admission or production acceptance. See evidence/aircraft-tornado-reference.json.
+Tornado planned slot now has an own single-fin/twin-engine/tandem reference and separate42degree variable-sweep panels with a type-specific authored automatic schedule. Actual shared lift/drag/control effects and full command circuit passed; no flight admission or production acceptance. One232.695s compact512 candidate is now integrated for hangar inspection: same-original90degree orientation repair and articulated wings,64actual rendered checks/27views; full near/mid/far assembly19317/6675/1796triangles. Still planned/playable=false;58rendered hangar checks preserve nine playable entries. See evidence/aircraft-tornado-reference.json and evidence/tornado-articulation.json.

@@ -1,0 +1,525 @@
+{
+  "source_kind": "TRELLIS.2_image_to_3D",
+  "blender_version": "5.2.4 LTS",
+  "triangles_lod0": 19266,
+  "materials_lod0": 1,
+  "lods": [
+    {
+      "name": "LOD1",
+      "triangles": 5968,
+      "far_repair": null,
+      "dimensions_blender": [
+        13.901002883911133,
+        16.71038055419922,
+        3.91456937789917
+      ]
+    },
+    {
+      "name": "LOD2",
+      "triangles": 1468,
+      "far_repair": {
+        "method": "voxel topology repair then decimation",
+        "attempts": [
+          {
+            "voxel_size_m": 0.033399999141693115,
+            "triangles": 1468,
+            "dimensions_blender": [
+              13.903273582458496,
+              16.695390701293945,
+              3.896240234375
+            ]
+          }
+        ],
+        "voxel_size_m": 0.033399999141693115,
+        "material": "plain sampled albedo; no far texture/UV required",
+        "rgba": [
+          0.5334245478229005,
+          0.5921872799941735,
+          0.5527587980031967,
+          1
+        ]
+      },
+      "dimensions_blender": [
+        13.903273582458496,
+        16.695390701293945,
+        3.896240234375
+      ]
+    }
+  ],
+  "collision": "box metadata only; engine binding required",
+  "geometry": {
+    "uv_layers": 1,
+    "degenerate_triangles": 0,
+    "finite_vertices_and_normals": true,
+    "texture_sizes": [
+      [
+        1024,
+        1024
+      ],
+      [
+        1024,
+        1024
+      ]
+    ],
+    "symmetry": {
+      "mirror_axis": "Blender X",
+      "mean_distance_m": 1.3906104990984182e-10,
+      "max_distance_m": 8.476652055833256e-07,
+      "mean_fraction_width": 1.000439235440393e-11
+    }
+  },
+  "generator_script_sha256": "43f383b37d422eb76aa0395dce9e3cd41fb3fc3a18e8fa36dcd9c3d25d1b437a",
+  "dimensions_m": [
+    13.899999618530273,
+    3.9000000953674316,
+    16.700000762939453
+  ],
+  "pivot": "bottom_center",
+  "source_yaw_degrees": 90.0,
+  "symmetry_enforced_x": true,
+  "export_axes": "glTF Y-up",
+  "unity_import_tested": false,
+  "license": "TRELLIS.2 MIT; DINOv3 custom license; BiRefNet MIT; reference terms apply; see provenance",
+  "checks": {
+    "triangle_budget": true,
+    "material_budget": true,
+    "finite_bounds": true,
+    "finite_geometry": true,
+    "no_degenerate_triangles": true,
+    "uv_present": true,
+    "texture_budget": true,
+    "lod_budgets": true,
+    "lod_silhouette_bounds": true,
+    "exact_mirror_symmetry": true
+  },
+  "files": {
+    "README.md": {
+      "sha256": "10c096262a7c8ca8d64407eceed0f0f58502aaabd80330f3261ad9a220fb3cd8",
+      "bytes": 1777
+    },
+    "articulated-contact-lod0.png": {
+      "sha256": "258e467a3a96b8d21488821e05797e41f8ca2c7bf89d718d35f90c140d9d0f42",
+      "bytes": 96843
+    },
+    "articulated-contact-lod1.png": {
+      "sha256": "764069acd57d92bba21d12fa47c31ee13b1da7d2cf0f183ba3edbe15775498da",
+      "bytes": 99780
+    },
+    "articulated-contact-lod2.png": {
+      "sha256": "1412fa074c1639d28dfe39ffc9e9089a3db166940d0114687d74cc05802663ca",
+      "bytes": 80944
+    },
+    "articulated-lod0.glb": {
+      "sha256": "95be715aa181ccccbb3bcef7ecc27ccbc8d2a9ae5f6ec149c1873ea2ee8207b9",
+      "bytes": 1797940
+    },
+    "articulated-lod1.glb": {
+      "sha256": "25392a2fe1f881c7b5d399746fafebb2bf9b13cb600ecdf3c47657ab59852668",
+      "bytes": 1371292
+    },
+    "articulated-lod2.glb": {
+      "sha256": "74a0d0216ef0d354cf0f4b321227cfbb9762d30ae757ec47069627bf36feb0c4",
+      "bytes": 125852
+    },
+    "articulation-manifest.json": {
+      "sha256": "ff086f65f3635fc1873c27092d8edf297f46ef8450927713d79c340f100a1bba",
+      "bytes": 2449
+    },
+    "blender-manifest.json": {
+      "sha256": "989f6c4d203c8cec1a684f58edd2a205b6b2704a061e6142b2572b79c93d094b",
+      "bytes": 3064
+    },
+    "game-validation-summary.json": {
+      "sha256": "8cc3d1a29ad9571052b73c6818df769ed33ef401d89303e058d56d69e7e520ee",
+      "bytes": 3167
+    },
+    "geometry-manifest.json": {
+      "sha256": "b6d60f4c47b20f3bf277b37f1cdceb566d40d1540f8ad9b45ace08cac5d98663",
+      "bytes": 4466
+    },
+    "godot-front.png": {
+      "sha256": "6c0269a66037d32646460e5b4c606cc358da0976bef7644b0ae4735e6e0de596",
+      "bytes": 16615
+    },
+    "godot-lod1-front.png": {
+      "sha256": "36ea174b89281dbf1a57a23ca44362f1ad0de359a5718a79b9e767de30db23e4",
+      "bytes": 16020
+    },
+    "godot-lod1-orbit.png": {
+      "sha256": "f3d4ead155e0eaa661385d7a2525d8ac4fd54aa1cda2609689f5314cb3dac374",
+      "bytes": 35579
+    },
+    "godot-lod1-side.png": {
+      "sha256": "01fc51834c8da251dd3d24ec3c395c0deb8955fe74cda9c7ab9192031861c95e",
+      "bytes": 17611
+    },
+    "godot-lod1-top.png": {
+      "sha256": "7adb359f89ab0d038ebb45371181fa3ec3427c351e473c4533cd11b2a217d047",
+      "bytes": 45475
+    },
+    "godot-lod2-front.png": {
+      "sha256": "663dce0ef7daa8713e124b035155d1cdc2167c7848d251a8d03f2103f8179a76",
+      "bytes": 7534
+    },
+    "godot-lod2-orbit.png": {
+      "sha256": "419248a9d441d28fcaf53cd3c512063d76bc5a445adc72908299d302990341dc",
+      "bytes": 15369
+    },
+    "godot-lod2-side.png": {
+      "sha256": "07a23a67bc315e2489d876ce60b509d1157948c8e4b39c171f141a897321960a",
+      "bytes": 7025
+    },
+    "godot-lod2-top.png": {
+      "sha256": "201ac3f62416b8aebeeb1db6a52589cedabb1cf625f1b135c350da66e736eca8",
+      "bytes": 11850
+    },
+    "godot-preview.png": {
+      "sha256": "012ca0621d4cb447724ce052e49a7f7a0edaeb9c3de387083741f82e49ffc2ca",
+      "bytes": 35995
+    },
+    "godot-side.png": {
+      "sha256": "320b1f3cc8968606c2ece7a6607c7ce2bcac47d5fd4cc15354c19a116bd22de0",
+      "bytes": 16430
+    },
+    "godot-top.png": {
+      "sha256": "46a68d69edca73d4e032a15a22326a5f23622e8d3a841c67c4c530c9a273a3a4",
+      "bytes": 47685
+    },
+    "godot-validation.json": {
+      "sha256": "a61a3ffc3d83cd562cfb9b90e93b338023210da5e232eea729dd002dd66ea2a8",
+      "bytes": 2151
+    },
+    "hangar-candidate-tornado.png": {
+      "sha256": "b0d6c341425bb61e02fd0f7516e6fd6b80f7b708559869744fee6fe5eff090bb",
+      "bytes": 98539
+    },
+    "hangar-validation.json": {
+      "sha256": "a364e5bcde7a99ef3e425bec327db1d0ead9f82ff3e08335fbc2ac4feaf8280d",
+      "bytes": 6950
+    },
+    "inference-evidence.json": {
+      "sha256": "db9780c0b00c8d9259a01f8da40ba48929d5f993aac2173ace32bd778d5984fe",
+      "bytes": 281
+    },
+    "lod0.glb": {
+      "sha256": "9751cabd51fa8ae14d93a2d178b67b5c3de07b21f4fda4a30dbb14e694089b43",
+      "bytes": 1793056
+    },
+    "lod1.glb": {
+      "sha256": "7122ff7d10599bb2a804842ae8e6897af2fd02fdcf92e4e3e93149840fbbd645",
+      "bytes": 1349252
+    },
+    "lod2.glb": {
+      "sha256": "2527473cab9a7e394ce45a8b96b7190d9da0fe9a9dcd061692f2a667f6d156d1",
+      "bytes": 115616
+    },
+    "optimized.glb": {
+      "sha256": "e7f2c63aeef1f69da47cad4f52f4a4e0234967ada2c661328f80d629127d76bd",
+      "bytes": 2199776
+    },
+    "orientation-v1/blender-manifest.json": {
+      "sha256": "df6db36c176ce8018fdf7997c493f89c70c464dcda46102f06b980851666234a",
+      "bytes": 3070
+    },
+    "orientation-v1/geometry-manifest.json": {
+      "sha256": "dcd1e6ad7367f10e53b25a5a32fb86fbab13e6b5fee423a98d6ee43d164dd179",
+      "bytes": 3805
+    },
+    "orientation-v1/lod0.glb": {
+      "sha256": "714ad495580041ea1fdee738d6d513ecffc42e4091bf46e74ae3ebb2e4d0e317",
+      "bytes": 1865708
+    },
+    "orientation-v1/lod1.glb": {
+      "sha256": "d933b2d073e7b046466292d1f9ee378a0881453d2df1f06b3c1a4731c42a1ca7",
+      "bytes": 1369800
+    },
+    "orientation-v1/lod2.glb": {
+      "sha256": "3acfc41beebbdd0a7656a41d33ba9d05184697a7009bf1085897c2542d04a6c7",
+      "bytes": 115364
+    },
+    "orientation-v1/optimized.glb": {
+      "sha256": "a4b8a570d048bb7c29a95e1e036427bf33868e2a46ad305c5f345e9876ce420b",
+      "bytes": 2292720
+    },
+    "orientation-v1/preview.png": {
+      "sha256": "d35f1562fd1b526f3d2542b6fdda69772c346ae3df5db5fc4dcc0d29d898ab9b",
+      "bytes": 129678
+    },
+    "orientation-v1/request.json": {
+      "sha256": "26e5ea126cb7b3c84d4c26031a882caadfa65c5e8b00d76d758a4903509030c1",
+      "bytes": 2056
+    },
+    "orientation-v1/validation-result.json": {
+      "sha256": "eb1dfdee6a90acd34a202f34afcc871dfcd988df6d23c978a3c37372d7f9c321",
+      "bytes": 4193
+    },
+    "original.glb": {
+      "sha256": "9fa3573e63a9a1ff09e9e9861d78f19e5645240c12e43ab7d98e4e74e3a7cd63",
+      "bytes": 4184308
+    },
+    "preview.png": {
+      "sha256": "158b6731fa5c01b8f3e1c01a8a7f1d5b16d82c0ec830c70b82fad76aa13bd4a4",
+      "bytes": 127205
+    },
+    "provenance.json": {
+      "sha256": "0be1a2b1b101ffdf701d7a854f08a5406ccc438510ce759fd4cef9a58835e5d4",
+      "bytes": 9092
+    },
+    "sweep-candidate-validation.json": {
+      "sha256": "5992ac1a8566862116fe59d96ba0fa5321e6972384c5a60b811797e828de5170",
+      "bytes": 9177
+    },
+    "sweep-lod0-pose0-front.png": {
+      "sha256": "c6cda0c2c289b4ec97712b85caa476b470bb5bc5806f24878d18dacc8b34af0d",
+      "bytes": 12999
+    },
+    "sweep-lod0-pose0-orbit.png": {
+      "sha256": "90e1c33113a5d237b930ae27be8a653d50f8c60e024ee8c204d64d055acaafeb",
+      "bytes": 30696
+    },
+    "sweep-lod0-pose0-top.png": {
+      "sha256": "ad7e35ee2d230a10f44c005fcc6b03dd294cdef6311c30ceddacf01431f5d894",
+      "bytes": 46279
+    },
+    "sweep-lod0-pose1-front.png": {
+      "sha256": "38258a67fe4ef7f5e2ee242fc7b26081f986c678cc078292f134e3c970a1c5cb",
+      "bytes": 13209
+    },
+    "sweep-lod0-pose1-orbit.png": {
+      "sha256": "e6e59858888c6b8c7c5cf9d0183a365e49bc94b4ba7d729e5e2105caf670385e",
+      "bytes": 30418
+    },
+    "sweep-lod0-pose1-top.png": {
+      "sha256": "3458e7e9af068514905aea40fd0705ec8a4b8356b00267a3b50a68d0d2d957ef",
+      "bytes": 46743
+    },
+    "sweep-lod0-pose2-front.png": {
+      "sha256": "080e37244b64747fd1ae1644ffe1eb5d6b362b06242000a87f27d2d62426db02",
+      "bytes": 12941
+    },
+    "sweep-lod0-pose2-orbit.png": {
+      "sha256": "5dcd02bcbaae0def74c63d3402c1e6a235b4e3f80c1d6d94d47504875862339f",
+      "bytes": 29345
+    },
+    "sweep-lod0-pose2-top.png": {
+      "sha256": "451c20878e7a261022e17c1b993ceb56bba283b701e0e487143aaadb275e6074",
+      "bytes": 44941
+    },
+    "sweep-lod1-pose0-front.png": {
+      "sha256": "a2775a0a2e25fc28c7e3155968a39347f805cd987478a2e8520761fa2595d018",
+      "bytes": 12821
+    },
+    "sweep-lod1-pose0-orbit.png": {
+      "sha256": "aebd7a533021a1a02b037cae3b8a7452ace769d75174b94413f6635af9a26f00",
+      "bytes": 31439
+    },
+    "sweep-lod1-pose0-top.png": {
+      "sha256": "4f44b165a6349657fae0b3a187741a0d44368e5868d893a0f903806c9da9bc58",
+      "bytes": 44334
+    },
+    "sweep-lod1-pose1-front.png": {
+      "sha256": "cf799a9b07ecf81f40f7f9a4592f963fbc02affadb9c4bdfbb15df9be12b16bf",
+      "bytes": 13070
+    },
+    "sweep-lod1-pose1-orbit.png": {
+      "sha256": "fca11fc1b2669d5ac1c07d1768a2478313e38a2819b977ba1cf2b3692ed84b4a",
+      "bytes": 30843
+    },
+    "sweep-lod1-pose1-top.png": {
+      "sha256": "ad3c6af7a413b92eb92f14663b36b4105322313442837e1d1bec5238c47c6bec",
+      "bytes": 45105
+    },
+    "sweep-lod1-pose2-front.png": {
+      "sha256": "410d10ac838725ec6918cae062dd44140ccfd71639234d8f56919de6f757014b",
+      "bytes": 12904
+    },
+    "sweep-lod1-pose2-orbit.png": {
+      "sha256": "c6d21616b06b1559f2978a6393251b9ef42853bc6c022c84a2c9ec0870538bf2",
+      "bytes": 30086
+    },
+    "sweep-lod1-pose2-top.png": {
+      "sha256": "6598efde081059c37ff034102682adbddbfe632ce32870355860fe674d00d90d",
+      "bytes": 43542
+    },
+    "sweep-lod2-pose0-front.png": {
+      "sha256": "c0222c18db25362ec604a18fdc3e8def8a6409269d6587111c8e0be6bb722302",
+      "bytes": 6655
+    },
+    "sweep-lod2-pose0-orbit.png": {
+      "sha256": "cc6198574bf28f86542475d48391916d70c28c95159fbbec5f1fff4b1fd853e4",
+      "bytes": 12237
+    },
+    "sweep-lod2-pose0-top.png": {
+      "sha256": "53ddf7179b5d585ce940ae930175f7c585f2daf68128d65222b273717762ca88",
+      "bytes": 12821
+    },
+    "sweep-lod2-pose1-front.png": {
+      "sha256": "61ec9eeb96483a6561a94ae826c3ceb1cdabfc8b6ea476768a1bc2da6d403e22",
+      "bytes": 6840
+    },
+    "sweep-lod2-pose1-orbit.png": {
+      "sha256": "d1069a69b16a94cf04b5422c40021f17c6f72c7323b63d5934ea925c0dabc624",
+      "bytes": 12140
+    },
+    "sweep-lod2-pose1-top.png": {
+      "sha256": "a262d84e084472d04feda0e338bcca36f56ec2f9fc7de336cfbc70bd1c3676f3",
+      "bytes": 13765
+    },
+    "sweep-lod2-pose2-front.png": {
+      "sha256": "667764f3ad938e5d0eab1c58a8b1c02f43569da1c13d83cf29172866ed585a97",
+      "bytes": 7013
+    },
+    "sweep-lod2-pose2-orbit.png": {
+      "sha256": "74a8ce3237d8d35559f600dc80898cda72138eea4f7550680276c7397243e7f6",
+      "bytes": 11683
+    },
+    "sweep-lod2-pose2-top.png": {
+      "sha256": "6a997a440acb226c236693a3b8009eb217affb6c3607819797e2a241598c1894",
+      "bytes": 13473
+    }
+  },
+  "verified": true,
+  "generation": {
+    "pipeline_type": "512",
+    "seed": 46,
+    "original_sha256": "9fa3573e63a9a1ff09e9e9861d78f19e5645240c12e43ab7d98e4e74e3a7cd63",
+    "models": {
+      "microsoft/TRELLIS.2-4B": "af44b45f2e35a493886929c6d786e563ec68364d",
+      "microsoft/TRELLIS-image-large": "25e0d31ffbebe4b5a97464dd851910efc3002d96",
+      "facebook/dinov3-vitl16-pretrain-lvd1689m": "ea8dc2863c51be0a264bab82070e3e8836b02d51",
+      "ZhengPeng7/BiRefNet": "e2bf8e4460fc8fa32bba5ea4d94b3233d367b0e4"
+    }
+  },
+  "reference": [
+    {
+      "name": "reference.png",
+      "sha256": "389db810a7ddb92c11a799fc9cd58365271a388731379bce1ea2e3325a7d3732"
+    }
+  ],
+  "godot_import_tested": true,
+  "orientation_repair": {
+    "original_sha256": "9fa3573e63a9a1ff09e9e9861d78f19e5645240c12e43ab7d98e4e74e3a7cd63",
+    "source_yaw_degrees": 90,
+    "reason": "Actual raw GLB nose +X, span Z, up Y. Old180 yaw mirrored tail longitudinally and created two fins. Correct90 Blender yaw BEFORE mirrorX, same original, no inference.",
+    "output": "/srv/game-avia/artifacts/tornado_candidate_20261118_v1/orientation-v2"
+  },
+  "asset_id": "tornado_candidate_20261118_v1",
+  "source_type": "AI with authored articulation, pivot gloves, gear and exhaust effects",
+  "godot_import": {
+    "bounds_position": [
+      -6.94999980926514,
+      0.0,
+      -8.35000038146973
+    ],
+    "dimensions": [
+      13.8999996185303,
+      3.90000009536743,
+      16.7000007629395
+    ],
+    "dimensions_ok": true,
+    "display": "macOS",
+    "engine": {
+      "build": "official",
+      "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+      "hex": 263938,
+      "major": 4,
+      "minor": 7,
+      "patch": 2,
+      "status": "stable",
+      "string": "4.7.2-stable (official)",
+      "timestamp": 0
+    },
+    "import_passed": true,
+    "lod_triangles": [
+      19266,
+      5968,
+      1468
+    ],
+    "meshes": [
+      {
+        "degenerate_triangles": 0,
+        "materials": 1,
+        "name": "COLLISION_BOX",
+        "nonfinite_normals": 0,
+        "nonfinite_vertices": 0,
+        "surfaces": 1,
+        "textures": 0,
+        "triangles": 12
+      },
+      {
+        "degenerate_triangles": 0,
+        "materials": 1,
+        "name": "LOD0",
+        "nonfinite_normals": 0,
+        "nonfinite_vertices": 0,
+        "surfaces": 1,
+        "textures": 1,
+        "triangles": 19266
+      },
+      {
+        "degenerate_triangles": 0,
+        "materials": 1,
+        "name": "LOD1",
+        "nonfinite_normals": 0,
+        "nonfinite_vertices": 0,
+        "surfaces": 1,
+        "textures": 1,
+        "triangles": 5968
+      },
+      {
+        "degenerate_triangles": 0,
+        "materials": 1,
+        "name": "LOD2",
+        "nonfinite_normals": 0,
+        "nonfinite_vertices": 0,
+        "surfaces": 1,
+        "textures": 0,
+        "triangles": 1468
+      }
+    ],
+    "pivot_ok": true,
+    "preview_files": [
+      "godot-preview.png",
+      "godot-top.png",
+      "godot-front.png",
+      "godot-side.png",
+      "godot-lod1-orbit.png",
+      "godot-lod1-top.png",
+      "godot-lod1-front.png",
+      "godot-lod1-side.png",
+      "godot-lod2-orbit.png",
+      "godot-lod2-top.png",
+      "godot-lod2-front.png",
+      "godot-lod2-side.png"
+    ],
+    "preview_rendered": true,
+    "mesh_compression_disabled": false,
+    "explicit_lods_preserved": true,
+    "validator_files_sha256": {
+      "workers/assets/godot_validate.py": "dbd2430432f9ae6df25ecf37761e433eb2eea2e2af6e0467a0f7bb3cdfe303bb",
+      "workers/assets/godot_validate.gd": "927fe87a667b03f4b57f199dcb61be6a5a91cacf82dbf477e6c69c5274ff9a0f"
+    }
+  },
+  "pipeline_verified": true,
+  "production_accepted": false,
+  "verification_scope": "One real inference; corrected static pipeline and separate authored articulated assembly QA. Not production acceptance.",
+  "playable": false,
+  "articulated_assembly": {
+    "manifest": "articulation-manifest.json",
+    "validation": "sweep-candidate-validation.json",
+    "provenance": "provenance.json",
+    "planned_only": true,
+    "body_panels_gloves_triangles": [
+      19205,
+      6563,
+      1796
+    ],
+    "worst_case_assembly_triangles": [
+      19317,
+      6675,
+      6603,
+      1796
+    ]
+  },
+  "history_scope": "orientation-v1 initial180deg output rejected by actual visual review; root corrected90deg and articulation are current"
+}

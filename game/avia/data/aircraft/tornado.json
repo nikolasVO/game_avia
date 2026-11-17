@@ -5,7 +5,7 @@
   "class": "low_level_strike",
   "status": "planned",
   "playable": false,
-  "source_type": "procedural_placeholder",
+  "source_type": "AI_with_authored_articulation_gear_and_effects",
   "physics_model": "fighter_v1",
   "color": "a5a49a",
   "flight": {
@@ -196,5 +196,17 @@
     "closed_drag_ratio": 0.79,
     "closed_control_ratio": 0.8,
     "notice": "Authored automatic arcade schedule; not real Tornado flight/control envelope. Visual travel lags deterministic force target."
+  },
+  "visual": {
+    "scene": "res://assets/tornado_ai_lod0.glb",
+    "articulated_lods": [
+      "res://assets/tornado_ai_lod0.glb",
+      "res://assets/tornado_ai_lod1.glb",
+      "res://assets/tornado_ai_lod2.glb"
+    ],
+    "offset_y_m": -0.82,
+    "articulation_cut_z_m": 3.5,
+    "provenance": "assets/catalog/tornado_candidate_20261118_v1/provenance.json",
+    "status": "planned-only articulated AI candidate; recognition/mobile/full acceptance pending"
   }
 }

@@ -1,0 +1,54 @@
+{
+  "model_revisions": {
+    "microsoft/TRELLIS.2-4B": "af44b45f2e35a493886929c6d786e563ec68364d",
+    "microsoft/TRELLIS-image-large": "25e0d31ffbebe4b5a97464dd851910efc3002d96",
+    "facebook/dinov3-vitl16-pretrain-lvd1689m": "ea8dc2863c51be0a264bab82070e3e8836b02d51",
+    "ZhengPeng7/BiRefNet": "e2bf8e4460fc8fa32bba5ea4d94b3233d367b0e4"
+  },
+  "spec": {
+    "asset_id": "tornado_candidate_20261118_v1",
+    "purpose": "Own provisional Tornado-style strike candidate, not production acceptance",
+    "description": "Own authored tandem canopy, pointed nose, boxy paired side intakes and rear fuselage, two engines/nozzles, one broad swept fin, separate horizontal tailplanes and variable-sweep main wings in OPEN pose. No logos, external pixels or copied models. Primary variant dimensions unverified; game proportions only. Generated wings require Blender articulation and visual review.",
+    "style": "coherent stylized Game Avia aviation",
+    "reference_images": [
+      "production-tornado-v1/reference.png"
+    ],
+    "dimensions_m": [
+      13.9,
+      3.9,
+      16.7
+    ],
+    "symmetry_policy": "mirror_x",
+    "source_yaw_degrees": 180.0,
+    "orientation": "Y-up",
+    "pivot": "bottom_center",
+    "triangle_budget": 19300,
+    "texture_budget": 1024,
+    "lod_policy": "LOD0,LOD1,LOD2",
+    "collision_policy": "box",
+    "output_formats": [
+      "glb"
+    ],
+    "license_constraints": "owned_or_permitted",
+    "deadline_seconds": 1800,
+    "cost_limit": 0.0,
+    "seed": 46,
+    "pipeline_type": "512"
+  },
+  "references": [
+    {
+      "name": "reference.png",
+      "sha256": "389db810a7ddb92c11a799fc9cd58365271a388731379bce1ea2e3325a7d3732"
+    }
+  ],
+  "state": "prepared",
+  "readiness": {
+    "configured": true,
+    "tested": false,
+    "blocked": [],
+    "reason": "inference_not_yet_tested"
+  },
+  "generated": false,
+  "reference_path": "/srv/game-avia/worktrees/asset-tornado-444e6de/assets/source/production-tornado-v1/reference.png",
+  "input_hash": "01d31ac54f0f5bfc2995fbbc7c6d22714c874d05915540406adf98baee1addab"
+}

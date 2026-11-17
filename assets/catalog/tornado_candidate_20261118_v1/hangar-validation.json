@@ -1,0 +1,244 @@
+{
+  "status": "PASS",
+  "summary": {
+    "checks": [
+      {
+        "check": "opening follows menu aircraft stable ID",
+        "ok": true
+      },
+      {
+        "check": "saved favorites discard duplicates, unavailable IDs and invalid types",
+        "ok": true
+      },
+      {
+        "check": "both selectors retain nine playable prototypes; no planned aircraft exposed",
+        "ok": true
+      },
+      {
+        "check": "country filtering preserves selected stable ID",
+        "ok": true
+      },
+      {
+        "check": "combined class/agility filters map row zero to catalog index six",
+        "ok": true
+      },
+      {
+        "check": "favorite button persists stable IDs",
+        "ok": true
+      },
+      {
+        "check": "new hangar instance restores persisted favorite IDs",
+        "ok": true
+      },
+      {
+        "check": "filtered actual Select signal updates menu with Su35, not row zero",
+        "ok": true
+      },
+      {
+        "check": "opening another menu aircraft clears excluding filters",
+        "ok": true
+      },
+      {
+        "check": "favorites filter intersects available catalog and retains selected Gripen",
+        "ok": true
+      },
+      {
+        "check": "removing selected favorite safely selects remaining result",
+        "ok": true
+      },
+      {
+        "check": "empty favorites clears model and disables actions",
+        "ok": true
+      },
+      {
+        "check": "empty results cannot emit an aircraft selection",
+        "ok": true
+      },
+      {
+        "check": "render capture hangar-empty",
+        "ok": true
+      },
+      {
+        "check": "inclusive 2000 km/h and 90 agility boundaries retain Rafale",
+        "ok": true
+      },
+      {
+        "check": "filtered comparison and authored English handling card use correct aircraft",
+        "ok": true
+      },
+      {
+        "check": "render capture hangar-en",
+        "ok": true
+      },
+      {
+        "check": "translation preserves all filter identities and thresholds",
+        "ok": true
+      },
+      {
+        "check": "Russian flight card and country caption are localized",
+        "ok": true
+      },
+      {
+        "check": "render capture hangar-ru",
+        "ok": true
+      },
+      {
+        "check": "scrolling content keeps Select and Back pinned inside viewport",
+        "ok": true
+      },
+      {
+        "check": "scrolled comparison chart is reachable",
+        "ok": true
+      },
+      {
+        "check": "render capture hangar-comparison",
+        "ok": true
+      },
+      {
+        "check": "mutually exclusive speed/class filters return empty safely",
+        "ok": true
+      },
+      {
+        "check": "Reset restores playable list from empty filters",
+        "ok": true
+      },
+      {
+        "check": "all playable cards and stable selection kite",
+        "ok": true
+      },
+      {
+        "check": "all playable cards and stable selection tern",
+        "ok": true
+      },
+      {
+        "check": "all playable cards and stable selection swift",
+        "ok": true
+      },
+      {
+        "check": "all playable cards and stable selection f16c",
+        "ok": true
+      },
+      {
+        "check": "all playable cards and stable selection su27",
+        "ok": true
+      },
+      {
+        "check": "all playable cards and stable selection f15c",
+        "ok": true
+      },
+      {
+        "check": "all playable cards and stable selection su35s",
+        "ok": true
+      },
+      {
+        "check": "all playable cards and stable selection rafale",
+        "ok": true
+      },
+      {
+        "check": "all playable cards and stable selection gripen",
+        "ok": true
+      },
+      {
+        "check": "original aircraft card does not advertise an unsupported afterburner",
+        "ok": true
+      },
+      {
+        "check": "preview availability contains only five materialized planned candidates; comparator stays playable",
+        "ok": true
+      },
+      {
+        "check": "candidate creates actual inspectable model while flight/favorite actions stay disabled",
+        "ok": true
+      },
+      {
+        "check": "planned F14 imports articulated three-LOD assembly and explicit pending status",
+        "ok": true
+      },
+      {
+        "check": "direct candidate actions cannot emit flight selection or change admission menu",
+        "ok": true
+      },
+      {
+        "check": "render capture hangar-candidate-f14",
+        "ok": true
+      },
+      {
+        "check": "planned MiG21 imports actual single-engine candidate with flight action disabled",
+        "ok": true
+      },
+      {
+        "check": "direct MiG21 actions preserve planned-only admission",
+        "ok": true
+      },
+      {
+        "check": "render capture hangar-candidate-mig21",
+        "ok": true
+      },
+      {
+        "check": "candidate stable ID renders actual MiG31 body and comparison/balance values",
+        "ok": true
+      },
+      {
+        "check": "long MiG31 body fits actual camera projection through four inspection rotations",
+        "ok": true
+      },
+      {
+        "check": "localization preserves candidate identity, availability and disabled flight action",
+        "ok": true
+      },
+      {
+        "check": "render capture hangar-candidate-mig31",
+        "ok": true
+      },
+      {
+        "check": "planned Tornado imports three articulated LODs and two exhausts; flight/favorites stay disabled",
+        "ok": true
+      },
+      {
+        "check": "Tornado inspection assembly reaches its own42degree sweep endpoint",
+        "ok": true
+      },
+      {
+        "check": "direct Tornado actions preserve planned-only admission",
+        "ok": true
+      },
+      {
+        "check": "render capture hangar-candidate-tornado",
+        "ok": true
+      },
+      {
+        "check": "country/class filters intersect preview models without changing stable flight indices",
+        "ok": true
+      },
+      {
+        "check": "playable-only favorites cannot expose candidate as flight-ready",
+        "ok": true
+      },
+      {
+        "check": "all-model inspection leaves the authoritative playable catalog unchanged",
+        "ok": true
+      },
+      {
+        "check": "opening playable menu selection after candidate filters restores valid flight action",
+        "ok": true
+      },
+      {
+        "check": "menu selection clears excluding candidate-only filter",
+        "ok": true
+      },
+      {
+        "check": "collection writes preserve menu settings file",
+        "ok": true
+      },
+      {
+        "check": "malformed favorite collection falls back safely",
+        "ok": true
+      }
+    ],
+    "event": "hangar_summary",
+    "scope": "actual rendered desktop UI/config/selector signals; not phone input, production aircraft or public multiplayer acceptance",
+    "status": "PASS"
+  },
+  "source": "tools/ui_preferences_check.py --hangar; actual renderer and isolated preferences",
+  "screenshots": 8
+}

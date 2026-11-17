@@ -1,0 +1,253 @@
+{
+  "asset_id": "tornado_candidate_20261118_v1",
+  "source_type": "AI with authored articulation, pivot gloves, gear and exhaust effects",
+  "source_commit": "444e6de7fbb40c51b4e330a7d4ca7f26cee14acf",
+  "generation": "TRELLIS.2 image-to-3D compact512",
+  "seed": 46,
+  "inference": {
+    "inference_succeeded": true,
+    "seconds": 232.6945296740014,
+    "vertices": 268248,
+    "faces": 541380,
+    "peak_vram_allocated_bytes": 2815540224,
+    "peak_vram_reserved_bytes": 2860515328,
+    "reference_sha256": "389db810a7ddb92c11a799fc9cd58365271a388731379bce1ea2e3325a7d3732"
+  },
+  "original_glb_sha256": "9fa3573e63a9a1ff09e9e9861d78f19e5645240c12e43ab7d98e4e74e3a7cd63",
+  "model_revisions": {
+    "microsoft/TRELLIS.2-4B": "af44b45f2e35a493886929c6d786e563ec68364d",
+    "microsoft/TRELLIS-image-large": "25e0d31ffbebe4b5a97464dd851910efc3002d96",
+    "facebook/dinov3-vitl16-pretrain-lvd1689m": "ea8dc2863c51be0a264bab82070e3e8836b02d51",
+    "ZhengPeng7/BiRefNet": "e2bf8e4460fc8fa32bba5ea4d94b3233d367b0e4"
+  },
+  "reference": {
+    "path": "assets/source/production-tornado-v1/reference.png",
+    "sha256": "389db810a7ddb92c11a799fc9cd58365271a388731379bce1ea2e3325a7d3732",
+    "source_type": "project-authored provisional geometry/render",
+    "input_rights": "Own geometry/pixels; no copied models, third-party imagery, logos or insignia. Commercial aircraft designation/design and gated-model output terms remain unreviewed."
+  },
+  "paid_image_api_calls": 0,
+  "inference_rerun": false,
+  "orientation_history": {
+    "historical": "orientation-v1/ contains initial180degree request/static outputs; numerical checks did not prove orientation. Rejected after visual review.",
+    "corrected": "Root static LODs repaired from SAME original with90degree Blender yaw before exact mirrorX; no reinference.",
+    "forward_axis": "Godot -Z"
+  },
+  "postprocess": [
+    "Correct90deg yaw and mirrorX; retain UV and1024textures",
+    "Static far voxel topology repair and sampled albedo",
+    "Exact plane cuts into body and symmetric moving panels with pre-decimation area conservation",
+    "Bounded per-LOD decimation; explicit game LODs, automatic import LOD generation disabled",
+    "Authored96triangle pivot covers per LOD; procedural landing gear and two exhaust effects"
+  ],
+  "articulation": {
+    "method": "exact plane partition; original UV and materials retained",
+    "axes": "glTF/Godot Y-up, -Z forward",
+    "source_files": {
+      "lod0.glb": "9751cabd51fa8ae14d93a2d178b67b5c3de07b21f4fda4a30dbb14e694089b43",
+      "lod1.glb": "7122ff7d10599bb2a804842ae8e6897af2fd02fdcf92e4e3e93149840fbbd645",
+      "lod2.glb": "2527473cab9a7e394ce45a8b96b7190d9da0fe9a9dcd061692f2a667f6d156d1"
+    },
+    "script_sha256": "c384857fff16ce40dbbc9a40cc8c371b52954cb2e96c69c9391ec31dfeafbf0c",
+    "blender_version": "5.2.4 LTS",
+    "hinge_m": [
+      2.2,
+      0.82,
+      -0.65
+    ],
+    "aft_limit_z_m": 3.5,
+    "production_accepted": false,
+    "lods": [
+      {
+        "level": 0,
+        "triangles": 19109,
+        "parts": [
+          {
+            "name": "LOD0.001",
+            "triangles": 16243
+          },
+          {
+            "name": "LOD0WingLeft",
+            "triangles": 1433
+          },
+          {
+            "name": "LOD0WingRight",
+            "triangles": 1433
+          }
+        ],
+        "source_area_m2": 411.27164020028613,
+        "partition_area_m2": 411.27164016814135,
+        "triangles_before_budget": 20170
+      },
+      {
+        "level": 1,
+        "triangles": 6467,
+        "parts": [
+          {
+            "name": "LOD1.001",
+            "triangles": 5539
+          },
+          {
+            "name": "LOD1WingLeft",
+            "triangles": 464
+          },
+          {
+            "name": "LOD1WingRight",
+            "triangles": 464
+          }
+        ],
+        "source_area_m2": 409.65614799185414,
+        "partition_area_m2": 409.6561472805448,
+        "triangles_before_budget": 6616
+      },
+      {
+        "level": 2,
+        "triangles": 1700,
+        "parts": [
+          {
+            "name": "LOD2.001",
+            "triangles": 1474
+          },
+          {
+            "name": "LOD2WingLeft",
+            "triangles": 113
+          },
+          {
+            "name": "LOD2WingRight",
+            "triangles": 113
+          }
+        ],
+        "source_area_m2": 270.56323090801015,
+        "partition_area_m2": 270.56323077133857,
+        "triangles_before_budget": 1700
+      }
+    ],
+    "files": {
+      "articulated-lod0.glb": {
+        "sha256": "95be715aa181ccccbb3bcef7ecc27ccbc8d2a9ae5f6ec149c1873ea2ee8207b9",
+        "bytes": 1797940
+      },
+      "articulated-lod1.glb": {
+        "sha256": "25392a2fe1f881c7b5d399746fafebb2bf9b13cb600ecdf3c47657ab59852668",
+        "bytes": 1371292
+      },
+      "articulated-lod2.glb": {
+        "sha256": "74a0d0216ef0d354cf0f4b321227cfbb9762d30ae757ec47069627bf36feb0c4",
+        "bytes": 125852
+      }
+    }
+  },
+  "game_assets": {
+    "game/avia/assets/tornado_ai_lod0.glb": {
+      "sha256": "95be715aa181ccccbb3bcef7ecc27ccbc8d2a9ae5f6ec149c1873ea2ee8207b9",
+      "bytes": 1797940
+    },
+    "game/avia/assets/tornado_ai_lod1.glb": {
+      "sha256": "25392a2fe1f881c7b5d399746fafebb2bf9b13cb600ecdf3c47657ab59852668",
+      "bytes": 1371292
+    },
+    "game/avia/assets/tornado_ai_lod2.glb": {
+      "sha256": "74a0d0216ef0d354cf0f4b321227cfbb9762d30ae757ec47069627bf36feb0c4",
+      "bytes": 125852
+    }
+  },
+  "assembly_code_sha256": {
+    "scripts/blender_articulate_sweep.py": "c384857fff16ce40dbbc9a40cc8c371b52954cb2e96c69c9391ec31dfeafbf0c",
+    "game/avia/client/fighter_visual.gd": "11e7660804a6b0fee866f3a0e1c9a180597cfa739e028a3ac17de7097306493f",
+    "game/avia/client/aircraft.gd": "a7b54d492f65a0cba85b840937470f82ff0c40042d21f03f37880b7425ed6274",
+    "game/avia/shared/fighter.gd": "f073750d90753ddb5292bd07ac6ff861aed91c404083cbced93a75e6dd1717ea",
+    "game/avia/tests/sweep_candidate_check.gd": "a5f098c3669ad6a0d575ae8e59811bfb2bb599e802c9734d646262ded71896e8"
+  },
+  "game_validation": {
+    "file": "sweep-candidate-validation.json",
+    "sha256": "5992ac1a8566862116fe59d96ba0fa5321e6972384c5a60b811797e828de5170",
+    "checks": 64,
+    "rendered_views": 27,
+    "body_panels_gloves_triangles": [
+      19205,
+      6563,
+      1796
+    ],
+    "worst_case_assembly": [
+      {
+        "budget": 20000,
+        "distance_m": 100,
+        "parts": {
+          "AIModel/tornado_ai_lod0/LOD0WingLeft": 1433,
+          "AIModel/tornado_ai_lod0/LOD0WingRight": 1433,
+          "AIModel/tornado_ai_lod0/LOD0_001": 16243,
+          "Afterburner/Flame-1_0": 20,
+          "Afterburner/Flame1_0": 20,
+          "LandingGear/Gear": 72,
+          "PivotGloveLOD0": 96
+        },
+        "triangles": 19317
+      },
+      {
+        "budget": 7000,
+        "distance_m": 400,
+        "parts": {
+          "AIModel/tornado_ai_lod1/LOD1WingLeft": 464,
+          "AIModel/tornado_ai_lod1/LOD1WingRight": 464,
+          "AIModel/tornado_ai_lod1/LOD1_001": 5539,
+          "Afterburner/Flame-1_0": 20,
+          "Afterburner/Flame1_0": 20,
+          "LandingGear/Gear": 72,
+          "PivotGloveLOD1": 96
+        },
+        "triangles": 6675
+      },
+      {
+        "budget": 7000,
+        "distance_m": 600,
+        "parts": {
+          "AIModel/tornado_ai_lod1/LOD1WingLeft": 464,
+          "AIModel/tornado_ai_lod1/LOD1WingRight": 464,
+          "AIModel/tornado_ai_lod1/LOD1_001": 5539,
+          "Afterburner/Flame-1_0": 20,
+          "Afterburner/Flame1_0": 20,
+          "PivotGloveLOD1": 96
+        },
+        "triangles": 6603
+      },
+      {
+        "budget": 2000,
+        "distance_m": 950,
+        "parts": {
+          "AIModel/tornado_ai_lod2/LOD2WingLeft": 113,
+          "AIModel/tornado_ai_lod2/LOD2WingRight": 113,
+          "AIModel/tornado_ai_lod2/LOD2_001": 1474,
+          "PivotGloveLOD2": 96
+        },
+        "triangles": 1796
+      }
+    ],
+    "spans_m": [
+      {
+        "closed_m": 8.99766159057617,
+        "open_m": 13.8999996185303
+      },
+      {
+        "closed_m": 8.98898315429688,
+        "open_m": 13.9010028839111
+      },
+      {
+        "closed_m": 8.97864055633545,
+        "open_m": 13.9032726287842
+      }
+    ]
+  },
+  "recognition_status": "NOT ACCEPTED: actual27views reviewed for nose orientation, single fin, symmetric changing sweep and silhouette; stylized proportions and multiple primary variant references remain unverified.",
+  "production_accepted": false,
+  "playable": false,
+  "status": "planned candidate; inspectable in hangar only; existing nine playable prototypes retained",
+  "remaining": [
+    "Primary-source variant dimensions and recognition audit",
+    "full takeoff/flight/landing/world/multiplayer acceptance",
+    "suitable individual audio",
+    "physical Android/iPhone controls and performance",
+    "commercial designation/design/material license clearance",
+    "all owner section20 acceptance gates"
+  ],
+  "output_license_clearance": "NOT VERIFIED for commercial publication; TRELLIS MIT, DINOv3 custom license, BiRefNet MIT and reference/design terms apply"
+}

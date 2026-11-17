@@ -2,6 +2,7 @@ extends SceneTree
 ## Planned-only imported assembly QA; never admits a plane to public sessions.
 var checks: Array[Dictionary]=[]
 var valid: bool=true
+var aircraft_id: String="f14"
 var destination: String="/tmp/avia-sweep-candidate"
 func check(ok: bool,label: String) -> void:
  checks.append({"check":label,"ok":ok});valid=valid and ok
@@ -15,12 +16,17 @@ func _initialize() -> void:_run.call_deferred()
 func _run() -> void:
  for arg: String in OS.get_cmdline_user_args():
   if arg.begins_with("--out="):destination=arg.trim_prefix("--out=")
+  if arg.begins_with("--aircraft-id="):aircraft_id=arg.trim_prefix("--aircraft-id=")
+ if DisplayServer.get_name()=="headless":
+  push_error("Sweep candidate check requires an actual renderer");quit(2);return
  DirAccess.make_dir_recursive_absolute(destination)
  root.size=Vector2i(768,768);root.content_scale_size=Vector2i(768,768)
  var spec: Dictionary={}
  for row: Dictionary in AviaCatalog.all():
-  if row.aircraft_id=="f14":spec=row
- check(not spec.playable and AviaCatalog.index_of("f14")==-1 and AviaFlight.PLANES.size()==9,"planned candidate stays outside nine admitted aircraft")
+  if row.aircraft_id==aircraft_id:spec=row
+ if spec.is_empty() or not spec.get("systems",{}).get("variable_sweep",false) or spec.get("visual",{}).get("articulated_lods",[]).size()!=3:
+  push_error("Imported variable-sweep candidate required: "+aircraft_id);quit(1);return
+ check(not spec.playable and AviaCatalog.index_of(aircraft_id)==-1 and AviaFlight.PLANES.size()==9,"planned candidate stays outside nine admitted aircraft")
  var model: AviaAircraft=AviaFighterVisual.create_spec(spec,true);root.add_child(model);model.set_process(false);model.landing_gear.hide()
  check(model.sweep_wings.size()==6,"six imported panels registered across three explicit LODs")
  check(mesh_triangles(model.gear_instances.multimesh.mesh)*model.gear_instances.multimesh.instance_count==72,"full assembly counter includes all three 24-triangle gear units")
@@ -44,6 +50,8 @@ func _run() -> void:
  var sun: DirectionalLight3D=DirectionalLight3D.new();sun.rotation_degrees=Vector3(-45,-35,0);root.add_child(sun)
  var camera: Camera3D=Camera3D.new();root.add_child(camera);camera.projection=Camera3D.PROJECTION_ORTHOGONAL;camera.size=27;camera.current=true
  var tiers: Array[Node]=model.get_node("AIModel").get_children();var counts: Array[int]=[];var images: Array[String]=[];var spans: Array[Dictionary]=[]
+ if tiers.size()!=3:
+  push_error("Expected three explicit candidate LODs");quit(1);return
  for level: int in 3:
   var vertices_ok: bool=true;var triangles: int=0;var panels: int=0;var bodies: int=0;var leftover: bool=false;var ranges_ok: bool=true
   for mesh: Node in tiers[level].find_children("*","MeshInstance3D",true,false):
@@ -58,7 +66,7 @@ func _run() -> void:
     for p: Vector3 in points:
      vertices_ok=vertices_ok and p.is_finite()
      var local: Vector3=model.global_transform.affine_inverse()*mesh.global_transform*p
-     if not str(mesh.name).contains("Wing") and absf(local.x)>2.802 and local.z<4.798:leftover=true
+     if not str(mesh.name).contains("Wing") and absf(local.x)>float(spec.geometry.sweep_pivot_x_m)+.002 and local.z<float(spec.visual.get("articulation_cut_z_m",4.8))-.002:leftover=true
     for j: int in range(0,count,3):
      var a: Vector3=points[indices[j] if not indices.is_empty() else j];var b: Vector3=points[indices[j+1] if not indices.is_empty() else j+1];var c: Vector3=points[indices[j+2] if not indices.is_empty() else j+2]
      vertices_ok=vertices_ok and (b-a).cross(c-a).length()*.5>1e-12
@@ -91,12 +99,12 @@ func _run() -> void:
     await process_frame;await process_frame;await RenderingServer.frame_post_draw
     var name_: String="sweep-lod%d-pose%d-%s.png"%[level,pose,view]
     check(root.get_texture().get_image().save_png(destination.path_join(name_))==OK,"render "+name_);images.append(name_)
-  check(open_span>19.0 and closed_span<open_span*.8,"LOD"+str(level)+" actual imported sweep reduces span")
+  check(open_span>float(spec.geometry.span_m)*.97 and closed_span<open_span*.8,"LOD"+str(level)+" actual imported sweep reduces span")
   spans.append({"open_m":open_span,"closed_m":closed_span})
  var state: Dictionary={"v":Vector3(0,0,400),"gear":false,"flaps":false,"crashed":false,"afterburner":false}
  model.update_state(state);check(model.sweep_fraction==1.0,"first fast snapshot establishes imported rig closed baseline")
  state.gear=true;model.update_state(state);model._process(1.25)
- check(is_equal_approx(model.sweep_fraction,.5) and model.sweep_wings.all(func(p: Node3D):return absf(p.rotation.y)>.4),"all six imported panels animate continuously from replicated gear flag")
+ check(is_equal_approx(model.sweep_fraction,.5) and model.sweep_wings.all(func(p: Node3D):return absf(p.rotation.y)>deg_to_rad(float(spec.sweep.travel_degrees))*.49),"all six imported panels animate continuously from replicated gear flag")
  model._process(1.25);check(model.sweep_fraction==0.0 and model.sweep_wings.all(func(p: Node3D):return p.rotation.is_zero_approx()),"all imported pivots return to exact open endpoint")
- var result: Dictionary={"event":"sweep_candidate_summary","status":"PASS" if valid else "FAIL","checks":checks,"lod_triangles":counts,"assembly_budgets":assembly_budgets,"spans":spans,"preview_files":images,"engine":Engine.get_version_info(),"scope":"actual rendered planned AI assembly; full recognition/flight/network/device/rights/15-gate acceptance pending"}
+ var result: Dictionary={"aircraft_id":aircraft_id,"event":"sweep_candidate_summary","status":"PASS" if valid else "FAIL","checks":checks,"lod_triangles":counts,"assembly_budgets":assembly_budgets,"spans":spans,"preview_files":images,"engine":Engine.get_version_info(),"scope":"actual rendered planned AI assembly; full recognition/flight/network/device/rights/15-gate acceptance pending"}
  var file: FileAccess=FileAccess.open(destination.path_join("sweep-candidate-validation.json"),FileAccess.WRITE);file.store_string(JSON.stringify(result,"  "));file.close();print(JSON.stringify(result));quit(0 if valid else 1)

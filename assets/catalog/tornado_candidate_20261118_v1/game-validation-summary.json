@@ -1,0 +1,132 @@
+{
+  "status": "PASS",
+  "source_base": "444e6de7fbb40c51b4e330a7d4ca7f26cee14acf",
+  "scope": "actual rendered planned candidate geometry/animation/hangar; no production acceptance",
+  "candidate": "assets/catalog/tornado_candidate_20261118_v1",
+  "engine": {
+    "build": "official",
+    "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+    "hex": 263938,
+    "major": 4,
+    "minor": 7,
+    "patch": 2,
+    "status": "stable",
+    "string": "4.7.2-stable (official)",
+    "timestamp": 0
+  },
+  "checks": 64,
+  "rendered_views": 27,
+  "assembly_budgets": [
+    {
+      "budget": 20000,
+      "distance_m": 100,
+      "parts": {
+        "AIModel/tornado_ai_lod0/LOD0WingLeft": 1433,
+        "AIModel/tornado_ai_lod0/LOD0WingRight": 1433,
+        "AIModel/tornado_ai_lod0/LOD0_001": 16243,
+        "Afterburner/Flame-1_0": 20,
+        "Afterburner/Flame1_0": 20,
+        "LandingGear/Gear": 72,
+        "PivotGloveLOD0": 96
+      },
+      "triangles": 19317
+    },
+    {
+      "budget": 7000,
+      "distance_m": 400,
+      "parts": {
+        "AIModel/tornado_ai_lod1/LOD1WingLeft": 464,
+        "AIModel/tornado_ai_lod1/LOD1WingRight": 464,
+        "AIModel/tornado_ai_lod1/LOD1_001": 5539,
+        "Afterburner/Flame-1_0": 20,
+        "Afterburner/Flame1_0": 20,
+        "LandingGear/Gear": 72,
+        "PivotGloveLOD1": 96
+      },
+      "triangles": 6675
+    },
+    {
+      "budget": 7000,
+      "distance_m": 600,
+      "parts": {
+        "AIModel/tornado_ai_lod1/LOD1WingLeft": 464,
+        "AIModel/tornado_ai_lod1/LOD1WingRight": 464,
+        "AIModel/tornado_ai_lod1/LOD1_001": 5539,
+        "Afterburner/Flame-1_0": 20,
+        "Afterburner/Flame1_0": 20,
+        "PivotGloveLOD1": 96
+      },
+      "triangles": 6603
+    },
+    {
+      "budget": 2000,
+      "distance_m": 950,
+      "parts": {
+        "AIModel/tornado_ai_lod2/LOD2WingLeft": 113,
+        "AIModel/tornado_ai_lod2/LOD2WingRight": 113,
+        "AIModel/tornado_ai_lod2/LOD2_001": 1474,
+        "PivotGloveLOD2": 96
+      },
+      "triangles": 1796
+    }
+  ],
+  "span_m": [
+    {
+      "closed_m": 8.99766159057617,
+      "open_m": 13.8999996185303
+    },
+    {
+      "closed_m": 8.98898315429688,
+      "open_m": 13.9010028839111
+    },
+    {
+      "closed_m": 8.97864055633545,
+      "open_m": 13.9032726287842
+    }
+  ],
+  "hangar_checks": 58,
+  "hangar_screenshots": 8,
+  "regressions": [
+    {
+      "script": "catalog_check",
+      "pass": true,
+      "exit_code": 0
+    },
+    {
+      "script": "aircraft_systems_check",
+      "pass": true,
+      "exit_code": 0
+    },
+    {
+      "script": "sweep_flight_check",
+      "pass": true,
+      "exit_code": 0
+    },
+    {
+      "script": "strike_sweep_check",
+      "pass": true,
+      "exit_code": 0
+    },
+    {
+      "script": "fighter_circuit_check",
+      "pass": true,
+      "exit_code": 0
+    }
+  ],
+  "f14_regression": {
+    "status": "PASS",
+    "checks": 64,
+    "views": 27
+  },
+  "rendered_existing_gear_checks": 60,
+  "pytest": {
+    "passed": 16,
+    "suites": [
+      "test_aircraft_production.py",
+      "test_assets.py",
+      "test_assets_live_guards.py"
+    ]
+  },
+  "production_accepted": false,
+  "playable": false
+}
