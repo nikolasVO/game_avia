@@ -34,6 +34,10 @@ func _ready() -> void:
    world=load("res://client/world.gd").new();add_child(world)
    ui=load("res://client/ui.gd").new();ui.session=session;ui.world=world;add_child(ui)
   if options.has("connect"):
+   # First-frame shader compilation must finish before starting the network deadline.
+   if not headless:
+    await RenderingServer.frame_post_draw
+    if session.diagnostics:print(JSON.stringify({"event":"client_render_ready","wall_ms":Time.get_ticks_msec()}))
    session.connect_to(options.connect,int(options.get("port","24567")),{"plane":int(options.get("plane","0")),"mode":str(options.get("mode","free")),"code":str(options.get("code","")),"private":options.has("private")})
    if ui:ui.menu.hide();ui.touch.show()
 func _notification(what: int) -> void:
