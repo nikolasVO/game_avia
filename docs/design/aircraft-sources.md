@@ -29,3 +29,7 @@ Primary museum-source searches returned no usable result in this runtime; no ret
 ## Tornado reference work, 18 November 2026
 
 Primary RAF/museum searches returned no usable result in this runtime. No source-derived dimensions or real control-envelope facts are claimed. The16.7m length/13.9m span are provisional game geometry. Own tandem-canopy/single-fin/twin-engine reference has separate mirrored swing panels and paired side intakes, without external pixels/models/logos. The594–1134km/h automatic schedule,42degree travel and lift/drag/control ratios are authored arcade settings, not Tornado technical data. Primary variant recognition, physical handling and commercial rights remain open.
+
+## F-15E reference work, 18 November 2026
+
+Primary USAF search/page retrieval yielded no usable content in this runtime (direct network DNS retrieval also failed). No newly verified aircraft facts or variant measurements are claimed. Existing19.4m/13m and all performance/handling figures remain provisional authored game parameters. Own reference adds a long divided tandem canopy and paired conformal shapes to the existing family geometry. No third-party pixels/models/logos used. Recognition, source/variant comparison and commercial name/design rights remain open.

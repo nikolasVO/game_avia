@@ -137,8 +137,8 @@
       "job_id": "aircraft-f15e-v1",
       "aircraft_id": "f15e",
       "state": "queued",
-      "source_type": "AI/procedural repair planned",
-      "stage": "reference",
+      "source_type": "own provisional tandem/conformal conditioning geometry",
+      "stage": "reference_ready",
       "attempts": 0,
       "max_attempts": 2,
       "heartbeat": null,
@@ -147,7 +147,7 @@
         "GPU lease",
         "10GiB reserve"
       ],
-      "next_action": "Author recognizable multi-reference-checked silhouette; TRELLIS compact512; Blender symmetry/parts/LOD; Godot validation",
+      "next_action": "17 actual geometry/shared-force checks, full15.10km command circuit and four1024px authored views PASS. One guarded compact512 attempt next; primary variant recognition, mobile, rights and15production gates open.",
       "acceptance": "15 aircraft gates in brief section20; not accepted by config alone"
     },
     {

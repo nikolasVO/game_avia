@@ -5,7 +5,7 @@
   "class": "heavy_multirole",
   "status": "planned",
   "playable": false,
-  "source_type": "procedural_placeholder",
+  "source_type": "authored_provisional_reference",
   "physics_model": "fighter_v1",
   "color": "79838d",
   "flight": {
@@ -43,10 +43,83 @@
     "length_m": 19.4,
     "span_m": 13,
     "engines": 2,
-    "planform": "conventional"
+    "planform": "conventional",
+    "body_half_width_m": 1.1,
+    "body_half_height_m": 0.8,
+    "wing_root_chord_m": 5.8,
+    "wing_sweep_m": 1.6,
+    "lerx_half_span_m": 1.2,
+    "lerx_chord_m": 4.0,
+    "lerx_z_m": -1.8,
+    "fin_count": 2,
+    "fin_height_m": 3.1,
+    "fin_cant_degrees": 0,
+    "intake_layout": "side_pair",
+    "engine_spacing_m": 2.1,
+    "engine_channel_length_m": 6.5,
+    "canopy_sections_m": [
+      [
+        -6.1,
+        0.03,
+        0.05
+      ],
+      [
+        -5.3,
+        0.43,
+        0.58
+      ],
+      [
+        -2.8,
+        0.47,
+        0.68
+      ],
+      [
+        -1.5,
+        0.29,
+        0.4
+      ],
+      [
+        -1.1,
+        0.03,
+        0.05
+      ]
+    ],
+    "canopy_frame_z_m": -3.9,
+    "conformal_tanks": {
+      "offset_x_m": 1.18,
+      "center_y_m": -0.28,
+      "sections_m": [
+        [
+          -3.8,
+          0.06,
+          0.1
+        ],
+        [
+          -2.6,
+          0.44,
+          0.57
+        ],
+        [
+          0.6,
+          0.54,
+          0.62
+        ],
+        [
+          3.6,
+          0.43,
+          0.43
+        ],
+        [
+          5.1,
+          0.05,
+          0.09
+        ]
+      ]
+    },
+    "proportions_notice": "Own stylized tandem canopy and paired conformal-tank shapes; provisional game proportions, not measured variant geometry."
   },
   "reference": {
-    "status": "game proportions pending variant validation",
+    "status": "Own tandem/conformal conditioning geometry; primary-source variant audit pending",
     "commercial_rights": "NOT REVIEWED; no logos or military insignia",
     "fallback_name": "Avia 18-F15E"
   },
@@ -56,5 +129,9 @@
     "free",
     "combat"
   ],
-  "balance_notice": "Authored arcade values; not real aircraft technical specifications."
+  "balance_notice": "Authored arcade values; not real aircraft technical specifications.",
+  "hangar": {
+    "en": "A stable heavy multirole prototype: slower response and acceleration than the F-15C. Tandem canopy and conformal tank shapes remain provisional.",
+    "ru": "Устойчивый тяжёлый многоцелевой прототип: отклик и разгон медленнее F-15C. Двухместный фонарь и конформные баки пока условные."
+  }
 }

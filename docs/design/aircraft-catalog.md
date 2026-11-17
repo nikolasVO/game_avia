@@ -14,7 +14,7 @@ Data: `game/avia/data/aircraft/`, schema1; stable original indices0–2. 24 name
 |rafale|Dassault Rafale C|France|flight prototype|1280/2000|205/244|45|AI candidate body; procedural assembly|
 |gripen|Saab JAS 39 Gripen C|Sweden|flight prototype|1344/2100|195/232|30|AI candidate body; procedural assembly|
 |f14|F-14 Tomcat|USA|planned|1568/2450|250/298|82|procedural_placeholder|
-|f15e|F-15E Strike Eagle|USA|planned|1600/2500|265/315|82|procedural_placeholder|
+|f15e|F-15E Strike Eagle|USA|planned|1600/2500|265/315|82|authored_provisional_reference|
 |fa18e|F/A-18E Super Hornet|USA|planned|1216/1900|200/238|56|procedural_placeholder|
 |f22|F-22 Raptor|USA|planned|1504/2350|215/256|50|procedural_placeholder|
 |f35a|F-35A Lightning II|USA|planned|1216/1900|225/268|61|procedural_placeholder|
@@ -41,3 +41,5 @@ All six P1 bodies now have actual local TRELLIS/Blender/strict Godot validation 
 Tornado planned slot now has an own single-fin/twin-engine/tandem reference and separate42degree variable-sweep panels with a type-specific authored automatic schedule. Actual shared lift/drag/control effects and full command circuit passed; no flight admission or production acceptance. One232.695s compact512 candidate is now integrated for hangar inspection: same-original90degree orientation repair and articulated wings,64actual rendered checks/27views; full near/mid/far assembly19317/6675/1796triangles. Still planned/playable=false;58rendered hangar checks preserve nine playable entries. See evidence/aircraft-tornado-reference.json and evidence/tornado-articulation.json.
 
 All14materialized inspection models now have explicit original synthesized audio identities. Hangar offers a bounded4second sample with EN/RU labels; five planned candidate samples are independent of flight admission. Actual mixer54checks and rendered collection69checks passed. These are authored game tones, not real aircraft acoustic data. See evidence/aircraft-audio-preview.json.
+
+F15E planned variant now has its own tandem canopy/frame and paired conformal shapes. 17 actual geometry/shared-force checks distinguish slower roll/acceleration and higher retained angular inertia from F15C. Full command circuit15.10km and all six existing fighter circuits PASS; four authored views fit frame. Fixed-wing, two-engine, paired-fin provisional reference only; primary variant audit and full15gates pending. See evidence/aircraft-f15e-reference.json.

@@ -1,0 +1,22 @@
+{
+  "asset_id": "f15e_candidate_20261118_v1",
+  "purpose": "Own provisional F15E-style tandem/conformal candidate, not production acceptance",
+  "description": "Own authored long tandem canopy with dividing frame, paired conformal fuselage tank shapes, pointed nose, paired side intakes and two engines, two tall fins, fixed conventional wings and separate tailplanes. No weapons, logos, external pixels or copied models. Primary-source variant audit pending; game proportions only. Generated parts require Blender and Godot review.",
+  "style": "coherent stylized Game Avia aviation",
+  "reference_images": [
+    "production-f15e-v1/reference.png"
+  ],
+  "dimensions_m": [
+    13,
+    4.4,
+    19.4
+  ],
+  "source_yaw_degrees": 180,
+  "symmetry_policy": "mirror_x",
+  "triangle_budget": 19300,
+  "texture_budget": 1024,
+  "deadline_seconds": 1800,
+  "cost_limit": 0,
+  "seed": 47,
+  "pipeline_type": "512"
+}

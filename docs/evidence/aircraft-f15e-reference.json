@@ -1,0 +1,180 @@
+{
+  "status": "PASS",
+  "source_base": "12510cd28b0e7d9844d9b056d52f3191432fee8a",
+  "engine": "Godot4.7.2",
+  "geometry_and_shared_forces": {
+    "body_lod_triangles": [
+      580,
+      460,
+      204
+    ],
+    "checks": [
+      {
+        "check": "planned variant keeps nine admitted prototypes",
+        "ok": true
+      },
+      {
+        "check": "own reference has paired engine exits and three gear legs without imported fallback",
+        "ok": true
+      },
+      {
+        "check": "explicit paired vertical tails and side intakes; fixed wing",
+        "ok": true
+      },
+      {
+        "check": "long tandem canopy has an authored dividing frame",
+        "ok": true
+      },
+      {
+        "check": "paired conformal shapes add explicit finite geometry at Airframe",
+        "ok": true
+      },
+      {
+        "check": "paired conformal shapes add explicit finite geometry at LOD1",
+        "ok": true
+      },
+      {
+        "check": "paired conformal shapes add explicit finite geometry at Distant",
+        "ok": true
+      },
+      {
+        "check": "all three authored LODs have finite nondegenerate symmetric geometry and normalized normals",
+        "ok": true
+      },
+      {
+        "check": "decreasing supplied body LODs fit budgets",
+        "ok": true
+      },
+      {
+        "check": "existing F15C reference remains distinct and unchanged",
+        "ok": true
+      },
+      {
+        "check": "f15e: afterburner affects actual acceleration",
+        "ok": true
+      },
+      {
+        "check": "f15c: afterburner affects actual acceleration",
+        "ok": true
+      },
+      {
+        "check": "strike variant responds more slowly to identical low-speed roll commands",
+        "ok": true
+      },
+      {
+        "check": "heavier strike variant retains more angular inertia after release",
+        "ok": true
+      },
+      {
+        "check": "strike variant trades dry and boost acceleration for its stable heavy role",
+        "ok": true
+      },
+      {
+        "check": "shared approved commands reproduce90ticks exactly",
+        "ok": true
+      },
+      {
+        "check": "isolated variant checks preserve catalog and existing prototypes",
+        "ok": true
+      }
+    ],
+    "event": "strike_eagle_summary",
+    "measurements": [
+      {
+        "aircraft_id": "f15e",
+        "boost4s_mps": 284.250518798828,
+        "dry4s_mps": 233.155303955078,
+        "low_speed_bank_rad": 0.252542044284443,
+        "residual_roll_fraction": 0.678072949656895
+      },
+      {
+        "aircraft_id": "f15c",
+        "boost4s_mps": 305.141540527344,
+        "dry4s_mps": 248.5390625,
+        "low_speed_bank_rad": 0.322760246259471,
+        "residual_roll_fraction": 0.641180368439592
+      }
+    ],
+    "scope": "own provisional reference and actual authored shared-force balance, no measured real variant geometry or human/network/phone/production acceptance",
+    "status": "PASS"
+  },
+  "command_only_circuit": {
+    "aircraft_id": "f15e",
+    "commands_valid": true,
+    "crashed": false,
+    "distance_m": 15096.6378675401,
+    "event": "planned_circuit_summary",
+    "final_speed_mps": 1.96927976608276,
+    "landing_seconds": 156.633333333333,
+    "maximum_altitude_m": 245.256164550781,
+    "maximum_speed_mps": 102.72144317627,
+    "production_accepted": false,
+    "scope": "planned-only command-driven parked/takeoff/circuit/approach/braked-stop simulation; no coordinate injection; no human/network/device acceptance",
+    "stage": 4,
+    "status": "PASS",
+    "takeoff_seconds": 2.66666666666667
+  },
+  "regressions": {
+    "status": "PASS",
+    "results": [
+      {
+        "script": "flight_check",
+        "ok": true,
+        "exit": 0
+      },
+      {
+        "script": "fighter_check",
+        "ok": true,
+        "exit": 0
+      },
+      {
+        "script": "fighter_geometry_check",
+        "ok": true,
+        "exit": 0
+      },
+      {
+        "script": "fighter_circuit_check",
+        "ok": true,
+        "exit": 0
+      }
+    ]
+  },
+  "pytest": 10,
+  "rendered_reference_views": 4,
+  "reference_alpha_bounds": {
+    "reference": [
+      179,
+      310,
+      841,
+      687
+    ],
+    "top": [
+      248,
+      112,
+      776,
+      879
+    ],
+    "front": [
+      255,
+      397,
+      769,
+      554
+    ],
+    "side": [
+      126,
+      384,
+      911,
+      552
+    ]
+  },
+  "source_files": {
+    "side.png": "8e83be3af57f48333a74d693f176ce01a4b9e739f8c8a3f489c42e07d73f83f2",
+    "reference.png": "a9694d9ba5bc67dbf78eb946177a929b578108c158dcff974a890ae00ca3d1cf",
+    "top.png": "194d2ffb162c41ab4e251a4a0530eb2f87f2d88aafa3bada567e60579a206366",
+    "manifest.json": "d82fe9689096cfb81af3b76f137a3fd9bd87a50e0527e6afa1f4ed50b86277d6",
+    "front.png": "7074c291bbdb437e50c675ae2c6826ca0452fcaaccf12522c74ccbdadd2312e4"
+  },
+  "playable": false,
+  "production_accepted": false,
+  "scope": "Own provisional variant reference and actual arcade-force differences from F15C. No verified real dimensions/recognition, imported AI candidate, human/network/phone/rights or15gate acceptance."
+}

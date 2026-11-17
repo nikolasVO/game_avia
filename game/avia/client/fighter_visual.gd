@@ -47,6 +47,12 @@ static func create_spec(spec: Dictionary, use_imported: bool=false) -> AviaAircr
    for section: Array in g.body_sections_m:body_sections.append(Vector3(float(section[0]),float(section[1]),float(section[2])))
    AviaAircraft._loft(st,body_sections,0,color,sides)
   else:AviaAircraft._loft(st,[Vector3(-length*.51,.04,.06),Vector3(-length*.3,width*.55,height*.9),Vector3(-length*.12,width,height),Vector3(length*.17,width*1.1,height*.9),Vector3(length*.44,width*.65,height*.55)],0.1,color,sides)
+  if g.has("conformal_tanks"):
+   # Paired body-hugging shapes belong only to explicitly authored references.
+   # No weapons or copied model geometry; proportions remain provisional.
+   var tanks: Dictionary=g.conformal_tanks;var sections: Array[Vector3]=[]
+   for section: Array in tanks.sections_m:sections.append(Vector3(float(section[0]),float(section[1]),float(section[2])))
+   for side: float in [-1.0,1.0]:AviaAircraft._loft(st,sections,float(tanks.center_y_m),color.darkened(.08),sides,side*float(tanks.offset_x_m))
   # Cropped swept wing or canard delta; source geometry is authored independently.
   if bool(spec.systems.get("variable_sweep",false)):
    # Fixed glove; articulated panels are separate from every body LOD.
@@ -84,6 +90,8 @@ static func create_spec(spec: Dictionary, use_imported: bool=false) -> AviaAircr
    var canopy: Array[Vector3]=[]
    for section: Array in g.get("canopy_sections_m",[[-length*.30,.03,.05],[-length*.22,.42,.60],[-length*.10,.4,.50],[-length*.02,.04,.05]]):canopy.append(Vector3(float(section[0]),float(section[1]),float(section[2])))
    AviaAircraft._loft(st,canopy,.65,glass,sides)
+   if g.has("canopy_frame_z_m"):
+    AviaAircraft._box(st,Vector3(0,1.24,float(g.canopy_frame_z_m)),Vector3(.88,.08,.12),color.darkened(.12))
    if g.has("wingtip_rail_m"):
     var rail: Array=g.wingtip_rail_m
     for side: float in [-1.0,1.0]:AviaAircraft._box(st,Vector3(side*span*.5,float(rail[0]),float(rail[1])),Vector3(.12,.12,float(rail[2])),dark)

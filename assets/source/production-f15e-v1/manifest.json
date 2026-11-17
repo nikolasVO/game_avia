@@ -1,0 +1,122 @@
+{
+  "aircraft_id": "f15e",
+  "authored_geometry": {
+    "body_half_height_m": 0.8,
+    "body_half_width_m": 1.1,
+    "canopy_frame_z_m": -3.9,
+    "canopy_sections_m": [
+      [
+        -6.1,
+        0.03,
+        0.05
+      ],
+      [
+        -5.3,
+        0.43,
+        0.58
+      ],
+      [
+        -2.8,
+        0.47,
+        0.68
+      ],
+      [
+        -1.5,
+        0.29,
+        0.4
+      ],
+      [
+        -1.1,
+        0.03,
+        0.05
+      ]
+    ],
+    "conformal_tanks": {
+      "center_y_m": -0.28,
+      "offset_x_m": 1.18,
+      "sections_m": [
+        [
+          -3.8,
+          0.06,
+          0.1
+        ],
+        [
+          -2.6,
+          0.44,
+          0.57
+        ],
+        [
+          0.6,
+          0.54,
+          0.62
+        ],
+        [
+          3.6,
+          0.43,
+          0.43
+        ],
+        [
+          5.1,
+          0.05,
+          0.09
+        ]
+      ]
+    },
+    "engine_channel_length_m": 6.5,
+    "engine_spacing_m": 2.1,
+    "engines": 2.0,
+    "fin_cant_degrees": 0.0,
+    "fin_count": 2.0,
+    "fin_height_m": 3.1,
+    "intake_layout": "side_pair",
+    "length_m": 19.4,
+    "lerx_chord_m": 4.0,
+    "lerx_half_span_m": 1.2,
+    "lerx_z_m": -1.8,
+    "planform": "conventional",
+    "proportions_notice": "Own stylized tandem canopy and paired conformal-tank shapes; provisional game proportions, not measured variant geometry.",
+    "span_m": 13.0,
+    "wing_root_chord_m": 5.8,
+    "wing_sweep_m": 1.6
+  },
+  "conditioning": "single reference.png only, never the QC views as a collage",
+  "description": "Own approximate game fighter geometry, no logos/insignia or copied third-party model; variant recognition/proportions require further review",
+  "files": {
+    "front.png": {
+      "height": 1024,
+      "sha256": "7074c291bbdb437e50c675ae2c6826ca0452fcaaccf12522c74ccbdadd2312e4",
+      "width": 1024
+    },
+    "reference.png": {
+      "height": 1024,
+      "sha256": "a9694d9ba5bc67dbf78eb946177a929b578108c158dcff974a890ae00ca3d1cf",
+      "width": 1024
+    },
+    "side.png": {
+      "height": 1024,
+      "sha256": "8e83be3af57f48333a74d693f176ce01a4b9e739f8c8a3f489c42e07d73f83f2",
+      "width": 1024
+    },
+    "top.png": {
+      "height": 1024,
+      "sha256": "194d2ffb162c41ab4e251a4a0530eb2f87f2d88aafa3bada567e60579a206366",
+      "width": 1024
+    }
+  },
+  "generator": "game/avia/tests/fighter_reference.gd and client/fighter_visual.gd",
+  "generator_files_sha256": {
+    "res://client/aircraft.gd": "a7b54d492f65a0cba85b840937470f82ff0c40042d21f03f37880b7425ed6274",
+    "res://client/fighter_visual.gd": "8c1edf4f3dace5ef90a0421991732bbe698374b48488c8be2499b1084266a916",
+    "res://tests/fighter_reference.gd": "d651d98390b6b1eae2374a1b8b4d8f9663ee90ec7a63f535fffd6812ffc1e3c7"
+  },
+  "imported_body_used": false,
+  "input_rights": "Project-authored geometry/render; no third-party pixels/models/logos. Commercial designation/design review remains pending.",
+  "input_view": "reference.png",
+  "paid_calls": 0,
+  "qc_views_only": [
+    "top.png",
+    "front.png",
+    "side.png"
+  ],
+  "source_type": "procedural_reference"
+}
