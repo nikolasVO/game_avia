@@ -82,7 +82,7 @@ async def execute(store,task,owner):
     store.transition(tid,"completed","Тесты и независимое ревью пройдены. Ветка "+branch+"; SHA "+sha+". Интеграция в main — отдельный этап.",owner=owner)
 
 async def main():
-    load_environment()
+    load_environment(role="executor")
     import fcntl
     lock=open(state_dir()/"executor.lock","a")
     fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)

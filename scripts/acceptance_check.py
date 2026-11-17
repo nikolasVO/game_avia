@@ -28,7 +28,9 @@ def check():
         pid=subprocess.check_output(["/srv/game-avia/venvs/core/bin/supervisorctl","-c","deploy/supervisord.conf","pid",name],text=True).strip()
         values=Path("/proc/"+pid+"/environ").read_bytes().split(b"\0")
         sha=next((x.split(b"=",1)[1].decode() for x in values if x.startswith(b"GAME_AVIA_RELEASE_SHA=")),None)
-        report["runtime_children"][name]={"release":sha,"uid":Path("/proc/"+pid).stat().st_uid}
+        keys={x.split(b"=",1)[0].decode(errors="replace") for x in values}
+        scoped=(not any(x.endswith("_API_KEY") for x in keys)) if name in ("api","coordinator") else "TELEGRAM_BOT_TOKEN" not in keys
+        report["runtime_children"][name]={"release":sha,"uid":Path("/proc/"+pid).stat().st_uid,"scoped_environment":scoped}
     report["private_environment_mode"]=oct(stat.S_IMODE(Path("/etc/game-avia/environment").stat().st_mode))
     with s.db() as c:
         report["bootstrap_text_attempts"]=c.execute("SELECT COALESCE(SUM(requests),0) FROM usage_ledger").fetchone()[0]
@@ -43,7 +45,7 @@ def check():
     assert report["health"]["release"]==report["checkout"]
     assert report["api_rejects_unauthorized"] and report["api_authorized_get"]
     assert all(x=="RUNNING" for x in report["services"].values())
-    assert all(x["release"]==report["checkout"] and x["uid"]!=0 for x in report["runtime_children"].values())
+    assert all(x["release"]==report["checkout"] and x["uid"]!=0 and x["scoped_environment"] for x in report["runtime_children"].values())
     assert report["bootstrap_text_attempts"]<=12 and report["bootstrap_image_operations"]<=1
     assert report["sandbox"].get("passed")
     return report

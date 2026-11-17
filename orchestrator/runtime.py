@@ -10,7 +10,7 @@ from orchestrator.store import Store
 from integrations.telegram.bot import Telegram
 
 async def main():
-    load_environment()
+    load_environment(role="coordinator")
     p=state_dir()
     lock=open(p/"runtime.lock","a")
     fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)

@@ -9,7 +9,7 @@ from orchestrator.settings import load_environment,state_dir
 from orchestrator.store import Store
 from workers.assets.pipeline import AssetSpec
 
-load_environment()
+load_environment(role="api")
 app=FastAPI(title="game_avia local coordinator",docs_url=None,redoc_url=None)
 def get_store():return Store(state_dir()/"coordinator.sqlite3")
 def auth(authorization:str=Header(default="")):

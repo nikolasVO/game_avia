@@ -7,7 +7,9 @@ from workers.assets.pipeline import AssetRunner,AssetSpec,disk_guard,gpu_guard,r
 
 def run_process(store,task,owner,fence,argv,log,deadline):
     with open(log,"ab") as f:
-        process=subprocess.Popen(argv,stdout=f,stderr=subprocess.STDOUT,start_new_session=True)
+        allowed={k:v for k,v in os.environ.items() if k in ("PATH","LANG","LD_LIBRARY_PATH","CUDA_HOME","CUDA_VISIBLE_DEVICES","NVIDIA_VISIBLE_DEVICES","NVIDIA_DRIVER_CAPABILITIES")}
+        allowed["HOME"]=str(Path(log).parent)
+        process=subprocess.Popen(argv,stdout=f,stderr=subprocess.STDOUT,start_new_session=True,env=allowed)
         store.kv("gpu_process",process.pid)
         try:
             while process.poll() is None:
@@ -22,7 +24,8 @@ def run_process(store,task,owner,fence,argv,log,deadline):
                 os.killpg(process.pid,signal.SIGKILL);process.wait(timeout=20)
             raise
         finally:
-            if process.poll() is not None:store.kv("gpu_process","")
+            if process.poll() is not None:
+                with store.db() as c:c.execute("UPDATE kv SET value='' WHERE key='gpu_process' AND value=?",(str(process.pid),))
 
 def run_asset(store,task,owner,root):
     root=Path(root);spec=AssetSpec.model_validate(task["spec"])
