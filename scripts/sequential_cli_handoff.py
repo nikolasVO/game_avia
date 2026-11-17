@@ -10,7 +10,11 @@ import json
 from pathlib import Path
 import shlex
 import subprocess
+import sys
 import time
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from workers.coding.provider_runtime import configure_provider
 
 
 def write_json(path, value):
@@ -49,6 +53,13 @@ def remote(config, command, *args):
 
 
 def step(config, runtime):
+    lock_path = Path(config.get("launch_lock", str(runtime / "writer.lock")))
+    with lock_path.open("a") as writer_lock:
+        fcntl.flock(writer_lock, fcntl.LOCK_EX)
+        return _step_unlocked(config, runtime)
+
+
+def _step_unlocked(config, runtime):
     if cli_is_running(config["worktree"], config["session_id"]):
         return {"status": "waiting_for_current_cli"}
     state = remote(config, "inspect")
@@ -73,10 +84,19 @@ def step(config, runtime):
     events, stderr = runtime / "stage3-events.jsonl", runtime / "stage3-stderr.log"
     args = [config["cli"], "-a", "never", "exec", "--sandbox", "danger-full-access",
             "--cd", config["worktree"], "--json", "--output-last-message",
-            str(runtime / "stage3-last-message.txt"), "resume", config["session_id"], "-"]
+            str(runtime / "stage3-last-message.txt")]
+    child_env, api_route = None, None
+    if config.get("provider_config_file"):
+        api_config = json.loads(Path(config["provider_config_file"]).read_text())
+        if api_config.get("paid_work_authorized") and api_config.get("api_routes"):
+            api_route = api_config["api_routes"][0]
+            args, child_env = configure_provider(args, api_route, api_config["provider_credentials_file"])
+            args.append("-")
+    if api_route is None:
+        args.extend(["resume", config["session_id"], "-"])
     with prompt.open("rb") as incoming, events.open("wb") as outgoing, stderr.open("wb") as errors:
         process = subprocess.Popen(args, stdin=incoming, stdout=outgoing, stderr=errors,
-                                   cwd=config["worktree"], start_new_session=True)
+                                   cwd=config["worktree"], env=child_env, start_new_session=True)
     launched = {"status": "launched", "pid": process.pid, "task_id": config["successor_task"],
                 "session_id": config["session_id"], "brief_sha256": config["brief_sha256"]}
     write_json(runtime / "dispatcher-state.json", launched)
@@ -87,6 +107,8 @@ def step(config, runtime):
                    brief_sha256=config["brief_sha256"], brief_bytes=config["brief_bytes"],
                    server_task_id=config["successor_task"], scope="stage 3 after verified predecessor",
                    continuation=prior.get("continuation", 0) + 1)
+    if api_route:
+        updated.update(account_mode="provider_api", api_route=api_route["id"], api_model=api_route["model"])
     write_json(process_file, updated)
     # Confirming the same PID is idempotent; never start another process on a lost reply.
     for attempt in range(3):
