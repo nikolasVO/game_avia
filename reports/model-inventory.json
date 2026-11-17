@@ -1,0 +1,42 @@
+[
+  {
+    "name": "qwen3.5:35b-a3b-q4_K_M",
+    "digest": "72aac7c28be8ff9b81c2a270eb489c88e6d822a76ec0cb7bf34d965768848567",
+    "bytes": 22069592181,
+    "status": "keep",
+    "reason": "existing Point/shared runtime ownership; not proven unused",
+    "runtime": "Ollama"
+  },
+  {
+    "name": "qwen3.5:9b-q8_0",
+    "digest": "a8ee95bc3592ebaa624014ca8b429d25e0ef5f45030dc35786da7ff7e9e1b60a",
+    "bytes": 10449218124,
+    "status": "keep",
+    "reason": "existing Point/shared runtime ownership; not proven unused",
+    "runtime": "Ollama"
+  },
+  {
+    "name": "qwen3.5:27b-q4_K_M",
+    "digest": "64ae5b1d651fb2709d5928ccb8dcfb4bb2cc9c2c8001ac34497e36a6cf905b59",
+    "bytes": 17478556591,
+    "status": "keep",
+    "reason": "selected bounded worker",
+    "runtime": "Ollama"
+  },
+  {
+    "name": "point-agent-qwen:latest",
+    "digest": "2cb9f3e4f0ea30c5656079471ff84bf2fe02cdd6d0d9220f3baf7433ded425c6",
+    "bytes": 6550825566,
+    "status": "keep",
+    "reason": "existing Point/shared runtime ownership; not proven unused",
+    "runtime": "Ollama"
+  },
+  {
+    "name": "qwen3.5:9b",
+    "digest": "56671c2ab9385f9cfcb404638e32cd62d88e3501d44822208363c010179a3c90",
+    "bytes": 6550825550,
+    "status": "keep",
+    "reason": "existing Point/shared runtime ownership; not proven unused",
+    "runtime": "Ollama"
+  }
+]

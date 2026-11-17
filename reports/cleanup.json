@@ -1,0 +1,9 @@
+{
+  "scope": "project pip download and wheel cache only",
+  "models_removed": [],
+  "command_exit": 0,
+  "free_before": 39678119936,
+  "free_after": 41809149952,
+  "actual_reclaimed_bytes": 2131030016,
+  "recovery": "download packages again using pinned environment versions"
+}
