@@ -5,12 +5,14 @@ var ui: CanvasLayer
 var bot: bool=false
 var duration: float=0
 var elapsed: float=0
+var started_ms: int=0
 var options: Dictionary={}
 var captured: bool=false
 var headless: bool=false
 var quitting: bool=false
 var control_focused: bool=true
 func _ready() -> void:
+ started_ms=Time.get_ticks_msec()
  # Debug APK only: reproducible emulator diagnostics, never included in release settings.
  if OS.is_debug_build() and OS.has_feature("android"):
   var diagnostic: ConfigFile=ConfigFile.new()
@@ -37,8 +39,9 @@ func _ready() -> void:
   if options.has("connect"):
    # First-frame shader compilation must finish before starting the network deadline.
    if not headless:
-    await RenderingServer.frame_post_draw
+    await world.prepare_aircraft(int(options.get("plane","0")))
     if session.diagnostics:print(JSON.stringify({"event":"client_render_ready","wall_ms":Time.get_ticks_msec()}))
+   if not control_focused and not bot:return
    session.connect_to(options.connect,int(options.get("port","24567")),{"plane":int(options.get("plane","0")),"profile":int(options.get("profile","0")),"mode":str(options.get("mode","free")),"code":str(options.get("code","")),"private":options.has("private")})
    if ui:ui.menu.hide();ui.touch.show()
 func _notification(what: int) -> void:
@@ -94,7 +97,7 @@ func _process(delta: float) -> void:
   var frames: Array[float]=[]
   if ui:frames=ui.frame_times.duplicate();frames.sort()
   var ping: float=session.peer.get_peer(1).get_statistic(ENetPacketPeer.PEER_ROUND_TRIP_TIME) if session.joined else 0
-  print(JSON.stringify({"correction_p95_m":errors[int(errors.size()*0.95)] if errors.size()>0 else 0,"frame_p50_ms":frames[int(frames.size()*0.5)] if frames.size()>0 else 0,"frame_p95_ms":frames[int(frames.size()*0.95)] if frames.size()>0 else 0,"enet_rtt_ms":ping,"static_memory_mb":Performance.get_monitor(Performance.MEMORY_STATIC)/1048576.0,"commands_sent":session.commands_sent,"last_input_ack":session.seq-session.pending.size(),"pending_inputs":session.pending.size(),"connection_status":session.status,"event":"summary","server":session.server,"seconds":elapsed,"joined":session.joined,"snapshots":session.snapshots,"seen_peers":session.seen_peers,"correction_max_m":session.correction_max,"rejected":session.rejected,"state":session.local_state,"renderer":RenderingServer.get_current_rendering_method()}))
+  print(JSON.stringify({"correction_p95_m":errors[int(errors.size()*0.95)] if errors.size()>0 else 0,"frame_p50_ms":frames[int(frames.size()*0.5)] if frames.size()>0 else 0,"frame_p95_ms":frames[int(frames.size()*0.95)] if frames.size()>0 else 0,"enet_rtt_ms":ping,"static_memory_mb":Performance.get_monitor(Performance.MEMORY_STATIC)/1048576.0,"commands_sent":session.commands_sent,"last_input_ack":session.seq-session.pending.size(),"pending_inputs":session.pending.size(),"connection_status":session.status,"event":"summary","server":session.server,"seconds":elapsed,"wall_seconds":float(Time.get_ticks_msec()-started_ms)/1000.0,"joined":session.joined,"snapshots":session.snapshots,"seen_peers":session.seen_peers,"correction_max_m":session.correction_max,"rejected":session.rejected,"state":session.local_state,"renderer":RenderingServer.get_current_rendering_method()}))
   if not session.server and session.joined:
    session.joined=false
    session.peer.get_peer(1).peer_disconnect()

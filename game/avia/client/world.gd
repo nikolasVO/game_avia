@@ -117,3 +117,11 @@ func update_session(session: Node, delta: float) -> void:
  if camera.position.distance_to(target)>0.01:camera.look_at(target)
  camera.fov=70.0 if reduced_motion else lerpf(camera.fov,70.0+minf(s.v.length()*0.06,7.0),delta*2)
  for ring: MeshInstance3D in checkpoint_nodes:ring.visible=session.mode=="race"
+
+func prepare_aircraft(index: int) -> void:
+ # Compile/upload the selected model's material variants before admission deadlines.
+ var warm: AviaAircraft=AviaAircraft.build(clampi(index,0,AviaFlight.PLANES.size()-1));add_child(warm)
+ warm.position=camera.position-camera.global_basis.z*32.0
+ if warm.exhaust:warm.exhaust.show()
+ await RenderingServer.frame_post_draw
+ warm.queue_free()

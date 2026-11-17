@@ -1,0 +1,21 @@
+{
+  "asset_id": "f16c_candidate_20261117_v1",
+  "purpose": "F-16C authored game-geometry AI candidate, production acceptance pending",
+  "description": "Single-engine cropped swept-wing jet, one fin, own gray-blue no-insignia procedural reference. Do not claim certified real geometry. Requires symmetry/parts/recognition review.",
+  "style": "coherent stylized Game Avia aviation",
+  "reference_images": [
+    "production-f16c-v1/reference.png"
+  ],
+  "dimensions_m": [
+    9.8,
+    3.2,
+    14.8
+  ],
+  "source_yaw_degrees": 0,
+  "triangle_budget": 19400,
+  "texture_budget": 1024,
+  "deadline_seconds": 1800,
+  "cost_limit": 0,
+  "seed": 42,
+  "pipeline_type": "512"
+}

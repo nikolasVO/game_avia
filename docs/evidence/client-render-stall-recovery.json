@@ -1,0 +1,44 @@
+{
+  "status": "PASS",
+  "actor_exit": 0,
+  "summary": {
+    "checks": [
+      {
+        "check": "initial real ENet/DTLS admission",
+        "ok": true
+      },
+      {
+        "check": "admitted aircraft rendered in scene graph",
+        "ok": true
+      },
+      {
+        "check": "background detaches transport, clears prediction/visuals/controls, preserves reason",
+        "ok": true
+      },
+      {
+        "check": "real reconnect with changed aircraft",
+        "ok": true
+      },
+      {
+        "check": "snapshot timeout preserves actionable error",
+        "ok": true
+      },
+      {
+        "check": "real reconnect after timeout",
+        "ok": true
+      },
+      {
+        "check": "real queued snapshots drained before timeout after5.5s client frame stall; server clock continued",
+        "ok": true
+      },
+      {
+        "check": "intentional leave clears scene and returns Menu",
+        "ok": true
+      }
+    ],
+    "event": "lifecycle_summary",
+    "scope": "real desktop headless connections and synthetic lifecycle notification; not Android OS lifecycle",
+    "status": "PASS"
+  },
+  "source_note": "Real5.5s own-client stall test, separate server unchanged clock; pre-commit client ordering patch over f702, final APK checked separately."
+}

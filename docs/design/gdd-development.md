@@ -37,3 +37,5 @@ Native landscape UI, English/Russian; selection/comparison hangar with explicit 
 ## Releases and blockers
 
 Maintain rollback to published r2/c1922c7 and preserved6c3620a APK evidence. Protocol4 must not be deployed over protocol3 without a matching client artifact and explicit manual health/rollback checks. Current external UDP path and physical-device/Xcode/signing dependencies remain open. No store release, new paid infrastructure or paid model calls are authorized. STATUS/backlog/evidence separate PASS/FAIL/BLOCKED/NOT VERIFIED and identify exact source/runtime.
+
+Client resilience update: selected aircraft material variants are rendered before admission; the client explicitly polls queued snapshots before evaluating their5s wall-age deadline. Server poll/simulation clock stays independent. A5.5s blocked-client test must recover using actual queued packets while server time advances. Late warmup must not reconnect after focus/background cancellation.

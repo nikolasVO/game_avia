@@ -11,6 +11,8 @@ var select_plane: OptionButton
 var speed_unit: int=0
 var altitude_unit: int=0
 var advanced_hud: bool=false
+var preparing: bool=false
+var join_generation: int=0
 var hangar: PanelContainer
 var system_buttons: Dictionary={}
 var select_profile: OptionButton
@@ -139,12 +141,20 @@ func _translate() -> void:
  if hangar:hangar.lang=language;hangar.localize()
  code.placeholder_text=tr_text("code");host.placeholder_text=tr_text("host")
 func join() -> void:
+ if preparing:return
  if host.text.strip_edges().is_empty():session.status="Enter a server address";return
  settings.set_value("net","host",host.text.strip_edges());settings.save("user://settings.cfg")
+ join_generation+=1
+ var generation: int=join_generation
+ preparing=true;session.status="Preparing aircraft"
+ await world.prepare_aircraft(select_plane.selected)
+ if generation!=join_generation:return
+ preparing=false
  var result: Error=session.connect_to(host.text.strip_edges(),24567,{"plane":select_plane.selected,"profile":select_profile.selected,"mode":["free","race","pvp"][select_mode.selected],"private":private_room.button_pressed,"code":code.text.strip_edges().to_upper()})
  if result==OK:menu.hide();touch.show()
  else:session.disconnect_session("Connection failed — check server address")
 func show_menu() -> void:
+ join_generation+=1;preparing=false
  session.disconnect_session();touch.clear_pointers();touch.throttle=0;touch.hide();menu.show()
 func _process(delta: float) -> void:
  var now: int=Time.get_ticks_usec()
@@ -197,4 +207,8 @@ func _process(delta: float) -> void:
 
 func connection_text(value: String) -> String:
  if language=="en":return value
- return {"Enter a server address":"Введите адрес сервера.","Connection failed — check server address":"Не удалось подключиться. Проверьте адрес сервера.","Admission timeout — retry from menu":"Сервер не подтвердил вход. Повторите подключение.","Menu":"Меню","Connecting":"Подключение…","Joining":"Вход в комнату…","Connected":"Подключено","Paused — reconnect from menu":"Игра свёрнута. Подключитесь заново кнопкой «Начать полёт».","Network timeout — retry from menu":"Нет ответа сервера. Проверьте сеть и повторите вход.","Disconnected — retry from menu":"Соединение разорвано. Повторите вход или смените сервер.","Version mismatch":"Версия игры отличается от сервера. Обновите клиент.","Room full":"Комната заполнена. Выберите другую комнату.","Room mode mismatch":"Режим приватной комнаты отличается. Выберите верный режим.","Invalid room code":"Неверный код комнаты.","Private code needs 4–12 uppercase letters/digits":"Для приватной комнаты нужен код из 4–12 заглавных букв или цифр."}.get(value,value)
+ return {"Preparing aircraft":"Подготовка самолёта…","Invalid flight profile":"Неверный профиль управления.","Enter a server address":"Введите адрес сервера.","Connection failed — check server address":"Не удалось подключиться. Проверьте адрес сервера.","Admission timeout — retry from menu":"Сервер не подтвердил вход. Повторите подключение.","Menu":"Меню","Connecting":"Подключение…","Joining":"Вход в комнату…","Connected":"Подключено","Paused — reconnect from menu":"Игра свёрнута. Подключитесь заново кнопкой «Начать полёт».","Network timeout — retry from menu":"Нет ответа сервера. Проверьте сеть и повторите вход.","Disconnected — retry from menu":"Соединение разорвано. Повторите вход или смените сервер.","Version mismatch":"Версия игры отличается от сервера. Обновите клиент.","Room full":"Комната заполнена. Выберите другую комнату.","Room mode mismatch":"Режим приватной комнаты отличается. Выберите верный режим.","Invalid room code":"Неверный код комнаты.","Private code needs 4–12 uppercase letters/digits":"Для приватной комнаты нужен код из 4–12 заглавных букв или цифр."}.get(value,value)
+
+func _notification(what: int) -> void:
+ if what in [NOTIFICATION_APPLICATION_PAUSED,NOTIFICATION_APPLICATION_FOCUS_OUT]:
+  join_generation+=1;preparing=false

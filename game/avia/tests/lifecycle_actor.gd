@@ -25,12 +25,19 @@ func _run() -> void:
   check(await wait_join() and session.local_state.get("plane",-1)==1,"real reconnect with changed aircraft")
   if session.joined:
    session.last_snapshot_ms=Time.get_ticks_msec()-6000
-   session._physics_process(1.0/30)
+   session._check_snapshot_timeout()
    check(not session.joined and session.status=="Network timeout — retry from menu","snapshot timeout preserves actionable error")
   session.connect_to("127.0.0.1",24576,{"plane":2,"mode":"free"})
   check(await wait_join(),"real reconnect after timeout")
+  if session.joined:
+   await create_timer(0.3).timeout
+   var previous_tick: int=session.server_tick_seen;var previous_snapshots: int=session.snapshots
+   OS.delay_msec(5500) # Only this test client stalls; real server keeps ticking.
+   session._physics_process(AviaFlight.DT)
+   session._process(0.0)
+   check(session.joined and session.snapshots>previous_snapshots and session.server_tick_seen>=previous_tick+140,"real queued snapshots drained before timeout after5.5s client frame stall; server clock continued")
   session.disconnect_session();world.update_session(session,0.03)
   check(session.status=="Menu" and session.local_state.is_empty() and session.others.is_empty() and world.planes.is_empty(),"intentional leave clears scene and returns Menu")
  var ok: bool=checks.all(func(c: Dictionary):return c.ok)
- print(JSON.stringify({"event":"lifecycle_summary","checks":checks,"status":"PASS" if ok else "FAIL","scope":"real desktop headless connections and synthetic lifecycle notification; not Android OS lifecycle"}))
+ print(JSON.stringify({"event":"lifecycle_summary","checks":checks,"status":"PASS" if ok else "FAIL","scope":"real desktop headless connections, actual5.5s stalled client with separate running server, synthetic lifecycle notifications; not Android OS lifecycle"}))
  quit(0 if ok else 1)

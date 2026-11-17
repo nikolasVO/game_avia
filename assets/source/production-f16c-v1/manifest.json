@@ -1,0 +1,43 @@
+{
+  "aircraft_id": "f16c",
+  "conditioning": "single reference.png only, never the QC views as a collage",
+  "description": "Own approximate game fighter geometry, no logos/insignia or copied third-party model; variant recognition/proportions require further review",
+  "files": {
+    "front.png": {
+      "height": 1024,
+      "sha256": "0653154a4fb89698255cfde3a13a9fc32232af128e46d7c13b8ffa416b08a872",
+      "width": 1024
+    },
+    "reference.png": {
+      "height": 1024,
+      "sha256": "b42016f44bf2e09ff4fbeedb6dd11784d16537d3fd5a6eba252202c6ba3a47d2",
+      "width": 1024
+    },
+    "side.png": {
+      "height": 1024,
+      "sha256": "bd8bd2bd735fb9e03b897be1d9f59310e384a719adca4129f34a723132687a29",
+      "width": 1024
+    },
+    "top.png": {
+      "height": 1024,
+      "sha256": "0df337a3d811f121d7c33cc46e2d886301393d61d29e115636ad182c06ea6ff8",
+      "width": 1024
+    }
+  },
+  "generator": "game/avia/tests/fighter_reference.gd and client/fighter_visual.gd",
+  "input_view": "reference.png",
+  "paid_calls": 0,
+  "qc_views_only": [
+    "top.png",
+    "front.png",
+    "side.png"
+  ],
+  "source_type": "procedural_reference",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "generator_sha256": {
+    "game/avia/tests/fighter_reference.gd": "a0e1e4a3e5fa0254b34bac482229aed4b3ae0e8999ffb1db78b5888b3c7cc646",
+    "game/avia/client/fighter_visual.gd": "16493d0805fe59d83e1d9acafc6ca466fe5a11a612a78b84d93b543346e14629",
+    "game/avia/data/aircraft/f16c.json": "03f8fb10268cd26171c1e989276401298fa9c79726575fa486735894e10de5be"
+  },
+  "geometry_reference_license": "Project authored; commercial aircraft name/design review remains pending; no third-party logos/models"
+}

@@ -1,0 +1,123 @@
+{
+  "status": "FAIL actual Android emulator attempt",
+  "source_commit": "f702b8129415bd40eca81b1d505b96dae4523283",
+  "apk_sha256": "156653308db2aec773920828450b07f6a605a3f9d5c4b406122681e575149233",
+  "observations": [
+    {
+      "acked": 0,
+      "event": "client_loop",
+      "frames": 1,
+      "joined": false,
+      "pending": 0,
+      "physics": 8,
+      "sent": 0,
+      "snapshots": 0,
+      "status": "Menu",
+      "throttle": 0.0,
+      "wall_ms": 11406
+    },
+    {
+      "event": "client_render_ready",
+      "wall_ms": 26669
+    },
+    {
+      "acked": 0,
+      "event": "client_loop",
+      "frames": 2,
+      "joined": false,
+      "pending": 0,
+      "physics": 16,
+      "sent": 0,
+      "snapshots": 0,
+      "status": "Connecting",
+      "throttle": 0.0,
+      "wall_ms": 26872
+    },
+    {
+      "data": {
+        "id": 1647787069,
+        "mode": "free",
+        "protocol": 4,
+        "room": "public:free:0",
+        "state": {
+          "afterburner": false,
+          "age": 0,
+          "airbrake": false,
+          "crashed": false,
+          "distance": 0.0,
+          "flaps": false,
+          "gear": true,
+          "grounded": true,
+          "health": 100.0,
+          "landed": false,
+          "p": "(-6.0, 1.4, 180.0)",
+          "pitch": 0.0,
+          "plane": 3,
+          "profile": 0,
+          "rates": "(0.0, 0.0, 0.0)",
+          "respawns": 0,
+          "roll": 0.0,
+          "v": "(0.0, 0.0, 0.0)",
+          "was_airborne": false,
+          "yaw": 0.0
+        }
+      },
+      "event": "welcome",
+      "peer": 1647787069
+    },
+    {
+      "acked": 0,
+      "event": "client_loop",
+      "frames": 9,
+      "joined": false,
+      "pending": 0,
+      "physics": 70,
+      "sent": 1,
+      "snapshots": 3,
+      "status": "Network timeout \u2014 retry from menu",
+      "throttle": 0.0,
+      "wall_ms": 38314
+    },
+    {
+      "acked": 0,
+      "event": "client_loop",
+      "frames": 15,
+      "joined": false,
+      "pending": 0,
+      "physics": 117,
+      "sent": 1,
+      "snapshots": 3,
+      "status": "Network timeout \u2014 retry from menu",
+      "throttle": 0.0,
+      "wall_ms": 40421
+    },
+    {
+      "acked": 0,
+      "event": "client_loop",
+      "frames": 21,
+      "joined": false,
+      "pending": 0,
+      "physics": 165,
+      "sent": 1,
+      "snapshots": 3,
+      "status": "Network timeout \u2014 retry from menu",
+      "throttle": 0.0,
+      "wall_ms": 42756
+    },
+    {
+      "acked": 0,
+      "event": "client_loop",
+      "frames": 27,
+      "joined": false,
+      "pending": 0,
+      "physics": 213,
+      "sent": 1,
+      "snapshots": 3,
+      "status": "Network timeout \u2014 retry from menu",
+      "throttle": 0.0,
+      "wall_ms": 45106
+    }
+  ],
+  "reason": "Post-welcome first-aircraft frame stall; client checked snapshot age during physics catch-up before draining queued packets. Only1 command/3 snapshots before timeout. Renderer pressure is real, FPS not accepted.",
+  "proposed_fix": "Prewarm selected actual aircraft before admission; explicit client poll before wall timeout, preserving server clock/timeouts; real5.5s client-stall regression."
+}

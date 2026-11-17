@@ -101,12 +101,17 @@ func connect_to(host: String, port: int, options: Dictionary) -> Error:
  multiplayer.multiplayer_peer=peer
  if not multiplayer.peer_disconnected.is_connected(_client_peer_departed):multiplayer.peer_disconnected.connect(_client_peer_departed)
  waiting_connection=true
+ get_tree().multiplayer_poll=false
  status="Connecting"
  last_snapshot_ms=Time.get_ticks_msec()
  return OK
 func _client_peer_departed(id: int) -> void:
  if id==1:_connection_failed()
 func _process(_delta: float) -> void:
+ # A slow rendered frame must drain queued snapshots before deciding they are stale.
+ # Server retains the engine's normal poll path and fixed simulation clock.
+ if not server and peer and not waiting_connection:multiplayer.poll()
+ if not server:_check_snapshot_timeout()
  diagnostic_frames+=1
  if diagnostics and Time.get_ticks_msec()-diagnostic_last_ms>=2000:
   diagnostic_last_ms=Time.get_ticks_msec()
@@ -121,6 +126,7 @@ func _process(_delta: float) -> void:
  elif event[0] in [ENetConnection.EVENT_ERROR,ENetConnection.EVENT_DISCONNECT] or Time.get_ticks_msec()-last_snapshot_ms>8000:
   waiting_connection=false;_connection_failed()
 func disconnect_session(reason: String="Menu") -> void:
+ if not server:get_tree().multiplayer_poll=true
  joined=false
  if waiting_connection and connection:connection.destroy()
  waiting_connection=false
@@ -389,5 +395,8 @@ func _physics_process(_delta: float) -> void:
   if pending.size()>90:
    disconnect_session("Network timeout — retry from menu");return
   local_state=AviaFlight.step(local_state,controls)
-  if Time.get_ticks_msec()-last_snapshot_ms>5000:
-   disconnect_session("Network timeout — retry from menu")
+
+
+func _check_snapshot_timeout() -> void:
+ if joined and Time.get_ticks_msec()-last_snapshot_ms>5000:
+  disconnect_session("Network timeout — retry from menu")
