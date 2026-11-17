@@ -49,6 +49,13 @@ def remote(config, command, *args):
 
 
 def step(config, runtime):
+    lock_path = Path(config.get("launch_lock", str(runtime / "writer.lock")))
+    with lock_path.open("a") as writer_lock:
+        fcntl.flock(writer_lock, fcntl.LOCK_EX)
+        return _step_unlocked(config, runtime)
+
+
+def _step_unlocked(config, runtime):
     if cli_is_running(config["worktree"], config["session_id"]):
         return {"status": "waiting_for_current_cli"}
     state = remote(config, "inspect")

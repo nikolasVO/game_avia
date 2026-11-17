@@ -10,6 +10,8 @@ Secrets stay in protected environment files outside Git. Never include credentia
 
 Task state, events and notification outbox must commit atomically. Journal side effects before execution. After interruption reconcile unknown operations rather than repeating them. Preserve task identity and worktree across provider fallback. Keep capability evidence separate; a catalog or text response does not imply agent readiness.
 
+Owner instruction of 17 November: recover ordinary interruptions without requesting manual restarts. The local recovery controller in scripts/cli_recovery_watchdog.py observes the same CLI session, renews its owned lease, reconciles supported publication journals with actual remote evidence, and resumes the same task after bounded backoff or a structured quota reset. See docs/automatic-agent-recovery.md. Preserve explicit pauses, task dependencies, private configuration and unfinished files. A recovered journal or restarted CLI does not complete the game task. Exhausted allowances are waited out; they do not authorize purchases, new paid budgets or unverified provider substitution.
+
 Cloud calls require finite request/token/deadline limits; large autonomous backlog is blocked until monetary budgets are configured. Unknown price is `cost_unknown`. No subscriptions, balance refill, hosting plan changes or app-store publication without a separate instruction.
 
 Use one GPU lease manager and a measured disk reserve. Never stop unknown hosting services or remove unrelated models/data. TRELLIS starts in the compact 512 profile with BiRefNet and gated DINOv3 access respected. Kev is disabled by default.
