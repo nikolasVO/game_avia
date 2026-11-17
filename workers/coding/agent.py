@@ -60,7 +60,7 @@ class Agent:
                             out=tools.run(call["function"]["name"],args)
                         except (ValueError,KeyError,TypeError) as e: out={"error":type(e).__name__}
                         messages.append({"role":"tool","tool_call_id":call["id"],"content":json.dumps(out)})
-                    self.registry.ready(route,["chat_tools"])
+                    # Readiness requires a separate verified tool-result continuation smoke.
                 raise RouteFailure("task_request_limit","stop")
             except RouteFailure as e:
                 self.registry.fail(route,e)
