@@ -329,10 +329,18 @@
         "gpt-image-2.5-sunburst"
       ],
       "state": "catalog_only",
-      "verified_generation_models": [
+      "verified_generation_models": [],
+      "edit_verified": false,
+      "received_image_models": [
         "gpt-image-2"
       ],
-      "edit_verified": false
+      "capability_evidence": {
+        "gpt-image-2": {
+          "image_received": true,
+          "exact_size_1024x1024": "failed_returned_1254x1254",
+          "support": "docs/provider-support-openlux-image-size.md"
+        }
+      }
     },
     "WHATSTOKEN_IMAGE": {
       "env_prefix": "WHATSTOKEN_IMAGE",

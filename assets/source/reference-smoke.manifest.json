@@ -1,5 +1,5 @@
 {
-  "status": "passed",
+  "status": "received_parameter_mismatch",
   "requests": 1,
   "model": "gpt-image-2",
   "sha256": "8720294d2190609e97e19302118df8e391a4dfcaf057ae98604d26ac0873106a",
@@ -13,5 +13,15 @@
   "model_revision": null,
   "provenance": "neutral project prompt, no third-party reference input",
   "license": "provider generation terms apply",
-  "generation_script": "scripts/image_smoke.py"
+  "generation_script": "scripts/image_smoke.py",
+  "parameters_verified": false,
+  "requested_size": [
+    1024,
+    1024
+  ],
+  "actual_size": [
+    1254,
+    1254
+  ],
+  "support_status": "prepared_not_sent"
 }

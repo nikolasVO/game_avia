@@ -1,10 +1,20 @@
 {
-  "status": "passed",
+  "status": "received_parameter_mismatch",
   "requests": 1,
   "model": "gpt-image-2",
   "sha256": "8720294d2190609e97e19302118df8e391a4dfcaf057ae98604d26ac0873106a",
   "bytes": 1592985,
   "generation_verified": true,
   "edit_verified": false,
-  "cost_status": "cost_unknown"
+  "cost_status": "cost_unknown",
+  "parameters_verified": false,
+  "requested_size": [
+    1024,
+    1024
+  ],
+  "actual_size": [
+    1254,
+    1254
+  ],
+  "support_status": "prepared_not_sent"
 }

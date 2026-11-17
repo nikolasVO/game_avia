@@ -1,6 +1,6 @@
 # Assets and runner readiness
 
-A real OpenLux GPT Image 2 reference is saved under assets/source. The beveled cube under assets/catalog/blender-fixture is a separate procedural Blender fixture, not TRELLIS output. Its manifest includes GLB/preview hashes, measured triangle/material counts, LOD, axes, origin, dimensions and the absence of a Unity import test. Both source and optimized meshes are retained in Git LFS.
+An OpenLux GPT Image 2 returned reference is saved under assets/source. Its original PNG is 1254×1254 despite a 1024×1024 request; the usable reference is preserved, and exact-size capability remains blocked pending support clarification. The beveled cube under assets/catalog/blender-fixture is a separate procedural Blender fixture, not TRELLIS output. Its manifest includes GLB/preview hashes, measured triangle/material counts, LOD, axes, origin, dimensions and the absence of a Unity import test. Both source and optimized meshes are retained in Git LFS.
 
 TRELLIS's installed CUDA environment passed a small tensor smoke, and flash-attn, CuMesh, FlexGEMM and nvdiffrast imported successfully. These are environment checks, not a completed generation.
 

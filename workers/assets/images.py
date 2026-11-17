@@ -57,12 +57,12 @@ async def generate_reference(store,prefix,model,prompt,output):
                 return {"status":"outcome_unknown","requests":1,"model":model}
         from PIL import Image
         import io
-        im=Image.open(io.BytesIO(data));im.verify()
+        im=Image.open(io.BytesIO(data));dimensions=im.size;im.verify()
         output=Path(output);output.parent.mkdir(parents=True,exist_ok=True)
         output.write_bytes(data)
-        report={"status":"passed","requests":1,"model":model,"sha256":hashlib.sha256(data).hexdigest(),"bytes":len(data),"generation_verified":True,"edit_verified":False,"cost_status":"cost_unknown"}
+        report={"status":"passed" if dimensions==(1024,1024) else "received_parameter_mismatch","parameters_verified":dimensions==(1024,1024),"requested_size":[1024,1024],"actual_size":list(dimensions),"requests":1,"model":model,"sha256":hashlib.sha256(data).hexdigest(),"bytes":len(data),"generation_verified":True,"edit_verified":False,"cost_status":"cost_unknown"}
         store.finish_tool(operation,report)
-        store.transition(task["id"],"completed","Image generation reference saved; 3D inference remains a separate step.")
+        store.transition(task["id"],"completed" if report["parameters_verified"] else "blocked","Image reference saved. Parameter verification: "+str(report["parameters_verified"])+"; no paid retry.")
         return report
     except (httpx.HTTPError,ValueError) as e:
         # The journal remains started: never automatically resubmit a possibly charged operation.
