@@ -572,7 +572,14 @@
   ],
   "ui_preferences_checks": 7,
   "hangar_checks": 37,
-  "pytest": "test_build_validation.py + test_mobile_archive_guards.py; see measured count before publication",
+  "pytest": {
+    "status": "PASS",
+    "count": 9,
+    "suites": [
+      "test_build_validation.py",
+      "test_mobile_archive_guards.py"
+    ]
+  },
   "acceptance_open": [
     "physical Android/iPhone controls,FPS,memory,heat",
     "external two-client UDP",

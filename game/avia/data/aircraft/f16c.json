@@ -75,7 +75,50 @@
     "offset_y_m": -0.5,
     "provenance": "assets/catalog/f16c_candidate_20261117_v1/provenance.json",
     "status": "recognition/animation/mobile QA pending",
-    "gear_retract_seconds": 0.95
+    "gear_retract_seconds": 0.95,
+    "airbrake_animation": {
+      "size_m": [
+        0.48,
+        0.055,
+        0.8
+      ],
+      "travel_seconds": 0.5,
+      "panels": [
+        {
+          "hinge_m": [
+            -0.45,
+            0.79,
+            4.6
+          ],
+          "angle_degrees": -42
+        },
+        {
+          "hinge_m": [
+            -0.45,
+            -0.06,
+            4.6
+          ],
+          "angle_degrees": 42
+        },
+        {
+          "hinge_m": [
+            0.45,
+            0.79,
+            4.6
+          ],
+          "angle_degrees": -42
+        },
+        {
+          "hinge_m": [
+            0.45,
+            -0.06,
+            4.6
+          ],
+          "angle_degrees": 42
+        }
+      ],
+      "source": "Authored stylized visual add-on, provisional fit; not measured variant geometry or production acceptance."
+    }
   },
   "hangar": {
     "en": "Light, responsive game handling. Quick roll and low inertia suit active turns; watch energy in tight manoeuvres.",

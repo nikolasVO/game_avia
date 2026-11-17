@@ -75,7 +75,26 @@
     "offset_y_m": -0.5,
     "provenance": "assets/catalog/su27_candidate_20261117_v1/provenance.json",
     "status": "candidate; variant recognition/articulation/phone/rights QA pending",
-    "gear_retract_seconds": 1.25
+    "gear_retract_seconds": 1.25,
+    "airbrake_animation": {
+      "size_m": [
+        1.15,
+        0.065,
+        1.5
+      ],
+      "travel_seconds": 0.8,
+      "panels": [
+        {
+          "hinge_m": [
+            0,
+            1.35,
+            0.3
+          ],
+          "angle_degrees": -42
+        }
+      ],
+      "source": "Authored stylized visual add-on, provisional fit; not measured variant geometry or production acceptance."
+    }
   },
   "hangar": {
     "en": "A stable heavy fighter profile. More inertia than F-16C rewards smooth inputs and planned approaches.",

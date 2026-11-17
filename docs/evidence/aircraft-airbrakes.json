@@ -1,0 +1,748 @@
+{
+  "status": "PASS",
+  "scope": "authored stylized airbrake animation on three existing AI candidates; no new accepted aircraft or physical/public-network claim",
+  "base_commit": "b17f40eda43e45630ee01e72bf2e740c2ef4b7ab",
+  "aircraft": [
+    "f16c",
+    "su27",
+    "f15c"
+  ],
+  "source_notice": "Provisional authored add-on geometry, not extracted articulated AI surfaces or measured prototype mechanisms. Other types deliberately receive no generic invented panels.",
+  "rendered_checks": 88,
+  "rendered_views": 18,
+  "render": {
+    "assembly_budgets": [
+      {
+        "aircraft_id": "f16c",
+        "distance_m": 100,
+        "limit": 20000,
+        "triangles": 19520
+      },
+      {
+        "aircraft_id": "f16c",
+        "distance_m": 400,
+        "limit": 7000,
+        "triangles": 6118
+      },
+      {
+        "aircraft_id": "f16c",
+        "distance_m": 600,
+        "limit": 7000,
+        "triangles": 5998
+      },
+      {
+        "aircraft_id": "f16c",
+        "distance_m": 950,
+        "limit": 2000,
+        "triangles": 1480
+      },
+      {
+        "aircraft_id": "su27",
+        "distance_m": 100,
+        "limit": 20000,
+        "triangles": 19500
+      },
+      {
+        "aircraft_id": "su27",
+        "distance_m": 400,
+        "limit": 7000,
+        "triangles": 6104
+      },
+      {
+        "aircraft_id": "su27",
+        "distance_m": 600,
+        "limit": 7000,
+        "triangles": 6020
+      },
+      {
+        "aircraft_id": "su27",
+        "distance_m": 950,
+        "limit": 2000,
+        "triangles": 1480
+      },
+      {
+        "aircraft_id": "f15c",
+        "distance_m": 100,
+        "limit": 20000,
+        "triangles": 19498
+      },
+      {
+        "aircraft_id": "f15c",
+        "distance_m": 400,
+        "limit": 7000,
+        "triangles": 6104
+      },
+      {
+        "aircraft_id": "f15c",
+        "distance_m": 600,
+        "limit": 7000,
+        "triangles": 6020
+      },
+      {
+        "aircraft_id": "f15c",
+        "distance_m": 950,
+        "limit": 2000,
+        "triangles": 1480
+      },
+      {
+        "aircraft_id": "su35s",
+        "distance_m": 100,
+        "limit": 20000,
+        "triangles": 19566
+      },
+      {
+        "aircraft_id": "su35s",
+        "distance_m": 400,
+        "limit": 7000,
+        "triangles": 6186
+      },
+      {
+        "aircraft_id": "su35s",
+        "distance_m": 600,
+        "limit": 7000,
+        "triangles": 6114
+      },
+      {
+        "aircraft_id": "su35s",
+        "distance_m": 950,
+        "limit": 2000,
+        "triangles": 1478
+      },
+      {
+        "aircraft_id": "rafale",
+        "distance_m": 100,
+        "limit": 20000,
+        "triangles": 19460
+      },
+      {
+        "aircraft_id": "rafale",
+        "distance_m": 400,
+        "limit": 7000,
+        "triangles": 6088
+      },
+      {
+        "aircraft_id": "rafale",
+        "distance_m": 600,
+        "limit": 7000,
+        "triangles": 6016
+      },
+      {
+        "aircraft_id": "rafale",
+        "distance_m": 950,
+        "limit": 2000,
+        "triangles": 1478
+      },
+      {
+        "aircraft_id": "gripen",
+        "distance_m": 100,
+        "limit": 20000,
+        "triangles": 19470
+      },
+      {
+        "aircraft_id": "gripen",
+        "distance_m": 400,
+        "limit": 7000,
+        "triangles": 6070
+      },
+      {
+        "aircraft_id": "gripen",
+        "distance_m": 600,
+        "limit": 7000,
+        "triangles": 5998
+      },
+      {
+        "aircraft_id": "gripen",
+        "distance_m": 950,
+        "limit": 2000,
+        "triangles": 1478
+      },
+      {
+        "aircraft_id": "f14",
+        "distance_m": 100,
+        "limit": 20000,
+        "triangles": 19314
+      },
+      {
+        "aircraft_id": "f14",
+        "distance_m": 400,
+        "limit": 7000,
+        "triangles": 6675
+      },
+      {
+        "aircraft_id": "f14",
+        "distance_m": 600,
+        "limit": 7000,
+        "triangles": 6603
+      },
+      {
+        "aircraft_id": "f14",
+        "distance_m": 950,
+        "limit": 2000,
+        "triangles": 1859
+      }
+    ],
+    "checks": [
+      {
+        "check": "kite: no invented generic panels on unconfigured type",
+        "ok": true
+      },
+      {
+        "check": "tern: no invented generic panels on unconfigured type",
+        "ok": true
+      },
+      {
+        "check": "swift: no invented generic panels on unconfigured type",
+        "ok": true
+      },
+      {
+        "check": "f16c: explicitly configured closed baseline",
+        "ok": true
+      },
+      {
+        "check": "f16c: visual reads state without changing physics",
+        "ok": true
+      },
+      {
+        "check": "f16c: closed panels fit sampled actual imported upper/lower body within13cm",
+        "ok": true
+      },
+      {
+        "check": "f16c: replicated edge changes target without snapping",
+        "ok": true
+      },
+      {
+        "check": "f16c: intermediate rigid transform and correct hinge/trailing-edge direction",
+        "ok": true
+      },
+      {
+        "check": "f16c: repeated snapshots and negative delta preserve travel",
+        "ok": true
+      },
+      {
+        "check": "f16c: reversal remains continuous",
+        "ok": true
+      },
+      {
+        "check": "f16c: exact closed endpoint",
+        "ok": true
+      },
+      {
+        "check": "f16c: frame-rate independent open endpoint",
+        "ok": true
+      },
+      {
+        "check": "f16c: late airborne snapshot initializes correct baseline",
+        "ok": true
+      },
+      {
+        "check": "f16c: crash returns panels to rest",
+        "ok": true
+      },
+      {
+        "check": "f16c: one instanced twelve-triangle panel draw capped500m",
+        "ok": true
+      },
+      {
+        "check": "su27: explicitly configured closed baseline",
+        "ok": true
+      },
+      {
+        "check": "su27: visual reads state without changing physics",
+        "ok": true
+      },
+      {
+        "check": "su27: closed panels fit sampled actual imported upper/lower body within13cm",
+        "ok": true
+      },
+      {
+        "check": "su27: replicated edge changes target without snapping",
+        "ok": true
+      },
+      {
+        "check": "su27: intermediate rigid transform and correct hinge/trailing-edge direction",
+        "ok": true
+      },
+      {
+        "check": "su27: repeated snapshots and negative delta preserve travel",
+        "ok": true
+      },
+      {
+        "check": "su27: reversal remains continuous",
+        "ok": true
+      },
+      {
+        "check": "su27: exact closed endpoint",
+        "ok": true
+      },
+      {
+        "check": "su27: frame-rate independent open endpoint",
+        "ok": true
+      },
+      {
+        "check": "su27: late airborne snapshot initializes correct baseline",
+        "ok": true
+      },
+      {
+        "check": "su27: crash returns panels to rest",
+        "ok": true
+      },
+      {
+        "check": "su27: one instanced twelve-triangle panel draw capped500m",
+        "ok": true
+      },
+      {
+        "check": "f15c: explicitly configured closed baseline",
+        "ok": true
+      },
+      {
+        "check": "f15c: visual reads state without changing physics",
+        "ok": true
+      },
+      {
+        "check": "f15c: closed panels fit sampled actual imported upper/lower body within13cm",
+        "ok": true
+      },
+      {
+        "check": "f15c: replicated edge changes target without snapping",
+        "ok": true
+      },
+      {
+        "check": "f15c: intermediate rigid transform and correct hinge/trailing-edge direction",
+        "ok": true
+      },
+      {
+        "check": "f15c: repeated snapshots and negative delta preserve travel",
+        "ok": true
+      },
+      {
+        "check": "f15c: reversal remains continuous",
+        "ok": true
+      },
+      {
+        "check": "f15c: exact closed endpoint",
+        "ok": true
+      },
+      {
+        "check": "f15c: frame-rate independent open endpoint",
+        "ok": true
+      },
+      {
+        "check": "f15c: late airborne snapshot initializes correct baseline",
+        "ok": true
+      },
+      {
+        "check": "f15c: crash returns panels to rest",
+        "ok": true
+      },
+      {
+        "check": "f15c: one instanced twelve-triangle panel draw capped500m",
+        "ok": true
+      },
+      {
+        "check": "su35s: no invented generic panels on unconfigured type",
+        "ok": true
+      },
+      {
+        "check": "rafale: no invented generic panels on unconfigured type",
+        "ok": true
+      },
+      {
+        "check": "gripen: no invented generic panels on unconfigured type",
+        "ok": true
+      },
+      {
+        "check": "f16c: worst-case assembly budget at 100m",
+        "ok": true
+      },
+      {
+        "check": "f16c: worst-case assembly budget at 400m",
+        "ok": true
+      },
+      {
+        "check": "f16c: worst-case assembly budget at 600m",
+        "ok": true
+      },
+      {
+        "check": "f16c: worst-case assembly budget at 950m",
+        "ok": true
+      },
+      {
+        "check": "su27: worst-case assembly budget at 100m",
+        "ok": true
+      },
+      {
+        "check": "su27: worst-case assembly budget at 400m",
+        "ok": true
+      },
+      {
+        "check": "su27: worst-case assembly budget at 600m",
+        "ok": true
+      },
+      {
+        "check": "su27: worst-case assembly budget at 950m",
+        "ok": true
+      },
+      {
+        "check": "f15c: worst-case assembly budget at 100m",
+        "ok": true
+      },
+      {
+        "check": "f15c: worst-case assembly budget at 400m",
+        "ok": true
+      },
+      {
+        "check": "f15c: worst-case assembly budget at 600m",
+        "ok": true
+      },
+      {
+        "check": "f15c: worst-case assembly budget at 950m",
+        "ok": true
+      },
+      {
+        "check": "su35s: worst-case assembly budget at 100m",
+        "ok": true
+      },
+      {
+        "check": "su35s: worst-case assembly budget at 400m",
+        "ok": true
+      },
+      {
+        "check": "su35s: worst-case assembly budget at 600m",
+        "ok": true
+      },
+      {
+        "check": "su35s: worst-case assembly budget at 950m",
+        "ok": true
+      },
+      {
+        "check": "rafale: worst-case assembly budget at 100m",
+        "ok": true
+      },
+      {
+        "check": "rafale: worst-case assembly budget at 400m",
+        "ok": true
+      },
+      {
+        "check": "rafale: worst-case assembly budget at 600m",
+        "ok": true
+      },
+      {
+        "check": "rafale: worst-case assembly budget at 950m",
+        "ok": true
+      },
+      {
+        "check": "gripen: worst-case assembly budget at 100m",
+        "ok": true
+      },
+      {
+        "check": "gripen: worst-case assembly budget at 400m",
+        "ok": true
+      },
+      {
+        "check": "gripen: worst-case assembly budget at 600m",
+        "ok": true
+      },
+      {
+        "check": "gripen: worst-case assembly budget at 950m",
+        "ok": true
+      },
+      {
+        "check": "f14: worst-case assembly budget at 100m",
+        "ok": true
+      },
+      {
+        "check": "f14: worst-case assembly budget at 400m",
+        "ok": true
+      },
+      {
+        "check": "f14: worst-case assembly budget at 600m",
+        "ok": true
+      },
+      {
+        "check": "f14: worst-case assembly budget at 950m",
+        "ok": true
+      },
+      {
+        "check": "render f16c-0-0.png",
+        "ok": true
+      },
+      {
+        "check": "render f16c-0-1.png",
+        "ok": true
+      },
+      {
+        "check": "render f16c-1-0.png",
+        "ok": true
+      },
+      {
+        "check": "render f16c-1-1.png",
+        "ok": true
+      },
+      {
+        "check": "render f16c-2-0.png",
+        "ok": true
+      },
+      {
+        "check": "render f16c-2-1.png",
+        "ok": true
+      },
+      {
+        "check": "render su27-0-0.png",
+        "ok": true
+      },
+      {
+        "check": "render su27-0-1.png",
+        "ok": true
+      },
+      {
+        "check": "render su27-1-0.png",
+        "ok": true
+      },
+      {
+        "check": "render su27-1-1.png",
+        "ok": true
+      },
+      {
+        "check": "render su27-2-0.png",
+        "ok": true
+      },
+      {
+        "check": "render su27-2-1.png",
+        "ok": true
+      },
+      {
+        "check": "render f15c-0-0.png",
+        "ok": true
+      },
+      {
+        "check": "render f15c-0-1.png",
+        "ok": true
+      },
+      {
+        "check": "render f15c-1-0.png",
+        "ok": true
+      },
+      {
+        "check": "render f15c-1-1.png",
+        "ok": true
+      },
+      {
+        "check": "render f15c-2-0.png",
+        "ok": true
+      },
+      {
+        "check": "render f15c-2-1.png",
+        "ok": true
+      }
+    ],
+    "event": "airbrake_summary",
+    "scope": "rendered authored provisional panels on three existing candidates, not type-correct articulation or production/device acceptance",
+    "status": "PASS"
+  },
+  "network": {
+    "status": "PASS",
+    "scope": "two actual rendered local ENet/DTLS clients, no external/mobile acceptance",
+    "clients": {
+      "f16c": {
+        "passed": true,
+        "summary": {
+          "commands_sent": 506,
+          "connection_status": "Connected",
+          "correction_max_m": 5.47064065933228,
+          "correction_p95_m": 4.78409147262573,
+          "enet_rtt_ms": 24.0,
+          "event": "summary",
+          "frame_p50_ms": 16.662,
+          "frame_p95_ms": 18.397,
+          "joined": true,
+          "last_input_ack": 504,
+          "pending_inputs": 2,
+          "rejected": 0,
+          "renderer": "gl_compatibility",
+          "seconds": 18.0163816666669,
+          "seen_peers": 2,
+          "server": false,
+          "snapshots": 253,
+          "state": {
+            "afterburner": false,
+            "age": 507,
+            "airbrake": false,
+            "crashed": false,
+            "distance": 1469.21431159973,
+            "flaps": false,
+            "gear": true,
+            "grounded": false,
+            "health": 100.0,
+            "landed": false,
+            "p": "(52.0268, 150.3657, -1274.661)",
+            "pitch": -0.0168292533024214,
+            "plane": 3,
+            "profile": 0,
+            "rates": "(0.002459, 0.0, -0.000254)",
+            "respawns": 0,
+            "roll": -0.261932302377924,
+            "v": "(24.36792, 9.397182, -167.5197)",
+            "was_airborne": true,
+            "yaw": -0.124584328289664
+          },
+          "static_memory_mb": 52.1652565002441,
+          "wall_seconds": 19.505
+        },
+        "visual": {
+          "event": "airbrake_network_summary",
+          "observed": [
+            {
+              "closed_endpoint": true,
+              "intermediate_frames": 116,
+              "local": true,
+              "open_endpoint": true,
+              "targets": {
+                "0.0": true,
+                "1.0": true
+              },
+              "transform_errors": 0
+            },
+            {
+              "closed_endpoint": true,
+              "intermediate_frames": 188,
+              "local": false,
+              "open_endpoint": true,
+              "targets": {
+                "0.0": true,
+                "1.0": true
+              },
+              "transform_errors": 0
+            }
+          ],
+          "scope": "actual rendered local/remote ENet/DTLS state, no public/device acceptance",
+          "status": "PASS"
+        }
+      },
+      "su27": {
+        "passed": true,
+        "summary": {
+          "commands_sent": 506,
+          "connection_status": "Connected",
+          "correction_max_m": 0.2813720703125,
+          "correction_p95_m": 0.00167947332374752,
+          "enet_rtt_ms": 22.0,
+          "event": "summary",
+          "frame_p50_ms": 16.656,
+          "frame_p95_ms": 18.187,
+          "joined": true,
+          "last_input_ack": 504,
+          "pending_inputs": 2,
+          "rejected": 0,
+          "renderer": "gl_compatibility",
+          "seconds": 18.0043873333338,
+          "seen_peers": 2,
+          "server": false,
+          "snapshots": 236,
+          "state": {
+            "afterburner": false,
+            "age": 507,
+            "airbrake": false,
+            "crashed": false,
+            "distance": 1389.09887170792,
+            "flaps": false,
+            "gear": true,
+            "grounded": false,
+            "health": 100.0,
+            "landed": false,
+            "p": "(41.29779, 139.0609, -1197.17)",
+            "pitch": -0.0212833415018395,
+            "plane": 4,
+            "profile": 0,
+            "rates": "(0.004428, 0.0, -0.02885)",
+            "respawns": 0,
+            "roll": -0.262248932259778,
+            "v": "(18.60872, 7.195011, -164.556)",
+            "was_airborne": true,
+            "yaw": -0.0965037312158277
+          },
+          "static_memory_mb": 51.503978729248,
+          "wall_seconds": 19.491
+        },
+        "visual": {
+          "event": "airbrake_network_summary",
+          "observed": [
+            {
+              "closed_endpoint": true,
+              "intermediate_frames": 188,
+              "local": true,
+              "open_endpoint": true,
+              "targets": {
+                "0.0": true,
+                "1.0": true
+              },
+              "transform_errors": 0
+            },
+            {
+              "closed_endpoint": true,
+              "intermediate_frames": 116,
+              "local": false,
+              "open_endpoint": true,
+              "targets": {
+                "0.0": true,
+                "1.0": true
+              },
+              "transform_errors": 0
+            }
+          ],
+          "scope": "actual rendered local/remote ENet/DTLS state, no public/device acceptance",
+          "status": "PASS"
+        }
+      }
+    }
+  },
+  "regressions": [
+    {
+      "script": "flight_check",
+      "exit": 0,
+      "ok": true
+    },
+    {
+      "script": "fighter_check",
+      "exit": 0,
+      "ok": true
+    },
+    {
+      "script": "fighter_circuit_check",
+      "exit": 0,
+      "ok": true
+    },
+    {
+      "script": "planned_circuit_check",
+      "exit": 0,
+      "ok": true
+    },
+    {
+      "script": "sweep_flight_check",
+      "exit": 0,
+      "ok": true
+    },
+    {
+      "script": "catalog_check",
+      "exit": 0,
+      "ok": true
+    }
+  ],
+  "existing_gear_checks": 60,
+  "pytest": {
+    "status": "PASS",
+    "count": 9
+  },
+  "costs": {
+    "new_inference_calls": 0,
+    "new_paid_asset_calls": 0
+  },
+  "remaining": [
+    "other types control surfaces and model repair",
+    "recognition, physical mobile FPS/control and full15aircraftgates",
+    "external two-client UDP"
+  ],
+  "artifacts": {
+    "aircraft-airbrakes-0.png": "18090b8a6159c513202108de26f0e9bff252495ea9594407028faa456a4b565d",
+    "aircraft-airbrakes-1.png": "122a5616511f74a3f11a563f86d0bbb77dee62e7ff7f4481435e0096e4e8962a"
+  }
+}

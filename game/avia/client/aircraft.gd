@@ -8,6 +8,13 @@ var gear_instances: MultiMeshInstance3D
 var gear_deployment: float=1.0
 var gear_target: float=1.0
 var gear_duration: float=1.1
+var airbrake_instances: MultiMeshInstance3D
+var airbrake_hinges: Array[Transform3D]=[]
+var airbrake_angles: Array[float]=[]
+var airbrake_deployment: float=0.0
+var airbrake_target: float=0.0
+var airbrake_duration: float=0.65
+var airbrake_initialized: bool=false
 var systems_initialized: bool=false
 var exhaust: Node3D
 var vectoring_nozzles: Array[Node3D]=[]
@@ -95,9 +102,14 @@ static func build(index: int) -> AviaAircraft:
 func _process(delta: float) -> void:
  if propeller and visible:propeller.rotate_z(spin_speed*delta)
  advance_gear(delta)
+ advance_airbrake(delta)
  if sweep_initialized:pose_sweep(move_toward(sweep_fraction,sweep_target,maxf(delta,0.0)/2.5))
 
 func update_state(state: Dictionary) -> void:
+ if airbrake_instances:
+  airbrake_target=1.0 if bool(state.get("airbrake",false)) and not bool(state.get("crashed",false)) else 0.0
+  if not airbrake_initialized:
+   airbrake_deployment=airbrake_target;airbrake_initialized=true;_pose_airbrake()
  if not sweep_wings.is_empty():
   # Same automatic schedule as shared forces. Planned swing-wing types stay unavailable.
   var sweep: float=AviaFighter.sweep_fraction(sweep_spec,(state.v as Vector3).length(),bool(state.get("gear",false)),bool(state.get("flaps",false)))
@@ -135,3 +147,15 @@ func _pose_gear() -> void:
  for i: int in gear_legs.size():
   gear_legs[i].rotation=gear_axes[i]*(1.0-gear_deployment)*1.48
   if gear_instances:gear_instances.multimesh.set_instance_transform(i,gear_legs[i].transform)
+
+func advance_airbrake(delta: float) -> void:
+ if not airbrake_instances or not airbrake_initialized:return
+ var previous: float=airbrake_deployment
+ airbrake_deployment=move_toward(previous,airbrake_target,maxf(0.0,delta)/airbrake_duration)
+ if airbrake_deployment!=previous:_pose_airbrake()
+
+func _pose_airbrake() -> void:
+ for i: int in airbrake_hinges.size():
+  var hinge: Transform3D=airbrake_hinges[i]
+  hinge.basis=hinge.basis*Basis(Vector3.RIGHT,airbrake_angles[i]*airbrake_deployment)
+  airbrake_instances.multimesh.set_instance_transform(i,hinge)

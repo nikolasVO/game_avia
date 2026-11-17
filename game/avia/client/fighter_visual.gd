@@ -120,4 +120,25 @@ static func create_spec(spec: Dictionary, use_imported: bool=false) -> AviaAircr
   var exhaust: MeshInstance3D=AviaAircraft._mesh(flame,root.exhaust,"Flame"+str(side),0,800)
   exhaust.position.x=side*float(g.get("engine_spacing_m",length*.11))*.5
  root.exhaust.hide()
+ _build_airbrakes(root,spec,color)
  return root
+
+static func _build_airbrakes(root: AviaAircraft,spec: Dictionary,color: Color) -> void:
+ var config: Dictionary=spec.get("visual",{}).get("airbrake_animation",{})
+ if config.is_empty():return
+ # Authored stylized add-on panels, not extracted/movable AI body geometry.
+ # Only explicitly configured candidates receive them; no generic extra wings.
+ var size_: Array=config.size_m
+ var st: SurfaceTool=SurfaceTool.new();st.begin(Mesh.PRIMITIVE_TRIANGLES)
+ AviaAircraft._box(st,Vector3(0,0,float(size_[2])*.5),Vector3(float(size_[0]),float(size_[1]),float(size_[2])),color.lightened(.08))
+ var template: MeshInstance3D=AviaAircraft._mesh(st,root,"AirbrakeTemplate",0,500)
+ root.airbrake_instances=MultiMeshInstance3D.new();root.airbrake_instances.name="AuthoredAirbrakes"
+ var instances: MultiMesh=MultiMesh.new();instances.transform_format=MultiMesh.TRANSFORM_3D;instances.mesh=template.mesh;instances.instance_count=config.panels.size()
+ root.airbrake_instances.multimesh=instances;root.airbrake_instances.material_override=template.material_override;root.airbrake_instances.visibility_range_end=500
+ root.add_child(root.airbrake_instances);template.free()
+ root.airbrake_duration=float(config.travel_seconds)
+ for panel: Dictionary in config.panels:
+  var at: Array=panel.hinge_m
+  root.airbrake_hinges.append(Transform3D(Basis.IDENTITY,Vector3(float(at[0]),float(at[1]),float(at[2]))))
+  root.airbrake_angles.append(deg_to_rad(float(panel.angle_degrees)))
+ root._pose_airbrake()
