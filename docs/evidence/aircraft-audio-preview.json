@@ -1,0 +1,91 @@
+{
+  "status": "PASS",
+  "source_base": "b0e94afba398973d39694db5b55498beb66594b7",
+  "engine": "Godot4.7.2 desktop CoreAudio digital mixer and actual Compatibility renderer",
+  "audio_checks": 54,
+  "hangar_checks": 69,
+  "regression_suites": 4,
+  "pytest": 11,
+  "candidate_ids": [
+    "f14",
+    "fa18e",
+    "mig21",
+    "mig31",
+    "tornado"
+  ],
+  "identities_total": 14,
+  "playable_count": 9,
+  "preview": {
+    "one_voice": true,
+    "seconds": 4,
+    "hard_limit_seconds": 5,
+    "stops": [
+      "second action",
+      "selection change",
+      "refresh",
+      "hide",
+      "deadline",
+      "mute",
+      "application pause",
+      "focus loss",
+      "tree exit"
+    ]
+  },
+  "scope": "Original synthesized game tones, not aircraft recordings/signatures. Actual desktop digital mixer and rendered UI; no human acoustic/phone/flight acceptance or promotion. P0-P6 incomplete; stage3 gated.",
+  "files": {
+    "candidate_tornado.wav": {
+      "sha256": "d2135dbe3b65ea0ea03e606dbc40e81a60377cf87dd7a606df7132d1299cdb4b",
+      "bytes": 45100
+    },
+    "audio-report.json": {
+      "sha256": "0ed7aad12e579d6357b72bae34bc144461ddeb12c8d23fe8d28cc76adfb2db97",
+      "bytes": 7927
+    },
+    "preview_stopped.wav": {
+      "sha256": "d27a18d9bc975d6adf7c7c0ec451f2a3909fb43d6afaad97a027baefbd6818a3",
+      "bytes": 45100
+    },
+    "hangar-ru.png": {
+      "sha256": "bb98248d5364110888fc6611f5560974dff6003284ec1b0ef8a60cfc42bbdaeb",
+      "bytes": 97563
+    },
+    "candidate_mig31.wav": {
+      "sha256": "5b919a9283cc418513b286f8367725ab100f511b4ca041bca2c315e4234b0f6c",
+      "bytes": 45100
+    },
+    "candidate_mig21.wav": {
+      "sha256": "48cfc3549612524ee9c0db557cc48e022ddd7d07ff477fa1730aa1d7b217983f",
+      "bytes": 43052
+    },
+    "hangar-report.json": {
+      "sha256": "3cd1a587faf595a3af42889534faa29b780d9b52269a9e0daa06117f1f31ab03",
+      "bytes": 8073
+    },
+    "regressions.json": {
+      "sha256": "690e8cedfb6942e51d3ef5c8023e062d4424e4856315ddbf0134d58295d8add8",
+      "bytes": 32477
+    },
+    "candidate_fa18e.wav": {
+      "sha256": "70abce3825843fd0db41bce61f80e70091add75c75691ae78e3ad451b8708fcf",
+      "bytes": 45100
+    },
+    "candidate_f14.wav": {
+      "sha256": "17158fd723f7b1b6ca4a7ad39cc8164bd493a2c52b992f5ca64d2aafbe2d4250",
+      "bytes": 43052
+    },
+    "hangar-candidate-tornado.png": {
+      "sha256": "df561d64b2b9e1f35ef3f8296c07057209c797c223ff9f3bfb946291de446427",
+      "bytes": 101319
+    }
+  },
+  "sources": {
+    "game/avia/client/engine_preview.gd": "c1bcb40f384ef165e044b2b1ff649ab05d6ae9af3b3d79b1364a4c5d2eb379da",
+    "game/avia/client/hangar.gd": "ff95eb717f73a40db1f51f4f32b4848bdb73db2b9d6e280764dd3498f302d055",
+    "game/avia/client/sound.gd": "1e358c4e07eab212e9736fcafeaa2e8df54a2f494a49042b623ffa4fad24ec29",
+    "game/avia/data/audio.json": "b6ba6fb957bff368f2a42211a95216bf73e97f915a99a48d5319c3d00f095e20",
+    "game/avia/tests/audio_check.gd": "5fcd34b37ec616d538a2da3b26ac1473a8617c20b9aa61a008f5f84bfaf5747b",
+    "game/avia/tests/hangar_check.gd": "cb93e2d065d98ddc787420de1a659bfa10549265c1e666323148fec048082bf9",
+    "tools/audio_check.py": "9290f1c7a450e022a3b8134b8728719850f266c364b340c7ee7f4adad979fb6b",
+    "tools/ui_preferences_check.py": "c56a8a2e2f15c0b235fd4424a61711ecd625627b10c1f9347fab9ae5692f1624"
+  }
+}

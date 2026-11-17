@@ -1,0 +1,319 @@
+{
+  "status": "PASS",
+  "exit_code": 0,
+  "summary": {
+    "checks": [
+      {
+        "check": "engine cache and PCM loop kite",
+        "ok": true
+      },
+      {
+        "check": "engine cache and PCM loop tern",
+        "ok": true
+      },
+      {
+        "check": "engine cache and PCM loop swift",
+        "ok": true
+      },
+      {
+        "check": "engine cache and PCM loop f16c",
+        "ok": true
+      },
+      {
+        "check": "engine cache and PCM loop su27",
+        "ok": true
+      },
+      {
+        "check": "engine cache and PCM loop f15c",
+        "ok": true
+      },
+      {
+        "check": "engine cache and PCM loop su35s",
+        "ok": true
+      },
+      {
+        "check": "engine cache and PCM loop rafale",
+        "ok": true
+      },
+      {
+        "check": "engine cache and PCM loop gripen",
+        "ok": true
+      },
+      {
+        "check": "nine configured original aircraft/jet identities have distinct PCM",
+        "ok": true
+      },
+      {
+        "check": "distinct cached candidate PCM without flight admission f14",
+        "ok": true
+      },
+      {
+        "check": "distinct cached candidate PCM without flight admission fa18e",
+        "ok": true
+      },
+      {
+        "check": "distinct cached candidate PCM without flight admission mig21",
+        "ok": true
+      },
+      {
+        "check": "distinct cached candidate PCM without flight admission mig31",
+        "ok": true
+      },
+      {
+        "check": "distinct cached candidate PCM without flight admission tornado",
+        "ok": true
+      },
+      {
+        "check": "fourteen explicit identities and no unknown-ID fallback",
+        "ok": true
+      },
+      {
+        "check": "actual mixed engine ramps amplitude and pitch with throttle",
+        "ok": true
+      },
+      {
+        "check": "only four nearest live in-range peers get real 3D players",
+        "ok": true
+      },
+      {
+        "check": "remote voice reuses cached aircraft stream",
+        "ok": true
+      },
+      {
+        "check": "departure and crash evict voices and admit next peers",
+        "ok": true
+      },
+      {
+        "check": "speed and replicated afterburner drive independent layers",
+        "ok": true
+      },
+      {
+        "check": "cockpit camera attenuates real mixed external engine/wind",
+        "ok": true
+      },
+      {
+        "check": "airborne low speed warns and afterburner fades to stop",
+        "ok": true
+      },
+      {
+        "check": "stall warning is present in the actual mixer",
+        "ok": true
+      },
+      {
+        "check": "gear cue once across repeated snapshots",
+        "ok": true
+      },
+      {
+        "check": "touchdown cue once across repeated state and short reconciliation",
+        "ok": true
+      },
+      {
+        "check": "one crash cue, engine/remote loops stop",
+        "ok": true
+      },
+      {
+        "check": "respawn starts engine without false landing/gear impact",
+        "ok": true
+      },
+      {
+        "check": "pause immediately stops every player including cues/remotes",
+        "ok": true
+      },
+      {
+        "check": "actual mixer is silent after pause",
+        "ok": true
+      },
+      {
+        "check": "resume restarts loops without replaying startup event",
+        "ok": true
+      },
+      {
+        "check": "focus loss stops audio independently of pause",
+        "ok": true
+      },
+      {
+        "check": "disconnect/menu leaves no stale mixed voices",
+        "ok": true
+      },
+      {
+        "check": "master mute remains supported",
+        "ok": true
+      },
+      {
+        "check": "captured digital mix has frames and no clipping in exercised states",
+        "ok": true
+      },
+      {
+        "check": "manager deletion also frees world-owned 3D players",
+        "ok": true
+      },
+      {
+        "check": "bounded actual sample starts f14",
+        "ok": true
+      },
+      {
+        "check": "candidate original sound reaches actual digital mixer f14",
+        "ok": true
+      },
+      {
+        "check": "bounded actual sample starts fa18e",
+        "ok": true
+      },
+      {
+        "check": "candidate original sound reaches actual digital mixer fa18e",
+        "ok": true
+      },
+      {
+        "check": "bounded actual sample starts mig21",
+        "ok": true
+      },
+      {
+        "check": "candidate original sound reaches actual digital mixer mig21",
+        "ok": true
+      },
+      {
+        "check": "bounded actual sample starts mig31",
+        "ok": true
+      },
+      {
+        "check": "candidate original sound reaches actual digital mixer mig31",
+        "ok": true
+      },
+      {
+        "check": "bounded actual sample starts tornado",
+        "ok": true
+      },
+      {
+        "check": "candidate original sound reaches actual digital mixer tornado",
+        "ok": true
+      },
+      {
+        "check": "stopping preview clears stream and digital mix",
+        "ok": true
+      },
+      {
+        "check": "unknown preview cannot play a borrowed engine",
+        "ok": true
+      },
+      {
+        "check": "negative elapsed time cannot extend sample",
+        "ok": true
+      },
+      {
+        "check": "sample expires at bounded deadline",
+        "ok": true
+      },
+      {
+        "check": "pause stops preview without automatic restart",
+        "ok": true
+      },
+      {
+        "check": "focus loss stops inspection sound",
+        "ok": true
+      },
+      {
+        "check": "muting stops active sample and prevents a new one",
+        "ok": true
+      },
+      {
+        "check": "all candidate and flight digital captures remain bounded",
+        "ok": true
+      }
+    ],
+    "driver": "CoreAudio",
+    "engine_hashes": [
+      2251890258,
+      4263608318,
+      2846945462,
+      1803380871,
+      2338060057,
+      1973280829,
+      2216480366,
+      3132005249,
+      3554799044
+    ],
+    "event": "audio_check_summary",
+    "metrics": [
+      {
+        "label": "idle",
+        "peak": 0.0213623046875,
+        "rms": 0.00816561361227246,
+        "samples": 24576
+      },
+      {
+        "label": "powered",
+        "peak": 0.065155029296875,
+        "rms": 0.0261419385634853,
+        "samples": 22528
+      },
+      {
+        "label": "high_speed_afterburner",
+        "peak": 0.11297607421875,
+        "rms": 0.0327654194462586,
+        "samples": 22528
+      },
+      {
+        "label": "cockpit",
+        "peak": 0.055450439453125,
+        "rms": 0.0172803234059105,
+        "samples": 22528
+      },
+      {
+        "label": "stall_warning",
+        "peak": 0.087493896484375,
+        "rms": 0.0273315942052423,
+        "samples": 54272
+      },
+      {
+        "label": "paused_silence",
+        "peak": 0.0,
+        "rms": 0.0,
+        "samples": 22528
+      },
+      {
+        "label": "menu_silence",
+        "peak": 0.0,
+        "rms": 0.0,
+        "samples": 22528
+      },
+      {
+        "label": "candidate_f14",
+        "peak": 0.02740478515625,
+        "rms": 0.00906828323309143,
+        "samples": 21504
+      },
+      {
+        "label": "candidate_fa18e",
+        "peak": 0.024383544921875,
+        "rms": 0.00970208636005378,
+        "samples": 22528
+      },
+      {
+        "label": "candidate_mig21",
+        "peak": 0.023162841796875,
+        "rms": 0.00861874117662775,
+        "samples": 21504
+      },
+      {
+        "label": "candidate_mig31",
+        "peak": 0.027374267578125,
+        "rms": 0.010517884091443,
+        "samples": 22528
+      },
+      {
+        "label": "candidate_tornado",
+        "peak": 0.02557373046875,
+        "rms": 0.00894555081464873,
+        "samples": 22528
+      },
+      {
+        "label": "preview_stopped",
+        "peak": 0.0,
+        "rms": 0.0,
+        "samples": 22528
+      }
+    ],
+    "scope": "actual Godot players and recorded digital mixer; deterministic lifecycle fixture; not physical acoustics or aircraft acceptance",
+    "status": "PASS"
+  }
+}

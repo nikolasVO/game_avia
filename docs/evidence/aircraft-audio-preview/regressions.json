@@ -1,0 +1,970 @@
+{
+  "status": "PASS",
+  "scope": "actual Godot shared simulation/synthetic input and mesh inspection, not physical aircraft acceptance",
+  "results": [
+    {
+      "script": "flight_check",
+      "ok": true,
+      "exit": 0,
+      "events": [
+        {
+          "check": "neutral input accepted",
+          "status": "PASS"
+        },
+        {
+          "check": "NaN rejected",
+          "status": "PASS"
+        },
+        {
+          "check": "Inf rejected",
+          "status": "PASS"
+        },
+        {
+          "check": "out of range rejected",
+          "status": "PASS"
+        },
+        {
+          "check": "coordinate injection rejected",
+          "status": "PASS"
+        },
+        {
+          "altitude": 129.890335083008,
+          "crashed": false,
+          "plane": 0,
+          "speed_mps": 57.4968109130859
+        },
+        {
+          "altitude": 163.072036743164,
+          "crashed": false,
+          "plane": 1,
+          "speed_mps": 78.1127090454102
+        },
+        {
+          "altitude": 209.852828979492,
+          "crashed": false,
+          "plane": 2,
+          "speed_mps": 116.105056762695
+        },
+        {
+          "check": "all three aircraft accelerate and take off",
+          "status": "PASS"
+        },
+        {
+          "check": "gentle runway landing",
+          "status": "PASS"
+        },
+        {
+          "check": "hard impact crashes",
+          "status": "PASS"
+        },
+        {
+          "check": "high speed ground impact swept",
+          "status": "PASS"
+        },
+        {
+          "check": "world boundary enforced",
+          "status": "PASS"
+        },
+        {
+          "check": "out of order checkpoint ignored",
+          "status": "PASS"
+        },
+        {
+          "check": "ordered swept race finish uses server ticks",
+          "status": "PASS"
+        },
+        {
+          "check": "server ray hits target ahead",
+          "status": "PASS"
+        },
+        {
+          "check": "server ray rejects off-axis target",
+          "status": "PASS"
+        },
+        {
+          "check": "server ray rejects target behind",
+          "status": "PASS"
+        },
+        {
+          "check": "fixed-width snapshot roundtrip",
+          "status": "PASS"
+        },
+        {
+          "check": "truncated snapshot rejected",
+          "status": "PASS"
+        },
+        {
+          "check": "nonfinite snapshot rejected",
+          "status": "PASS"
+        },
+        {
+          "check": "three synthetic touch pointers operate independently",
+          "status": "PASS"
+        },
+        {
+          "check": "release outside captured stick preserves throttle",
+          "status": "PASS"
+        },
+        {
+          "check": "focus loss clears all touches and thrust",
+          "status": "PASS"
+        },
+        {
+          "check": "peaceful touch action brakes instead of firing",
+          "status": "PASS"
+        },
+        {
+          "check": "releasing context touch preserves separate HUD brake",
+          "status": "PASS"
+        },
+        {
+          "checks": 23,
+          "event": "test_summary",
+          "failed": 0,
+          "scope": "Godot shared simulation and synthetic touch; not physical device"
+        }
+      ]
+    },
+    {
+      "script": "fighter_check",
+      "ok": true,
+      "exit": 0,
+      "events": [
+        {
+          "checks": [
+            {
+              "check": "24 configured fighters plus three originals; six selectable fighter prototypes",
+              "status": "PASS"
+            },
+            {
+              "check": "f16c actual shared-simulation ground roll and flight",
+              "status": "PASS"
+            },
+            {
+              "check": "f16c afterburner increases acceleration through thrust",
+              "status": "PASS"
+            },
+            {
+              "check": "f16c airborne speed brake dissipates energy",
+              "status": "PASS"
+            },
+            {
+              "check": "f16c gentle configured gear-down touchdown",
+              "status": "PASS"
+            },
+            {
+              "check": "f16c gear-up impact rejected",
+              "status": "PASS"
+            },
+            {
+              "check": "f16c full prediction state roundtrip in 84 bytes",
+              "status": "PASS"
+            },
+            {
+              "check": "su27 actual shared-simulation ground roll and flight",
+              "status": "PASS"
+            },
+            {
+              "check": "su27 afterburner increases acceleration through thrust",
+              "status": "PASS"
+            },
+            {
+              "check": "su27 airborne speed brake dissipates energy",
+              "status": "PASS"
+            },
+            {
+              "check": "su27 gentle configured gear-down touchdown",
+              "status": "PASS"
+            },
+            {
+              "check": "su27 gear-up impact rejected",
+              "status": "PASS"
+            },
+            {
+              "check": "su27 full prediction state roundtrip in 84 bytes",
+              "status": "PASS"
+            },
+            {
+              "check": "f15c actual shared-simulation ground roll and flight",
+              "status": "PASS"
+            },
+            {
+              "check": "f15c afterburner increases acceleration through thrust",
+              "status": "PASS"
+            },
+            {
+              "check": "f15c airborne speed brake dissipates energy",
+              "status": "PASS"
+            },
+            {
+              "check": "f15c gentle configured gear-down touchdown",
+              "status": "PASS"
+            },
+            {
+              "check": "f15c gear-up impact rejected",
+              "status": "PASS"
+            },
+            {
+              "check": "f15c full prediction state roundtrip in 84 bytes",
+              "status": "PASS"
+            },
+            {
+              "check": "su35s actual shared-simulation ground roll and flight",
+              "status": "PASS"
+            },
+            {
+              "check": "su35s afterburner increases acceleration through thrust",
+              "status": "PASS"
+            },
+            {
+              "check": "su35s airborne speed brake dissipates energy",
+              "status": "PASS"
+            },
+            {
+              "check": "su35s gentle configured gear-down touchdown",
+              "status": "PASS"
+            },
+            {
+              "check": "su35s gear-up impact rejected",
+              "status": "PASS"
+            },
+            {
+              "check": "su35s full prediction state roundtrip in 84 bytes",
+              "status": "PASS"
+            },
+            {
+              "check": "rafale actual shared-simulation ground roll and flight",
+              "status": "PASS"
+            },
+            {
+              "check": "rafale afterburner increases acceleration through thrust",
+              "status": "PASS"
+            },
+            {
+              "check": "rafale airborne speed brake dissipates energy",
+              "status": "PASS"
+            },
+            {
+              "check": "rafale gentle configured gear-down touchdown",
+              "status": "PASS"
+            },
+            {
+              "check": "rafale gear-up impact rejected",
+              "status": "PASS"
+            },
+            {
+              "check": "rafale full prediction state roundtrip in 84 bytes",
+              "status": "PASS"
+            },
+            {
+              "check": "gripen actual shared-simulation ground roll and flight",
+              "status": "PASS"
+            },
+            {
+              "check": "gripen afterburner increases acceleration through thrust",
+              "status": "PASS"
+            },
+            {
+              "check": "gripen airborne speed brake dissipates energy",
+              "status": "PASS"
+            },
+            {
+              "check": "gripen gentle configured gear-down touchdown",
+              "status": "PASS"
+            },
+            {
+              "check": "gripen gear-up impact rejected",
+              "status": "PASS"
+            },
+            {
+              "check": "gripen full prediction state roundtrip in 84 bytes",
+              "status": "PASS"
+            },
+            {
+              "check": "F-16C and Su-27 differ under identical commands in roll response and takeoff",
+              "status": "PASS"
+            },
+            {
+              "check": "six different measured roll responses, not display-only stats",
+              "status": "PASS"
+            },
+            {
+              "check": "weight-on-wheels interlock rejects stale gear-up commands after respawn",
+              "status": "PASS"
+            },
+            {
+              "check": "parked fighter remains on its wheels with engine off and light wind",
+              "status": "PASS"
+            },
+            {
+              "check": "Arcade, Realistic and Expert have distinct neutral bank assistance",
+              "status": "PASS"
+            },
+            {
+              "check": "small analog input accumulates angular response without quantization dead zone",
+              "status": "PASS"
+            },
+            {
+              "check": "client cannot change server assistance category through input",
+              "status": "PASS"
+            }
+          ],
+          "event": "fighter_comparison",
+          "measurements": [
+            {
+              "afterburner_speed_after_4s_mps": 251.69287109375,
+              "airbrake_after_3s_mps": 76.0302734375,
+              "aircraft_id": "f16c",
+              "altitude_after_8s_m": 143.990249633789,
+              "bank_after_1s_rad": -1.17737130820751,
+              "coast_after_3s_mps": 130.959030151367,
+              "normal_speed_after_4s_mps": 199.98323059082,
+              "takeoff_seconds": 2.13333333333333
+            },
+            {
+              "afterburner_speed_after_4s_mps": 254.299285888672,
+              "airbrake_after_3s_mps": 77.8272171020508,
+              "aircraft_id": "su27",
+              "altitude_after_8s_m": 121.632965087891,
+              "bank_after_1s_rad": -1.04405212303003,
+              "coast_after_3s_mps": 136.211929321289,
+              "normal_speed_after_4s_mps": 198.821060180664,
+              "takeoff_seconds": 2.4
+            },
+            {
+              "afterburner_speed_after_4s_mps": 277.072265625,
+              "airbrake_after_3s_mps": 77.9146575927734,
+              "aircraft_id": "f15c",
+              "altitude_after_8s_m": 154.960998535156,
+              "bank_after_1s_rad": -0.976659207542737,
+              "coast_after_3s_mps": 136.411575317383,
+              "normal_speed_after_4s_mps": 219.006912231445,
+              "takeoff_seconds": 2.26666666666667
+            },
+            {
+              "afterburner_speed_after_4s_mps": 270.666748046875,
+              "airbrake_after_3s_mps": 77.4323806762695,
+              "aircraft_id": "su35s",
+              "altitude_after_8s_m": 164.10400390625,
+              "bank_after_1s_rad": -1.21034228354692,
+              "coast_after_3s_mps": 135.169555664062,
+              "normal_speed_after_4s_mps": 213.483383178711,
+              "takeoff_seconds": 1.66666666666667
+            },
+            {
+              "afterburner_speed_after_4s_mps": 239.272750854492,
+              "airbrake_after_3s_mps": 75.956916809082,
+              "aircraft_id": "rafale",
+              "altitude_after_8s_m": 143.806030273438,
+              "bank_after_1s_rad": -1.17602201551199,
+              "coast_after_3s_mps": 130.788208007812,
+              "normal_speed_after_4s_mps": 196.549789428711,
+              "takeoff_seconds": 2.06666666666667
+            },
+            {
+              "afterburner_speed_after_4s_mps": 240.233795166016,
+              "airbrake_after_3s_mps": 76.5939407348633,
+              "aircraft_id": "gripen",
+              "altitude_after_8s_m": 143.971740722656,
+              "bank_after_1s_rad": -1.20623427927494,
+              "coast_after_3s_mps": 132.690063476562,
+              "normal_speed_after_4s_mps": 196.455780029297,
+              "takeoff_seconds": 2.03333333333333
+            }
+          ],
+          "scope": "actual shared 30Hz Godot simulation; takeoff/landing fixtures are scripted, not human/device/model acceptance",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "script": "fighter_geometry_check",
+      "ok": true,
+      "exit": 0,
+      "events": [
+        {
+          "event": "fighter_geometry",
+          "reports": [
+            {
+              "aircraft_id": "f16c",
+              "geometry": {
+                "lods": [
+                  19532,
+                  5966,
+                  1468
+                ],
+                "surfaces": 7,
+                "triangles": 26966,
+                "unique_materials": 3
+              },
+              "low_speed_nozzle_cue_checked": false,
+              "meshes": [
+                {
+                  "degenerate_triangles": 0,
+                  "far_m": 350.0,
+                  "instances": 1,
+                  "level": 0,
+                  "mesh": "LOD0",
+                  "minimum_triangle_area_m2": 2.38355532928836e-05,
+                  "near_m": 0.0,
+                  "triangles": 19368
+                },
+                {
+                  "degenerate_triangles": 0,
+                  "far_m": 900.0,
+                  "instances": 1,
+                  "level": 1,
+                  "mesh": "LOD1",
+                  "minimum_triangle_area_m2": 4.54706150776474e-06,
+                  "near_m": 350.0,
+                  "triangles": 5966
+                },
+                {
+                  "degenerate_triangles": 0,
+                  "far_m": 2500.0,
+                  "instances": 1,
+                  "level": 2,
+                  "mesh": "LOD2",
+                  "minimum_triangle_area_m2": 0.000530329649336636,
+                  "near_m": 900.0,
+                  "triangles": 1468
+                },
+                {
+                  "degenerate_triangles": 0,
+                  "far_m": 500.0,
+                  "instances": 3,
+                  "level": 0,
+                  "mesh": "Gear",
+                  "minimum_triangle_area_m2": 0.00839999970048666,
+                  "near_m": 0.0,
+                  "triangles": 72
+                },
+                {
+                  "degenerate_triangles": 0,
+                  "far_m": 800.0,
+                  "instances": 1,
+                  "level": 0,
+                  "mesh": "Flame0_0",
+                  "minimum_triangle_area_m2": 0.000692820409312844,
+                  "near_m": 0.0,
+                  "triangles": 20
+                },
+                {
+                  "degenerate_triangles": 0,
+                  "far_m": 500.0,
+                  "instances": 4,
+                  "level": 0,
+                  "mesh": "AuthoredAirbrakes",
+                  "minimum_triangle_area_m2": 0.0131999999284744,
+                  "near_m": 0.0,
+                  "triangles": 48
+                },
+                {
+                  "degenerate_triangles": 0,
+                  "far_m": 500.0,
+                  "instances": 2,
+                  "level": 0,
+                  "mesh": "AuthoredFlaps",
+                  "minimum_triangle_area_m2": 0.00839999970048666,
+                  "near_m": 0.0,
+                  "triangles": 24
+                }
+              ],
+              "source": "AI candidate with procedural landing gear/effects; production QA pending"
+            },
+            {
+              "aircraft_id": "su27",
+              "geometry": {
+                "lods": [
+                  19488,
+                  5968,
+                  1468
+                ],
+                "surfaces": 7,
+                "triangles": 26924,
+                "unique_materials": 3
+              },
+              "low_speed_nozzle_cue_checked": false,
+              "meshes": [
+                {
+                  "degenerate_triangles": 0,
+                  "far_m": 350.0,
+                  "instances": 1,
+                  "level": 0,
+                  "mesh": "LOD0",
+                  "minimum_triangle_area_m2": 6.4531915995758e-05,
+                  "near_m": 0.0,
+                  "triangles": 19364
+                },
+                {
+                  "degenerate_triangles": 0,
+                  "far_m": 900.0,
+                  "instances": 1,
+                  "level": 1,
+                  "mesh": "LOD1",
+                  "minimum_triangle_area_m2": 1.01401965366676e-05,
+                  "near_m": 350.0,
+                  "triangles": 5968
+                },
+                {
+                  "degenerate_triangles": 0,
+                  "far_m": 2500.0,
+                  "instances": 1,
+                  "level": 2,
+                  "mesh": "LOD2",
+                  "minimum_triangle_area_m2": 0.00169920653570443,
+                  "near_m": 900.0,
+                  "triangles": 1468
+                },
+                {
+                  "degenerate_triangles": 0,
+                  "far_m": 500.0,
+                  "instances": 3,
+                  "level": 0,
+                  "mesh": "Gear",
+                  "minimum_triangle_area_m2": 0.00839999970048666,
+                  "near_m": 0.0,
+                  "triangles": 72
+                },
+                {
+                  "degenerate_triangles": 0,
+                  "far_m": 800.0,
+                  "instances": 1,
+                  "level": 0,
+                  "mesh": "Flame-1_0",
+                  "minimum_triangle_area_m2": 0.000692820409312844,
+                  "near_m": 0.0,
+                  "triangles": 20
+                },
+                {
+                  "degenerate_triangles": 0,
+                  "far_m": 800.0,
+                  "instances": 1,
+                  "level": 0,
+                  "mesh": "Flame1_0",
+                  "minimum_triangle_area_m2": 0.000692820409312844,
+                  "near_m": 0.0,
+                  "triangles": 20
+                },
+                {
+                  "degenerate_triangles": 0,
+                  "far_m": 500.0,
+                  "instances": 1,
+                  "level": 0,
+                  "mesh": "AuthoredAirbrakes",
+                  "minimum_triangle_area_m2": 0.0373749993741512,
+                  "near_m": 0.0,
+                  "triangles": 12
+                }
+              ],
+              "source": "AI candidate with procedural landing gear/effects; production QA pending"
+            },
+            {
+              "aircraft_id": "f15c",
+              "geometry": {
+                "lods": [
+                  19486,
+                  5968,
+                  1468
+                ],
+                "surfaces": 7,
+                "triangles": 26922,
+                "unique_materials": 3
+              },
+              "low_speed_nozzle_cue_checked": false,
+              "meshes": [
+                {
+                  "degenerate_triangles": 0,
+                  "far_m": 350.0,
+                  "instances": 1,
+                  "level": 0,
+                  "mesh": "LOD0",
+                  "minimum_triangle_area_m2": 2.00202593987342e-05,
+                  "near_m": 0.0,
+                  "triangles": 19362
+                },
+                {
+                  "degenerate_triangles": 0,
+                  "far_m": 900.0,
+                  "instances": 1,
+                  "level": 1,
+                  "mesh": "LOD1",
+                  "minimum_triangle_area_m2": 9.07938556338195e-06,
+                  "near_m": 350.0,
+                  "triangles": 5968
+                },
+                {
+                  "degenerate_triangles": 0,
+                  "far_m": 2500.0,
+                  "instances": 1,
+                  "level": 2,
+                  "mesh": "LOD2",
+                  "minimum_triangle_area_m2": 0.00240439339540899,
+                  "near_m": 900.0,
+                  "triangles": 1468
+                },
+                {
+                  "degenerate_triangles": 0,
+                  "far_m": 500.0,
+                  "instances": 3,
+                  "level": 0,
+                  "mesh": "Gear",
+                  "minimum_triangle_area_m2": 0.00839999970048666,
+                  "near_m": 0.0,
+                  "triangles": 72
+                },
+                {
+                  "degenerate_triangles": 0,
+                  "far_m": 800.0,
+                  "instances": 1,
+                  "level": 0,
+                  "mesh": "Flame-1_0",
+                  "minimum_triangle_area_m2": 0.000692820409312844,
+                  "near_m": 0.0,
+                  "triangles": 20
+                },
+                {
+                  "degenerate_triangles": 0,
+                  "far_m": 800.0,
+                  "instances": 1,
+                  "level": 0,
+                  "mesh": "Flame1_0",
+                  "minimum_triangle_area_m2": 0.000692820409312844,
+                  "near_m": 0.0,
+                  "triangles": 20
+                },
+                {
+                  "degenerate_triangles": 0,
+                  "far_m": 500.0,
+                  "instances": 1,
+                  "level": 0,
+                  "mesh": "AuthoredAirbrakes",
+                  "minimum_triangle_area_m2": 0.0341249965131283,
+                  "near_m": 0.0,
+                  "triangles": 12
+                }
+              ],
+              "source": "AI candidate with procedural landing gear/effects; production QA pending"
+            },
+            {
+              "aircraft_id": "su35s",
+              "geometry": {
+                "lods": [
+                  19554,
+                  5966,
+                  1466
+                ],
+                "surfaces": 8,
+                "triangles": 26986,
+                "unique_materials": 3
+              },
+              "low_speed_nozzle_cue_checked": true,
+              "meshes": [
+                {
+                  "degenerate_triangles": 0,
+                  "far_m": 350.0,
+                  "instances": 1,
+                  "level": 0,
+                  "mesh": "LOD0",
+                  "minimum_triangle_area_m2": 2.28217213589232e-05,
+                  "near_m": 0.0,
+                  "triangles": 19346
+                },
+                {
+                  "degenerate_triangles": 0,
+                  "far_m": 900.0,
+                  "instances": 1,
+                  "level": 1,
+                  "mesh": "LOD1",
+                  "minimum_triangle_area_m2": 1.83218289748766e-05,
+                  "near_m": 350.0,
+                  "triangles": 5966
+                },
+                {
+                  "degenerate_triangles": 0,
+                  "far_m": 2500.0,
+                  "instances": 1,
+                  "level": 2,
+                  "mesh": "LOD2",
+                  "minimum_triangle_area_m2": 0.0032261221203953,
+                  "near_m": 900.0,
+                  "triangles": 1466
+                },
+                {
+                  "degenerate_triangles": 0,
+                  "far_m": 800.0,
+                  "instances": 1,
+                  "level": 0,
+                  "mesh": "Nozzle",
+                  "minimum_triangle_area_m2": 0.0144249787554145,
+                  "near_m": 0.0,
+                  "triangles": 48
+                },
+                {
+                  "degenerate_triangles": 0,
+                  "far_m": 800.0,
+                  "instances": 1,
+                  "level": 0,
+                  "mesh": "Nozzle",
+                  "minimum_triangle_area_m2": 0.0144249787554145,
+                  "near_m": 0.0,
+                  "triangles": 48
+                },
+                {
+                  "degenerate_triangles": 0,
+                  "far_m": 500.0,
+                  "instances": 3,
+                  "level": 0,
+                  "mesh": "Gear",
+                  "minimum_triangle_area_m2": 0.00839999970048666,
+                  "near_m": 0.0,
+                  "triangles": 72
+                },
+                {
+                  "degenerate_triangles": 0,
+                  "far_m": 800.0,
+                  "instances": 1,
+                  "level": 0,
+                  "mesh": "Flame-1_0",
+                  "minimum_triangle_area_m2": 0.000692820409312844,
+                  "near_m": 0.0,
+                  "triangles": 20
+                },
+                {
+                  "degenerate_triangles": 0,
+                  "far_m": 800.0,
+                  "instances": 1,
+                  "level": 0,
+                  "mesh": "Flame1_0",
+                  "minimum_triangle_area_m2": 0.000692820409312844,
+                  "near_m": 0.0,
+                  "triangles": 20
+                }
+              ],
+              "source": "AI candidate body with procedural nozzle repair, landing gear/effects; production QA pending"
+            },
+            {
+              "aircraft_id": "rafale",
+              "geometry": {
+                "lods": [
+                  19448,
+                  5964,
+                  1466
+                ],
+                "surfaces": 6,
+                "triangles": 26878,
+                "unique_materials": 3
+              },
+              "low_speed_nozzle_cue_checked": false,
+              "meshes": [
+                {
+                  "degenerate_triangles": 0,
+                  "far_m": 350.0,
+                  "instances": 1,
+                  "level": 0,
+                  "mesh": "LOD0",
+                  "minimum_triangle_area_m2": 1.57193971972447e-05,
+                  "near_m": 0.0,
+                  "triangles": 19336
+                },
+                {
+                  "degenerate_triangles": 0,
+                  "far_m": 900.0,
+                  "instances": 1,
+                  "level": 1,
+                  "mesh": "LOD1",
+                  "minimum_triangle_area_m2": 4.7471603465965e-06,
+                  "near_m": 350.0,
+                  "triangles": 5964
+                },
+                {
+                  "degenerate_triangles": 0,
+                  "far_m": 2500.0,
+                  "instances": 1,
+                  "level": 2,
+                  "mesh": "LOD2",
+                  "minimum_triangle_area_m2": 3.36014772983617e-06,
+                  "near_m": 900.0,
+                  "triangles": 1466
+                },
+                {
+                  "degenerate_triangles": 0,
+                  "far_m": 500.0,
+                  "instances": 3,
+                  "level": 0,
+                  "mesh": "Gear",
+                  "minimum_triangle_area_m2": 0.00839999970048666,
+                  "near_m": 0.0,
+                  "triangles": 72
+                },
+                {
+                  "degenerate_triangles": 0,
+                  "far_m": 800.0,
+                  "instances": 1,
+                  "level": 0,
+                  "mesh": "Flame-1_0",
+                  "minimum_triangle_area_m2": 0.000692820409312844,
+                  "near_m": 0.0,
+                  "triangles": 20
+                },
+                {
+                  "degenerate_triangles": 0,
+                  "far_m": 800.0,
+                  "instances": 1,
+                  "level": 0,
+                  "mesh": "Flame1_0",
+                  "minimum_triangle_area_m2": 0.000692820409312844,
+                  "near_m": 0.0,
+                  "triangles": 20
+                }
+              ],
+              "source": "AI candidate with procedural landing gear/effects; production QA pending"
+            },
+            {
+              "aircraft_id": "gripen",
+              "geometry": {
+                "lods": [
+                  19458,
+                  5966,
+                  1466
+                ],
+                "surfaces": 5,
+                "triangles": 26890,
+                "unique_materials": 3
+              },
+              "low_speed_nozzle_cue_checked": false,
+              "meshes": [
+                {
+                  "degenerate_triangles": 0,
+                  "far_m": 350.0,
+                  "instances": 1,
+                  "level": 0,
+                  "mesh": "LOD0",
+                  "minimum_triangle_area_m2": 6.98833309797919e-06,
+                  "near_m": 0.0,
+                  "triangles": 19366
+                },
+                {
+                  "degenerate_triangles": 0,
+                  "far_m": 900.0,
+                  "instances": 1,
+                  "level": 1,
+                  "mesh": "LOD1",
+                  "minimum_triangle_area_m2": 1.39359815420903e-06,
+                  "near_m": 350.0,
+                  "triangles": 5966
+                },
+                {
+                  "degenerate_triangles": 0,
+                  "far_m": 2500.0,
+                  "instances": 1,
+                  "level": 2,
+                  "mesh": "LOD2",
+                  "minimum_triangle_area_m2": 0.000849020318128169,
+                  "near_m": 900.0,
+                  "triangles": 1466
+                },
+                {
+                  "degenerate_triangles": 0,
+                  "far_m": 500.0,
+                  "instances": 3,
+                  "level": 0,
+                  "mesh": "Gear",
+                  "minimum_triangle_area_m2": 0.00839999970048666,
+                  "near_m": 0.0,
+                  "triangles": 72
+                },
+                {
+                  "degenerate_triangles": 0,
+                  "far_m": 800.0,
+                  "instances": 1,
+                  "level": 0,
+                  "mesh": "Flame0_0",
+                  "minimum_triangle_area_m2": 0.000692820409312844,
+                  "near_m": 0.0,
+                  "triangles": 20
+                }
+              ],
+              "source": "AI candidate with procedural landing gear/effects; production QA pending"
+            }
+          ],
+          "scope": "finite nondegenerate meshes, per-LOD budgets including procedural gear/effects, engine count; recognition/art/mobile acceptance NOT VERIFIED",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "script": "fighter_circuit_check",
+      "ok": true,
+      "exit": 0,
+      "events": [
+        {
+          "aircraft_id": "f16c",
+          "crashed": false,
+          "final_position": "(9.492247, 1.4, -58.02941)",
+          "final_speed_mps": 1.94517433643341,
+          "landing_seconds": 160.366666666667,
+          "max_bank_rad": 1.27915695162956,
+          "stage": 4,
+          "status": "PASS",
+          "takeoff_seconds": 2.13333333333333
+        },
+        {
+          "aircraft_id": "su27",
+          "crashed": false,
+          "final_position": "(10.88243, 1.4, -105.5562)",
+          "final_speed_mps": 1.94914948940277,
+          "landing_seconds": 158.466666666667,
+          "max_bank_rad": 1.37640257601112,
+          "stage": 4,
+          "status": "PASS",
+          "takeoff_seconds": 2.4
+        },
+        {
+          "aircraft_id": "f15c",
+          "crashed": false,
+          "final_position": "(13.40419, 1.4, -130.6724)",
+          "final_speed_mps": 1.90066754817963,
+          "landing_seconds": 156.566666666667,
+          "max_bank_rad": 1.37427175870301,
+          "stage": 4,
+          "status": "PASS",
+          "takeoff_seconds": 2.26666666666667
+        },
+        {
+          "aircraft_id": "su35s",
+          "crashed": false,
+          "final_position": "(9.869051, 1.4, -51.48325)",
+          "final_speed_mps": 1.93544411659241,
+          "landing_seconds": 159.266666666667,
+          "max_bank_rad": 1.40626243064665,
+          "stage": 4,
+          "status": "PASS",
+          "takeoff_seconds": 1.66666666666667
+        },
+        {
+          "aircraft_id": "rafale",
+          "crashed": false,
+          "final_position": "(9.142431, 1.4, -15.1034)",
+          "final_speed_mps": 1.9692919254303,
+          "landing_seconds": 162.033333333333,
+          "max_bank_rad": 1.33342508819405,
+          "stage": 4,
+          "status": "PASS",
+          "takeoff_seconds": 2.06666666666667
+        },
+        {
+          "aircraft_id": "gripen",
+          "crashed": false,
+          "final_position": "(9.208413, 1.4, 12.78692)",
+          "final_speed_mps": 1.89983153343201,
+          "landing_seconds": 162.633333333333,
+          "max_bank_rad": 1.26979064900273,
+          "stage": 4,
+          "status": "PASS",
+          "takeoff_seconds": 2.03333333333333
+        }
+      ]
+    }
+  ]
+}

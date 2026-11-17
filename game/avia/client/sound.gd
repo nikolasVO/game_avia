@@ -29,7 +29,12 @@ static func settings() -> Dictionary:
 static func engine_stream(index: int=0) -> AudioStreamWAV:
  var rows: Array[Dictionary]=AviaCatalog.playable()
  var id: String=rows[clampi(index,0,rows.size()-1)].aircraft_id
- var profile: String=settings().aircraft.get(id,"original_jet")
+ return engine_stream_for_id(id)
+static func engine_stream_for_id(id: String) -> AudioStreamWAV:
+ # Inspection uses stable IDs without admitting planned models to flight.
+ # An unknown ID has no sound instead of silently borrowing another aircraft.
+ var profile: String=settings().aircraft.get(id,"")
+ if not settings().profiles.has(profile):return null
  var key: String="engine:"+profile
  if tones.has(key):return tones[key]
  var spec: Dictionary=settings().profiles[profile]

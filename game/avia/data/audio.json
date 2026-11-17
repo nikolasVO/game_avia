@@ -3,6 +3,7 @@
   "mix_rate": 22050,
   "remote_voice_limit": 4,
   "remote_range_m": 700,
+  "preview_seconds": 4.0,
   "profiles": {
     "prop_trainer": {"base_hz": 72, "whine_hz": 216, "noise": 0.08, "beat_hz": 0},
     "prop_sport": {"base_hz": 94, "whine_hz": 282, "noise": 0.12, "beat_hz": 0},
@@ -12,7 +13,12 @@
     "eagle_twin": {"base_hz": 90, "whine_hz": 720, "noise": 0.42, "beat_hz": 4},
     "vector_twin": {"base_hz": 84, "whine_hz": 924, "noise": 0.50, "beat_hz": 2},
     "delta_twin": {"base_hz": 122, "whine_hz": 732, "noise": 0.32, "beat_hz": 3},
-    "compact_single": {"base_hz": 138, "whine_hz": 966, "noise": 0.26, "beat_hz": 0}
+    "compact_single": {"base_hz": 138, "whine_hz": 966, "noise": 0.26, "beat_hz": 0},
+    "swing_twin": {"base_hz": 68, "whine_hz": 544, "noise": 0.50, "beat_hz": 5},
+    "carrier_twin": {"base_hz": 104, "whine_hz": 832, "noise": 0.38, "beat_hz": 6},
+    "historic_single": {"base_hz": 146, "whine_hz": 1022, "noise": 0.54, "beat_hz": 0},
+    "interceptor_twin": {"base_hz": 58, "whine_hz": 464, "noise": 0.60, "beat_hz": 2},
+    "strike_twin": {"base_hz": 80, "whine_hz": 560, "noise": 0.56, "beat_hz": 7}
   },
   "aircraft": {
     "kite": "prop_trainer",
@@ -23,6 +29,11 @@
     "f15c": "eagle_twin",
     "su35s": "vector_twin",
     "rafale": "delta_twin",
-    "gripen": "compact_single"
+    "gripen": "compact_single",
+    "f14": "swing_twin",
+    "fa18e": "carrier_twin",
+    "mig21": "historic_single",
+    "mig31": "interceptor_twin",
+    "tornado": "strike_twin"
   }
 }

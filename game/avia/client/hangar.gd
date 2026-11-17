@@ -15,6 +15,8 @@ var lang: String="en"
 var title: Label
 var choose: Button
 var close: Button
+var listen: Button
+var engine_sample: AviaEnginePreview
 var country: OptionButton
 var aircraft_class: OptionButton
 var speed: OptionButton
@@ -82,6 +84,10 @@ func _ready() -> void:
  choose=Button.new();choose.text="Select aircraft / Выбрать самолёт";choose.custom_minimum_size.y=52;buttons.add_child(choose);choose.pressed.connect(_choose)
  favorite=Button.new();buttons.add_child(favorite);favorite.pressed.connect(_toggle_favorite)
  close=Button.new();close.text="Back / Назад";buttons.add_child(close);close.pressed.connect(hide)
+ listen=Button.new();listen.custom_minimum_size.y=52;buttons.add_child(listen);listen.pressed.connect(_toggle_engine_sample)
+ engine_sample=AviaEnginePreview.new();engine_sample.name="EngineSample";add_child(engine_sample);engine_sample.sample_changed.connect(_sample_label)
+ visibility_changed.connect(func():
+  if not is_visible_in_tree():engine_sample.stop_sample())
  first.item_selected.connect(func(_i: int):current_id=str(first.get_item_metadata(first.selected));refresh());second.item_selected.connect(func(_i: int):refresh())
  var cfg: ConfigFile=ConfigFile.new()
  if cfg.load("user://hangar.cfg")==OK:
@@ -174,7 +180,17 @@ func _toggle_favorite() -> void:
  var cfg: ConfigFile=ConfigFile.new();cfg.set_value("collection","favorites",favorites)
  if cfg.save("user://hangar.cfg")!=OK:push_warning("Could not save hangar favorites")
  _rebuild_list()
+func _toggle_engine_sample() -> void:
+ if not is_visible_in_tree() or selected_spec().is_empty():return
+ if engine_sample.playing:engine_sample.stop_sample()
+ else:engine_sample.start_sample(current_id)
+ _sample_label()
+func _sample_label() -> void:
+ var muted: bool=AudioServer.is_bus_mute(0)
+ listen.disabled=muted or selected_spec().is_empty() or not AviaSound.settings().aircraft.has(current_id)
+ listen.text=("Звук выключен" if lang=="ru" else "Sound off") if muted else (("Остановить" if lang=="ru" else "Stop sample") if engine_sample.playing else ("Звук двигателя" if lang=="ru" else "Engine sound"))
 func refresh() -> void:
+ engine_sample.stop_sample();_sample_label()
  if model:model.free();model=null
  var index: int=selected_index()
  var spec: Dictionary=selected_spec()
