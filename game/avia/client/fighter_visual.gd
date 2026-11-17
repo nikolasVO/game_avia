@@ -2,9 +2,12 @@ class_name AviaFighterVisual
 extends RefCounted
 ## Candidate imported body or authored procedural body; flight remains independent.
 static func create(index: int, use_imported: bool=true) -> AviaAircraft:
- var spec: Dictionary=AviaFlight.PLANES[index];var g: Dictionary=spec.geometry
+ return create_spec(AviaFlight.PLANES[index],use_imported)
+static func create_spec(spec: Dictionary, use_imported: bool=false) -> AviaAircraft:
+ # Planned references never need to enter the playable catalog.
+ var g: Dictionary=spec.geometry
  var root: AviaAircraft=AviaAircraft.new()
- var color: Color=spec.color;var dark: Color=Color("293f49");var glass: Color=Color("78b5c3")
+ var color: Color=spec.color if spec.color is Color else Color(str(spec.color));var dark: Color=Color("293f49");var glass: Color=Color("78b5c3")
  var length: float=float(g.length_m);var span: float=float(g.span_m);var twin: bool=int(g.engines)==2
  var width: float=float(g.get("body_half_width_m",.8));var height: float=float(g.get("body_half_height_m",.65))
  var delta: bool=str(g.planform).contains("delta");var canard: bool=str(g.planform).contains("canard")
@@ -18,7 +21,11 @@ static func create(index: int, use_imported: bool=true) -> AviaAircraft:
   var sides: int=8 if lod==0 else 6 if lod==1 else 4
   AviaAircraft._loft(st,[Vector3(-length*.51,.04,.06),Vector3(-length*.3,width*.55,height*.9),Vector3(-length*.12,width,height),Vector3(length*.17,width*1.1,height*.9),Vector3(length*.44,width*.65,height*.55)],0.1,color,sides)
   # Cropped swept wing or canard delta; source geometry is authored independently.
-  AviaAircraft._wing(st,span*.5,float(g.get("wing_root_chord_m",length*(.36 if delta else .23))),length*.02,-.1,float(g.get("wing_sweep_m",length*(.22 if delta else .13))),color)
+  if bool(spec.systems.get("variable_sweep",false)):
+   # Fixed glove; articulated panels are separate from every body LOD.
+   AviaAircraft._wing(st,float(g.get("glove_half_span_m",span*.18)),length*.31,-.35,-.1,.9,color)
+  else:
+   AviaAircraft._wing(st,span*.5,float(g.get("wing_root_chord_m",length*(.36 if delta else .23))),length*.02,-.1,float(g.get("wing_sweep_m",length*(.22 if delta else .13))),color)
   if g.has("lerx_half_span_m") and not delta:AviaAircraft._wing(st,float(g.lerx_half_span_m),float(g.lerx_chord_m),float(g.lerx_z_m),-.02,0.6,color)
   if not delta:AviaAircraft._wing(st,span*.24,length*.13,length*.34,.12,length*.08,color.darkened(.06))
   if canard:AviaAircraft._wing(st,span*.22,length*.10,-length*.21,.2,length*.04,color.lightened(.05))
@@ -58,6 +65,16 @@ static func create(index: int, use_imported: bool=true) -> AviaAircraft:
    AviaAircraft._mesh(tube,nozzle,"Nozzle",0,800)
    if bool(spec.systems.get("thrust_vectoring",false)):root.vectoring_nozzles.append(nozzle)
   root.airframe_source="AI candidate body with procedural nozzle repair, landing gear/effects; production QA pending"
+ if not imported and bool(spec.systems.get("variable_sweep",false)):
+  for side: float in [-1.0,1.0]:
+   var pivot: Node3D=Node3D.new();pivot.name="SweepLeft" if side<0 else "SweepRight";pivot.position=Vector3(side*float(g.get("sweep_pivot_x_m",2.5)),-.1,float(g.get("sweep_pivot_z_m",-.3)));root.add_child(pivot)
+   root.sweep_wings.append(pivot);root.sweep_sides.append(side)
+   var reach: float=span*.5-absf(pivot.position.x)
+   for lod: int in 3:
+    var panel: SurfaceTool=SurfaceTool.new();panel.begin(Mesh.PRIMITIVE_TRIANGLES)
+    var x: float=side*reach;var aft: float=float(g.get("panel_sweep_m",2.6));var chord: float=float(g.get("panel_root_chord_m",4.5));var tip: float=float(g.get("panel_tip_chord_m",1.6))
+    AviaAircraft._solid(panel,[Vector3(0,-.07,-chord*.5),Vector3(x,-.04,aft-tip*.5),Vector3(x,-.04,aft+tip*.5),Vector3(0,-.07,chord*.5),Vector3(0,.07,-chord*.5),Vector3(x,.04,aft-tip*.5),Vector3(x,.04,aft+tip*.5),Vector3(0,.07,chord*.5)],color)
+    AviaAircraft._mesh(panel,pivot,"PanelLOD"+str(lod),[0,250,800][lod],[250,800,4500][lod])
  root.landing_gear=Node3D.new();root.landing_gear.name="LandingGear";root.add_child(root.landing_gear)
  root.gear_duration=clampf(float(spec.get("visual",{}).get("gear_retract_seconds",1.1)),0.5,2.0)
  var attachments: Array[Vector3]=[Vector3(0,-.375,-length*.25),Vector3(-length*.09,-.375,length*.07),Vector3(length*.09,-.375,length*.07)]

@@ -11,6 +11,11 @@ var gear_duration: float=1.1
 var systems_initialized: bool=false
 var exhaust: Node3D
 var vectoring_nozzles: Array[Node3D]=[]
+var sweep_wings: Array[Node3D]=[]
+var sweep_sides: Array[float]=[]
+var sweep_fraction: float=0.0
+var sweep_target: float=0.0
+var sweep_initialized: bool=false
 var propeller: Node3D
 var spin_speed: float=30.0
 var airframe_source: String="procedural flight prototype"
@@ -89,8 +94,15 @@ static func build(index: int) -> AviaAircraft:
 func _process(delta: float) -> void:
  if propeller and visible:propeller.rotate_z(spin_speed*delta)
  advance_gear(delta)
+ if sweep_initialized:pose_sweep(move_toward(sweep_fraction,sweep_target,maxf(delta,0.0)/2.5))
 
 func update_state(state: Dictionary) -> void:
+ if not sweep_wings.is_empty():
+  # Reference/prototype animation only. Planned swing-wing types remain unavailable.
+  var sweep: float=clampf(((state.v as Vector3).length()-180.0)/150.0,0,1)
+  if bool(state.get("gear",false)) or bool(state.get("flaps",false)):sweep=0.0
+  sweep_target=sweep
+  if not sweep_initialized:pose_sweep(sweep);sweep_initialized=true
  if landing_gear:
   gear_target=1.0 if bool(state.get("gear",true)) else 0.0
   # First snapshot establishes a baseline; later authoritative changes animate.
@@ -104,6 +116,10 @@ func update_state(state: Dictionary) -> void:
   var rates: Vector3=state.get("rates",Vector3.ZERO)
   nozzle.rotation.x=clampf(-rates.x*0.18,-0.22,0.22)*authority
   nozzle.rotation.y=clampf(-rates.y*0.18,-0.16,0.16)*authority
+
+func pose_sweep(fraction: float) -> void:
+ sweep_fraction=clampf(fraction,0,1)
+ for i: int in sweep_wings.size():sweep_wings[i].rotation.y=-sweep_sides[i]*deg_to_rad(48.0)*sweep_fraction
 
 func advance_gear(delta: float) -> void:
  if not landing_gear or not systems_initialized:return

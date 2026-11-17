@@ -1,0 +1,22 @@
+{
+  "asset_id": "f14_candidate_20261117_v1",
+  "purpose": "F14-style own authored twin-engine variable-sweep reference AI body candidate; no production acceptance",
+  "description": "Own provisional game geometry with two engines, paired intakes, twin fins, long tandem canopy and extended swing wings. No third-party pixels/models/logos. Generated body is static: articulation must be repaired and validated separately. Primary-source variant dimensions and recognition still unverified.",
+  "style": "coherent stylized Game Avia aviation",
+  "reference_images": [
+    "production-f14-v1/reference.png"
+  ],
+  "dimensions_m": [
+    19.5,
+    4.9,
+    19.1
+  ],
+  "source_yaw_degrees": 180,
+  "symmetry_policy": "mirror_x",
+  "triangle_budget": 19300,
+  "texture_budget": 1024,
+  "deadline_seconds": 1800,
+  "cost_limit": 0,
+  "seed": 42,
+  "pipeline_type": "512"
+}

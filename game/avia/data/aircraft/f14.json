@@ -43,10 +43,26 @@
     "length_m": 19.1,
     "span_m": 19.5,
     "engines": 2,
-    "planform": "swing"
+    "planform": "swing",
+    "body_half_width_m": 1.0,
+    "body_half_height_m": 0.7,
+    "engine_spacing_m": 3.8,
+    "engine_channel_length_m": 8.8,
+    "intake_layout": "side_pair",
+    "fin_height_m": 2.8,
+    "fin_cant_degrees": 5,
+    "lerx_half_span_m": 3.1,
+    "lerx_chord_m": 5.5,
+    "lerx_z_m": -1.1,
+    "glove_half_span_m": 3.3,
+    "sweep_pivot_x_m": 2.8,
+    "sweep_pivot_z_m": -0.5,
+    "panel_sweep_m": 2.5,
+    "panel_root_chord_m": 4.4,
+    "panel_tip_chord_m": 1.5
   },
   "reference": {
-    "status": "game proportions pending variant validation",
+    "status": "Own provisional F14-style twin-engine/twin-fin/swing-wing reference; primary-source variant dimensions not yet verified",
     "commercial_rights": "NOT REVIEWED; no logos or military insignia",
     "fallback_name": "Avia 11-F14"
   },

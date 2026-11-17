@@ -1,0 +1,65 @@
+{
+  "aircraft_id": "f14",
+  "authored_geometry": {
+    "body_half_height_m": 0.7,
+    "body_half_width_m": 1.0,
+    "engine_channel_length_m": 8.8,
+    "engine_spacing_m": 3.8,
+    "engines": 2.0,
+    "fin_cant_degrees": 5.0,
+    "fin_height_m": 2.8,
+    "glove_half_span_m": 3.3,
+    "intake_layout": "side_pair",
+    "length_m": 19.1,
+    "lerx_chord_m": 5.5,
+    "lerx_half_span_m": 3.1,
+    "lerx_z_m": -1.1,
+    "panel_root_chord_m": 4.4,
+    "panel_sweep_m": 2.5,
+    "panel_tip_chord_m": 1.5,
+    "planform": "swing",
+    "span_m": 19.5,
+    "sweep_pivot_x_m": 2.8,
+    "sweep_pivot_z_m": -0.5
+  },
+  "conditioning": "single reference.png only, never the QC views as a collage",
+  "description": "Own approximate game fighter geometry, no logos/insignia or copied third-party model; variant recognition/proportions require further review",
+  "files": {
+    "front.png": {
+      "height": 1024,
+      "sha256": "209a5d72c96c6f731c63b4b49f4525d8b3fc875cbc3618e16b5de7f889b57f16",
+      "width": 1024
+    },
+    "reference.png": {
+      "height": 1024,
+      "sha256": "14c4baa2d949e75193aa9149adcb73f45206b60e349220dcb5298f66a75e16b9",
+      "width": 1024
+    },
+    "side.png": {
+      "height": 1024,
+      "sha256": "f4324f153b0d4793bac22a65253fe684e0894b2976da32d6d52855e10f60f04e",
+      "width": 1024
+    },
+    "top.png": {
+      "height": 1024,
+      "sha256": "124228dc53d3aad751716951937af2a0850b0ecb21de059028bb5bf3963888f1",
+      "width": 1024
+    }
+  },
+  "generator": "game/avia/tests/fighter_reference.gd and client/fighter_visual.gd",
+  "generator_files_sha256": {
+    "res://client/aircraft.gd": "b3b10e38b6b2e57be20f290eb019931cb09f4a9be400c5a3e560ecc941dea429",
+    "res://client/fighter_visual.gd": "be5899f394eb38fc006787119ac50a0b2e28fe5b7a581fc289a55fa6122b9259",
+    "res://tests/fighter_reference.gd": "d651d98390b6b1eae2374a1b8b4d8f9663ee90ec7a63f535fffd6812ffc1e3c7"
+  },
+  "imported_body_used": false,
+  "input_rights": "Project-authored geometry/render; no third-party pixels/models/logos. Commercial designation/design review remains pending.",
+  "input_view": "reference.png",
+  "paid_calls": 0,
+  "qc_views_only": [
+    "top.png",
+    "front.png",
+    "side.png"
+  ],
+  "source_type": "procedural_reference"
+}

@@ -1,0 +1,61 @@
+{
+  "checks": [
+    {
+      "check": "F14 remains planned and unavailable; nine playable prototypes preserved",
+      "ok": true
+    },
+    {
+      "check": "two independently pivoted wings with three matching LOD ranges",
+      "ok": true
+    },
+    {
+      "check": "sweep reduces span and moves both wing tips aft",
+      "ok": true
+    },
+    {
+      "check": "left and right panels retain mirror symmetry through travel",
+      "ok": true
+    },
+    {
+      "check": "all six panel meshes finite and nondegenerate; 24 triangles at each distance tier",
+      "ok": true
+    },
+    {
+      "check": "initial state establishes sweep baseline",
+      "ok": true
+    },
+    {
+      "check": "gear requests open wings without an instantaneous snap",
+      "ok": true
+    },
+    {
+      "check": "sweep travels at bounded frame-independent rate",
+      "ok": true
+    },
+    {
+      "check": "mid-travel reversal continues smoothly",
+      "ok": true
+    },
+    {
+      "check": "flaps interlock returns wings fully open",
+      "ok": true
+    },
+    {
+      "check": "low-speed state selects fully open wings",
+      "ok": true
+    },
+    {
+      "check": "negative preview fraction clamps safely",
+      "ok": true
+    },
+    {
+      "check": "excess preview fraction clamps safely",
+      "ok": true
+    }
+  ],
+  "closed_span_m": 12.2999076843262,
+  "event": "sweep_reference_summary",
+  "open_span_m": 19.5,
+  "scope": "authored planned F14-style geometry/animation only; primary variant facts, AI body, sweep aerodynamics, multiplayer and production acceptance remain pending",
+  "status": "PASS"
+}
