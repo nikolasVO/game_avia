@@ -26,3 +26,16 @@ def owner_id():
         raise RuntimeError("invalid_pinned_telegram_owner")
     return int(ids[0])
 
+
+
+def environment_proof(role):
+    keys=set(os.environ)
+    provider_keys={k for k in keys if k.endswith("_API_KEY")}
+    if role=="api":scoped=not provider_keys and "TELEGRAM_BOT_TOKEN" not in keys
+    elif role=="coordinator":scoped=not provider_keys and "GAME_AVIA_API_TOKEN" not in keys
+    else:scoped=("TELEGRAM_BOT_TOKEN" not in keys and "GAME_AVIA_API_TOKEN" not in keys and all("_CODEX_" in k or "_CLAUDE_" in k for k in provider_keys))
+    return {"pid":os.getpid(),"release":os.getenv("GAME_AVIA_RELEASE_SHA"),"role":role,"scoped":scoped}
+
+def record_environment_proof(store,role):
+    import json
+    store.kv("environment_proof:"+role,json.dumps(environment_proof(role)))

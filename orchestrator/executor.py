@@ -87,6 +87,8 @@ async def main():
     lock=open(state_dir()/"executor.lock","a")
     fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
     store=Store(state_dir()/"coordinator.sqlite3")
+    from orchestrator.settings import record_environment_proof
+    record_environment_proof(store,"executor")
     from integrations.github.sync import sync_pending
     owner=uuid.uuid4().hex
     while True:

@@ -15,6 +15,8 @@ async def main():
     lock=open(p/"runtime.lock","a")
     fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
     store=Store(p/"coordinator.sqlite3")
+    from orchestrator.settings import record_environment_proof
+    record_environment_proof(store,"coordinator")
     store.recover()
     store.kv("budget_status","budget_not_configured; bootstrap cap: 12 text requests, 1 image request; large autonomous backlog disabled.")
     # Coordinator persists tasks immediately; executor only accepts explicitly enabled bounded jobs.

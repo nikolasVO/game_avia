@@ -21,9 +21,10 @@ class TaskInput(BaseModel):
     goal:str=Field(min_length=1,max_length=12000)
 @app.get("/health")
 def health():
+    from orchestrator.settings import environment_proof
     s=get_store()
     return {"status":"ok","service":"game_avia","release":os.getenv("GAME_AVIA_RELEASE_SHA","unversioned"),
-            "budget":s.kv("budget_status") or "budget_not_configured"}
+            "budget":s.kv("budget_status") or "budget_not_configured","secrets_scoped":environment_proof("api")["scoped"]}
 @app.post("/tasks",dependencies=[Depends(auth)])
 def create(t:TaskInput):return get_store().create_task(t.goal)
 @app.get("/tasks",dependencies=[Depends(auth)])

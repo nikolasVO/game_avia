@@ -28,8 +28,10 @@ def check():
         pid=subprocess.check_output(["/srv/game-avia/venvs/core/bin/supervisorctl","-c","deploy/supervisord.conf","pid",name],text=True).strip()
         values=Path("/proc/"+pid+"/environ").read_bytes().split(b"\0")
         sha=next((x.split(b"=",1)[1].decode() for x in values if x.startswith(b"GAME_AVIA_RELEASE_SHA=")),None)
-        keys={x.split(b"=",1)[0].decode(errors="replace") for x in values}
-        scoped=(not any(x.endswith("_API_KEY") for x in keys)) if name in ("api","coordinator") else "TELEGRAM_BOT_TOKEN" not in keys
+        if name=="api":scoped=report["health"].get("secrets_scoped",False)
+        else:
+            proof=json.loads(s.kv("environment_proof:"+name) or "{}")
+            scoped=proof.get("pid")==int(pid) and proof.get("release")==report["checkout"] and proof.get("scoped",False)
         report["runtime_children"][name]={"release":sha,"uid":Path("/proc/"+pid).stat().st_uid,"scoped_environment":scoped}
     report["private_environment_mode"]=oct(stat.S_IMODE(Path("/etc/game-avia/environment").stat().st_mode))
     with s.db() as c:
