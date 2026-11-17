@@ -6,7 +6,7 @@ Active task68c406f99772, full21-section development brief. Current stage remains
 |---|---|---|
 |P0|Existing external UDP24567|FAIL actual off-host; provider mapping unknown. Two external playing clients required.|
 |P0|Physical Android/iPhone controls/frame/memory/heat/handover|NOT VERIFIED; no available validated device path. Emulator cold-render connection regression fixed6c3620a and90s actual flight PASS, FPS FAIL.|
-|P0|Rollback|Published r2/c1922c7 and6c3620a APK/evidence preserved; do not replace deployed protocol3 before tested matching client/server4.|
+|P0|Rollback|PASS real5c→c192→5c rollback with two matching clients at each phase and116→124 aggregate preservation. r2 remains available; final flight5c/protocol4, full acceptance still incomplete.|
 |P0|Existing AI candidate|Original AI candidate parked in scene; F-16C real inference and symmetry/LOD/import/render/native integration PASS, production recognition/articulation/mobile gates open. AI safety-block prop already in actual6c APK.|
 |P1|27-entry unified catalog|Implemented data/loader;24 named fighters, originals preserved. Validation and game delivery gates separate.|
 |P1|Six flight profiles + systems|Implemented shared forces, inertia, AB/airbrake/flaps/gear/profile authority; scripted comparison PASS. Real protocol/rendered pair and f702 native load PASS in their scopes; physical handling/landing remains open.|

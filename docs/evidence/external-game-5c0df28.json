@@ -1,0 +1,83 @@
+{
+  "environment": "headless-protocol-bots",
+  "host_kind": "remote_endpoint",
+  "external_server_process": true,
+  "clients": 2,
+  "requested_seconds": 10,
+  "planes": "3,4",
+  "profiles": "",
+  "systems_cycle": false,
+  "processes": [
+    {
+      "name": "client-0",
+      "exit": 0,
+      "ok": false,
+      "summary": {
+        "commands_sent": 0,
+        "connection_status": "Disconnected \u2014 retry from menu",
+        "correction_max_m": 0.0,
+        "correction_p95_m": 0,
+        "enet_rtt_ms": 0.0,
+        "event": "summary",
+        "frame_p50_ms": 0,
+        "frame_p95_ms": 0,
+        "joined": false,
+        "last_input_ack": 0,
+        "pending_inputs": 0,
+        "rejected": 0,
+        "renderer": "gl_compatibility",
+        "seconds": 10.0000000000001,
+        "seen_peers": 0,
+        "server": false,
+        "snapshots": 0,
+        "state": {},
+        "static_memory_mb": 24.431227684021,
+        "wall_seconds": 9.77
+      },
+      "engine_errors": [],
+      "known_dtls_shutdown_diagnostic": false,
+      "events": [
+        "summary"
+      ],
+      "health": [],
+      "authority_states": []
+    },
+    {
+      "name": "client-1",
+      "exit": 0,
+      "ok": false,
+      "summary": {
+        "commands_sent": 0,
+        "connection_status": "Disconnected \u2014 retry from menu",
+        "correction_max_m": 0.0,
+        "correction_p95_m": 0,
+        "enet_rtt_ms": 0.0,
+        "event": "summary",
+        "frame_p50_ms": 0,
+        "frame_p95_ms": 0,
+        "joined": false,
+        "last_input_ack": 0,
+        "pending_inputs": 0,
+        "rejected": 0,
+        "renderer": "gl_compatibility",
+        "seconds": 10.4073346666668,
+        "seen_peers": 0,
+        "server": false,
+        "snapshots": 0,
+        "state": {},
+        "static_memory_mb": 24.431227684021,
+        "wall_seconds": 10.172
+      },
+      "engine_errors": [],
+      "known_dtls_shutdown_diagnostic": false,
+      "events": [
+        "summary"
+      ],
+      "health": [],
+      "authority_states": []
+    }
+  ],
+  "status": "FAIL",
+  "source_commit": "5c0df281c459fd98f4a75a5a7d59a96c8814ff61",
+  "scope": "two actual owner Mac clients to public Thunder24567 after binary5c actual PID/hash confirmed; no join/snapshots. Separate echo also timed out. No public multiplayer claim."
+}

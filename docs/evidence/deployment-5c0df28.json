@@ -1,0 +1,111 @@
+{
+  "status": "PASS manual update/actual rollback/local clients; external play still FAIL",
+  "deployed_source": "5c0df281c459fd98f4a75a5a7d59a96c8814ff61",
+  "binary_sha256": "b10ec315f6f4b88e6cdf225dbe09104dd5ad1cb70ce4a6739242ed17e590eca4",
+  "pid": 154158,
+  "protocol": 4,
+  "main_at_integration": "d3c3f31a18ca9da9cc372c1c73258b8d119efa38",
+  "core_restarted": false,
+  "point_processes": [
+    {
+      "pid": 12876,
+      "alive": true
+    },
+    {
+      "pid": 37381,
+      "alive": true
+    }
+  ],
+  "core_processes": [
+    {
+      "pid": 124190,
+      "start_ticks": 5093727,
+      "role": "api"
+    },
+    {
+      "pid": 124192,
+      "start_ticks": 5093727,
+      "role": "executor"
+    }
+  ],
+  "api_health_ok": "ok",
+  "progress_sequence": [
+    116,
+    120,
+    122,
+    124.0
+  ],
+  "progress_scope": "anonymous server aggregate includes these explicitly identified smoke bots; not human/per-user career progress",
+  "rollback_source": "c1922c74a29112818ce9ee523a9cdc81eb211180",
+  "phases": {
+    "forward": {
+      "status": "PASS",
+      "clients": [
+        {
+          "snapshots": 364,
+          "seen_peers": 2,
+          "joined": true
+        },
+        {
+          "snapshots": 371,
+          "seen_peers": 2,
+          "joined": true
+        }
+      ]
+    },
+    "rollback": {
+      "status": "PASS",
+      "clients": [
+        {
+          "snapshots": 260,
+          "seen_peers": 2,
+          "joined": true
+        },
+        {
+          "snapshots": 266,
+          "seen_peers": 2,
+          "joined": true
+        }
+      ]
+    },
+    "return": {
+      "status": "PASS",
+      "clients": [
+        {
+          "snapshots": 260,
+          "seen_peers": 2,
+          "joined": true
+        },
+        {
+          "snapshots": 265,
+          "seen_peers": 2,
+          "joined": true
+        }
+      ]
+    }
+  },
+  "log_buffering_probe": [
+    {
+      "prefix": [],
+      "server_ready_seconds": 3.2413432939938502,
+      "exit": 0
+    },
+    {
+      "prefix": [
+        "/usr/bin/stdbuf",
+        "-oL",
+        "-eL"
+      ],
+      "server_ready_seconds": 0.19092544600425754,
+      "exit": 0
+    }
+  ],
+  "protected_backups": "config/progress snapshots in state/flight/backups/manual-5c0df28-20261117-*; no operational data published",
+  "initial_operator_failures": [
+    "SSH quoting SyntaxError before execution; old server unchanged",
+    "premature new-client probe against old protocol3 failed version admission; preserved separately",
+    "STARTING status inspection raced PID, reconciled actual running binary without repeating mutation"
+  ],
+  "external": "actual Mac clients to24567 and off-host24568echo FAIL; upstream UDP mapping unavailable; no TCP-as-UDP",
+  "scope_limits": "full development IN PROGRESS; no phone/iOS/AI-production/full mission acceptance"
+}
