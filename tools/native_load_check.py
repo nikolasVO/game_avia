@@ -26,7 +26,11 @@ for row in health:
   if begin is None:begin=row['tick']
   longest=max(longest,row['tick']-begin)
  else:begin=None
+active=[row for row in health if row['connections']==16]
+accepted_during_16=(active[-1]['accepted']-active[0]['accepted']) if len(active)>1 else 0
+active_seconds=(active[-1]['tick']-active[0]['tick'])/30 if len(active)>1 else 0
+input_rate=accepted_during_16/max(active_seconds,1)/16
 p95=max((row['tick_p95_ms'] for row in health),default=1000)
 valid_errors=all(e=='ERROR: TLS handshake error: -30464' for e in errors)
-report={'status':'PASS' if clients.returncode==0 and longest>=54000 and p95<25 and valid_errors else 'FAIL','scope':'Thunder loopback, 16 active protocol bots, actual exported dedicated server; not humans/phones/external network','server_exit':server.returncode,'requested_client_seconds':a.seconds,'continuous_16_connections_seconds_conservative':longest/30,'max_reported_simulation_tick_p95_ms':p95,'server_engine_errors':errors,'known_dtls_shutdown_diagnostic':bool(errors) and valid_errors,'health':health}
+report={'accepted_inputs_per_second_per_client':input_rate,'accepted_inputs_during_16':accepted_during_16,'status':'PASS' if clients.returncode==0 and longest>=54000 and p95<25 and input_rate>=20 and valid_errors else 'FAIL','scope':'Thunder loopback, 16 active protocol bots, actual exported dedicated server; not humans/phones/external network','server_exit':server.returncode,'requested_client_seconds':a.seconds,'continuous_16_connections_seconds_conservative':longest/30,'max_reported_simulation_tick_p95_ms':p95,'server_engine_errors':errors,'known_dtls_shutdown_diagnostic':bool(errors) and valid_errors,'health':health}
 (a.out/'report.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps({k:v for k,v in report.items() if k!='health'},indent=2));raise SystemExit(0 if report['status']=='PASS' else 1)

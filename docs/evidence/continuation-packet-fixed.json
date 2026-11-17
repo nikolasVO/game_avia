@@ -1,0 +1,277 @@
+{
+  "packet_delivery": [
+    {
+      "enet_deceleration": 2.0,
+      "enet_rtt_ms": 18.0,
+      "enet_throttle": 32.0,
+      "enet_throttle_limit": 32.0,
+      "event": "sent_attack",
+      "label": "nan",
+      "number": 9,
+      "peer": 252831038,
+      "expected": "invalid_input",
+      "received": [
+        {
+          "event": "input_receipt",
+          "number": 9,
+          "peer": 252831038,
+          "result": "invalid_input"
+        }
+      ],
+      "ok": true
+    },
+    {
+      "enet_deceleration": 2.0,
+      "enet_rtt_ms": 18.0,
+      "enet_throttle": 32.0,
+      "enet_throttle_limit": 32.0,
+      "event": "sent_attack",
+      "label": "inf",
+      "number": 10,
+      "peer": 252831038,
+      "expected": "invalid_input",
+      "received": [
+        {
+          "event": "input_receipt",
+          "number": 10,
+          "peer": 252831038,
+          "result": "invalid_input"
+        }
+      ],
+      "ok": true
+    },
+    {
+      "enet_deceleration": 2.0,
+      "enet_rtt_ms": 18.0,
+      "enet_throttle": 32.0,
+      "enet_throttle_limit": 32.0,
+      "event": "sent_attack",
+      "label": "3.0",
+      "number": 11,
+      "peer": 252831038,
+      "expected": "invalid_input",
+      "received": [
+        {
+          "event": "input_receipt",
+          "number": 11,
+          "peer": 252831038,
+          "result": "invalid_input"
+        }
+      ],
+      "ok": true
+    },
+    {
+      "enet_deceleration": 2.0,
+      "enet_rtt_ms": 18.0,
+      "enet_throttle": 32.0,
+      "enet_throttle_limit": 32.0,
+      "event": "sent_attack",
+      "label": "teleport",
+      "number": 12,
+      "peer": 252831038,
+      "expected": "invalid_input",
+      "received": [
+        {
+          "event": "input_receipt",
+          "number": 12,
+          "peer": 252831038,
+          "result": "invalid_input"
+        }
+      ],
+      "ok": true
+    },
+    {
+      "enet_deceleration": 2.0,
+      "enet_rtt_ms": 18.0,
+      "enet_throttle": 32.0,
+      "enet_throttle_limit": 32.0,
+      "event": "sent_attack",
+      "label": "replay",
+      "number": -10,
+      "peer": 252831038,
+      "expected": "replayed_sequence",
+      "received": [
+        {
+          "event": "input_receipt",
+          "number": -10,
+          "peer": 252831038,
+          "result": "replayed_sequence"
+        }
+      ],
+      "ok": true
+    },
+    {
+      "enet_deceleration": 2.0,
+      "enet_rtt_ms": 18.0,
+      "enet_throttle": 32.0,
+      "enet_throttle_limit": 32.0,
+      "event": "sent_attack",
+      "label": "sequence_jump",
+      "number": 10013,
+      "peer": 252831038,
+      "expected": "sequence_jump",
+      "received": [
+        {
+          "event": "input_receipt",
+          "number": 10013,
+          "peer": 252831038,
+          "result": "sequence_jump"
+        }
+      ],
+      "ok": true
+    }
+  ],
+  "ticket_receipts": [
+    {
+      "event": "ticket_receipt",
+      "peer": 252831038,
+      "result": "accepted"
+    },
+    {
+      "event": "ticket_receipt",
+      "peer": 252831038,
+      "result": "missing_ticket"
+    },
+    {
+      "event": "ticket_receipt",
+      "peer": 842834857,
+      "result": "accepted"
+    },
+    {
+      "event": "ticket_receipt",
+      "peer": 842834857,
+      "result": "missing_ticket"
+    },
+    {
+      "event": "ticket_receipt",
+      "peer": 250439651,
+      "result": "expired_ticket"
+    },
+    {
+      "event": "ticket_receipt",
+      "peer": 805289857,
+      "result": "accepted"
+    },
+    {
+      "event": "ticket_receipt",
+      "peer": 1517739961,
+      "result": "accepted"
+    },
+    {
+      "event": "ticket_receipt",
+      "peer": 2095949280,
+      "result": "accepted"
+    }
+  ],
+  "invalid_ticket_rejected": true,
+  "checks": [
+    {
+      "scenario": "invalid",
+      "exit": 0,
+      "summary": {
+        "connection_status": "Connected",
+        "event": "actor_summary",
+        "joined": true,
+        "scenario": "invalid",
+        "snapshots": 79,
+        "status": "PASS"
+      },
+      "ok": true
+    },
+    {
+      "scenario": "replay",
+      "exit": 0,
+      "summary": {
+        "connection_status": "Connected",
+        "event": "actor_summary",
+        "joined": true,
+        "scenario": "replay",
+        "snapshots": 78,
+        "status": "PASS"
+      },
+      "ok": true
+    },
+    {
+      "scenario": "expired",
+      "exit": 0,
+      "summary": {
+        "connection_status": "Disconnected \u2014 retry from menu",
+        "event": "actor_summary",
+        "joined": false,
+        "scenario": "expired",
+        "snapshots": 0,
+        "status": "PASS"
+      },
+      "ok": true
+    },
+    {
+      "scenario": "plain",
+      "exit": 0,
+      "summary": {
+        "connection_status": "Menu",
+        "event": "actor_summary",
+        "joined": false,
+        "scenario": "plain",
+        "snapshots": 0,
+        "status": "PASS"
+      },
+      "ok": true
+    },
+    {
+      "scenario": "wrong-cert",
+      "exit": 0,
+      "summary": {
+        "connection_status": "Disconnected \u2014 retry from menu",
+        "event": "actor_summary",
+        "joined": false,
+        "scenario": "wrong-cert",
+        "snapshots": 0,
+        "status": "PASS"
+      },
+      "ok": true
+    },
+    {
+      "scenario": "held-recovery",
+      "exit": 0,
+      "summary": {
+        "connection_status": "Connected",
+        "event": "actor_summary",
+        "joined": true,
+        "scenario": "held-recovery",
+        "snapshots": 79,
+        "status": "PASS"
+      },
+      "ok": true
+    },
+    {
+      "scenario": "rapid-leave",
+      "exit": 0,
+      "summary": {
+        "connection_status": "Menu",
+        "event": "actor_summary",
+        "joined": false,
+        "scenario": "rapid-leave",
+        "snapshots": 4,
+        "status": "PASS"
+      },
+      "ok": true
+    },
+    {
+      "scenario": "version",
+      "exit": 0,
+      "summary": {
+        "connection_status": "Version mismatch",
+        "event": "actor_summary",
+        "joined": false,
+        "scenario": "version",
+        "snapshots": 0,
+        "status": "PASS"
+      },
+      "ok": true
+    }
+  ],
+  "server_rejected": 9,
+  "status": "PASS",
+  "scope": "Real localhost ENet/DTLS; opt-in server observer records actual production handler receipt/rejection by peer and unique sequence. Missing delivery fails; no rejection inferred from stationary aircraft.",
+  "source_scope": "continuation working source after merge 43b3df0; exact game tree is recorded in the containing fix commit; not previous release 3417828"
+}

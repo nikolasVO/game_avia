@@ -1,0 +1,11 @@
+{
+  "transport": "UDP",
+  "probe_port": 24568,
+  "source": "owner Mac outside Thunder",
+  "listener": "READY",
+  "status": "FAIL",
+  "note": "No provider mapping inferred from SSH TCP endpoint.",
+  "listener_outcome": "TIMEOUT",
+  "ssh_exit": 0,
+  "source_scope": "continuation working source after merge 43b3df0; exact game tree is recorded in the containing fix commit; not previous release 3417828"
+}

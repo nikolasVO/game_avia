@@ -14,5 +14,6 @@ subprocess.run(cmd,check=True,timeout=600)
 artifact=out/name
 if not artifact.is_file() or artifact.stat().st_size<10000:raise SystemExit('Missing native artifact')
 sha=subprocess.check_output(['git','-C',str(root),'rev-parse','HEAD'],text=True).strip();dirty=bool(subprocess.check_output(['git','-C',str(root),'status','--porcelain'],text=True))
-manifest={'artifact':name,'bytes':artifact.stat().st_size,'sha256':hashlib.sha256(artifact.read_bytes()).hexdigest(),'engine':version,'commit':sha,'dirty':dirty,'target':a.target,'signature':'debug' if a.target=='apk' else 'unsigned' if a.target=='aab' else 'test','device_tested':False}
+source_hashes={str(p.relative_to(project)):hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(project.rglob('*')) if p.is_file() and p.relative_to(project).parts[0] not in ('.godot','android') and p.suffix in ('.gd','.tscn','.godot','.cfg','.crt','.svg','.txt')}
+manifest={'source_files_sha256':source_hashes,'artifact':name,'bytes':artifact.stat().st_size,'sha256':hashlib.sha256(artifact.read_bytes()).hexdigest(),'engine':version,'commit':sha,'dirty':dirty,'target':a.target,'signature':'debug' if a.target=='apk' else 'unsigned' if a.target=='aab' else 'test','device_tested':False}
 (out/(name+'.json')).write_text(json.dumps(manifest,indent=2)+'\n');print(json.dumps(manifest,indent=2))

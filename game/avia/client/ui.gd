@@ -118,7 +118,12 @@ func _process(delta: float) -> void:
   if frame_times.size()<108000:frame_times.append(interval)
   else:frame_times[frame_cursor]=interval;frame_cursor=(frame_cursor+1) % 108000
  last_frame_us=now
- if not session.joined or session.local_state.is_empty():hud.text=session.status;notice.text="";return
+ if not session.joined or session.local_state.is_empty():
+  hud.text=session.status;notice.text=""
+  if session.status not in ["Connecting","Joining"] and not menu.visible:
+   touch.clear_pointers();touch.throttle=0;touch.hide();menu.show()
+  radar.queue_redraw()
+  return
  var s: Dictionary=session.local_state
  var warning: String=""
  if s.crashed:warning="CRASH — R / Recover" if language=="en" else "АВАРИЯ — Восстановить"

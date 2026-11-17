@@ -1,6 +1,6 @@
 # Game Avia — verified prototype status, 2026-11-17
 
-Game/source/deployed server: **3417828170d35a3ab2acac0c3fc1ad5ab2bf1046**, Godot4.7.2 stable, protocol3. Later documentation/test-harness commits do not change the release's game code. **Version0.1 is NOT ACCEPTED.** This is an implemented vertical slice with real builds/server and explicit remaining gaps.
+Historical published game/source/deployed server: **3417828170d35a3ab2acac0c3fc1ad5ab2bf1046**, Godot4.7.2 stable, protocol3. Continuation work below changes source; deployed/release SHA remains separately identified. **Version0.1 is NOT ACCEPTED.** This is an implemented vertical slice with real builds/server and explicit remaining gaps.
 
 | Acceptance | Status | Actual evidence and limits |
 |---|---|---|
@@ -25,8 +25,12 @@ Game/source/deployed server: **3417828170d35a3ab2acac0c3fc1ad5ab2bf1046**, Godot
 | macOS export | PASS headless runtime | Actual exported unsigned app joined separate server and received136 snapshots; `mac-export-runtime.json`. GUI/notarization acceptance separate |
 | Repository/build restore | PASS tested scope | Clean checkout exports, Git LFS fsck and secret-pattern/path checks; exact release digests. Protected operational state/keys/caches/weights excluded |
 
-Known issues: the timeout path currently returns the generic Menu state and may leave stale aircraft visuals; clearer disconnect cleanup is pending. Godot DTLS can log -30464 on departing peers; one stderr line interleaved inside a stdout health record. The original harness FAIL was preserved and reclassified after inspecting existing artifacts, without rerunning or altering measurements. Max correction metrics include intentional multi-kilometre server recovery teleports. Coast/water depth artifacts and primitive aircraft geometry remain visible. Desktop movie encoding and emulator overload measurements are not phone FPS.
+Continuation milestone (containing fix commit): explicit ENet host bandwidth/channel setup repairs a measured Godot4.7.2 forwarding defect; invalid packets are now individually observed/rejected (`continuation-packet-fixed.json`,8 scenarios,6 command probes and bogus ticket). Timeout/background errors survive teardown; stale aircraft/audio and controls are cleared; three real reconnects and scene cleanup passed (`continuation-lifecycle.json`). Actual diagnostic APK60-second runs with/without3D all stayed connected and took off, but final clean-source/manual Android run is pending (`android-stall-isolation.json`). New off-host echo again FAIL (`continuation-external-udp.json`). DINO access application is pending Meta; no polling or paid probes. Unity activation passed, Godot retained.
+
+The old16-client1850-second result remains a connection/snapshot measurement. The bandwidth defect means it must not establish sustained input delivery for current source. A new capacity run must additionally measure accepted input rate per client.
+
+Known issues: Godot DTLS can log -30464 on departing peers; one stderr line interleaved inside a stdout health record. The original harness FAIL was preserved and reclassified after inspecting existing artifacts, without rerunning or altering measurements. Max correction metrics include intentional multi-kilometre server recovery teleports. Coast/water depth artifacts and primitive aircraft geometry remain visible. Desktop movie encoding and emulator overload measurements are not phone FPS.
 
 Original API/coordinator/executor and Point GPU processes/data preserved. Reports use Store/outbox; no Telegram class/poller started. Paid calls0; no purchases/terms acceptance, app-store submissions, Actions, autodeploy or timers.
 
-Final notification: **BLOCKED** by new SSH `Permission denied (publickey)` after successful publication. GitHub artifacts/push are verified; final Store/event enqueue did not execute. Earlier9 reports were confirmed sent. Current server availability was not reverified after authentication failed.
+Historical final notification: **BLOCKED** by SSH `Permission denied (publickey)` after successful publication. GitHub artifacts/push are verified; final Store/event enqueue did not execute. Earlier9 reports were confirmed sent. Continuation restored explicit-identity SSH and enqueued a new task update. Parent owns reconciliation/delivery of that previous final event; it is not resent.

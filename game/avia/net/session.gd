@@ -42,6 +42,13 @@ var clock_offset_ms: float=0.0
 var server_tick_seen: int=-1
 var last_snapshot_ms: int=0
 var join_options: Dictionary={}
+var diagnostics: bool=false
+var diagnostic_last_ms: int=0
+var diagnostic_frames: int=0
+var diagnostic_physics: int=0
+var commands_sent: int=0
+signal input_audit(peer_id: int, number: int, result: String)
+signal admission_audit(peer_id: int, result: String)
 signal message(text: String)
 
 func start_server(port: int) -> Error:
@@ -49,6 +56,10 @@ func start_server(port: int) -> Error:
  peer=ENetMultiplayerPeer.new()
  var result: Error=peer.create_server(port,64,3)
  if result!=OK:return result
+ # Godot ed1daf0bf create_server forwards max_channels+SYSCH_MAX as incoming bandwidth.
+ # Restore the intended uncapped host bandwidth and six total channels explicitly.
+ peer.host.bandwidth_limit(0,0)
+ peer.host.channel_limit(6)
  var key: CryptoKey=CryptoKey.new()
  var cert: X509Certificate=X509Certificate.new()
  var key_path: String=OS.get_environment("AVIA_DTLS_KEY")
@@ -95,6 +106,10 @@ func connect_to(host: String, port: int, options: Dictionary) -> Error:
 func _client_peer_departed(id: int) -> void:
  if id==1:_connection_failed()
 func _process(_delta: float) -> void:
+ diagnostic_frames+=1
+ if diagnostics and Time.get_ticks_msec()-diagnostic_last_ms>=2000:
+  diagnostic_last_ms=Time.get_ticks_msec()
+  print(JSON.stringify({"event":"client_loop","wall_ms":diagnostic_last_ms,"frames":diagnostic_frames,"physics":diagnostic_physics,"sent":commands_sent,"acked":seq-pending.size(),"pending":pending.size(),"snapshots":snapshots,"joined":joined,"status":status,"throttle":controls.throttle}))
  if not waiting_connection:return
  var event: Array=connection.service(0)
  if event[0]==ENetConnection.EVENT_CONNECT:
@@ -104,20 +119,26 @@ func _process(_delta: float) -> void:
   else:_connection_failed()
  elif event[0] in [ENetConnection.EVENT_ERROR,ENetConnection.EVENT_DISCONNECT] or Time.get_ticks_msec()-last_snapshot_ms>8000:
   waiting_connection=false;_connection_failed()
-func disconnect_session() -> void:
+func disconnect_session(reason: String="Menu") -> void:
  joined=false
  if waiting_connection and connection:connection.destroy()
  waiting_connection=false
- if peer:peer.close()
+ # Detach the API before closing to avoid a delayed departure replacing a specific error.
  multiplayer.multiplayer_peer=null
- pending.clear();others.clear();local_state.clear()
- seq=0;server_tick_seen=-1;status="Menu"
+ if peer:peer.close();peer=null
+ connection=null
+ pending.clear();others.clear();local_state.clear();local_race.clear()
+ controls=AviaFlight.neutral();visual_offset=Vector3.ZERO;recover_down=false
+ seq=0;server_tick_seen=-1;room="";local_score=0;status=reason
+func _notification(what: int) -> void:
+ if not server and what==NOTIFICATION_APPLICATION_PAUSED:
+  disconnect_session("Paused — reconnect from menu")
 func _on_connected() -> void:
  status="Joining"
  last_snapshot_ms=Time.get_ticks_msec()
  request_ticket.rpc_id(1,PROTOCOL,plane,mode,str(join_options.get("code","")),bool(join_options.get("private",false)))
 func _connection_failed() -> void:
- joined=false;status=last_error if not last_error.is_empty() else "Disconnected — retry from menu";message.emit(status)
+ disconnect_session(last_error if not last_error.is_empty() else "Disconnected — retry from menu");message.emit(status)
 func _connected(id: int) -> void:
  # Unauthenticated connections get five seconds, then are removed.
  get_tree().create_timer(5.0).timeout.connect(func():
@@ -162,9 +183,13 @@ func admission_ticket(token: String) -> void:
 func redeem_ticket(token: String) -> void:
  if not server:return
  var id: int=multiplayer.get_remote_sender_id()
- if token.length()!=48 or not tickets.has(id):rejected+=1;return
+ var reason: String="accepted"
+ if token.length()!=48 or not tickets.has(id):reason="missing_ticket"
+ elif tick>int(tickets[id].expires):reason="expired_ticket"
+ elif token!=tickets[id].token:reason="wrong_ticket"
+ if admission_audit.has_connections():admission_audit.emit(id,reason)
+ if reason!="accepted":rejected+=1;return
  var ticket: Dictionary=tickets[id]
- if tick>int(ticket.expires) or token!=ticket.token:rejected+=1;return
  tickets.erase(id)
  var o: Array=ticket.options
  _admit(id,int(o[0]),int(o[1]),str(o[2]),str(o[3]),bool(o[4]))
@@ -199,13 +224,19 @@ func _admit(id: int, version: int, selected: int, requested_mode: String, code: 
 func command(number: int, input: Dictionary) -> void:
  if not server:return
  var id: int=multiplayer.get_remote_sender_id()
- if not players.has(id):rejected+=1;return
- var p: Dictionary=players[id]
- if tick-int(p.window)>=30:p.window=tick;p.packets=0
- p.packets+=1
- if int(p.packets)>65 or number<=int(p.seq) or number>int(p.seq)+120 or not AviaFlight.valid_input(input):
-  rejected+=1;return
- p.input=input;p.seq=number;p.last=tick;accepted+=1
+ var reason: String="accepted"
+ if not players.has(id):reason="not_admitted"
+ else:
+  var p: Dictionary=players[id]
+  if tick-int(p.window)>=30:p.window=tick;p.packets=0
+  p.packets+=1
+  if int(p.packets)>65:reason="rate"
+  elif number<=int(p.seq):reason="replayed_sequence"
+  elif number>int(p.seq)+120:reason="sequence_jump"
+  elif not AviaFlight.valid_input(input):reason="invalid_input"
+  if reason=="accepted":p.input=input;p.seq=number;p.last=tick;accepted+=1
+ if reason!="accepted":rejected+=1
+ if input_audit.has_connections():input_audit.emit(id,number,reason)
 @rpc("any_peer","call_remote","reliable",0)
 func recover(number: int) -> void:
  if not server:return
@@ -222,7 +253,7 @@ func game_event(kind: String, data: Dictionary) -> void:
  if kind=="welcome":
   last_snapshot_ms=Time.get_ticks_msec()
   joined=true;room=data.room;mode=data.mode;local_state=data.state;status="Connected"
- elif kind=="error":last_error=str(data.reason);status=last_error;joined=false
+ elif kind=="error":last_error=str(data.reason);disconnect_session(last_error)
  elif kind=="departure":others.erase(int(data.id))
  var line: String=kind+" "+str(data)
  if kind!="welcome":
@@ -283,6 +314,7 @@ func remote_state(id: int) -> Dictionary:
  extrapolated.p+=latest.v*clampf((render_tick-float(buffer[-1].tick))/30.0,0.0,0.15)
  return extrapolated
 func _physics_process(_delta: float) -> void:
+ diagnostic_physics+=1
  if server:
   var start: int=Time.get_ticks_usec()
   tick+=1
@@ -343,10 +375,10 @@ func _physics_process(_delta: float) -> void:
    recover_number+=1;recover.rpc_id(1,recover_number)
   recover_down=controls.respawn
   seq+=1
-  command.rpc_id(1,seq,controls)
+  command.rpc_id(1,seq,controls);commands_sent+=1
   pending.append({"seq":seq,"input":controls.duplicate()})
   if pending.size()>90:
-   status="Network timeout";disconnect_session();return
+   disconnect_session("Network timeout — retry from menu");return
   local_state=AviaFlight.step(local_state,controls)
   if Time.get_ticks_msec()-last_snapshot_ms>5000:
-   status="Network timeout";disconnect_session()
+   disconnect_session("Network timeout — retry from menu")

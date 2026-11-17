@@ -81,7 +81,11 @@ func update_plane(id: int, state: Dictionary) -> void:
   engine.volume_db=-70 if state.crashed else -25
   engine.pitch_scale=0.8+minf(state.v.length()/80.0,1.5)
 func update_session(session: Node, delta: float) -> void:
- if not session.joined or session.local_state.is_empty():return
+ if not session.joined or session.local_state.is_empty():
+  for node: Node3D in planes.values():node.queue_free()
+  planes.clear();camera_ready=false
+  for ring: MeshInstance3D in checkpoint_nodes:ring.visible=false
+  return
  var mine: int=session.multiplayer.get_unique_id()
  var visual_state: Dictionary=session.local_state.duplicate();visual_state.p+=session.visual_offset
  update_plane(mine,visual_state)

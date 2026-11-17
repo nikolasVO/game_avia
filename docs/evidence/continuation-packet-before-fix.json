@@ -1,0 +1,211 @@
+{
+  "packet_delivery": [
+    {
+      "event": "sent_attack",
+      "label": "nan",
+      "number": 8,
+      "peer": 468146276,
+      "expected": "invalid_input",
+      "received": [],
+      "ok": false
+    },
+    {
+      "event": "sent_attack",
+      "label": "inf",
+      "number": 9,
+      "peer": 468146276,
+      "expected": "invalid_input",
+      "received": [],
+      "ok": false
+    },
+    {
+      "event": "sent_attack",
+      "label": "3.0",
+      "number": 10,
+      "peer": 468146276,
+      "expected": "invalid_input",
+      "received": [],
+      "ok": false
+    },
+    {
+      "event": "sent_attack",
+      "label": "teleport",
+      "number": 11,
+      "peer": 468146276,
+      "expected": "invalid_input",
+      "received": [],
+      "ok": false
+    },
+    {
+      "event": "sent_attack",
+      "label": "replay",
+      "number": -10,
+      "peer": 468146276,
+      "expected": "replayed_sequence",
+      "received": [],
+      "ok": false
+    },
+    {
+      "event": "sent_attack",
+      "label": "sequence_jump",
+      "number": 10012,
+      "peer": 468146276,
+      "expected": "sequence_jump",
+      "received": [],
+      "ok": false
+    }
+  ],
+  "ticket_receipts": [
+    {
+      "event": "ticket_receipt",
+      "peer": 468146276,
+      "result": "accepted"
+    },
+    {
+      "event": "ticket_receipt",
+      "peer": 468146276,
+      "result": "missing_ticket"
+    },
+    {
+      "event": "ticket_receipt",
+      "peer": 821618502,
+      "result": "accepted"
+    },
+    {
+      "event": "ticket_receipt",
+      "peer": 821618502,
+      "result": "missing_ticket"
+    },
+    {
+      "event": "ticket_receipt",
+      "peer": 400685507,
+      "result": "expired_ticket"
+    },
+    {
+      "event": "ticket_receipt",
+      "peer": 407446571,
+      "result": "accepted"
+    },
+    {
+      "event": "ticket_receipt",
+      "peer": 1812746253,
+      "result": "accepted"
+    },
+    {
+      "event": "ticket_receipt",
+      "peer": 1883548888,
+      "result": "accepted"
+    }
+  ],
+  "invalid_ticket_rejected": true,
+  "checks": [
+    {
+      "scenario": "invalid",
+      "exit": 0,
+      "summary": {
+        "connection_status": "Connected",
+        "event": "actor_summary",
+        "joined": true,
+        "scenario": "invalid",
+        "snapshots": 78,
+        "status": "PASS"
+      },
+      "ok": true
+    },
+    {
+      "scenario": "replay",
+      "exit": 0,
+      "summary": {
+        "connection_status": "Connected",
+        "event": "actor_summary",
+        "joined": true,
+        "scenario": "replay",
+        "snapshots": 75,
+        "status": "PASS"
+      },
+      "ok": true
+    },
+    {
+      "scenario": "expired",
+      "exit": 0,
+      "summary": {
+        "connection_status": "Disconnected \u2014 retry from menu",
+        "event": "actor_summary",
+        "joined": false,
+        "scenario": "expired",
+        "snapshots": 0,
+        "status": "PASS"
+      },
+      "ok": true
+    },
+    {
+      "scenario": "plain",
+      "exit": 0,
+      "summary": {
+        "connection_status": "Menu",
+        "event": "actor_summary",
+        "joined": false,
+        "scenario": "plain",
+        "snapshots": 0,
+        "status": "PASS"
+      },
+      "ok": true
+    },
+    {
+      "scenario": "wrong-cert",
+      "exit": 0,
+      "summary": {
+        "connection_status": "Disconnected \u2014 retry from menu",
+        "event": "actor_summary",
+        "joined": false,
+        "scenario": "wrong-cert",
+        "snapshots": 0,
+        "status": "PASS"
+      },
+      "ok": true
+    },
+    {
+      "scenario": "held-recovery",
+      "exit": 0,
+      "summary": {
+        "connection_status": "Connected",
+        "event": "actor_summary",
+        "joined": true,
+        "scenario": "held-recovery",
+        "snapshots": 75,
+        "status": "PASS"
+      },
+      "ok": true
+    },
+    {
+      "scenario": "rapid-leave",
+      "exit": 0,
+      "summary": {
+        "connection_status": "Menu",
+        "event": "actor_summary",
+        "joined": false,
+        "scenario": "rapid-leave",
+        "snapshots": 1,
+        "status": "PASS"
+      },
+      "ok": true
+    },
+    {
+      "scenario": "version",
+      "exit": 0,
+      "summary": {
+        "connection_status": "Version mismatch",
+        "event": "actor_summary",
+        "joined": false,
+        "scenario": "version",
+        "snapshots": 0,
+        "status": "PASS"
+      },
+      "ok": true
+    }
+  ],
+  "server_rejected": 3,
+  "status": "FAIL",
+  "scope": "Real localhost ENet/DTLS; opt-in server observer records actual production handler receipt/rejection by peer and unique sequence. Missing delivery fails; no rejection inferred from stationary aircraft.",
+  "source_scope": "continuation working source after merge 43b3df0; exact game tree is recorded in the containing fix commit; not previous release 3417828"
+}

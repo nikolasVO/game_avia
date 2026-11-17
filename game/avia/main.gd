@@ -9,12 +9,19 @@ var options: Dictionary={}
 var captured: bool=false
 var headless: bool=false
 var quitting: bool=false
+var control_focused: bool=true
 func _ready() -> void:
+ # Debug APK only: reproducible emulator diagnostics, never included in release settings.
+ if OS.is_debug_build() and OS.has_feature("android"):
+  var diagnostic: ConfigFile=ConfigFile.new()
+  if diagnostic.load("user://diagnostics.cfg")==OK:
+   for key: String in ["connect","port","duration","bot","diagnostics","disable3d"]:
+    if diagnostic.has_section_key("run",key):options[key]=str(diagnostic.get_value("run",key))
  for arg: String in OS.get_cmdline_user_args():
   if arg.begins_with("--"):
    var pair: PackedStringArray=arg.trim_prefix("--").split("=",true,1)
    options[pair[0]]=pair[1] if pair.size()>1 else "true"
- session=load("res://net/session.gd").new();session.name="Session";add_child(session)
+ session=load("res://net/session.gd").new();session.name="Session";session.diagnostics=options.has("diagnostics");add_child(session)
  headless=DisplayServer.get_name()=="headless"
  duration=float(options.get("duration","0"));bot=options.has("bot")
  if options.has("server"):
@@ -23,13 +30,20 @@ func _ready() -> void:
   if result!=OK:push_error("Server bind failed "+str(result));get_tree().quit(1)
  else:
   if not headless:
+   if options.has("disable3d"):get_viewport().disable_3d=true
    world=load("res://client/world.gd").new();add_child(world)
    ui=load("res://client/ui.gd").new();ui.session=session;ui.world=world;add_child(ui)
   if options.has("connect"):
    session.connect_to(options.connect,int(options.get("port","24567")),{"plane":int(options.get("plane","0")),"mode":str(options.get("mode","free")),"code":str(options.get("code","")),"private":options.has("private")})
    if ui:ui.menu.hide();ui.touch.show()
+func _notification(what: int) -> void:
+ if what in [NOTIFICATION_APPLICATION_FOCUS_OUT,NOTIFICATION_APPLICATION_PAUSED]:
+  control_focused=false
+  if session:session.controls=AviaFlight.neutral()
+ elif what in [NOTIFICATION_APPLICATION_FOCUS_IN,NOTIFICATION_APPLICATION_RESUMED]:control_focused=true
 func _physics_process(_delta: float) -> void:
  if not session.joined:return
+ if not bot and not control_focused:session.controls=AviaFlight.neutral();return
  if bot:
   var c: Dictionary=AviaFlight.neutral();c.throttle=0.8
   if not session.local_state.is_empty():
@@ -71,7 +85,7 @@ func _process(delta: float) -> void:
   var frames: Array[float]=[]
   if ui:frames=ui.frame_times.duplicate();frames.sort()
   var ping: float=session.peer.get_peer(1).get_statistic(ENetPacketPeer.PEER_ROUND_TRIP_TIME) if session.joined else 0
-  print(JSON.stringify({"correction_p95_m":errors[int(errors.size()*0.95)] if errors.size()>0 else 0,"frame_p50_ms":frames[int(frames.size()*0.5)] if frames.size()>0 else 0,"frame_p95_ms":frames[int(frames.size()*0.95)] if frames.size()>0 else 0,"enet_rtt_ms":ping,"static_memory_mb":Performance.get_monitor(Performance.MEMORY_STATIC)/1048576.0,"event":"summary","server":session.server,"seconds":elapsed,"joined":session.joined,"snapshots":session.snapshots,"seen_peers":session.seen_peers,"correction_max_m":session.correction_max,"rejected":session.rejected,"state":session.local_state,"renderer":RenderingServer.get_current_rendering_method()}))
+  print(JSON.stringify({"correction_p95_m":errors[int(errors.size()*0.95)] if errors.size()>0 else 0,"frame_p50_ms":frames[int(frames.size()*0.5)] if frames.size()>0 else 0,"frame_p95_ms":frames[int(frames.size()*0.95)] if frames.size()>0 else 0,"enet_rtt_ms":ping,"static_memory_mb":Performance.get_monitor(Performance.MEMORY_STATIC)/1048576.0,"commands_sent":session.commands_sent,"last_input_ack":session.seq-session.pending.size(),"pending_inputs":session.pending.size(),"connection_status":session.status,"event":"summary","server":session.server,"seconds":elapsed,"joined":session.joined,"snapshots":session.snapshots,"seen_peers":session.seen_peers,"correction_max_m":session.correction_max,"rejected":session.rejected,"state":session.local_state,"renderer":RenderingServer.get_current_rendering_method()}))
   if not session.server and session.joined:
    session.joined=false
    session.peer.get_peer(1).peer_disconnect()

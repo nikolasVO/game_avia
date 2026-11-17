@@ -46,16 +46,21 @@ func _process(delta: float) -> bool:
   quit(0 if ok else 1)
  return false
 
+func send_attack(number: int, input: Dictionary, label: String) -> void:
+ session.command.rpc_id(1,number,input)
+ print(JSON.stringify({"event":"sent_attack","peer":session.multiplayer.get_unique_id(),"number":number,"label":label,"enet_throttle_limit":session.peer.get_peer(1).get_statistic(ENetPacketPeer.PEER_PACKET_THROTTLE_LIMIT),"enet_deceleration":session.peer.get_peer(1).get_statistic(ENetPacketPeer.PEER_PACKET_THROTTLE_DECELERATION),"enet_throttle":session.peer.get_peer(1).get_statistic(ENetPacketPeer.PEER_PACKET_THROTTLE),"enet_rtt_ms":session.peer.get_peer(1).get_statistic(ENetPacketPeer.PEER_ROUND_TRIP_TIME)}))
 func _attack() -> void:
- var c: Dictionary=AviaFlight.neutral()
  var number: int=int(session.seq)+2
  for bad: float in [NAN,INF,3.0]:
-  c.pitch=bad;session.command.rpc_id(1,number,c)
-  await create_timer(0.2).timeout
- c=AviaFlight.neutral();c.position=Vector3(4000,2000,4000);session.command.rpc_id(1,number,c)
- await create_timer(0.2).timeout
- c=AviaFlight.neutral();session.command.rpc_id(1,-10,c)
- await create_timer(0.2).timeout
- session.command.rpc_id(1,number+10000,c)
- await create_timer(0.2).timeout
+  var c: Dictionary=AviaFlight.neutral();c.pitch=bad
+  send_attack(number,c,str(bad));number+=1
+  await create_timer(0.3).timeout
+ var c: Dictionary=AviaFlight.neutral();c.position=Vector3(4000,2000,4000)
+ send_attack(number,c,"teleport");number+=1
+ await create_timer(0.3).timeout
+ send_attack(-10,AviaFlight.neutral(),"replay")
+ await create_timer(0.3).timeout
+ send_attack(number+10000,AviaFlight.neutral(),"sequence_jump")
+ await create_timer(0.3).timeout
  session.redeem_ticket.rpc_id(1,"0".repeat(48))
+ print(JSON.stringify({"event":"sent_ticket_attack","peer":session.multiplayer.get_unique_id()}))
