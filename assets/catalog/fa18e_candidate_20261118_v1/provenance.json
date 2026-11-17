@@ -1,0 +1,123 @@
+{
+  "asset_id": "fa18e_candidate_20261118_v1",
+  "source_type": "AI with authored procedural landing gear/effects",
+  "source_commit": "1b8e99f9a7030ab13f68f81f5ca831268616da18",
+  "generation": "TRELLIS.2 image-to-3D compact512",
+  "seed": 43,
+  "inference": {
+    "inference_succeeded": true,
+    "seconds": 295.7302145709982,
+    "vertices": 260150,
+    "faces": 528050,
+    "peak_vram_allocated_bytes": 2815540224,
+    "peak_vram_reserved_bytes": 2860515328,
+    "reference_sha256": "7038000fddba4110d5d973d08608bf143bb18ed9ebd1159b9e9ea19e670a535a"
+  },
+  "reference": {
+    "path": "assets/source/production-fa18e-v1/reference.png",
+    "sha256": "7038000fddba4110d5d973d08608bf143bb18ed9ebd1159b9e9ea19e670a535a",
+    "source_type": "project-authored provisional geometry/render",
+    "qc_views": "independent top/front/side; reference.png conditions inference",
+    "input_rights": "Own geometry/render, no copied third-party pixels/models/logos; primary variant proportions and commercial designation/design review pending"
+  },
+  "model_revisions": {
+    "microsoft/TRELLIS.2-4B": "af44b45f2e35a493886929c6d786e563ec68364d",
+    "microsoft/TRELLIS-image-large": "25e0d31ffbebe4b5a97464dd851910efc3002d96",
+    "facebook/dinov3-vitl16-pretrain-lvd1689m": "ea8dc2863c51be0a264bab82070e3e8836b02d51",
+    "ZhengPeng7/BiRefNet": "e2bf8e4460fc8fa32bba5ea4d94b3233d367b0e4"
+  },
+  "original_glb_sha256": "c04a90e518c6b928e2a6a2b90feed5fc10fff969f634cfbbf47b4c3e351448f5",
+  "paid_image_api_calls": 0,
+  "reconciliation": "Single successful295.730s inference and saved Blender result recovered after stdout BrokenPipe; no new inference or postprocess",
+  "forward_axis": "-Z",
+  "postprocess": [
+    "Blender5.2.4 yaw180 and exact mirrorX",
+    "near UV/1024 textures retained",
+    "far voxel topology repair and sampled material",
+    "explicit3LOD and procedural landing gear/afterburners"
+  ],
+  "game_import": {
+    "explicit_asset_lods": true,
+    "generate_additional_lods": false,
+    "mesh_compression_disabled": false,
+    "actual_triangles": [
+      19208,
+      5966,
+      1466
+    ]
+  },
+  "game_assets": {
+    "game/avia/assets/fa18e_ai_candidate.glb": {
+      "sha256": "5a78e3fb2beba7913675479df5c8d19b445270dc13c5716e3efb1e0417373413",
+      "bytes": 3101624
+    },
+    "game/avia/assets/fa18e_ai_candidate.glb.import": {
+      "sha256": "2b70c9cedd6c171837458796a2879d98182633d144c27a3f058c1cce6226bb08",
+      "bytes": 1177
+    },
+    "game/avia/assets/fa18e_ai_candidate_Image_0.png": {
+      "sha256": "7e324e93bce701b242cd743f208ce52399e695d576315d3c4f9cfa89a3a43d10",
+      "bytes": 1333860
+    },
+    "game/avia/assets/fa18e_ai_candidate_Image_0.png.import": {
+      "sha256": "f0ede479f7a582f109298d256032ad0b0a37d90a07b975db7891cfe8f11cef55",
+      "bytes": 1055
+    },
+    "game/avia/assets/fa18e_ai_candidate_Image_1.png": {
+      "sha256": "bbdf1deba957102786d9c6109007a0588aee1d97d7eaff19fd20bb7615de5c7e",
+      "bytes": 487220
+    },
+    "game/avia/assets/fa18e_ai_candidate_Image_1.png.import": {
+      "sha256": "a1c07c6e450c0abe22a30559c848f955b9b9c72b88d28f7123c14310a8a8331a",
+      "bytes": 1055
+    }
+  },
+  "assembly_code_sha256": {
+    "game/avia/client/fighter_visual.gd": "db37afc65a47152664e716645e960eccbbdbd1b9158743576ee9adb22be46cb0",
+    "game/avia/client/aircraft.gd": "3cca47f7a352fbd1198b77c612c6e750a911b4239b41571e0ec5a3ee5b7707da",
+    "game/avia/tests/carrier_candidate_check.gd": "2a5305891e9d019a53baa1bffbafe7005c5778733b8dfa6dc2bd4547b009c72b"
+  },
+  "game_validation": {
+    "file": "carrier-candidate-validation.json",
+    "sha256": "6d7676da5d0b027efc260b0b96bac58e63e4c2105695adb75d3c0811310d514c",
+    "checks": 38,
+    "assembly_rendered_views": 12,
+    "isolated_body_rendered_views": 12,
+    "worst_case_assembly_triangles": [
+      {
+        "distance_m": 100,
+        "limit": 20000,
+        "triangles": 19320
+      },
+      {
+        "distance_m": 400,
+        "limit": 7000,
+        "triangles": 6078
+      },
+      {
+        "distance_m": 600,
+        "limit": 7000,
+        "triangles": 6006
+      },
+      {
+        "distance_m": 950,
+        "limit": 2000,
+        "triangles": 1466
+      }
+    ]
+  },
+  "visual_review": "Stylized twin canted fins, twin engine exits, clipped wings/paired LERX/tip rails retained across LODs. Blocky underside/intake and coarse far outline need further human/variant quality audit; not recognition acceptance.",
+  "production_accepted": false,
+  "playable": false,
+  "status": "planned candidate only; existing nine selectable prototypes preserved",
+  "remaining": [
+    "independent primary-source variant/proportions/recognition audit",
+    "movable flaps/aileron/rudder and carrier-specific gear fidelity",
+    "full human takeoff/flight/landing/world/multiplayer acceptance",
+    "suitable individual sound",
+    "physical Android/iPhone performance and controls",
+    "commercial designation/design/material rights",
+    "all15 owner section20 gates"
+  ],
+  "output_license_clearance": "NOT VERIFIED for commercial publication; TRELLIS MIT, gated DINOv3 custom license, BiRefNet MIT and reference/design terms apply"
+}

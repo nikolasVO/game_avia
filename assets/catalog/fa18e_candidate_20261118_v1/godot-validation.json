@@ -1,0 +1,95 @@
+{
+  "bounds_position": [
+    -6.80000019073486,
+    0.0,
+    -9.14999961853027
+  ],
+  "dimensions": [
+    13.6000003814697,
+    4.40000009536743,
+    18.2999992370605
+  ],
+  "dimensions_ok": true,
+  "display": "macOS",
+  "engine": {
+    "build": "official",
+    "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+    "hex": 263938,
+    "major": 4,
+    "minor": 7,
+    "patch": 2,
+    "status": "stable",
+    "string": "4.7.2-stable (official)",
+    "timestamp": 0
+  },
+  "import_passed": true,
+  "lod_triangles": [
+    19208,
+    5966,
+    1466
+  ],
+  "meshes": [
+    {
+      "degenerate_triangles": 0,
+      "materials": 1,
+      "name": "COLLISION_BOX",
+      "nonfinite_normals": 0,
+      "nonfinite_vertices": 0,
+      "surfaces": 1,
+      "textures": 0,
+      "triangles": 12
+    },
+    {
+      "degenerate_triangles": 0,
+      "materials": 1,
+      "name": "LOD0",
+      "nonfinite_normals": 0,
+      "nonfinite_vertices": 0,
+      "surfaces": 1,
+      "textures": 1,
+      "triangles": 19208
+    },
+    {
+      "degenerate_triangles": 0,
+      "materials": 1,
+      "name": "LOD1",
+      "nonfinite_normals": 0,
+      "nonfinite_vertices": 0,
+      "surfaces": 1,
+      "textures": 1,
+      "triangles": 5966
+    },
+    {
+      "degenerate_triangles": 0,
+      "materials": 1,
+      "name": "LOD2",
+      "nonfinite_normals": 0,
+      "nonfinite_vertices": 0,
+      "surfaces": 1,
+      "textures": 0,
+      "triangles": 1466
+    }
+  ],
+  "pivot_ok": true,
+  "preview_files": [
+    "godot-preview.png",
+    "godot-top.png",
+    "godot-front.png",
+    "godot-side.png",
+    "godot-lod1-orbit.png",
+    "godot-lod1-top.png",
+    "godot-lod1-front.png",
+    "godot-lod1-side.png",
+    "godot-lod2-orbit.png",
+    "godot-lod2-top.png",
+    "godot-lod2-front.png",
+    "godot-lod2-side.png"
+  ],
+  "preview_rendered": true,
+  "mesh_compression_disabled": false,
+  "explicit_lods_preserved": true,
+  "validator_files_sha256": {
+    "workers/assets/godot_validate.py": "dbd2430432f9ae6df25ecf37761e433eb2eea2e2af6e0467a0f7bb3cdfe303bb",
+    "workers/assets/godot_validate.gd": "927fe87a667b03f4b57f199dcb61be6a5a91cacf82dbf477e6c69c5274ff9a0f"
+  }
+}

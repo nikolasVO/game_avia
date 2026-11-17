@@ -1,0 +1,212 @@
+{
+  "assembly_budgets": [
+    {
+      "distance_m": 100,
+      "limit": 20000,
+      "triangles": 19320
+    },
+    {
+      "distance_m": 400,
+      "limit": 7000,
+      "triangles": 6078
+    },
+    {
+      "distance_m": 600,
+      "limit": 7000,
+      "triangles": 6006
+    },
+    {
+      "distance_m": 950,
+      "limit": 2000,
+      "triangles": 1466
+    }
+  ],
+  "body_triangles": [
+    19208,
+    5966,
+    1466
+  ],
+  "checks": [
+    {
+      "check": "planned carrier stays outside nine admitted prototypes",
+      "ok": true
+    },
+    {
+      "check": "actual imported body selected without procedural fallback",
+      "ok": true
+    },
+    {
+      "check": "authoring collider stays hidden",
+      "ok": true
+    },
+    {
+      "check": "body has explicit LOD identity",
+      "ok": true
+    },
+    {
+      "check": "LOD0 actual vertices/normals/triangles finite and nondegenerate",
+      "ok": true
+    },
+    {
+      "check": "LOD0 explicit visibility interval preserved",
+      "ok": true
+    },
+    {
+      "check": "body has explicit LOD identity",
+      "ok": true
+    },
+    {
+      "check": "LOD1 actual vertices/normals/triangles finite and nondegenerate",
+      "ok": true
+    },
+    {
+      "check": "LOD1 explicit visibility interval preserved",
+      "ok": true
+    },
+    {
+      "check": "body has explicit LOD identity",
+      "ok": true
+    },
+    {
+      "check": "LOD2 actual vertices/normals/triangles finite and nondegenerate",
+      "ok": true
+    },
+    {
+      "check": "LOD2 explicit visibility interval preserved",
+      "ok": true
+    },
+    {
+      "check": "LOD0 one body within triangle budget",
+      "ok": true
+    },
+    {
+      "check": "LOD0 bounds and mirrored centre preserved",
+      "ok": true
+    },
+    {
+      "check": "LOD1 one body within triangle budget",
+      "ok": true
+    },
+    {
+      "check": "LOD1 bounds and mirrored centre preserved",
+      "ok": true
+    },
+    {
+      "check": "LOD2 one body within triangle budget",
+      "ok": true
+    },
+    {
+      "check": "LOD2 bounds and mirrored centre preserved",
+      "ok": true
+    },
+    {
+      "check": "body/gear/both afterburners fit budget at 100m",
+      "ok": true
+    },
+    {
+      "check": "body/gear/both afterburners fit budget at 400m",
+      "ok": true
+    },
+    {
+      "check": "body/gear/both afterburners fit budget at 600m",
+      "ok": true
+    },
+    {
+      "check": "body/gear/both afterburners fit budget at 950m",
+      "ok": true
+    },
+    {
+      "check": "snapshot establishes deployed gear without changing simulation",
+      "ok": true
+    },
+    {
+      "check": "replicated flags drive intermediate gear and afterburners",
+      "ok": true
+    },
+    {
+      "check": "gear reaches exact hidden endpoint",
+      "ok": true
+    },
+    {
+      "check": "crash suppresses afterburners",
+      "ok": true
+    },
+    {
+      "check": "render carrier-lod0-orbit.png",
+      "ok": true
+    },
+    {
+      "check": "render carrier-lod0-top.png",
+      "ok": true
+    },
+    {
+      "check": "render carrier-lod0-front.png",
+      "ok": true
+    },
+    {
+      "check": "render carrier-lod0-side.png",
+      "ok": true
+    },
+    {
+      "check": "render carrier-lod1-orbit.png",
+      "ok": true
+    },
+    {
+      "check": "render carrier-lod1-top.png",
+      "ok": true
+    },
+    {
+      "check": "render carrier-lod1-front.png",
+      "ok": true
+    },
+    {
+      "check": "render carrier-lod1-side.png",
+      "ok": true
+    },
+    {
+      "check": "render carrier-lod2-orbit.png",
+      "ok": true
+    },
+    {
+      "check": "render carrier-lod2-top.png",
+      "ok": true
+    },
+    {
+      "check": "render carrier-lod2-front.png",
+      "ok": true
+    },
+    {
+      "check": "render carrier-lod2-side.png",
+      "ok": true
+    }
+  ],
+  "engine": {
+    "build": "official",
+    "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+    "hex": 263938,
+    "major": 4,
+    "minor": 7,
+    "patch": 2,
+    "status": "stable",
+    "string": "4.7.2-stable (official)",
+    "timestamp": 0
+  },
+  "playable": false,
+  "preview_files": [
+    "carrier-lod0-orbit.png",
+    "carrier-lod0-top.png",
+    "carrier-lod0-front.png",
+    "carrier-lod0-side.png",
+    "carrier-lod1-orbit.png",
+    "carrier-lod1-top.png",
+    "carrier-lod1-front.png",
+    "carrier-lod1-side.png",
+    "carrier-lod2-orbit.png",
+    "carrier-lod2-top.png",
+    "carrier-lod2-front.png",
+    "carrier-lod2-side.png"
+  ],
+  "production_accepted": false,
+  "scope": "actual planned-only carrier assembly geometry/render/system animation; recognition/human/network/phone/rights and15-gate acceptance pending",
+  "status": "PASS"
+}

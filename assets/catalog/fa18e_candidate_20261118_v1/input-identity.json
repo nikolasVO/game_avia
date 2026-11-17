@@ -1,0 +1,45 @@
+{
+  "model_revisions": {
+    "microsoft/TRELLIS.2-4B": "af44b45f2e35a493886929c6d786e563ec68364d",
+    "microsoft/TRELLIS-image-large": "25e0d31ffbebe4b5a97464dd851910efc3002d96",
+    "facebook/dinov3-vitl16-pretrain-lvd1689m": "ea8dc2863c51be0a264bab82070e3e8836b02d51",
+    "ZhengPeng7/BiRefNet": "e2bf8e4460fc8fa32bba5ea4d94b3233d367b0e4"
+  },
+  "spec": {
+    "asset_id": "fa18e_candidate_20261118_v1",
+    "purpose": "FA18E-style own authored carrier fighter AI body candidate; no production acceptance",
+    "description": "Own provisional reference with clipped trapezoid main wings, broad paired leading edge root extensions, two outward canted tail fins, twin close nozzles and side intakes, short single canopy, wingtip rails. No third-party pixels/models/logos. Static generation requires geometry, movable parts, recognizability, mobile and rights review. Primary variant proportions remain unverified.",
+    "style": "coherent stylized Game Avia aviation",
+    "reference_images": [
+      "production-fa18e-v1/reference.png"
+    ],
+    "dimensions_m": [
+      13.6,
+      4.4,
+      18.3
+    ],
+    "symmetry_policy": "mirror_x",
+    "source_yaw_degrees": 180.0,
+    "orientation": "Y-up",
+    "pivot": "bottom_center",
+    "triangle_budget": 19300,
+    "texture_budget": 1024,
+    "lod_policy": "LOD0,LOD1,LOD2",
+    "collision_policy": "box",
+    "output_formats": [
+      "glb"
+    ],
+    "license_constraints": "owned_or_permitted",
+    "deadline_seconds": 1800,
+    "cost_limit": 0.0,
+    "seed": 43,
+    "pipeline_type": "512"
+  },
+  "references": [
+    {
+      "name": "reference.png",
+      "sha256": "7038000fddba4110d5d973d08608bf143bb18ed9ebd1159b9e9ea19e670a535a"
+    }
+  ],
+  "input_hash": "aa0193018037ce1e5c876e3bfa769b6db2794025e0e519387d937c88d40dcf2c"
+}

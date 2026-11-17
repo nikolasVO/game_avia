@@ -1,0 +1,61 @@
+{
+  "status": "PASS",
+  "scope": "planned candidate actual geometry/render/gear/effects only; not aircraft acceptance",
+  "candidate": "assets/catalog/fa18e_candidate_20261118_v1",
+  "source_commit": "1b8e99f9a7030ab13f68f81f5ca831268616da18",
+  "inference_seconds": 295.7302145709982,
+  "inference_rerun": false,
+  "assembly_checks": 38,
+  "assembly_views": 12,
+  "body_views": 12,
+  "body_triangles": [
+    19208,
+    5966,
+    1466
+  ],
+  "assembly_budgets": [
+    {
+      "distance_m": 100,
+      "limit": 20000,
+      "triangles": 19320
+    },
+    {
+      "distance_m": 400,
+      "limit": 7000,
+      "triangles": 6078
+    },
+    {
+      "distance_m": 600,
+      "limit": 7000,
+      "triangles": 6006
+    },
+    {
+      "distance_m": 950,
+      "limit": 2000,
+      "triangles": 1466
+    }
+  ],
+  "validation_sha256": "6d7676da5d0b027efc260b0b96bac58e63e4c2105695adb75d3c0811310d514c",
+  "shared_regressions": [
+    {
+      "script": "flight_check",
+      "ok": true
+    },
+    {
+      "script": "fighter_check",
+      "ok": true
+    },
+    {
+      "script": "fighter_geometry_check",
+      "ok": true
+    },
+    {
+      "script": "fighter_circuit_check",
+      "ok": true
+    }
+  ],
+  "airbrake_regression_checks": 74,
+  "pytest_tests": 17,
+  "production_accepted": false,
+  "playable": false
+}

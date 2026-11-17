@@ -5,7 +5,7 @@
   "class": "carrier_fighter",
   "status": "planned",
   "playable": false,
-  "source_type": "procedural_placeholder",
+  "source_type": "AI_with_procedural_gear_and_effects",
   "physics_model": "fighter_v1",
   "color": "9ca4ad",
   "flight": {
@@ -152,5 +152,12 @@
     "free",
     "combat"
   ],
-  "balance_notice": "Authored arcade values; not real aircraft technical specifications."
+  "balance_notice": "Authored arcade values; not real aircraft technical specifications.",
+  "visual": {
+    "scene": "res://assets/fa18e_ai_candidate.glb",
+    "offset_y_m": -0.5,
+    "provenance": "assets/catalog/fa18e_candidate_20261118_v1/provenance.json",
+    "status": "planned candidate; recognition/animation/mobile/rights QA pending",
+    "gear_retract_seconds": 1.15
+  }
 }
