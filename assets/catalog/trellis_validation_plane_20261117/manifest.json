@@ -1,0 +1,201 @@
+{
+  "source_kind": "TRELLIS.2_image_to_3D",
+  "blender_version": "5.2.4 LTS",
+  "triangles_lod0": 19399,
+  "materials_lod0": 1,
+  "lods": [
+    {
+      "name": "LOD1",
+      "triangles": 6000
+    },
+    {
+      "name": "LOD2",
+      "triangles": 1499
+    }
+  ],
+  "collision": "box metadata only; engine binding required",
+  "geometry": {
+    "uv_layers": 1,
+    "degenerate_triangles": 0,
+    "finite_vertices_and_normals": true,
+    "texture_sizes": [
+      [
+        1024,
+        1024
+      ],
+      [
+        1024,
+        1024
+      ]
+    ],
+    "symmetry": {
+      "mirror_axis": "Blender X",
+      "mean_distance_m": 0.02972097926255783,
+      "max_distance_m": 0.3689216375350952,
+      "mean_fraction_width": 0.002971575918996148
+    }
+  },
+  "generator_script_sha256": "9eaf31d7b8316e893c54bf34f851e30ef5eb440165fd140c660b2e7004272210",
+  "dimensions_m": [
+    10.00175666809082,
+    2.800619602203369,
+    8.001880645751953
+  ],
+  "pivot": "bottom_center",
+  "source_yaw_degrees": -90.0,
+  "export_axes": "glTF Y-up",
+  "unity_import_tested": false,
+  "license": "TRELLIS.2 MIT; DINOv3 custom license; BiRefNet MIT; reference terms apply; see provenance",
+  "checks": {
+    "triangle_budget": true,
+    "material_budget": true,
+    "finite_bounds": true,
+    "finite_geometry": true,
+    "no_degenerate_triangles": true,
+    "uv_present": true,
+    "texture_budget": true
+  },
+  "files": {
+    "optimized.glb": {
+      "sha256": "15bd5a906a02393ef9d523116fb53c527ce266f2c55a57b54e2d74f7561b83c2",
+      "bytes": 2189824
+    },
+    "preview.png": {
+      "sha256": "0cd86a381cc9691968dd1556213b7da0600f50de84fd0f0e0e8fb9525383dcbf",
+      "bytes": 129173
+    },
+    "lod0.glb": {
+      "sha256": "28f4c18596ab12af4ac8908ac80feea75b87312a8275084b7730f202f098c097",
+      "bytes": 1854340
+    },
+    "lod1.glb": {
+      "sha256": "bd9bcc44da6a042cb8eae221506b83f95cd50ffa87a719187c87b60f070af74d",
+      "bytes": 1408816
+    },
+    "lod2.glb": {
+      "sha256": "a90e5a39d7a700c83b0a3483e4125984cd863f146bedea9bfaf65fcf5303b687",
+      "bytes": 1228816
+    },
+    "original.glb": {
+      "sha256": "6cc2468b205e3c722b3e0fc44877868ef521f76940821e2ace4823c0866506e4",
+      "bytes": 4096732
+    },
+    "godot-validation.json": {
+      "sha256": "8fe5a45593aa73ba4eadd4999f1a6626e6cd1781f36bfb1aaaaef315aad98994",
+      "bytes": 1196
+    },
+    "inference-evidence.json": {
+      "sha256": "c5ef0d720615e3284f1f31209b8699edf86cb4197f7b8373d08274c258c12cfd",
+      "bytes": 282
+    },
+    "godot-preview.png": {
+      "sha256": "ec3e7b6a57f12e5c25ea82e72887940d50ae5d076a11fecc49cbbd4d92f20f9a",
+      "bytes": 38441
+    },
+    "godot-top.png": {
+      "sha256": "958f3e589e3bb5907672898484c44480c9357047b93b7cc0bb4d8d9b18da5e70",
+      "bytes": 43414
+    },
+    "godot-front.png": {
+      "sha256": "232a88099f388324219181d2efe4731558646859caf90518f1fa5f96784a6e84",
+      "bytes": 19839
+    },
+    "godot-side.png": {
+      "sha256": "cfbc7542387c643ebe1c70de27a98438d7fac48513aa0b1d222bf453aa6ee52e",
+      "bytes": 23928
+    },
+    "provenance.json": {
+      "sha256": "02462ad811ded2aff96dc93463696d9f2e93c49668a54e3a2f2a9e8b73c710a1",
+      "bytes": 1688
+    }
+  },
+  "verified": true,
+  "generation": {
+    "pipeline_type": "512",
+    "seed": 42,
+    "original_sha256": "6cc2468b205e3c722b3e0fc44877868ef521f76940821e2ace4823c0866506e4",
+    "models": {
+      "microsoft/TRELLIS.2-4B": "af44b45f2e35a493886929c6d786e563ec68364d",
+      "microsoft/TRELLIS-image-large": "25e0d31ffbebe4b5a97464dd851910efc3002d96",
+      "facebook/dinov3-vitl16-pretrain-lvd1689m": "ea8dc2863c51be0a264bab82070e3e8836b02d51",
+      "ZhengPeng7/BiRefNet": "e2bf8e4460fc8fa32bba5ea4d94b3233d367b0e4"
+    }
+  },
+  "reference": [
+    {
+      "name": "trellis_validation_plane_reference.png",
+      "sha256": "006575b651ccd9b2c1f00607b0871fccf50338fe3e9d1ce563fb1b37d8c20024"
+    }
+  ],
+  "godot_import_tested": true,
+  "godot_import": {
+    "bounds_position": [
+      -5.00089120864868,
+      -0.000801527465227991,
+      -4.00084066390991
+    ],
+    "dimensions": [
+      10.0017566680908,
+      2.80061960220337,
+      8.00188064575195
+    ],
+    "dimensions_ok": true,
+    "display": "macOS",
+    "engine": {
+      "build": "official",
+      "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+      "hex": 263938,
+      "major": 4,
+      "minor": 7,
+      "patch": 2,
+      "status": "stable",
+      "string": "4.7.2-stable (official)",
+      "timestamp": 0
+    },
+    "import_passed": true,
+    "meshes": [
+      {
+        "materials": 1,
+        "name": "COLLISION_BOX",
+        "surfaces": 1,
+        "textures": 0,
+        "triangles": 12
+      },
+      {
+        "materials": 1,
+        "name": "LOD0",
+        "surfaces": 1,
+        "textures": 1,
+        "triangles": 19399
+      },
+      {
+        "materials": 1,
+        "name": "LOD1",
+        "surfaces": 1,
+        "textures": 1,
+        "triangles": 6000
+      },
+      {
+        "materials": 1,
+        "name": "LOD2",
+        "surfaces": 1,
+        "textures": 1,
+        "triangles": 1499
+      }
+    ],
+    "pivot_ok": true,
+    "preview_files": [
+      "godot-preview.png",
+      "godot-top.png",
+      "godot-front.png",
+      "godot-side.png"
+    ],
+    "preview_rendered": true
+  },
+  "pipeline_verified": true,
+  "production_accepted": false,
+  "asset_id": "trellis_validation_plane_20261117",
+  "source_type": "AI",
+  "provenance_file": "provenance.json",
+  "forward_axis": "-Z"
+}

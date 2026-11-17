@@ -1,0 +1,30 @@
+{
+  "asset_id": "trellis_validation_smoke_20261117",
+  "source_type": "AI",
+  "generation": "TRELLIS.2 image-to-3D compact512",
+  "conditioning": "approved DINOv3 ViT-L/16",
+  "background_removal": "MIT BiRefNet loaded offline; smoke invokes removal, plane uses its authored non-opaque alpha directly",
+  "seed": 42,
+  "reference": {
+    "path": "assets/source/reference-smoke.png",
+    "sha256": "8720294d2190609e97e19302118df8e391a4dfcaf057ae98604d26ac0873106a",
+    "provenance": "prior OpenLux gpt-image-2 generation; provider terms apply"
+  },
+  "model_revisions": {
+    "microsoft/TRELLIS.2-4B": "af44b45f2e35a493886929c6d786e563ec68364d",
+    "microsoft/TRELLIS-image-large": "25e0d31ffbebe4b5a97464dd851910efc3002d96",
+    "facebook/dinov3-vitl16-pretrain-lvd1689m": "ea8dc2863c51be0a264bab82070e3e8836b02d51",
+    "ZhengPeng7/BiRefNet": "e2bf8e4460fc8fa32bba5ea4d94b3233d367b0e4"
+  },
+  "inference_script_sha256": "1746fa19eb12f4e85f6822cff3a82ca0badb0ac36d6b735a7164a2199eb5557b",
+  "raw_mesh": {
+    "server_path": "/srv/game-avia/artifacts/trellis_validation_smoke_20261117/raw-mesh.pt",
+    "bytes": 124854424,
+    "sha256": "395e0f43b8854ccbb97a0ba2484add728107d8914821424e45a6e7dfd7b555ec"
+  },
+  "paid_calls_this_session": 0,
+  "output_license_clearance": "NOT VERIFIED for publication; component and input terms remain applicable",
+  "status": "pipeline_verified; production_accepted=false",
+  "forward_axis": "not_applicable_cube_smoke",
+  "prompt": "A simple matte orange wooden toy cube with beveled edges, one object centered, three-quarter view, neutral white background, even studio lighting, no text or symbols. Technical 3D reference."
+}

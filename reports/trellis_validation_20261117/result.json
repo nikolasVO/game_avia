@@ -1,0 +1,227 @@
+{
+  "date": "2026-11-17",
+  "branch": "task/trellis-live-validation-20261117",
+  "base_sha": "1f0dd2d435ebbd1dfef2ff56fc70512a4794dec2",
+  "deployed_original_coordinator_sha": "1f0dd2d435ebbd1dfef2ff56fc70512a4794dec2",
+  "trellis_inference_tested": true,
+  "installed": {
+    "TRELLIS": true,
+    "Blender": "5.2.4 LTS",
+    "Godot": "4.7.2.stable.official.ed1daf0bf"
+  },
+  "configured": {
+    "offline_compact512": true,
+    "six_generator_components": true,
+    "DINOv3_approved": true,
+    "BiRefNet_pinned_code_checked": true
+  },
+  "checks": {
+    "real_gpu_smoke": "PASS",
+    "real_gpu_original_plane": "PASS",
+    "Blender_geometry_LOD_UV_material_texture_budget": "PASS",
+    "Godot_isolated_import_and_render": "PASS",
+    "plane_silhouette_top_front_side_orbit": "PASS",
+    "plane_forward_minus_Z": "PASS",
+    "plane_exact_symmetry": "FAIL",
+    "approximate_symmetry": "PASS; mean mirror distance 0.02972 m, max 0.36892 m over 10 m span",
+    "actual_asset_cache_no_new_operation": "PASS",
+    "unit_and_real_Blender_tests": "PASS; 18 tests (17 unit/store + 1 real Blender integration with 3 invocations)",
+    "GitHub_LFS_roundtrip": "NOT VERIFIED until remote verification",
+    "mobile_materials_FPS_memory": "NOT VERIFIED",
+    "animated_surfaces_and_engine_physics_collider": "NOT VERIFIED",
+    "paid_image_aircraft_pipeline": "BLOCKED; no configured new paid-call budget",
+    "full_v0_1": "NOT VERIFIED"
+  },
+  "assets": {
+    "smoke": {
+      "task_id": "59adab633cd7",
+      "path": "assets/catalog/trellis_validation_smoke_20261117",
+      "manifest_sha256": "a72dee895c3f8fefa7630de41f51082a01adba07e66c09109e94983b73de281d",
+      "inference": {
+        "inference_succeeded": true,
+        "seconds": 214.8763945640021,
+        "vertices": 1710768,
+        "faces": 3561294,
+        "peak_vram_allocated_bytes": 3343810048,
+        "peak_vram_reserved_bytes": 3810525184,
+        "reference_sha256": "8720294d2190609e97e19302118df8e391a4dfcaf057ae98604d26ac0873106a"
+      },
+      "triangles": [
+        4849,
+        2424,
+        1211
+      ],
+      "dimensions_m": [
+        1.000041127204895,
+        1.0000630617141724,
+        1.0000001192092896
+      ],
+      "materials": 1,
+      "Godot": {
+        "bounds_position": [
+          -0.500028312206268,
+          -6.28035122645088e-05,
+          -0.499999940395355
+        ],
+        "dimensions": [
+          1.0000411272049,
+          1.00006306171417,
+          1.00000011920929
+        ],
+        "dimensions_ok": true,
+        "display": "macOS",
+        "engine": {
+          "build": "official",
+          "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+          "hex": 263938,
+          "major": 4,
+          "minor": 7,
+          "patch": 2,
+          "status": "stable",
+          "string": "4.7.2-stable (official)",
+          "timestamp": 0
+        },
+        "import_passed": true,
+        "meshes": [
+          {
+            "materials": 1,
+            "name": "COLLISION_BOX",
+            "surfaces": 1,
+            "textures": 0,
+            "triangles": 12
+          },
+          {
+            "materials": 1,
+            "name": "LOD0",
+            "surfaces": 1,
+            "textures": 1,
+            "triangles": 4849
+          },
+          {
+            "materials": 1,
+            "name": "LOD1",
+            "surfaces": 1,
+            "textures": 1,
+            "triangles": 2424
+          },
+          {
+            "materials": 1,
+            "name": "LOD2",
+            "surfaces": 1,
+            "textures": 1,
+            "triangles": 1211
+          }
+        ],
+        "pivot_ok": true,
+        "preview_rendered": true
+      },
+      "production_accepted": false
+    },
+    "plane": {
+      "task_id": "7824ba0645c5",
+      "path": "assets/catalog/trellis_validation_plane_20261117",
+      "manifest_sha256": "4e00eff38c0a552cac3c42567c09ef06702705429f68897a0a0e8a02c5011978",
+      "inference": {
+        "inference_succeeded": true,
+        "seconds": 283.11330676699436,
+        "vertices": 262926,
+        "faces": 530364,
+        "peak_vram_allocated_bytes": 2815540224,
+        "peak_vram_reserved_bytes": 2862612480,
+        "reference_sha256": "006575b651ccd9b2c1f00607b0871fccf50338fe3e9d1ce563fb1b37d8c20024"
+      },
+      "triangles": [
+        19399,
+        6000,
+        1499
+      ],
+      "dimensions_m": [
+        10.00175666809082,
+        2.800619602203369,
+        8.001880645751953
+      ],
+      "materials": 1,
+      "Godot": {
+        "bounds_position": [
+          -5.00089120864868,
+          -0.000801527465227991,
+          -4.00084066390991
+        ],
+        "dimensions": [
+          10.0017566680908,
+          2.80061960220337,
+          8.00188064575195
+        ],
+        "dimensions_ok": true,
+        "display": "macOS",
+        "engine": {
+          "build": "official",
+          "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+          "hex": 263938,
+          "major": 4,
+          "minor": 7,
+          "patch": 2,
+          "status": "stable",
+          "string": "4.7.2-stable (official)",
+          "timestamp": 0
+        },
+        "import_passed": true,
+        "meshes": [
+          {
+            "materials": 1,
+            "name": "COLLISION_BOX",
+            "surfaces": 1,
+            "textures": 0,
+            "triangles": 12
+          },
+          {
+            "materials": 1,
+            "name": "LOD0",
+            "surfaces": 1,
+            "textures": 1,
+            "triangles": 19399
+          },
+          {
+            "materials": 1,
+            "name": "LOD1",
+            "surfaces": 1,
+            "textures": 1,
+            "triangles": 6000
+          },
+          {
+            "materials": 1,
+            "name": "LOD2",
+            "surfaces": 1,
+            "textures": 1,
+            "triangles": 1499
+          }
+        ],
+        "pivot_ok": true,
+        "preview_files": [
+          "godot-preview.png",
+          "godot-top.png",
+          "godot-front.png",
+          "godot-side.png"
+        ],
+        "preview_rendered": true
+      },
+      "production_accepted": false
+    }
+  },
+  "baseline": {
+    "disk_available_df_h": "28G",
+    "gpu_free_mib": 39024,
+    "gpu_used_mib": 10116,
+    "reserve_bytes": 10737418240,
+    "working_admission_bytes": 2147483648
+  },
+  "final": {
+    "disk_free_bytes": 29649981440,
+    "gpu_free_mib": 39024,
+    "gpu_used_mib": 10116,
+    "Point_processes_12876_37381_preserved": true
+  },
+  "paid_calls_this_session": 0,
+  "packages_installed_this_session": 0,
+  "production_accepted": false
+}

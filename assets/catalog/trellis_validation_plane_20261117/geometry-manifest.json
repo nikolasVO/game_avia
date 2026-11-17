@@ -1,0 +1,99 @@
+{
+  "source_kind": "TRELLIS.2_image_to_3D",
+  "blender_version": "5.2.4 LTS",
+  "triangles_lod0": 19399,
+  "materials_lod0": 1,
+  "lods": [
+    {
+      "name": "LOD1",
+      "triangles": 6000
+    },
+    {
+      "name": "LOD2",
+      "triangles": 1499
+    }
+  ],
+  "collision": "box metadata only; engine binding required",
+  "geometry": {
+    "uv_layers": 1,
+    "degenerate_triangles": 0,
+    "finite_vertices_and_normals": true,
+    "texture_sizes": [
+      [
+        1024,
+        1024
+      ],
+      [
+        1024,
+        1024
+      ]
+    ],
+    "symmetry": {
+      "mirror_axis": "Blender X",
+      "mean_distance_m": 0.02972097926255783,
+      "max_distance_m": 0.3689216375350952,
+      "mean_fraction_width": 0.002971575918996148
+    }
+  },
+  "generator_script_sha256": "9eaf31d7b8316e893c54bf34f851e30ef5eb440165fd140c660b2e7004272210",
+  "dimensions_m": [
+    10.00175666809082,
+    2.800619602203369,
+    8.001880645751953
+  ],
+  "pivot": "bottom_center",
+  "source_yaw_degrees": -90.0,
+  "export_axes": "glTF Y-up",
+  "unity_import_tested": false,
+  "license": "TRELLIS.2 MIT; DINOv3 custom license; BiRefNet MIT; reference terms apply; see provenance",
+  "checks": {
+    "triangle_budget": true,
+    "material_budget": true,
+    "finite_bounds": true,
+    "finite_geometry": true,
+    "no_degenerate_triangles": true,
+    "uv_present": true,
+    "texture_budget": true
+  },
+  "files": {
+    "optimized.glb": {
+      "sha256": "15bd5a906a02393ef9d523116fb53c527ce266f2c55a57b54e2d74f7561b83c2",
+      "bytes": 2189824
+    },
+    "preview.png": {
+      "sha256": "0cd86a381cc9691968dd1556213b7da0600f50de84fd0f0e0e8fb9525383dcbf",
+      "bytes": 129173
+    },
+    "lod0.glb": {
+      "sha256": "28f4c18596ab12af4ac8908ac80feea75b87312a8275084b7730f202f098c097",
+      "bytes": 1854340
+    },
+    "lod1.glb": {
+      "sha256": "bd9bcc44da6a042cb8eae221506b83f95cd50ffa87a719187c87b60f070af74d",
+      "bytes": 1408816
+    },
+    "lod2.glb": {
+      "sha256": "a90e5a39d7a700c83b0a3483e4125984cd863f146bedea9bfaf65fcf5303b687",
+      "bytes": 1228816
+    }
+  },
+  "verified": true,
+  "generation": {
+    "pipeline_type": "512",
+    "seed": 42,
+    "original_sha256": "6cc2468b205e3c722b3e0fc44877868ef521f76940821e2ace4823c0866506e4",
+    "models": {
+      "microsoft/TRELLIS.2-4B": "af44b45f2e35a493886929c6d786e563ec68364d",
+      "microsoft/TRELLIS-image-large": "25e0d31ffbebe4b5a97464dd851910efc3002d96",
+      "facebook/dinov3-vitl16-pretrain-lvd1689m": "ea8dc2863c51be0a264bab82070e3e8836b02d51",
+      "ZhengPeng7/BiRefNet": "e2bf8e4460fc8fa32bba5ea4d94b3233d367b0e4"
+    }
+  },
+  "reference": [
+    {
+      "name": "trellis_validation_plane_reference.png",
+      "sha256": "006575b651ccd9b2c1f00607b0871fccf50338fe3e9d1ce563fb1b37d8c20024"
+    }
+  ],
+  "godot_import_tested": false
+}

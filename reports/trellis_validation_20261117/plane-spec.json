@@ -1,0 +1,19 @@
+{
+  "asset_id": "trellis_validation_plane_20261117",
+  "purpose": "original plane pipeline candidate; production acceptance requires silhouette and mobile checks",
+  "description": "Owned procedural terracotta and ivory aircraft reference; no new image API calls",
+  "reference_images": [
+    "trellis_validation_20261117/trellis_validation_plane_reference.png"
+  ],
+  "dimensions_m": [
+    10,
+    2.8,
+    8
+  ],
+  "triangle_budget": 20000,
+  "texture_budget": 1024,
+  "deadline_seconds": 3600,
+  "pipeline_type": "512",
+  "seed": 42,
+  "source_yaw_degrees": -90
+}

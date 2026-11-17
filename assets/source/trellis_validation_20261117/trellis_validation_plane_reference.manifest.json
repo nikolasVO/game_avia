@@ -1,0 +1,17 @@
+{
+  "source_kind": "owned_procedural_aircraft_render",
+  "license": "CC0-1.0 for project-authored procedural geometry and reference",
+  "paid_image_api": false,
+  "description": "Original terracotta and ivory high-wing toy aircraft; no third-party reference",
+  "script_sha256": "6b167f9234fdc5f526f972efa7afa840f9ad730db2dfe0713b411e377958de97",
+  "files": {
+    "trellis_validation_plane_reference.png": {
+      "sha256": "006575b651ccd9b2c1f00607b0871fccf50338fe3e9d1ce563fb1b37d8c20024",
+      "bytes": 373618
+    },
+    "trellis_validation_plane_reference.glb": {
+      "sha256": "587f25ae5f1981ee1aa33b10164ab7956cf56e0c57e729cdf2026bfd8b00f9e2",
+      "bytes": 111864
+    }
+  }
+}

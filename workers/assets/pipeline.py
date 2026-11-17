@@ -17,6 +17,7 @@ class AssetSpec(BaseModel):
     style:str="technical test prop"
     reference_images:list[str]=Field(min_length=1,max_length=4)
     dimensions_m:tuple[float,float,float]=(1,1,1)
+    source_yaw_degrees:float=Field(default=0,ge=-180,le=180,allow_inf_nan=False)
     orientation:Literal["Y-up"]="Y-up"
     pivot:Literal["bottom_center"]="bottom_center"
     triangle_budget:int=Field(default=5000,ge=100,le=100000)
@@ -86,22 +87,27 @@ def sha256(path):
     return h.hexdigest()
 
 class AssetRunner:
-    def __init__(self,store,root="/srv/game-avia"):
-        self.store=store;self.root=Path(root)
+    def __init__(self,store,root="/srv/game-avia",repo_root=None):
+        self.store=store;self.root=Path(root);self.repo_root=Path(repo_root or self.root/"repo")
     def prepare(self,task):
         spec=AssetSpec.model_validate(task["spec"])
-        refs=[reference_path(self.root/"repo/assets/source",n) for n in spec.reference_images]
+        refs=[reference_path(self.repo_root/"assets/source",n) for n in spec.reference_images]
         disk_guard(self.root)
         status=readiness(self.root/"models/trellis512")
         out=self.root/"artifacts"/spec.asset_id
         out.mkdir(parents=True,exist_ok=True)
-        manifest={"spec":spec.model_dump(),"references":[{"name":p.name,"sha256":sha256(p)} for p in refs],
+        manifest={"spec":spec.model_dump(mode="json"),"references":[{"name":p.name,"sha256":sha256(p)} for p in refs],
                   "state":"prepared","readiness":status,"generated":False,"reference_path":str(refs[0])}
         previous=out/"manifest.json"
         if previous.is_file() and json.loads(previous.read_text()).get("verified"):
             old=json.loads((out/"request.json").read_text()) if (out/"request.json").is_file() else {}
-            if old.get("spec")!=manifest["spec"] or old.get("references")!=manifest["references"]:
+            if AssetSpec.model_validate(old.get("spec",{})).model_dump(mode="json")!=manifest["spec"] or old.get("references")!=manifest["references"]:
                 raise RuntimeError("asset_id_conflict; existing verified artifact preserved")
+            accepted=json.loads(previous.read_text())
+            for name,info in accepted.get("files",{}).items():
+                path=(out/name).resolve()
+                if out.resolve() not in path.parents or not path.is_file() or sha256(path)!=info["sha256"]:
+                    raise RuntimeError("cached_artifact_hash_mismatch")
             manifest["state"]="reused"
             manifest["existing_manifest"]=json.loads(previous.read_text())
             return manifest

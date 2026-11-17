@@ -1,0 +1,64 @@
+{
+  "bounds_position": [
+    -5.00089120864868,
+    -0.000801527465227991,
+    -4.00084066390991
+  ],
+  "dimensions": [
+    10.0017566680908,
+    2.80061960220337,
+    8.00188064575195
+  ],
+  "dimensions_ok": true,
+  "display": "macOS",
+  "engine": {
+    "build": "official",
+    "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+    "hex": 263938,
+    "major": 4,
+    "minor": 7,
+    "patch": 2,
+    "status": "stable",
+    "string": "4.7.2-stable (official)",
+    "timestamp": 0
+  },
+  "import_passed": true,
+  "meshes": [
+    {
+      "materials": 1,
+      "name": "COLLISION_BOX",
+      "surfaces": 1,
+      "textures": 0,
+      "triangles": 12
+    },
+    {
+      "materials": 1,
+      "name": "LOD0",
+      "surfaces": 1,
+      "textures": 1,
+      "triangles": 19399
+    },
+    {
+      "materials": 1,
+      "name": "LOD1",
+      "surfaces": 1,
+      "textures": 1,
+      "triangles": 6000
+    },
+    {
+      "materials": 1,
+      "name": "LOD2",
+      "surfaces": 1,
+      "textures": 1,
+      "triangles": 1499
+    }
+  ],
+  "pivot_ok": true,
+  "preview_files": [
+    "godot-preview.png",
+    "godot-top.png",
+    "godot-front.png",
+    "godot-side.png"
+  ],
+  "preview_rendered": true
+}

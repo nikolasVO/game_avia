@@ -1,0 +1,30 @@
+{
+  "asset_id": "trellis_validation_plane_20261117",
+  "source_type": "AI",
+  "generation": "TRELLIS.2 image-to-3D compact512",
+  "conditioning": "approved DINOv3 ViT-L/16",
+  "background_removal": "MIT BiRefNet loaded offline; smoke invokes removal, plane uses its authored non-opaque alpha directly",
+  "seed": 42,
+  "reference": {
+    "path": "assets/source/trellis_validation_20261117/trellis_validation_plane_reference.png",
+    "sha256": "006575b651ccd9b2c1f00607b0871fccf50338fe3e9d1ce563fb1b37d8c20024",
+    "provenance": "owned procedural Blender render; authored reference CC0-1.0; generated mesh not asserted CC0"
+  },
+  "model_revisions": {
+    "microsoft/TRELLIS.2-4B": "af44b45f2e35a493886929c6d786e563ec68364d",
+    "microsoft/TRELLIS-image-large": "25e0d31ffbebe4b5a97464dd851910efc3002d96",
+    "facebook/dinov3-vitl16-pretrain-lvd1689m": "ea8dc2863c51be0a264bab82070e3e8836b02d51",
+    "ZhengPeng7/BiRefNet": "e2bf8e4460fc8fa32bba5ea4d94b3233d367b0e4"
+  },
+  "inference_script_sha256": "1746fa19eb12f4e85f6822cff3a82ca0badb0ac36d6b735a7164a2199eb5557b",
+  "raw_mesh": {
+    "server_path": "/srv/game-avia/artifacts/trellis_validation_plane_20261117/raw-mesh.pt",
+    "bytes": 18974360,
+    "sha256": "23c106240b6d4ce0bb2439d5f4c2da7833c92970778a705428a717578645c3a8"
+  },
+  "paid_calls_this_session": 0,
+  "output_license_clearance": "NOT VERIFIED for publication; component and input terms remain applicable",
+  "status": "pipeline_verified; production_accepted=false",
+  "forward_axis": "-Z",
+  "prompt": "No image API prompt: original terracotta/ivory high-wing toy aircraft built by workers/assets/plane_reference.py, single transparent three-quarter CPU render."
+}
