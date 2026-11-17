@@ -2,24 +2,25 @@
   "asset_id": "swift-placeholder",
   "purpose": "Flight prototype swift",
   "source_type": "procedural",
-  "source": "game/avia/client/world.gd::make_plane",
-  "source_sha256": "3e2eaee82d48a40160a9c1f6f383debd37b5a43e111a9c68a64b336f02f4a23f",
+  "source": "game/avia/client/aircraft.gd::build",
+  "source_sha256": "910689f6bee45fea8a6868ab779a0ae8e26d2f535661dd8edf1d67e1bf6d7b32",
   "prompt": null,
   "provider": null,
   "model": null,
-  "revision": null,
+  "revision": "procedural-v2",
   "seed": null,
   "license": "Original project code/geometry; no external files",
   "dimensions_m": [
-    8.8,
-    3.575,
-    8.9
+    9.0,
+    3.59,
+    9.0
   ],
   "orientation": "Y-up; nose -Z",
   "pivot": "physics origin; wheels at ground offset",
-  "triangles_lod0": 96,
-  "lod_policy": "NOT VERIFIED: single very low polygon development mesh; production LOD pending",
-  "materials": "Opaque flat colors; no textures",
-  "validation": "Runtime screenshots + takeoff test; not AI pipeline acceptance",
-  "production_replacement": "BLOCKED: paid image budget unknown; DINOv3 gated access unavailable"
+  "triangles_lod0": 304,
+  "lod_policy": "Near detailed airframe/animated propeller0\u2013800m; distant silhouette800\u20134500m. Data and desktop render checked; physical-phone transitions NOT VERIFIED.",
+  "materials": "One opaque vertex-color surface per LOD; separate propeller surface on Kite/Tern; no textures/UV dependency.",
+  "validation": "Finite, nondegenerate mesh data; three-aircraft rendered preview; actual two-client native desktop flight. No AI pipeline acceptance.",
+  "production_replacement": "BLOCKED: DINOv3 pending Meta approval; owner will configure HF_TOKEN after approval. No gate polling or paid probes.",
+  "triangles_lod1": 96
 }

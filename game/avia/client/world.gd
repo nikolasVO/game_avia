@@ -8,7 +8,7 @@ var reduced_motion: bool=false
 var orbit: float=0.0
 func material(color: Color) -> StandardMaterial3D:
  var m: StandardMaterial3D=StandardMaterial3D.new()
- m.albedo_color=color;m.roughness=0.85
+ m.albedo_color=color;m.roughness=0.85;m.shading_mode=BaseMaterial3D.SHADING_MODE_PER_VERTEX
  return m
 func box(parent: Node3D, pos: Vector3, size: Vector3, color: Color) -> MeshInstance3D:
  var node: MeshInstance3D=MeshInstance3D.new()
@@ -31,9 +31,16 @@ func _ready() -> void:
   for z: int in range(n):
    var a: Vector3=Vector3((x-n/2)*spacing,0,(z-n/2)*spacing)
    var b: Vector3=a+Vector3(spacing,0,0);var c: Vector3=a+Vector3(0,0,spacing);var d: Vector3=a+Vector3(spacing,0,spacing)
-   for v: Vector3 in [a,b,c,b,d,c]:
-    v.y=AviaFlight.height(v)-0.05
-    st.set_color(Color("739681") if v.y<30 else Color("879987"));st.add_vertex(v)
+   for triangle: Array in [[a,b,c],[b,d,c]]:
+    var vertices: Array[Vector3]=[];var submerged: bool=true
+    for v: Vector3 in triangle:
+     v.y=AviaFlight.height(v)-0.05
+     if v.y>-5:submerged=false
+     else:v.y=-7.0 # Hidden sea bed stays clear of the water depth surface.
+     vertices.append(v)
+    if submerged:continue
+    for v: Vector3 in vertices:
+     st.set_color(Color("739681") if v.y<30 else Color("879987"));st.add_vertex(v)
  st.generate_normals()
  var terrain: MeshInstance3D=MeshInstance3D.new();terrain.mesh=st.commit()
  var mat: StandardMaterial3D=material(Color.WHITE);mat.vertex_color_use_as_albedo=true;terrain.material_override=mat;add_child(terrain)
@@ -53,27 +60,17 @@ func _ready() -> void:
   var ring: MeshInstance3D=MeshInstance3D.new();var torus: TorusMesh=TorusMesh.new()
   torus.inner_radius=AviaRules.RADIUS-2;torus.outer_radius=AviaRules.RADIUS;torus.rings=24;torus.ring_segments=8
   ring.mesh=torus;ring.position=p;ring.rotation.x=PI/2;ring.material_override=material(Color("edc777"));add_child(ring);checkpoint_nodes.append(ring)
- camera=Camera3D.new();camera.far=6500;camera.current=true;add_child(camera)
+ camera=Camera3D.new();camera.near=0.5;camera.far=6500;camera.current=true;add_child(camera)
  camera.position=Vector3(90,70,270);camera.look_at(Vector3(0,15,-200))
 func make_plane(index: int) -> Node3D:
- var root: Node3D=Node3D.new()
- var color: Color=AviaFlight.PLANES[index].color
- box(root,Vector3(0,0,0),Vector3(1.8,1.7,8.8),color)
- var wing: MeshInstance3D=box(root,Vector3(0,0,0.4),Vector3(12.5 if index!=2 else 8.8,0.25,2.0),color)
- wing.rotation.z=0.025
- box(root,Vector3(0,0.2,3.5),Vector3(5.2,0.18,1.1),color)
- box(root,Vector3(0,1.0,3.6),Vector3(0.2,2.4,1.8),color.darkened(0.1))
- box(root,Vector3(0,1.0,-1.5),Vector3(1.4,0.65,2.6),Color("365563"))
- if index!=2:box(root,Vector3(0,0,-4.6),Vector3(0.16,3.6,0.16),Color("d5d0b5"))
- for x: float in [-1.4,1.4]:box(root,Vector3(x,-1.0,0.5),Vector3(0.5,0.75,0.8),Color("34444b"))
- box(root,Vector3(0,-0.9,3.3),Vector3(0.3,0.6,0.55),Color("34444b"))
- return root
+ return AviaAircraft.build(index)
 func update_plane(id: int, state: Dictionary) -> void:
  if not planes.has(id):
   var visual: Node3D=make_plane(int(state.plane));add_child(visual);planes[id]=visual
  var node: Node3D=planes[id]
  node.position=state.p;node.rotation=Vector3(state.pitch,state.yaw,state.roll)
  node.visible=not bool(state.crashed)
+ node.spin_speed=20.0+minf(state.v.length()*2,90.0)
  if id!=multiplayer.get_unique_id():
   var engine: AudioStreamPlayer3D=node.get_node_or_null("Engine")
   if not engine:

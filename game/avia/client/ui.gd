@@ -17,15 +17,17 @@ var root: Control
 var frame_times: Array[float]=[]
 var last_frame_us: int=0
 var frame_cursor: int=0
+var status_label: Label
+var top_buttons: Array[Button]=[]
 var radar: Control
 const TEXT: Dictionary={
  "en":{"title":"TIDAL WINGS","subtitle":"GAME AVIA  ·  NATIVE FLIGHT PROTOTYPE","play":"Join flight","plane":"Aircraft","mode":"Mode","host":"Server address","private":"Private room","code":"Friend code · 4–12 uppercase letters/digits","help":"Shift / Ctrl: throttle  ·  W/S: pitch  ·  A/D: bank
 Q/E: rudder  ·  Space: brake  ·  R: recover  ·  F: fire
-Touch: left stick, right throttle, upper action. Lift off above 90 km/h.
+Touch: left stick, right throttle, upper brake (fire in combat). Lift off above 90 km/h.
 Land gently on either runway. Gold rings mark the race. Free flight is peaceful.","left":"Left handed","invert":"Invert pitch","assist":"Beginner help","motion":"Reduce camera motion","sound":"Sound","back":"Menu","camera":"Camera","recover":"Recover","brake":"Brake"},
  "ru":{"title":"ПРИЛИВНЫЕ КРЫЛЬЯ","subtitle":"GAME AVIA  ·  ПРОТОТИП НАТИВНОЙ ИГРЫ","play":"Начать полёт","plane":"Самолёт","mode":"Режим","host":"Адрес сервера","private":"Приватная комната","code":"Код друзей · 4–12 заглавных букв/цифр","help":"Shift / Ctrl: тяга  ·  W/S: тангаж  ·  A/D: крен
 Q/E: руль  ·  Пробел: тормоз  ·  R: восстановить  ·  F: огонь
-Касания: слева джойстик, справа тяга, выше действие. Взлёт от 90 км/ч.
+Касания: слева джойстик, справа тяга, выше тормоз (огонь в бою). Взлёт от 90 км/ч.
 Садитесь плавно на полосу. Золотые кольца — гонка. Свободный полёт мирный.","left":"Для левшей","invert":"Инверсия тангажа","assist":"Помощь новичку","motion":"Меньше движения камеры","sound":"Звук","back":"Меню","camera":"Камера","recover":"Восстановить","brake":"Тормоз"}}
 func tr_text(key: String) -> String:return str(TEXT[language].get(key,key))
 func _ready() -> void:
@@ -50,12 +52,12 @@ func _ready() -> void:
  var top: HBoxContainer=HBoxContainer.new();layout.add_child(top)
  hud=Label.new();hud.add_theme_color_override("font_color",Color("fff0cd"));hud.size_flags_horizontal=Control.SIZE_EXPAND_FILL;top.add_child(hud)
  for action: String in ["back","camera","recover"]:
-  var b: Button=Button.new();b.text=tr_text(action);labels[action]=b;top.add_child(b)
+  var b: Button=Button.new();b.text=tr_text(action);labels[action]=b;top.add_child(b);top_buttons.append(b)
   match action:
    "back":b.pressed.connect(show_menu)
    "camera":b.pressed.connect(func():world.cockpit=not world.cockpit)
    "recover":b.pressed.connect(func():touch.respawn=true)
- var brake_button: Button=Button.new();brake_button.text=tr_text("brake");labels.brake=brake_button;top.add_child(brake_button)
+ var brake_button: Button=Button.new();brake_button.text=tr_text("brake");labels.brake=brake_button;top.add_child(brake_button);top_buttons.append(brake_button)
  brake_button.button_down.connect(func():touch.brake=true);brake_button.button_up.connect(func():touch.brake=false)
  notice=Label.new();notice.add_theme_font_size_override("font_size",19);layout.add_child(notice)
  menu=PanelContainer.new();menu.set_anchors_and_offsets_preset(Control.PRESET_TOP_LEFT);menu.position=Vector2(160,40);menu.size=Vector2(960,640);root.add_child(menu)
@@ -64,6 +66,7 @@ func _ready() -> void:
  var col: VBoxContainer=VBoxContainer.new();col.size_flags_horizontal=Control.SIZE_EXPAND_FILL;col.add_theme_constant_override("separation",8);scroll.add_child(col)
  for key: String in ["title","subtitle"]:
   var label: Label=Label.new();label.text=tr_text(key);label.add_theme_font_size_override("font_size",38 if key=="title" else 16);col.add_child(label);labels[key]=label
+ status_label=Label.new();status_label.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;status_label.add_theme_color_override("font_color",Color("efcd8b"));status_label.hide();col.add_child(status_label)
  var row: HBoxContainer=HBoxContainer.new();col.add_child(row)
  select_plane=OptionButton.new();select_plane.size_flags_horizontal=Control.SIZE_EXPAND_FILL
  for spec: Dictionary in AviaFlight.PLANES:select_plane.add_item(spec.name)
@@ -93,6 +96,7 @@ func _ready() -> void:
 func _quality(index: int) -> void:
  Engine.max_fps=30 if index==0 else 60
  world.camera.far=3500 if index==0 else 6500
+ world.get_viewport().scaling_3d_scale=0.7 if index==0 else 1.0
  settings.set_value("controls","quality",index);settings.save("user://settings.cfg")
 func _option(key: String,value: bool) -> void:
  match key:
@@ -106,9 +110,11 @@ func _translate() -> void:
  for key: String in labels:labels[key].text=tr_text(key)
  code.placeholder_text=tr_text("code");host.placeholder_text=tr_text("host")
 func join() -> void:
+ if host.text.strip_edges().is_empty():session.status="Enter a server address";return
  settings.set_value("net","host",host.text.strip_edges());settings.save("user://settings.cfg")
  var result: Error=session.connect_to(host.text.strip_edges(),24567,{"plane":select_plane.selected,"mode":["free","race","pvp"][select_mode.selected],"private":private_room.button_pressed,"code":code.text.strip_edges().to_upper()})
  if result==OK:menu.hide();touch.show()
+ else:session.disconnect_session("Connection failed — check server address")
 func show_menu() -> void:
  session.disconnect_session();touch.clear_pointers();touch.throttle=0;touch.hide();menu.show()
 func _process(delta: float) -> void:
@@ -118,8 +124,14 @@ func _process(delta: float) -> void:
   if frame_times.size()<108000:frame_times.append(interval)
   else:frame_times[frame_cursor]=interval;frame_cursor=(frame_cursor+1) % 108000
  last_frame_us=now
+ if session.status=="Joining" and Time.get_ticks_msec()-session.last_snapshot_ms>8000:session.disconnect_session("Admission timeout — retry from menu")
+ for button: Button in top_buttons:button.disabled=not session.joined
+ touch.combat=session.mode=="pvp"
+ touch.action_label=("FIRE" if language=="en" else "ОГОНЬ") if touch.combat else ("BRAKE" if language=="en" else "ТОРМОЗ")
+ status_label.visible=session.status not in ["Menu","Connected","Connecting","Joining"]
+ status_label.text=connection_text(session.status)
  if not session.joined or session.local_state.is_empty():
-  hud.text=session.status;notice.text=""
+  hud.text=connection_text(session.status);notice.text=""
   if session.status not in ["Connecting","Joining"] and not menu.visible:
    touch.clear_pointers();touch.throttle=0;touch.hide();menu.show()
   radar.queue_redraw()
@@ -128,7 +140,13 @@ func _process(delta: float) -> void:
  var warning: String=""
  if s.crashed:warning="CRASH — R / Recover" if language=="en" else "АВАРИЯ — Восстановить"
  elif s.v.length()<float(AviaFlight.PLANES[s.plane].stall) and not s.grounded:warning="LOW AIRSPEED" if language=="en" else "МАЛАЯ СКОРОСТЬ"
- hud.text="%03d km/h   %04d m ASL   %03d°   %d%%   ♥ %d   %s   %d pilots" % [s.v.length()*3.6,s.p.y,fposmod(rad_to_deg(-float(s.yaw)),360),float(session.controls.throttle)*100,s.health,session.mode,session.others.size()+1]
+ var mode_label: String={"free":"Free flight" if language=="en" else "Полёт","race":"Race" if language=="en" else "Гонка","pvp":"Combat" if language=="en" else "Бой"}.get(session.mode,session.mode)
+ hud.text="%03d km/h   %04d m ASL   %03d°   %d%%   ♥ %d   %s   %d %s" % [s.v.length()*3.6,s.p.y,fposmod(rad_to_deg(-float(s.yaw)),360),float(session.controls.throttle)*100,s.health,mode_label,session.others.size()+1,"pilots" if language=="en" else "пилотов"]
+ var remaining: float=5500.0-Vector2(s.p.x,s.p.z).length()
+ if remaining<650.0:
+  warning=("WORLD EDGE · turn toward the island · %d m" if language=="en" else "ГРАНИЦА МИРА · поверните к острову · %d м") % maxi(0,int(remaining))
+ elif s.p.y>2250:
+  warning=("ALTITUDE LIMIT · descend · %d m" if language=="en" else "ПРЕДЕЛ ВЫСОТЫ · снижайтесь · %d м") % maxi(0,int(2500-s.p.y))
  var objective: String="Free flight · land on either runway" if language=="en" else "Свободный полёт · посадите самолёт на полосу"
  if session.mode=="race":
   var next: int=int(session.local_race.get("next",0))
@@ -139,3 +157,7 @@ func _process(delta: float) -> void:
  notice.text=warning+"\n"+objective+"   %d ms" % ping
  radar.queue_redraw()
  touch.queue_redraw()
+
+func connection_text(value: String) -> String:
+ if language=="en":return value
+ return {"Enter a server address":"Введите адрес сервера.","Connection failed — check server address":"Не удалось подключиться. Проверьте адрес сервера.","Admission timeout — retry from menu":"Сервер не подтвердил вход. Повторите подключение.","Menu":"Меню","Connecting":"Подключение…","Joining":"Вход в комнату…","Connected":"Подключено","Paused — reconnect from menu":"Игра свёрнута. Подключитесь заново кнопкой «Начать полёт».","Network timeout — retry from menu":"Нет ответа сервера. Проверьте сеть и повторите вход.","Disconnected — retry from menu":"Соединение разорвано. Повторите вход или смените сервер.","Version mismatch":"Версия игры отличается от сервера. Обновите клиент.","Room full":"Комната заполнена. Выберите другую комнату.","Room mode mismatch":"Режим приватной комнаты отличается. Выберите верный режим.","Invalid room code":"Неверный код комнаты.","Private code needs 4–12 uppercase letters/digits":"Для приватной комнаты нужен код из 4–12 заглавных букв или цифр."}.get(value,value)

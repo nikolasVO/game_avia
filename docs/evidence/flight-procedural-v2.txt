@@ -1,0 +1,29 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+{"check":"neutral input accepted","status":"PASS"}
+{"check":"NaN rejected","status":"PASS"}
+{"check":"Inf rejected","status":"PASS"}
+{"check":"out of range rejected","status":"PASS"}
+{"check":"coordinate injection rejected","status":"PASS"}
+{"altitude":129.890335083008,"crashed":false,"plane":0,"speed_mps":57.4968109130859}
+{"altitude":163.072036743164,"crashed":false,"plane":1,"speed_mps":78.1127090454102}
+{"altitude":209.852828979492,"crashed":false,"plane":2,"speed_mps":116.105056762695}
+{"check":"all three aircraft accelerate and take off","status":"PASS"}
+{"check":"gentle runway landing","status":"PASS"}
+{"check":"hard impact crashes","status":"PASS"}
+{"check":"high speed ground impact swept","status":"PASS"}
+{"check":"world boundary enforced","status":"PASS"}
+{"check":"out of order checkpoint ignored","status":"PASS"}
+{"check":"ordered swept race finish uses server ticks","status":"PASS"}
+{"check":"server ray hits target ahead","status":"PASS"}
+{"check":"server ray rejects off-axis target","status":"PASS"}
+{"check":"server ray rejects target behind","status":"PASS"}
+{"check":"fixed-width snapshot roundtrip","status":"PASS"}
+{"check":"truncated snapshot rejected","status":"PASS"}
+{"check":"nonfinite snapshot rejected","status":"PASS"}
+{"check":"three synthetic touch pointers operate independently","status":"PASS"}
+{"check":"release outside captured stick preserves throttle","status":"PASS"}
+{"check":"focus loss clears all touches and thrust","status":"PASS"}
+{"check":"peaceful touch action brakes instead of firing","status":"PASS"}
+{"check":"releasing context touch preserves separate HUD brake","status":"PASS"}
+{"checks":23,"event":"test_summary","failed":0,"scope":"Godot shared simulation and synthetic touch; not physical device"}

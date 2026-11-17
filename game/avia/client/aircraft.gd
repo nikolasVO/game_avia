@@ -1,0 +1,76 @@
+class_name AviaAircraft
+extends Node3D
+## Original procedural development models; not AI output. One colored surface per LOD.
+var propeller: Node3D
+var spin_speed: float=30.0
+static func _face(st: SurfaceTool, vertices: Array[Vector3], color: Color, outward: Vector3) -> void:
+ var normal: Vector3=(vertices[1]-vertices[0]).cross(vertices[2]-vertices[0]).normalized()
+ if normal.dot(outward)<0:vertices.reverse();normal=-normal
+ for i: int in range(1,vertices.size()-1):
+  for vertex: Vector3 in [vertices[0],vertices[i],vertices[i+1]]:
+   st.set_normal(normal);st.set_color(color);st.add_vertex(vertex)
+static func _solid(st: SurfaceTool, v: Array[Vector3], color: Color) -> void:
+ var center: Vector3=Vector3.ZERO
+ for p: Vector3 in v:center+=p/float(v.size())
+ for ids: Array in [[0,1,2,3],[4,7,6,5],[0,4,5,1],[1,5,6,2],[2,6,7,3],[3,7,4,0]]:
+  var face: Array[Vector3]=[];var midpoint: Vector3=Vector3.ZERO
+  for id: int in ids:face.append(v[id]);midpoint+=v[id]/4.0
+  _face(st,face,color,midpoint-center)
+static func _box(st: SurfaceTool, center: Vector3, size: Vector3, color: Color) -> void:
+ var v: Array[Vector3]=[]
+ for p: Vector3 in [Vector3(-1,-1,-1),Vector3(1,-1,-1),Vector3(1,-1,1),Vector3(-1,-1,1),Vector3(-1,1,-1),Vector3(1,1,-1),Vector3(1,1,1),Vector3(-1,1,1)]:v.append(center+p*size*0.5)
+ _solid(st,v,color)
+static func _loft(st: SurfaceTool, sections: Array[Vector3], offset_y: float, color: Color, sides: int) -> void:
+ # Sections: z, half-width, half-height. Separate from the shared flight parameters.
+ var rings: Array=[]
+ for section: Vector3 in sections:
+  var ring: Array[Vector3]=[]
+  for i: int in range(sides):
+   var angle: float=TAU*i/sides
+   ring.append(Vector3(cos(angle)*section.y,offset_y+sin(angle)*section.z,section.x))
+  rings.append(ring)
+ _face(st,rings[0].duplicate(),color,Vector3.FORWARD)
+ _face(st,rings[-1].duplicate(),color,Vector3.BACK)
+ for j: int in range(1,rings.size()):
+  for i: int in range(sides):
+   var next: int=(i+1)%sides
+   var a: Vector3=rings[j-1][i];var b: Vector3=rings[j][i];var c: Vector3=rings[j][next];var d: Vector3=rings[j-1][next]
+   _face(st,[a,b,c,d],color,Vector3(a.x,(a.y-offset_y),0))
+static func _wing(st: SurfaceTool, span: float, chord: float, z: float, y: float, sweep: float, color: Color) -> void:
+ for side: float in [-1.0,1.0]:
+  var tip: float=span*side;var rise: float=span*0.045
+  _solid(st,[Vector3(0,y-0.09,z-chord/2),Vector3(tip,y+rise-0.05,z+sweep-chord*0.23),Vector3(tip,y+rise-0.05,z+sweep+chord*0.23),Vector3(0,y-0.09,z+chord/2),Vector3(0,y+0.09,z-chord/2),Vector3(tip,y+rise+0.05,z+sweep-chord*0.23),Vector3(tip,y+rise+0.05,z+sweep+chord*0.23),Vector3(0,y+0.09,z+chord/2)],color)
+static func _mesh(st: SurfaceTool, parent: Node3D, name_: String, near: float, far: float) -> MeshInstance3D:
+ var node: MeshInstance3D=MeshInstance3D.new();node.name=name_;node.mesh=st.commit()
+ var mat: StandardMaterial3D=StandardMaterial3D.new();mat.shading_mode=BaseMaterial3D.SHADING_MODE_PER_VERTEX;mat.vertex_color_use_as_albedo=true;mat.roughness=0.82;mat.cull_mode=BaseMaterial3D.CULL_DISABLED
+ node.material_override=mat;node.visibility_range_begin=near;node.visibility_range_end=far;parent.add_child(node)
+ return node
+static func build(index: int) -> AviaAircraft:
+ var root: AviaAircraft=AviaAircraft.new()
+ var color: Color=AviaFlight.PLANES[index].color;var cream: Color=Color("e6dfc4");var dark: Color=Color("334c58")
+ for distant: bool in [false,true]:
+  var st: SurfaceTool=SurfaceTool.new();st.begin(Mesh.PRIMITIVE_TRIANGLES)
+  var sides: int=4 if distant else 8
+  _loft(st,[Vector3(-4.5,0.16,0.2),Vector3(-3.3,0.72,0.7),Vector3(-0.8,0.95,0.85),Vector3(1.4,0.65,0.65),Vector3(4.3,0.12,0.28)],0,color,sides)
+  _wing(st,6.3 if index==0 else 5.5 if index==1 else 4.5,2.1,0.15,0.7 if index==0 else -0.35,0.2 if index==0 else 0.7 if index==1 else 2.0,color)
+  _wing(st,2.5 if index!=2 else 2.1,1.1,3.35,0.25,0.5,cream)
+  _solid(st,[Vector3(-0.09,0.3,2.6),Vector3(0.09,0.3,2.6),Vector3(0.09,0.3,4.3),Vector3(-0.09,0.3,4.3),Vector3(-0.09,2.15,3.55),Vector3(0.09,2.15,3.55),Vector3(0.09,1.4,4.3),Vector3(-0.09,1.4,4.3)],color)
+  if not distant:
+   _loft(st,[Vector3(-2.3,0.15,0.12),Vector3(-1.25,0.65,0.55),Vector3(0.5,0.5,0.35),Vector3(1.1,0.1,0.05)],0.72,dark,6)
+   _box(st,Vector3(0,-0.52,-1.1),Vector3(1.55,0.08,2.8),cream)
+   for x: float in [-1.4,1.4]:
+    _box(st,Vector3(x,-0.85,0.65),Vector3(0.12,0.85,0.14),dark)
+    _box(st,Vector3(x,-1.2,0.65),Vector3(0.35,0.48,0.65),dark)
+   _box(st,Vector3(0,-1.05,3.4),Vector3(0.2,0.4,0.4),dark)
+   if index==2:
+    for x: float in [-0.8,0.8]:_box(st,Vector3(x,-0.15,1.0),Vector3(0.45,0.55,1.6),dark)
+    _loft(st,[Vector3(3.3,0.38,0.38),Vector3(4.5,0.3,0.3)],-0.1,dark,8)
+  _mesh(st,root,"Distant" if distant else "Airframe",800 if distant else 0,4500 if distant else 800)
+ if index!=2:
+  root.propeller=Node3D.new();root.propeller.name="Propeller";root.propeller.position.z=-4.65;root.add_child(root.propeller)
+  var st: SurfaceTool=SurfaceTool.new();st.begin(Mesh.PRIMITIVE_TRIANGLES)
+  _box(st,Vector3.ZERO,Vector3(0.16,2.5,0.12),dark);_box(st,Vector3.ZERO,Vector3(2.5,0.16,0.12),dark)
+  _mesh(st,root.propeller,"Blades",0,800)
+ return root
+func _process(delta: float) -> void:
+ if propeller and visible:propeller.rotate_z(spin_speed*delta)

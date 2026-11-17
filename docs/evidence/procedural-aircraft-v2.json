@@ -1,0 +1,123 @@
+{
+  "event": "procedural_geometry",
+  "planes": [
+    {
+      "meshes": [
+        {
+          "aabb_position": "(-6.3, -1.44, -4.5)",
+          "aabb_size": "(12.6, 3.59, 8.8)",
+          "finite_nondegenerate": true,
+          "materials": 1,
+          "name": "Airframe",
+          "triangles": 252,
+          "visibility_m": [
+            0.0,
+            800.0
+          ]
+        },
+        {
+          "aabb_position": "(-6.3, -0.85, -4.5)",
+          "aabb_size": "(12.6, 3.0, 8.8)",
+          "finite_nondegenerate": true,
+          "materials": 1,
+          "name": "Distant",
+          "triangles": 96,
+          "visibility_m": [
+            800.0,
+            4500.0
+          ]
+        },
+        {
+          "aabb_position": "(-1.25, -1.25, -0.06)",
+          "aabb_size": "(2.5, 2.5, 0.12)",
+          "finite_nondegenerate": true,
+          "materials": 1,
+          "name": "Propeller/Blades",
+          "triangles": 24,
+          "visibility_m": [
+            0.0,
+            800.0
+          ]
+        }
+      ],
+      "name": "Kite",
+      "plane": 0
+    },
+    {
+      "meshes": [
+        {
+          "aabb_position": "(-5.5, -1.44, -4.5)",
+          "aabb_size": "(11.0, 3.59, 8.8)",
+          "finite_nondegenerate": true,
+          "materials": 1,
+          "name": "Airframe",
+          "triangles": 252,
+          "visibility_m": [
+            0.0,
+            800.0
+          ]
+        },
+        {
+          "aabb_position": "(-5.5, -0.85, -4.5)",
+          "aabb_size": "(11.0, 3.0, 8.8)",
+          "finite_nondegenerate": true,
+          "materials": 1,
+          "name": "Distant",
+          "triangles": 96,
+          "visibility_m": [
+            800.0,
+            4500.0
+          ]
+        },
+        {
+          "aabb_position": "(-1.25, -1.25, -0.06)",
+          "aabb_size": "(2.5, 2.5, 0.12)",
+          "finite_nondegenerate": true,
+          "materials": 1,
+          "name": "Propeller/Blades",
+          "triangles": 24,
+          "visibility_m": [
+            0.0,
+            800.0
+          ]
+        }
+      ],
+      "name": "Tern",
+      "plane": 1
+    },
+    {
+      "meshes": [
+        {
+          "aabb_position": "(-4.5, -1.44, -4.5)",
+          "aabb_size": "(9.0, 3.59, 9.0)",
+          "finite_nondegenerate": true,
+          "materials": 1,
+          "name": "Airframe",
+          "triangles": 304,
+          "visibility_m": [
+            0.0,
+            800.0
+          ]
+        },
+        {
+          "aabb_position": "(-4.5, -0.85, -4.5)",
+          "aabb_size": "(9.0, 3.0, 8.8)",
+          "finite_nondegenerate": true,
+          "materials": 1,
+          "name": "Distant",
+          "triangles": 96,
+          "visibility_m": [
+            800.0,
+            4500.0
+          ]
+        }
+      ],
+      "name": "Swift",
+      "plane": 2
+    }
+  ],
+  "source_type": "procedural",
+  "status": "PASS",
+  "source_sha256": "910689f6bee45fea8a6868ab779a0ae8e26d2f535661dd8edf1d67e1bf6d7b32",
+  "scope": "Finite nondegenerate mesh data, rendered desktop preview. Runtime generator has two geometric LODs; phone transitions not verified."
+}
