@@ -72,6 +72,10 @@ def readiness(models_root):
     root=Path(models_root)
     required=["pipeline512.json","dino/config.json","dino/model.safetensors","birefnet/config.json"]
     missing=[n for n in required if not (root/n).is_file()]
+    manifest=root/"model-manifest.json"
+    if manifest.exists():
+        data=json.loads(manifest.read_text())
+        missing.extend(x["local"] for x in data.get("files",[]) if not Path(x["local"]).is_file())
     return {"configured":not missing,"tested":False,"blocked":missing,"reason":"weights_or_gated_dino_access_missing" if missing else "inference_not_yet_tested"}
 
 def sha256(path):
@@ -91,7 +95,7 @@ class AssetRunner:
         out=self.root/"artifacts"/spec.asset_id
         out.mkdir(parents=True,exist_ok=True)
         manifest={"spec":spec.model_dump(),"references":[{"name":p.name,"sha256":sha256(p)} for p in refs],
-                  "state":"prepared","readiness":status,"generated":False}
+                  "state":"prepared","readiness":status,"generated":False,"reference_path":str(refs[0])}
         (out/"request.json").write_text(json.dumps(manifest,indent=2))
         return manifest
 

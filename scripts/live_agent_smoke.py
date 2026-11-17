@@ -70,7 +70,7 @@ async def codex_smoke(prefix):
         with tempfile.TemporaryDirectory(prefix="codex-smoke-",dir="/srv/game-avia/worktrees") as d:
             Path(d,"evidence.txt").write_text("AVIA_RUNTIME_PROOF=42\n")
             result=await codex_exec("/srv/game-avia/tools/codex/node_modules/.bin/codex",
-                f"http://127.0.0.1:{port}/v1","local-proxy-only", "gpt-6.1-sol",d,
+                f"http://127.0.0.1:{port}/v1","local-proxy-only", cfg["models"]["gpt-6.1-sol"],d,
                 "Use one shell command to read evidence.txt. Do not modify files. Reply AVIA_RUNTIME_PROOF=42.",timeout=120)
         tool=any(i["item_type"]=="command_execution" and i["exit_code"]==0 for i in result["items"])
         passed=result["status"]=="completed" and tool

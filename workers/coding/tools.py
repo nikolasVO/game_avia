@@ -43,14 +43,8 @@ class Tools:
                 result={"files":[str(p.relative_to(self.root)) for p in self.root.rglob("*")
                          if p.is_file() and not any(x.startswith(".") for x in p.relative_to(self.root).parts)][:200]}
             else:
-                # Isolated worktree/container is required: tests are code execution.
-                env={k:v for k,v in os.environ.items() if k in ("PATH","LANG","PYTHONPATH")}
-                env["HOME"]=str(self.root);env["PYTEST_DISABLE_PLUGIN_AUTOLOAD"]="1"
-                r=subprocess.run(["sudo","-n","docker","run","--rm","--network","none","--read-only","--cap-drop","ALL","--security-opt","no-new-privileges","--pids-limit","128","--memory","512m","--cpus","1","--user",str(os.getuid())+":"+str(os.getgid()),"--tmpfs","/tmp:rw,noexec,nosuid,size=32m","-v",str(self.root)+":/work:ro","-v",str(Path(__file__).resolve().parents[2]/"scripts/isolated_test_runner.py")+":/runner.py:ro","-w","/work","python@sha256:5e2bdb1b0d542d5039cffb8181c65930093949194a65c365dfb1b0fe13a4fa5b","python3","-I","-B","/runner.py"],cwd=self.root,env=env,capture_output=True,text=True,timeout=45)
-                result={"exit_code":r.returncode,"output":(r.stdout+r.stderr)[-6000:]}
-                proofs=[line.split("=",1)[1] for line in r.stdout.splitlines() if line.startswith("GAME_AVIA_TEST_RESULT=")]
-                if proofs:
-                    result.update(json.loads(proofs[-1]))
+                from workers.coding.sandbox import run_tests
+                result=run_tests(self.root)
         except (OSError,ValueError,subprocess.TimeoutExpired) as e:
             result={"error":type(e).__name__}
         self.store.finish_tool(opid,result)

@@ -22,10 +22,13 @@ async def execute(store,task,owner):
     root=Path(os.getenv("GAME_AVIA_ROOT","/srv/game-avia"))
     tid=task["id"]
     if task["kind"]=="asset":
-        result=AssetRunner(store,root).prepare(task)
-        if result["readiness"]["blocked"]:
-            store.transition(tid,"blocked","TRELLIS: "+result["readiness"]["reason"],owner=owner);return
-        store.transition(tid,"blocked","TRELLIS runner must be enabled after a successful real inference acceptance test.",owner=owner);return
+        from workers.assets.run import run_asset
+        result=await asyncio.to_thread(run_asset,store,task,owner,root)
+        if result["status"]!="verified":
+            store.transition(tid,"blocked",result.get("reason","asset_failed"),owner=owner);return
+        store.transition(tid,"verifying",owner=owner)
+        with store.db() as c:c.execute("UPDATE tasks SET verification_status='passed' WHERE id=?",(tid,))
+        store.transition(tid,"blocked","3D и Blender проверены; нужны GitHub/LFS sync и Unity runner: "+result["artifact_dir"],owner=owner);return
     if task["kind"]!="code":
         store.transition(tid,"blocked","Unsupported task kind.",owner=owner);return
     # Large backlog remains blocked until monetary budgets are explicitly configured.
