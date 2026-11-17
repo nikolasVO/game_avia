@@ -12,7 +12,8 @@ from workers.coding.codex_runtime import codex_exec
 
 async def cloud_smoke(prefix,family):
     s=Store(state_dir()/"coordinator.sqlite3");reg=Registry(s)
-    task=s.create_task("Use read_file to read evidence.txt. Then reply exactly AVIA_SMOKE_42. Do not write files.")
+    task=s.create_task("Use read_file to read evidence.txt. Then reply exactly AVIA_SMOKE_42. Do not write files.",kind="diagnostic")
+    s.transition(task["id"],"paused","Живая диагностическая проба.")
     with tempfile.TemporaryDirectory(prefix="agent-smoke-",dir="/srv/game-avia/worktrees") as d:
         Path(d,"evidence.txt").write_text("The required proof is AVIA_SMOKE_42.")
         candidates=[r for r in reg.candidates(family,bootstrap=True) if r["env_prefix"]==prefix]
@@ -51,7 +52,7 @@ async def codex_smoke(prefix):
         if count>=3:return Response('{"error":{"message":"bootstrap_request_cap"}}',status_code=429,media_type="application/json")
         count+=1
         Agent(Registry(s),s).reserve(task["id"],prefix+":responses",2048)
-        body=await request.body()
+        body=json.dumps({**(await request.json()),"max_output_tokens":2048}).encode()
         try:
             async with httpx.AsyncClient(timeout=httpx.Timeout(90,connect=10)) as client:
                 r=await client.post(base+"/responses",content=body,headers={"Authorization":"Bearer "+key,"Content-Type":"application/json"})

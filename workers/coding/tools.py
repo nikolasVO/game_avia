@@ -24,7 +24,10 @@ class Tools:
         if name not in {t["function"]["name"] for t in TOOLS}: raise ValueError("tool_not_allowed")
         if name in ("write_file","read_file"): p=self.path(args["path"])
         if name=="write_file" and len(args["content"].encode())>100000: raise ValueError("file_too_large")
-        opid=hashlib.sha256((self.tid+name+json.dumps(args,sort_keys=True)).encode()).hexdigest()
+        snapshot=""
+        if name in ("read_file","list_files","run_tests"):
+            snapshot=hashlib.sha256("".join(str(p.relative_to(self.root))+hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(self.root.rglob("*")) if p.is_file() and not p.is_symlink() and not any(x.startswith(".") for x in p.relative_to(self.root).parts) and p.stat().st_size<100000).encode()).hexdigest()
+        opid=hashlib.sha256((self.tid+name+json.dumps(args,sort_keys=True)+snapshot).encode()).hexdigest()
         cached=self.store.prepare_tool(self.tid,opid,name,args)
         if cached is not None:return cached
         try:

@@ -24,7 +24,8 @@ class Agent:
     async def chat(self,route,messages,tid,tools=TOOLS,max_tokens=1024):
         self.reserve(tid,route["id"],max_tokens)
         key=os.getenv(route["env_prefix"]+"_API_KEY","")
-        payload={"model":route["wire"],"messages":messages,"max_tokens":max_tokens,"tools":tools,"stream":False}
+        payload={"model":route["wire"],"messages":messages,"max_tokens":max_tokens,"stream":False}
+        if tools:payload["tools"]=tools
         try:
             async with httpx.AsyncClient(timeout=httpx.Timeout(60,connect=10)) as client:
                 r=await client.post(route["base_url"]+"/chat/completions",headers={"Authorization":"Bearer "+key},json=payload)
