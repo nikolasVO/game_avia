@@ -149,6 +149,6 @@
     }
   ],
   "selected_bytes": 11455350456,
-  "downloaded": false,
-  "dino_access": "blocked_http_401"
+  "downloaded": true,
+  "dino_access": "authorized"
 }

@@ -46,7 +46,9 @@ def check():
     report["unity"]=json.loads(s.kv("unity_readiness") or "{}")
     report["hf_dino_access"]=s.kv("hf_dino_access") or "unverified"
     report["game_brief_received"]=Path("docs/briefs/game-avia-20261117.md").is_file()
-    report["remaining_blockers"]=["gated_dino_access","full_Xcode_and_iOS_signing","official_Codex_Responses_route_unverified","bootstrap_paid_probe_cap_reached","unattended_E2E_retest_pending","image_size_contract_mismatch"]
+    report["remaining_blockers"]=["full_Xcode_and_iOS_signing","official_Codex_Responses_route_unverified","bootstrap_paid_probe_cap_reached","unattended_E2E_retest_pending","image_size_contract_mismatch"]
+    if not report["hf_dino_access"].startswith("authorized_http_200"):report["remaining_blockers"].append("gated_dino_access")
+    if s.kv("trellis_inference_tested")!="true":report["remaining_blockers"].append("trellis_inference_unverified")
     if not report["unity"].get("license_activation_verified"):report["remaining_blockers"].append("Unity_license_unverified")
     if not report["game_brief_received"]:report["remaining_blockers"].append("game_brief_missing")
     assert report["health"]["release"]==report["checkout"]

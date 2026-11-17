@@ -29,6 +29,8 @@ def doctor():
         result["gpu"]={"installed":r.returncode==0,"measurement":r.stdout.strip()}
     except OSError:result["gpu"]={"installed":False}
     result["sandbox"]=json.loads(s.kv("sandbox_probe") or "{}")
+    result["hf_dino_access"]=s.kv("hf_dino_access") or "unverified"
+    result["trellis"]["tested"]=not result["trellis"]["blocked"] and s.kv("trellis_inference_tested")=="true"
     result["local_worker"]=json.loads((base/"state/local-smoke.json").read_text()) if (base/"state/local-smoke.json").is_file() else {"tested":False}
     result["image_generation"]=json.loads((base/"state/image-smoke.json").read_text()) if (base/"state/image-smoke.json").is_file() else {"tested":False}
     result["official_codex_runtime"]={"installed":(base/"tools/codex/node_modules/.bin/codex").exists(),"agent_tested":False,"blocked":"Responses route not validated within bootstrap cap"}
