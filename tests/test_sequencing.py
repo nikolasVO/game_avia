@@ -102,3 +102,12 @@ def test_missing_dependency_record_cannot_be_silently_ignored(sequence):
         c.execute("INSERT INTO dependencies VALUES(?,?)", (child, "missing-parent"))
     assert not inspect(s, child)["ready"]
     assert not reserve(s, child, "dispatcher", "launch")["reserved"]
+
+
+def test_confirmation_accepts_same_owner_agent_starting_before_ssh_reply(sequence):
+    s, parent, child = sequence
+    accept(s, parent)
+    assert reserve(s, child, "dispatcher", "launch")["reserved"]
+    with s.db() as c:
+        c.execute("UPDATE tasks SET status='running' WHERE id=?", (child,))
+    assert confirm(s, child, "dispatcher", "launch", 123)["status"] == "running"
