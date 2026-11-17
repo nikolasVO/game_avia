@@ -4,7 +4,9 @@ var stage: int=0
 var bias: float=0
 const PATH: Array[Vector3]=[Vector3(0,200,-1700),Vector3(2200,240,-2200),Vector3(2800,240,1600),Vector3(0,150,3000),Vector3(0,115,2200)]
 func command(s: Dictionary) -> Dictionary:
- var c: Dictionary=AviaFlight.neutral();var spec: Dictionary=AviaFlight.PLANES[int(s.plane)]
+ return command_spec(s,AviaFlight.PLANES[int(s.plane)])
+func command_spec(s: Dictionary,spec: Dictionary) -> Dictionary:
+ var c: Dictionary=AviaFlight.neutral()
  var target: Vector3=PATH[mini(stage,PATH.size()-1)]
  if stage>=4:target=Vector3(0,AviaFlight.GROUND+maxf(0,s.p.z-120)*.04,s.p.z-700)
  var difference: Vector3=target-s.p

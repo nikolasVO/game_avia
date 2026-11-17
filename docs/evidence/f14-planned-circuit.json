@@ -1,0 +1,87 @@
+{
+  "aircraft_id": "f14",
+  "commands_valid": true,
+  "crashed": false,
+  "distance_m": 15001.2412536591,
+  "event": "planned_circuit_summary",
+  "final_speed_mps": 1.87883603572845,
+  "landing_seconds": 157.9,
+  "maximum_altitude_m": 246.092193603516,
+  "maximum_speed_mps": 102.618675231934,
+  "production_accepted": false,
+  "scope": "planned-only command-driven parked/takeoff/circuit/approach/braked-stop simulation; no coordinate injection; no human/network/device acceptance",
+  "stage": 4,
+  "status": "PASS",
+  "takeoff_seconds": 2.66666666666667,
+  "source_commit": "9729b149889c6c93417b041dfe30a6cf9399420d",
+  "test_script": "game/avia/tests/planned_circuit_check.gd",
+  "trajectory_sha256": "10b57d59e19cfa9e2922d0535677a1e68be357a6829a8875ea9f0de0dedfdb9b",
+  "existing_six_circuits": [
+    {
+      "aircraft_id": "f16c",
+      "crashed": false,
+      "final_position": "(9.492247, 1.4, -58.02941)",
+      "final_speed_mps": 1.94517433643341,
+      "landing_seconds": 160.366666666667,
+      "max_bank_rad": 1.27915695162956,
+      "stage": 4,
+      "status": "PASS",
+      "takeoff_seconds": 2.13333333333333
+    },
+    {
+      "aircraft_id": "su27",
+      "crashed": false,
+      "final_position": "(10.88243, 1.4, -105.5562)",
+      "final_speed_mps": 1.94914948940277,
+      "landing_seconds": 158.466666666667,
+      "max_bank_rad": 1.37640257601112,
+      "stage": 4,
+      "status": "PASS",
+      "takeoff_seconds": 2.4
+    },
+    {
+      "aircraft_id": "f15c",
+      "crashed": false,
+      "final_position": "(13.40419, 1.4, -130.6724)",
+      "final_speed_mps": 1.90066754817963,
+      "landing_seconds": 156.566666666667,
+      "max_bank_rad": 1.37427175870301,
+      "stage": 4,
+      "status": "PASS",
+      "takeoff_seconds": 2.26666666666667
+    },
+    {
+      "aircraft_id": "su35s",
+      "crashed": false,
+      "final_position": "(9.869051, 1.4, -51.48325)",
+      "final_speed_mps": 1.93544411659241,
+      "landing_seconds": 159.266666666667,
+      "max_bank_rad": 1.40626243064665,
+      "stage": 4,
+      "status": "PASS",
+      "takeoff_seconds": 1.66666666666667
+    },
+    {
+      "aircraft_id": "rafale",
+      "crashed": false,
+      "final_position": "(9.142431, 1.4, -15.1034)",
+      "final_speed_mps": 1.9692919254303,
+      "landing_seconds": 162.033333333333,
+      "max_bank_rad": 1.33342508819405,
+      "stage": 4,
+      "status": "PASS",
+      "takeoff_seconds": 2.06666666666667
+    },
+    {
+      "aircraft_id": "gripen",
+      "crashed": false,
+      "final_position": "(9.208413, 1.4, 12.78692)",
+      "final_speed_mps": 1.89983153343201,
+      "landing_seconds": 162.633333333333,
+      "max_bank_rad": 1.26979064900273,
+      "stage": 4,
+      "status": "PASS",
+      "takeoff_seconds": 2.03333333333333
+    }
+  ]
+}
