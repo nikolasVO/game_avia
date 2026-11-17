@@ -16,7 +16,7 @@ def doctor():
     result={"python":{"installed":True,"version":platform.python_version(),"tested":True},
             "budget":{"configured":bool(os.getenv("GAME_AVIA_DAILY_COST_LIMIT")),"status":"budget_not_configured" if not os.getenv("GAME_AVIA_DAILY_COST_LIMIT") else "configured"},
             "trellis":readiness(base/"models/trellis512"),"disk":{"free_bytes":shutil.disk_usage(base).free,"reserve_bytes":10*1024**3},
-            "unity":{"installed":False,"configured":False,"tested":False,"blocked":"Unity Editor and full Xcode not found on inspected Mac"},
+            "unity":json.loads(s.kv("unity_readiness") or '{"installed":false,"tested":false,"blocked":"No Mac runner evidence recorded"}'),
             "backup":{"local_tested":s.kv("backup_tested")=="true","off_server_configured":s.kv("off_server_backup_tested")=="true"},
             "providers":{"configured":[],"agent_tested":[]}}
     for k,v in os.environ.items():

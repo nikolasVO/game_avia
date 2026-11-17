@@ -15,7 +15,7 @@ DINOv3 returned gated HTTP 401. The weight download is blocked until the owner h
 
 The local asset API accepts a strict typed specification. References resolve inside repo/assets/source; path escapes, external symlinks, arbitrary shell fields and non-512 profiles are rejected. The runner uses a measured disk/VRAM guard, GPU lease and process heartbeat, runs the actual installed TRELLIS source, preserves original GLB, optimizes with Blender, records provenance/hashes and verifies measured budgets. Its full inference execution remains untested due to gated weights.
 
-Future output must still complete GitHub/LFS artifact sync, Unity import/build and target-device checks. The Mac inspection found no Unity Editor/full Xcode; Docker Desktop was installed but its daemon was not running. There is no real Unity, Android or iOS build in this milestone. No game genre, control scheme, art direction or store release is inferred from the project name.
+Future output must still complete GitHub/LFS artifact sync, Unity import/build and target-device checks. Unity Editor 6000.3.28f1 (Intel) and Hub 4.0.1 have now been installed on Mac from signed official downloads. Editor version execution passed; a real batchmode launch exited 198 with no valid Editor license. URP 17.3.0 is bundled with this Editor. The manual outbound-SSH runner and pinned glTFast 6.15.1 proof project are prepared, but their Editor C# import/build has not run past licensing. Full Xcode is absent. There is no real Unity, Android or iOS build in this milestone. See [Mac runner](mac-runner.md). No game genre, control scheme, art direction or store release is inferred from the project name.
 
 Asset example:
 

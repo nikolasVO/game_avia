@@ -43,7 +43,8 @@ def check():
     report["restart_recovery"]=s.kv("restart_recovery")
     report["off_server_backup_tested"]=s.kv("off_server_backup_tested")
     report["owner_live_incoming_update_verified"]=False
-    report["remaining_blockers"]=["gated_dino_access","Unity_Editor_license_runner_and_Xcode","official_Codex_Responses_route_unverified","bootstrap_paid_probe_cap_reached","unattended_E2E_retest_pending","image_size_contract_mismatch","game_brief_missing"]
+    report["unity"]=json.loads(s.kv("unity_readiness") or "{}")
+    report["remaining_blockers"]=["gated_dino_access","Unity_license_import_build_and_Xcode","official_Codex_Responses_route_unverified","bootstrap_paid_probe_cap_reached","unattended_E2E_retest_pending","image_size_contract_mismatch","game_brief_missing"]
     assert report["health"]["release"]==report["checkout"]
     assert report["api_rejects_unauthorized"] and report["api_authorized_get"]
     assert all(x=="RUNNING" for x in report["services"].values())
