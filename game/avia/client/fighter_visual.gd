@@ -133,6 +133,7 @@ static func create_spec(spec: Dictionary, use_imported: bool=false) -> AviaAircr
   exhaust.position.x=side*float(g.get("engine_spacing_m",length*.11))*.5
  root.exhaust.hide()
  _build_airbrakes(root,spec,color)
+ _build_flaps(root,spec,color)
  return root
 
 static func _box_body(st: SurfaceTool,sections: Array,color: Color) -> void:
@@ -197,3 +198,26 @@ static func _build_airbrakes(root: AviaAircraft,spec: Dictionary,color: Color) -
   root.airbrake_hinges.append(Transform3D(Basis.IDENTITY,Vector3(float(at[0]),float(at[1]),float(at[2]))))
   root.airbrake_angles.append(deg_to_rad(float(panel.angle_degrees)))
  root._pose_airbrake()
+
+static func _build_flaps(root: AviaAircraft,spec: Dictionary,color: Color) -> void:
+ var config: Dictionary=spec.get("visual",{}).get("flap_animation",{})
+ if config.is_empty() or not bool(spec.systems.get("flaps",false)):return
+ # Explicit provisional trailing-edge add-on skins, not extracted AI control surfaces.
+ # Pair shares one small mesh/draw; all positions are measured against this candidate.
+ var width: float=float(config.span_m);var sweep: float=float(config.hinge_sweep_m)
+ var chord: float=float(config.chord_m);var tip: float=float(config.tip_chord_m)
+ var thickness: float=float(config.thickness_m)
+ var st: SurfaceTool=SurfaceTool.new();st.begin(Mesh.PRIMITIVE_TRIANGLES)
+ AviaAircraft._solid(st,[Vector3(0,-thickness*.5,0),Vector3(width,-thickness*.5,sweep),Vector3(width,-thickness*.5,sweep+tip),Vector3(0,-thickness*.5,chord),Vector3(0,thickness*.5,0),Vector3(width,thickness*.5,sweep),Vector3(width,thickness*.5,sweep+tip),Vector3(0,thickness*.5,chord)],color.lightened(.05))
+ var template: MeshInstance3D=AviaAircraft._mesh(st,root,"FlapTemplate",0,500)
+ root.flap_instances=MultiMeshInstance3D.new();root.flap_instances.name="AuthoredFlaps"
+ var instances: MultiMesh=MultiMesh.new();instances.transform_format=MultiMesh.TRANSFORM_3D;instances.mesh=template.mesh;instances.instance_count=2
+ root.flap_instances.multimesh=instances;root.flap_instances.material_override=template.material_override;root.flap_instances.visibility_range_end=500;root.add_child(root.flap_instances);template.free()
+ root.flap_duration=clampf(float(config.travel_seconds),.2,2.0)
+ var at: Array=config.hinge_m
+ for side: float in [-1.0,1.0]:
+  # Negative-X reflection mirrors the right-hand mesh; angle flips about the outward hinge.
+  root.flap_hinges.append(Transform3D(Basis.from_scale(Vector3(side,1,1)),Vector3(side*float(at[0]),float(at[1]),float(at[2]))))
+  root.flap_axes.append(Vector3(side*width,0,sweep).normalized())
+  root.flap_angles.append(side*deg_to_rad(float(config.angle_degrees)))
+ root._pose_flaps()

@@ -15,6 +15,14 @@ var airbrake_deployment: float=0.0
 var airbrake_target: float=0.0
 var airbrake_duration: float=0.65
 var airbrake_initialized: bool=false
+var flap_instances: MultiMeshInstance3D
+var flap_hinges: Array[Transform3D]=[]
+var flap_axes: Array[Vector3]=[]
+var flap_angles: Array[float]=[]
+var flap_deployment: float=0.0
+var flap_target: float=0.0
+var flap_duration: float=0.8
+var flap_initialized: bool=false
 var systems_initialized: bool=false
 var exhaust: Node3D
 var vectoring_nozzles: Array[Node3D]=[]
@@ -103,9 +111,14 @@ func _process(delta: float) -> void:
  if propeller and visible:propeller.rotate_z(spin_speed*delta)
  advance_gear(delta)
  advance_airbrake(delta)
+ advance_flaps(delta)
  if sweep_initialized:pose_sweep(move_toward(sweep_fraction,sweep_target,maxf(delta,0.0)/2.5))
 
 func update_state(state: Dictionary) -> void:
+ if flap_instances:
+  flap_target=1.0 if bool(state.get("flaps",false)) and not bool(state.get("crashed",false)) else 0.0
+  if not flap_initialized:
+   flap_deployment=flap_target;flap_initialized=true;_pose_flaps()
  if airbrake_instances:
   airbrake_target=1.0 if bool(state.get("airbrake",false)) and not bool(state.get("crashed",false)) else 0.0
   if not airbrake_initialized:
@@ -159,3 +172,15 @@ func _pose_airbrake() -> void:
   var hinge: Transform3D=airbrake_hinges[i]
   hinge.basis=hinge.basis*Basis(Vector3.RIGHT,airbrake_angles[i]*airbrake_deployment)
   airbrake_instances.multimesh.set_instance_transform(i,hinge)
+
+func advance_flaps(delta: float) -> void:
+ if not flap_instances or not flap_initialized:return
+ var previous: float=flap_deployment
+ flap_deployment=move_toward(previous,flap_target,maxf(0.0,delta)/flap_duration)
+ if flap_deployment!=previous:_pose_flaps()
+
+func _pose_flaps() -> void:
+ for i: int in flap_hinges.size():
+  var hinge: Transform3D=flap_hinges[i]
+  hinge.basis=Basis(flap_axes[i],flap_angles[i]*flap_deployment)*hinge.basis
+  flap_instances.multimesh.set_instance_transform(i,hinge)

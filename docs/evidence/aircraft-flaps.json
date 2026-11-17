@@ -1,0 +1,328 @@
+{
+  "status": "PASS",
+  "source_base": "42494f77b785bf331082ea601c1db58b0433dd66",
+  "visual": {
+    "checks": [
+      {
+        "check": "visual consumes authoritative state without mutating simulation",
+        "ok": true
+      },
+      {
+        "check": "one configured mirrored pair at closed first snapshot",
+        "ok": true
+      },
+      {
+        "check": "both hinge lines fit actual imported upper wing within5cm at six samples",
+        "ok": true
+      },
+      {
+        "check": "one finite twelve-triangle mesh instanced twice, capped500m",
+        "ok": true
+      },
+      {
+        "check": "subsequent authoritative deployment animates without snapping",
+        "ok": true
+      },
+      {
+        "check": "half travel uses constant elapsed time",
+        "ok": true
+      },
+      {
+        "check": "intermediate transforms remain rigid and hinge endpoints fixed",
+        "ok": true
+      },
+      {
+        "check": "both trailing edges move down with exact mirror symmetry",
+        "ok": true
+      },
+      {
+        "check": "repeated snapshots/negative delta never restart or reverse progress",
+        "ok": true
+      },
+      {
+        "check": "mid-travel reversal is continuous",
+        "ok": true
+      },
+      {
+        "check": "closed endpoint restores exact neutral transform",
+        "ok": true
+      },
+      {
+        "check": "120small steps reach same deployed endpoint",
+        "ok": true
+      },
+      {
+        "check": "late join baseline starts at replicated deployed state",
+        "ok": true
+      },
+      {
+        "check": "crash returns to neutral",
+        "ok": true
+      },
+      {
+        "check": "kite: no generic added surfaces",
+        "ok": true
+      },
+      {
+        "check": "su27: no generic added surfaces",
+        "ok": true
+      },
+      {
+        "check": "f15c: no generic added surfaces",
+        "ok": true
+      },
+      {
+        "check": "su35s: no generic added surfaces",
+        "ok": true
+      },
+      {
+        "check": "rafale: no generic added surfaces",
+        "ok": true
+      },
+      {
+        "check": "gripen: no generic added surfaces",
+        "ok": true
+      },
+      {
+        "check": "authoritative shared flap command adds actual lift and drag",
+        "ok": true
+      },
+      {
+        "check": "render stage0 view0",
+        "ok": true
+      },
+      {
+        "check": "render stage0 view1",
+        "ok": true
+      },
+      {
+        "check": "render stage1 view0",
+        "ok": true
+      },
+      {
+        "check": "render stage1 view1",
+        "ok": true
+      },
+      {
+        "check": "render stage2 view0",
+        "ok": true
+      },
+      {
+        "check": "render stage2 view1",
+        "ok": true
+      }
+    ],
+    "event": "flap_summary",
+    "scope": "provisional authored F16C add-on flap pair, static AI wing retained; type-correct surfaces, recognition, phone and full aircraft acceptance pending",
+    "status": "PASS"
+  },
+  "network": {
+    "status": "PASS",
+    "scope": "two actual rendered local ENet/DTLS clients, no external/mobile acceptance",
+    "clients": {
+      "f16c": {
+        "passed": true,
+        "summary": {
+          "commands_sent": 505,
+          "connection_status": "Connected",
+          "correction_max_m": 0.141250610351562,
+          "correction_p95_m": 0.00226350454613566,
+          "enet_rtt_ms": 22.0,
+          "event": "summary",
+          "frame_p50_ms": 16.656,
+          "frame_p95_ms": 18.598,
+          "joined": true,
+          "last_input_ack": 502,
+          "pending_inputs": 3,
+          "rejected": 0,
+          "renderer": "gl_compatibility",
+          "seconds": 18.0045454545457,
+          "seen_peers": 2,
+          "server": false,
+          "snapshots": 252,
+          "state": {
+            "afterburner": false,
+            "age": 507,
+            "airbrake": false,
+            "crashed": false,
+            "distance": 2114.26058197021,
+            "flaps": false,
+            "gear": true,
+            "grounded": false,
+            "health": 100.0,
+            "landed": false,
+            "p": "(177.2875, 209.5169, -1907.268)",
+            "pitch": -0.0170883843675256,
+            "plane": 3,
+            "profile": 0,
+            "rates": "(0.010147, 0.0, 0.000002)",
+            "respawns": 0,
+            "roll": -0.262503294840703,
+            "v": "(38.34693, 11.67175, -184.5125)",
+            "was_airborne": true,
+            "yaw": -0.183135820584798
+          },
+          "static_memory_mb": 52.1910419464111,
+          "wall_seconds": 19.616
+        },
+        "visual": {
+          "event": "flap_network_summary",
+          "observed": [
+            {
+              "deployed": true,
+              "errors": 0,
+              "intermediate_frames": 188,
+              "local": true,
+              "neutral": true,
+              "targets": {
+                "0.0": true,
+                "1.0": true
+              }
+            },
+            {
+              "deployed": true,
+              "errors": 0,
+              "intermediate_frames": 188,
+              "local": false,
+              "neutral": true,
+              "targets": {
+                "0.0": true,
+                "1.0": true
+              }
+            }
+          ],
+          "scope": "actual rendered local/remote ENet/DTLS state, no external/device acceptance",
+          "status": "PASS"
+        }
+      },
+      "f16c_remote": {
+        "passed": true,
+        "summary": {
+          "commands_sent": 506,
+          "connection_status": "Connected",
+          "correction_max_m": 5.35399770736694,
+          "correction_p95_m": 4.31629943847656,
+          "enet_rtt_ms": 23.0,
+          "event": "summary",
+          "frame_p50_ms": 16.678,
+          "frame_p95_ms": 18.166,
+          "joined": true,
+          "last_input_ack": 503,
+          "pending_inputs": 3,
+          "rejected": 0,
+          "renderer": "gl_compatibility",
+          "seconds": 18.0044350000002,
+          "seen_peers": 2,
+          "server": false,
+          "snapshots": 252,
+          "state": {
+            "afterburner": false,
+            "age": 507,
+            "airbrake": false,
+            "crashed": false,
+            "distance": 2126.40751552582,
+            "flaps": false,
+            "gear": true,
+            "grounded": false,
+            "health": 100.0,
+            "landed": false,
+            "p": "(167.7883, 209.4024, -1919.213)",
+            "pitch": -0.0163694847297544,
+            "plane": 3,
+            "profile": 0,
+            "rates": "(0.005275, 0.0, 0.000003)",
+            "respawns": 0,
+            "roll": -0.26250457741296,
+            "v": "(38.60099, 11.67668, -184.6217)",
+            "was_airborne": true,
+            "yaw": -0.18430886488272
+          },
+          "static_memory_mb": 51.5770015716553,
+          "wall_seconds": 19.602
+        },
+        "visual": {
+          "event": "flap_network_summary",
+          "observed": [
+            {
+              "deployed": true,
+              "errors": 0,
+              "intermediate_frames": 188,
+              "local": true,
+              "neutral": true,
+              "targets": {
+                "0.0": true,
+                "1.0": true
+              }
+            },
+            {
+              "deployed": true,
+              "errors": 0,
+              "intermediate_frames": 188,
+              "local": false,
+              "neutral": true,
+              "targets": {
+                "0.0": true,
+                "1.0": true
+              }
+            }
+          ],
+          "scope": "actual rendered local/remote ENet/DTLS state, no external/device acceptance",
+          "status": "PASS"
+        }
+      }
+    }
+  },
+  "regressions": [
+    {
+      "script": "flight_check",
+      "passed": true
+    },
+    {
+      "script": "fighter_check",
+      "passed": true
+    },
+    {
+      "script": "fighter_geometry_check",
+      "passed": true
+    },
+    {
+      "script": "fighter_circuit_check",
+      "passed": true
+    },
+    {
+      "script": "interceptor_flight_check",
+      "passed": true
+    }
+  ],
+  "assembly_check_count": 74,
+  "f16c_budgets": [
+    {
+      "aircraft_id": "f16c",
+      "distance_m": 100,
+      "limit": 20000,
+      "triangles": 19544
+    },
+    {
+      "aircraft_id": "f16c",
+      "distance_m": 400,
+      "limit": 7000,
+      "triangles": 6142
+    },
+    {
+      "aircraft_id": "f16c",
+      "distance_m": 600,
+      "limit": 7000,
+      "triangles": 5998
+    },
+    {
+      "aircraft_id": "f16c",
+      "distance_m": 950,
+      "limit": 2000,
+      "triangles": 1480
+    }
+  ],
+  "pytest": 17,
+  "visual_review": "Six actual renderer captures reviewed; provisional paired skins hinge down symmetrically. Original AI wing remains static; full type-correct extracted control surfaces and mobile acceptance remain open.",
+  "failed_fixture_attempt": "First local network fixture used a different scene root name, causing RPC path mismatch and zero joined peers. Corrected fixture root to existing Avia path; fresh two-client run passed. No game protocol changes.",
+  "production_accepted": false
+}
