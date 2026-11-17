@@ -1,0 +1,60 @@
+{
+  "aircraft_id": "tornado",
+  "display_name": "Panavia Tornado",
+  "country": "Europe",
+  "class": "low_level_strike",
+  "status": "planned",
+  "playable": false,
+  "source_type": "procedural_placeholder",
+  "physics_model": "fighter_v1",
+  "color": "a5a49a",
+  "flight": {
+    "max_speed_sea_kmh": 1472,
+    "max_speed_altitude_kmh": 2300,
+    "cruise_speed_kmh": 850,
+    "stall_speed_kmh": 265,
+    "takeoff_speed_kmh": 302,
+    "landing_speed_kmh": 315,
+    "climb_speed_kmh": 583,
+    "acceleration_mps2": 28,
+    "afterburner_acceleration_mps2": 42
+  },
+  "handling": {
+    "maneuverability": 64,
+    "stability": 92,
+    "inertia": 85,
+    "low_speed_control": 45,
+    "high_speed_control": 90,
+    "roll_response": 67,
+    "pitch_response": 59,
+    "yaw_response": 51,
+    "landing_difficulty": 73,
+    "takeoff_difficulty": 52
+  },
+  "systems": {
+    "afterburner": true,
+    "airbrake": true,
+    "landing_gear": true,
+    "flaps": true,
+    "thrust_vectoring": false,
+    "variable_sweep": true
+  },
+  "geometry": {
+    "length_m": 16.7,
+    "span_m": 13.9,
+    "engines": 2,
+    "planform": "swing"
+  },
+  "reference": {
+    "status": "game proportions pending variant validation",
+    "commercial_rights": "NOT REVIEWED; no logos or military insignia",
+    "fallback_name": "Avia 15-TORNADO"
+  },
+  "mission_classes": [
+    "jet",
+    "race",
+    "free",
+    "combat"
+  ],
+  "balance_notice": "Authored arcade values; not real aircraft technical specifications."
+}

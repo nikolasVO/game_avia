@@ -1,0 +1,420 @@
+{
+  "replay_observed": true,
+  "expiry_observed": true,
+  "peaceful_fire_received_count": 150,
+  "peaceful_shot_suppression": true,
+  "packet_delivery": [
+    {
+      "enet_deceleration": 2.0,
+      "enet_rtt_ms": 32.0,
+      "enet_throttle": 32.0,
+      "enet_throttle_limit": 32.0,
+      "event": "sent_attack",
+      "label": "nan",
+      "number": 9,
+      "peer": 385401689,
+      "expected": "invalid_input",
+      "received": [
+        {
+          "event": "input_receipt",
+          "fire": false,
+          "number": 9,
+          "peer": 385401689,
+          "result": "invalid_input"
+        }
+      ],
+      "ok": true
+    },
+    {
+      "enet_deceleration": 2.0,
+      "enet_rtt_ms": 32.0,
+      "enet_throttle": 32.0,
+      "enet_throttle_limit": 32.0,
+      "event": "sent_attack",
+      "label": "inf",
+      "number": 10,
+      "peer": 385401689,
+      "expected": "invalid_input",
+      "received": [
+        {
+          "event": "input_receipt",
+          "fire": false,
+          "number": 10,
+          "peer": 385401689,
+          "result": "invalid_input"
+        }
+      ],
+      "ok": true
+    },
+    {
+      "enet_deceleration": 2.0,
+      "enet_rtt_ms": 32.0,
+      "enet_throttle": 32.0,
+      "enet_throttle_limit": 32.0,
+      "event": "sent_attack",
+      "label": "3.0",
+      "number": 11,
+      "peer": 385401689,
+      "expected": "invalid_input",
+      "received": [
+        {
+          "event": "input_receipt",
+          "fire": false,
+          "number": 11,
+          "peer": 385401689,
+          "result": "invalid_input"
+        }
+      ],
+      "ok": true
+    },
+    {
+      "enet_deceleration": 2.0,
+      "enet_rtt_ms": 30.0,
+      "enet_throttle": 32.0,
+      "enet_throttle_limit": 32.0,
+      "event": "sent_attack",
+      "label": "teleport",
+      "number": 12,
+      "peer": 385401689,
+      "expected": "invalid_input",
+      "received": [
+        {
+          "event": "input_receipt",
+          "fire": false,
+          "number": 12,
+          "peer": 385401689,
+          "result": "invalid_input"
+        }
+      ],
+      "ok": true
+    },
+    {
+      "enet_deceleration": 2.0,
+      "enet_rtt_ms": 30.0,
+      "enet_throttle": 32.0,
+      "enet_throttle_limit": 32.0,
+      "event": "sent_attack",
+      "label": "profile_injection",
+      "number": 13,
+      "peer": 385401689,
+      "expected": "invalid_input",
+      "received": [
+        {
+          "event": "input_receipt",
+          "fire": false,
+          "number": 13,
+          "peer": 385401689,
+          "result": "invalid_input"
+        }
+      ],
+      "ok": true
+    },
+    {
+      "enet_deceleration": 2.0,
+      "enet_rtt_ms": 29.0,
+      "enet_throttle": 32.0,
+      "enet_throttle_limit": 32.0,
+      "event": "sent_attack",
+      "label": "non_boolean_afterburner",
+      "number": 14,
+      "peer": 385401689,
+      "expected": "invalid_input",
+      "received": [
+        {
+          "event": "input_receipt",
+          "fire": false,
+          "number": 14,
+          "peer": 385401689,
+          "result": "invalid_input"
+        }
+      ],
+      "ok": true
+    },
+    {
+      "enet_deceleration": 2.0,
+      "enet_rtt_ms": 29.0,
+      "enet_throttle": 32.0,
+      "enet_throttle_limit": 32.0,
+      "event": "sent_attack",
+      "label": "replay",
+      "number": -10,
+      "peer": 385401689,
+      "expected": "replayed_sequence",
+      "received": [
+        {
+          "event": "input_receipt",
+          "fire": false,
+          "number": -10,
+          "peer": 385401689,
+          "result": "replayed_sequence"
+        }
+      ],
+      "ok": true
+    },
+    {
+      "enet_deceleration": 2.0,
+      "enet_rtt_ms": 28.0,
+      "enet_throttle": 32.0,
+      "enet_throttle_limit": 32.0,
+      "event": "sent_attack",
+      "label": "sequence_jump",
+      "number": 10015,
+      "peer": 385401689,
+      "expected": "sequence_jump",
+      "received": [
+        {
+          "event": "input_receipt",
+          "fire": false,
+          "number": 10015,
+          "peer": 385401689,
+          "result": "sequence_jump"
+        }
+      ],
+      "ok": true
+    }
+  ],
+  "ticket_receipts": [
+    {
+      "event": "ticket_receipt",
+      "peer": 385401689,
+      "result": "accepted"
+    },
+    {
+      "event": "ticket_receipt",
+      "peer": 385401689,
+      "result": "missing_ticket"
+    },
+    {
+      "event": "ticket_receipt",
+      "peer": 1282122697,
+      "result": "accepted"
+    },
+    {
+      "event": "ticket_receipt",
+      "peer": 1282122697,
+      "result": "missing_ticket"
+    },
+    {
+      "event": "ticket_receipt",
+      "peer": 765338572,
+      "result": "expired_ticket"
+    },
+    {
+      "event": "ticket_receipt",
+      "peer": 1667282252,
+      "result": "accepted"
+    },
+    {
+      "event": "ticket_receipt",
+      "peer": 380849929,
+      "result": "accepted"
+    },
+    {
+      "event": "ticket_receipt",
+      "peer": 366528557,
+      "result": "accepted"
+    },
+    {
+      "event": "ticket_receipt",
+      "peer": 220701064,
+      "result": "accepted"
+    }
+  ],
+  "invalid_ticket_rejected": true,
+  "checks": [
+    {
+      "scenario": "invalid",
+      "exit": 0,
+      "summary": {
+        "connection_status": "Connected",
+        "event": "actor_summary",
+        "joined": true,
+        "peer_id": 385401689,
+        "scenario": "invalid",
+        "snapshots": 78,
+        "status": "PASS"
+      },
+      "ok": true
+    },
+    {
+      "scenario": "replay",
+      "exit": 0,
+      "summary": {
+        "connection_status": "Connected",
+        "event": "actor_summary",
+        "joined": true,
+        "peer_id": 1282122697,
+        "scenario": "replay",
+        "snapshots": 77,
+        "status": "PASS"
+      },
+      "ok": true
+    },
+    {
+      "scenario": "expired",
+      "exit": 0,
+      "summary": {
+        "connection_status": "Disconnected \u2014 retry from menu",
+        "event": "actor_summary",
+        "joined": false,
+        "peer_id": 765338572,
+        "scenario": "expired",
+        "snapshots": 0,
+        "status": "PASS"
+      },
+      "ok": true
+    },
+    {
+      "scenario": "plain",
+      "exit": 0,
+      "summary": {
+        "connection_status": "Menu",
+        "event": "actor_summary",
+        "joined": false,
+        "peer_id": 0,
+        "scenario": "plain",
+        "snapshots": 0,
+        "status": "PASS"
+      },
+      "ok": true
+    },
+    {
+      "scenario": "wrong-cert",
+      "exit": 0,
+      "summary": {
+        "connection_status": "Disconnected \u2014 retry from menu",
+        "event": "actor_summary",
+        "joined": false,
+        "peer_id": 0,
+        "scenario": "wrong-cert",
+        "snapshots": 0,
+        "status": "PASS"
+      },
+      "ok": true
+    },
+    {
+      "scenario": "held-recovery",
+      "exit": 0,
+      "summary": {
+        "connection_status": "Connected",
+        "event": "actor_summary",
+        "joined": true,
+        "peer_id": 1667282252,
+        "scenario": "held-recovery",
+        "snapshots": 77,
+        "status": "PASS"
+      },
+      "ok": true
+    },
+    {
+      "scenario": "rapid-leave",
+      "exit": 0,
+      "summary": {
+        "connection_status": "Menu",
+        "event": "actor_summary",
+        "joined": false,
+        "peer_id": 380849929,
+        "scenario": "rapid-leave",
+        "snapshots": 3,
+        "status": "PASS"
+      },
+      "ok": true
+    },
+    {
+      "scenario": "version",
+      "exit": 0,
+      "summary": {
+        "connection_status": "Version mismatch",
+        "event": "actor_summary",
+        "joined": false,
+        "peer_id": 366528557,
+        "scenario": "version",
+        "snapshots": 0,
+        "status": "PASS"
+      },
+      "ok": true
+    },
+    {
+      "scenario": "peaceful-fire",
+      "exit": 0,
+      "summary": {
+        "connection_status": "Connected",
+        "event": "actor_summary",
+        "joined": true,
+        "peer_id": 220701064,
+        "scenario": "peaceful-fire",
+        "snapshots": 71,
+        "status": "PASS"
+      },
+      "ok": true
+    }
+  ],
+  "server_rejected": 11,
+  "status": "PASS",
+  "scope": "Real localhost ENet/DTLS; opt-in server observer records actual production handler receipt/rejection by peer and unique sequence. Missing delivery fails; no rejection inferred from stationary aircraft.",
+  "source_files_sha256": {
+    "game/avia/assets/airfield_safety_block.glb": "5d6e5314c6e35b998d19ce0671b3d7e3578107bfab72f0c315640f3abe80c346",
+    "game/avia/assets/parked_ai_aircraft.glb": "15bd5a906a02393ef9d523116fb53c527ce266f2c55a57b54e2d74f7561b83c2",
+    "game/avia/client/aircraft.gd": "b8176b570e2e32d7ca159d64047bdca4fc90d6fbda5323e80f59ad94702bf99b",
+    "game/avia/client/catalog_prop.gd": "9ee9db70aa0f38d396b90a82fd0dac390b07ebda266c51f460e2762f4df8b0e7",
+    "game/avia/client/fighter_visual.gd": "16493d0805fe59d83e1d9acafc6ca466fe5a11a612a78b84d93b543346e14629",
+    "game/avia/client/hangar.gd": "913b85e55273892d05b1243ee835c13497652aa2dc8220e95e8c9cdbafc6a9ba",
+    "game/avia/client/radar.gd": "1812baff2137146b40373e34c95b223d78c9ecb823eb6de36b736190f1101c83",
+    "game/avia/client/sound.gd": "9ac35e2283415fdc3a8d3e39a6cfdac12dd97cac76ed0e19057125946eb2dac0",
+    "game/avia/client/touch.gd": "7e7e8815e45769f7262770b4af20d365da48cb18e713d0a8cbec874f79932409",
+    "game/avia/client/ui.gd": "35b81cf8e3424bf6e935e85a8ca968843c4d9605e91717a0af7de59f65bfca25",
+    "game/avia/client/world.gd": "b5481311968c603685770d0500da5f4ce97db04fb8e3fc51406bbf33ee8b7d94",
+    "game/avia/data/aircraft/catalog.json": "cd82cb5e656c9116cd61e89c724a54ceecded5f4894646a3a7a739a0f858f5bd",
+    "game/avia/data/aircraft/f14.json": "290342b0329a01138b8778b94f15d4d6a2f9992042b669b8453946ee0907c2b4",
+    "game/avia/data/aircraft/f15c.json": "4ed14b681e8dff0a5fedb2d0c4342905abf83d0e38f9a7fe752089611d2674e4",
+    "game/avia/data/aircraft/f15e.json": "c7d4e2b48cc03714e6f8affb3a6241250f095ad0e4b6e344e2f5f885addae069",
+    "game/avia/data/aircraft/f16c.json": "03f8fb10268cd26171c1e989276401298fa9c79726575fa486735894e10de5be",
+    "game/avia/data/aircraft/f2.json": "5108cc80dae9b42a3ba2464acfde82a12141dd993035e37df089ce6d9d4598e2",
+    "game/avia/data/aircraft/f22.json": "13051f0e6f44416322cbf8ec31c2acb6368f931ac8c5df07316828402d363351",
+    "game/avia/data/aircraft/f35a.json": "0e2e323f430d6958e35a234e7e92077275623a87f3477dd2dd64ae140220b5fa",
+    "game/avia/data/aircraft/fa18e.json": "5bacd531d455ed1556efc68b2884953c0967d98e3d8bb4ea74a80fdaa0aa294f",
+    "game/avia/data/aircraft/gripen.json": "d63b7bceb3165e96586ceeecbb4ac83a3d34b1baf941ea87fc3d31b64f488597",
+    "game/avia/data/aircraft/j10c.json": "0e2bd9e93a628c5c2fb37345dd0cce2700ca02af0985c659dc3064379e4f3af8",
+    "game/avia/data/aircraft/j20.json": "5f556657aec24825f27751a5c40ce3d5037a41f46f188a69dcd7727b82d34641",
+    "game/avia/data/aircraft/kf21.json": "8230eb8374d3a864244b40ba5da7734c640b19eb1af03fff783648811b834b91",
+    "game/avia/data/aircraft/kite.json": "e8a328bed7294de32cef364910b226d18f9dbe108ce2ef5378bd288fe140075a",
+    "game/avia/data/aircraft/mig21.json": "a264a928e00981181c378460f00496d26123f9d45fb673cb4d5be269091222b7",
+    "game/avia/data/aircraft/mig29.json": "8db5322f192da655e708ae6a777ede1e0451bc7caa12b0879d4616ff345f6287",
+    "game/avia/data/aircraft/mig31.json": "1a7708174313c71437f07414d56d84ad03eb6fdde0799bee1fd6c5a07da0ef0a",
+    "game/avia/data/aircraft/rafale.json": "67bc108ba8ba62ee9853f196cb82a7ae6ad0320937b04e0bc228693399552b88",
+    "game/avia/data/aircraft/su27.json": "48eb1ff7c0bae064ddbf98334f6e0b0d0d5ba430dd8493ad7987e2a1c33ba1e5",
+    "game/avia/data/aircraft/su30sm.json": "6d811632f6096728fcbb147d36328df2654aad584a3bd714a920a0a7040dd0bf",
+    "game/avia/data/aircraft/su34.json": "bd556c46de851f7a0aa172343600e8fb1a97f0d6e720f6b31fabdd99ebdb457b",
+    "game/avia/data/aircraft/su35s.json": "3143f8226ce059835443b3baeab4b2d03310329baad368603fa2d1766592093a",
+    "game/avia/data/aircraft/su57.json": "2082d33144d9e33e8af73b585c3ac0a6599a038bac73474e802fba5244daeff0",
+    "game/avia/data/aircraft/swift.json": "d446d8023e5a2c9d06abbf67f59abca7afd55890a2e870e2b271205c0f790803",
+    "game/avia/data/aircraft/tejas.json": "ed85e920db53d296de6cc7e6da86d1946a5500e33f4acf9980d8af7884a61c51",
+    "game/avia/data/aircraft/tern.json": "2c13ff67f450c4f462a66f824482b5bc177083b77ceb0265790e4669a80685a1",
+    "game/avia/data/aircraft/tornado.json": "843fa514981f127f70c722b745b858026288802c331124891d75572f71f98509",
+    "game/avia/data/aircraft/typhoon.json": "6ad3315d0bdba5ea3b5b9e855b62c1b31869aa78f15348576bd6c7dae6a69c93",
+    "game/avia/export_presets.cfg": "1d917e73b690ba959d03e741b53b86ca6cac69e6f8c4d7cd863a5d2a806fefd7",
+    "game/avia/main.gd": "dbaf7c19b7012a436fa1967dd8fbcf5b927a7f5ee5d294ea20f48a765155f9d6",
+    "game/avia/main.tscn": "f80da3870655a050f9bf88f2deb8d6bcacca673f79618f620e4fd14d2645507a",
+    "game/avia/net/session.gd": "0158d801865b5744666860837317ff4dd97d79c03847520f097036a6ec93a707",
+    "game/avia/project.godot": "95cfc9347538cae864bc3b175670e4022b3c845a94141e8f8c49f10cb382d8a0",
+    "game/avia/shared/catalog.gd": "6f5803884305a7175fefa3144f2e212eb89387f5cba74e5f5c17edfa40d5b2d9",
+    "game/avia/shared/fighter.gd": "825462f70b8f9e93c45a379c4337bc8ca743f03005859e52ff0efc3b2342e180",
+    "game/avia/shared/flight.gd": "543fc282b43763e28aa4af936b0cc5ded8570143d6f9ef2c8bfe6972c285836e",
+    "game/avia/shared/rules.gd": "483686152b97582d41778dc5a36940cc7d62b6d51a04aca8ed6a4bee1d582cc0",
+    "game/avia/shared/wire.gd": "6b88edb2b95c3f0624f90966acb6f4e381c9bb7cc4e0b2d9667b6bbed4656d65",
+    "game/avia/tests/admission_actor.gd": "7df0926849988e40449de97b4b52fa0c0af7cd9e4f134f69ee13ffb54e3c318c",
+    "game/avia/tests/aircraft_preview.gd": "137d9a7bd1b0bfb37c4c1d4440e7f995bbab4498f38deb95de80150c04c66dc7",
+    "game/avia/tests/audit_main.gd": "323c2e0d90ea8010329dc6ac78863c5b7d97c3f6bd7b809de2f846300472d945",
+    "game/avia/tests/audit_main.tscn": "b29d76396aeac09c792e3a6a187b2de8899b5689446490f9593cb45ababc76b9",
+    "game/avia/tests/audit_server.gd": "9f4d2965a3ea94baa63c2d3d4c2da6157ffa1ee533525652e1d9c3e61d1be175",
+    "game/avia/tests/catalog_check.gd": "03d96e4d3728506664faeb68d7279661e5d0a52aa71a6f494bde229856925aa2",
+    "game/avia/tests/fighter_check.gd": "69c44910d40e5709b95db500609204d06026664ed3735278ba3a3bca7dada947",
+    "game/avia/tests/fighter_geometry_check.gd": "c3dc1b437692459c1d7d46984c20e2ad40b80a89be8d2008942664eb19d54af3",
+    "game/avia/tests/fighter_test_main.gd": "af02a08664fef6ac8d674c8e8425cba12f36fbbd160536c430cecfc14c1b1aaf",
+    "game/avia/tests/fighter_test_main.tscn": "5305285d3137c10b4d1f991f23f18033818de320ec8109e8e3b7e0efe72c2651",
+    "game/avia/tests/flight_check.gd": "a194eca32c1a89304a4e05395e5773728d4ce614809ddef4cd82ffac24cb2778",
+    "game/avia/tests/lifecycle_actor.gd": "b002a804fefbbec49968d11eff8a56823cf26a8963229c0231c39343859a89b5",
+    "game/avia/tests/protocol_actor.gd": "25d2ac5aea5c12389f5d6a390921489eec4699152ffe9e013595f62a27f625d1"
+  },
+  "source_hash_capture_note": "Hashes captured after iterative pre-commit checks; some unrelated UI/precision edits followed earlier checks. This is preliminary evidence, not exact committed-source certification. Final commit reruns/builds must identify their own SHA."
+}

@@ -8,6 +8,12 @@ var notice: Label
 var host: LineEdit
 var code: LineEdit
 var select_plane: OptionButton
+var speed_unit: int=0
+var altitude_unit: int=0
+var advanced_hud: bool=false
+var hangar: PanelContainer
+var system_buttons: Dictionary={}
+var select_profile: OptionButton
 var select_mode: OptionButton
 var language: String="en"
 var private_room: CheckBox
@@ -74,6 +80,16 @@ func _ready() -> void:
  select_mode=OptionButton.new();select_mode.size_flags_horizontal=Control.SIZE_EXPAND_FILL
  for mode_name: String in ["Free flight / Полёт","Race / Гонка","Air combat / Бой"]:select_mode.add_item(mode_name)
  row.add_child(select_mode)
+ select_profile=OptionButton.new()
+ for label: String in ["Arcade / Аркада","Realistic / Реализм","Expert / Эксперт"]:select_profile.add_item(label)
+ col.add_child(select_profile)
+ var systems_row: HBoxContainer=HBoxContainer.new();systems_row.position=Vector2(380,630);root.add_child(systems_row)
+ for label: String in ["AB / Форсаж","Flaps / Закрылки","Gear / Шасси"]:
+  var system: CheckBox=CheckBox.new();system.text=label;system.button_pressed=label.begins_with("Gear");systems_row.add_child(system);system_buttons[label]=system
+  system.toggled.connect(func(value: bool):
+   if label.begins_with("AB"):touch.afterburner=value
+   elif label.begins_with("Flaps"):touch.flaps=value
+   else:touch.gear=value)
  host=LineEdit.new();host.placeholder_text=tr_text("host");host.text=str(settings.get_value("net","host","127.0.0.1"));col.add_child(host)
  var room_row: HBoxContainer=HBoxContainer.new();col.add_child(room_row)
  private_room=CheckBox.new();private_room.text=tr_text("private");labels.private=private_room;room_row.add_child(private_room)
@@ -84,6 +100,16 @@ func _ready() -> void:
   var check: CheckBox=CheckBox.new();check.text=tr_text(key);check.button_pressed=bool(settings.get_value("controls",key,key in ["assist","sound"]));labels[key]=check;controls_row.add_child(check)
   check.toggled.connect(func(value: bool):_option(key,value))
   _option(key,check.button_pressed)
+ var display_row: HBoxContainer=HBoxContainer.new();col.add_child(display_row)
+ var speed_choice: OptionButton=OptionButton.new();speed_choice.add_item("km/h / км/ч");speed_choice.add_item("knots / узлы");display_row.add_child(speed_choice)
+ speed_unit=int(settings.get_value("ui","speed_unit",0));speed_choice.select(speed_unit)
+ speed_choice.item_selected.connect(func(value: int):speed_unit=value;settings.set_value("ui","speed_unit",value);settings.save("user://settings.cfg"))
+ var altitude_choice: OptionButton=OptionButton.new();altitude_choice.add_item("m ASL / м над морем");altitude_choice.add_item("ft ASL / футы над морем");display_row.add_child(altitude_choice)
+ altitude_unit=int(settings.get_value("ui","altitude_unit",0));altitude_choice.select(altitude_unit)
+ altitude_choice.item_selected.connect(func(value: int):altitude_unit=value;settings.set_value("ui","altitude_unit",value);settings.save("user://settings.cfg"))
+ var hud_choice: CheckBox=CheckBox.new();hud_choice.text="Advanced HUD / Расширенный HUD";display_row.add_child(hud_choice)
+ advanced_hud=bool(settings.get_value("ui","advanced_hud",false));hud_choice.button_pressed=advanced_hud
+ hud_choice.toggled.connect(func(value: bool):advanced_hud=value;settings.set_value("ui","advanced_hud",value);settings.save("user://settings.cfg"))
  var quality: OptionButton=OptionButton.new();quality.add_item("30 FPS · Low / Низкое");quality.add_item("60 FPS · Standard / Обычное")
  quality.select(int(settings.get_value("controls","quality",0 if OS.has_feature("mobile") else 1)));col.add_child(quality)
  _quality(quality.selected);quality.item_selected.connect(_quality)
@@ -92,6 +118,8 @@ func _ready() -> void:
  var help: Label=Label.new();help.text=tr_text("help");help.add_theme_font_size_override("font_size",16);labels.help=help;col.add_child(help)
  var bottom: HBoxContainer=HBoxContainer.new();col.add_child(bottom)
  var play: Button=Button.new();play.text=tr_text("play");labels.play=play;play.size_flags_horizontal=Control.SIZE_EXPAND_FILL;play.custom_minimum_size.y=56;bottom.add_child(play);play.pressed.connect(join)
+ hangar=load("res://client/hangar.gd").new();hangar.lang=language;root.add_child(hangar);hangar.hide();hangar.selected.connect(func(index: int):select_plane.select(index))
+ var hangar_button: Button=Button.new();hangar_button.text="Hangar / Ангар";bottom.add_child(hangar_button);hangar_button.pressed.connect(func():hangar.show())
  var lang: Button=Button.new();lang.text="EN / RU";bottom.add_child(lang);lang.pressed.connect(func():language="ru" if language=="en" else "en";settings.set_value("ui","language",language);settings.save("user://settings.cfg");_translate())
 func _quality(index: int) -> void:
  Engine.max_fps=30 if index==0 else 60
@@ -108,11 +136,12 @@ func _option(key: String,value: bool) -> void:
  settings.set_value("controls",key,value);settings.save("user://settings.cfg")
 func _translate() -> void:
  for key: String in labels:labels[key].text=tr_text(key)
+ if hangar:hangar.lang=language;hangar.localize()
  code.placeholder_text=tr_text("code");host.placeholder_text=tr_text("host")
 func join() -> void:
  if host.text.strip_edges().is_empty():session.status="Enter a server address";return
  settings.set_value("net","host",host.text.strip_edges());settings.save("user://settings.cfg")
- var result: Error=session.connect_to(host.text.strip_edges(),24567,{"plane":select_plane.selected,"mode":["free","race","pvp"][select_mode.selected],"private":private_room.button_pressed,"code":code.text.strip_edges().to_upper()})
+ var result: Error=session.connect_to(host.text.strip_edges(),24567,{"plane":select_plane.selected,"profile":select_profile.selected,"mode":["free","race","pvp"][select_mode.selected],"private":private_room.button_pressed,"code":code.text.strip_edges().to_upper()})
  if result==OK:menu.hide();touch.show()
  else:session.disconnect_session("Connection failed — check server address")
 func show_menu() -> void:
@@ -125,6 +154,9 @@ func _process(delta: float) -> void:
   else:frame_times[frame_cursor]=interval;frame_cursor=(frame_cursor+1) % 108000
  last_frame_us=now
  if session.status=="Joining" and Time.get_ticks_msec()-session.last_snapshot_ms>8000:session.disconnect_session("Admission timeout — retry from menu")
+ for label: String in system_buttons:
+  var key: String="afterburner" if label.begins_with("AB") else "flaps" if label.begins_with("Flaps") else "gear"
+  system_buttons[label].set_pressed_no_signal(touch.get(key));system_buttons[label].visible=session.joined and int(session.local_state.get("plane",0))>=3
  for button: Button in top_buttons:button.disabled=not session.joined
  touch.combat=session.mode=="pvp"
  touch.action_label=("FIRE" if language=="en" else "ОГОНЬ") if touch.combat else ("BRAKE" if language=="en" else "ТОРМОЗ")
@@ -141,7 +173,10 @@ func _process(delta: float) -> void:
  if s.crashed:warning="CRASH — R / Recover" if language=="en" else "АВАРИЯ — Восстановить"
  elif s.v.length()<float(AviaFlight.PLANES[s.plane].stall) and not s.grounded:warning="LOW AIRSPEED" if language=="en" else "МАЛАЯ СКОРОСТЬ"
  var mode_label: String={"free":"Free flight" if language=="en" else "Полёт","race":"Race" if language=="en" else "Гонка","pvp":"Combat" if language=="en" else "Бой"}.get(session.mode,session.mode)
- hud.text="%03d km/h   %04d m ASL   %03d°   %d%%   ♥ %d   %s   %d %s" % [s.v.length()*3.6,s.p.y,fposmod(rad_to_deg(-float(s.yaw)),360),float(session.controls.throttle)*100,s.health,mode_label,session.others.size()+1,"pilots" if language=="en" else "пилотов"]
+ var speed: float=s.v.length()*(3.6 if speed_unit==0 else 1.943844)
+ var altitude: float=float(s.p.y)*(1.0 if altitude_unit==0 else 3.28084)
+ hud.text="%03d %s  %04d %s ASL  %d%%  ♥ %d" % [speed,"km/h" if speed_unit==0 else "kt",altitude,"m" if altitude_unit==0 else "ft",float(session.controls.throttle)*100,s.health]
+ if advanced_hud:hud.text+="  %03d°  ↑%.1f %s/s  %s  %d" % [fposmod(rad_to_deg(-float(s.yaw)),360),float(s.v.y)*(1.0 if altitude_unit==0 else 3.28084),"m" if altitude_unit==0 else "ft",mode_label,session.others.size()+1]
  var remaining: float=5500.0-Vector2(s.p.x,s.p.z).length()
  if remaining<650.0:
   warning=("WORLD EDGE · turn toward the island · %d m" if language=="en" else "ГРАНИЦА МИРА · поверните к острову · %d м") % maxi(0,int(remaining))

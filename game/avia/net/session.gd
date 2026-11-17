@@ -1,6 +1,6 @@
 extends Node
 ## Server authority. No client position/score RPC exists. Separate reliable/control/state channels.
-const PROTOCOL: int=3
+const PROTOCOL: int=4
 const MAX_ROOM: int=16
 var tickets: Dictionary={}
 var ticket_rate: Dictionary={}
@@ -47,6 +47,7 @@ var diagnostic_last_ms: int=0
 var diagnostic_frames: int=0
 var diagnostic_physics: int=0
 var commands_sent: int=0
+signal state_audit(peer_id: int, state: Dictionary, ack: int)
 signal input_audit(peer_id: int, number: int, result: String)
 signal admission_audit(peer_id: int, result: String)
 signal message(text: String)
@@ -136,7 +137,7 @@ func _notification(what: int) -> void:
 func _on_connected() -> void:
  status="Joining"
  last_snapshot_ms=Time.get_ticks_msec()
- request_ticket.rpc_id(1,PROTOCOL,plane,mode,str(join_options.get("code","")),bool(join_options.get("private",false)))
+ request_ticket.rpc_id(1,PROTOCOL,plane,mode,str(join_options.get("code","")),bool(join_options.get("private",false)),int(join_options.get("profile",0)))
 func _connection_failed() -> void:
  disconnect_session(last_error if not last_error.is_empty() else "Disconnected — retry from menu");message.emit(status)
 func _connected(id: int) -> void:
@@ -166,14 +167,14 @@ func _broadcast(key: String, kind: String, data: Dictionary) -> void:
   if players[id].room==key and peer.get_peer(id).get_state()==ENetPacketPeer.STATE_CONNECTED and peer.get_peer(id).get_channels()>2:game_event.rpc_id(id,kind,data)
  print(JSON.stringify({"event":kind,"room":key,"data":data,"tick":tick}))
 @rpc("any_peer","call_remote","reliable",0)
-func request_ticket(version: int, selected: int, requested_mode: String, code: String, private_room: bool) -> void:
+func request_ticket(version: int, selected: int, requested_mode: String, code: String, private_room: bool, requested_profile: int=0) -> void:
  if not server:return
  var id: int=multiplayer.get_remote_sender_id()
  if players.has(id) or (ticket_rate.has(id) and tick-int(ticket_rate[id])<30):rejected+=1;return
  ticket_rate[id]=tick
  if code.length()>12:rejected+=1;return
  var token: String=Crypto.new().generate_random_bytes(24).hex_encode()
- tickets[id]={"token":token,"expires":tick+90,"options":[version,selected,requested_mode,code,private_room]}
+ tickets[id]={"token":token,"expires":tick+90,"options":[version,selected,requested_mode,code,private_room,requested_profile]}
  admission_ticket.rpc_id(id,token)
 @rpc("authority","call_remote","reliable",0)
 func admission_ticket(token: String) -> void:
@@ -192,12 +193,14 @@ func redeem_ticket(token: String) -> void:
  var ticket: Dictionary=tickets[id]
  tickets.erase(id)
  var o: Array=ticket.options
- _admit(id,int(o[0]),int(o[1]),str(o[2]),str(o[3]),bool(o[4]))
-func _admit(id: int, version: int, selected: int, requested_mode: String, code: String, private_room: bool) -> void:
+ _admit(id,int(o[0]),int(o[1]),str(o[2]),str(o[3]),bool(o[4]),int(o[5]))
+func _admit(id: int, version: int, selected: int, requested_mode: String, code: String, private_room: bool, requested_profile: int=0) -> void:
  if not server:return
  if players.has(id):return
  if version!=PROTOCOL:
   game_event.rpc_id(id,"error",{"reason":"Version mismatch"});return
+ if requested_profile<0 or requested_profile>2:
+  rejected+=1;game_event.rpc_id(id,"error",{"reason":"Invalid flight profile"});return
  if selected<0 or selected>=AviaFlight.PLANES.size() or requested_mode not in ["free","race","pvp"] or code.length()>12:
   rejected+=1;return
  for ch: String in code:
@@ -216,6 +219,7 @@ func _admit(id: int, version: int, selected: int, requested_mode: String, code: 
   game_event.rpc_id(id,"error",{"reason":"Room mode mismatch"});return
  rooms[key]=requested_mode
  var state: Dictionary=AviaFlight.spawn(selected,_room_count(key))
+ state.profile=requested_profile if requested_mode=="free" else 0
  players[id]={"state":state,"input":AviaFlight.neutral(),"room":key,"seq":0,"ack":0,"last":tick,"window":tick,
  "recover_pending":false,"recover_seq":0,"recover_tick":-90,"packets":0,"race":{"next":0},"score":0,"last_shot":-30,"crash_tick":-1,"callsign":"Pilot-"+str(id % 10000)}
  game_event.rpc_id(id,"welcome",{"id":id,"room":key,"mode":requested_mode,"state":state,"protocol":PROTOCOL})
@@ -325,10 +329,11 @@ func _physics_process(_delta: float) -> void:
    var before: Dictionary=p.state
    if p.recover_pending and (not before.crashed or tick-int(p.crash_tick)>45):
     p.recover_pending=false
-    p.state=AviaFlight.spawn(before.plane,0);p.race={"next":0}
+    p.state=AviaFlight.spawn(before.plane,0);p.state.profile=before.profile;p.race={"next":0}
     _broadcast(p.room,"respawn",{"id":id})
    else:p.state=AviaFlight.step(before,c)
    p.ack=p.seq
+   if state_audit.has_connections():state_audit.emit(id,p.state,p.ack)
    if not before.was_airborne and p.state.was_airborne:
     totals.flights+=1;_persist();_broadcast(p.room,"takeoff",{"id":id})
    if p.state.landed:totals.landings+=1;_persist();_broadcast(p.room,"landing",{"id":id})

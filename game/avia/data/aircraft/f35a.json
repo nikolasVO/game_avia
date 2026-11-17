@@ -1,0 +1,60 @@
+{
+  "aircraft_id": "f35a",
+  "display_name": "F-35A Lightning II",
+  "country": "USA",
+  "class": "modern_multirole",
+  "status": "planned",
+  "playable": false,
+  "source_type": "procedural_placeholder",
+  "physics_model": "fighter_v1",
+  "color": "8a969c",
+  "flight": {
+    "max_speed_sea_kmh": 1216,
+    "max_speed_altitude_kmh": 1900,
+    "cruise_speed_kmh": 850,
+    "stall_speed_kmh": 225,
+    "takeoff_speed_kmh": 256,
+    "landing_speed_kmh": 268,
+    "climb_speed_kmh": 495,
+    "acceleration_mps2": 30,
+    "afterburner_acceleration_mps2": 46
+  },
+  "handling": {
+    "maneuverability": 80,
+    "stability": 86,
+    "inertia": 61,
+    "low_speed_control": 78,
+    "high_speed_control": 85,
+    "roll_response": 83,
+    "pitch_response": 75,
+    "yaw_response": 64,
+    "landing_difficulty": 53,
+    "takeoff_difficulty": 49
+  },
+  "systems": {
+    "afterburner": true,
+    "airbrake": true,
+    "landing_gear": true,
+    "flaps": true,
+    "thrust_vectoring": false,
+    "variable_sweep": false
+  },
+  "geometry": {
+    "length_m": 15.7,
+    "span_m": 10.7,
+    "engines": 1,
+    "planform": "stealth"
+  },
+  "reference": {
+    "status": "game proportions pending variant validation",
+    "commercial_rights": "NOT REVIEWED; no logos or military insignia",
+    "fallback_name": "Avia 18-F35A"
+  },
+  "mission_classes": [
+    "jet",
+    "race",
+    "free",
+    "combat"
+  ],
+  "balance_notice": "Authored arcade values; not real aircraft technical specifications."
+}

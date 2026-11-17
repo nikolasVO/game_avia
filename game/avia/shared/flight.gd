@@ -3,17 +3,13 @@ extends RefCounted
 ## Metres, seconds, radians; +Y up; aircraft nose -Z. Fixed 30 Hz on both peers.
 const DT: float = 1.0 / 30.0
 const GROUND: float = 1.4
-const PLANES: Array[Dictionary] = [
- {"name":"Kite", "thrust":15.0,"drag":0.004,"lift":0.021,"turn":1.0,"stall":17.0,"max":72.0,"color":Color("e2b46e")},
- {"name":"Tern", "thrust":23.0,"drag":0.0035,"lift":0.016,"turn":1.35,"stall":23.0,"max":95.0,"color":Color("6dc4bc")},
- {"name":"Swift", "thrust":38.0,"drag":0.0027,"lift":0.009,"turn":0.8,"stall":32.0,"max":145.0,"color":Color("c4cfdf")}
-]
+static var PLANES: Array[Dictionary]=AviaCatalog.playable()
 static func neutral() -> Dictionary:
- return {"pitch":0.0,"roll":0.0,"yaw":0.0,"throttle":0.0,"brake":false,"fire":false,"respawn":false}
+ return {"pitch":0.0,"roll":0.0,"yaw":0.0,"throttle":0.0,"brake":false,"fire":false,"respawn":false,"afterburner":false,"flaps":false,"gear":true}
 static func spawn(index: int = 0, slot: int = 0) -> Dictionary:
  return {"p":Vector3((slot % 4 - 1.5)*12.0,GROUND,180.0 + (slot / 4)*18.0),"v":Vector3.ZERO,
- "pitch":0.0,"yaw":0.0,"roll":0.0,"plane":clampi(index,0,2),"health":100.0,"crashed":false,
- "grounded":true,"was_airborne":false,"landed":false,"age":0,"distance":0.0,"respawns":0}
+ "pitch":0.0,"yaw":0.0,"roll":0.0,"plane":clampi(index,0,PLANES.size()-1),"health":100.0,"crashed":false,
+ "grounded":true,"was_airborne":false,"landed":false,"age":0,"distance":0.0,"respawns":0,"rates":Vector3.ZERO,"profile":0,"gear":true,"flaps":false,"afterburner":false,"airbrake":false}
 static func runway(p: Vector3) -> bool:
  return (absf(p.x)<32.0 and absf(p.z)<330.0) or (absf(p.x-900)<28 and absf(p.z+1000)<160)
 static func height(p: Vector3) -> float:
@@ -26,18 +22,19 @@ static func height(p: Vector3) -> float:
  if Vector2(p.x,p.z).length()<1450.0: h=maxf(h,-1.0)
  return h
 static func valid_input(c: Dictionary) -> bool:
- if c.size()!=7: return false
+ if c.size()!=10: return false
  for k: String in ["pitch","roll","yaw","throttle"]:
   if not c.has(k) or not (c[k] is float or c[k] is int): return false
   var x: float = float(c[k])
   if not is_finite(x) or x < (-1.0 if k!="throttle" else 0.0) or x>1.0: return false
- for k: String in ["brake","fire","respawn"]:
+ for k: String in ["brake","fire","respawn","afterburner","flaps","gear"]:
   if not c.has(k) or not c[k] is bool: return false
  return true
 static func segment_distance(a: Vector3,b: Vector3,p: Vector3) -> float:
  var ab: Vector3 = b-a
  return p.distance_to(a+ab*clampf((p-a).dot(ab)/maxf(ab.length_squared(),0.0001),0.0,1.0))
 static func step(s: Dictionary, c: Dictionary) -> Dictionary:
+ if PLANES[int(s.plane)].physics_model=="fighter_v1":return AviaFighter.step(s,c)
  var n: Dictionary=s.duplicate()
  n.landed=false
  n.age+=1

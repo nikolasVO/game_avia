@@ -33,12 +33,13 @@ func _ready() -> void:
    if options.has("disable3d"):get_viewport().disable_3d=true
    world=load("res://client/world.gd").new();add_child(world)
    ui=load("res://client/ui.gd").new();ui.session=session;ui.world=world;add_child(ui)
+   if options.has("hangar"):ui.hangar.show()
   if options.has("connect"):
    # First-frame shader compilation must finish before starting the network deadline.
    if not headless:
     await RenderingServer.frame_post_draw
     if session.diagnostics:print(JSON.stringify({"event":"client_render_ready","wall_ms":Time.get_ticks_msec()}))
-   session.connect_to(options.connect,int(options.get("port","24567")),{"plane":int(options.get("plane","0")),"mode":str(options.get("mode","free")),"code":str(options.get("code","")),"private":options.has("private")})
+   session.connect_to(options.connect,int(options.get("port","24567")),{"plane":int(options.get("plane","0")),"profile":int(options.get("profile","0")),"mode":str(options.get("mode","free")),"code":str(options.get("code","")),"private":options.has("private")})
    if ui:ui.menu.hide();ui.touch.show()
 func _notification(what: int) -> void:
  if what in [NOTIFICATION_APPLICATION_FOCUS_OUT,NOTIFICATION_APPLICATION_PAUSED]:
@@ -56,6 +57,10 @@ func _physics_process(_delta: float) -> void:
    if s.p.y>100:c.roll=0.25
    c.respawn=s.crashed or Vector2(s.p.x,s.p.z).length()>4500
    c.fire=session.mode=="pvp"
+   if options.has("systems-cycle"):
+    c.gear=s.grounded or int(s.age)<150;c.flaps=int(s.age)<120
+    c.afterburner=int(s.age)<210;c.throttle=1.0
+    c.brake=int(s.age)>300 and int(s.age)<330
    if session.mode=="race" and options.has("route"):
     var next: int=int(session.local_race.get("next",0))
     if next<AviaRules.CHECKPOINTS.size():
@@ -73,7 +78,7 @@ func _physics_process(_delta: float) -> void:
   if ui:ui.touch.throttle=float(c.throttle)
  elif ui:
   session.controls=ui.touch.command()
-  if ui.touch.assistance and not session.local_state.is_empty() and not session.local_state.grounded and absf(float(session.controls.pitch))<0.01:
+  if ui.touch.assistance and not session.local_state.is_empty() and int(session.local_state.plane)<3 and not session.local_state.grounded and absf(float(session.controls.pitch))<0.01:
    session.controls.pitch=clampf((0.02-float(session.local_state.pitch))*0.9,-0.35,0.35)
 func _process(delta: float) -> void:
  elapsed+=delta

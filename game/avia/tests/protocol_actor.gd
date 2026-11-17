@@ -61,6 +61,12 @@ func _attack() -> void:
  var c: Dictionary=AviaFlight.neutral();c.position=Vector3(4000,2000,4000)
  send_attack(number,c,"teleport");number+=1
  await create_timer(0.3).timeout
+ var profile_attack: Dictionary=AviaFlight.neutral();profile_attack.profile=2
+ send_attack(number,profile_attack,"profile_injection");number+=1
+ await create_timer(0.3).timeout
+ var systems_attack: Dictionary=AviaFlight.neutral();systems_attack.afterburner=1
+ send_attack(number,systems_attack,"non_boolean_afterburner");number+=1
+ await create_timer(0.3).timeout
  send_attack(-10,AviaFlight.neutral(),"replay")
  await create_timer(0.3).timeout
  send_attack(number+10000,AviaFlight.neutral(),"sequence_jump")

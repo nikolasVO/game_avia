@@ -1,0 +1,17 @@
+{
+  "transport": "UDP",
+  "probe_port": 24568,
+  "source": "owner Mac outside Thunder",
+  "listener": "READY",
+  "status": "FAIL",
+  "note": "No provider mapping inferred from SSH TCP endpoint.",
+  "listener_outcome": "TIMEOUT",
+  "ssh_exit": 0,
+  "server_network": {
+    "interface": "eth0 private10.250.0.10/30",
+    "route": "default via10.250.0.9",
+    "udp24567": "actual c192 server listener PID121265",
+    "iptables": "INPUT ACCEPT, FORWARD ACCEPT, OUTPUT ACCEPT, no rules listed",
+    "inference": "upstream ingress/mapping/path still unverified; local firewall is not evidence of external reachability"
+  }
+}

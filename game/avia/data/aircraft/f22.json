@@ -1,0 +1,60 @@
+{
+  "aircraft_id": "f22",
+  "display_name": "F-22 Raptor",
+  "country": "USA",
+  "class": "modern_fighter",
+  "status": "planned",
+  "playable": false,
+  "source_type": "procedural_placeholder",
+  "physics_model": "fighter_v1",
+  "color": "9cabb3",
+  "flight": {
+    "max_speed_sea_kmh": 1504,
+    "max_speed_altitude_kmh": 2350,
+    "cruise_speed_kmh": 850,
+    "stall_speed_kmh": 215,
+    "takeoff_speed_kmh": 245,
+    "landing_speed_kmh": 256,
+    "climb_speed_kmh": 473,
+    "acceleration_mps2": 37,
+    "afterburner_acceleration_mps2": 55
+  },
+  "handling": {
+    "maneuverability": 96,
+    "stability": 75,
+    "inertia": 50,
+    "low_speed_control": 91,
+    "high_speed_control": 93,
+    "roll_response": 99,
+    "pitch_response": 91,
+    "yaw_response": 77,
+    "landing_difficulty": 45,
+    "takeoff_difficulty": 37
+  },
+  "systems": {
+    "afterburner": true,
+    "airbrake": true,
+    "landing_gear": true,
+    "flaps": true,
+    "thrust_vectoring": true,
+    "variable_sweep": false
+  },
+  "geometry": {
+    "length_m": 18.9,
+    "span_m": 13.6,
+    "engines": 2,
+    "planform": "stealth"
+  },
+  "reference": {
+    "status": "game proportions pending variant validation",
+    "commercial_rights": "NOT REVIEWED; no logos or military insignia",
+    "fallback_name": "Avia 11-F22"
+  },
+  "mission_classes": [
+    "jet",
+    "race",
+    "free",
+    "combat"
+  ],
+  "balance_notice": "Authored arcade values; not real aircraft technical specifications."
+}

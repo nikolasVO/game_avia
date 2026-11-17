@@ -1,0 +1,60 @@
+{
+  "aircraft_id": "mig21",
+  "display_name": "MiG-21",
+  "country": "Russia",
+  "class": "historical_fighter",
+  "status": "planned",
+  "playable": false,
+  "source_type": "procedural_placeholder",
+  "physics_model": "fighter_v1",
+  "color": "aab6b6",
+  "flight": {
+    "max_speed_sea_kmh": 1408,
+    "max_speed_altitude_kmh": 2200,
+    "cruise_speed_kmh": 850,
+    "stall_speed_kmh": 270,
+    "takeoff_speed_kmh": 308,
+    "landing_speed_kmh": 321,
+    "climb_speed_kmh": 594,
+    "acceleration_mps2": 28,
+    "afterburner_acceleration_mps2": 42
+  },
+  "handling": {
+    "maneuverability": 76,
+    "stability": 48,
+    "inertia": 42,
+    "low_speed_control": 35,
+    "high_speed_control": 78,
+    "roll_response": 79,
+    "pitch_response": 71,
+    "yaw_response": 61,
+    "landing_difficulty": 79,
+    "takeoff_difficulty": 52
+  },
+  "systems": {
+    "afterburner": true,
+    "airbrake": true,
+    "landing_gear": true,
+    "flaps": true,
+    "thrust_vectoring": false,
+    "variable_sweep": false
+  },
+  "geometry": {
+    "length_m": 14.7,
+    "span_m": 7.15,
+    "engines": 1,
+    "planform": "delta"
+  },
+  "reference": {
+    "status": "game proportions pending variant validation",
+    "commercial_rights": "NOT REVIEWED; no logos or military insignia",
+    "fallback_name": "Avia 6-MIG21"
+  },
+  "mission_classes": [
+    "jet",
+    "race",
+    "free",
+    "combat"
+  ],
+  "balance_notice": "Authored arcade values; not real aircraft technical specifications."
+}

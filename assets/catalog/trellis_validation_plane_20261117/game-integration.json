@@ -1,0 +1,15 @@
+{
+  "source_commit": "8aa3635dc71b6b3c2477dcaa42ad7a470438b50d",
+  "runtime_path": "game/avia/assets/parked_ai_aircraft.glb",
+  "runtime_sha256": "15bd5a906a02393ef9d523116fb53c527ce266f2c55a57b54e2d74f7561b83c2",
+  "role": "one parked decorative exhibit, separate from all playable aircraft",
+  "production_accepted": false,
+  "collision": "decorative only, authoring collision mesh hidden; no new gameplay collider",
+  "materials": "original albedo retained; matte vertex shader, no normal/metallic maps",
+  "validation": "Actual Godot desktop rendered scene import; Android and physical devices pending",
+  "known_limits": [
+    "generated asymmetry",
+    "propeller/surfaces not separated",
+    "publication license review pending"
+  ]
+}

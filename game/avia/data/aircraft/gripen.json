@@ -1,0 +1,60 @@
+{
+  "aircraft_id": "gripen",
+  "display_name": "Saab JAS 39 Gripen C",
+  "country": "Sweden",
+  "class": "light_fighter",
+  "status": "flight_prototype",
+  "playable": true,
+  "source_type": "procedural_placeholder",
+  "physics_model": "fighter_v1",
+  "color": "a8b8a3",
+  "flight": {
+    "max_speed_sea_kmh": 1344,
+    "max_speed_altitude_kmh": 2100,
+    "cruise_speed_kmh": 850,
+    "stall_speed_kmh": 195,
+    "takeoff_speed_kmh": 222,
+    "landing_speed_kmh": 232,
+    "climb_speed_kmh": 429,
+    "acceleration_mps2": 30,
+    "afterburner_acceleration_mps2": 44
+  },
+  "handling": {
+    "maneuverability": 92,
+    "stability": 74,
+    "inertia": 30,
+    "low_speed_control": 90,
+    "high_speed_control": 76,
+    "roll_response": 95,
+    "pitch_response": 87,
+    "yaw_response": 74,
+    "landing_difficulty": 46,
+    "takeoff_difficulty": 49
+  },
+  "systems": {
+    "afterburner": true,
+    "airbrake": true,
+    "landing_gear": true,
+    "flaps": true,
+    "thrust_vectoring": false,
+    "variable_sweep": false
+  },
+  "geometry": {
+    "length_m": 14.1,
+    "span_m": 8.4,
+    "engines": 1,
+    "planform": "canard_delta"
+  },
+  "reference": {
+    "status": "game proportions pending variant validation",
+    "commercial_rights": "NOT REVIEWED; no logos or military insignia",
+    "fallback_name": "Avia 20-GRIPEN"
+  },
+  "mission_classes": [
+    "jet",
+    "race",
+    "free",
+    "combat"
+  ],
+  "balance_notice": "Authored arcade values; not real aircraft technical specifications."
+}

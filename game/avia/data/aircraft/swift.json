@@ -1,0 +1,64 @@
+{
+  "aircraft_id": "swift",
+  "display_name": "Swift",
+  "country": "Game Avia",
+  "class": "original",
+  "status": "prototype",
+  "playable": true,
+  "source_type": "procedural",
+  "physics_model": "legacy_v1",
+  "color": "c4cfdf",
+  "legacy": {
+    "thrust": 38,
+    "drag": 0.0027,
+    "lift": 0.009,
+    "turn": 0.8,
+    "stall": 32,
+    "max": 145
+  },
+  "flight": {
+    "max_speed_sea_kmh": 522.0,
+    "max_speed_altitude_kmh": 522.0,
+    "cruise_speed_kmh": 333.5,
+    "stall_speed_kmh": 115.2,
+    "takeoff_speed_kmh": 140.8,
+    "landing_speed_kmh": 134.4,
+    "climb_speed_kmh": 192,
+    "acceleration_mps2": 38,
+    "afterburner_acceleration_mps2": 38
+  },
+  "handling": {
+    "maneuverability": 80,
+    "stability": 60,
+    "inertia": 55,
+    "low_speed_control": 70,
+    "high_speed_control": 70,
+    "roll_response": 70,
+    "pitch_response": 65,
+    "yaw_response": 60,
+    "landing_difficulty": 55,
+    "takeoff_difficulty": 40
+  },
+  "systems": {
+    "afterburner": false,
+    "airbrake": false,
+    "landing_gear": false,
+    "flaps": false,
+    "thrust_vectoring": false,
+    "variable_sweep": false
+  },
+  "geometry": {
+    "length_m": 9,
+    "span_m": 9.399999999999999,
+    "engines": 1,
+    "planform": "original"
+  },
+  "reference": {
+    "status": "original authored geometry"
+  },
+  "mission_classes": [
+    "training",
+    "race",
+    "free"
+  ]
+}

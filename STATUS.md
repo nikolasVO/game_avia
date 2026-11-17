@@ -1,3 +1,17 @@
+# Game Avia — development continuation, 2026-11-17
+
+**Full development scope is IN PROGRESS, not accepted.** Active task68c406f99772. Current brief: docs/briefs/game-avia-development-20261117.md. Stage3 is queued only after full acceptance. Godot4.7.2 retained.
+
+New work: data-driven24-fighter+3-original catalog; six selectable procedural fighter prototypes; shared forces/inertia/altitude/AB/airbrake/flaps/gear; server-locked assistance category; protocol4 with84-byte full prediction state; native comparison hangar and synthesized class tones. Scripted comparison passed40 checks and original23 checks remain PASS. Actual current rendered/network/native build checks are in progress. No named fighter is accepted under all15 gates.
+
+Preserved exact APK6c3620a runtime:90s emulator,2662 commands/1344 snapshots/two peers/own takeoff PASS; frame p5079.122ms,p95141.271ms, FPS target FAIL. Cold-render8.58s stall reproduced before fix; automatic admission now waits first rendered frame. docs/evidence/android-runtime-r3.json and android-cold-render-regression.json. Physical Android/iPhone NOT VERIFIED; external UDP FAIL; iOS/Xcode/signing BLOCKED. Deployed flight remainsc1922c7/protocol3; new code is not yet deployed. No capacity claim transferred from old authority to new fighters.
+
+24 asset jobs are durable in existing Store; no paid image calls. DINO approved and real AI aircraft candidate exists in separate reviewed handoff; full production aircraft/mobile integration remains incomplete. AI safety-block prop passed native emulator scene import. [Production backlog](docs/backlog.md), [GDD](docs/design/gdd-development.md), [catalog](docs/design/aircraft-catalog.md).
+
+---
+
+Historical r2 evidence below retains its original scope/source; it is not a current protocol4 acceptance report.
+
 # Game Avia — prototype r2, 2026-11-17
 
 **Version 0.1 is NOT ACCEPTED.** Current game/release/deployed flight server: `c1922c74a29112818ce9ee523a9cdc81eb211180`, Godot `4.7.2.stable.official.ed1daf0bf`, protocol3. Later evidence/test-fixture commits do not change exported gameplay. [Builds and hashes](docs/evidence/artifact-index-r2.json), [handoff](docs/handoffs/game-prototype-r2-20261117.md).

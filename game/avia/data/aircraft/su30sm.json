@@ -1,0 +1,60 @@
+{
+  "aircraft_id": "su30sm",
+  "display_name": "Su-30SM",
+  "country": "Russia",
+  "class": "heavy_multirole",
+  "status": "planned",
+  "playable": false,
+  "source_type": "procedural_placeholder",
+  "physics_model": "fighter_v1",
+  "color": "8ca0b6",
+  "flight": {
+    "max_speed_sea_kmh": 1344,
+    "max_speed_altitude_kmh": 2100,
+    "cruise_speed_kmh": 850,
+    "stall_speed_kmh": 245,
+    "takeoff_speed_kmh": 279,
+    "landing_speed_kmh": 292,
+    "climb_speed_kmh": 539,
+    "acceleration_mps2": 28,
+    "afterburner_acceleration_mps2": 44
+  },
+  "handling": {
+    "maneuverability": 87,
+    "stability": 93,
+    "inertia": 76,
+    "low_speed_control": 77,
+    "high_speed_control": 81,
+    "roll_response": 90,
+    "pitch_response": 82,
+    "yaw_response": 70,
+    "landing_difficulty": 54,
+    "takeoff_difficulty": 52
+  },
+  "systems": {
+    "afterburner": true,
+    "airbrake": true,
+    "landing_gear": true,
+    "flaps": true,
+    "thrust_vectoring": false,
+    "variable_sweep": false
+  },
+  "geometry": {
+    "length_m": 21.9,
+    "span_m": 14.7,
+    "engines": 2,
+    "planform": "canard"
+  },
+  "reference": {
+    "status": "game proportions pending variant validation",
+    "commercial_rights": "NOT REVIEWED; no logos or military insignia",
+    "fallback_name": "Avia 7-SU30SM"
+  },
+  "mission_classes": [
+    "jet",
+    "race",
+    "free",
+    "combat"
+  ],
+  "balance_notice": "Authored arcade values; not real aircraft technical specifications."
+}

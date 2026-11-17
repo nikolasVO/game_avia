@@ -1,0 +1,60 @@
+{
+  "aircraft_id": "su27",
+  "display_name": "Su-27",
+  "country": "Russia",
+  "class": "heavy_fighter",
+  "status": "flight_prototype",
+  "playable": true,
+  "source_type": "procedural_placeholder",
+  "physics_model": "fighter_v1",
+  "color": "83aebd",
+  "flight": {
+    "max_speed_sea_kmh": 1568,
+    "max_speed_altitude_kmh": 2450,
+    "cruise_speed_kmh": 850,
+    "stall_speed_kmh": 240,
+    "takeoff_speed_kmh": 274,
+    "landing_speed_kmh": 286,
+    "climb_speed_kmh": 528,
+    "acceleration_mps2": 29,
+    "afterburner_acceleration_mps2": 46
+  },
+  "handling": {
+    "maneuverability": 89,
+    "stability": 84,
+    "inertia": 64,
+    "low_speed_control": 74,
+    "high_speed_control": 80,
+    "roll_response": 92,
+    "pitch_response": 84,
+    "yaw_response": 71,
+    "landing_difficulty": 56,
+    "takeoff_difficulty": 51
+  },
+  "systems": {
+    "afterburner": true,
+    "airbrake": true,
+    "landing_gear": true,
+    "flaps": true,
+    "thrust_vectoring": false,
+    "variable_sweep": false
+  },
+  "geometry": {
+    "length_m": 21.9,
+    "span_m": 14.7,
+    "engines": 2,
+    "planform": "conventional"
+  },
+  "reference": {
+    "status": "game proportions pending variant validation",
+    "commercial_rights": "NOT REVIEWED; no logos or military insignia",
+    "fallback_name": "Avia 5-SU27"
+  },
+  "mission_classes": [
+    "jet",
+    "race",
+    "free",
+    "combat"
+  ],
+  "balance_notice": "Authored arcade values; not real aircraft technical specifications."
+}

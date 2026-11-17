@@ -1,0 +1,60 @@
+{
+  "aircraft_id": "kf21",
+  "display_name": "KF-21 Boramae",
+  "country": "South Korea",
+  "class": "multirole",
+  "status": "planned",
+  "playable": false,
+  "source_type": "procedural_placeholder",
+  "physics_model": "fighter_v1",
+  "color": "a1b1b0",
+  "flight": {
+    "max_speed_sea_kmh": 1408,
+    "max_speed_altitude_kmh": 2200,
+    "cruise_speed_kmh": 850,
+    "stall_speed_kmh": 230,
+    "takeoff_speed_kmh": 262,
+    "landing_speed_kmh": 274,
+    "climb_speed_kmh": 506,
+    "acceleration_mps2": 32,
+    "afterburner_acceleration_mps2": 48
+  },
+  "handling": {
+    "maneuverability": 85,
+    "stability": 84,
+    "inertia": 55,
+    "low_speed_control": 76,
+    "high_speed_control": 86,
+    "roll_response": 88,
+    "pitch_response": 80,
+    "yaw_response": 68,
+    "landing_difficulty": 54,
+    "takeoff_difficulty": 46
+  },
+  "systems": {
+    "afterburner": true,
+    "airbrake": true,
+    "landing_gear": true,
+    "flaps": true,
+    "thrust_vectoring": false,
+    "variable_sweep": false
+  },
+  "geometry": {
+    "length_m": 16.9,
+    "span_m": 11.2,
+    "engines": 2,
+    "planform": "stealth"
+  },
+  "reference": {
+    "status": "game proportions pending variant validation",
+    "commercial_rights": "NOT REVIEWED; no logos or military insignia",
+    "fallback_name": "Avia 13-KF21"
+  },
+  "mission_classes": [
+    "jet",
+    "race",
+    "free",
+    "combat"
+  ],
+  "balance_notice": "Authored arcade values; not real aircraft technical specifications."
+}

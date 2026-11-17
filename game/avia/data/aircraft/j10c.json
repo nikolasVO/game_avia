@@ -1,0 +1,60 @@
+{
+  "aircraft_id": "j10c",
+  "display_name": "J-10C",
+  "country": "China",
+  "class": "multirole",
+  "status": "planned",
+  "playable": false,
+  "source_type": "procedural_placeholder",
+  "physics_model": "fighter_v1",
+  "color": "a6b0bb",
+  "flight": {
+    "max_speed_sea_kmh": 1472,
+    "max_speed_altitude_kmh": 2300,
+    "cruise_speed_kmh": 850,
+    "stall_speed_kmh": 225,
+    "takeoff_speed_kmh": 256,
+    "landing_speed_kmh": 268,
+    "climb_speed_kmh": 495,
+    "acceleration_mps2": 31,
+    "afterburner_acceleration_mps2": 47
+  },
+  "handling": {
+    "maneuverability": 89,
+    "stability": 72,
+    "inertia": 46,
+    "low_speed_control": 80,
+    "high_speed_control": 84,
+    "roll_response": 92,
+    "pitch_response": 84,
+    "yaw_response": 71,
+    "landing_difficulty": 52,
+    "takeoff_difficulty": 47
+  },
+  "systems": {
+    "afterburner": true,
+    "airbrake": true,
+    "landing_gear": true,
+    "flaps": true,
+    "thrust_vectoring": false,
+    "variable_sweep": false
+  },
+  "geometry": {
+    "length_m": 16.9,
+    "span_m": 9.75,
+    "engines": 1,
+    "planform": "canard_delta"
+  },
+  "reference": {
+    "status": "game proportions pending variant validation",
+    "commercial_rights": "NOT REVIEWED; no logos or military insignia",
+    "fallback_name": "Avia 5-J10C"
+  },
+  "mission_classes": [
+    "jet",
+    "race",
+    "free",
+    "combat"
+  ],
+  "balance_notice": "Authored arcade values; not real aircraft technical specifications."
+}

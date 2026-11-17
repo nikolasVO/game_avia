@@ -1,6 +1,8 @@
 class_name AviaAircraft
 extends Node3D
 ## Original procedural development models; not AI output. One colored surface per LOD.
+var landing_gear: Node3D
+var exhaust: Node3D
 var propeller: Node3D
 var spin_speed: float=30.0
 static func _face(st: SurfaceTool, vertices: Array[Vector3], color: Color, outward: Vector3) -> void:
@@ -46,6 +48,7 @@ static func _mesh(st: SurfaceTool, parent: Node3D, name_: String, near: float, f
  node.material_override=mat;node.visibility_range_begin=near;node.visibility_range_end=far;parent.add_child(node)
  return node
 static func build(index: int) -> AviaAircraft:
+ if index>=3:return AviaFighterVisual.create(index)
  var root: AviaAircraft=AviaAircraft.new()
  var color: Color=AviaFlight.PLANES[index].color;var cream: Color=Color("e6dfc4");var dark: Color=Color("334c58")
  for distant: bool in [false,true]:
@@ -74,3 +77,7 @@ static func build(index: int) -> AviaAircraft:
  return root
 func _process(delta: float) -> void:
  if propeller and visible:propeller.rotate_z(spin_speed*delta)
+
+func update_state(state: Dictionary) -> void:
+ if landing_gear:landing_gear.visible=bool(state.get("gear",true))
+ if exhaust:exhaust.visible=bool(state.get("afterburner",false)) and not state.crashed

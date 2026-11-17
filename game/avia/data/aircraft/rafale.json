@@ -1,0 +1,60 @@
+{
+  "aircraft_id": "rafale",
+  "display_name": "Dassault Rafale C",
+  "country": "France",
+  "class": "multirole",
+  "status": "flight_prototype",
+  "playable": true,
+  "source_type": "procedural_placeholder",
+  "physics_model": "fighter_v1",
+  "color": "bcbba6",
+  "flight": {
+    "max_speed_sea_kmh": 1280,
+    "max_speed_altitude_kmh": 2000,
+    "cruise_speed_kmh": 850,
+    "stall_speed_kmh": 205,
+    "takeoff_speed_kmh": 234,
+    "landing_speed_kmh": 244,
+    "climb_speed_kmh": 451,
+    "acceleration_mps2": 31,
+    "afterburner_acceleration_mps2": 45
+  },
+  "handling": {
+    "maneuverability": 91,
+    "stability": 79,
+    "inertia": 45,
+    "low_speed_control": 85,
+    "high_speed_control": 81,
+    "roll_response": 94,
+    "pitch_response": 86,
+    "yaw_response": 73,
+    "landing_difficulty": 49,
+    "takeoff_difficulty": 47
+  },
+  "systems": {
+    "afterburner": true,
+    "airbrake": true,
+    "landing_gear": true,
+    "flaps": true,
+    "thrust_vectoring": false,
+    "variable_sweep": false
+  },
+  "geometry": {
+    "length_m": 15.3,
+    "span_m": 10.9,
+    "engines": 2,
+    "planform": "canard_delta"
+  },
+  "reference": {
+    "status": "game proportions pending variant validation",
+    "commercial_rights": "NOT REVIEWED; no logos or military insignia",
+    "fallback_name": "Avia 17-RAFALE"
+  },
+  "mission_classes": [
+    "jet",
+    "race",
+    "free",
+    "combat"
+  ],
+  "balance_notice": "Authored arcade values; not real aircraft technical specifications."
+}

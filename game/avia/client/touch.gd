@@ -9,6 +9,9 @@ var stick: Vector2=Vector2.ZERO
 var throttle: float=0.0
 var fire: bool=false
 var respawn: bool=false
+var afterburner: bool=false
+var flaps: bool=false
+var gear: bool=true
 var brake: bool=false
 var action_brake: bool=false
 var left_handed: bool=false
@@ -27,7 +30,7 @@ func centers() -> Array:
  return [right,left] if left_handed else [left,right]
 func clear_pointers() -> void:
  look_id=-1;look_yaw=0
- stick_id=-1;throttle_id=-1;action_id=-1;stick=Vector2.ZERO;fire=false;respawn=false;brake=false;action_brake=false
+ stick_id=-1;throttle_id=-1;action_id=-1;stick=Vector2.ZERO;fire=false;respawn=false;brake=false;action_brake=false;afterburner=false;flaps=false;gear=true
 func _notification(what: int) -> void:
  if what==NOTIFICATION_APPLICATION_FOCUS_OUT or what==NOTIFICATION_APPLICATION_PAUSED:clear_pointers();throttle=0
 func _input(event: InputEvent) -> void:
@@ -66,6 +69,8 @@ func command() -> Dictionary:
  c.pitch=clampf(pitch*sensitivity*(-1 if invert else 1),-1,1)
  c.roll=clampf(roll*sensitivity,-1,1)
  c.yaw=float(Input.is_physical_key_pressed(KEY_Q))-float(Input.is_physical_key_pressed(KEY_E))
+ c.afterburner=afterburner or Input.is_physical_key_pressed(KEY_B)
+ c.flaps=flaps;c.gear=gear
  c.throttle=throttle;c.brake=brake or action_brake or Input.is_physical_key_pressed(KEY_SPACE)
  c.fire=fire or Input.is_physical_key_pressed(KEY_F)
  c.respawn=respawn or Input.is_physical_key_pressed(KEY_R)

@@ -1,0 +1,60 @@
+{
+  "aircraft_id": "typhoon",
+  "display_name": "Eurofighter Typhoon",
+  "country": "Europe",
+  "class": "multirole",
+  "status": "planned",
+  "playable": false,
+  "source_type": "procedural_placeholder",
+  "physics_model": "fighter_v1",
+  "color": "b7bcbc",
+  "flight": {
+    "max_speed_sea_kmh": 1568,
+    "max_speed_altitude_kmh": 2450,
+    "cruise_speed_kmh": 850,
+    "stall_speed_kmh": 215,
+    "takeoff_speed_kmh": 245,
+    "landing_speed_kmh": 256,
+    "climb_speed_kmh": 473,
+    "acceleration_mps2": 35,
+    "afterburner_acceleration_mps2": 52
+  },
+  "handling": {
+    "maneuverability": 93,
+    "stability": 69,
+    "inertia": 44,
+    "low_speed_control": 82,
+    "high_speed_control": 92,
+    "roll_response": 96,
+    "pitch_response": 88,
+    "yaw_response": 74,
+    "landing_difficulty": 51,
+    "takeoff_difficulty": 40
+  },
+  "systems": {
+    "afterburner": true,
+    "airbrake": true,
+    "landing_gear": true,
+    "flaps": true,
+    "thrust_vectoring": false,
+    "variable_sweep": false
+  },
+  "geometry": {
+    "length_m": 15.96,
+    "span_m": 10.95,
+    "engines": 2,
+    "planform": "canard_delta"
+  },
+  "reference": {
+    "status": "game proportions pending variant validation",
+    "commercial_rights": "NOT REVIEWED; no logos or military insignia",
+    "fallback_name": "Avia 19-TYPHOON"
+  },
+  "mission_classes": [
+    "jet",
+    "race",
+    "free",
+    "combat"
+  ],
+  "balance_notice": "Authored arcade values; not real aircraft technical specifications."
+}

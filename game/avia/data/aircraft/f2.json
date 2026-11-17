@@ -1,0 +1,60 @@
+{
+  "aircraft_id": "f2",
+  "display_name": "Mitsubishi F-2",
+  "country": "Japan",
+  "class": "light_multirole",
+  "status": "planned",
+  "playable": false,
+  "source_type": "procedural_placeholder",
+  "physics_model": "fighter_v1",
+  "color": "83a4b3",
+  "flight": {
+    "max_speed_sea_kmh": 1344,
+    "max_speed_altitude_kmh": 2100,
+    "cruise_speed_kmh": 850,
+    "stall_speed_kmh": 210,
+    "takeoff_speed_kmh": 239,
+    "landing_speed_kmh": 250,
+    "climb_speed_kmh": 462,
+    "acceleration_mps2": 30,
+    "afterburner_acceleration_mps2": 45
+  },
+  "handling": {
+    "maneuverability": 87,
+    "stability": 82,
+    "inertia": 48,
+    "low_speed_control": 83,
+    "high_speed_control": 79,
+    "roll_response": 90,
+    "pitch_response": 82,
+    "yaw_response": 70,
+    "landing_difficulty": 50,
+    "takeoff_difficulty": 49
+  },
+  "systems": {
+    "afterburner": true,
+    "airbrake": true,
+    "landing_gear": true,
+    "flaps": true,
+    "thrust_vectoring": false,
+    "variable_sweep": false
+  },
+  "geometry": {
+    "length_m": 15.5,
+    "span_m": 11.1,
+    "engines": 1,
+    "planform": "conventional"
+  },
+  "reference": {
+    "status": "game proportions pending variant validation",
+    "commercial_rights": "NOT REVIEWED; no logos or military insignia",
+    "fallback_name": "Avia 14-F2"
+  },
+  "mission_classes": [
+    "jet",
+    "race",
+    "free",
+    "combat"
+  ],
+  "balance_notice": "Authored arcade values; not real aircraft technical specifications."
+}

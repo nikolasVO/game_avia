@@ -1,0 +1,60 @@
+{
+  "aircraft_id": "su57",
+  "display_name": "Su-57",
+  "country": "Russia",
+  "class": "modern_multirole",
+  "status": "planned",
+  "playable": false,
+  "source_type": "procedural_placeholder",
+  "physics_model": "fighter_v1",
+  "color": "919fa8",
+  "flight": {
+    "max_speed_sea_kmh": 1600,
+    "max_speed_altitude_kmh": 2500,
+    "cruise_speed_kmh": 850,
+    "stall_speed_kmh": 220,
+    "takeoff_speed_kmh": 251,
+    "landing_speed_kmh": 262,
+    "climb_speed_kmh": 484,
+    "acceleration_mps2": 36,
+    "afterburner_acceleration_mps2": 54
+  },
+  "handling": {
+    "maneuverability": 95,
+    "stability": 78,
+    "inertia": 54,
+    "low_speed_control": 90,
+    "high_speed_control": 92,
+    "roll_response": 98,
+    "pitch_response": 90,
+    "yaw_response": 76,
+    "landing_difficulty": 46,
+    "takeoff_difficulty": 39
+  },
+  "systems": {
+    "afterburner": true,
+    "airbrake": true,
+    "landing_gear": true,
+    "flaps": true,
+    "thrust_vectoring": true,
+    "variable_sweep": false
+  },
+  "geometry": {
+    "length_m": 20.1,
+    "span_m": 14.1,
+    "engines": 2,
+    "planform": "stealth"
+  },
+  "reference": {
+    "status": "game proportions pending variant validation",
+    "commercial_rights": "NOT REVIEWED; no logos or military insignia",
+    "fallback_name": "Avia 5-SU57"
+  },
+  "mission_classes": [
+    "jet",
+    "race",
+    "free",
+    "combat"
+  ],
+  "balance_notice": "Authored arcade values; not real aircraft technical specifications."
+}

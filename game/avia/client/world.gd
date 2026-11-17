@@ -1,5 +1,6 @@
 extends Node3D
 var planes: Dictionary={}
+var camera_offset: Vector3=Vector3.ZERO
 var checkpoint_nodes: Array[MeshInstance3D]=[]
 var camera: Camera3D
 var camera_ready: bool=false
@@ -61,6 +62,10 @@ func _ready() -> void:
  for location: Vector3 in [Vector3(-36,0,160),Vector3(-36,0,162),Vector3(-38,0,161)]:
   var safety: Node3D=AviaCatalogProp.build(catalog);safety.position=location;safety.position.y=AviaFlight.height(location);add_child(safety)
  print(JSON.stringify({"event":"catalog_prop_ready","asset":"airfield_safety_block","source_type":"AI/TRELLIS","instances":3}))
+ # Existing verified AI candidate is a parked decorative exhibit, not an accepted fighter.
+ var parked: Node3D=AviaCatalogProp.build(load("res://assets/parked_ai_aircraft.glb"))
+ parked.position=Vector3(-58,AviaFlight.height(Vector3(-58,0,145)),145);add_child(parked)
+ print(JSON.stringify({"event":"catalog_prop_ready","asset":"trellis_validation_plane_20261117","source_type":"AI/TRELLIS","instances":1,"role":"parked_decorative_candidate","production_accepted":false}))
  for p: Vector3 in AviaRules.CHECKPOINTS:
   var ring: MeshInstance3D=MeshInstance3D.new();var torus: TorusMesh=TorusMesh.new()
   torus.inner_radius=AviaRules.RADIUS-2;torus.outer_radius=AviaRules.RADIUS;torus.rings=24;torus.ring_segments=8
@@ -75,11 +80,12 @@ func update_plane(id: int, state: Dictionary) -> void:
  var node: Node3D=planes[id]
  node.position=state.p;node.rotation=Vector3(state.pitch,state.yaw,state.roll)
  node.visible=not bool(state.crashed)
+ node.update_state(state)
  node.spin_speed=20.0+minf(state.v.length()*2,90.0)
  if id!=multiplayer.get_unique_id():
   var engine: AudioStreamPlayer3D=node.get_node_or_null("Engine")
   if not engine:
-   engine=AudioStreamPlayer3D.new();engine.name="Engine";engine.stream=AviaSound.engine_stream();engine.unit_size=24;engine.max_distance=700;node.add_child(engine);engine.play()
+   engine=AudioStreamPlayer3D.new();engine.name="Engine";engine.stream=AviaSound.engine_stream(int(state.plane));engine.unit_size=24;engine.max_distance=700;node.add_child(engine);engine.play()
   engine.volume_db=-70 if state.crashed else -25
   engine.pitch_scale=0.8+minf(state.v.length()/80.0,1.5)
 func update_session(session: Node, delta: float) -> void:
@@ -98,13 +104,16 @@ func update_session(session: Node, delta: float) -> void:
   if not id in active:planes[id].queue_free();planes.erase(id)
  var s: Dictionary=visual_state
  var basis: Basis=Basis.from_euler(Vector3(0,s.yaw+orbit,0))
- var destination: Vector3=s.p+basis*Vector3(0,6,22)
+ var chase: float=maxf(22.0,float(AviaFlight.PLANES[int(s.plane)].geometry.length_m)*1.6)
+ var destination: Vector3=s.p+basis*Vector3(0,chase*.27,chase)
  var target: Vector3=s.p+Vector3.UP*1.8
  if cockpit:
   destination=s.p+Vector3.UP*2-Basis.from_euler(Vector3(s.pitch,s.yaw,s.roll)).z*2
   target=destination-Basis.from_euler(Vector3(s.pitch,s.yaw,s.roll)).z*200
- if not camera_ready:camera.position=destination;camera_ready=true
- camera.position=camera.position.lerp(destination,1.0 if cockpit else 1.0-exp(-delta*(8.0 if reduced_motion else 4.0)))
+ if not camera_ready:camera_offset=destination-s.p;camera_ready=true
+ # Smooth the relative chase vector; world-position lag grew with jet speed and hid the aircraft.
+ camera_offset=camera_offset.lerp(destination-s.p,1.0 if cockpit else 1.0-exp(-delta*(8.0 if reduced_motion else 4.0)))
+ camera.position=s.p+camera_offset
  if camera.position.distance_to(target)>0.01:camera.look_at(target)
  camera.fov=70.0 if reduced_motion else lerpf(camera.fov,70.0+minf(s.v.length()*0.06,7.0),delta*2)
  for ring: MeshInstance3D in checkpoint_nodes:ring.visible=session.mode=="race"

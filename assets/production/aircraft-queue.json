@@ -1,0 +1,414 @@
+{
+  "schema": 1,
+  "paid_image_calls_allowed": 0,
+  "jobs": [
+    {
+      "job_id": "aircraft-f16c-v1",
+      "aircraft_id": "f16c",
+      "state": "queued",
+      "source_type": "AI/procedural repair planned",
+      "stage": "reference",
+      "attempts": 0,
+      "max_attempts": 2,
+      "heartbeat": null,
+      "depends_on": [
+        "free authored reference",
+        "GPU lease",
+        "10GiB reserve"
+      ],
+      "next_action": "Author recognizable multi-reference-checked silhouette; TRELLIS compact512; Blender symmetry/parts/LOD; Godot validation",
+      "acceptance": "15 aircraft gates in brief section20; not accepted by config alone"
+    },
+    {
+      "job_id": "aircraft-su27-v1",
+      "aircraft_id": "su27",
+      "state": "queued",
+      "source_type": "AI/procedural repair planned",
+      "stage": "reference",
+      "attempts": 0,
+      "max_attempts": 2,
+      "heartbeat": null,
+      "depends_on": [
+        "free authored reference",
+        "GPU lease",
+        "10GiB reserve"
+      ],
+      "next_action": "Author recognizable multi-reference-checked silhouette; TRELLIS compact512; Blender symmetry/parts/LOD; Godot validation",
+      "acceptance": "15 aircraft gates in brief section20; not accepted by config alone"
+    },
+    {
+      "job_id": "aircraft-f15c-v1",
+      "aircraft_id": "f15c",
+      "state": "queued",
+      "source_type": "AI/procedural repair planned",
+      "stage": "reference",
+      "attempts": 0,
+      "max_attempts": 2,
+      "heartbeat": null,
+      "depends_on": [
+        "free authored reference",
+        "GPU lease",
+        "10GiB reserve"
+      ],
+      "next_action": "Author recognizable multi-reference-checked silhouette; TRELLIS compact512; Blender symmetry/parts/LOD; Godot validation",
+      "acceptance": "15 aircraft gates in brief section20; not accepted by config alone"
+    },
+    {
+      "job_id": "aircraft-su35s-v1",
+      "aircraft_id": "su35s",
+      "state": "queued",
+      "source_type": "AI/procedural repair planned",
+      "stage": "reference",
+      "attempts": 0,
+      "max_attempts": 2,
+      "heartbeat": null,
+      "depends_on": [
+        "free authored reference",
+        "GPU lease",
+        "10GiB reserve"
+      ],
+      "next_action": "Author recognizable multi-reference-checked silhouette; TRELLIS compact512; Blender symmetry/parts/LOD; Godot validation",
+      "acceptance": "15 aircraft gates in brief section20; not accepted by config alone"
+    },
+    {
+      "job_id": "aircraft-rafale-v1",
+      "aircraft_id": "rafale",
+      "state": "queued",
+      "source_type": "AI/procedural repair planned",
+      "stage": "reference",
+      "attempts": 0,
+      "max_attempts": 2,
+      "heartbeat": null,
+      "depends_on": [
+        "free authored reference",
+        "GPU lease",
+        "10GiB reserve"
+      ],
+      "next_action": "Author recognizable multi-reference-checked silhouette; TRELLIS compact512; Blender symmetry/parts/LOD; Godot validation",
+      "acceptance": "15 aircraft gates in brief section20; not accepted by config alone"
+    },
+    {
+      "job_id": "aircraft-gripen-v1",
+      "aircraft_id": "gripen",
+      "state": "queued",
+      "source_type": "AI/procedural repair planned",
+      "stage": "reference",
+      "attempts": 0,
+      "max_attempts": 2,
+      "heartbeat": null,
+      "depends_on": [
+        "free authored reference",
+        "GPU lease",
+        "10GiB reserve"
+      ],
+      "next_action": "Author recognizable multi-reference-checked silhouette; TRELLIS compact512; Blender symmetry/parts/LOD; Godot validation",
+      "acceptance": "15 aircraft gates in brief section20; not accepted by config alone"
+    },
+    {
+      "job_id": "aircraft-f14-v1",
+      "aircraft_id": "f14",
+      "state": "queued",
+      "source_type": "AI/procedural repair planned",
+      "stage": "reference",
+      "attempts": 0,
+      "max_attempts": 2,
+      "heartbeat": null,
+      "depends_on": [
+        "free authored reference",
+        "GPU lease",
+        "10GiB reserve"
+      ],
+      "next_action": "Author recognizable multi-reference-checked silhouette; TRELLIS compact512; Blender symmetry/parts/LOD; Godot validation",
+      "acceptance": "15 aircraft gates in brief section20; not accepted by config alone"
+    },
+    {
+      "job_id": "aircraft-f15e-v1",
+      "aircraft_id": "f15e",
+      "state": "queued",
+      "source_type": "AI/procedural repair planned",
+      "stage": "reference",
+      "attempts": 0,
+      "max_attempts": 2,
+      "heartbeat": null,
+      "depends_on": [
+        "free authored reference",
+        "GPU lease",
+        "10GiB reserve"
+      ],
+      "next_action": "Author recognizable multi-reference-checked silhouette; TRELLIS compact512; Blender symmetry/parts/LOD; Godot validation",
+      "acceptance": "15 aircraft gates in brief section20; not accepted by config alone"
+    },
+    {
+      "job_id": "aircraft-fa18e-v1",
+      "aircraft_id": "fa18e",
+      "state": "queued",
+      "source_type": "AI/procedural repair planned",
+      "stage": "reference",
+      "attempts": 0,
+      "max_attempts": 2,
+      "heartbeat": null,
+      "depends_on": [
+        "free authored reference",
+        "GPU lease",
+        "10GiB reserve"
+      ],
+      "next_action": "Author recognizable multi-reference-checked silhouette; TRELLIS compact512; Blender symmetry/parts/LOD; Godot validation",
+      "acceptance": "15 aircraft gates in brief section20; not accepted by config alone"
+    },
+    {
+      "job_id": "aircraft-f22-v1",
+      "aircraft_id": "f22",
+      "state": "queued",
+      "source_type": "AI/procedural repair planned",
+      "stage": "reference",
+      "attempts": 0,
+      "max_attempts": 2,
+      "heartbeat": null,
+      "depends_on": [
+        "free authored reference",
+        "GPU lease",
+        "10GiB reserve"
+      ],
+      "next_action": "Author recognizable multi-reference-checked silhouette; TRELLIS compact512; Blender symmetry/parts/LOD; Godot validation",
+      "acceptance": "15 aircraft gates in brief section20; not accepted by config alone"
+    },
+    {
+      "job_id": "aircraft-f35a-v1",
+      "aircraft_id": "f35a",
+      "state": "queued",
+      "source_type": "AI/procedural repair planned",
+      "stage": "reference",
+      "attempts": 0,
+      "max_attempts": 2,
+      "heartbeat": null,
+      "depends_on": [
+        "free authored reference",
+        "GPU lease",
+        "10GiB reserve"
+      ],
+      "next_action": "Author recognizable multi-reference-checked silhouette; TRELLIS compact512; Blender symmetry/parts/LOD; Godot validation",
+      "acceptance": "15 aircraft gates in brief section20; not accepted by config alone"
+    },
+    {
+      "job_id": "aircraft-mig21-v1",
+      "aircraft_id": "mig21",
+      "state": "queued",
+      "source_type": "AI/procedural repair planned",
+      "stage": "reference",
+      "attempts": 0,
+      "max_attempts": 2,
+      "heartbeat": null,
+      "depends_on": [
+        "free authored reference",
+        "GPU lease",
+        "10GiB reserve"
+      ],
+      "next_action": "Author recognizable multi-reference-checked silhouette; TRELLIS compact512; Blender symmetry/parts/LOD; Godot validation",
+      "acceptance": "15 aircraft gates in brief section20; not accepted by config alone"
+    },
+    {
+      "job_id": "aircraft-mig29-v1",
+      "aircraft_id": "mig29",
+      "state": "queued",
+      "source_type": "AI/procedural repair planned",
+      "stage": "reference",
+      "attempts": 0,
+      "max_attempts": 2,
+      "heartbeat": null,
+      "depends_on": [
+        "free authored reference",
+        "GPU lease",
+        "10GiB reserve"
+      ],
+      "next_action": "Author recognizable multi-reference-checked silhouette; TRELLIS compact512; Blender symmetry/parts/LOD; Godot validation",
+      "acceptance": "15 aircraft gates in brief section20; not accepted by config alone"
+    },
+    {
+      "job_id": "aircraft-mig31-v1",
+      "aircraft_id": "mig31",
+      "state": "queued",
+      "source_type": "AI/procedural repair planned",
+      "stage": "reference",
+      "attempts": 0,
+      "max_attempts": 2,
+      "heartbeat": null,
+      "depends_on": [
+        "free authored reference",
+        "GPU lease",
+        "10GiB reserve"
+      ],
+      "next_action": "Author recognizable multi-reference-checked silhouette; TRELLIS compact512; Blender symmetry/parts/LOD; Godot validation",
+      "acceptance": "15 aircraft gates in brief section20; not accepted by config alone"
+    },
+    {
+      "job_id": "aircraft-su30sm-v1",
+      "aircraft_id": "su30sm",
+      "state": "queued",
+      "source_type": "AI/procedural repair planned",
+      "stage": "reference",
+      "attempts": 0,
+      "max_attempts": 2,
+      "heartbeat": null,
+      "depends_on": [
+        "free authored reference",
+        "GPU lease",
+        "10GiB reserve"
+      ],
+      "next_action": "Author recognizable multi-reference-checked silhouette; TRELLIS compact512; Blender symmetry/parts/LOD; Godot validation",
+      "acceptance": "15 aircraft gates in brief section20; not accepted by config alone"
+    },
+    {
+      "job_id": "aircraft-su34-v1",
+      "aircraft_id": "su34",
+      "state": "queued",
+      "source_type": "AI/procedural repair planned",
+      "stage": "reference",
+      "attempts": 0,
+      "max_attempts": 2,
+      "heartbeat": null,
+      "depends_on": [
+        "free authored reference",
+        "GPU lease",
+        "10GiB reserve"
+      ],
+      "next_action": "Author recognizable multi-reference-checked silhouette; TRELLIS compact512; Blender symmetry/parts/LOD; Godot validation",
+      "acceptance": "15 aircraft gates in brief section20; not accepted by config alone"
+    },
+    {
+      "job_id": "aircraft-su57-v1",
+      "aircraft_id": "su57",
+      "state": "queued",
+      "source_type": "AI/procedural repair planned",
+      "stage": "reference",
+      "attempts": 0,
+      "max_attempts": 2,
+      "heartbeat": null,
+      "depends_on": [
+        "free authored reference",
+        "GPU lease",
+        "10GiB reserve"
+      ],
+      "next_action": "Author recognizable multi-reference-checked silhouette; TRELLIS compact512; Blender symmetry/parts/LOD; Godot validation",
+      "acceptance": "15 aircraft gates in brief section20; not accepted by config alone"
+    },
+    {
+      "job_id": "aircraft-typhoon-v1",
+      "aircraft_id": "typhoon",
+      "state": "queued",
+      "source_type": "AI/procedural repair planned",
+      "stage": "reference",
+      "attempts": 0,
+      "max_attempts": 2,
+      "heartbeat": null,
+      "depends_on": [
+        "free authored reference",
+        "GPU lease",
+        "10GiB reserve"
+      ],
+      "next_action": "Author recognizable multi-reference-checked silhouette; TRELLIS compact512; Blender symmetry/parts/LOD; Godot validation",
+      "acceptance": "15 aircraft gates in brief section20; not accepted by config alone"
+    },
+    {
+      "job_id": "aircraft-tornado-v1",
+      "aircraft_id": "tornado",
+      "state": "queued",
+      "source_type": "AI/procedural repair planned",
+      "stage": "reference",
+      "attempts": 0,
+      "max_attempts": 2,
+      "heartbeat": null,
+      "depends_on": [
+        "free authored reference",
+        "GPU lease",
+        "10GiB reserve"
+      ],
+      "next_action": "Author recognizable multi-reference-checked silhouette; TRELLIS compact512; Blender symmetry/parts/LOD; Godot validation",
+      "acceptance": "15 aircraft gates in brief section20; not accepted by config alone"
+    },
+    {
+      "job_id": "aircraft-j10c-v1",
+      "aircraft_id": "j10c",
+      "state": "queued",
+      "source_type": "AI/procedural repair planned",
+      "stage": "reference",
+      "attempts": 0,
+      "max_attempts": 2,
+      "heartbeat": null,
+      "depends_on": [
+        "free authored reference",
+        "GPU lease",
+        "10GiB reserve"
+      ],
+      "next_action": "Author recognizable multi-reference-checked silhouette; TRELLIS compact512; Blender symmetry/parts/LOD; Godot validation",
+      "acceptance": "15 aircraft gates in brief section20; not accepted by config alone"
+    },
+    {
+      "job_id": "aircraft-j20-v1",
+      "aircraft_id": "j20",
+      "state": "queued",
+      "source_type": "AI/procedural repair planned",
+      "stage": "reference",
+      "attempts": 0,
+      "max_attempts": 2,
+      "heartbeat": null,
+      "depends_on": [
+        "free authored reference",
+        "GPU lease",
+        "10GiB reserve"
+      ],
+      "next_action": "Author recognizable multi-reference-checked silhouette; TRELLIS compact512; Blender symmetry/parts/LOD; Godot validation",
+      "acceptance": "15 aircraft gates in brief section20; not accepted by config alone"
+    },
+    {
+      "job_id": "aircraft-f2-v1",
+      "aircraft_id": "f2",
+      "state": "queued",
+      "source_type": "AI/procedural repair planned",
+      "stage": "reference",
+      "attempts": 0,
+      "max_attempts": 2,
+      "heartbeat": null,
+      "depends_on": [
+        "free authored reference",
+        "GPU lease",
+        "10GiB reserve"
+      ],
+      "next_action": "Author recognizable multi-reference-checked silhouette; TRELLIS compact512; Blender symmetry/parts/LOD; Godot validation",
+      "acceptance": "15 aircraft gates in brief section20; not accepted by config alone"
+    },
+    {
+      "job_id": "aircraft-tejas-v1",
+      "aircraft_id": "tejas",
+      "state": "queued",
+      "source_type": "AI/procedural repair planned",
+      "stage": "reference",
+      "attempts": 0,
+      "max_attempts": 2,
+      "heartbeat": null,
+      "depends_on": [
+        "free authored reference",
+        "GPU lease",
+        "10GiB reserve"
+      ],
+      "next_action": "Author recognizable multi-reference-checked silhouette; TRELLIS compact512; Blender symmetry/parts/LOD; Godot validation",
+      "acceptance": "15 aircraft gates in brief section20; not accepted by config alone"
+    },
+    {
+      "job_id": "aircraft-kf21-v1",
+      "aircraft_id": "kf21",
+      "state": "queued",
+      "source_type": "AI/procedural repair planned",
+      "stage": "reference",
+      "attempts": 0,
+      "max_attempts": 2,
+      "heartbeat": null,
+      "depends_on": [
+        "free authored reference",
+        "GPU lease",
+        "10GiB reserve"
+      ],
+      "next_action": "Author recognizable multi-reference-checked silhouette; TRELLIS compact512; Blender symmetry/parts/LOD; Godot validation",
+      "acceptance": "15 aircraft gates in brief section20; not accepted by config alone"
+    }
+  ]
+}

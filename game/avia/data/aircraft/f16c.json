@@ -1,0 +1,60 @@
+{
+  "aircraft_id": "f16c",
+  "display_name": "F-16C Fighting Falcon",
+  "country": "USA",
+  "class": "light_fighter",
+  "status": "flight_prototype",
+  "playable": true,
+  "source_type": "procedural_placeholder",
+  "physics_model": "fighter_v1",
+  "color": "7c9eab",
+  "flight": {
+    "max_speed_sea_kmh": 1344,
+    "max_speed_altitude_kmh": 2100,
+    "cruise_speed_kmh": 850,
+    "stall_speed_kmh": 220,
+    "takeoff_speed_kmh": 251,
+    "landing_speed_kmh": 262,
+    "climb_speed_kmh": 484,
+    "acceleration_mps2": 32,
+    "afterburner_acceleration_mps2": 49
+  },
+  "handling": {
+    "maneuverability": 94,
+    "stability": 68,
+    "inertia": 35,
+    "low_speed_control": 72,
+    "high_speed_control": 84,
+    "roll_response": 97,
+    "pitch_response": 89,
+    "yaw_response": 75,
+    "landing_difficulty": 57,
+    "takeoff_difficulty": 46
+  },
+  "systems": {
+    "afterburner": true,
+    "airbrake": true,
+    "landing_gear": true,
+    "flaps": true,
+    "thrust_vectoring": false,
+    "variable_sweep": false
+  },
+  "geometry": {
+    "length_m": 14.8,
+    "span_m": 9.8,
+    "engines": 1,
+    "planform": "conventional"
+  },
+  "reference": {
+    "status": "game proportions pending variant validation",
+    "commercial_rights": "NOT REVIEWED; no logos or military insignia",
+    "fallback_name": "Avia 21-F16C"
+  },
+  "mission_classes": [
+    "jet",
+    "race",
+    "free",
+    "combat"
+  ],
+  "balance_notice": "Authored arcade values; not real aircraft technical specifications."
+}

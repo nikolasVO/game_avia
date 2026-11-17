@@ -1,0 +1,229 @@
+{
+  "source_type": "procedural_placeholder",
+  "production_accepted": false,
+  "files_sha256": {
+    "game/avia/client/aircraft.gd": "b8176b570e2e32d7ca159d64047bdca4fc90d6fbda5323e80f59ad94702bf99b",
+    "game/avia/client/fighter_visual.gd": "16493d0805fe59d83e1d9acafc6ca466fe5a11a612a78b84d93b543346e14629",
+    "game/avia/data/aircraft/catalog.json": "cd82cb5e656c9116cd61e89c724a54ceecded5f4894646a3a7a739a0f858f5bd",
+    "game/avia/data/aircraft/f14.json": "290342b0329a01138b8778b94f15d4d6a2f9992042b669b8453946ee0907c2b4",
+    "game/avia/data/aircraft/f15c.json": "4ed14b681e8dff0a5fedb2d0c4342905abf83d0e38f9a7fe752089611d2674e4",
+    "game/avia/data/aircraft/f15e.json": "c7d4e2b48cc03714e6f8affb3a6241250f095ad0e4b6e344e2f5f885addae069",
+    "game/avia/data/aircraft/f16c.json": "03f8fb10268cd26171c1e989276401298fa9c79726575fa486735894e10de5be",
+    "game/avia/data/aircraft/f2.json": "5108cc80dae9b42a3ba2464acfde82a12141dd993035e37df089ce6d9d4598e2",
+    "game/avia/data/aircraft/f22.json": "13051f0e6f44416322cbf8ec31c2acb6368f931ac8c5df07316828402d363351",
+    "game/avia/data/aircraft/f35a.json": "0e2e323f430d6958e35a234e7e92077275623a87f3477dd2dd64ae140220b5fa",
+    "game/avia/data/aircraft/fa18e.json": "5bacd531d455ed1556efc68b2884953c0967d98e3d8bb4ea74a80fdaa0aa294f",
+    "game/avia/data/aircraft/gripen.json": "d63b7bceb3165e96586ceeecbb4ac83a3d34b1baf941ea87fc3d31b64f488597",
+    "game/avia/data/aircraft/j10c.json": "0e2bd9e93a628c5c2fb37345dd0cce2700ca02af0985c659dc3064379e4f3af8",
+    "game/avia/data/aircraft/j20.json": "5f556657aec24825f27751a5c40ce3d5037a41f46f188a69dcd7727b82d34641",
+    "game/avia/data/aircraft/kf21.json": "8230eb8374d3a864244b40ba5da7734c640b19eb1af03fff783648811b834b91",
+    "game/avia/data/aircraft/kite.json": "e8a328bed7294de32cef364910b226d18f9dbe108ce2ef5378bd288fe140075a",
+    "game/avia/data/aircraft/mig21.json": "a264a928e00981181c378460f00496d26123f9d45fb673cb4d5be269091222b7",
+    "game/avia/data/aircraft/mig29.json": "8db5322f192da655e708ae6a777ede1e0451bc7caa12b0879d4616ff345f6287",
+    "game/avia/data/aircraft/mig31.json": "1a7708174313c71437f07414d56d84ad03eb6fdde0799bee1fd6c5a07da0ef0a",
+    "game/avia/data/aircraft/rafale.json": "67bc108ba8ba62ee9853f196cb82a7ae6ad0320937b04e0bc228693399552b88",
+    "game/avia/data/aircraft/su27.json": "48eb1ff7c0bae064ddbf98334f6e0b0d0d5ba430dd8493ad7987e2a1c33ba1e5",
+    "game/avia/data/aircraft/su30sm.json": "6d811632f6096728fcbb147d36328df2654aad584a3bd714a920a0a7040dd0bf",
+    "game/avia/data/aircraft/su34.json": "bd556c46de851f7a0aa172343600e8fb1a97f0d6e720f6b31fabdd99ebdb457b",
+    "game/avia/data/aircraft/su35s.json": "3143f8226ce059835443b3baeab4b2d03310329baad368603fa2d1766592093a",
+    "game/avia/data/aircraft/su57.json": "2082d33144d9e33e8af73b585c3ac0a6599a038bac73474e802fba5244daeff0",
+    "game/avia/data/aircraft/swift.json": "d446d8023e5a2c9d06abbf67f59abca7afd55890a2e870e2b271205c0f790803",
+    "game/avia/data/aircraft/tejas.json": "ed85e920db53d296de6cc7e6da86d1946a5500e33f4acf9980d8af7884a61c51",
+    "game/avia/data/aircraft/tern.json": "2c13ff67f450c4f462a66f824482b5bc177083b77ceb0265790e4669a80685a1",
+    "game/avia/data/aircraft/tornado.json": "843fa514981f127f70c722b745b858026288802c331124891d75572f71f98509",
+    "game/avia/data/aircraft/typhoon.json": "6ad3315d0bdba5ea3b5b9e855b62c1b31869aa78f15348576bd6c7dae6a69c93"
+  },
+  "geometry": {
+    "event": "fighter_geometry",
+    "reports": [
+      {
+        "aircraft_id": "f16c",
+        "geometry": {
+          "surfaces": 7,
+          "triangles": 668
+        },
+        "lods": [
+          {
+            "aabb": "[P: (-4.9, -0.725, -7.548), S: (9.8, 3.093, 14.20652)]",
+            "far_m": 250.0,
+            "lod": "Airframe",
+            "near_m": 0.0,
+            "triangles": 208
+          },
+          {
+            "aabb": "[P: (-4.9, -0.725, -7.548), S: (9.8, 3.093, 14.20652)]",
+            "far_m": 800.0,
+            "lod": "LOD1",
+            "near_m": 250.0,
+            "triangles": 172
+          },
+          {
+            "aabb": "[P: (-4.9, -0.55, -7.548), S: (9.8, 2.918, 14.20652)]",
+            "far_m": 4500.0,
+            "lod": "Distant",
+            "near_m": 800.0,
+            "triangles": 96
+          }
+        ]
+      },
+      {
+        "aircraft_id": "su27",
+        "geometry": {
+          "surfaces": 10,
+          "triangles": 848
+        },
+        "lods": [
+          {
+            "aabb": "[P: (-7.35, -0.725, -11.169), S: (14.7, 4.229, 21.02181)]",
+            "far_m": 250.0,
+            "lod": "Airframe",
+            "near_m": 0.0,
+            "triangles": 232
+          },
+          {
+            "aabb": "[P: (-7.35, -0.725, -11.169), S: (14.7, 4.229, 21.02181)]",
+            "far_m": 800.0,
+            "lod": "LOD1",
+            "near_m": 250.0,
+            "triangles": 196
+          },
+          {
+            "aabb": "[P: (-7.35, -0.55, -11.169), S: (14.7, 4.054, 21.02181)]",
+            "far_m": 4500.0,
+            "lod": "Distant",
+            "near_m": 800.0,
+            "triangles": 108
+          }
+        ]
+      },
+      {
+        "aircraft_id": "f15c",
+        "geometry": {
+          "surfaces": 10,
+          "triangles": 848
+        },
+        "lods": [
+          {
+            "aabb": "[P: (-6.5, -0.725, -9.9144), S: (13.0, 3.8354, 18.66046)]",
+            "far_m": 250.0,
+            "lod": "Airframe",
+            "near_m": 0.0,
+            "triangles": 232
+          },
+          {
+            "aabb": "[P: (-6.5, -0.725, -9.9144), S: (13.0, 3.8354, 18.66046)]",
+            "far_m": 800.0,
+            "lod": "LOD1",
+            "near_m": 250.0,
+            "triangles": 196
+          },
+          {
+            "aabb": "[P: (-6.5, -0.55, -9.9144), S: (13.0, 3.6604, 18.66046)]",
+            "far_m": 4500.0,
+            "lod": "Distant",
+            "near_m": 800.0,
+            "triangles": 108
+          }
+        ]
+      },
+      {
+        "aircraft_id": "su35s",
+        "geometry": {
+          "surfaces": 10,
+          "triangles": 848
+        },
+        "lods": [
+          {
+            "aabb": "[P: (-7.35, -0.725, -11.169), S: (14.7, 4.229, 21.02181)]",
+            "far_m": 250.0,
+            "lod": "Airframe",
+            "near_m": 0.0,
+            "triangles": 232
+          },
+          {
+            "aabb": "[P: (-7.35, -0.725, -11.169), S: (14.7, 4.229, 21.02181)]",
+            "far_m": 800.0,
+            "lod": "LOD1",
+            "near_m": 250.0,
+            "triangles": 196
+          },
+          {
+            "aabb": "[P: (-7.35, -0.55, -11.169), S: (14.7, 4.054, 21.02181)]",
+            "far_m": 4500.0,
+            "lod": "Distant",
+            "near_m": 800.0,
+            "triangles": 108
+          }
+        ]
+      },
+      {
+        "aircraft_id": "rafale",
+        "geometry": {
+          "surfaces": 10,
+          "triangles": 812
+        },
+        "lods": [
+          {
+            "aabb": "[P: (-5.45, -0.725, -7.803), S: (10.9, 3.173, 14.535)]",
+            "far_m": 250.0,
+            "lod": "Airframe",
+            "near_m": 0.0,
+            "triangles": 220
+          },
+          {
+            "aabb": "[P: (-5.45, -0.725, -7.803), S: (10.9, 3.173, 14.535)]",
+            "far_m": 800.0,
+            "lod": "LOD1",
+            "near_m": 250.0,
+            "triangles": 184
+          },
+          {
+            "aabb": "[P: (-5.45, -0.55, -7.803), S: (10.9, 2.998, 14.535)]",
+            "far_m": 4500.0,
+            "lod": "Distant",
+            "near_m": 800.0,
+            "triangles": 96
+          }
+        ]
+      },
+      {
+        "aircraft_id": "gripen",
+        "geometry": {
+          "surfaces": 7,
+          "triangles": 668
+        },
+        "lods": [
+          {
+            "aabb": "[P: (-4.2, -0.725, -7.191), S: (8.4, 2.981, 13.395)]",
+            "far_m": 250.0,
+            "lod": "Airframe",
+            "near_m": 0.0,
+            "triangles": 208
+          },
+          {
+            "aabb": "[P: (-4.2, -0.725, -7.191), S: (8.4, 2.981, 13.395)]",
+            "far_m": 800.0,
+            "lod": "LOD1",
+            "near_m": 250.0,
+            "triangles": 172
+          },
+          {
+            "aabb": "[P: (-4.2, -0.55, -7.191), S: (8.4, 2.806, 13.395)]",
+            "far_m": 4500.0,
+            "lod": "Distant",
+            "near_m": 800.0,
+            "triangles": 96
+          }
+        ]
+      }
+    ],
+    "scope": "finite nondegenerate meshes, 3LOD ranges, engine effect count; recognition/art/mobile acceptance NOT VERIFIED",
+    "source_type": "procedural_placeholder",
+    "status": "PASS"
+  },
+  "reference_audit": "docs/design/aircraft-sources.md",
+  "sound": "Original deterministic synthesized tones; not real aircraft recordings",
+  "animations": "gear visibility and abstract AB visual; surfaces/transition animations pending",
+  "license": "Project authored code/geometry; aircraft-name/design commercial review remains pending",
+  "acceptance": "Full15 gates incomplete, especially recognizable production mesh/mobile/landing/public networking"
+}

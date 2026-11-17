@@ -1,0 +1,60 @@
+{
+  "aircraft_id": "tejas",
+  "display_name": "HAL Tejas",
+  "country": "India",
+  "class": "light_fighter",
+  "status": "planned",
+  "playable": false,
+  "source_type": "procedural_placeholder",
+  "physics_model": "fighter_v1",
+  "color": "a2aca8",
+  "flight": {
+    "max_speed_sea_kmh": 1216,
+    "max_speed_altitude_kmh": 1900,
+    "cruise_speed_kmh": 850,
+    "stall_speed_kmh": 210,
+    "takeoff_speed_kmh": 239,
+    "landing_speed_kmh": 250,
+    "climb_speed_kmh": 462,
+    "acceleration_mps2": 28,
+    "afterburner_acceleration_mps2": 42
+  },
+  "handling": {
+    "maneuverability": 88,
+    "stability": 65,
+    "inertia": 29,
+    "low_speed_control": 80,
+    "high_speed_control": 75,
+    "roll_response": 91,
+    "pitch_response": 83,
+    "yaw_response": 70,
+    "landing_difficulty": 52,
+    "takeoff_difficulty": 52
+  },
+  "systems": {
+    "afterburner": true,
+    "airbrake": true,
+    "landing_gear": true,
+    "flaps": true,
+    "thrust_vectoring": false,
+    "variable_sweep": false
+  },
+  "geometry": {
+    "length_m": 13.2,
+    "span_m": 8.2,
+    "engines": 1,
+    "planform": "delta"
+  },
+  "reference": {
+    "status": "game proportions pending variant validation",
+    "commercial_rights": "NOT REVIEWED; no logos or military insignia",
+    "fallback_name": "Avia 9-TEJAS"
+  },
+  "mission_classes": [
+    "jet",
+    "race",
+    "free",
+    "combat"
+  ],
+  "balance_notice": "Authored arcade values; not real aircraft technical specifications."
+}

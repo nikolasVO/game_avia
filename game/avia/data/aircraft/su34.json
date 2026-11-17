@@ -1,0 +1,60 @@
+{
+  "aircraft_id": "su34",
+  "display_name": "Su-34",
+  "country": "Russia",
+  "class": "heavy_strike",
+  "status": "planned",
+  "playable": false,
+  "source_type": "procedural_placeholder",
+  "physics_model": "fighter_v1",
+  "color": "91b7b6",
+  "flight": {
+    "max_speed_sea_kmh": 1216,
+    "max_speed_altitude_kmh": 1900,
+    "cruise_speed_kmh": 850,
+    "stall_speed_kmh": 270,
+    "takeoff_speed_kmh": 308,
+    "landing_speed_kmh": 321,
+    "climb_speed_kmh": 594,
+    "acceleration_mps2": 25,
+    "afterburner_acceleration_mps2": 39
+  },
+  "handling": {
+    "maneuverability": 58,
+    "stability": 94,
+    "inertia": 94,
+    "low_speed_control": 48,
+    "high_speed_control": 77,
+    "roll_response": 61,
+    "pitch_response": 53,
+    "yaw_response": 46,
+    "landing_difficulty": 71,
+    "takeoff_difficulty": 58
+  },
+  "systems": {
+    "afterburner": true,
+    "airbrake": true,
+    "landing_gear": true,
+    "flaps": true,
+    "thrust_vectoring": false,
+    "variable_sweep": false
+  },
+  "geometry": {
+    "length_m": 23.3,
+    "span_m": 14.7,
+    "engines": 2,
+    "planform": "canard"
+  },
+  "reference": {
+    "status": "game proportions pending variant validation",
+    "commercial_rights": "NOT REVIEWED; no logos or military insignia",
+    "fallback_name": "Avia 5-SU34"
+  },
+  "mission_classes": [
+    "jet",
+    "race",
+    "free",
+    "combat"
+  ],
+  "balance_notice": "Authored arcade values; not real aircraft technical specifications."
+}
