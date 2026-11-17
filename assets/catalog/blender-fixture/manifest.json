@@ -14,6 +14,7 @@
     }
   ],
   "collision": "box_metadata; Unity component binding requires runner",
+  "generator_script_sha256": "2af7b71b3358d27a6c62886bd7700f18dd031fabd3685d7818bc826af645e191",
   "dimensions_m": [
     1.0,
     1.0,
@@ -30,12 +31,12 @@
   },
   "files": {
     "optimized.glb": {
-      "sha256": "596906d7056f032e2b0a99ec7e603148d59db754b3ce514d48eb621a96e9cd9c",
-      "bytes": 33588
+      "sha256": "1123613145b044917fbb2438e55856d19c824bf6c94e3c636b25a52d624d3661",
+      "bytes": 33596
     },
     "preview.png": {
-      "sha256": "791bfe3c1cb3ec74c2bb937edac862ef379aa6d5712ea85c6f8d1ba145618967",
-      "bytes": 128437
+      "sha256": "9ab4e98d775fd7fa87ff583c45728abb4e669ed56acd029a5625be7c704f26b6",
+      "bytes": 150473
     }
   },
   "verified": true

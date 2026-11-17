@@ -1,0 +1,154 @@
+{
+  "revisions": {
+    "microsoft/TRELLIS.2-4B": "af44b45f2e35a493886929c6d786e563ec68364d",
+    "microsoft/TRELLIS-image-large": "25e0d31ffbebe4b5a97464dd851910efc3002d96",
+    "facebook/dinov3-vitl16-pretrain-lvd1689m": "ea8dc2863c51be0a264bab82070e3e8836b02d51",
+    "ZhengPeng7/BiRefNet": "e2bf8e4460fc8fa32bba5ea4d94b3233d367b0e4"
+  },
+  "pipeline_type": "512",
+  "files": [
+    {
+      "repo": "microsoft/TRELLIS-image-large",
+      "revision": "25e0d31ffbebe4b5a97464dd851910efc3002d96",
+      "file": "ckpts/ss_dec_conv3d_16l8_fp16.json",
+      "local": "/srv/game-avia/models/trellis512/sparse/ckpts/ss_dec_conv3d_16l8_fp16.json",
+      "bytes": 245
+    },
+    {
+      "repo": "microsoft/TRELLIS-image-large",
+      "revision": "25e0d31ffbebe4b5a97464dd851910efc3002d96",
+      "file": "ckpts/ss_dec_conv3d_16l8_fp16.safetensors",
+      "local": "/srv/game-avia/models/trellis512/sparse/ckpts/ss_dec_conv3d_16l8_fp16.safetensors",
+      "bytes": 147591972
+    },
+    {
+      "repo": "microsoft/TRELLIS.2-4B",
+      "revision": "af44b45f2e35a493886929c6d786e563ec68364d",
+      "file": "ckpts/ss_flow_img_dit_1_3B_64_bf16.json",
+      "local": "/srv/game-avia/models/trellis512/trellis/ckpts/ss_flow_img_dit_1_3B_64_bf16.json",
+      "bytes": 467
+    },
+    {
+      "repo": "microsoft/TRELLIS.2-4B",
+      "revision": "af44b45f2e35a493886929c6d786e563ec68364d",
+      "file": "ckpts/ss_flow_img_dit_1_3B_64_bf16.safetensors",
+      "local": "/srv/game-avia/models/trellis512/trellis/ckpts/ss_flow_img_dit_1_3B_64_bf16.safetensors",
+      "bytes": 2584426920
+    },
+    {
+      "repo": "microsoft/TRELLIS.2-4B",
+      "revision": "af44b45f2e35a493886929c6d786e563ec68364d",
+      "file": "ckpts/shape_dec_next_dc_f16c32_fp16.json",
+      "local": "/srv/game-avia/models/trellis512/trellis/ckpts/shape_dec_next_dc_f16c32_fp16.json",
+      "bytes": 678
+    },
+    {
+      "repo": "microsoft/TRELLIS.2-4B",
+      "revision": "af44b45f2e35a493886929c6d786e563ec68364d",
+      "file": "ckpts/shape_dec_next_dc_f16c32_fp16.safetensors",
+      "local": "/srv/game-avia/models/trellis512/trellis/ckpts/shape_dec_next_dc_f16c32_fp16.safetensors",
+      "bytes": 948490494
+    },
+    {
+      "repo": "microsoft/TRELLIS.2-4B",
+      "revision": "af44b45f2e35a493886929c6d786e563ec68364d",
+      "file": "ckpts/slat_flow_img2shape_dit_1_3B_512_bf16.json",
+      "local": "/srv/game-avia/models/trellis512/trellis/ckpts/slat_flow_img2shape_dit_1_3B_512_bf16.json",
+      "bytes": 458
+    },
+    {
+      "repo": "microsoft/TRELLIS.2-4B",
+      "revision": "af44b45f2e35a493886929c6d786e563ec68364d",
+      "file": "ckpts/slat_flow_img2shape_dit_1_3B_512_bf16.safetensors",
+      "local": "/srv/game-avia/models/trellis512/trellis/ckpts/slat_flow_img2shape_dit_1_3B_512_bf16.safetensors",
+      "bytes": 2584574424
+    },
+    {
+      "repo": "microsoft/TRELLIS.2-4B",
+      "revision": "af44b45f2e35a493886929c6d786e563ec68364d",
+      "file": "ckpts/tex_dec_next_dc_f16c32_fp16.json",
+      "local": "/srv/game-avia/models/trellis512/trellis/ckpts/tex_dec_next_dc_f16c32_fp16.json",
+      "bytes": 705
+    },
+    {
+      "repo": "microsoft/TRELLIS.2-4B",
+      "revision": "af44b45f2e35a493886929c6d786e563ec68364d",
+      "file": "ckpts/tex_dec_next_dc_f16c32_fp16.safetensors",
+      "local": "/srv/game-avia/models/trellis512/trellis/ckpts/tex_dec_next_dc_f16c32_fp16.safetensors",
+      "bytes": 948458812
+    },
+    {
+      "repo": "microsoft/TRELLIS.2-4B",
+      "revision": "af44b45f2e35a493886929c6d786e563ec68364d",
+      "file": "ckpts/slat_flow_imgshape2tex_dit_1_3B_512_bf16.json",
+      "local": "/srv/game-avia/models/trellis512/trellis/ckpts/slat_flow_imgshape2tex_dit_1_3B_512_bf16.json",
+      "bytes": 458
+    },
+    {
+      "repo": "microsoft/TRELLIS.2-4B",
+      "revision": "af44b45f2e35a493886929c6d786e563ec68364d",
+      "file": "ckpts/slat_flow_imgshape2tex_dit_1_3B_512_bf16.safetensors",
+      "local": "/srv/game-avia/models/trellis512/trellis/ckpts/slat_flow_imgshape2tex_dit_1_3B_512_bf16.safetensors",
+      "bytes": 2584672728
+    },
+    {
+      "repo": "facebook/dinov3-vitl16-pretrain-lvd1689m",
+      "revision": "ea8dc2863c51be0a264bab82070e3e8836b02d51",
+      "file": "config.json",
+      "local": "/srv/game-avia/models/trellis512/dino/config.json",
+      "bytes": 745
+    },
+    {
+      "repo": "facebook/dinov3-vitl16-pretrain-lvd1689m",
+      "revision": "ea8dc2863c51be0a264bab82070e3e8836b02d51",
+      "file": "model.safetensors",
+      "local": "/srv/game-avia/models/trellis512/dino/model.safetensors",
+      "bytes": 1212559808
+    },
+    {
+      "repo": "facebook/dinov3-vitl16-pretrain-lvd1689m",
+      "revision": "ea8dc2863c51be0a264bab82070e3e8836b02d51",
+      "file": "preprocessor_config.json",
+      "local": "/srv/game-avia/models/trellis512/dino/preprocessor_config.json",
+      "bytes": 585
+    },
+    {
+      "repo": "ZhengPeng7/BiRefNet",
+      "revision": "e2bf8e4460fc8fa32bba5ea4d94b3233d367b0e4",
+      "file": "BiRefNet_config.py",
+      "local": "/srv/game-avia/models/trellis512/birefnet/BiRefNet_config.py",
+      "bytes": 298
+    },
+    {
+      "repo": "ZhengPeng7/BiRefNet",
+      "revision": "e2bf8e4460fc8fa32bba5ea4d94b3233d367b0e4",
+      "file": "birefnet.py",
+      "local": "/srv/game-avia/models/trellis512/birefnet/birefnet.py",
+      "bytes": 91896
+    },
+    {
+      "repo": "ZhengPeng7/BiRefNet",
+      "revision": "e2bf8e4460fc8fa32bba5ea4d94b3233d367b0e4",
+      "file": "config.json",
+      "local": "/srv/game-avia/models/trellis512/birefnet/config.json",
+      "bytes": 405
+    },
+    {
+      "repo": "ZhengPeng7/BiRefNet",
+      "revision": "e2bf8e4460fc8fa32bba5ea4d94b3233d367b0e4",
+      "file": "handler.py",
+      "local": "/srv/game-avia/models/trellis512/birefnet/handler.py",
+      "bytes": 4762
+    },
+    {
+      "repo": "ZhengPeng7/BiRefNet",
+      "revision": "e2bf8e4460fc8fa32bba5ea4d94b3233d367b0e4",
+      "file": "model.safetensors",
+      "local": "/srv/game-avia/models/trellis512/birefnet/model.safetensors",
+      "bytes": 444473596
+    }
+  ],
+  "selected_bytes": 11455350456,
+  "downloaded": false,
+  "dino_access": "blocked_http_401"
+}
