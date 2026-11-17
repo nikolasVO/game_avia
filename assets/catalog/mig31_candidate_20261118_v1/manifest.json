@@ -97,6 +97,10 @@
       "sha256": "9980c68a77915165e0fa2f3b3fd609b145adfdd64963f43ac9d42aa57ca16b27",
       "bytes": 3052
     },
+    "contact.png": {
+      "sha256": "b32c1c3a8286875bd2c2b9c92acc45488e15ecebce55506f88724d3f7ff2c8fd",
+      "bytes": 164885
+    },
     "geometry-manifest.json": {
       "sha256": "12ff825f9cabab017c6490160e32a9af71297836a97c3312c82011b9da7d92b5",
       "bytes": 3787
