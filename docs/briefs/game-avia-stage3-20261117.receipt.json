@@ -1,0 +1,11 @@
+{
+  "received_at": "2026-11-17T10:49:20.460937+00:00",
+  "source": "owner attachment d6a10c71-40d4-41f7-b844-cabc04b673d5",
+  "brief": "docs/briefs/game-avia-stage3-20261117.md",
+  "bytes": 56012,
+  "characters": 31892,
+  "sha256": "8b887eabbacb46051ccd19fdcb2c8f69f84aacbd27e41be91469e4fd2c4fc379",
+  "activation": "only_after_current_development_task_verified_complete",
+  "depends_on_task": "68c406f99772",
+  "depends_on_brief_sha256": "6da6bd4feaa7573f87564eeba4971c80de09e8427b3defca726e73c4df7ec4db"
+}
