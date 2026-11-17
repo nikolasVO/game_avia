@@ -1,0 +1,123 @@
+{
+  "status": "PASS",
+  "source_commit_before_visual_changes": "f65ba6201ba5975a2e057786837043bdba4a788b",
+  "scope": "actual Mac rendered F16 AI candidate and procedural Su27 clients with separate authoritative server; loopback not public/mobile acceptance",
+  "seconds": 25,
+  "aircraft": [
+    "f16c",
+    "su27"
+  ],
+  "clients": [
+    {
+      "name": "client-0",
+      "ok": true,
+      "summary": {
+        "commands_sent": 716,
+        "connection_status": "Connected",
+        "correction_max_m": 4721.279296875,
+        "correction_p95_m": 0.00297347758896649,
+        "enet_rtt_ms": 20.0,
+        "event": "summary",
+        "frame_p50_ms": 16.679,
+        "frame_p95_ms": 18.444,
+        "joined": true,
+        "last_input_ack": 713,
+        "pending_inputs": 3,
+        "rejected": 0,
+        "renderer": "gl_compatibility",
+        "seconds": 25.0048983333332,
+        "seen_peers": 2,
+        "server": false,
+        "snapshots": 357,
+        "state": {
+          "afterburner": true,
+          "age": 53,
+          "airbrake": false,
+          "crashed": false,
+          "distance": 70.4478979110718,
+          "flaps": true,
+          "gear": true,
+          "grounded": false,
+          "health": 100.0,
+          "landed": false,
+          "p": "(-17.94343, 5.117652, 109.7338)",
+          "pitch": 0.17569410437718,
+          "plane": 3,
+          "profile": 0,
+          "rates": "(0.004266, 0.0, 0.000013)",
+          "respawns": 0,
+          "roll": -2.08533561666021e-05,
+          "v": "(0.41052, 10.43206, -74.65019)",
+          "was_airborne": true,
+          "yaw": -8.17688609715348e-07
+        },
+        "static_memory_mb": 50.2095708847046,
+        "wall_seconds": 26.28
+      }
+    },
+    {
+      "name": "client-1",
+      "ok": true,
+      "summary": {
+        "commands_sent": 728,
+        "connection_status": "Connected",
+        "correction_max_m": 4727.4833984375,
+        "correction_p95_m": 0.00394196854904294,
+        "enet_rtt_ms": 21.0,
+        "event": "summary",
+        "frame_p50_ms": 16.647,
+        "frame_p95_ms": 18.48,
+        "joined": true,
+        "last_input_ack": 726,
+        "pending_inputs": 2,
+        "rejected": 0,
+        "renderer": "gl_compatibility",
+        "seconds": 25.4054879999998,
+        "seen_peers": 2,
+        "server": false,
+        "snapshots": 341,
+        "state": {
+          "afterburner": true,
+          "age": 81,
+          "airbrake": false,
+          "crashed": false,
+          "distance": 147.803591251373,
+          "flaps": true,
+          "gear": true,
+          "grounded": false,
+          "health": 100.0,
+          "landed": false,
+          "p": "(-17.13463, 17.56553, 33.52057)",
+          "pitch": 0.162758376697699,
+          "plane": 4,
+          "profile": 0,
+          "rates": "(-0.062251, 0.0, 0.000036)",
+          "respawns": 0,
+          "roll": -0.000137417745524241,
+          "v": "(1.396686, 20.92383, -102.2958)",
+          "was_airborne": true,
+          "yaw": -0.000265118527549046
+        },
+        "static_memory_mb": 50.1317281723022,
+        "wall_seconds": 26.71
+      }
+    }
+  ],
+  "server_events": [
+    "arrival",
+    "authority_state",
+    "departure",
+    "health",
+    "respawn",
+    "server_ready",
+    "summary",
+    "takeoff"
+  ],
+  "source_files_sha256": {
+    "game/avia/client/fighter_visual.gd": "94c041de96512c522a73f4317b03e6b618f1a7808cf7243a339b9c7161d4f568",
+    "game/avia/assets/f16c_ai_candidate.glb": "ed38749a1c957fda833736e98bf5969c6be0e70ac53eeb6931e69e5fd77eb694",
+    "game/avia/data/aircraft/f16c.json": "b7891ed44303108263bd3f5cb78b06a2e73a334028b1190ef5dae77c3295c035"
+  },
+  "intentional_recovery": "large correction maxima include explicit bot respawn; they are not a steady-flight p95",
+  "acceptance": "candidate pipeline PASS; full15 aircraft gates incomplete"
+}

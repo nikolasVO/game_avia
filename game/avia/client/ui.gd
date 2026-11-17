@@ -15,6 +15,7 @@ var preparing: bool=false
 var join_generation: int=0
 var hangar: PanelContainer
 var system_buttons: Dictionary={}
+var diagnostic_controls_sent: bool=false
 var select_profile: OptionButton
 var select_mode: OptionButton
 var language: String="en"
@@ -91,7 +92,8 @@ func _ready() -> void:
   system.toggled.connect(func(value: bool):
    if label.begins_with("AB"):touch.afterburner=value
    elif label.begins_with("Flaps"):touch.flaps=value
-   else:touch.gear=value)
+   else:touch.gear=value
+   if session.diagnostics:print(JSON.stringify({"event":"ui_system_toggle","control":label,"value":value})))
  host=LineEdit.new();host.placeholder_text=tr_text("host");host.text=str(settings.get_value("net","host","127.0.0.1"));col.add_child(host)
  var room_row: HBoxContainer=HBoxContainer.new();col.add_child(room_row)
  private_room=CheckBox.new();private_room.text=tr_text("private");labels.private=private_room;room_row.add_child(private_room)
@@ -118,9 +120,11 @@ func _ready() -> void:
  var sensitivity: HSlider=HSlider.new();sensitivity.min_value=0.3;sensitivity.max_value=1.5;sensitivity.step=0.05;sensitivity.value=float(settings.get_value("controls","sensitivity",1.0));col.add_child(sensitivity);touch.sensitivity=sensitivity.value
  sensitivity.value_changed.connect(func(value: float):touch.sensitivity=value;settings.set_value("controls","sensitivity",value);settings.save("user://settings.cfg"))
  var help: Label=Label.new();help.text=tr_text("help");help.add_theme_font_size_override("font_size",16);labels.help=help;col.add_child(help)
+ select_plane.item_selected.connect(func(_index: int):_update_help())
+ _update_help()
  var bottom: HBoxContainer=HBoxContainer.new();col.add_child(bottom)
  var play: Button=Button.new();play.text=tr_text("play");labels.play=play;play.size_flags_horizontal=Control.SIZE_EXPAND_FILL;play.custom_minimum_size.y=56;bottom.add_child(play);play.pressed.connect(join)
- hangar=load("res://client/hangar.gd").new();hangar.lang=language;root.add_child(hangar);hangar.hide();hangar.selected.connect(func(index: int):select_plane.select(index))
+ hangar=load("res://client/hangar.gd").new();hangar.lang=language;root.add_child(hangar);hangar.hide();hangar.selected.connect(func(index: int):select_plane.select(index);_update_help())
  var hangar_button: Button=Button.new();hangar_button.text="Hangar / Ангар";bottom.add_child(hangar_button);hangar_button.pressed.connect(func():hangar.show())
  var lang: Button=Button.new();lang.text="EN / RU";bottom.add_child(lang);lang.pressed.connect(func():language="ru" if language=="en" else "en";settings.set_value("ui","language",language);settings.save("user://settings.cfg");_translate())
 func _quality(index: int) -> void:
@@ -140,6 +144,12 @@ func _translate() -> void:
  for key: String in labels:labels[key].text=tr_text(key)
  if hangar:hangar.lang=language;hangar.localize()
  code.placeholder_text=tr_text("code");host.placeholder_text=tr_text("host")
+ _update_help()
+func _update_help() -> void:
+ var rotation: int=int(AviaFlight.PLANES[select_plane.selected].flight.takeoff_speed_kmh)
+ labels.help.text=tr_text("help").replace("Lift off above 90 km/h.","Rotate near %d km/h; B: afterburner." % rotation).replace("Взлёт от 90 км/ч.","Отрыв около %d км/ч; B: форсаж." % rotation)
+ labels.assist.disabled=select_plane.selected>=3
+ labels.assist.tooltip_text="Fighter assistance uses the server flight profile / Помощь истребителя задаётся серверным профилем"
 func join() -> void:
  if preparing:return
  if host.text.strip_edges().is_empty():session.status="Enter a server address";return
@@ -169,6 +179,14 @@ func _process(delta: float) -> void:
   if key=="gear" and session.joined and session.local_state.get("grounded",false):touch.gear=true
   system_buttons[label].disabled=key=="gear" and bool(session.local_state.get("grounded",false))
   system_buttons[label].set_pressed_no_signal(touch.get(key));system_buttons[label].visible=session.joined and int(session.local_state.get("plane",0))>=3
+ if not session.joined:diagnostic_controls_sent=false
+ elif session.diagnostics and not diagnostic_controls_sent and int(session.local_state.get("plane",0))>=3:
+  var rects: Dictionary={}
+  for label: String in system_buttons:
+   var rect: Rect2=system_buttons[label].get_global_rect()
+   rects[label]={"x":rect.position.x,"y":rect.position.y,"width":rect.size.x,"height":rect.size.y}
+  print(JSON.stringify({"event":"ui_controls","viewport":str(root.size),"systems":rects}))
+  diagnostic_controls_sent=true
  for button: Button in top_buttons:button.disabled=not session.joined
  touch.combat=session.mode=="pvp"
  touch.action_label=("FIRE" if language=="en" else "ОГОНЬ") if touch.combat else ("BRAKE" if language=="en" else "ТОРМОЗ")

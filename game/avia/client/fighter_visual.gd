@@ -1,13 +1,18 @@
 class_name AviaFighterVisual
 extends RefCounted
-## Authored procedural recognition prototypes, not TRELLIS results or licensed production replicas.
+## Candidate imported body or authored procedural body; flight remains independent.
 static func create(index: int) -> AviaAircraft:
  var spec: Dictionary=AviaFlight.PLANES[index];var g: Dictionary=spec.geometry
  var root: AviaAircraft=AviaAircraft.new()
  var color: Color=spec.color;var dark: Color=Color("293f49");var glass: Color=Color("78b5c3")
  var length: float=float(g.length_m);var span: float=float(g.span_m);var twin: bool=int(g.engines)==2
  var delta: bool=str(g.planform).contains("delta");var canard: bool=str(g.planform).contains("canard")
- for lod: int in 3:
+ var imported: bool=spec.has("visual") and ResourceLoader.exists(str(spec.visual.scene))
+ if imported:
+  var body: Node3D=AviaCatalogProp.build(load(str(spec.visual.scene)) as PackedScene)
+  body.name="AIModel";body.position.y=float(spec.visual.offset_y_m);root.add_child(body)
+  root.airframe_source="AI candidate with procedural landing gear/effects; production QA pending"
+ for lod: int in (0 if imported else 3):
   var st: SurfaceTool=SurfaceTool.new();st.begin(Mesh.PRIMITIVE_TRIANGLES)
   var sides: int=8 if lod==0 else 6 if lod==1 else 4
   AviaAircraft._loft(st,[Vector3(-length*.51,.04,.06),Vector3(-length*.3,.48,.55),Vector3(-length*.12,.8 if twin else .6,.65),Vector3(length*.17,.78 if twin else .55,.55),Vector3(length*.44,.45,.35)],0.1,color,sides)
@@ -37,8 +42,10 @@ static func create(index: int) -> AviaAircraft:
  AviaAircraft._mesh(gear,root.landing_gear,"Gear",0,500)
  root.exhaust=Node3D.new();root.exhaust.name="Afterburner";root.add_child(root.exhaust)
  for side: float in ([-1.0,1.0] if twin else [0.0]):
-  var exhaust: MeshInstance3D=MeshInstance3D.new();var cone: CylinderMesh=CylinderMesh.new();cone.top_radius=.27;cone.bottom_radius=.04;cone.height=1.9;cone.radial_segments=6;exhaust.mesh=cone
-  var mat: StandardMaterial3D=StandardMaterial3D.new();mat.albedo_color=Color("f7b564");mat.shading_mode=BaseMaterial3D.SHADING_MODE_UNSHADED;exhaust.material_override=mat
-  exhaust.rotation.x=PI/2;exhaust.position=Vector3(side*length*.055,-.1,length*.46+.9);root.exhaust.add_child(exhaust)
+  # Reuse the airframe's vertex-lit material path; no additional unshaded variant.
+  var flame: SurfaceTool=SurfaceTool.new();flame.begin(Mesh.PRIMITIVE_TRIANGLES)
+  AviaAircraft._loft(flame,[Vector3(length*.46,.27,.27),Vector3(length*.46+1.9,.04,.04)],-.1,Color("f7b564"),6)
+  var exhaust: MeshInstance3D=AviaAircraft._mesh(flame,root.exhaust,"Flame"+str(side),0,800)
+  exhaust.position.x=side*length*.055
  root.exhaust.hide()
  return root

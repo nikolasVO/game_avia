@@ -1,3 +1,5 @@
+> Development continuation is in progress. The current aircraft catalog/physics/hangar and F-16C AI candidate are on `task/game-implementation-20261117`; they are not accepted development release or public multiplayer. See [STATUS](STATUS.md) and [production backlog](docs/backlog.md). Historical downloads/deployment below remain protocol3 until a separately verified manual update.
+
 # Game Avia
 
 Нативный прототип Godot **4.7.2 stable**: отдельный авторитетный ENet/DTLS-сервер, три процедурных самолёта, остров с двумя полосами, свободный полёт, гонка и аркадный PvP. Есть touch controls, EN/RU, выбор самолёта, приватные комнаты и настройки. Рабочий подзаголовок Tidal Wings пока не прошёл проверку названия для публикации.

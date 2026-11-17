@@ -7,12 +7,12 @@ Active task68c406f99772, full21-section development brief. Current stage remains
 |P0|Existing external UDP24567|FAIL actual off-host; provider mapping unknown. Two external playing clients required.|
 |P0|Physical Android/iPhone controls/frame/memory/heat/handover|NOT VERIFIED; no available validated device path. Emulator cold-render connection regression fixed6c3620a and90s actual flight PASS, FPS FAIL.|
 |P0|Rollback|Published r2/c1922c7 and6c3620a APK/evidence preserved; do not replace deployed protocol3 before tested matching client/server4.|
-|P0|Existing AI candidate|Real inference/LOD/import evidence available8aa3635; review branch handoff, integrate separately; production geometry/articulation/mobile gates open. AI safety-block prop already in actual6c APK.|
+|P0|Existing AI candidate|Original AI candidate parked in scene; F-16C real inference and symmetry/LOD/import/render/native integration PASS, production recognition/articulation/mobile gates open. AI safety-block prop already in actual6c APK.|
 |P1|27-entry unified catalog|Implemented data/loader;24 named fighters, originals preserved. Validation and game delivery gates separate.|
-|P1|Six flight profiles + systems|Implemented shared forces, inertia, AB/airbrake/flaps/gear/profile authority; scripted comparison PASS. Real current protocol/render/build verification in progress.|
-|P1|F-16C vsSu-27|Procedural recognition prototypes; compare identical commands, then two actual clients and native APK. Production acceptance remains open.|
+|P1|Six flight profiles + systems|Implemented shared forces, inertia, AB/airbrake/flaps/gear/profile authority; scripted comparison PASS. Real protocol/rendered pair and f702 native load PASS in their scopes; physical handling/landing remains open.|
+|P1|F-16C vsSu-27|Distinct measured flight prototypes. F-16C AI candidate body integrated with procedural gear/effects; actual rendered F-16C/Su-27 pair PASS. Current APK/runtime and all15 aircraft gates remain open.|
 |P1|3D comparison hangar|Implemented first native inspection/comparison view; visual/input QA in progress. Filters/favorites/paint/unlocks/upgrades pending.|
-|P1|Server4 regression/load|Run protocol/lifecycle/race/PvP/impaired tests; changed authority requires new bounded load before capacity claims. Keep old9412 measurement separate.|
+|P1|Server4 regression/load|f70216 active fighter clients1850s PASS, health-airborne/cycle checks and CPU/RAM retained. Protocol/lifecycle/current rendered pair PASS in recorded scopes. Recheck remaining modes/clean native release; no repeated long load for visual-only changes.|
 |P2|Other18 fighters|Proposed configs only. Primary variant/source audit, own reference, model repair, individual dynamics, sweep geometry/aero, animation/audio/LOD and all15 gates required.|
 |P2|Production assets|24 durable jobs in Store KV aircraft_production_queue:v1; no automatic worker/paid image. Reference→lease/reserve→TRELLIS→Blender→Godot→phone QA. Keep stable jobs through retry/restart.|
 |P3|Career/profile/progression|Server-owned persistent profiles, secure restore/delete, seven ranks, six licenses. No client-assigned reward or license gate on free flight.|

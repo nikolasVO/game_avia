@@ -11,11 +11,12 @@
     3.2,
     14.8
   ],
-  "source_yaw_degrees": 0,
+  "source_yaw_degrees": 180,
   "triangle_budget": 19400,
   "texture_budget": 1024,
   "deadline_seconds": 1800,
   "cost_limit": 0,
   "seed": 42,
-  "pipeline_type": "512"
+  "pipeline_type": "512",
+  "symmetry_policy": "mirror_x"
 }

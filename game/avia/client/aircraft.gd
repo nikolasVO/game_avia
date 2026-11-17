@@ -5,6 +5,7 @@ var landing_gear: Node3D
 var exhaust: Node3D
 var propeller: Node3D
 var spin_speed: float=30.0
+var airframe_source: String="procedural flight prototype"
 static func _face(st: SurfaceTool, vertices: Array[Vector3], color: Color, outward: Vector3) -> void:
  var normal: Vector3=(vertices[1]-vertices[0]).cross(vertices[2]-vertices[0]).normalized()
  if normal.dot(outward)<0:vertices.reverse();normal=-normal

@@ -5,10 +5,10 @@
     {
       "job_id": "aircraft-f16c-v1",
       "aircraft_id": "f16c",
-      "state": "queued",
+      "state": "validating",
       "source_type": "AI/procedural repair planned",
-      "stage": "reference",
-      "attempts": 0,
+      "stage": "mobile/articulation/recognition",
+      "attempts": 1,
       "max_attempts": 2,
       "heartbeat": null,
       "depends_on": [
@@ -16,8 +16,10 @@
         "GPU lease",
         "10GiB reserve"
       ],
-      "next_action": "Author recognizable multi-reference-checked silhouette; TRELLIS compact512; Blender symmetry/parts/LOD; Godot validation",
-      "acceptance": "15 aircraft gates in brief section20; not accepted by config alone"
+      "next_action": "Candidate geometry/import/render/native two-client PASS; physical performance, articulated parts, complete recognition/landing and other aircraft acceptance gates remain",
+      "acceptance": "15 aircraft gates in brief section20; not accepted by config alone",
+      "artifact_id": "f16c_candidate_20261117_v1",
+      "task_id": "a842a8468efd"
     },
     {
       "job_id": "aircraft-su27-v1",

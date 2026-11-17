@@ -7,7 +7,7 @@ Data: `game/avia/data/aircraft/`, schema1; stable original indices0–2. 24 name
 |kite|Kite|Game Avia|flight prototype|259.2/259.2|61.2/71.4|25|procedural|
 |tern|Tern|Game Avia|flight prototype|342/342|82.8/96.6|40|procedural|
 |swift|Swift|Game Avia|flight prototype|522/522|115.2/134.4|55|procedural|
-|f16c|F-16C Fighting Falcon|USA|flight prototype|1344/2100|220/262|35|procedural_placeholder|
+|f16c|F-16C Fighting Falcon|USA|flight prototype|1344/2100|220/262|35|AI candidate body; procedural gear/effects|
 |su27|Su-27|Russia|flight prototype|1568/2450|240/286|64|procedural_placeholder|
 |f15c|F-15C Eagle|USA|flight prototype|1696/2650|250/298|70|procedural_placeholder|
 |su35s|Su-35S|Russia|flight prototype|1600/2500|215/256|58|procedural_placeholder|
