@@ -1,6 +1,6 @@
 # game_avia
 
-Implement the owner's game-development environment specification dated 17 November 2026. Do not invent the game's genre or mechanics. Establish the environment and one real technical asset/build example first.
+The current owner implementation brief is docs/briefs/game-avia-20261117.md, preserved verbatim from the 17 November attachment. It now explicitly defines a native iOS/Android multiplayer flight game, its mechanics and version 0.1 acceptance. This supersedes the earlier environment-only instruction to wait for a game brief. Audit the existing work, then implement the real vertical slice. Godot stable is the primary candidate; verify it and record the engine decision before scaling content. The installed but license-blocked Unity proof is infrastructure evidence, not an engine selection. Preserve the existing coordinator and useful tools. See docs/handoffs/implementation-20261117.md for verified state and limitations.
 
 Use separate task branches and worktrees for independent agents; one integrator owns shared configuration and Unity scene/prefab/ProjectSettings changes. Preserve existing changes; never force-push. Commit and push verified milestones, with short Russian `Updates-Ru:` lines in commit bodies.
 

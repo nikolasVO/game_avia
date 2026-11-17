@@ -44,7 +44,9 @@ def check():
     report["off_server_backup_tested"]=s.kv("off_server_backup_tested")
     report["owner_live_incoming_update_verified"]=False
     report["unity"]=json.loads(s.kv("unity_readiness") or "{}")
-    report["remaining_blockers"]=["gated_dino_access","Unity_license_import_build_and_Xcode","official_Codex_Responses_route_unverified","bootstrap_paid_probe_cap_reached","unattended_E2E_retest_pending","image_size_contract_mismatch","game_brief_missing"]
+    report["game_brief_received"]=Path("docs/briefs/game-avia-20261117.md").is_file()
+    report["remaining_blockers"]=["gated_dino_access","Unity_license_import_build_and_Xcode","official_Codex_Responses_route_unverified","bootstrap_paid_probe_cap_reached","unattended_E2E_retest_pending","image_size_contract_mismatch"]
+    if not report["game_brief_received"]:report["remaining_blockers"].append("game_brief_missing")
     assert report["health"]["release"]==report["checkout"]
     assert report["api_rejects_unauthorized"] and report["api_authorized_get"]
     assert all(x=="RUNNING" for x in report["services"].values())
