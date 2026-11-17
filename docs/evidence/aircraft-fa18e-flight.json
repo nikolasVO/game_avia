@@ -1,0 +1,90 @@
+{
+  "source_base": "1b8e99f9a7030ab13f68f81f5ca831268616da18",
+  "circuit": {
+    "aircraft_id": "fa18e",
+    "commands_valid": true,
+    "crashed": false,
+    "distance_m": 14630.429440774,
+    "event": "planned_circuit_summary",
+    "final_speed_mps": 1.9169100522995,
+    "landing_seconds": 163.666666666667,
+    "maximum_altitude_m": 247.922103881836,
+    "maximum_speed_mps": 101.230888366699,
+    "production_accepted": false,
+    "scope": "planned-only command-driven parked/takeoff/circuit/approach/braked-stop simulation; no coordinate injection; no human/network/device acceptance",
+    "stage": 4,
+    "status": "PASS",
+    "takeoff_seconds": 2.13333333333333
+  },
+  "behavior": {
+    "checks": [
+      {
+        "check": "fa18e: afterburner adds actual acceleration",
+        "ok": true
+      },
+      {
+        "check": "fa18e: flaps change low-speed vertical force",
+        "ok": true
+      },
+      {
+        "check": "f15c: afterburner adds actual acceleration",
+        "ok": true
+      },
+      {
+        "check": "f15c: flaps change low-speed vertical force",
+        "ok": true
+      },
+      {
+        "check": "FA18E retains materially more low-speed roll authority than heavy F15C under identical commands",
+        "ok": true
+      },
+      {
+        "check": "F15C accelerates faster; carrier low-speed control has a speed tradeoff",
+        "ok": true
+      },
+      {
+        "check": "isolated planned behavior test does not mutate catalog or playable admission",
+        "ok": true
+      }
+    ],
+    "event": "carrier_flight_summary",
+    "measurements": [
+      {
+        "afterburner_4s_mps": 234.12060546875,
+        "aircraft_id": "fa18e",
+        "dry_4s_mps": 188.817321777344,
+        "flap_vertical_delta_mps": 0.0847883080132306,
+        "high_speed_bank_rad": 0.447021491825581,
+        "low_speed_bank_rad": 0.489248890181382
+      },
+      {
+        "afterburner_4s_mps": 277.777923583984,
+        "aircraft_id": "f15c",
+        "dry_4s_mps": 219.601638793945,
+        "flap_vertical_delta_mps": 0.0885917991399765,
+        "high_speed_bank_rad": 0.368742602939407,
+        "low_speed_bank_rad": 0.288365098151068
+      }
+    ],
+    "scope": "authored shared-force behavior only, no real flight envelope or human/network/phone acceptance",
+    "status": "PASS"
+  },
+  "f14_regression": {
+    "aircraft_id": "f14",
+    "commands_valid": true,
+    "crashed": false,
+    "distance_m": 15001.2412536591,
+    "event": "planned_circuit_summary",
+    "final_speed_mps": 1.87883603572845,
+    "landing_seconds": 157.9,
+    "maximum_altitude_m": 246.092193603516,
+    "maximum_speed_mps": 102.618675231934,
+    "production_accepted": false,
+    "scope": "planned-only command-driven parked/takeoff/circuit/approach/braked-stop simulation; no coordinate injection; no human/network/device acceptance",
+    "stage": 4,
+    "status": "PASS",
+    "takeoff_seconds": 2.66666666666667
+  },
+  "production_accepted": false,
+  "playable": false
+}
