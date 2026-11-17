@@ -1,0 +1,352 @@
+{
+  "status": "PASS",
+  "scope": "actual Godot mesh/material inspection and Su27 own reference renders; production recognition/phone quality NOT VERIFIED",
+  "changes": [
+    "per-aircraft authored body/wing/fin/LERX/intake/channel geometry separated in JSON",
+    "Gripen side-intake pair separated from one engine count",
+    "nozzle/channel geometry combined in body draw; immutable procedural vertex material shared",
+    "reference generator explicitly disables imported AI body to preserve provenance"
+  ],
+  "geometry": [
+    {
+      "aircraft_id": "f16c",
+      "geometry": {
+        "lods": [
+          19460,
+          5966,
+          1468
+        ],
+        "surfaces": 5,
+        "triangles": 26894,
+        "unique_materials": 3
+      },
+      "meshes": [
+        {
+          "far_m": 350.0,
+          "level": 0,
+          "mesh": "LOD0",
+          "near_m": 0.0,
+          "triangles": 19368
+        },
+        {
+          "far_m": 900.0,
+          "level": 1,
+          "mesh": "LOD1",
+          "near_m": 350.0,
+          "triangles": 5966
+        },
+        {
+          "far_m": 2500.0,
+          "level": 2,
+          "mesh": "LOD2",
+          "near_m": 900.0,
+          "triangles": 1468
+        },
+        {
+          "far_m": 500.0,
+          "level": 0,
+          "mesh": "Gear",
+          "near_m": 0.0,
+          "triangles": 72
+        },
+        {
+          "far_m": 800.0,
+          "level": 0,
+          "mesh": "Flame0_0",
+          "near_m": 0.0,
+          "triangles": 20
+        }
+      ],
+      "source": "AI candidate with procedural landing gear/effects; production QA pending"
+    },
+    {
+      "aircraft_id": "su27",
+      "geometry": {
+        "lods": [
+          512,
+          324,
+          132
+        ],
+        "surfaces": 6,
+        "triangles": 968,
+        "unique_materials": 1
+      },
+      "meshes": [
+        {
+          "far_m": 250.0,
+          "level": 0,
+          "mesh": "Airframe",
+          "near_m": 0.0,
+          "triangles": 400
+        },
+        {
+          "far_m": 800.0,
+          "level": 1,
+          "mesh": "LOD1",
+          "near_m": 250.0,
+          "triangles": 324
+        },
+        {
+          "far_m": 4500.0,
+          "level": 2,
+          "mesh": "Distant",
+          "near_m": 800.0,
+          "triangles": 132
+        },
+        {
+          "far_m": 500.0,
+          "level": 0,
+          "mesh": "Gear",
+          "near_m": 0.0,
+          "triangles": 72
+        },
+        {
+          "far_m": 800.0,
+          "level": 0,
+          "mesh": "Flame-1_0",
+          "near_m": 0.0,
+          "triangles": 20
+        },
+        {
+          "far_m": 800.0,
+          "level": 0,
+          "mesh": "Flame1_0",
+          "near_m": 0.0,
+          "triangles": 20
+        }
+      ],
+      "source": "procedural flight prototype"
+    },
+    {
+      "aircraft_id": "f15c",
+      "geometry": {
+        "lods": [
+          512,
+          324,
+          132
+        ],
+        "surfaces": 6,
+        "triangles": 968,
+        "unique_materials": 1
+      },
+      "meshes": [
+        {
+          "far_m": 250.0,
+          "level": 0,
+          "mesh": "Airframe",
+          "near_m": 0.0,
+          "triangles": 400
+        },
+        {
+          "far_m": 800.0,
+          "level": 1,
+          "mesh": "LOD1",
+          "near_m": 250.0,
+          "triangles": 324
+        },
+        {
+          "far_m": 4500.0,
+          "level": 2,
+          "mesh": "Distant",
+          "near_m": 800.0,
+          "triangles": 132
+        },
+        {
+          "far_m": 500.0,
+          "level": 0,
+          "mesh": "Gear",
+          "near_m": 0.0,
+          "triangles": 72
+        },
+        {
+          "far_m": 800.0,
+          "level": 0,
+          "mesh": "Flame-1_0",
+          "near_m": 0.0,
+          "triangles": 20
+        },
+        {
+          "far_m": 800.0,
+          "level": 0,
+          "mesh": "Flame1_0",
+          "near_m": 0.0,
+          "triangles": 20
+        }
+      ],
+      "source": "procedural flight prototype"
+    },
+    {
+      "aircraft_id": "su35s",
+      "geometry": {
+        "lods": [
+          512,
+          324,
+          132
+        ],
+        "surfaces": 6,
+        "triangles": 968,
+        "unique_materials": 1
+      },
+      "meshes": [
+        {
+          "far_m": 250.0,
+          "level": 0,
+          "mesh": "Airframe",
+          "near_m": 0.0,
+          "triangles": 400
+        },
+        {
+          "far_m": 800.0,
+          "level": 1,
+          "mesh": "LOD1",
+          "near_m": 250.0,
+          "triangles": 324
+        },
+        {
+          "far_m": 4500.0,
+          "level": 2,
+          "mesh": "Distant",
+          "near_m": 800.0,
+          "triangles": 132
+        },
+        {
+          "far_m": 500.0,
+          "level": 0,
+          "mesh": "Gear",
+          "near_m": 0.0,
+          "triangles": 72
+        },
+        {
+          "far_m": 800.0,
+          "level": 0,
+          "mesh": "Flame-1_0",
+          "near_m": 0.0,
+          "triangles": 20
+        },
+        {
+          "far_m": 800.0,
+          "level": 0,
+          "mesh": "Flame1_0",
+          "near_m": 0.0,
+          "triangles": 20
+        }
+      ],
+      "source": "procedural flight prototype"
+    },
+    {
+      "aircraft_id": "rafale",
+      "geometry": {
+        "lods": [
+          476,
+          288,
+          96
+        ],
+        "surfaces": 6,
+        "triangles": 860,
+        "unique_materials": 1
+      },
+      "meshes": [
+        {
+          "far_m": 250.0,
+          "level": 0,
+          "mesh": "Airframe",
+          "near_m": 0.0,
+          "triangles": 364
+        },
+        {
+          "far_m": 800.0,
+          "level": 1,
+          "mesh": "LOD1",
+          "near_m": 250.0,
+          "triangles": 288
+        },
+        {
+          "far_m": 4500.0,
+          "level": 2,
+          "mesh": "Distant",
+          "near_m": 800.0,
+          "triangles": 96
+        },
+        {
+          "far_m": 500.0,
+          "level": 0,
+          "mesh": "Gear",
+          "near_m": 0.0,
+          "triangles": 72
+        },
+        {
+          "far_m": 800.0,
+          "level": 0,
+          "mesh": "Flame-1_0",
+          "near_m": 0.0,
+          "triangles": 20
+        },
+        {
+          "far_m": 800.0,
+          "level": 0,
+          "mesh": "Flame1_0",
+          "near_m": 0.0,
+          "triangles": 20
+        }
+      ],
+      "source": "procedural flight prototype"
+    },
+    {
+      "aircraft_id": "gripen",
+      "geometry": {
+        "lods": [
+          340,
+          204,
+          96
+        ],
+        "surfaces": 5,
+        "triangles": 640,
+        "unique_materials": 1
+      },
+      "meshes": [
+        {
+          "far_m": 250.0,
+          "level": 0,
+          "mesh": "Airframe",
+          "near_m": 0.0,
+          "triangles": 248
+        },
+        {
+          "far_m": 800.0,
+          "level": 1,
+          "mesh": "LOD1",
+          "near_m": 250.0,
+          "triangles": 204
+        },
+        {
+          "far_m": 4500.0,
+          "level": 2,
+          "mesh": "Distant",
+          "near_m": 800.0,
+          "triangles": 96
+        },
+        {
+          "far_m": 500.0,
+          "level": 0,
+          "mesh": "Gear",
+          "near_m": 0.0,
+          "triangles": 72
+        },
+        {
+          "far_m": 800.0,
+          "level": 0,
+          "mesh": "Flame0_0",
+          "near_m": 0.0,
+          "triangles": 20
+        }
+      ],
+      "source": "procedural flight prototype"
+    }
+  ],
+  "source_hashes": {
+    "game/avia/client/aircraft.gd": "4ab632dca7b2dbb6d3f5a1213c29a3dc2fd6692f9e83d1de6d7a13a7d701b44d",
+    "game/avia/client/fighter_visual.gd": "2be79aae947a764956186e6d35e9ad1f9240f39797255726a79053223144759a",
+    "game/avia/tests/fighter_reference.gd": "4a7d82294e86844942b512b9b0b7ec975810ebe0de1f381e8818064540ae5752"
+  },
+  "Su27_input_sha256": "231ca5369ad28423eb2b942735b1cd1029c627e5cf0098085a946bcb79c73b71"
+}

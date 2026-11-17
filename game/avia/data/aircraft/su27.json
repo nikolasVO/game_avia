@@ -43,7 +43,20 @@
     "length_m": 21.9,
     "span_m": 14.7,
     "engines": 2,
-    "planform": "conventional"
+    "planform": "conventional",
+    "body_half_width_m": 1.18,
+    "body_half_height_m": 0.65,
+    "wing_root_chord_m": 6.1,
+    "wing_sweep_m": 2.7,
+    "lerx_half_span_m": 2.4,
+    "lerx_chord_m": 7.0,
+    "lerx_z_m": -2.7,
+    "fin_height_m": 3.4,
+    "fin_cant_degrees": 6,
+    "intake_layout": "side_pair",
+    "engine_spacing_m": 2.0,
+    "engine_channel_length_m": 8.0,
+    "proportions_notice": "Authored stylized game proportions, not measured real variant geometry."
   },
   "reference": {
     "status": "game proportions pending variant validation",

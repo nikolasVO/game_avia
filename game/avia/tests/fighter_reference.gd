@@ -12,7 +12,8 @@ func _run() -> void:
  var world: Node3D=Node3D.new();root.add_child(world)
  var environment: WorldEnvironment=WorldEnvironment.new();var env: Environment=Environment.new();env.background_mode=Environment.BG_CLEAR_COLOR;env.ambient_light_source=Environment.AMBIENT_SOURCE_COLOR;env.ambient_light_color=Color.WHITE;env.ambient_light_energy=.8;environment.environment=env;world.add_child(environment);RenderingServer.set_default_clear_color(Color(0,0,0,0))
  var sun: DirectionalLight3D=DirectionalLight3D.new();sun.rotation_degrees=Vector3(-45,-35,0);world.add_child(sun)
- var model: AviaAircraft=AviaAircraft.build(index);world.add_child(model)
+ # A new conditioning image must stay authored even after this catalog slot has an AI body.
+ var model: AviaAircraft=AviaFighterVisual.create(index,false) if index>=3 else AviaAircraft.build(index);world.add_child(model)
  if model.landing_gear:model.landing_gear.hide()
  var camera: Camera3D=Camera3D.new();world.add_child(camera);camera.fov=40;camera.current=true
  var length: float=float(AviaFlight.PLANES[index].geometry.length_m)
@@ -27,6 +28,12 @@ func _run() -> void:
   if picture.save_png(path)!=OK:quit(1);return
   var hash_: HashingContext=HashingContext.new();hash_.start(HashingContext.HASH_SHA256);hash_.update(FileAccess.get_file_as_bytes(path));files[name_+".png"]={"sha256":hash_.finish().hex_encode(),"width":1024,"height":1024}
  var manifest: Dictionary={"aircraft_id":AviaFlight.PLANES[index].aircraft_id,"source_type":"procedural_reference","generator":"game/avia/tests/fighter_reference.gd and client/fighter_visual.gd","input_view":"reference.png","qc_views_only":["top.png","front.png","side.png"],"conditioning":"single reference.png only, never the QC views as a collage","description":"Own approximate game fighter geometry, no logos/insignia or copied third-party model; variant recognition/proportions require further review","paid_calls":0,"files":files}
+ manifest.generator_files_sha256={}
+ for source: String in ["res://tests/fighter_reference.gd","res://client/fighter_visual.gd","res://client/aircraft.gd"]:
+  var hash_: HashingContext=HashingContext.new();hash_.start(HashingContext.HASH_SHA256);hash_.update(FileAccess.get_file_as_bytes(source));manifest.generator_files_sha256[source]=hash_.finish().hex_encode()
+ manifest.imported_body_used=false
+ manifest.authored_geometry=AviaFlight.PLANES[index].geometry.duplicate(true)
+ manifest.input_rights="Project-authored geometry/render; no third-party pixels/models/logos. Commercial designation/design review remains pending."
  var file: FileAccess=FileAccess.open(destination+"/manifest.json",FileAccess.WRITE);file.store_string(JSON.stringify(manifest,"  "));file.close()
  print(JSON.stringify({"event":"fighter_reference","status":"PASS","manifest":manifest}))
  quit()

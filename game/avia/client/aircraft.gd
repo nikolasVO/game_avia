@@ -6,6 +6,7 @@ var exhaust: Node3D
 var propeller: Node3D
 var spin_speed: float=30.0
 var airframe_source: String="procedural flight prototype"
+static var _shared_vertex_material: StandardMaterial3D
 static func _face(st: SurfaceTool, vertices: Array[Vector3], color: Color, outward: Vector3) -> void:
  var normal: Vector3=(vertices[1]-vertices[0]).cross(vertices[2]-vertices[0]).normalized()
  if normal.dot(outward)<0:vertices.reverse();normal=-normal
@@ -23,14 +24,14 @@ static func _box(st: SurfaceTool, center: Vector3, size: Vector3, color: Color) 
  var v: Array[Vector3]=[]
  for p: Vector3 in [Vector3(-1,-1,-1),Vector3(1,-1,-1),Vector3(1,-1,1),Vector3(-1,-1,1),Vector3(-1,1,-1),Vector3(1,1,-1),Vector3(1,1,1),Vector3(-1,1,1)]:v.append(center+p*size*0.5)
  _solid(st,v,color)
-static func _loft(st: SurfaceTool, sections: Array[Vector3], offset_y: float, color: Color, sides: int) -> void:
+static func _loft(st: SurfaceTool, sections: Array[Vector3], offset_y: float, color: Color, sides: int, offset_x: float=0.0) -> void:
  # Sections: z, half-width, half-height. Separate from the shared flight parameters.
  var rings: Array=[]
  for section: Vector3 in sections:
   var ring: Array[Vector3]=[]
   for i: int in range(sides):
    var angle: float=TAU*i/sides
-   ring.append(Vector3(cos(angle)*section.y,offset_y+sin(angle)*section.z,section.x))
+   ring.append(Vector3(offset_x+cos(angle)*section.y,offset_y+sin(angle)*section.z,section.x))
   rings.append(ring)
  _face(st,rings[0].duplicate(),color,Vector3.FORWARD)
  _face(st,rings[-1].duplicate(),color,Vector3.BACK)
@@ -38,15 +39,16 @@ static func _loft(st: SurfaceTool, sections: Array[Vector3], offset_y: float, co
   for i: int in range(sides):
    var next: int=(i+1)%sides
    var a: Vector3=rings[j-1][i];var b: Vector3=rings[j][i];var c: Vector3=rings[j][next];var d: Vector3=rings[j-1][next]
-   _face(st,[a,b,c,d],color,Vector3(a.x,(a.y-offset_y),0))
+   _face(st,[a,b,c,d],color,Vector3(a.x-offset_x,(a.y-offset_y),0))
 static func _wing(st: SurfaceTool, span: float, chord: float, z: float, y: float, sweep: float, color: Color) -> void:
  for side: float in [-1.0,1.0]:
   var tip: float=span*side;var rise: float=span*0.045
   _solid(st,[Vector3(0,y-0.09,z-chord/2),Vector3(tip,y+rise-0.05,z+sweep-chord*0.23),Vector3(tip,y+rise-0.05,z+sweep+chord*0.23),Vector3(0,y-0.09,z+chord/2),Vector3(0,y+0.09,z-chord/2),Vector3(tip,y+rise+0.05,z+sweep-chord*0.23),Vector3(tip,y+rise+0.05,z+sweep+chord*0.23),Vector3(0,y+0.09,z+chord/2)],color)
 static func _mesh(st: SurfaceTool, parent: Node3D, name_: String, near: float, far: float) -> MeshInstance3D:
  var node: MeshInstance3D=MeshInstance3D.new();node.name=name_;node.mesh=st.commit()
- var mat: StandardMaterial3D=StandardMaterial3D.new();mat.shading_mode=BaseMaterial3D.SHADING_MODE_PER_VERTEX;mat.vertex_color_use_as_albedo=true;mat.roughness=0.82;mat.cull_mode=BaseMaterial3D.CULL_DISABLED
- node.material_override=mat;node.visibility_range_begin=near;node.visibility_range_end=far;parent.add_child(node)
+ if _shared_vertex_material==null:
+  _shared_vertex_material=StandardMaterial3D.new();_shared_vertex_material.shading_mode=BaseMaterial3D.SHADING_MODE_PER_VERTEX;_shared_vertex_material.vertex_color_use_as_albedo=true;_shared_vertex_material.roughness=0.82;_shared_vertex_material.cull_mode=BaseMaterial3D.CULL_DISABLED
+ node.material_override=_shared_vertex_material;node.visibility_range_begin=near;node.visibility_range_end=far;parent.add_child(node)
  return node
 static func build(index: int) -> AviaAircraft:
  if index>=3:return AviaFighterVisual.create(index)

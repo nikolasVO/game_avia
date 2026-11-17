@@ -1,0 +1,22 @@
+{
+  "asset_id": "su27_candidate_20261117_v1",
+  "purpose": "Su-27 authored twin-engine game body AI candidate; full recognition/production/mobile QA pending",
+  "description": "Own blue-gray stylized twin-engine/twin-fin/LERX reference. No copied third-party pixels/models/logos. Preserve two engines and fins, complete symmetric wing/tail. Variant geometry remains provisional game proportions.",
+  "style": "coherent stylized Game Avia aviation",
+  "reference_images": [
+    "production-su27-v1/reference.png"
+  ],
+  "dimensions_m": [
+    14.7,
+    4.0,
+    21.9
+  ],
+  "source_yaw_degrees": 180,
+  "symmetry_policy": "mirror_x",
+  "triangle_budget": 19400,
+  "texture_budget": 1024,
+  "deadline_seconds": 1800,
+  "cost_limit": 0,
+  "seed": 42,
+  "pipeline_type": "512"
+}

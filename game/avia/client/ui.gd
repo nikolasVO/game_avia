@@ -150,8 +150,12 @@ func _translate() -> void:
  _update_help()
 func _update_help() -> void:
  var rotation: int=int(AviaFlight.PLANES[select_plane.selected].flight.takeoff_speed_kmh)
- labels.help.text=tr_text("help").replace("Lift off above 90 km/h.","Rotate near %d km/h; B: afterburner." % rotation).replace("Взлёт от 90 км/ч.","Отрыв около %d км/ч; B: форсаж." % rotation)
+ var english: String="Rotate near %d km/h." % rotation
+ var russian: String="Отрыв около %d км/ч." % rotation
+ if select_plane.selected>=3:english+=" B: afterburner.";russian+=" B: форсаж."
+ labels.help.text=tr_text("help").replace("Lift off above 90 km/h.",english).replace("Взлёт от 90 км/ч.",russian)
  labels.assist.disabled=select_plane.selected>=3
+ labels.assist.visible=select_plane.selected<3
  labels.assist.tooltip_text="Fighter assistance uses the server flight profile / Помощь истребителя задаётся серверным профилем"
 func join() -> void:
  if preparing:return

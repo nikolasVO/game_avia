@@ -6,6 +6,8 @@ func visit(node: Node,totals: Dictionary,rows: Array[Dictionary]) -> void:
   var mesh: Mesh=node.mesh
   var count_tri: int=0
   for surface: int in mesh.get_surface_count():
+   var material: Material=node.get_active_material(surface)
+   if material:totals.material_ids[material.get_instance_id()]=true
    var arrays: Array=mesh.surface_get_arrays(surface);var vertices: PackedVector3Array=arrays[Mesh.ARRAY_VERTEX];var indices: PackedInt32Array=arrays[Mesh.ARRAY_INDEX] if arrays[Mesh.ARRAY_INDEX]!=null else PackedInt32Array()
    var count: int=indices.size() if not indices.is_empty() else vertices.size()
    count_tri+=count/3;totals.surfaces+=1
@@ -21,9 +23,10 @@ func visit(node: Node,totals: Dictionary,rows: Array[Dictionary]) -> void:
 func _initialize() -> void:
  for index: int in range(3,9):
   var model: AviaAircraft=AviaAircraft.build(index);root.add_child(model)
-  var totals: Dictionary={"triangles":0,"surfaces":0,"lods":[0,0,0]};var rows: Array[Dictionary]=[];visit(model,totals,rows)
+  var totals: Dictionary={"triangles":0,"surfaces":0,"lods":[0,0,0],"material_ids":{}};var rows: Array[Dictionary]=[];visit(model,totals,rows)
   for level: int in 3:valid=valid and totals.lods[level]>0 and totals.lods[level]<=[20000,7000,2000][level]
   valid=valid and model.landing_gear.get_child_count()==1 and model.exhaust.get_child_count()==int(AviaFlight.PLANES[index].geometry.engines)
+  totals.unique_materials=totals.material_ids.size();totals.erase("material_ids");valid=valid and totals.unique_materials<=3
   reports.append({"aircraft_id":AviaFlight.PLANES[index].aircraft_id,"source":model.airframe_source,"geometry":totals,"meshes":rows})
   model.free()
  print(JSON.stringify({"event":"fighter_geometry","status":"PASS" if valid else "FAIL","reports":reports,"scope":"finite nondegenerate meshes, per-LOD budgets including procedural gear/effects, engine count; recognition/art/mobile acceptance NOT VERIFIED"}))

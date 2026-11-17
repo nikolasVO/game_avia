@@ -1,0 +1,864 @@
+{
+  "status": "PASS",
+  "scope": "actual exported native dedicated server +6 headless development clients; full parked takeoff/circuit/landing/braking using only normal control RPCs. Not humans/physical devices/external networks or a new30min load test.",
+  "server_binary_sha256": "b10ec315f6f4b88e6cdf225dbe09104dd5ad1cb70ce4a6739242ed17e590eca4",
+  "source_files_sha256": {
+    "game/avia/tests/circuit_pilot.gd": "5646848a78b1a653dae8dcdcbb12f86d5db739daebb2f654ebaad6317a00f2e6",
+    "game/avia/tests/circuit_client.gd": "820f9a0be687f2435c5a86eb4f0a8b3e4a9f5be0e35a0d217cf06e1c393510ca",
+    "game/avia/shared/fighter.gd": "367fb14c6d019a86dda887607bd41cf6839c3561c5b8c8d2619a1640b52e2f32"
+  },
+  "seconds": 190,
+  "clients": [
+    {
+      "name": "client-3",
+      "ok": true,
+      "exit": 0,
+      "stopped": [
+        {
+          "age": 4863,
+          "aircraft_id": "f16c",
+          "distance_m": 14760.6440820247,
+          "event": "circuit_stopped",
+          "peer": 484818716,
+          "position": "(9.48187, 1.4, -55.72633)"
+        }
+      ],
+      "summary": {
+        "commands_sent": 5680,
+        "connection_status": "Connected",
+        "correction_max_m": 0.0013723581796512,
+        "correction_p95_m": 0.00112056569196284,
+        "enet_rtt_ms": 18.0,
+        "event": "summary",
+        "frame_p50_ms": 0,
+        "frame_p95_ms": 0,
+        "joined": true,
+        "last_input_ack": 5678,
+        "pending_inputs": 2,
+        "rejected": 0,
+        "renderer": "gl_compatibility",
+        "seconds": 190.010466999955,
+        "seen_peers": 6,
+        "server": false,
+        "snapshots": 2840,
+        "state": {
+          "afterburner": false,
+          "age": 5681,
+          "airbrake": true,
+          "crashed": false,
+          "distance": 14761.55078125,
+          "flaps": true,
+          "gear": true,
+          "grounded": true,
+          "health": 100.0,
+          "landed": false,
+          "p": "(9.470964, 1.4, -56.63255)",
+          "pitch": -0.0051537172794342,
+          "plane": 3,
+          "profile": 0,
+          "rates": "(-0.032817, 0.0, 0.0)",
+          "respawns": 0,
+          "roll": -0.0,
+          "v": "(-0.0, 0.0, -0.0)",
+          "was_airborne": true,
+          "yaw": 0.0133432364091277
+        },
+        "static_memory_mb": 25.269232749939,
+        "wall_seconds": 189.947
+      },
+      "takeoff_tick": 93,
+      "landing_tick": 4839
+    },
+    {
+      "name": "client-4",
+      "ok": true,
+      "exit": 0,
+      "stopped": [
+        {
+          "age": 4809,
+          "aircraft_id": "su27",
+          "distance_m": 14932.5776888058,
+          "event": "circuit_stopped",
+          "peer": 1201713720,
+          "position": "(10.83041, 1.4, -103.4475)"
+        }
+      ],
+      "summary": {
+        "commands_sent": 5680,
+        "connection_status": "Connected",
+        "correction_max_m": 0.0013885498046875,
+        "correction_p95_m": 0.0011444091796875,
+        "enet_rtt_ms": 19.0,
+        "event": "summary",
+        "frame_p50_ms": 0,
+        "frame_p95_ms": 0,
+        "joined": true,
+        "last_input_ack": 5677,
+        "pending_inputs": 3,
+        "rejected": 0,
+        "renderer": "gl_compatibility",
+        "seconds": 190.002273666622,
+        "seen_peers": 6,
+        "server": false,
+        "snapshots": 2839,
+        "state": {
+          "afterburner": false,
+          "age": 5681,
+          "airbrake": true,
+          "crashed": false,
+          "distance": 14933.486328125,
+          "flaps": true,
+          "gear": true,
+          "grounded": true,
+          "health": 100.0,
+          "landed": false,
+          "p": "(10.81733, 1.4, -104.3559)",
+          "pitch": -0.00470153063933055,
+          "plane": 4,
+          "profile": 0,
+          "rates": "(-0.032238, 0.0, 0.0)",
+          "respawns": 0,
+          "roll": -1.60251671e-24,
+          "v": "(-0.0, 0.0, -0.0)",
+          "was_airborne": true,
+          "yaw": 0.0151336463168263
+        },
+        "static_memory_mb": 25.2512083053589,
+        "wall_seconds": 189.928
+      },
+      "takeoff_tick": 106,
+      "landing_tick": 4789
+    },
+    {
+      "name": "client-5",
+      "ok": true,
+      "exit": 0,
+      "stopped": [
+        {
+          "age": 4763,
+          "aircraft_id": "f15c",
+          "distance_m": 15061.4925719276,
+          "event": "circuit_stopped",
+          "peer": 801549082,
+          "position": "(13.11753, 1.4, -151.3299)"
+        }
+      ],
+      "summary": {
+        "commands_sent": 5680,
+        "connection_status": "Connected",
+        "correction_max_m": 2.74587655067444,
+        "correction_p95_m": 0.0010528564453125,
+        "enet_rtt_ms": 19.0,
+        "event": "summary",
+        "frame_p50_ms": 0,
+        "frame_p95_ms": 0,
+        "joined": true,
+        "last_input_ack": 5677,
+        "pending_inputs": 3,
+        "rejected": 0,
+        "renderer": "gl_compatibility",
+        "seconds": 190.015012999955,
+        "seen_peers": 6,
+        "server": false,
+        "snapshots": 2840,
+        "state": {
+          "afterburner": false,
+          "age": 5682,
+          "airbrake": true,
+          "crashed": false,
+          "distance": 15062.3779296875,
+          "flaps": true,
+          "gear": true,
+          "grounded": true,
+          "health": 100.0,
+          "landed": false,
+          "p": "(13.10234, 1.4, -152.2154)",
+          "pitch": -0.00385197130242983,
+          "plane": 5,
+          "profile": 0,
+          "rates": "(-0.030739, 0.0, 0.0)",
+          "respawns": 0,
+          "roll": -1.127041069e-23,
+          "v": "(-0.0, 0.0, -0.0)",
+          "was_airborne": true,
+          "yaw": 0.017915029078722
+        },
+        "static_memory_mb": 25.2316846847534,
+        "wall_seconds": 189.954
+      },
+      "takeoff_tick": 109,
+      "landing_tick": 4749
+    },
+    {
+      "name": "client-6",
+      "ok": true,
+      "exit": 0,
+      "stopped": [
+        {
+          "age": 4835,
+          "aircraft_id": "su35s",
+          "distance_m": 14785.0479021817,
+          "event": "circuit_stopped",
+          "peer": 1978598794,
+          "position": "(9.80447, 1.4, -54.93651)"
+        }
+      ],
+      "summary": {
+        "commands_sent": 5680,
+        "connection_status": "Connected",
+        "correction_max_m": 0.00152006954886019,
+        "correction_p95_m": 0.00125688337720931,
+        "enet_rtt_ms": 19.0,
+        "event": "summary",
+        "frame_p50_ms": 0,
+        "frame_p95_ms": 0,
+        "joined": true,
+        "last_input_ack": 5677,
+        "pending_inputs": 3,
+        "rejected": 0,
+        "renderer": "gl_compatibility",
+        "seconds": 190.002376666622,
+        "seen_peers": 6,
+        "server": false,
+        "snapshots": 2839,
+        "state": {
+          "afterburner": false,
+          "age": 5681,
+          "airbrake": true,
+          "crashed": false,
+          "distance": 14785.9501953125,
+          "flaps": true,
+          "gear": true,
+          "grounded": true,
+          "health": 100.0,
+          "landed": false,
+          "p": "(9.792872, 1.4, -55.83812)",
+          "pitch": -0.00775246892770132,
+          "plane": 6,
+          "profile": 0,
+          "rates": "(-0.061421, 0.0, 0.0)",
+          "respawns": 0,
+          "roll": -4.341283e-26,
+          "v": "(-0.0, 0.0, -0.0)",
+          "was_airborne": true,
+          "yaw": 0.013886378146708
+        },
+        "static_memory_mb": 25.2121610641479,
+        "wall_seconds": 189.927
+      },
+      "takeoff_tick": 96,
+      "landing_tick": 4828
+    },
+    {
+      "name": "client-7",
+      "ok": true,
+      "exit": 0,
+      "stopped": [
+        {
+          "age": 4919,
+          "aircraft_id": "rafale",
+          "distance_m": 14688.9338249639,
+          "event": "circuit_stopped",
+          "peer": 1205130941,
+          "position": "(9.147632, 1.4, -16.99465)"
+        }
+      ],
+      "summary": {
+        "commands_sent": 5680,
+        "connection_status": "Connected",
+        "correction_max_m": 0.00154528673738241,
+        "correction_p95_m": 0.00130272889509797,
+        "enet_rtt_ms": 18.0,
+        "event": "summary",
+        "frame_p50_ms": 0,
+        "frame_p95_ms": 0,
+        "joined": true,
+        "last_input_ack": 5678,
+        "pending_inputs": 2,
+        "rejected": 0,
+        "renderer": "gl_compatibility",
+        "seconds": 190.008552666622,
+        "seen_peers": 6,
+        "server": false,
+        "snapshots": 2840,
+        "state": {
+          "afterburner": false,
+          "age": 5681,
+          "airbrake": true,
+          "crashed": false,
+          "distance": 14689.8515625,
+          "flaps": true,
+          "gear": true,
+          "grounded": true,
+          "health": 100.0,
+          "landed": false,
+          "p": "(9.138025, 1.4, -17.91203)",
+          "pitch": -0.00694071672360102,
+          "plane": 7,
+          "profile": 0,
+          "rates": "(-0.060782, 0.0, 0.0)",
+          "respawns": 0,
+          "roll": -3.9727e-28,
+          "v": "(-0.0, 0.0, -0.0)",
+          "was_airborne": true,
+          "yaw": 0.0119597567245364
+        },
+        "static_memory_mb": 25.1911344528198,
+        "wall_seconds": 189.93
+      },
+      "takeoff_tick": 115,
+      "landing_tick": 4920
+    },
+    {
+      "name": "client-8",
+      "ok": true,
+      "exit": 0,
+      "stopped": [
+        {
+          "age": 4937,
+          "aircraft_id": "gripen",
+          "distance_m": 14643.6355910599,
+          "event": "circuit_stopped",
+          "peer": 815217339,
+          "position": "(9.22159, 1.4, 14.87196)"
+        }
+      ],
+      "summary": {
+        "commands_sent": 5680,
+        "connection_status": "Connected",
+        "correction_max_m": 0.424301147460938,
+        "correction_p95_m": 0.00132752698846161,
+        "enet_rtt_ms": 18.0,
+        "event": "summary",
+        "frame_p50_ms": 0,
+        "frame_p95_ms": 0,
+        "joined": true,
+        "last_input_ack": 5677,
+        "pending_inputs": 3,
+        "rejected": 0,
+        "renderer": "gl_compatibility",
+        "seconds": 190.000483666622,
+        "seen_peers": 6,
+        "server": false,
+        "snapshots": 2839,
+        "state": {
+          "afterburner": false,
+          "age": 5681,
+          "airbrake": true,
+          "crashed": false,
+          "distance": 14644.5205078125,
+          "flaps": true,
+          "gear": true,
+          "grounded": true,
+          "health": 100.0,
+          "landed": false,
+          "p": "(9.212893, 1.4, 13.98679)",
+          "pitch": -0.00746398929754893,
+          "plane": 8,
+          "profile": 0,
+          "rates": "(-0.060047, 0.0, 0.0)",
+          "respawns": 0,
+          "roll": -0.0,
+          "v": "(-0.0, 0.0, -0.0)",
+          "was_airborne": true,
+          "yaw": 0.011674826964736
+        },
+        "static_memory_mb": 25.1731634140015,
+        "wall_seconds": 189.925
+      },
+      "takeoff_tick": 119,
+      "landing_tick": 4943
+    }
+  ],
+  "takeoffs": [
+    {
+      "data": {
+        "id": 484818716
+      },
+      "event": "takeoff",
+      "room": "public:free:0",
+      "tick": 93
+    },
+    {
+      "data": {
+        "id": 1978598794
+      },
+      "event": "takeoff",
+      "room": "public:free:0",
+      "tick": 96
+    },
+    {
+      "data": {
+        "id": 1201713720
+      },
+      "event": "takeoff",
+      "room": "public:free:0",
+      "tick": 106
+    },
+    {
+      "data": {
+        "id": 801549082
+      },
+      "event": "takeoff",
+      "room": "public:free:0",
+      "tick": 109
+    },
+    {
+      "data": {
+        "id": 1205130941
+      },
+      "event": "takeoff",
+      "room": "public:free:0",
+      "tick": 115
+    },
+    {
+      "data": {
+        "id": 815217339
+      },
+      "event": "takeoff",
+      "room": "public:free:0",
+      "tick": 119
+    }
+  ],
+  "landings": [
+    {
+      "data": {
+        "id": 801549082
+      },
+      "event": "landing",
+      "room": "public:free:0",
+      "tick": 4749
+    },
+    {
+      "data": {
+        "id": 1201713720
+      },
+      "event": "landing",
+      "room": "public:free:0",
+      "tick": 4789
+    },
+    {
+      "data": {
+        "id": 1978598794
+      },
+      "event": "landing",
+      "room": "public:free:0",
+      "tick": 4828
+    },
+    {
+      "data": {
+        "id": 484818716
+      },
+      "event": "landing",
+      "room": "public:free:0",
+      "tick": 4839
+    },
+    {
+      "data": {
+        "id": 1205130941
+      },
+      "event": "landing",
+      "room": "public:free:0",
+      "tick": 4920
+    },
+    {
+      "data": {
+        "id": 815217339
+      },
+      "event": "landing",
+      "room": "public:free:0",
+      "tick": 4943
+    }
+  ],
+  "crashes": [],
+  "errors": [],
+  "isolated_progress": {
+    "best_race_seconds": 0.0,
+    "flights": 6,
+    "landings": 6,
+    "races": 0
+  },
+  "health": [
+    {
+      "accepted": 1541,
+      "connections": 6,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 6,
+      "received_bytes_10s": 408287.0,
+      "rejected": 0,
+      "sent_bytes_10s": 503298.0,
+      "tick": 300,
+      "tick_p95_ms": 0.955,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 6,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 3341,
+      "connections": 6,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 6,
+      "received_bytes_10s": 478504.0,
+      "rejected": 0,
+      "sent_bytes_10s": 582564.0,
+      "tick": 600,
+      "tick_p95_ms": 0.941,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 6,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 5141,
+      "connections": 6,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 6,
+      "received_bytes_10s": 472384.0,
+      "rejected": 0,
+      "sent_bytes_10s": 582612.0,
+      "tick": 900,
+      "tick_p95_ms": 0.986,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 6,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 6941,
+      "connections": 6,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 6,
+      "received_bytes_10s": 479018.0,
+      "rejected": 0,
+      "sent_bytes_10s": 582556.0,
+      "tick": 1200,
+      "tick_p95_ms": 0.988,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 6,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 8741,
+      "connections": 6,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 6,
+      "received_bytes_10s": 474208.0,
+      "rejected": 0,
+      "sent_bytes_10s": 582576.0,
+      "tick": 1500,
+      "tick_p95_ms": 0.988,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 6,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 10541,
+      "connections": 6,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 6,
+      "received_bytes_10s": 478326.0,
+      "rejected": 0,
+      "sent_bytes_10s": 582554.0,
+      "tick": 1800,
+      "tick_p95_ms": 0.964,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 6,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 12341,
+      "connections": 6,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 6,
+      "received_bytes_10s": 478970.0,
+      "rejected": 0,
+      "sent_bytes_10s": 582566.0,
+      "tick": 2100,
+      "tick_p95_ms": 0.941,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 6,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 14141,
+      "connections": 6,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 6,
+      "received_bytes_10s": 478976.0,
+      "rejected": 0,
+      "sent_bytes_10s": 582574.0,
+      "tick": 2400,
+      "tick_p95_ms": 0.948,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 6,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 15941,
+      "connections": 6,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 6,
+      "received_bytes_10s": 474810.0,
+      "rejected": 0,
+      "sent_bytes_10s": 582602.0,
+      "tick": 2700,
+      "tick_p95_ms": 0.941,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 6,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 17741,
+      "connections": 6,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 6,
+      "received_bytes_10s": 478968.0,
+      "rejected": 0,
+      "sent_bytes_10s": 582564.0,
+      "tick": 3000,
+      "tick_p95_ms": 0.967,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 6,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 19541,
+      "connections": 6,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 6,
+      "received_bytes_10s": 478972.0,
+      "rejected": 0,
+      "sent_bytes_10s": 582576.0,
+      "tick": 3300,
+      "tick_p95_ms": 0.964,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 6,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 21341,
+      "connections": 6,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 6,
+      "received_bytes_10s": 472072.0,
+      "rejected": 0,
+      "sent_bytes_10s": 582554.0,
+      "tick": 3600,
+      "tick_p95_ms": 0.955,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 6,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 23141,
+      "connections": 6,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 6,
+      "received_bytes_10s": 474250.0,
+      "rejected": 0,
+      "sent_bytes_10s": 582622.0,
+      "tick": 3900,
+      "tick_p95_ms": 0.946,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 6,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 24941,
+      "connections": 6,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 6,
+      "received_bytes_10s": 479028.0,
+      "rejected": 0,
+      "sent_bytes_10s": 582566.0,
+      "tick": 4200,
+      "tick_p95_ms": 0.945,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 6,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 26740,
+      "connections": 6,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 6,
+      "received_bytes_10s": 478691.0,
+      "rejected": 0,
+      "sent_bytes_10s": 582554.0,
+      "tick": 4500,
+      "tick_p95_ms": 0.936,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 6,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 28540,
+      "connections": 6,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 4,
+      "received_bytes_10s": 478536.0,
+      "rejected": 0,
+      "sent_bytes_10s": 583222.0,
+      "tick": 4800,
+      "tick_p95_ms": 0.932,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 6,
+        "landings": 2,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 30340,
+      "connections": 6,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 0,
+      "received_bytes_10s": 467324.0,
+      "rejected": 0,
+      "sent_bytes_10s": 583908.0,
+      "tick": 5100,
+      "tick_p95_ms": 0.927,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 6,
+        "landings": 6,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 32140,
+      "connections": 6,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 0,
+      "received_bytes_10s": 464628.0,
+      "rejected": 0,
+      "sent_bytes_10s": 582566.0,
+      "tick": 5400,
+      "tick_p95_ms": 0.92,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 6,
+        "landings": 6,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 33940,
+      "connections": 6,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 0,
+      "received_bytes_10s": 464566.0,
+      "rejected": 0,
+      "sent_bytes_10s": 582564.0,
+      "tick": 5700,
+      "tick_p95_ms": 0.922,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 6,
+        "landings": 6,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 34071,
+      "connections": 0,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 0,
+      "received_bytes_10s": 35236.0,
+      "rejected": 0,
+      "sent_bytes_10s": 33620.0,
+      "tick": 6000,
+      "tick_p95_ms": 0.914,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 6,
+        "landings": 6,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 34071,
+      "connections": 0,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 0,
+      "received_bytes_10s": 0.0,
+      "rejected": 0,
+      "sent_bytes_10s": 0.0,
+      "tick": 6300,
+      "tick_p95_ms": 0.907,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 6,
+        "landings": 6,
+        "races": 0
+      }
+    }
+  ],
+  "client_source": "dbd8a17dd9ec1996f381028fd37f70bd1f22b553",
+  "server_source": "5c0df281c459fd98f4a75a5a7d59a96c8814ff61",
+  "ssh_reconciliation": "SSH channel closed after test; existing report/PIDs reconciled on reconnect; no rerun. All6 landings/no crashes persisted in isolated stats, production unchanged."
+}

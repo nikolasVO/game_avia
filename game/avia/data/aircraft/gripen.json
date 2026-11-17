@@ -43,7 +43,20 @@
     "length_m": 14.1,
     "span_m": 8.4,
     "engines": 1,
-    "planform": "canard_delta"
+    "planform": "canard_delta",
+    "body_half_width_m": 0.65,
+    "body_half_height_m": 0.5,
+    "wing_root_chord_m": 4.4,
+    "wing_sweep_m": 1.5,
+    "lerx_half_span_m": 0.9,
+    "lerx_chord_m": 2.8,
+    "lerx_z_m": -1.7,
+    "fin_height_m": 2.4,
+    "fin_cant_degrees": 0,
+    "intake_layout": "side_pair",
+    "engine_spacing_m": 1.1,
+    "engine_channel_length_m": 0,
+    "proportions_notice": "Authored stylized game proportions, not measured real variant geometry."
   },
   "reference": {
     "status": "game proportions pending variant validation",

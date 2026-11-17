@@ -33,3 +33,5 @@ Data: `game/avia/data/aircraft/`, schema1; stable original indices0–2. 24 name
 |kf21|KF-21 Boramae|South Korea|planned|1408/2200|230/274|55|procedural_placeholder|
 
 P1 six: F-16C, Su-27, F-15C, Su-35S, Rafale C, Gripen C. Scripted force/ground/landing comparisons are separate from human flight, recognized production geometry, phone performance and public networking. The other18 are configured production backlog and are deliberately unavailable for flight.
+
+Authored visual proportions now live in each P1 JSON: body width/height, wing chord/sweep, LERX, fin height/cant, intake layout and engine channels. These are stylized game geometry, not verified manufacturer dimensions. Gripen side intakes are separated from its single engine count. Procedural body/nozzle/channel draws share one vertex material; F16 candidate+far+procedural uses3. Per-LOD budgets/material counts are checked, physical-device quality remains unverified.

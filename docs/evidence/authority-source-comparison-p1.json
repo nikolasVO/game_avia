@@ -24,5 +24,115 @@
       "current_sha256": "483686152b97582d41778dc5a36940cc7d62b6d51a04aca8ed6a4bee1d582cc0"
     }
   },
-  "server_tick_body_identical": true
+  "server_tick_body_identical": true,
+  "visual_revision_physics_config_equivalence": {
+    "j20": {
+      "same": true,
+      "physics_fields_sha256": "4c53950de8ad4b247c1736e6624f97c1f129d0feede7df3db84f2ffce1b34fd3"
+    },
+    "mig29": {
+      "same": true,
+      "physics_fields_sha256": "8b66d03f2494af1df0ef860befc5f1c92716c188c9bae2a8168e06f89bec7bbd"
+    },
+    "swift": {
+      "same": true,
+      "physics_fields_sha256": "ae9f13abe6b564c82c17dd2f7d25114cc215ae8e229e691058a398b3e99d1477"
+    },
+    "f16c": {
+      "same": true,
+      "physics_fields_sha256": "8883dbda3d1bf1d38393b2bf26d55189875cc419abe90db1a0775ec636f8e5d7"
+    },
+    "f15e": {
+      "same": true,
+      "physics_fields_sha256": "9e3ec4316fc20cf2b536dd5637bb0f4b689b050a6808834f9b16dd17545fc569"
+    },
+    "f2": {
+      "same": true,
+      "physics_fields_sha256": "f9c070d448638683611e76dc70c104eb884242b27de8141cc55f1a90ac48d97b"
+    },
+    "tejas": {
+      "same": true,
+      "physics_fields_sha256": "7b547905a6d01e187308ccfceecc23d21d479cb26cb230971946fa8e15c70541"
+    },
+    "rafale": {
+      "same": true,
+      "physics_fields_sha256": "b6fc815a92cebcb6128ec8519bd3d134f70ecf7b39725ee341343d3b2cfc4b37"
+    },
+    "f15c": {
+      "same": true,
+      "physics_fields_sha256": "dcc5dec4d7d32e1db4001775b26d11eaab3e978e8563f4c5a9169e7383614285"
+    },
+    "su34": {
+      "same": true,
+      "physics_fields_sha256": "06a54e3399b0f2abe07566356b54109c0c1154aacfae5010c3686754c92c9015"
+    },
+    "typhoon": {
+      "same": true,
+      "physics_fields_sha256": "615e665f4b76065f63ecea0864d335a6ddd4bf4afd97360f275ee26b5f9f07eb"
+    },
+    "gripen": {
+      "same": true,
+      "physics_fields_sha256": "0f861363c3fcde6ccc6e54e8e84393acd3f46ed875df7015e548b8a77a69a474"
+    },
+    "f35a": {
+      "same": true,
+      "physics_fields_sha256": "b9a45b1a4a59a6154b50a9bbe92fa94370600bcbea47cf84e8d6ace336f12dc5"
+    },
+    "su35s": {
+      "same": true,
+      "physics_fields_sha256": "6809de8ffdf0b569c3145f8a91ef4900b3ccc5da53819c16c33a30c5a813876a"
+    },
+    "kf21": {
+      "same": true,
+      "physics_fields_sha256": "05300917ebed64d09e4e803c3d06cd77b3aa23cb4f74a5afb8a90dba29aedde2"
+    },
+    "mig21": {
+      "same": true,
+      "physics_fields_sha256": "f6cd038019d5f869695a695fb8eef85dfe43ae762e75eff0db2a03fd78e2a7a1"
+    },
+    "su57": {
+      "same": true,
+      "physics_fields_sha256": "160ee6057c62457417b1080586c086beab93e62325ec572e3e304f9364a61a3a"
+    },
+    "f22": {
+      "same": true,
+      "physics_fields_sha256": "6cd1c46b8f4044f134067929eb6a159b4b7784051bf82d14c6a66cafbe66daf1"
+    },
+    "mig31": {
+      "same": true,
+      "physics_fields_sha256": "ee3b9469d55c3a8170517ac89e62423319858658c133ccc3f0a750cde90c5ffa"
+    },
+    "kite": {
+      "same": true,
+      "physics_fields_sha256": "d7aedba34c2f55cb21cbf1302b1b570c591b67ea140f3af131fbd2a165da5089"
+    },
+    "f14": {
+      "same": true,
+      "physics_fields_sha256": "396722e3ea1e66d689ce99664d37f1d997d732729e04f4e704e0a5129e71d1c8"
+    },
+    "tern": {
+      "same": true,
+      "physics_fields_sha256": "4d6930c1e9b2c2983add10edfb4d301e6e5973b6ba9a8f412306781c46d9f3dc"
+    },
+    "tornado": {
+      "same": true,
+      "physics_fields_sha256": "3d3c4cfa73b6ae2c5dc4e90224e3b190aa395377e9bb9637abebce28bccc6acd"
+    },
+    "su27": {
+      "same": true,
+      "physics_fields_sha256": "513c0e0a548119ce09e1248aeb013dd537083b7a36d5ab66b6fd890d24976487"
+    },
+    "fa18e": {
+      "same": true,
+      "physics_fields_sha256": "7b8d5a861f7954de735d3d86d8db569b3e82665a81325994b63438df81655f3a"
+    },
+    "j10c": {
+      "same": true,
+      "physics_fields_sha256": "b5874270023ff23fabfe0f0a0c81abc734a160f4facbbb7860bc84b009ba39c1"
+    },
+    "su30sm": {
+      "same": true,
+      "physics_fields_sha256": "bc178850c67be6ece8f3b28bd9e893810f5eff8bdb5003e39a2d01a237174db0"
+    }
+  }
 }
