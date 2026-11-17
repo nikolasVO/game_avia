@@ -1,0 +1,9 @@
+{
+  "status": "FAIL",
+  "source_commit": "912b8b86281b481f920fa47f04fbc962ca2489f8",
+  "artifact_sha256": "cd9fae20ad333511ec4b8aba99821cf9c5fd08a223f01ce482fa54970c81d46e",
+  "reason": "fresh clone had no local Git LFS filter; pointer files reached Godot; engine logged corrupt import errors but returned0; previous wrapper published dirty=true manifest",
+  "disposition": "rejected/quarantined outsideGit; not runtime tested or released",
+  "fix": "require materialized assets and reject Godot ERROR even exit0; explicit git lfs install --local then pull/checkout before clean build",
+  "phone_gameplay": "NOT VERIFIED"
+}

@@ -2,15 +2,17 @@
 """Manual, bounded native exports. No deployment, signing-key creation or account access."""
 import argparse,hashlib,json,os,subprocess
 from pathlib import Path
+from build_validation import check_materialized_assets,checked_godot
 p=argparse.ArgumentParser();p.add_argument('--godot',default=os.getenv('GODOT','godot'));p.add_argument('--out',type=Path,default=Path('builds'));p.add_argument('--target',choices=['apk','aab','server','mac'],required=True);a=p.parse_args()
 root=Path(__file__).resolve().parents[1];project=root/'game/avia';a.out.mkdir(parents=True,exist_ok=True);out=a.out.resolve();version=subprocess.check_output([a.godot,'--version'],text=True).strip()
 if version!='4.7.2.stable.official.ed1daf0bf':raise SystemExit('Expected pinned Godot 4.7.2 standard ed1daf0bf; got '+version)
-subprocess.run([a.godot,'--headless','--path',str(project),'--editor','--import','--quit'],check=True,timeout=120)
+check_materialized_assets(project)
+checked_godot([a.godot,'--headless','--path',str(project),'--editor','--import','--quit'],timeout=120)
 targets={'apk':('--export-debug','Android Debug','game-avia-0.1.0-debug.apk'),'aab':('--export-release','Android AAB Unsigned','game-avia-0.1.0-unsigned.aab'),'server':('--export-release','Linux Server','game-avia-server.x86_64'),'mac':('--export-debug','macOS Test','GameAvia.zip')}
 flag,preset,name=targets[a.target];cmd=[a.godot,'--headless','--path',str(project)]
 if a.target=='aab' and not (project/'android/build').exists():cmd+=['--install-android-build-template']
 cmd += [flag,preset,str(out/name)]
-subprocess.run(cmd,check=True,timeout=600)
+checked_godot(cmd,timeout=600)
 artifact=out/name
 if not artifact.is_file() or artifact.stat().st_size<10000:raise SystemExit('Missing native artifact')
 sha=subprocess.check_output(['git','-C',str(root),'rev-parse','HEAD'],text=True).strip();dirty=bool(subprocess.check_output(['git','-C',str(root),'status','--porcelain'],text=True))

@@ -33,5 +33,12 @@
       "workers/assets/godot_validate.gd": "ff2745fd818277323dd332fb13aea22234b8535104b3fb769b73e875076b5668"
     },
     "godot": "actual existing F16 candidate reimport/render, all 3LODs x4 views; production recognition not implied"
+  },
+  "build_guard_followup": {
+    "tests": 72,
+    "seconds": 26.96,
+    "environment": "isolated Thunder sources and installed Blender5.2.4",
+    "scope": "includes LFS pointer preflight and exit0/error rejection; no native runtime claim",
+    "local_pytest": "unavailable on system Python; full suite executed using existing server core venv"
   }
 }
