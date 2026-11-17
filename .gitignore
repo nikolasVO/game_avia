@@ -23,3 +23,6 @@ builds/
 *.p12
 *.mobileprovision
 export_credentials.cfg
+*.key
+*.pem
+/game/avia/android/

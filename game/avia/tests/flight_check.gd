@@ -42,6 +42,13 @@ func _initialize() -> void:
  check(AviaRules.shot_hit(shooter,victim),"server ray hits target ahead")
  victim.p=Vector3(30,100,-100);check(not AviaRules.shot_hit(shooter,victim),"server ray rejects off-axis target")
  victim.p=Vector3(0,100,100);check(not AviaRules.shot_hit(shooter,victim),"server ray rejects target behind")
+ var wire_player: Dictionary={"state":AviaFlight.spawn(2),"ack":37,"race":{"next":2,"start":95,"time":3.25},"score":4}
+ var packed: PackedByteArray=AviaWire.pack({123:wire_player})
+ var decoded: Dictionary=AviaWire.unpack(packed)
+ check(packed.size()==84 and decoded.has(123) and decoded[123].state.p.distance_to(wire_player.state.p)<0.001 and decoded[123].ack==37 and decoded[123].score==4,"fixed-width snapshot roundtrip")
+ check(AviaWire.unpack(PackedByteArray([1,2,3])).is_empty(),"truncated snapshot rejected")
+ var malformed: PackedByteArray=packed.duplicate();malformed.encode_float(12,NAN)
+ check(AviaWire.unpack(malformed).is_empty(),"nonfinite snapshot rejected")
  var touch: Control=load("res://client/touch.gd").new();root.add_child(touch);touch.size=Vector2(1280,720)
  var centers: Array=touch.centers()
  var first: InputEventScreenTouch=InputEventScreenTouch.new();first.index=1;first.position=centers[0]+Vector2(30,-40);first.pressed=true;touch._input(first)

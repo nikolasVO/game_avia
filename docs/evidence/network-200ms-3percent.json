@@ -1,0 +1,78 @@
+{
+  "status": "PASS",
+  "scope": "localhost real ENet/DTLS processes through UDP impairment; not carrier/Wi-Fi handover",
+  "rtt_base_ms": 200,
+  "per_direction_jitter_uniform_ms": 50,
+  "loss_probability_each_direction": 0.03,
+  "seconds": 60,
+  "proxy": {
+    "received": 5251,
+    "dropped": 150,
+    "forwarded": 5101,
+    "bytes": 1232859
+  },
+  "clients": [
+    {
+      "correction_max_m": 9.87640380859375,
+      "correction_p95_m": 3.65733551979065,
+      "enet_rtt_ms": 219.0,
+      "event": "summary",
+      "frame_p50_ms": 0,
+      "frame_p95_ms": 0,
+      "joined": true,
+      "rejected": 0,
+      "renderer": "gl_compatibility",
+      "seconds": 60.0065299999921,
+      "seen_peers": 2,
+      "server": false,
+      "snapshots": 768,
+      "state": {
+        "age": 1718,
+        "crashed": false,
+        "distance": 2854.83591806889,
+        "grounded": false,
+        "health": 100.0,
+        "landed": false,
+        "p": "(242.3079, 543.3519, -434.373)",
+        "pitch": -0.0199999994614001,
+        "plane": 0,
+        "respawns": 0,
+        "roll": -0.237499999108261,
+        "v": "(52.58503, 9.160906, -12.67009)",
+        "was_airborne": true,
+        "yaw": -7.65765531055997
+      }
+    },
+    {
+      "correction_max_m": 13.9229078292847,
+      "correction_p95_m": 3.65734362602234,
+      "enet_rtt_ms": 213.0,
+      "event": "summary",
+      "frame_p50_ms": 0,
+      "frame_p95_ms": 0,
+      "joined": true,
+      "rejected": 0,
+      "renderer": "gl_compatibility",
+      "seconds": 60.4029089999919,
+      "seen_peers": 2,
+      "server": false,
+      "snapshots": 803,
+      "state": {
+        "age": 1742,
+        "crashed": false,
+        "distance": 2930.22398817539,
+        "grounded": false,
+        "health": 100.0,
+        "landed": false,
+        "p": "(296.4892, 555.2333, -450.78)",
+        "pitch": -0.0199999996682601,
+        "plane": 0,
+        "respawns": 0,
+        "roll": -0.237499998794296,
+        "v": "(54.05988, 9.160906, -1.801867)",
+        "was_airborne": true,
+        "yaw": -7.86077480903997
+      }
+    }
+  ]
+}

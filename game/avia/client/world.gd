@@ -77,13 +77,14 @@ func update_plane(id: int, state: Dictionary) -> void:
 func update_session(session: Node, delta: float) -> void:
  if not session.joined or session.local_state.is_empty():return
  var mine: int=session.multiplayer.get_unique_id()
- update_plane(mine,session.local_state)
+ var visual_state: Dictionary=session.local_state.duplicate();visual_state.p+=session.visual_offset
+ update_plane(mine,visual_state)
  var active: Array[int]=[mine]
  for id: int in session.others:
   update_plane(id,session.remote_state(id));active.append(id)
  for id: int in planes.keys():
   if not id in active:planes[id].queue_free();planes.erase(id)
- var s: Dictionary=session.local_state
+ var s: Dictionary=visual_state
  var basis: Basis=Basis.from_euler(Vector3(0,s.yaw+orbit,0))
  var destination: Vector3=s.p+basis*Vector3(0,6,22)
  var target: Vector3=s.p+Vector3.UP*1.8

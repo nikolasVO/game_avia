@@ -2,8 +2,10 @@ config_version=5
 
 [application]
 config/name="Game Avia — Tidal Wings prototype"
+run/max_fps=60
 run/main_scene="res://main.tscn"
 config/features=PackedStringArray("4.7", "GL Compatibility")
+config/icon="res://icon.svg"
 config/description="Original native multiplayer flight prototype. Procedural development assets."
 
 [display]

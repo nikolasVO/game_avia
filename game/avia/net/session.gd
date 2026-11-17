@@ -1,7 +1,12 @@
 extends Node
 ## Server authority. No client position/score RPC exists. Separate reliable/control/state channels.
-const PROTOCOL: int=1
+const PROTOCOL: int=2
 const MAX_ROOM: int=16
+var tickets: Dictionary={}
+var ticket_rate: Dictionary={}
+var transport: String="ENet/DTLS"
+var waiting_connection: bool=false
+var connection: ENetConnection
 var server: bool=false
 var peer: ENetMultiplayerPeer
 var players: Dictionary={}
@@ -20,6 +25,8 @@ var room: String=""
 var plane: int=0
 var controls: Dictionary=AviaFlight.neutral()
 var notices: Array[String]=[]
+var visual_offset: Vector3=Vector3.ZERO
+var corrections: Array[float]=[]
 var correction_max: float=0.0
 var snapshots: int=0
 var accepted: int=0
@@ -38,6 +45,13 @@ func start_server(port: int) -> Error:
  peer=ENetMultiplayerPeer.new()
  var result: Error=peer.create_server(port,64,3)
  if result!=OK:return result
+ var key: CryptoKey=CryptoKey.new()
+ var cert: X509Certificate=X509Certificate.new()
+ var key_path: String=OS.get_environment("AVIA_DTLS_KEY")
+ if key_path.is_empty() or key.load(key_path)!=OK or cert.load("res://net/server.crt")!=OK:peer.close();return ERR_UNCONFIGURED
+ result=peer.host.dtls_server_setup(TLSOptions.server(key,cert))
+ if result!=OK:peer.close();return result
+ multiplayer.server_relay=false
  multiplayer.multiplayer_peer=peer
  multiplayer.peer_disconnected.connect(_departed)
  multiplayer.peer_connected.connect(_connected)
@@ -45,33 +59,57 @@ func start_server(port: int) -> Error:
   var saved: Variant=JSON.parse_string(FileAccess.get_file_as_string(stats_path))
   if saved is Dictionary:totals.merge(saved,true)
  status="Server ready"
- print(JSON.stringify({"event":"server_ready","port":port,"protocol":PROTOCOL,"headless":DisplayServer.get_name()=="headless"}))
+ print(JSON.stringify({"event":"server_ready","port":port,"protocol":PROTOCOL,"headless":DisplayServer.get_name()=="headless","transport":transport}))
  return OK
 func connect_to(host: String, port: int, options: Dictionary) -> Error:
  disconnect_session()
  server=false
- plane=int(options.get("plane",0)); mode=str(options.get("mode","free"))
- join_options=options
+ plane=int(options.get("plane",0));mode=str(options.get("mode","free"));join_options=options
  peer=ENetMultiplayerPeer.new()
- var result: Error=peer.create_client(host,port,3)
- if result!=OK:status="Connection failed";return result
+ var bytes: PackedByteArray=Crypto.new().generate_random_bytes(4)
+ var client_id: int=maxi(2,int(bytes.decode_u32(0) & 0x7fffffff))
+ var result: Error=peer.create_mesh(client_id)
+ if result!=OK:return result
+ connection=ENetConnection.new()
+ result=connection.create_host(1,6)
+ if result!=OK:return result
+ var cert: X509Certificate=X509Certificate.new()
+ if cert.load("res://net/server.crt")!=OK:return ERR_UNCONFIGURED
+ # DTLS must be configured BEFORE connect_to_host (Godot 4.7 API contract).
+ result=connection.dtls_client_setup("game-avia.local",TLSOptions.client(cert))
+ if result!=OK:return result
+ var remote: ENetPacketPeer=connection.connect_to_host(host,port,6,client_id)
+ if remote==null:return ERR_CANT_CONNECT
+ multiplayer.server_relay=false
  multiplayer.multiplayer_peer=peer
- if not multiplayer.connected_to_server.is_connected(_on_connected):
-  multiplayer.connected_to_server.connect(_on_connected)
-  multiplayer.connection_failed.connect(_connection_failed)
-  multiplayer.server_disconnected.connect(_connection_failed)
+ if not multiplayer.peer_disconnected.is_connected(_client_peer_departed):multiplayer.peer_disconnected.connect(_client_peer_departed)
+ waiting_connection=true
  status="Connecting"
  last_snapshot_ms=Time.get_ticks_msec()
  return OK
+func _client_peer_departed(id: int) -> void:
+ if id==1:_connection_failed()
+func _process(_delta: float) -> void:
+ if not waiting_connection:return
+ var event: Array=connection.service(0)
+ if event[0]==ENetConnection.EVENT_CONNECT:
+  waiting_connection=false
+  var result: Error=peer.add_mesh_peer(1,connection)
+  if result==OK:_on_connected()
+  else:_connection_failed()
+ elif event[0] in [ENetConnection.EVENT_ERROR,ENetConnection.EVENT_DISCONNECT] or Time.get_ticks_msec()-last_snapshot_ms>8000:
+  waiting_connection=false;_connection_failed()
 func disconnect_session() -> void:
  joined=false
+ if waiting_connection and connection:connection.destroy()
+ waiting_connection=false
  if peer:peer.close()
  multiplayer.multiplayer_peer=null
  pending.clear();others.clear();local_state.clear()
  seq=0;server_tick_seen=-1
 func _on_connected() -> void:
  status="Joining"
- join_game.rpc_id(1,PROTOCOL,plane,mode,str(join_options.get("code","")),bool(join_options.get("private",false)))
+ request_ticket.rpc_id(1,PROTOCOL,plane,mode,str(join_options.get("code","")),bool(join_options.get("private",false)))
 func _connection_failed() -> void:
  joined=false;status="Disconnected — retry from menu";message.emit(status)
 func _connected(id: int) -> void:
@@ -79,10 +117,11 @@ func _connected(id: int) -> void:
  get_tree().create_timer(5.0).timeout.connect(func():
   if peer and peer.get_connection_status()==MultiplayerPeer.CONNECTION_CONNECTED and not players.has(id):peer.disconnect_peer(id))
 func _departed(id: int) -> void:
+ tickets.erase(id);ticket_rate.erase(id)
  if not players.has(id):return
  var key: String=players[id].room
  players.erase(id)
- _broadcast(key,"departure",{"id":id})
+ _broadcast.call_deferred(key,"departure",{"id":id})
  if not _room_count(key):rooms.erase(key)
 func _room_count(key: String) -> int:
  var count: int=0
@@ -97,12 +136,34 @@ func _persist() -> void:
  if result!=OK:push_error("progress_publish_failed")
 func _broadcast(key: String, kind: String, data: Dictionary) -> void:
  for id: int in players:
-  if players[id].room==key and peer.get_peer(id).get_state()==ENetPacketPeer.STATE_CONNECTED:game_event.rpc_id(id,kind,data)
+  if players[id].room==key and peer.get_peer(id).get_state()==ENetPacketPeer.STATE_CONNECTED and peer.get_peer(id).get_channels()>2:game_event.rpc_id(id,kind,data)
  print(JSON.stringify({"event":kind,"room":key,"data":data,"tick":tick}))
 @rpc("any_peer","call_remote","reliable",0)
-func join_game(version: int, selected: int, requested_mode: String, code: String, private_room: bool) -> void:
+func request_ticket(version: int, selected: int, requested_mode: String, code: String, private_room: bool) -> void:
  if not server:return
  var id: int=multiplayer.get_remote_sender_id()
+ if players.has(id) or (ticket_rate.has(id) and tick-int(ticket_rate[id])<30):rejected+=1;return
+ ticket_rate[id]=tick
+ if code.length()>12:rejected+=1;return
+ var token: String=Crypto.new().generate_random_bytes(24).hex_encode()
+ tickets[id]={"token":token,"expires":tick+90,"options":[version,selected,requested_mode,code,private_room]}
+ admission_ticket.rpc_id(id,token)
+@rpc("authority","call_remote","reliable",0)
+func admission_ticket(token: String) -> void:
+ if server:return
+ redeem_ticket.rpc_id(1,token)
+@rpc("any_peer","call_remote","reliable",0)
+func redeem_ticket(token: String) -> void:
+ if not server:return
+ var id: int=multiplayer.get_remote_sender_id()
+ if token.length()!=48 or not tickets.has(id):rejected+=1;return
+ var ticket: Dictionary=tickets[id]
+ if tick>int(ticket.expires) or token!=ticket.token:rejected+=1;return
+ tickets.erase(id)
+ var o: Array=ticket.options
+ _admit(id,int(o[0]),int(o[1]),str(o[2]),str(o[3]),bool(o[4]))
+func _admit(id: int, version: int, selected: int, requested_mode: String, code: String, private_room: bool) -> void:
+ if not server:return
  if players.has(id):return
  if version!=PROTOCOL:
   game_event.rpc_id(id,"error",{"reason":"Version mismatch"});return
@@ -151,8 +212,10 @@ func game_event(kind: String, data: Dictionary) -> void:
  message.emit(line)
  print(JSON.stringify({"event":kind,"peer":multiplayer.get_unique_id(),"data":data}))
 @rpc("authority","call_remote","unreliable_ordered",2)
-func snapshot(server_tick: int, states: Dictionary, progress: Dictionary) -> void:
+func snapshot(server_tick: int, packed: PackedByteArray, progress: Dictionary) -> void:
  if server or not joined or server_tick<=server_tick_seen:return
+ var states: Dictionary=AviaWire.unpack(packed)
+ if states.is_empty():return
  server_tick_seen=server_tick;snapshots+=1;last_snapshot_ms=Time.get_ticks_msec()
  seen_peers=maxi(seen_peers,states.size())
  totals=progress
@@ -163,7 +226,15 @@ func snapshot(server_tick: int, states: Dictionary, progress: Dictionary) -> voi
   var ack: int=int(states[mine].ack)
   while not pending.is_empty() and int(pending[0].seq)<=ack:pending.pop_front()
   for item: Dictionary in pending:base=AviaFlight.step(base,item.input)
-  if not local_state.is_empty():correction_max=maxf(correction_max,local_state.p.distance_to(base.p))
+  if not local_state.is_empty():
+   var error: float=local_state.p.distance_to(base.p)
+   corrections.append(error)
+   if corrections.size()>27000:corrections.pop_front()
+   correction_max=maxf(correction_max,error)
+   if error<25.0 and not base.crashed and base.age>=local_state.age-5:
+    visual_offset=(visual_offset+local_state.p-base.p).limit_length(20.0)
+   else:visual_offset=Vector3.ZERO
+   if error>25:print(JSON.stringify({"event":"large_correction","metres":error,"tick":server_tick}))
   local_state=base
  for id: int in states:
   if id==mine:continue
@@ -232,17 +303,19 @@ func _physics_process(_delta: float) -> void:
       break
   if tick % 2==0:
    for id: int in players:
+    if peer.get_peer(id).get_state()!=ENetPacketPeer.STATE_CONNECTED or peer.get_peer(id).get_channels()<3:continue
     var visible: Dictionary={}
     for other: int in players:
      if players[id].room==players[other].room and (id==other or players[id].state.p.distance_to(players[other].state.p)<4500.0):
       visible[other]={"state":players[other].state,"ack":players[other].ack,"race":players[other].race,"score":players[other].score}
-    snapshot.rpc_id(id,tick,visible,totals)
+    snapshot.rpc_id(id,tick,AviaWire.pack(visible),totals)
   tick_us.append(Time.get_ticks_usec()-start)
   if tick_us.size()>54000:tick_us.pop_front()
   if tick % 300==0:
    var sorted: Array[int]=tick_us.duplicate();sorted.sort()
    print(JSON.stringify({"event":"health","tick":tick,"connections":players.size(),"accepted":accepted,"rejected":rejected,"tick_p95_ms":float(sorted[int(sorted.size()*0.95)])/1000.0,"totals":totals,"sent_bytes_10s":peer.host.pop_statistic(ENetConnection.HOST_TOTAL_SENT_DATA),"received_bytes_10s":peer.host.pop_statistic(ENetConnection.HOST_TOTAL_RECEIVED_DATA)}))
  elif joined and not local_state.is_empty():
+  visual_offset*=0.78
   seq+=1
   command.rpc_id(1,seq,controls)
   pending.append({"seq":seq,"input":controls.duplicate()})

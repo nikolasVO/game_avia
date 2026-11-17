@@ -109,6 +109,13 @@ func _process(delta: float) -> void:
  if s.crashed:warning="CRASH — R / Recover" if language=="en" else "АВАРИЯ — Восстановить"
  elif s.v.length()<float(AviaFlight.PLANES[s.plane].stall) and not s.grounded:warning="LOW AIRSPEED" if language=="en" else "МАЛАЯ СКОРОСТЬ"
  hud.text="%03d km/h   %04d m ASL   %03d°   %d%%   ♥ %d   %s   %d pilots" % [s.v.length()*3.6,s.p.y,fposmod(rad_to_deg(-float(s.yaw)),360),float(session.controls.throttle)*100,s.health,session.mode,session.others.size()+1]
- notice.text=warning+"
-"+(session.notices[-1] if not session.notices.is_empty() else session.room)
+ var objective: String="Free flight · land on either runway" if language=="en" else "Свободный полёт · посадите самолёт на полосу"
+ if session.mode=="race":
+  var next: int=int(session.local_race.get("next",0))
+  objective=("Checkpoint %d / 5" if language=="en" else "Точка %d / 5") % mini(next+1,5)
+  if next>=5:objective=("Finished: %.2f s · Recover to retry" if language=="en" else "Финиш: %.2f с · Восстановить для повтора") % float(session.local_race.get("time",0))
+ elif session.mode=="pvp":objective=("Combat · score %d · F / upper touch to fire" if language=="en" else "Бой · счёт %d · F / верхнее касание — огонь") % session.local_score
+ var ping: float=session.peer.get_peer(1).get_statistic(ENetPacketPeer.PEER_ROUND_TRIP_TIME)
+ notice.text=warning+"\n"+objective+"   %d ms" % ping
+ radar.queue_redraw()
  touch.queue_redraw()

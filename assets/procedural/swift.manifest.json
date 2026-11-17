@@ -1,0 +1,25 @@
+{
+  "asset_id": "swift-placeholder",
+  "purpose": "Flight prototype swift",
+  "source_type": "procedural",
+  "source": "game/avia/client/world.gd::make_plane",
+  "source_sha256": "714326f378e610ce32c3039cb591708f1e6d9a4fec308b60db515965d69e1ac0",
+  "prompt": null,
+  "provider": null,
+  "model": null,
+  "revision": null,
+  "seed": null,
+  "license": "Original project code/geometry; no external files",
+  "dimensions_m": [
+    8.8,
+    3.575,
+    8.9
+  ],
+  "orientation": "Y-up; nose -Z",
+  "pivot": "physics origin; wheels at ground offset",
+  "triangles_lod0": 96,
+  "lod_policy": "NOT VERIFIED: single very low polygon development mesh; production LOD pending",
+  "materials": "Opaque flat colors; no textures",
+  "validation": "Runtime screenshots + takeoff test; not AI pipeline acceptance",
+  "production_replacement": "BLOCKED: paid image budget unknown; DINOv3 gated access unavailable"
+}
