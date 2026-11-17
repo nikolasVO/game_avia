@@ -1,0 +1,17 @@
+{
+  "date": "2026-11-17",
+  "host": "Thunder",
+  "model": "facebook/dinov3-vitl16-pretrain-lvd1689m",
+  "revision": "ea8dc2863c51be0a264bab82070e3e8836b02d51",
+  "weights_head_status": 200,
+  "credential_origin": "existing_private_project_HF_cache",
+  "token_configured_in_protected_environment": true,
+  "environment_file_mode": "0600",
+  "profile": "512",
+  "model_files": 20,
+  "selected_bytes": 11455350456,
+  "downloaded": true,
+  "selected_sizes_verified": true,
+  "inference_tested": false,
+  "preparation_task_id": "0e7a16af23f6"
+}
