@@ -4,3 +4,6 @@
 *.png filter=lfs diff=lfs merge=lfs -text
 *.jpg filter=lfs diff=lfs merge=lfs -text
 *.exr filter=lfs diff=lfs merge=lfs -text
+
+# Unified patch context intentionally starts with a space before source tabs.
+third_party/godot_android_surface/*.patch -whitespace

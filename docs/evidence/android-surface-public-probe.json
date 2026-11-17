@@ -1,0 +1,96 @@
+{
+  "status": "PASS tested fixture scenarios",
+  "package": "com.nikolasvo.gameavia.surfacepatched",
+  "pid": 5359,
+  "installed_apk_sha256": "fcb4458dd4a6a444f7b6407dec755f07719abcfaf9e910e6c3569456d2bf9083",
+  "cold": {
+    "before": {
+      "draws": 0,
+      "event": "surface_frame",
+      "frames": 1,
+      "mode": "3d",
+      "physics": 8,
+      "ticks_ms": 7581
+    },
+    "after": {
+      "draws": 46,
+      "event": "surface_frame",
+      "frames": 47,
+      "mode": "3d",
+      "physics": 81,
+      "ticks_ms": 10776
+    },
+    "advanced": true,
+    "actual_cold": true
+  },
+  "warm_cycles": [
+    {
+      "cycle": 1,
+      "before": {
+        "draws": 46,
+        "event": "surface_frame",
+        "frames": 47,
+        "mode": "3d",
+        "physics": 81,
+        "ticks_ms": 10776
+      },
+      "after": {
+        "draws": 87,
+        "event": "surface_frame",
+        "frames": 88,
+        "mode": "3d",
+        "physics": 136,
+        "ticks_ms": 12810
+      },
+      "advanced": true
+    },
+    {
+      "cycle": 2,
+      "before": {
+        "draws": 87,
+        "event": "surface_frame",
+        "frames": 88,
+        "mode": "3d",
+        "physics": 136,
+        "ticks_ms": 12810
+      },
+      "after": {
+        "draws": 111,
+        "event": "surface_frame",
+        "frames": 112,
+        "mode": "3d",
+        "physics": 166,
+        "ticks_ms": 13829
+      },
+      "advanced": true
+    },
+    {
+      "cycle": 3,
+      "before": {
+        "draws": 125,
+        "event": "surface_frame",
+        "frames": 126,
+        "mode": "3d",
+        "physics": 191,
+        "ticks_ms": 14870
+      },
+      "after": {
+        "draws": 153,
+        "event": "surface_frame",
+        "frames": 154,
+        "mode": "3d",
+        "physics": 222,
+        "ticks_ms": 15923
+      },
+      "advanced": true
+    }
+  ],
+  "recovery_markers": [
+    "11-17 19:00:31.460  5359  5390 I GLThread: GAME_AVIA_SURFACE_RECOVERY 1->2",
+    "11-17 19:00:34.528  5359  5390 I GLThread: GAME_AVIA_SURFACE_RECOVERY 3->4",
+    "11-17 19:00:36.544  5359  5390 I GLThread: GAME_AVIA_SURFACE_RECOVERY 5->6",
+    "11-17 19:00:38.506  5359  5390 I GLThread: GAME_AVIA_SURFACE_RECOVERY 7->8"
+  ],
+  "log_sha256": "8f934b038e0e1a1e9cd199fdf03a8f2c9275e4b62846cc32d6535cc9fdc8dc01",
+  "limits": "isolated diagnostic on specified device; not gameplay/phone FPS acceptance; inspect screenshot too"
+}
