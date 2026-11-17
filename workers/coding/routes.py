@@ -40,7 +40,7 @@ class Registry:
                     with self.store.db() as c:
                         rows=c.execute("SELECT * FROM provider_routes WHERE id IN (?,?)",(route["id"],"scope:"+group["billing_scope"])).fetchall()
                     blocked=False
-                    state=group["state"]
+                    state="agent_ready" if self.store.kv("capability:"+route["id"]) else group["state"]
                     for r in rows:
                         if r["state"]=="agent_ready" and r["id"]==route["id"]: state="agent_ready"
                         elif r["state"] in ("blocked_balance","disabled_auth","quarantined","cooldown","transient","capability_unavailable","forbidden","invalid_response"):
@@ -61,4 +61,5 @@ class Registry:
         with self.store.db() as c:
             c.execute("INSERT OR REPLACE INTO provider_routes VALUES(?,?,?,?,?)",
                       (route["id"],"agent_ready",0,0,json.dumps({"capabilities":capabilities,"at":time.time(),"breaker":"closed"})))
+            c.execute("INSERT OR REPLACE INTO kv VALUES(?,?)",("capability:"+route["id"],json.dumps(capabilities)))
 

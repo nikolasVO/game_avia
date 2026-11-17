@@ -78,13 +78,27 @@ class Telegram:
             return {"ok":False,"unknown":False,"retry_after":30}
         except (httpx.HTTPError,ValueError):
             return {"ok":False,"unknown":True,"retry_after":30}
+    async def send_artifact(self,row):
+        from pathlib import Path
+        path=Path(row["artifact_path"])
+        method="sendPhoto" if row["kind"]=="photo" else "sendDocument"
+        field="photo" if row["kind"]=="photo" else "document"
+        try:
+            async with httpx.AsyncClient(timeout=60) as client:
+                with path.open("rb") as f:
+                    r=await client.post(self.base+method,data={"chat_id":str(self.owner),"caption":row["text"][:1000]},files={field:(path.name,f)})
+            d=r.json()
+            if d.get("ok"):return d
+            return {"ok":False,"retry_after":d.get("parameters",{}).get("retry_after",60)}
+        except (httpx.ConnectError,httpx.ConnectTimeout):return {"ok":False,"retry_after":30}
+        except (httpx.HTTPError,OSError,ValueError):return {"ok":False,"unknown":True,"retry_after":30}
     async def deliver_one(self):
         with self.store.db() as c:
             c.execute("BEGIN IMMEDIATE")
             row=c.execute("SELECT * FROM notification_outbox WHERE status='pending' AND next_at<=? ORDER BY rowid LIMIT 1",(time.time(),)).fetchone()
             if row:c.execute("UPDATE notification_outbox SET status='sending' WHERE event_id=?",(row["event_id"],))
         if not row: return False
-        r=await self.call("sendMessage",{"chat_id":self.owner,"text":row["text"]})
+        r=await(self.send_artifact(row) if row["kind"]!="text" else self.call("sendMessage",{"chat_id":self.owner,"text":row["text"]}))
         with self.store.db() as c:
             if r.get("ok"):
                 c.execute("UPDATE notification_outbox SET status='sent',message_id=?,attempts=attempts+1 WHERE event_id=?",(r["result"]["message_id"],row["event_id"]))

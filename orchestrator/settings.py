@@ -3,6 +3,9 @@ from pathlib import Path
 from dotenv import load_dotenv
 
 def load_environment(path=None):
+    import logging
+    logging.getLogger("httpx").setLevel(logging.WARNING)
+    logging.getLogger("httpcore").setLevel(logging.WARNING)
     load_dotenv(path or os.getenv("GAME_AVIA_ENV", "/etc/game-avia/environment"), override=False)
 
 def state_dir():

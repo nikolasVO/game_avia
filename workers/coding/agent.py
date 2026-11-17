@@ -41,10 +41,13 @@ class Agent:
     async def run(self,task,root,family="gpt",max_calls=4,bootstrap=False):
         tid=task["id"];deadline=time.monotonic()+180
         tools=Tools(self.store,tid,root,owner=task.get("owner"))
-        messages=[{"role":"system","content":"You are a bounded coding worker. Work only in provided workspace with tools. Preserve existing files. Never ask for or output secrets. Implement the request and run tests. Do not claim tests passed unless tool results prove it. Return a concise result. Tools are restricted; no publishing or external messaging."},
+        messages=[{"role":"system","content":"You are a bounded coding worker. Work only in provided workspace with tools. Preserve existing files. Never ask for or output secrets. Implement the request and run tests. Do not claim tests passed unless tool results prove it. Return a concise result. Paths are relative to an already selected game workspace; do not prepend game/. Tools are restricted; no publishing or external messaging."},
                   {"role":"user","content":task["goal"]}]
         calls=0;attempts=0
-        for route in self.registry.candidates(family,bootstrap=bootstrap):
+        import itertools
+        other="claude" if family=="gpt" else "gpt"
+        candidates=itertools.chain(self.registry.candidates(family,bootstrap=bootstrap),self.registry.candidates(other,bootstrap=bootstrap))
+        for route in candidates:
             if calls>=max_calls or attempts>=32 or time.monotonic()>deadline: break
             attempts+=1
             self.store.event(tid,"Маршрут "+route["id"]+"; протокол chat_completions tool-loop.","route")

@@ -41,6 +41,20 @@ class Store:
             CREATE TABLE IF NOT EXISTS decisions(id TEXT PRIMARY KEY,task_id TEXT,text TEXT,created REAL);
             CREATE TABLE IF NOT EXISTS attempts(id TEXT PRIMARY KEY,task_id TEXT,route TEXT,status TEXT,created REAL);
             """)
+            columns={r[1] for r in c.execute("PRAGMA table_info(notification_outbox)")}
+            for name,definition in (("kind","TEXT DEFAULT 'text'"),("artifact_path","TEXT")):
+                if name not in columns:c.execute("ALTER TABLE notification_outbox ADD COLUMN "+name+" "+definition)
+    def artifact_event(self,task_id,path,caption,kind="document"):
+        if kind not in ("photo","document"):raise ValueError("invalid_artifact_kind")
+        from pathlib import Path
+        target=Path(path).resolve()
+        roots=[Path("/srv/game-avia/artifacts").resolve(),Path("/srv/game-avia/repo/assets").resolve()]
+        if not any(root in target.parents for root in roots) or not target.is_file() or target.stat().st_size>49*1024**2:
+            raise ValueError("invalid_artifact_path")
+        with self.db() as c:
+            eid=self._event(c,task_id,caption,"artifact")
+            c.execute("UPDATE notification_outbox SET kind=?,artifact_path=? WHERE event_id=?",(kind,str(target),eid))
+        return eid
     @contextlib.contextmanager
     def db(self):
         c = sqlite3.connect(self.path, timeout=30)

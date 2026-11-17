@@ -35,7 +35,7 @@ async def execute(store,task,owner):
     if len(task["goal"])>3000 and not os.getenv("GAME_AVIA_DAILY_COST_LIMIT"):
         store.transition(tid,"blocked","budget_not_configured: нужно ограниченное техническое задание или денежный бюджет.",owner=owner);return
     registry=Registry(store)
-    if not list(registry.candidates("gpt")):
+    if not list(registry.candidates("gpt")) and not list(registry.candidates("claude")):
         store.transition(tid,"blocked","Нет проверенного cloud tool-loop маршрута; /providers.",owner=owner);return
     store.assert_active(tid,owner)
     branch="task/"+tid
