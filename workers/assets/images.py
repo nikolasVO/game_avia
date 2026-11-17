@@ -9,16 +9,11 @@ import httpx
 from workers.coding.routes import classify
 
 # Separate catalog-only groups. Nano/Seedream intentionally require their own contract.
-CATALOG={
-"GPTGE_IMAGE":["gpt-image-2","gpt-image-2.5-flare","gpt-image-2.5-sunburst"],
-"OPENLUX_IMAGE":["gpt-image-2","gpt-image-2.5-flare","gpt-image-2.5-sunburst"],
-"WHATSTOKEN_IMAGE":["gpt-image-2-special","gpt-image-2.5-flare","gpt-image-2.5-sunburst","seedream-5.5"],
-"XYC_IMAGE":["gpt-image-2.5-flare","gpt-image-2.5-sunburst"],
-"SIX666_IMAGE":["gpt-image-2","gpt-image-2 2K","gpt-image-2 4K","gpt-image-2.5-sunburst"],
-"JUNWUSHEN_IMAGE":["gpt-image-2","gpt-image-2-1k","gpt-image-2-2k","gpt-image-2-4k","gpt-image-2.5-flare","gpt-image-2.5-sunburst"]}
+CONFIG=json.loads((Path(__file__).resolve().parents[2]/"config/providers.yaml").read_text())
+CATALOG={k:v["models"] for k,v in CONFIG["image_routes"].items()}
 
 async def generate_reference(store,prefix,model,prompt,output):
-    if prefix not in CATALOG or model not in CATALOG[prefix] or model.startswith("seedream"):raise ValueError("unverified_image_contract")
+    if prefix not in CATALOG or model not in CATALOG[prefix] or CONFIG["image_routes"][prefix]["protocol"]!="openai_images" or model.startswith("seedream"):raise ValueError("unverified_image_contract")
     with store.db() as c:
         c.execute("BEGIN IMMEDIATE")
         if c.execute("SELECT 1 FROM kv WHERE key='bootstrap_image_reserved'").fetchone() or c.execute("SELECT COUNT(*) FROM tool_operations WHERE tool='image_generation'").fetchone()[0]>=1:

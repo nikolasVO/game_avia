@@ -14,7 +14,7 @@ def triangles(obj):
     return len(obj.data.loop_triangles)
 def main():
     p=argparse.ArgumentParser();p.add_argument("--input");p.add_argument("--fixture",action="store_true");p.add_argument("--output-dir",required=True)
-    p.add_argument("--triangles",type=int,default=5000);p.add_argument("--texture-size",type=int,default=1024)
+    p.add_argument("--dimensions",type=float,nargs=3,default=[1,1,1]);p.add_argument("--triangles",type=int,default=5000);p.add_argument("--texture-size",type=int,default=1024)
     a=p.parse_args(sys.argv[sys.argv.index("--")+1:])
     out=Path(a.output_dir);out.mkdir(parents=True,exist_ok=True)
     bpy.ops.object.select_all(action="SELECT");bpy.ops.object.delete(use_global=False)
@@ -42,7 +42,9 @@ def main():
     high=Vector([max(v[i] for v in vertices) for i in range(3)])
     if not all(math.isfinite(v) for v in (*low,*high)) or min(high-low)<=0:raise RuntimeError("invalid_bounds")
     center=Vector(((low.x+high.x)/2,(low.y+high.y)/2,low.z))
-    for v in base.data.vertices:v.co=(base.matrix_world@v.co-center)/max(high-low)
+    for v in base.data.vertices:
+        coord=base.matrix_world@v.co-center
+        v.co=Vector([coord[i]/(high[i]-low[i])*a.dimensions[i] for i in range(3)])
     base.matrix_world.identity()
     base["lod"]=0
     if triangles(base)>a.triangles:
@@ -77,7 +79,7 @@ def main():
     mats=len(base.data.materials);tris=triangles(base)
     manifest={"source_kind":source_kind,"blender_version":bpy.app.version_string,"triangles_lod0":tris,
               "materials_lod0":mats,"lods":lods,"collision":"box_metadata; Unity component binding requires runner",
-              "dimensions_m":list(base.dimensions),"pivot":"bottom_center","export_axes":"glTF Y-up",
+              "generator_script_sha256":digest(__file__),"dimensions_m":[base.dimensions.x,base.dimensions.z,base.dimensions.y],"pivot":"bottom_center","export_axes":"glTF Y-up",
               "unity_import_tested":False,"license":"CC0 procedural fixture" if a.fixture else "see source manifest",
               "checks":{"triangle_budget":tris<=a.triangles,"material_budget":mats<=2,"finite_bounds":True},
               "files":{n:{"sha256":digest(out/n),"bytes":(out/n).stat().st_size} for n in ["optimized.glb","preview.png"]}}

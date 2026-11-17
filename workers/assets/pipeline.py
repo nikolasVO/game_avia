@@ -6,6 +6,7 @@ import re
 import shutil
 import subprocess
 from pathlib import Path
+from typing import Literal
 from pydantic import BaseModel,ConfigDict,Field,field_validator
 
 class AssetSpec(BaseModel):
@@ -16,13 +17,13 @@ class AssetSpec(BaseModel):
     style:str="technical test prop"
     reference_images:list[str]=Field(min_length=1,max_length=4)
     dimensions_m:tuple[float,float,float]=(1,1,1)
-    orientation:str="Y-up"
-    pivot:str="bottom_center"
+    orientation:Literal["Y-up"]="Y-up"
+    pivot:Literal["bottom_center"]="bottom_center"
     triangle_budget:int=Field(default=5000,ge=100,le=100000)
     texture_budget:int=Field(default=1024,ge=128,le=4096)
-    lod_policy:str="LOD0,LOD1,LOD2"
-    collision_policy:str="box"
-    output_formats:list[str]=["glb"]
+    lod_policy:Literal["LOD0,LOD1,LOD2"]="LOD0,LOD1,LOD2"
+    collision_policy:Literal["box"]="box"
+    output_formats:list[Literal["glb"]]=["glb"]
     license_constraints:str="owned_or_permitted"
     deadline_seconds:int=Field(default=1800,ge=30,le=7200)
     cost_limit:float|None=None
@@ -96,6 +97,14 @@ class AssetRunner:
         out.mkdir(parents=True,exist_ok=True)
         manifest={"spec":spec.model_dump(),"references":[{"name":p.name,"sha256":sha256(p)} for p in refs],
                   "state":"prepared","readiness":status,"generated":False,"reference_path":str(refs[0])}
+        previous=out/"manifest.json"
+        if previous.is_file() and json.loads(previous.read_text()).get("verified"):
+            old=json.loads((out/"request.json").read_text()) if (out/"request.json").is_file() else {}
+            if old.get("spec")!=manifest["spec"] or old.get("references")!=manifest["references"]:
+                raise RuntimeError("asset_id_conflict; existing verified artifact preserved")
+            manifest["state"]="reused"
+            manifest["existing_manifest"]=json.loads(previous.read_text())
+            return manifest
         (out/"request.json").write_text(json.dumps(manifest,indent=2))
         return manifest
 

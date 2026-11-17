@@ -287,6 +287,142 @@
       "capabilities": [],
       "evidence": "owner supplied text audit; agent protocol unverified"
     }
+  },
+  "image_primary": [
+    "GPTGE_IMAGE",
+    "OPENLUX_IMAGE",
+    "WHATSTOKEN_IMAGE",
+    "XYC_IMAGE"
+  ],
+  "image_reserve": [
+    "SIX666_IMAGE",
+    "JUNWUSHEN_IMAGE"
+  ],
+  "image_logical_order": [
+    "gpt-image-2",
+    "gpt-image-2.5-flare",
+    "gpt-image-2.5-sunburst"
+  ],
+  "image_routes": {
+    "GPTGE_IMAGE": {
+      "env_prefix": "GPTGE_IMAGE",
+      "base_url": "https://api.gpt.ge/v1",
+      "billing_scope": "GPTGE_IMAGE",
+      "protocol": "openai_images",
+      "models": [
+        "gpt-image-2",
+        "gpt-image-2.5-flare",
+        "gpt-image-2.5-sunburst"
+      ],
+      "state": "catalog_only",
+      "verified_generation_models": [],
+      "edit_verified": false
+    },
+    "OPENLUX_IMAGE": {
+      "env_prefix": "OPENLUX_IMAGE",
+      "base_url": "https://api.openlux.ai/v1",
+      "billing_scope": "OPENLUX_IMAGE",
+      "protocol": "openai_images",
+      "models": [
+        "gpt-image-2",
+        "gpt-image-2.5-flare",
+        "gpt-image-2.5-sunburst"
+      ],
+      "state": "catalog_only",
+      "verified_generation_models": [
+        "gpt-image-2"
+      ],
+      "edit_verified": false
+    },
+    "WHATSTOKEN_IMAGE": {
+      "env_prefix": "WHATSTOKEN_IMAGE",
+      "base_url": "https://www.whatstoken.ai/v1",
+      "billing_scope": "WHATSTOKEN_IMAGE",
+      "protocol": "openai_images",
+      "models": [
+        "gpt-image-2-special",
+        "gpt-image-2.5-flare",
+        "gpt-image-2.5-sunburst",
+        "seedream-5.5"
+      ],
+      "state": "catalog_only",
+      "verified_generation_models": [],
+      "edit_verified": false
+    },
+    "XYC_IMAGE": {
+      "env_prefix": "XYC_IMAGE",
+      "base_url": "https://apicdn.xycai.us/v1",
+      "billing_scope": "XYC_IMAGE",
+      "protocol": "openai_images",
+      "models": [
+        "gpt-image-2.5-flare",
+        "gpt-image-2.5-sunburst"
+      ],
+      "state": "catalog_only",
+      "verified_generation_models": [],
+      "edit_verified": false
+    },
+    "SIX666_IMAGE": {
+      "env_prefix": "SIX666_IMAGE",
+      "base_url": "https://666six.top/v1",
+      "billing_scope": "SIX666_IMAGE",
+      "protocol": "openai_images",
+      "models": [
+        "gpt-image-2",
+        "gpt-image-2 2K",
+        "gpt-image-2 4K",
+        "gpt-image-2.5-sunburst"
+      ],
+      "state": "catalog_only",
+      "verified_generation_models": [],
+      "edit_verified": false
+    },
+    "JUNWUSHEN_IMAGE": {
+      "env_prefix": "JUNWUSHEN_IMAGE",
+      "base_url": "https://junwushen.cn/v1",
+      "billing_scope": "JUNWUSHEN_IMAGE",
+      "protocol": "openai_images",
+      "models": [
+        "gpt-image-2",
+        "gpt-image-2-1k",
+        "gpt-image-2-2k",
+        "gpt-image-2-4k",
+        "gpt-image-2.5-flare",
+        "gpt-image-2.5-sunburst"
+      ],
+      "state": "catalog_only",
+      "verified_generation_models": [],
+      "edit_verified": false
+    },
+    "XINFENG_IMAGE": {
+      "env_prefix": "XINFENG_IMAGE",
+      "base_url": "https://xinfeng.best/v1",
+      "billing_scope": "XINFENG_IMAGE",
+      "protocol": "provider_specific_unverified",
+      "models": [
+        "NanoBanana2",
+        "NanoBananaPro",
+        "Nanobanana2.1",
+        "Seedream 5.0 Pro",
+        "Seedream 5.5"
+      ],
+      "state": "catalog_only",
+      "verified_generation_models": [],
+      "edit_verified": false
+    },
+    "XYC_NANO_IMAGE": {
+      "env_prefix": "XYC_NANO_IMAGE",
+      "base_url": "https://apicdn.xycai.us/v1",
+      "billing_scope": "XYC_NANO_IMAGE",
+      "protocol": "provider_specific_unverified",
+      "models": [
+        "nano-banana-2",
+        "nano-banana-2.1",
+        "nano-banana-pro"
+      ],
+      "state": "catalog_only",
+      "verified_generation_models": [],
+      "edit_verified": false
+    }
   }
 }
-

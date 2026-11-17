@@ -27,6 +27,7 @@ def run_process(store,task,owner,fence,argv,log,deadline):
 def run_asset(store,task,owner,root):
     root=Path(root);spec=AssetSpec.model_validate(task["spec"])
     request=AssetRunner(store,root).prepare(task)
+    if request["state"]=="reused":return {"status":"verified","artifact_dir":str(root/"artifacts"/spec.asset_id),"manifest":request["existing_manifest"]}
     if request["readiness"]["blocked"]:
         return {"status":"blocked","reason":request["readiness"]["reason"]}
     fence=store.acquire_gpu(task["id"],seconds=300)
@@ -49,7 +50,7 @@ def run_asset(store,task,owner,root):
             store.finish_tool(operation,{"sha256":sha256(original)})
         run_process(store,task,owner,fence,[str(root/"tools/blender-5.2.4-linux-x64/blender"),"--background","--factory-startup",
             "--python",str(root/"repo/scripts/blender_optimize.py"),"--","--input",str(original),"--output-dir",str(out),
-            "--triangles",str(spec.triangle_budget),"--texture-size",str(spec.texture_budget)],out/"blender.private.log",deadline)
+            "--triangles",str(spec.triangle_budget),"--texture-size",str(spec.texture_budget),"--dimensions",*[str(spec.dimensions_m[i]) for i in (0,2,1)]],out/"blender.private.log",deadline)
         manifest=json.loads((out/"manifest.json").read_text())
         manifest["generation"]={"pipeline_type":"512","seed":spec.seed,"original_sha256":sha256(original),
             "models":json.loads((root/"models/trellis512/model-manifest.json").read_text())["revisions"]}
