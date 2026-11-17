@@ -1,0 +1,62 @@
+{
+  "aircraft_id": "gripen",
+  "authored_geometry": {
+    "body_half_height_m": 0.5,
+    "body_half_width_m": 0.65,
+    "engine_channel_length_m": 0.0,
+    "engine_spacing_m": 1.1,
+    "engines": 1.0,
+    "fin_cant_degrees": 0.0,
+    "fin_height_m": 2.4,
+    "intake_layout": "side_pair",
+    "length_m": 14.1,
+    "lerx_chord_m": 2.8,
+    "lerx_half_span_m": 0.9,
+    "lerx_z_m": -1.7,
+    "planform": "canard_delta",
+    "proportions_notice": "Authored stylized game proportions, not measured real variant geometry.",
+    "span_m": 8.4,
+    "wing_root_chord_m": 4.4,
+    "wing_sweep_m": 1.5
+  },
+  "conditioning": "single reference.png only, never the QC views as a collage",
+  "description": "Own approximate game fighter geometry, no logos/insignia or copied third-party model; variant recognition/proportions require further review",
+  "files": {
+    "front.png": {
+      "height": 1024,
+      "sha256": "865ceab00815c2baea1cb310acaa46f2a9d45d1583e4d8b855ea5adac2b2ae36",
+      "width": 1024
+    },
+    "reference.png": {
+      "height": 1024,
+      "sha256": "340c89c076f91403220dc076f3ddc99e54c43712850f6000bc9b319657fe1cf4",
+      "width": 1024
+    },
+    "side.png": {
+      "height": 1024,
+      "sha256": "eefd88ffc5f1a43bbf76b20b15140dfc85a2a6cae0a6e61a43a3a1bad9af9c3e",
+      "width": 1024
+    },
+    "top.png": {
+      "height": 1024,
+      "sha256": "c97f1133369875b7225178a901c7fa37914951579bdc6ef7e099b086de2b78df",
+      "width": 1024
+    }
+  },
+  "generator": "game/avia/tests/fighter_reference.gd and client/fighter_visual.gd",
+  "generator_files_sha256": {
+    "res://client/aircraft.gd": "4ab632dca7b2dbb6d3f5a1213c29a3dc2fd6692f9e83d1de6d7a13a7d701b44d",
+    "res://client/fighter_visual.gd": "2be79aae947a764956186e6d35e9ad1f9240f39797255726a79053223144759a",
+    "res://tests/fighter_reference.gd": "4a7d82294e86844942b512b9b0b7ec975810ebe0de1f381e8818064540ae5752"
+  },
+  "imported_body_used": false,
+  "input_rights": "Project-authored geometry/render; no third-party pixels/models/logos. Commercial designation/design review remains pending.",
+  "input_view": "reference.png",
+  "paid_calls": 0,
+  "qc_views_only": [
+    "top.png",
+    "front.png",
+    "side.png"
+  ],
+  "source_type": "procedural_reference"
+}

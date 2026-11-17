@@ -1,0 +1,22 @@
+{
+  "asset_id": "gripen_candidate_20261117_v1",
+  "purpose": "gripen own canard-delta game body AI candidate; recognition/articulation/mobile QA pending",
+  "description": "Own stylized canard-delta reference with one engine/two side intakes. No copied third-party pixels/models/logos. Complete symmetric geometry; provisional game proportions need variant review.",
+  "style": "coherent stylized Game Avia aviation",
+  "reference_images": [
+    "production-gripen-v1/reference.png"
+  ],
+  "dimensions_m": [
+    8.4,
+    3.0,
+    14.1
+  ],
+  "source_yaw_degrees": 180,
+  "symmetry_policy": "mirror_x",
+  "triangle_budget": 19400,
+  "texture_budget": 1024,
+  "deadline_seconds": 1800,
+  "cost_limit": 0,
+  "seed": 42,
+  "pipeline_type": "512"
+}

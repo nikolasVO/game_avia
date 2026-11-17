@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "source_commit": "52652bbc91f1f7e8df997a7a40e60092cd1d9cbf",
+  "manifest_files_checked": 21,
+  "remote_fetch_lfs_materialized": true,
+  "scope": "remote saved F15C asset hashes, no phone/full-aircraft acceptance"
+}
