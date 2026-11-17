@@ -1,0 +1,9 @@
+# Engine decision — 2026-11-17
+
+Select **Godot 4.7.2 stable**, standard build `ed1daf0bf`, typed GDScript, ENet dedicated headless server. Official archive and GitHub release were checked on the implementation date; 4.8 beta3 is excluded. macOS universal engine, Linux x86_64 engine and matching 4.7.2 templates passed official SHA512 checks. Runtime `--version` and headless server startup passed on the Intel Mac.
+
+Unity 6000.3.28f1 is preserved as infrastructure evidence. Its missing license blocks actual batchmode; the existing repository has no playable Unity game to preserve. Godot has no account/license activation gate, a native GDScript mobile path and a headless server using the same physics module. No native plugins or C# are used. This makes Godot the measured lower-friction prototype choice. Final mobile acceptance is still open; engine selection does not assert mobile release readiness.
+
+Compatibility is the **provisional** renderer: OpenGL 4.1 runs on this Mac's Radeon Pro 560X. Mobile will be compared on this same scene; neither renderer's phone performance is accepted without physical phones. Materials use ordinary opaque vertex colors and simple meshes. No content production scaling before Android export and two-client checks. iOS requires full Xcode, provisioning and device validation, currently absent.
+
+Sources checked: [official releases](https://godotengine.org/download/archive/), [release binaries/checksums](https://github.com/godotengine/godot-builds/releases/tag/4.7.2-stable), [4.7 renderer guide](https://docs.godotengine.org/en/4.7/tutorials/rendering/renderers.html), [4.7 networking](https://docs.godotengine.org/en/4.7/tutorials/networking/high_level_multiplayer.html), [Android](https://docs.godotengine.org/en/4.7/tutorials/export/exporting_for_android.html), [iOS](https://docs.godotengine.org/en/stable/tutorials/export/exporting_for_ios.html).

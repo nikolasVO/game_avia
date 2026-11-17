@@ -1,0 +1,144 @@
+{
+  "environment": "desktop-rendered-bots",
+  "host_kind": "localhost",
+  "clients": 2,
+  "requested_seconds": 20,
+  "processes": [
+    {
+      "name": "server",
+      "exit": 0,
+      "ok": true,
+      "summary": {
+        "correction_max_m": 0.0,
+        "event": "summary",
+        "joined": false,
+        "rejected": 0,
+        "renderer": "gl_compatibility",
+        "seconds": 25.0027220000007,
+        "seen_peers": 0,
+        "server": true,
+        "snapshots": 0,
+        "state": {}
+      },
+      "events": [
+        "arrival",
+        "departure",
+        "health",
+        "server_ready",
+        "summary",
+        "takeoff"
+      ],
+      "health": [
+        {
+          "accepted": 194,
+          "connections": 2,
+          "event": "health",
+          "rejected": 0,
+          "tick": 300,
+          "tick_p95_ms": 0.336,
+          "totals": {
+            "best_race_seconds": 0.0,
+            "flights": 2,
+            "landings": 0,
+            "races": 0
+          }
+        },
+        {
+          "accepted": 794,
+          "connections": 2,
+          "event": "health",
+          "rejected": 0,
+          "tick": 600,
+          "tick_p95_ms": 0.306,
+          "totals": {
+            "best_race_seconds": 0.0,
+            "flights": 2,
+            "landings": 0,
+            "races": 0
+          }
+        }
+      ]
+    },
+    {
+      "name": "client-0",
+      "exit": 0,
+      "ok": true,
+      "summary": {
+        "correction_max_m": 7.05454683303833,
+        "event": "summary",
+        "joined": true,
+        "rejected": 0,
+        "renderer": "gl_compatibility",
+        "seconds": 20.0009323333333,
+        "seen_peers": 2,
+        "server": false,
+        "snapshots": 291,
+        "state": {
+          "age": 584,
+          "crashed": false,
+          "distance": 842.403163909912,
+          "grounded": false,
+          "health": 100.0,
+          "landed": false,
+          "p": "(320.3372, 208.294, -443.6879)",
+          "pitch": -0.0199999976898334,
+          "plane": 0,
+          "respawns": 0,
+          "roll": -0.2375,
+          "v": "(53.95875, 9.169731, 0.155763)",
+          "was_airborne": true,
+          "yaw": -1.61347819627141
+        }
+      },
+      "events": [
+        "arrival",
+        "capture",
+        "summary",
+        "takeoff",
+        "welcome"
+      ],
+      "health": []
+    },
+    {
+      "name": "client-1",
+      "exit": 0,
+      "ok": true,
+      "summary": {
+        "correction_max_m": 7.05450105667114,
+        "event": "summary",
+        "joined": true,
+        "rejected": 0,
+        "renderer": "gl_compatibility",
+        "seconds": 20.0007593333332,
+        "seen_peers": 2,
+        "server": false,
+        "snapshots": 291,
+        "state": {
+          "age": 583,
+          "crashed": false,
+          "distance": 840.586116611958,
+          "grounded": false,
+          "health": 100.0,
+          "landed": false,
+          "p": "(306.5391, 207.9834, -443.702)",
+          "pitch": -0.019999997466283,
+          "plane": 0,
+          "respawns": 0,
+          "roll": -0.2375,
+          "v": "(53.95676, 9.169871, -0.140185)",
+          "was_airborne": true,
+          "yaw": -1.60798848031009
+        }
+      },
+      "events": [
+        "arrival",
+        "capture",
+        "summary",
+        "takeoff",
+        "welcome"
+      ],
+      "health": []
+    }
+  ],
+  "status": "PASS"
+}

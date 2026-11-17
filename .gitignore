@@ -14,3 +14,12 @@ node_modules/
 *.sqlite3*
 *.log
 .DS_Store
+
+# Native game generated output and local signing material
+.godot/
+builds/
+*.keystore
+*.jks
+*.p12
+*.mobileprovision
+export_credentials.cfg
