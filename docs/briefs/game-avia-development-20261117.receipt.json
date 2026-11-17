@@ -1,0 +1,10 @@
+{
+  "received_at": "2026-11-17T10:42:54.328963+00:00",
+  "source": "owner attachment e00f92ce-aed3-466b-8934-8105d3d96d6f",
+  "brief": "docs/briefs/game-avia-development-20261117.md",
+  "bytes": 47695,
+  "characters": 27785,
+  "sha256": "6da6bd4feaa7573f87564eeba4971c80de09e8427b3defca726e73c4df7ec4db",
+  "supersedes": "docs/briefs/game-avia-20261117.md",
+  "scope": "development of existing Godot game; priorities P0-P6; no store submission authorization"
+}
