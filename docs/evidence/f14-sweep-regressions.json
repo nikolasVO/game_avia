@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "scope": "Existing four shared Godot suites after planned sweep forces; no physical acceptance",
+  "results": [
+    {
+      "script": "flight_check",
+      "exit": 0,
+      "ok": true
+    },
+    {
+      "script": "fighter_check",
+      "exit": 0,
+      "ok": true
+    },
+    {
+      "script": "fighter_geometry_check",
+      "exit": 0,
+      "ok": true
+    },
+    {
+      "script": "fighter_circuit_check",
+      "exit": 0,
+      "ok": true
+    }
+  ],
+  "rendered_existing_gear_checks": 60
+}

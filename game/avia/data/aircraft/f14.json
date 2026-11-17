@@ -72,5 +72,14 @@
     "free",
     "combat"
   ],
-  "balance_notice": "Authored arcade values; not real aircraft technical specifications."
+  "balance_notice": "Authored arcade values; not real aircraft technical specifications.",
+  "sweep": {
+    "start_speed_kmh": 648,
+    "full_speed_kmh": 1188,
+    "travel_degrees": 48,
+    "closed_lift_ratio": 0.78,
+    "closed_drag_ratio": 0.82,
+    "closed_control_ratio": 0.84,
+    "notice": "Authored automatic arcade schedule; not a real F14 flight/control envelope. Physical sweep lags the deterministic target cosmetically."
+  }
 }

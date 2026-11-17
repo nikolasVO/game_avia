@@ -16,6 +16,7 @@ var sweep_sides: Array[float]=[]
 var sweep_fraction: float=0.0
 var sweep_target: float=0.0
 var sweep_initialized: bool=false
+var sweep_spec: Dictionary={}
 var propeller: Node3D
 var spin_speed: float=30.0
 var airframe_source: String="procedural flight prototype"
@@ -98,9 +99,8 @@ func _process(delta: float) -> void:
 
 func update_state(state: Dictionary) -> void:
  if not sweep_wings.is_empty():
-  # Reference/prototype animation only. Planned swing-wing types remain unavailable.
-  var sweep: float=clampf(((state.v as Vector3).length()-180.0)/150.0,0,1)
-  if bool(state.get("gear",false)) or bool(state.get("flaps",false)):sweep=0.0
+  # Same automatic schedule as shared forces. Planned swing-wing types stay unavailable.
+  var sweep: float=AviaFighter.sweep_fraction(sweep_spec,(state.v as Vector3).length(),bool(state.get("gear",false)),bool(state.get("flaps",false)))
   sweep_target=sweep
   if not sweep_initialized:pose_sweep(sweep);sweep_initialized=true
  if landing_gear:
@@ -119,7 +119,8 @@ func update_state(state: Dictionary) -> void:
 
 func pose_sweep(fraction: float) -> void:
  sweep_fraction=clampf(fraction,0,1)
- for i: int in sweep_wings.size():sweep_wings[i].rotation.y=-sweep_sides[i]*deg_to_rad(48.0)*sweep_fraction
+ var travel: float=deg_to_rad(float(sweep_spec.get("sweep",{}).get("travel_degrees",48.0)))
+ for i: int in sweep_wings.size():sweep_wings[i].rotation.y=-sweep_sides[i]*travel*sweep_fraction
 
 func advance_gear(delta: float) -> void:
  if not landing_gear or not systems_initialized:return

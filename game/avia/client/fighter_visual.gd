@@ -7,6 +7,7 @@ static func create_spec(spec: Dictionary, use_imported: bool=false) -> AviaAircr
  # Planned references never need to enter the playable catalog.
  var g: Dictionary=spec.geometry
  var root: AviaAircraft=AviaAircraft.new()
+ root.sweep_spec=spec
  var color: Color=spec.color if spec.color is Color else Color(str(spec.color));var dark: Color=Color("293f49");var glass: Color=Color("78b5c3")
  var length: float=float(g.length_m);var span: float=float(g.span_m);var twin: bool=int(g.engines)==2
  var width: float=float(g.get("body_half_width_m",.8));var height: float=float(g.get("body_half_height_m",.65))

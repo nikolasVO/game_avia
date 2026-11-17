@@ -2,10 +2,17 @@ class_name AviaFighter
 extends RefCounted
 ## Arcade forces in m/s². All parameters are authored game balance, not flight-manual data.
 ## No client delta/time, position, profile, thrust or mass is trusted by this module.
+static func sweep_fraction(spec: Dictionary,speed_mps: float,gear: bool,flaps: bool) -> float:
+ if not bool(spec.systems.get("variable_sweep",false)) or gear or flaps:return 0.0
+ var schedule: Dictionary=spec.get("sweep",{})
+ var start: float=float(schedule.get("start_speed_kmh",648.0))/3.6
+ var finish: float=float(schedule.get("full_speed_kmh",1188.0))/3.6
+ return clampf((speed_mps-start)/maxf(1.0,finish-start),0,1)
 static func step(s: Dictionary,c: Dictionary) -> Dictionary:
+ return step_spec(s,c,AviaFlight.PLANES[int(s.plane)])
+static func step_spec(s: Dictionary,c: Dictionary,spec: Dictionary) -> Dictionary:
  var n: Dictionary=s.duplicate();n.landed=false;n.age+=1
  if n.crashed:return n
- var spec: Dictionary=AviaFlight.PLANES[int(n.plane)]
  var f: Dictionary=spec.flight;var h: Dictionary=spec.handling
  var dt: float=AviaFlight.DT
  var p: Vector3=n.p;var v: Vector3=n.v
@@ -19,6 +26,10 @@ static func step(s: Dictionary,c: Dictionary) -> Dictionary:
  n.gear=bool(c.gear) or bool(n.grounded);n.flaps=bool(c.flaps) and spec.systems.flaps
  n.afterburner=bool(c.afterburner) and spec.systems.afterburner and float(c.throttle)>0.8
  n.airbrake=bool(c.brake) and spec.systems.airbrake
+ # Automatic game schedule is derived from approved velocity/systems on both peers.
+ # It requires no new client command or protocol field. Current six fighters use 0.
+ var sweep: float=sweep_fraction(spec,v.length(),n.gear,n.flaps)
+ var sweep_config: Dictionary=spec.get("sweep",{})
  var stall: float=float(spec.stall)*(0.85 if n.flaps else 1.0)/sqrt(density)
  var control: float=lerpf(float(h.low_speed_control)/100.0,float(h.high_speed_control)/100.0,clampf(speed/220.0,0,1))
  control*=clampf(speed/stall,0.12,1.0)
@@ -29,6 +40,7 @@ static func step(s: Dictionary,c: Dictionary) -> Dictionary:
  if profile==1 and absf(pitch)<0.01:pitch=clampf((0.025-float(n.pitch))*0.2,-0.08,0.08)
  if profile==0 and speed<stall and not n.grounded:pitch=minf(pitch,-0.12)
  var authority: float=(0.75+float(h.maneuverability)/100.0*0.55)*control
+ authority*=lerpf(1.0,float(sweep_config.get("closed_control_ratio",1.0)),sweep)
  var rates: Vector3=n.rates
  var pitch_target: float=pitch*(0.5+float(h.pitch_response)*0.01)*authority
  var roll_target: float=-float(c.roll)*(0.9+float(h.roll_response)*0.022)*authority
@@ -56,6 +68,7 @@ static func step(s: Dictionary,c: Dictionary) -> Dictionary:
  var stalled: float=clampf(axial/stall,0,1)
  var lift: float=9.81*density*pow(axial/float(spec.stall),2)*(0.70+aoa*5.0+(0.25 if n.flaps else 0.0))
  lift*=stalled*stalled
+ lift*=lerpf(1.0,float(sweep_config.get("closed_lift_ratio",1.0)),sweep)
  if absf(aoa)>0.45:lift*=maxf(0.15,1.0-(absf(aoa)-0.45)*1.7)
  lift=clampf(lift,-25,35 if profile==0 else 40 if profile==1 else 45)
  if n.grounded and axial<float(f.takeoff_speed_kmh)/3.6*(0.95+float(h.takeoff_difficulty)*0.001):lift=minf(lift,9.6)
@@ -63,6 +76,7 @@ static func step(s: Dictionary,c: Dictionary) -> Dictionary:
  var ceiling: float=lerpf(float(f.max_speed_sea_kmh),float(f.max_speed_altitude_kmh),clampf(p.y/10000.0,0,1))/3.6
  # Force-derived terminal speed: published ceiling is not an assigned velocity.
  var drag: float=float(f.afterburner_acceleration_mps2)/pow(float(f.max_speed_sea_kmh)/3.6,2)*density
+ drag*=lerpf(1.0,float(sweep_config.get("closed_drag_ratio",1.0)),sweep)
  drag+=0.00012*absf(aoa)+rates.length()*0.00010*(1.0 if profile==0 else 1.3 if profile==1 else 1.6)
  if n.gear:drag+=0.00028
  if n.flaps:drag+=0.00040

@@ -1,0 +1,43 @@
+{
+  "checks": [
+    {
+      "check": "configured automatic schedule has exact open/middle/closed boundaries",
+      "ok": true
+    },
+    {
+      "check": "gear and flaps interlocks affect physics schedule",
+      "ok": true
+    },
+    {
+      "check": "open low-speed wings preserve unswept forces exactly",
+      "ok": true
+    },
+    {
+      "check": "closed wings reduce base drag and control authority at high speed",
+      "ok": true
+    },
+    {
+      "check": "reduced swept lifting area changes actual vertical acceleration",
+      "ok": true
+    },
+    {
+      "check": "same fixed-step schedule reproduces authority and prediction over 60 ticks",
+      "ok": true
+    },
+    {
+      "check": "all nine admitted aircraft remain unswept; F14 stays unavailable",
+      "ok": true
+    }
+  ],
+  "event": "sweep_flight_summary",
+  "measurements": {
+    "closed_forward_mps": 350.193939208984,
+    "closed_roll_rate": -0.0422686040401459,
+    "closed_vertical_mps": -0.0603636465966702,
+    "open_forward_mps": 350.033660888672,
+    "open_roll_rate": -0.0503197647631168,
+    "open_vertical_mps": 0.0148414298892021
+  },
+  "scope": "deterministic authored arcade forces for planned prototype; no real F14 performance, takeoff/landing/network/device acceptance",
+  "status": "PASS"
+}
