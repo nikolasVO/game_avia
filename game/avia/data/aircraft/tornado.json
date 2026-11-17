@@ -43,10 +43,141 @@
     "length_m": 16.7,
     "span_m": 13.9,
     "engines": 2,
-    "planform": "swing"
+    "planform": "swing",
+    "body_half_width_m": 0.74,
+    "body_half_height_m": 0.6,
+    "body_sections_m": [
+      [
+        -8.35,
+        0.03,
+        0.04
+      ],
+      [
+        -6.5,
+        0.34,
+        0.37
+      ],
+      [
+        -4.6,
+        0.6,
+        0.58
+      ],
+      [
+        -2.3,
+        0.74,
+        0.6
+      ],
+      [
+        0.5,
+        0.88,
+        0.58
+      ],
+      [
+        3.8,
+        0.78,
+        0.52
+      ],
+      [
+        7.45,
+        0.61,
+        0.44
+      ]
+    ],
+    "engine_spacing_m": 1.45,
+    "engine_channel_length_m": 3.2,
+    "intake_layout": "side_pair",
+    "intake_z_m": -1.8,
+    "intake_size_m": [
+      0.72,
+      0.72,
+      2.1
+    ],
+    "fin_count": 1,
+    "fin_height_m": 3.1,
+    "fin_outline_m": [
+      [
+        3.6,
+        0.3
+      ],
+      [
+        5.2,
+        3.1
+      ],
+      [
+        6.0,
+        2.95
+      ],
+      [
+        7.15,
+        0.3
+      ]
+    ],
+    "canopy_sections_m": [
+      [
+        -6.0,
+        0.03,
+        0.04
+      ],
+      [
+        -5.15,
+        0.38,
+        0.58
+      ],
+      [
+        -3.25,
+        0.4,
+        0.63
+      ],
+      [
+        -2.35,
+        0.05,
+        0.06
+      ]
+    ],
+    "stabilizer_outline_m": [
+      [
+        0.55,
+        4.35
+      ],
+      [
+        3.15,
+        5.45
+      ],
+      [
+        2.8,
+        7.0
+      ],
+      [
+        0.55,
+        6.15
+      ]
+    ],
+    "glove_outline_m": [
+      [
+        0.6,
+        -2.3
+      ],
+      [
+        2.6,
+        -1.8
+      ],
+      [
+        2.75,
+        0.5
+      ],
+      [
+        0.75,
+        1.35
+      ]
+    ],
+    "sweep_pivot_x_m": 2.2,
+    "sweep_pivot_z_m": -0.65,
+    "panel_sweep_m": 1.75,
+    "panel_root_chord_m": 3.8,
+    "panel_tip_chord_m": 1.45
   },
   "reference": {
-    "status": "game proportions pending variant validation",
+    "status": "Own provisional tandem-canopy/single-fin/twin-engine/swing-wing geometry; primary-source variant facts unavailable during2026-11-18 retrieval, no verified dimensions",
     "commercial_rights": "NOT REVIEWED; no logos or military insignia",
     "fallback_name": "Avia 15-TORNADO"
   },
@@ -56,5 +187,14 @@
     "free",
     "combat"
   ],
-  "balance_notice": "Authored arcade values; not real aircraft technical specifications."
+  "balance_notice": "Authored arcade values; not real aircraft technical specifications.",
+  "sweep": {
+    "start_speed_kmh": 594,
+    "full_speed_kmh": 1134,
+    "travel_degrees": 42,
+    "closed_lift_ratio": 0.76,
+    "closed_drag_ratio": 0.79,
+    "closed_control_ratio": 0.8,
+    "notice": "Authored automatic arcade schedule; not real Tornado flight/control envelope. Visual travel lags deterministic force target."
+  }
 }

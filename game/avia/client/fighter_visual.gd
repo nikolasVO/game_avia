@@ -50,7 +50,8 @@ static func create_spec(spec: Dictionary, use_imported: bool=false) -> AviaAircr
   # Cropped swept wing or canard delta; source geometry is authored independently.
   if bool(spec.systems.get("variable_sweep",false)):
    # Fixed glove; articulated panels are separate from every body LOD.
-   AviaAircraft._wing(st,float(g.get("glove_half_span_m",span*.18)),length*.31,-.35,-.1,.9,color)
+   if g.has("glove_outline_m"):_surface_pair(st,g.glove_outline_m,-.1,.16,color)
+   else:AviaAircraft._wing(st,float(g.get("glove_half_span_m",span*.18)),length*.31,-.35,-.1,.9,color)
   elif g.has("wing_outline_m"):
    _surface_pair(st,g.wing_outline_m,float(g.get("wing_y_m",-.1)),.16,color,float(g.get("wing_dihedral_degrees",0)))
   else:

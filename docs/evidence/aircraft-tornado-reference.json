@@ -1,0 +1,223 @@
+{
+  "status": "PASS",
+  "source_base": "10ad2c61f059efbff61a545fed285cc5d908ca11",
+  "engine": "Godot4.7.2",
+  "geometry_and_sweep": {
+    "body_triangles": [
+      396,
+      312,
+      112
+    ],
+    "checks": [
+      {
+        "check": "planned strike type preserves nine admitted prototypes",
+        "ok": true
+      },
+      {
+        "check": "own single-fin/two-engine geometry, no imported fallback",
+        "ok": true
+      },
+      {
+        "check": "long tandem canopy and paired side intakes",
+        "ok": true
+      },
+      {
+        "check": "two pivoted panels with three LOD tiers each",
+        "ok": true
+      },
+      {
+        "check": "actual panel span decreases and tips move aft across42degree sweep",
+        "ok": true
+      },
+      {
+        "check": "both panels stay exactly mirrored through five travel positions",
+        "ok": true
+      },
+      {
+        "check": "three finite nondegenerate body LODs with normalized normals",
+        "ok": true
+      },
+      {
+        "check": "strike reference differs from large twin-fin F14 geometry and travel",
+        "ok": true
+      },
+      {
+        "check": "type-specific automatic sweep schedule exact boundaries",
+        "ok": true
+      },
+      {
+        "check": "gear and flap interlocks open wings",
+        "ok": true
+      },
+      {
+        "check": "open low-speed wings preserve unswept forces exactly",
+        "ok": true
+      },
+      {
+        "check": "swept wings reduce actual drag and control response",
+        "ok": true
+      },
+      {
+        "check": "swept lift ratio affects vertical acceleration below clamp",
+        "ok": true
+      },
+      {
+        "check": "same shared fixed-step forces reproduce60ticks exactly",
+        "ok": true
+      },
+      {
+        "check": "first snapshot establishes high-speed sweep baseline",
+        "ok": true
+      },
+      {
+        "check": "gear interlock animates bounded half travel",
+        "ok": true
+      },
+      {
+        "check": "mid-travel reversal stays continuous",
+        "ok": true
+      },
+      {
+        "check": "geometry and force tests preserve catalog",
+        "ok": true
+      },
+      {
+        "check": "render sweep0 view0",
+        "ok": true
+      },
+      {
+        "check": "render sweep0 view1",
+        "ok": true
+      },
+      {
+        "check": "render sweep1 view0",
+        "ok": true
+      },
+      {
+        "check": "render sweep1 view1",
+        "ok": true
+      },
+      {
+        "check": "render sweep2 view0",
+        "ok": true
+      },
+      {
+        "check": "render sweep2 view1",
+        "ok": true
+      }
+    ],
+    "closed_span_m": 10.0881576538086,
+    "event": "strike_sweep_summary",
+    "force_measurements": {
+      "open_forward_mps": 340.008239746094,
+      "open_roll_rate": -0.043516818434,
+      "open_vertical_mps": -0.022762268781662,
+      "swept_forward_mps": 340.1943359375,
+      "swept_roll_rate": -0.0348134562373161,
+      "swept_vertical_mps": -0.0957792773842812
+    },
+    "open_span_m": 13.8999996185303,
+    "playable": false,
+    "production_accepted": false,
+    "scope": "own provisional single-fin twin-engine strike reference and actual authored arcade sweep forces only; primary facts/recognition/AI/network/human/mobile/rights and15gates pending",
+    "status": "PASS"
+  },
+  "circuit": {
+    "aircraft_id": "tornado",
+    "commands_valid": true,
+    "crashed": false,
+    "distance_m": 15086.082232751,
+    "event": "planned_circuit_summary",
+    "final_speed_mps": 1.95552444458008,
+    "landing_seconds": 157.533333333333,
+    "maximum_altitude_m": 245.015762329102,
+    "maximum_speed_mps": 102.297088623047,
+    "production_accepted": false,
+    "scope": "planned-only command-driven parked/takeoff/circuit/approach/braked-stop simulation; no coordinate injection; no human/network/device acceptance",
+    "stage": 4,
+    "status": "PASS",
+    "takeoff_seconds": 2.9
+  },
+  "regressions": {
+    "status": "PASS",
+    "results": [
+      {
+        "script": "flight_check",
+        "ok": true,
+        "exit_code": 0
+      },
+      {
+        "script": "fighter_check",
+        "ok": true,
+        "exit_code": 0
+      },
+      {
+        "script": "fighter_geometry_check",
+        "ok": true,
+        "exit_code": 0
+      },
+      {
+        "script": "catalog_check",
+        "ok": true,
+        "exit_code": 0
+      },
+      {
+        "script": "fighter_circuit_check",
+        "ok": true,
+        "exit_code": 0
+      },
+      {
+        "script": "sweep_reference_check",
+        "ok": true,
+        "exit_code": 0
+      },
+      {
+        "script": "sweep_flight_check",
+        "ok": true,
+        "exit_code": 0
+      },
+      {
+        "script": "carrier_flight_check",
+        "ok": true,
+        "exit_code": 0
+      },
+      {
+        "script": "interceptor_flight_check",
+        "ok": true,
+        "exit_code": 0
+      },
+      {
+        "script": "delta_flight_check",
+        "ok": true,
+        "exit_code": 0
+      },
+      {
+        "script": "strike_sweep_check",
+        "ok": true,
+        "exit_code": 0
+      },
+      {
+        "script": "sweep_candidate_check",
+        "ok": true,
+        "exit_code": 0
+      },
+      {
+        "script": "aircraft_systems_check",
+        "ok": true,
+        "exit_code": 0
+      }
+    ]
+  },
+  "pytest": 17,
+  "rendered_views": 10,
+  "source_files": {
+    "side.png": "2af6bce2dc699e1a4957a0c5c6dbdf3e191ebdb66356df16ffef1cd80394fdbd",
+    "reference.png": "389db810a7ddb92c11a799fc9cd58365271a388731379bce1ea2e3325a7d3732",
+    "top.png": "0d8c11743922d40be5c7dcf0457f1894a4e9f258865bfb7b33711876e66edec1",
+    "manifest.json": "06975e9dad6adb0501a29a215d4ef8177d3383e676353458b26db8d25dfc6fda",
+    "front.png": "ee8e5480bd86a68c0f63dd32f3926469ae9969e00f6fcbf44f5067eae2b9ee34"
+  },
+  "playable": false,
+  "production_accepted": false,
+  "scope": "Own provisional conditioning geometry, automatic sweep and shared-force command circuit only. Primary variant/recognition, AI articulation, human/network/audio/device/rights and all15acceptance gates pending."
+}

@@ -1,0 +1,22 @@
+{
+  "asset_id": "tornado_candidate_20261118_v1",
+  "purpose": "Own provisional Tornado-style strike candidate, not production acceptance",
+  "description": "Own authored tandem canopy, pointed nose, boxy paired side intakes and rear fuselage, two engines/nozzles, one broad swept fin, separate horizontal tailplanes and variable-sweep main wings in OPEN pose. No logos, external pixels or copied models. Primary variant dimensions unverified; game proportions only. Generated wings require Blender articulation and visual review.",
+  "style": "coherent stylized Game Avia aviation",
+  "reference_images": [
+    "production-tornado-v1/reference.png"
+  ],
+  "dimensions_m": [
+    13.9,
+    3.9,
+    16.7
+  ],
+  "source_yaw_degrees": 180,
+  "symmetry_policy": "mirror_x",
+  "triangle_budget": 19300,
+  "texture_budget": 1024,
+  "deadline_seconds": 1800,
+  "cost_limit": 0,
+  "seed": 46,
+  "pipeline_type": "512"
+}

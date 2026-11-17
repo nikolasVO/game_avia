@@ -25,3 +25,7 @@ Primary-source search/retrieval returned no usable page in this runtime; no new 
 ## MiG-21 reference work, 18 November 2026
 
 Primary museum-source searches returned no usable result in this runtime; no retrieved aircraft facts or verified variant dimensions are claimed. Existing14.7m/7.15m remain provisional game geometry. Own authored reference uses an annular nose intake with separate protruding cone, slender circular sections, compact delta wing, distinct aft tailplanes and one fin/nozzle. All speeds/handling scores remain authored balance; recognition and commercial name/design rights need independent review. No third-party pixels/models/logos used.
+
+## Tornado reference work, 18 November 2026
+
+Primary RAF/museum searches returned no usable result in this runtime. No source-derived dimensions or real control-envelope facts are claimed. The16.7m length/13.9m span are provisional game geometry. Own tandem-canopy/single-fin/twin-engine reference has separate mirrored swing panels and paired side intakes, without external pixels/models/logos. The594–1134km/h automatic schedule,42degree travel and lift/drag/control ratios are authored arcade settings, not Tornado technical data. Primary variant recognition, physical handling and commercial rights remain open.

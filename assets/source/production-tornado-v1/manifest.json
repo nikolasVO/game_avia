@@ -1,0 +1,180 @@
+{
+  "aircraft_id": "tornado",
+  "authored_geometry": {
+    "body_half_height_m": 0.6,
+    "body_half_width_m": 0.74,
+    "body_sections_m": [
+      [
+        -8.35,
+        0.03,
+        0.04
+      ],
+      [
+        -6.5,
+        0.34,
+        0.37
+      ],
+      [
+        -4.6,
+        0.6,
+        0.58
+      ],
+      [
+        -2.3,
+        0.74,
+        0.6
+      ],
+      [
+        0.5,
+        0.88,
+        0.58
+      ],
+      [
+        3.8,
+        0.78,
+        0.52
+      ],
+      [
+        7.45,
+        0.61,
+        0.44
+      ]
+    ],
+    "canopy_sections_m": [
+      [
+        -6.0,
+        0.03,
+        0.04
+      ],
+      [
+        -5.15,
+        0.38,
+        0.58
+      ],
+      [
+        -3.25,
+        0.4,
+        0.63
+      ],
+      [
+        -2.35,
+        0.05,
+        0.06
+      ]
+    ],
+    "engine_channel_length_m": 3.2,
+    "engine_spacing_m": 1.45,
+    "engines": 2.0,
+    "fin_count": 1.0,
+    "fin_height_m": 3.1,
+    "fin_outline_m": [
+      [
+        3.6,
+        0.3
+      ],
+      [
+        5.2,
+        3.1
+      ],
+      [
+        6.0,
+        2.95
+      ],
+      [
+        7.15,
+        0.3
+      ]
+    ],
+    "glove_outline_m": [
+      [
+        0.6,
+        -2.3
+      ],
+      [
+        2.6,
+        -1.8
+      ],
+      [
+        2.75,
+        0.5
+      ],
+      [
+        0.75,
+        1.35
+      ]
+    ],
+    "intake_layout": "side_pair",
+    "intake_size_m": [
+      0.72,
+      0.72,
+      2.1
+    ],
+    "intake_z_m": -1.8,
+    "length_m": 16.7,
+    "panel_root_chord_m": 3.8,
+    "panel_sweep_m": 1.75,
+    "panel_tip_chord_m": 1.45,
+    "planform": "swing",
+    "span_m": 13.9,
+    "stabilizer_outline_m": [
+      [
+        0.55,
+        4.35
+      ],
+      [
+        3.15,
+        5.45
+      ],
+      [
+        2.8,
+        7.0
+      ],
+      [
+        0.55,
+        6.15
+      ]
+    ],
+    "sweep_pivot_x_m": 2.2,
+    "sweep_pivot_z_m": -0.65
+  },
+  "conditioning": "single reference.png only, never the QC views as a collage",
+  "description": "Own approximate game fighter geometry, no logos/insignia or copied third-party model; variant recognition/proportions require further review",
+  "files": {
+    "front.png": {
+      "height": 1024,
+      "sha256": "ee8e5480bd86a68c0f63dd32f3926469ae9969e00f6fcbf44f5067eae2b9ee34",
+      "width": 1024
+    },
+    "reference.png": {
+      "height": 1024,
+      "sha256": "389db810a7ddb92c11a799fc9cd58365271a388731379bce1ea2e3325a7d3732",
+      "width": 1024
+    },
+    "side.png": {
+      "height": 1024,
+      "sha256": "2af6bce2dc699e1a4957a0c5c6dbdf3e191ebdb66356df16ffef1cd80394fdbd",
+      "width": 1024
+    },
+    "top.png": {
+      "height": 1024,
+      "sha256": "0d8c11743922d40be5c7dcf0457f1894a4e9f258865bfb7b33711876e66edec1",
+      "width": 1024
+    }
+  },
+  "generator": "game/avia/tests/fighter_reference.gd and client/fighter_visual.gd",
+  "generator_files_sha256": {
+    "res://client/aircraft.gd": "a7b54d492f65a0cba85b840937470f82ff0c40042d21f03f37880b7425ed6274",
+    "res://client/fighter_visual.gd": "11e7660804a6b0fee866f3a0e1c9a180597cfa739e028a3ac17de7097306493f",
+    "res://tests/fighter_reference.gd": "d651d98390b6b1eae2374a1b8b4d8f9663ee90ec7a63f535fffd6812ffc1e3c7"
+  },
+  "imported_body_used": false,
+  "input_rights": "Project-authored geometry/render; no third-party pixels/models/logos. Commercial designation/design review remains pending.",
+  "input_view": "reference.png",
+  "paid_calls": 0,
+  "qc_views_only": [
+    "top.png",
+    "front.png",
+    "side.png"
+  ],
+  "source_type": "procedural_reference"
+}
