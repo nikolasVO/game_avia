@@ -1,0 +1,9 @@
+{
+  "prefix": "OPENLUX_CLAUDE",
+  "route": "OPENLUX_CLAUDE:claude-opus-5-5",
+  "status": "passed",
+  "real_read_tool_calls": 1,
+  "calls": 2,
+  "protocol": "chat_completions",
+  "codex_runtime": false
+}

@@ -1,0 +1,7 @@
+{
+  "status": "passed",
+  "model": "qwen3.5:27b-q4_K_M",
+  "real_tool_calls": 1,
+  "eval_count": 7,
+  "scope": "bounded code/log/document tasks only"
+}

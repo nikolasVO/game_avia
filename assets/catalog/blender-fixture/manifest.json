@@ -1,0 +1,42 @@
+{
+  "source_kind": "procedural_test_fixture_not_TRELLIS",
+  "blender_version": "5.2.4 LTS",
+  "triangles_lod0": 188,
+  "materials_lod0": 1,
+  "lods": [
+    {
+      "name": "LOD1",
+      "triangles": 94
+    },
+    {
+      "name": "LOD2",
+      "triangles": 46
+    }
+  ],
+  "collision": "box_metadata; Unity component binding requires runner",
+  "dimensions_m": [
+    1.0,
+    1.0,
+    1.0
+  ],
+  "pivot": "bottom_center",
+  "export_axes": "glTF Y-up",
+  "unity_import_tested": false,
+  "license": "CC0 procedural fixture",
+  "checks": {
+    "triangle_budget": true,
+    "material_budget": true,
+    "finite_bounds": true
+  },
+  "files": {
+    "optimized.glb": {
+      "sha256": "596906d7056f032e2b0a99ec7e603148d59db754b3ce514d48eb621a96e9cd9c",
+      "bytes": 33588
+    },
+    "preview.png": {
+      "sha256": "791bfe3c1cb3ec74c2bb937edac862ef379aa6d5712ea85c6f8d1ba145618967",
+      "bytes": 128437
+    }
+  },
+  "verified": true
+}
