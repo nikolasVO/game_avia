@@ -1,0 +1,31 @@
+# Development brief handoff — 17 November 2026
+
+The owner requested delivery of the new full development prompt to the existing agent system. The authoritative brief is [game-avia-development-20261117.md](../briefs/game-avia-development-20261117.md), copied without modification: 47,695 UTF-8 bytes, 27,785 characters, SHA256 `6da6bd4feaa7573f87564eeba4971c80de09e8427b3defca726e73c4df7ec4db`. The adjacent receipt records its source. This is development of the existing Godot game, not a new project. Preserve the prior brief and evidence.
+
+## Execution ownership
+
+The existing implementation worktree `/Users/nik/Documents/01_project/game_avia_implementation`, branch `task/game-implementation-20261117`, remains the single game integrator. The existing local Codex CLI session is `01a1e758-45f6-7dd1-976b-f321b844a78e`, authenticated through the owner's ChatGPT account. A bounded server Python coding worker cannot implement this entire Godot/mobile mission. A durable manual task plus an actual CLI receipt must establish delivery; enqueueing alone is not execution.
+
+Resume the same session with the full new brief, preserving and reconciling any unfinished owned tests before launching replacements. Write a receipt with the exact brief hash, working directory, current commit, tool availability, server task ID, known blockers and first concrete action. Then implement; a receipt or plan is not completion of the development brief. Report milestones through the existing Store/event/outbox and sole Telegram coordinator. Never start a second Telegram poller.
+
+## Verified state to preserve
+
+- Historical published prototype r2 and deployed flight server: `c1922c74a29112818ce9ee523a9cdc81eb211180`. APK/AAB/macOS/Linux artifacts and video: <https://github.com/nikolasVO/game_avia/releases/tag/game-avia-prototype-20261117-r2>. It is not accepted version 0.1.
+- Newer gameplay source includes AI airfield props and persistent asset-cache fixes. `82be8bf` passed a 90-second emulator flight. `9d316c6` simplifies materials; `6c3620a` defers automatic connection until the first rendered frame after a reproduced cold-render timeout. Current-commit APK verification was ongoing at handoff. Reconcile actual logs/processes rather than claiming PASS or repeating an unknown operation.
+- Three original playable aircraft are procedural. The native authoritative ENet/DTLS server, controls, races, minimal PvP, peaceful mode, rooms and anonymous aggregate persistence work in their recorded scopes. The corrected server passed 16 active clients for 1,850 seconds. Android emulator flight is not physical-device FPS/control acceptance.
+- External off-host UDP24567 still failed. Do not infer public multiplayer from SSH/TCP or loopback. Public acceptance requires two external clients actually playing together.
+- DINOv3 access is approved, protected existing HF credentials work and all 20 compact512 files are downloaded. Real GPU TRELLIS inference, Blender postprocessing and Godot import/render passed for a test object and an original aircraft candidate.
+- The isolated aircraft milestone is `8aa3635dc71b6b3c2477dcaa42ad7a470438b50d`, handoff `a073b1c`, branch `task/trellis-live-validation-20261117`. Read that branch's `docs/evidence/trellis-integration-handoff-20261117.md`. Candidate LODs are 19,400/6,000/1,500 triangles, one material, 1024 textures, Y-up/nose -Z. Fresh GitHub/LFS clone verified 22 hashes and real Godot re-import. It is not a recognized F-16/Su-27 or a production-accepted aircraft; asymmetry, movable surfaces, collider binding and mobile integration remain open.
+- Root/core source before this documentation handoff was `1f0dd2d435ebbd1dfef2ff56fc70512a4794dec2`. Flight runtime and core runtime have separate releases. Keep Point services, models, private configuration and existing operational state intact.
+
+## New scope and immediate work
+
+Follow all 21 sections of the new brief. P0: public multiplayer, available real-device testing, Android control/performance work, rollback and existing AI-asset integration. If hardware/provider mapping is unavailable, document the exact dependency and continue independent work. P1: common aircraft configuration and real simulation effects, afterburner/airbrake, takeoff/landing, the six named distinct fighter types and a comparison hangar. The immediate comparison pair is F-16C and Su-27. P2-P6 then cover the remaining fleet, individual sounds/animations/LODs, career and 30 missions, five optimized regions, expanded multiplayer and store preparation. The named fighter list has 24 variants; retain the three original aircraft as well. Source real public specifications separately from proposed game balance values.
+
+Update the GDD, Aircraft Catalog, implementation backlog and durable missing-asset queue, then produce tested playable milestones. Full aircraft acceptance is all 15 checks in section 20, including model, distinct physics, takeoff/flight/landing, networking, sound/LOD/performance, hangar, GitHub and Telegram. Do not count configuration-only entries as implemented aircraft. Do not expand regions before measuring the starter region. Preserve server authority over flight, rewards and progression.
+
+## Existing execution limits
+
+Use the available verified runtime honestly. The brief names Codex/Claude through gpt.ge, local Qwen, optional Kev, TRELLIS, Blender and Godot; it does not establish successful gpt.ge agent tooling. The previous paid bootstrap remains closed after 12 cloud text attempts and one image call, without a new finite paid allowance. Continue through the already working account runtime and local tools; report unavailable routes and keep work moving. Do not buy services, increase storage, stop unknown processes, remove unrelated data, bypass gates or submit to stores. Use the existing GPU lease/process guard and 10 GiB disk reserve. The approved local TRELLIS path remains usable subject to those guards.
+
+Separate task branches/worktrees for independent work, one integrator for shared game changes, no force-push. Commit and push verified milestones with Russian `Updates-Ru:` lines. Confirm the remote SHA and exact build/deployed SHA separately. Secrets, weights, operational databases, private logs and signing keys stay outside Git. No Actions, deployment timers, webhooks or automatic store publication.
