@@ -71,7 +71,8 @@ func _ready() -> void:
  notice=Label.new();notice.add_theme_font_size_override("font_size",19);layout.add_child(notice)
  menu=PanelContainer.new();menu.set_anchors_and_offsets_preset(Control.PRESET_TOP_LEFT);menu.position=Vector2(160,40);menu.size=Vector2(960,640);root.add_child(menu)
  var style: StyleBoxFlat=StyleBoxFlat.new();style.bg_color=Color(0.06,0.14,0.18,0.95);style.content_margin_left=28;style.content_margin_right=28;style.content_margin_top=20;style.content_margin_bottom=20;menu.add_theme_stylebox_override("panel",style)
- var scroll: ScrollContainer=ScrollContainer.new();scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED;menu.add_child(scroll)
+ var menu_stack: VBoxContainer=VBoxContainer.new();menu_stack.add_theme_constant_override("separation",10);menu.add_child(menu_stack)
+ var scroll: ScrollContainer=ScrollContainer.new();scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED;scroll.size_flags_vertical=Control.SIZE_EXPAND_FILL;menu_stack.add_child(scroll)
  var col: VBoxContainer=VBoxContainer.new();col.size_flags_horizontal=Control.SIZE_EXPAND_FILL;col.add_theme_constant_override("separation",8);scroll.add_child(col)
  for key: String in ["title","subtitle"]:
   var label: Label=Label.new();label.text=tr_text(key);label.add_theme_font_size_override("font_size",38 if key=="title" else 16);col.add_child(label);labels[key]=label
@@ -88,7 +89,7 @@ func _ready() -> void:
  col.add_child(select_profile)
  var systems_row: HBoxContainer=HBoxContainer.new();systems_row.position=Vector2(380,630);root.add_child(systems_row)
  for label: String in ["AB / Форсаж","Flaps / Закрылки","Gear / Шасси"]:
-  var system: CheckBox=CheckBox.new();system.text=label;system.button_pressed=label.begins_with("Gear");systems_row.add_child(system);system_buttons[label]=system
+  var system: CheckBox=CheckBox.new();system.text=label;system.custom_minimum_size.y=54;system.button_pressed=label.begins_with("Gear");systems_row.add_child(system);system_buttons[label]=system
   system.toggled.connect(func(value: bool):
    if label.begins_with("AB"):touch.afterburner=value
    elif label.begins_with("Flaps"):touch.flaps=value
@@ -122,7 +123,9 @@ func _ready() -> void:
  var help: Label=Label.new();help.text=tr_text("help");help.add_theme_font_size_override("font_size",16);labels.help=help;col.add_child(help)
  select_plane.item_selected.connect(func(_index: int):_update_help())
  _update_help()
- var bottom: HBoxContainer=HBoxContainer.new();col.add_child(bottom)
+ # Joining/retrying and inspecting aircraft must remain reachable after a pause/error,
+ # regardless of the settings scroll position or translated help length.
+ var bottom: HBoxContainer=HBoxContainer.new();menu_stack.add_child(bottom)
  var play: Button=Button.new();play.text=tr_text("play");labels.play=play;play.size_flags_horizontal=Control.SIZE_EXPAND_FILL;play.custom_minimum_size.y=56;bottom.add_child(play);play.pressed.connect(join)
  hangar=load("res://client/hangar.gd").new();hangar.lang=language;root.add_child(hangar);hangar.hide();hangar.selected.connect(func(index: int):select_plane.select(index);_update_help())
  var hangar_button: Button=Button.new();hangar_button.text="Hangar / Ангар";bottom.add_child(hangar_button);hangar_button.pressed.connect(func():hangar.show())

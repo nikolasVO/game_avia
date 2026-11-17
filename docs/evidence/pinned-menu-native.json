@@ -1,0 +1,8 @@
+{
+  "status": "PASS desktop UI render only; current released5c APK still has prior scrolling layout",
+  "change": "Join/Hangar/language actions pinned outside scrolling settings; system tap targets54px design height",
+  "source_ui_sha256": "1d22ddb997dadb821e439de78e13471c979ea2e0a7874c24ed6bb8daee10a566",
+  "native_command": "Godot4.7.2 --path game/avia -- --duration=10 --capture=...",
+  "regression_trigger": "actual5c Android Home/resume menu required scrolling before Join; Android behaviour recorded separately",
+  "device_qa": "new layout APK runtime NOT VERIFIED yet"
+}
