@@ -1,0 +1,225 @@
+{
+  "status": "PASS",
+  "exit_code": 0,
+  "summary": {
+    "checks": [
+      {
+        "check": "engine cache and PCM loop kite",
+        "ok": true
+      },
+      {
+        "check": "engine cache and PCM loop tern",
+        "ok": true
+      },
+      {
+        "check": "engine cache and PCM loop swift",
+        "ok": true
+      },
+      {
+        "check": "engine cache and PCM loop f16c",
+        "ok": true
+      },
+      {
+        "check": "engine cache and PCM loop su27",
+        "ok": true
+      },
+      {
+        "check": "engine cache and PCM loop f15c",
+        "ok": true
+      },
+      {
+        "check": "engine cache and PCM loop su35s",
+        "ok": true
+      },
+      {
+        "check": "engine cache and PCM loop rafale",
+        "ok": true
+      },
+      {
+        "check": "engine cache and PCM loop gripen",
+        "ok": true
+      },
+      {
+        "check": "nine configured original aircraft/jet identities have distinct PCM",
+        "ok": true
+      },
+      {
+        "check": "actual mixed engine ramps amplitude and pitch with throttle",
+        "ok": true
+      },
+      {
+        "check": "only four nearest live in-range peers get real 3D players",
+        "ok": true
+      },
+      {
+        "check": "remote voice reuses cached aircraft stream",
+        "ok": true
+      },
+      {
+        "check": "departure and crash evict voices and admit next peers",
+        "ok": true
+      },
+      {
+        "check": "speed and replicated afterburner drive independent layers",
+        "ok": true
+      },
+      {
+        "check": "cockpit camera attenuates real mixed external engine/wind",
+        "ok": true
+      },
+      {
+        "check": "airborne low speed warns and afterburner fades to stop",
+        "ok": true
+      },
+      {
+        "check": "stall warning is present in the actual mixer",
+        "ok": true
+      },
+      {
+        "check": "gear cue once across repeated snapshots",
+        "ok": true
+      },
+      {
+        "check": "touchdown cue once across repeated state and short reconciliation",
+        "ok": true
+      },
+      {
+        "check": "one crash cue, engine/remote loops stop",
+        "ok": true
+      },
+      {
+        "check": "respawn starts engine without false landing/gear impact",
+        "ok": true
+      },
+      {
+        "check": "pause immediately stops every player including cues/remotes",
+        "ok": true
+      },
+      {
+        "check": "actual mixer is silent after pause",
+        "ok": true
+      },
+      {
+        "check": "resume restarts loops without replaying startup event",
+        "ok": true
+      },
+      {
+        "check": "focus loss stops audio independently of pause",
+        "ok": true
+      },
+      {
+        "check": "disconnect/menu leaves no stale mixed voices",
+        "ok": true
+      },
+      {
+        "check": "master mute remains supported",
+        "ok": true
+      },
+      {
+        "check": "captured digital mix has frames and no clipping in exercised states",
+        "ok": true
+      },
+      {
+        "check": "manager deletion also frees world-owned 3D players",
+        "ok": true
+      }
+    ],
+    "driver": "CoreAudio",
+    "engine_hashes": [
+      2251890258,
+      4263608318,
+      2846945462,
+      1803380871,
+      2338060057,
+      1973280829,
+      2216480366,
+      3132005249,
+      3554799044
+    ],
+    "event": "audio_check_summary",
+    "metrics": [
+      {
+        "label": "idle",
+        "peak": 0.0213623046875,
+        "rms": 0.00834514439346008,
+        "samples": 20480
+      },
+      {
+        "label": "powered",
+        "peak": 0.0645751953125,
+        "rms": 0.0260625634318139,
+        "samples": 22528
+      },
+      {
+        "label": "high_speed_afterburner",
+        "peak": 0.10400390625,
+        "rms": 0.0344091558882207,
+        "samples": 22528
+      },
+      {
+        "label": "cockpit",
+        "peak": 0.055328369140625,
+        "rms": 0.0161062686263422,
+        "samples": 22528
+      },
+      {
+        "label": "stall_warning",
+        "peak": 0.07867431640625,
+        "rms": 0.0272873578859856,
+        "samples": 54272
+      },
+      {
+        "label": "paused_silence",
+        "peak": 0.0,
+        "rms": 0.0,
+        "samples": 22528
+      },
+      {
+        "label": "menu_silence",
+        "peak": 0.0,
+        "rms": 0.0,
+        "samples": 22528
+      }
+    ],
+    "scope": "actual Godot players and recorded digital mixer; deterministic lifecycle fixture; not physical acoustics or aircraft acceptance",
+    "status": "PASS"
+  },
+  "godot_version": "4.7.2.stable.official.ed1daf0bf",
+  "source_base": "5dd12944b29f6ab630959e39bd74b2a404f29d30",
+  "waveforms": {
+    "idle.wav": {
+      "sha256": "1fa2d63a9e08f01d946676f91251063455f112c43c72c981d0eeb94d8d2189e9",
+      "bytes": 41004
+    },
+    "menu_silence.wav": {
+      "sha256": "d27a18d9bc975d6adf7c7c0ec451f2a3909fb43d6afaad97a027baefbd6818a3",
+      "bytes": 45100
+    },
+    "powered.wav": {
+      "sha256": "4faa726c525fb783132af16be1f803bee327bd1986123b63296441472e20fa27",
+      "bytes": 45100
+    },
+    "cockpit.wav": {
+      "sha256": "439261e674051569537d8eafc9b42813f2e8843eb8a18aebfab5fb35e19d6353",
+      "bytes": 45100
+    },
+    "high_speed_afterburner.wav": {
+      "sha256": "de4d95a3c94065df893186297b23e116a7019555e153c6f7ab11117ebc21263e",
+      "bytes": 45100
+    },
+    "stall_warning.wav": {
+      "sha256": "4d2a4522df94c00407dcbbabc691748fe382e244b0f01d9475504f51cc8705b4",
+      "bytes": 108588
+    },
+    "paused_silence.wav": {
+      "sha256": "d27a18d9bc975d6adf7c7c0ec451f2a3909fb43d6afaad97a027baefbd6818a3",
+      "bytes": 45100
+    }
+  },
+  "source_files": {
+    "game/avia/client/sound.gd": "8612950bf02dd00d2c39e9f671b3ec2e7d305794dd8018e76e20115280fac163",
+    "game/avia/data/audio.json": "dc709599829a09ef2c3b23afdce36ecc7a0756fc741ed9e2493134b9ad261f04",
+    "game/avia/tests/audio_check.gd": "5b58d94f7b74d347ddad6cf636cbace1dd15b7f6efd4ce1d50674f4ee8d900ee",
+    "tools/audio_check.py": "9290f1c7a450e022a3b8134b8728719850f266c364b340c7ee7f4adad979fb6b"
+  }
+}

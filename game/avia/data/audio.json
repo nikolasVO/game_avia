@@ -1,0 +1,28 @@
+{
+  "notice": "Original synthesized game audio; not recordings or technical signatures of real aircraft.",
+  "mix_rate": 22050,
+  "remote_voice_limit": 4,
+  "remote_range_m": 700,
+  "profiles": {
+    "prop_trainer": {"base_hz": 72, "whine_hz": 216, "noise": 0.08, "beat_hz": 0},
+    "prop_sport": {"base_hz": 94, "whine_hz": 282, "noise": 0.12, "beat_hz": 0},
+    "original_jet": {"base_hz": 100, "whine_hz": 700, "noise": 0.30, "beat_hz": 0},
+    "falcon_single": {"base_hz": 112, "whine_hz": 896, "noise": 0.34, "beat_hz": 0},
+    "flanker_twin": {"base_hz": 76, "whine_hz": 608, "noise": 0.46, "beat_hz": 3},
+    "eagle_twin": {"base_hz": 90, "whine_hz": 720, "noise": 0.42, "beat_hz": 4},
+    "vector_twin": {"base_hz": 84, "whine_hz": 924, "noise": 0.50, "beat_hz": 2},
+    "delta_twin": {"base_hz": 122, "whine_hz": 732, "noise": 0.32, "beat_hz": 3},
+    "compact_single": {"base_hz": 138, "whine_hz": 966, "noise": 0.26, "beat_hz": 0}
+  },
+  "aircraft": {
+    "kite": "prop_trainer",
+    "tern": "prop_sport",
+    "swift": "original_jet",
+    "f16c": "falcon_single",
+    "su27": "flanker_twin",
+    "f15c": "eagle_twin",
+    "su35s": "vector_twin",
+    "rafale": "delta_twin",
+    "gripen": "compact_single"
+  }
+}

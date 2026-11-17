@@ -50,7 +50,7 @@ func _ready() -> void:
  root=Control.new();root.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);root.theme=theme;root.mouse_filter=Control.MOUSE_FILTER_IGNORE;add_child(root)
  touch=load("res://client/touch.gd").new();root.add_child(touch);touch.visible=false
  radar=load("res://client/radar.gd").new();radar.session=session;radar.position=Vector2(1060,100);radar.size=Vector2(170,170);root.add_child(radar)
- var sound: AudioStreamPlayer=load("res://client/sound.gd").new();sound.session=session;add_child(sound)
+ var sound: AudioStreamPlayer=load("res://client/sound.gd").new();sound.session=session;sound.world=world;add_child(sound)
  var safe: MarginContainer=MarginContainer.new();safe.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
  # Leave gesture margins; device-specific safe area is applied below.
  var margins: Vector4i=Vector4i(28,20,28,20)

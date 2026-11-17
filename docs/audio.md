@@ -1,0 +1,15 @@
+# Original game audio
+
+The playable fleet has nine explicitly configured synthesized engine identities in `game/avia/data/audio.json`. These are authored game sounds, not downloaded recordings or claimed technical signatures of the named aircraft. The original Kite, Tern and Swift remain distinct from the six fighter candidates. No third-party audio material or new inference is used.
+
+`AviaSound` caches mono 22,050 Hz, 16-bit WAV loops. Throttle changes engine volume/pitch; airspeed controls wind, replicated afterburner enables its own layer, airborne speed below the density/flap-adjusted stall threshold enables a pulsed warning. The cockpit camera reduces external engine, wind and burner volume. Exponential smoothing uses elapsed seconds. This changes no flight forces, input schema or network authority.
+
+Startup, gear movement, touchdown and collision use one bounded cue player. State edges, respawn/plane baselines and a per-cue cooldown suppress repeated snapshot/correction sounds. Pause/focus loss stops every player immediately. Resume establishes a new baseline without replaying startup; menu/disconnect clears the session's audio. The existing Sound checkbox mutes the master bus.
+
+Five local players and at most four nearest living remote aircraft within 700 metres bound the mix to nine voices. Remote aircraft use shared engine streams and spatial attenuation; departed, crashed and distant aircraft release their voices. Removing the manager also frees players attached to the world. No global remote voice is created by aircraft rendering anymore.
+
+Validation used installed Godot 4.7.2 APIs plus the matching source for AudioEffectRecord. Run `python3 tools/audio_check.py --godot /path/to/Godot --out /new/evidence/directory` with an available audio device driver (`--audio-driver` defaults to CoreAudio). The tested headless/Dummy path did not produce mixer frames and is deliberately not counted. The tool records the actual desktop digital mix through AudioEffectRecord and rejects engine errors, empty capture or failed lifecycle checks. WAV captures stay in the private evidence directory; their hashes and levels are in [the report](evidence/audio-digital-mix.json).
+
+Thirty checks passed, including nine different cached PCM profiles, the four-voice remote limit, voice replacement/cleanup, throttle response, camera attenuation, one-shot edges, respawn, pause, focus, resume and disconnect. Recorded peak remained below 0.11 full scale in the exercised mix; paused/menu captures were exactly silent. The deterministic session fixture exercises real players and the mixer, not real network authority. A separate short two-client desktop network smoke and the existing rendered UI/shared flight suites check integration.
+
+These results do not prove subjective engine quality, physical phone speakers/headphones, mobile latency/CPU cost or complete aircraft acceptance. The remaining fleet, device listening and performance checks remain open. Android R3 predates this audio milestone and contains its original audio implementation.
