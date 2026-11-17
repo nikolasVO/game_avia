@@ -49,7 +49,7 @@ async def codex_smoke(prefix):
     @app.post("/v1/responses")
     async def proxy(request:Request):
         nonlocal count
-        if count>=3:return Response('{"error":{"message":"bootstrap_request_cap"}}',status_code=429,media_type="application/json")
+        if count>=2:return Response('{"error":{"message":"bootstrap_request_cap"}}',status_code=429,media_type="application/json")
         count+=1
         Agent(Registry(s),s).reserve(task["id"],prefix+":responses",2048)
         body=json.dumps({**(await request.json()),"max_output_tokens":2048}).encode()

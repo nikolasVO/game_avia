@@ -13,6 +13,7 @@ async def local_smoke(store,root):
     if fence is None:return {"status":"blocked","reason":"gpu_busy"}
     model=os.getenv("LOCAL_CODE_MODEL","qwen3.5:27b-q4_K_M")
     base=os.getenv("OLLAMA_BASE_URL","http://127.0.0.1:11434").rstrip("/")
+    store.kv("gpu_external_busy",model)
     try:
         disk_guard(root)
         gpu_guard(22000)
@@ -24,6 +25,7 @@ async def local_smoke(store,root):
         used=0
         async with httpx.AsyncClient(timeout=httpx.Timeout(180,connect=10)) as client:
             for _ in range(2):
+                if not store.renew_gpu("local-smoke",fence,seconds=240):raise RuntimeError("gpu_lease_lost")
                 r=await client.post(base+"/api/chat",json={"model":model,"messages":messages,"tools":TOOLS,"stream":False,"think":False,"keep_alive":"2m","options":{"num_predict":256,"num_ctx":4096,"temperature":0}})
                 r.raise_for_status();d=r.json();msg=d["message"];messages.append(msg)
                 calls=msg.get("tool_calls",[])
@@ -45,5 +47,9 @@ async def local_smoke(store,root):
         try:
             async with httpx.AsyncClient(timeout=20) as client:
                 await client.post(base+"/api/generate",json={"model":model,"keep_alive":0})
-        finally:store.release_gpu("local-smoke",fence)
+                response=await client.get(base+"/api/ps")
+                loaded=response.json().get("models",[])
+                if not any(m.get("name")==model or m.get("model")==model for m in loaded):store.kv("gpu_external_busy","false")
+        finally:
+            if store.kv("gpu_external_busy")=="false":store.release_gpu("local-smoke",fence)
 

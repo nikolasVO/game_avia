@@ -166,6 +166,16 @@ class Store:
     def acquire_gpu(self, owner, seconds=300):
         with self.db() as c:
             c.execute("BEGIN IMMEDIATE")
+            busy=c.execute("SELECT value FROM kv WHERE key='gpu_external_busy'").fetchone()
+            if busy and busy[0]!='false':return None
+            proc=c.execute("SELECT value FROM kv WHERE key='gpu_process'").fetchone()
+            if proc and proc[0]:
+                import os
+                try:
+                    os.kill(int(proc[0]),0)
+                    return None
+                except (ProcessLookupError,ValueError):pass
+                except PermissionError:return None
             row=c.execute("SELECT * FROM gpu_leases WHERE resource='gpu0'").fetchone()
             if row and row["expires"]>time.time(): return None
             fence=(row["fence"] if row else 0)+1

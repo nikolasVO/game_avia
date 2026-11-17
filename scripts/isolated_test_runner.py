@@ -3,6 +3,7 @@ import json
 import sys
 import unittest
 
+sys.path.insert(0,"/work")
 suite=unittest.defaultTestLoader.discover("/work/tests")
 result=unittest.TextTestRunner(verbosity=1).run(suite)
 proof={"tests_run":result.testsRun,"failures":len(result.failures),"errors":len(result.errors),"passed":result.wasSuccessful() and result.testsRun>0}
