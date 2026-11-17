@@ -36,7 +36,7 @@ class Telegram:
         if cmd=="/task":
             r=self.store.get_task(arg)
             return (r["id"]+" "+r["status"]+"\n"+r["goal"]+"\n"+str(r["result"] or ""))[:3800] if r else "Задание не найдено."
-        if cmd=="/pause": return "Автовыполнение приостановлено." if kv("paused","true") else ""
+        if cmd=="/pause": return "Новые задания приостановлены. Для текущего используйте /cancel <id>." if kv("paused","true") else ""
         if cmd=="/resume":
             kv("paused","false")
             return "Возобновлён приём доступных задач. Большой backlog требует денежного бюджета."
@@ -48,7 +48,10 @@ class Telegram:
                 self.store._event(connection,arg,"Отменено владельцем.","state")
                 return "Задание отменено."
             except (KeyError,ValueError): return "Задание не найдено или уже завершено."
-        if cmd=="/budget": return kv("budget_status") or "budget_not_configured: разрешены только конечные bootstrap-пробы; большой backlog не запускается."
+        if cmd=="/budget":
+            with self.store.db() as c:
+                row=c.execute("SELECT COALESCE(SUM(requests),0),COALESCE(SUM(tokens),0) FROM usage_ledger WHERE created>?",(time.time()-86400,)).fetchone()
+            return (kv("budget_status") or "budget_not_configured")+f"\nЗа 24 часа: {row[0]} текстовых запросов; резерв токенов {row[1]}. Стоимость: cost_unknown."
         if cmd in ("/models","/providers","/gpu","/disk"):
             return self.store.kv(cmd[1:]) or "Проверка ещё не завершена."
         return "Неизвестная команда. /help"

@@ -35,6 +35,7 @@ class Store:
             CREATE TABLE IF NOT EXISTS usage_ledger(
               id TEXT PRIMARY KEY, task_id TEXT, route TEXT, requests INTEGER, tokens INTEGER,
               cost_status TEXT, created REAL);
+            CREATE TABLE IF NOT EXISTS actual_usage(id TEXT PRIMARY KEY,usage TEXT NOT NULL);
             CREATE TABLE IF NOT EXISTS artifacts(id TEXT PRIMARY KEY,task_id TEXT,path TEXT,sha256 TEXT,metadata TEXT);
             CREATE TABLE IF NOT EXISTS sync_jobs(id TEXT PRIMARY KEY,task_id TEXT,branch TEXT,status TEXT,error TEXT);
             CREATE TABLE IF NOT EXISTS decisions(id TEXT PRIMARY KEY,task_id TEXT,text TEXT,created REAL);

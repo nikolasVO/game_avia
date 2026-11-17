@@ -2,6 +2,8 @@
 import json
 import sys
 import unittest
+import resource
+resource.setrlimit(resource.RLIMIT_NPROC,(32,32))
 
 sys.path.insert(0,"/work")
 suite=unittest.defaultTestLoader.discover("/work/tests")

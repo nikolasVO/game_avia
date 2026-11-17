@@ -22,7 +22,7 @@ class Agent:
             c.execute("INSERT INTO usage_ledger VALUES(?,?,?,?,?,?,?)",(uid,tid,route,1,max_tokens,"cost_unknown_reserved",time.time()))
             return uid
     async def chat(self,route,messages,tid,tools=TOOLS,max_tokens=1024):
-        self.reserve(tid,route["id"],max_tokens)
+        usage_id=self.reserve(tid,route["id"],max_tokens)
         key=os.getenv(route["env_prefix"]+"_API_KEY","")
         payload={"model":route["wire"],"messages":messages,"max_tokens":max_tokens,"stream":False}
         if tools:payload["tools"]=tools
@@ -34,6 +34,9 @@ class Agent:
             raise RouteFailure("transient","route",30) from None
         if r.status_code>=400 or d.get("error") or not d.get("choices"):
             raise classify(r.status_code,d)
+        usage={k:v for k,v in (d.get("usage") or {}).items() if k in ("prompt_tokens","completion_tokens","total_tokens","input_tokens","output_tokens") and isinstance(v,int)}
+        if usage:
+            with self.store.db() as c:c.execute("INSERT OR REPLACE INTO actual_usage VALUES(?,?)",(usage_id,json.dumps(usage)))
         return d
     async def run(self,task,root,family="gpt",max_calls=4,bootstrap=False):
         tid=task["id"];deadline=time.monotonic()+180

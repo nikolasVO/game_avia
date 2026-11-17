@@ -6,14 +6,14 @@ from pathlib import Path
 
 def bubblewrap_command(workspace,command):
     prefix=Path(sys.base_prefix).resolve()
-    argv=["prlimit","--as=805306368","--nproc=128","--cpu=30","--fsize=16777216","--",
+    argv=["prlimit","--as=805306368","--cpu=30","--fsize=16777216","--",
           "bwrap","--unshare-all","--die-with-parent","--new-session","--cap-drop","ALL",
           "--ro-bind","/usr","/usr","--symlink","usr/lib","/lib","--symlink","usr/lib64","/lib64",
-          "--ro-bind",str(prefix),str(prefix),"--proc","/proc","--dev","/dev","--tmpfs","/tmp","--dir","/etc",
+          "--ro-bind",str(prefix),str(prefix),"--proc","/proc","--dev","/dev","--dir","/tmp","--dir","/etc",
           "--ro-bind",str(Path(workspace).resolve()),"/work",
           "--ro-bind",str(Path(__file__).resolve().parents[2]/"scripts/isolated_test_runner.py"),"/runner.py",
           "--clearenv","--setenv","LANG","C.UTF-8","--setenv","PATH","/usr/bin:/bin","--setenv","HOME","/tmp",
-          "--chdir","/work",str(prefix/"bin/python3.12"),"-I","-B"]
+          "--remount-ro","/dev","--remount-ro","/proc","--remount-ro","/","--chdir","/work",str(prefix/"bin/python3.12"),"-I","-B"]
     return argv+command
 
 def run_tests(workspace):

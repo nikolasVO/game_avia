@@ -23,7 +23,7 @@ def main():
         obj=bpy.context.object;obj.name="TechnicalFixture"
         mod=obj.modifiers.new("Bevel","BEVEL");mod.width=.06;mod.segments=3
         bpy.context.view_layer.objects.active=obj;bpy.ops.object.modifier_apply(modifier=mod.name)
-        mat=bpy.data.materials.new("Orange");mat.diffuse_color=(.8,.2,.02,1);obj.data.materials.append(mat)
+        mat=bpy.data.materials.new("Orange");mat.diffuse_color=(.8,.2,.02,1);mat.use_nodes=True;mat.node_tree.nodes.get("Principled BSDF").inputs["Base Color"].default_value=(.8,.2,.02,1);obj.data.materials.append(mat)
         bpy.ops.export_scene.gltf(filepath=str(out/"original.glb"),export_format="GLB")
         source_kind="procedural_test_fixture_not_TRELLIS"
     else:
