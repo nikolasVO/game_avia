@@ -152,5 +152,15 @@
   },
   "gameplay_placement": "Three instances outside the runway, x=-36/-38,z=160..162; global resource materials shared.",
   "status": "PASS actual Godot import and rendered scene; Android export/runtime pending",
-  "aircraft_ai_requirement": "NOT MET; all three aircraft remain procedural."
+  "aircraft_ai_requirement": "NOT MET; all three aircraft remain procedural.",
+  "runtime_extracted_textures": {
+    "game/avia/assets/airfield_safety_block_Image_0.png": {
+      "sha256": "64db56fae97125cd8db0231e1fc8800426a26366a9440035e9aa3a6a8ca81b5f",
+      "bytes": 1278604
+    },
+    "game/avia/assets/airfield_safety_block_Image_1.png": {
+      "sha256": "581cfc07065ed7884d234aecb99fc961dc0165d1649be4a93855a59569facce6",
+      "bytes": 310528
+    }
+  }
 }
