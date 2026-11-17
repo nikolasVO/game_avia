@@ -1,0 +1,493 @@
+{
+  "status": "PASS",
+  "scope": "actual Godot shared simulation/synthetic input and mesh inspection, not physical aircraft acceptance",
+  "suites": [
+    {
+      "script": "flight_check",
+      "ok": true
+    },
+    {
+      "script": "fighter_check",
+      "ok": true
+    },
+    {
+      "script": "fighter_geometry_check",
+      "ok": true
+    },
+    {
+      "script": "fighter_circuit_check",
+      "ok": true
+    }
+  ],
+  "geometry": [
+    {
+      "event": "fighter_geometry",
+      "reports": [
+        {
+          "aircraft_id": "f16c",
+          "geometry": {
+            "lods": [
+              19460,
+              5966,
+              1468
+            ],
+            "surfaces": 5,
+            "triangles": 26894,
+            "unique_materials": 3
+          },
+          "low_speed_nozzle_cue_checked": false,
+          "meshes": [
+            {
+              "degenerate_triangles": 0,
+              "far_m": 350.0,
+              "instances": 1,
+              "level": 0,
+              "mesh": "LOD0",
+              "minimum_triangle_area_m2": 2.38355532928836e-05,
+              "near_m": 0.0,
+              "triangles": 19368
+            },
+            {
+              "degenerate_triangles": 0,
+              "far_m": 900.0,
+              "instances": 1,
+              "level": 1,
+              "mesh": "LOD1",
+              "minimum_triangle_area_m2": 4.54706150776474e-06,
+              "near_m": 350.0,
+              "triangles": 5966
+            },
+            {
+              "degenerate_triangles": 0,
+              "far_m": 2500.0,
+              "instances": 1,
+              "level": 2,
+              "mesh": "LOD2",
+              "minimum_triangle_area_m2": 0.000530329649336636,
+              "near_m": 900.0,
+              "triangles": 1468
+            },
+            {
+              "degenerate_triangles": 0,
+              "far_m": 500.0,
+              "instances": 3,
+              "level": 0,
+              "mesh": "Gear",
+              "minimum_triangle_area_m2": 0.00839999970048666,
+              "near_m": 0.0,
+              "triangles": 72
+            },
+            {
+              "degenerate_triangles": 0,
+              "far_m": 800.0,
+              "instances": 1,
+              "level": 0,
+              "mesh": "Flame0_0",
+              "minimum_triangle_area_m2": 0.000692820409312844,
+              "near_m": 0.0,
+              "triangles": 20
+            }
+          ],
+          "source": "AI candidate with procedural landing gear/effects; production QA pending"
+        },
+        {
+          "aircraft_id": "su27",
+          "geometry": {
+            "lods": [
+              19476,
+              5968,
+              1468
+            ],
+            "surfaces": 6,
+            "triangles": 26912,
+            "unique_materials": 3
+          },
+          "low_speed_nozzle_cue_checked": false,
+          "meshes": [
+            {
+              "degenerate_triangles": 0,
+              "far_m": 350.0,
+              "instances": 1,
+              "level": 0,
+              "mesh": "LOD0",
+              "minimum_triangle_area_m2": 6.4531915995758e-05,
+              "near_m": 0.0,
+              "triangles": 19364
+            },
+            {
+              "degenerate_triangles": 0,
+              "far_m": 900.0,
+              "instances": 1,
+              "level": 1,
+              "mesh": "LOD1",
+              "minimum_triangle_area_m2": 1.01401965366676e-05,
+              "near_m": 350.0,
+              "triangles": 5968
+            },
+            {
+              "degenerate_triangles": 0,
+              "far_m": 2500.0,
+              "instances": 1,
+              "level": 2,
+              "mesh": "LOD2",
+              "minimum_triangle_area_m2": 0.00169920653570443,
+              "near_m": 900.0,
+              "triangles": 1468
+            },
+            {
+              "degenerate_triangles": 0,
+              "far_m": 500.0,
+              "instances": 3,
+              "level": 0,
+              "mesh": "Gear",
+              "minimum_triangle_area_m2": 0.00839999970048666,
+              "near_m": 0.0,
+              "triangles": 72
+            },
+            {
+              "degenerate_triangles": 0,
+              "far_m": 800.0,
+              "instances": 1,
+              "level": 0,
+              "mesh": "Flame-1_0",
+              "minimum_triangle_area_m2": 0.000692820409312844,
+              "near_m": 0.0,
+              "triangles": 20
+            },
+            {
+              "degenerate_triangles": 0,
+              "far_m": 800.0,
+              "instances": 1,
+              "level": 0,
+              "mesh": "Flame1_0",
+              "minimum_triangle_area_m2": 0.000692820409312844,
+              "near_m": 0.0,
+              "triangles": 20
+            }
+          ],
+          "source": "AI candidate with procedural landing gear/effects; production QA pending"
+        },
+        {
+          "aircraft_id": "f15c",
+          "geometry": {
+            "lods": [
+              19474,
+              5968,
+              1468
+            ],
+            "surfaces": 6,
+            "triangles": 26910,
+            "unique_materials": 3
+          },
+          "low_speed_nozzle_cue_checked": false,
+          "meshes": [
+            {
+              "degenerate_triangles": 0,
+              "far_m": 350.0,
+              "instances": 1,
+              "level": 0,
+              "mesh": "LOD0",
+              "minimum_triangle_area_m2": 2.00202593987342e-05,
+              "near_m": 0.0,
+              "triangles": 19362
+            },
+            {
+              "degenerate_triangles": 0,
+              "far_m": 900.0,
+              "instances": 1,
+              "level": 1,
+              "mesh": "LOD1",
+              "minimum_triangle_area_m2": 9.07938556338195e-06,
+              "near_m": 350.0,
+              "triangles": 5968
+            },
+            {
+              "degenerate_triangles": 0,
+              "far_m": 2500.0,
+              "instances": 1,
+              "level": 2,
+              "mesh": "LOD2",
+              "minimum_triangle_area_m2": 0.00240439339540899,
+              "near_m": 900.0,
+              "triangles": 1468
+            },
+            {
+              "degenerate_triangles": 0,
+              "far_m": 500.0,
+              "instances": 3,
+              "level": 0,
+              "mesh": "Gear",
+              "minimum_triangle_area_m2": 0.00839999970048666,
+              "near_m": 0.0,
+              "triangles": 72
+            },
+            {
+              "degenerate_triangles": 0,
+              "far_m": 800.0,
+              "instances": 1,
+              "level": 0,
+              "mesh": "Flame-1_0",
+              "minimum_triangle_area_m2": 0.000692820409312844,
+              "near_m": 0.0,
+              "triangles": 20
+            },
+            {
+              "degenerate_triangles": 0,
+              "far_m": 800.0,
+              "instances": 1,
+              "level": 0,
+              "mesh": "Flame1_0",
+              "minimum_triangle_area_m2": 0.000692820409312844,
+              "near_m": 0.0,
+              "triangles": 20
+            }
+          ],
+          "source": "AI candidate with procedural landing gear/effects; production QA pending"
+        },
+        {
+          "aircraft_id": "su35s",
+          "geometry": {
+            "lods": [
+              19554,
+              5966,
+              1466
+            ],
+            "surfaces": 8,
+            "triangles": 26986,
+            "unique_materials": 3
+          },
+          "low_speed_nozzle_cue_checked": true,
+          "meshes": [
+            {
+              "degenerate_triangles": 0,
+              "far_m": 350.0,
+              "instances": 1,
+              "level": 0,
+              "mesh": "LOD0",
+              "minimum_triangle_area_m2": 2.28217213589232e-05,
+              "near_m": 0.0,
+              "triangles": 19346
+            },
+            {
+              "degenerate_triangles": 0,
+              "far_m": 900.0,
+              "instances": 1,
+              "level": 1,
+              "mesh": "LOD1",
+              "minimum_triangle_area_m2": 1.83218289748766e-05,
+              "near_m": 350.0,
+              "triangles": 5966
+            },
+            {
+              "degenerate_triangles": 0,
+              "far_m": 2500.0,
+              "instances": 1,
+              "level": 2,
+              "mesh": "LOD2",
+              "minimum_triangle_area_m2": 0.0032261221203953,
+              "near_m": 900.0,
+              "triangles": 1466
+            },
+            {
+              "degenerate_triangles": 0,
+              "far_m": 800.0,
+              "instances": 1,
+              "level": 0,
+              "mesh": "Nozzle",
+              "minimum_triangle_area_m2": 0.0144249787554145,
+              "near_m": 0.0,
+              "triangles": 48
+            },
+            {
+              "degenerate_triangles": 0,
+              "far_m": 800.0,
+              "instances": 1,
+              "level": 0,
+              "mesh": "Nozzle",
+              "minimum_triangle_area_m2": 0.0144249787554145,
+              "near_m": 0.0,
+              "triangles": 48
+            },
+            {
+              "degenerate_triangles": 0,
+              "far_m": 500.0,
+              "instances": 3,
+              "level": 0,
+              "mesh": "Gear",
+              "minimum_triangle_area_m2": 0.00839999970048666,
+              "near_m": 0.0,
+              "triangles": 72
+            },
+            {
+              "degenerate_triangles": 0,
+              "far_m": 800.0,
+              "instances": 1,
+              "level": 0,
+              "mesh": "Flame-1_0",
+              "minimum_triangle_area_m2": 0.000692820409312844,
+              "near_m": 0.0,
+              "triangles": 20
+            },
+            {
+              "degenerate_triangles": 0,
+              "far_m": 800.0,
+              "instances": 1,
+              "level": 0,
+              "mesh": "Flame1_0",
+              "minimum_triangle_area_m2": 0.000692820409312844,
+              "near_m": 0.0,
+              "triangles": 20
+            }
+          ],
+          "source": "AI candidate body with procedural nozzle repair, landing gear/effects; production QA pending"
+        },
+        {
+          "aircraft_id": "rafale",
+          "geometry": {
+            "lods": [
+              19448,
+              5964,
+              1466
+            ],
+            "surfaces": 6,
+            "triangles": 26878,
+            "unique_materials": 3
+          },
+          "low_speed_nozzle_cue_checked": false,
+          "meshes": [
+            {
+              "degenerate_triangles": 0,
+              "far_m": 350.0,
+              "instances": 1,
+              "level": 0,
+              "mesh": "LOD0",
+              "minimum_triangle_area_m2": 1.57193971972447e-05,
+              "near_m": 0.0,
+              "triangles": 19336
+            },
+            {
+              "degenerate_triangles": 0,
+              "far_m": 900.0,
+              "instances": 1,
+              "level": 1,
+              "mesh": "LOD1",
+              "minimum_triangle_area_m2": 4.7471603465965e-06,
+              "near_m": 350.0,
+              "triangles": 5964
+            },
+            {
+              "degenerate_triangles": 0,
+              "far_m": 2500.0,
+              "instances": 1,
+              "level": 2,
+              "mesh": "LOD2",
+              "minimum_triangle_area_m2": 3.36014772983617e-06,
+              "near_m": 900.0,
+              "triangles": 1466
+            },
+            {
+              "degenerate_triangles": 0,
+              "far_m": 500.0,
+              "instances": 3,
+              "level": 0,
+              "mesh": "Gear",
+              "minimum_triangle_area_m2": 0.00839999970048666,
+              "near_m": 0.0,
+              "triangles": 72
+            },
+            {
+              "degenerate_triangles": 0,
+              "far_m": 800.0,
+              "instances": 1,
+              "level": 0,
+              "mesh": "Flame-1_0",
+              "minimum_triangle_area_m2": 0.000692820409312844,
+              "near_m": 0.0,
+              "triangles": 20
+            },
+            {
+              "degenerate_triangles": 0,
+              "far_m": 800.0,
+              "instances": 1,
+              "level": 0,
+              "mesh": "Flame1_0",
+              "minimum_triangle_area_m2": 0.000692820409312844,
+              "near_m": 0.0,
+              "triangles": 20
+            }
+          ],
+          "source": "AI candidate with procedural landing gear/effects; production QA pending"
+        },
+        {
+          "aircraft_id": "gripen",
+          "geometry": {
+            "lods": [
+              19458,
+              5966,
+              1466
+            ],
+            "surfaces": 5,
+            "triangles": 26890,
+            "unique_materials": 3
+          },
+          "low_speed_nozzle_cue_checked": false,
+          "meshes": [
+            {
+              "degenerate_triangles": 0,
+              "far_m": 350.0,
+              "instances": 1,
+              "level": 0,
+              "mesh": "LOD0",
+              "minimum_triangle_area_m2": 6.98833309797919e-06,
+              "near_m": 0.0,
+              "triangles": 19366
+            },
+            {
+              "degenerate_triangles": 0,
+              "far_m": 900.0,
+              "instances": 1,
+              "level": 1,
+              "mesh": "LOD1",
+              "minimum_triangle_area_m2": 1.39359815420903e-06,
+              "near_m": 350.0,
+              "triangles": 5966
+            },
+            {
+              "degenerate_triangles": 0,
+              "far_m": 2500.0,
+              "instances": 1,
+              "level": 2,
+              "mesh": "LOD2",
+              "minimum_triangle_area_m2": 0.000849020318128169,
+              "near_m": 900.0,
+              "triangles": 1466
+            },
+            {
+              "degenerate_triangles": 0,
+              "far_m": 500.0,
+              "instances": 3,
+              "level": 0,
+              "mesh": "Gear",
+              "minimum_triangle_area_m2": 0.00839999970048666,
+              "near_m": 0.0,
+              "triangles": 72
+            },
+            {
+              "degenerate_triangles": 0,
+              "far_m": 800.0,
+              "instances": 1,
+              "level": 0,
+              "mesh": "Flame0_0",
+              "minimum_triangle_area_m2": 0.000692820409312844,
+              "near_m": 0.0,
+              "triangles": 20
+            }
+          ],
+          "source": "AI candidate with procedural landing gear/effects; production QA pending"
+        }
+      ],
+      "scope": "finite nondegenerate meshes, per-LOD budgets including procedural gear/effects, engine count; recognition/art/mobile acceptance NOT VERIFIED",
+      "status": "PASS"
+    }
+  ]
+}

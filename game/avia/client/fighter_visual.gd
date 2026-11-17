@@ -59,11 +59,20 @@ static func create(index: int, use_imported: bool=true) -> AviaAircraft:
    if bool(spec.systems.get("thrust_vectoring",false)):root.vectoring_nozzles.append(nozzle)
   root.airframe_source="AI candidate body with procedural nozzle repair, landing gear/effects; production QA pending"
  root.landing_gear=Node3D.new();root.landing_gear.name="LandingGear";root.add_child(root.landing_gear)
+ root.gear_duration=clampf(float(spec.get("visual",{}).get("gear_retract_seconds",1.1)),0.5,2.0)
+ var attachments: Array[Vector3]=[Vector3(0,-.375,-length*.25),Vector3(-length*.09,-.375,length*.07),Vector3(length*.09,-.375,length*.07)]
+ for i: int in attachments.size():
+  var leg: Node3D=Node3D.new();leg.name=["NoseLeg","LeftLeg","RightLeg"][i];leg.position=attachments[i];root.landing_gear.add_child(leg)
+  root.gear_legs.append(leg);root.gear_axes.append([Vector3.LEFT,Vector3.BACK,Vector3.FORWARD][i])
+ # Identical strut/wheel units use one instanced draw, not three extra surfaces.
  var gear: SurfaceTool=SurfaceTool.new();gear.begin(Mesh.PRIMITIVE_TRIANGLES)
- for location: Vector3 in [Vector3(0,-.8,-length*.25),Vector3(-length*.09,-.8,length*.07),Vector3(length*.09,-.8,length*.07)]:
-  AviaAircraft._box(gear,location,Vector3(.12,.85,.14),color)
-  AviaAircraft._box(gear,location+Vector3(0,-.42,0),Vector3(.25,.35,.5),dark)
- AviaAircraft._mesh(gear,root.landing_gear,"Gear",0,500)
+ AviaAircraft._box(gear,Vector3(0,-.425,0),Vector3(.12,.85,.14),color)
+ AviaAircraft._box(gear,Vector3(0,-.845,0),Vector3(.25,.35,.5),dark)
+ var template: MeshInstance3D=AviaAircraft._mesh(gear,root.landing_gear,"GearTemplate",0,500)
+ root.gear_instances=MultiMeshInstance3D.new();root.gear_instances.name="Gear"
+ var instances: MultiMesh=MultiMesh.new();instances.transform_format=MultiMesh.TRANSFORM_3D;instances.mesh=template.mesh;instances.instance_count=3
+ root.gear_instances.multimesh=instances;root.gear_instances.material_override=template.material_override;root.gear_instances.visibility_range_end=500;root.landing_gear.add_child(root.gear_instances);template.free()
+ for i: int in root.gear_legs.size():instances.set_instance_transform(i,root.gear_legs[i].transform)
  root.exhaust=Node3D.new();root.exhaust.name="Afterburner";root.add_child(root.exhaust)
  for side: float in ([-1.0,1.0] if twin else [0.0]):
   # Reuse the airframe's vertex-lit material path; no additional unshaded variant.

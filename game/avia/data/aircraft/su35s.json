@@ -75,6 +75,7 @@
     "offset_y_m": -0.5,
     "provenance": "assets/catalog/su35s_candidate_20261117_v1/provenance.json",
     "status": "recognition/animation/mobile QA pending",
-    "nozzle_repair": true
+    "nozzle_repair": true,
+    "gear_retract_seconds": 1.15
   }
 }

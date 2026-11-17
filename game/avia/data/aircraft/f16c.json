@@ -74,6 +74,7 @@
     "scene": "res://assets/f16c_ai_candidate.glb",
     "offset_y_m": -0.5,
     "provenance": "assets/catalog/f16c_candidate_20261117_v1/provenance.json",
-    "status": "recognition/animation/mobile QA pending"
+    "status": "recognition/animation/mobile QA pending",
+    "gear_retract_seconds": 0.95
   }
 }

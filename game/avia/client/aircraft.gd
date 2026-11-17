@@ -1,7 +1,14 @@
 class_name AviaAircraft
 extends Node3D
-## Original procedural development models; not AI output. One colored surface per LOD.
+## Original aircraft and imported fighter candidates with authored moving assemblies.
 var landing_gear: Node3D
+var gear_legs: Array[Node3D]=[]
+var gear_axes: Array[Vector3]=[]
+var gear_instances: MultiMeshInstance3D
+var gear_deployment: float=1.0
+var gear_target: float=1.0
+var gear_duration: float=1.1
+var systems_initialized: bool=false
 var exhaust: Node3D
 var vectoring_nozzles: Array[Node3D]=[]
 var propeller: Node3D
@@ -81,9 +88,14 @@ static func build(index: int) -> AviaAircraft:
  return root
 func _process(delta: float) -> void:
  if propeller and visible:propeller.rotate_z(spin_speed*delta)
+ advance_gear(delta)
 
 func update_state(state: Dictionary) -> void:
- if landing_gear:landing_gear.visible=bool(state.get("gear",true))
+ if landing_gear:
+  gear_target=1.0 if bool(state.get("gear",true)) else 0.0
+  # First snapshot establishes a baseline; later authoritative changes animate.
+  if not systems_initialized:
+   gear_deployment=gear_target;systems_initialized=true;_pose_gear()
  if exhaust:exhaust.visible=bool(state.get("afterburner",false)) and not state.crashed
  for nozzle: Node3D in vectoring_nozzles:
   # Cosmetic cue for the existing simplified low-speed thrust-vectoring forces.
@@ -92,3 +104,17 @@ func update_state(state: Dictionary) -> void:
   var rates: Vector3=state.get("rates",Vector3.ZERO)
   nozzle.rotation.x=clampf(-rates.x*0.18,-0.22,0.22)*authority
   nozzle.rotation.y=clampf(-rates.y*0.18,-0.16,0.16)*authority
+
+func advance_gear(delta: float) -> void:
+ if not landing_gear or not systems_initialized:return
+ # Constant travel time remains independent of frame rate and snapshot frequency.
+ var previous: float=gear_deployment
+ gear_deployment=move_toward(previous,gear_target,maxf(0.0,delta)/gear_duration)
+ if gear_deployment==previous:return
+ _pose_gear()
+
+func _pose_gear() -> void:
+ landing_gear.visible=gear_deployment>0.001
+ for i: int in gear_legs.size():
+  gear_legs[i].rotation=gear_axes[i]*(1.0-gear_deployment)*1.48
+  if gear_instances:gear_instances.multimesh.set_instance_transform(i,gear_legs[i].transform)

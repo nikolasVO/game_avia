@@ -1,0 +1,342 @@
+{
+  "status": "PASS",
+  "exit_code": 0,
+  "summary": {
+    "checks": [
+      {
+        "check": "f16c: three deployed landing-gear legs",
+        "ok": true
+      },
+      {
+        "check": "f16c: changing replicated flag does not instantly hide gear",
+        "ok": true
+      },
+      {
+        "check": "f16c: nose folds aft, main legs fold inward at half travel",
+        "ok": true
+      },
+      {
+        "check": "f16c: fixed attachment pivots and repeated snapshots preserve travel",
+        "ok": true
+      },
+      {
+        "check": "f16c: reversing flag reverses travel without snapping",
+        "ok": true
+      },
+      {
+        "check": "f16c: gear returns to exact deployed endpoint",
+        "ok": true
+      },
+      {
+        "check": "f16c: high-frame-rate retraction reaches hidden endpoint",
+        "ok": true
+      },
+      {
+        "check": "f16c: first airborne snapshot initializes retracted baseline",
+        "ok": true
+      },
+      {
+        "check": "f16c: existing afterburner visual preserved",
+        "ok": true
+      },
+      {
+        "check": "f16c: crash disables afterburner visual",
+        "ok": true
+      },
+      {
+        "check": "su27: three deployed landing-gear legs",
+        "ok": true
+      },
+      {
+        "check": "su27: changing replicated flag does not instantly hide gear",
+        "ok": true
+      },
+      {
+        "check": "su27: nose folds aft, main legs fold inward at half travel",
+        "ok": true
+      },
+      {
+        "check": "su27: fixed attachment pivots and repeated snapshots preserve travel",
+        "ok": true
+      },
+      {
+        "check": "su27: reversing flag reverses travel without snapping",
+        "ok": true
+      },
+      {
+        "check": "su27: gear returns to exact deployed endpoint",
+        "ok": true
+      },
+      {
+        "check": "su27: high-frame-rate retraction reaches hidden endpoint",
+        "ok": true
+      },
+      {
+        "check": "su27: first airborne snapshot initializes retracted baseline",
+        "ok": true
+      },
+      {
+        "check": "su27: existing afterburner visual preserved",
+        "ok": true
+      },
+      {
+        "check": "su27: crash disables afterburner visual",
+        "ok": true
+      },
+      {
+        "check": "f15c: three deployed landing-gear legs",
+        "ok": true
+      },
+      {
+        "check": "f15c: changing replicated flag does not instantly hide gear",
+        "ok": true
+      },
+      {
+        "check": "f15c: nose folds aft, main legs fold inward at half travel",
+        "ok": true
+      },
+      {
+        "check": "f15c: fixed attachment pivots and repeated snapshots preserve travel",
+        "ok": true
+      },
+      {
+        "check": "f15c: reversing flag reverses travel without snapping",
+        "ok": true
+      },
+      {
+        "check": "f15c: gear returns to exact deployed endpoint",
+        "ok": true
+      },
+      {
+        "check": "f15c: high-frame-rate retraction reaches hidden endpoint",
+        "ok": true
+      },
+      {
+        "check": "f15c: first airborne snapshot initializes retracted baseline",
+        "ok": true
+      },
+      {
+        "check": "f15c: existing afterburner visual preserved",
+        "ok": true
+      },
+      {
+        "check": "f15c: crash disables afterburner visual",
+        "ok": true
+      },
+      {
+        "check": "su35s: three deployed landing-gear legs",
+        "ok": true
+      },
+      {
+        "check": "su35s: changing replicated flag does not instantly hide gear",
+        "ok": true
+      },
+      {
+        "check": "su35s: nose folds aft, main legs fold inward at half travel",
+        "ok": true
+      },
+      {
+        "check": "su35s: fixed attachment pivots and repeated snapshots preserve travel",
+        "ok": true
+      },
+      {
+        "check": "su35s: reversing flag reverses travel without snapping",
+        "ok": true
+      },
+      {
+        "check": "su35s: gear returns to exact deployed endpoint",
+        "ok": true
+      },
+      {
+        "check": "su35s: high-frame-rate retraction reaches hidden endpoint",
+        "ok": true
+      },
+      {
+        "check": "su35s: first airborne snapshot initializes retracted baseline",
+        "ok": true
+      },
+      {
+        "check": "su35s: existing afterburner visual preserved",
+        "ok": true
+      },
+      {
+        "check": "su35s: crash disables afterburner visual",
+        "ok": true
+      },
+      {
+        "check": "rafale: three deployed landing-gear legs",
+        "ok": true
+      },
+      {
+        "check": "rafale: changing replicated flag does not instantly hide gear",
+        "ok": true
+      },
+      {
+        "check": "rafale: nose folds aft, main legs fold inward at half travel",
+        "ok": true
+      },
+      {
+        "check": "rafale: fixed attachment pivots and repeated snapshots preserve travel",
+        "ok": true
+      },
+      {
+        "check": "rafale: reversing flag reverses travel without snapping",
+        "ok": true
+      },
+      {
+        "check": "rafale: gear returns to exact deployed endpoint",
+        "ok": true
+      },
+      {
+        "check": "rafale: high-frame-rate retraction reaches hidden endpoint",
+        "ok": true
+      },
+      {
+        "check": "rafale: first airborne snapshot initializes retracted baseline",
+        "ok": true
+      },
+      {
+        "check": "rafale: existing afterburner visual preserved",
+        "ok": true
+      },
+      {
+        "check": "rafale: crash disables afterburner visual",
+        "ok": true
+      },
+      {
+        "check": "gripen: three deployed landing-gear legs",
+        "ok": true
+      },
+      {
+        "check": "gripen: changing replicated flag does not instantly hide gear",
+        "ok": true
+      },
+      {
+        "check": "gripen: nose folds aft, main legs fold inward at half travel",
+        "ok": true
+      },
+      {
+        "check": "gripen: fixed attachment pivots and repeated snapshots preserve travel",
+        "ok": true
+      },
+      {
+        "check": "gripen: reversing flag reverses travel without snapping",
+        "ok": true
+      },
+      {
+        "check": "gripen: gear returns to exact deployed endpoint",
+        "ok": true
+      },
+      {
+        "check": "gripen: high-frame-rate retraction reaches hidden endpoint",
+        "ok": true
+      },
+      {
+        "check": "gripen: first airborne snapshot initializes retracted baseline",
+        "ok": true
+      },
+      {
+        "check": "gripen: existing afterburner visual preserved",
+        "ok": true
+      },
+      {
+        "check": "gripen: crash disables afterburner visual",
+        "ok": true
+      }
+    ],
+    "event": "aircraft_systems",
+    "reports": [
+      {
+        "aircraft_id": "f16c",
+        "gear_travel_seconds": 0.95,
+        "legs": 3,
+        "replicated_control": "existing gear flag, no protocol or simulation change",
+        "source": "authored strut/wheel assembly around existing candidate body"
+      },
+      {
+        "aircraft_id": "su27",
+        "gear_travel_seconds": 1.25,
+        "legs": 3,
+        "replicated_control": "existing gear flag, no protocol or simulation change",
+        "source": "authored strut/wheel assembly around existing candidate body"
+      },
+      {
+        "aircraft_id": "f15c",
+        "gear_travel_seconds": 1.2,
+        "legs": 3,
+        "replicated_control": "existing gear flag, no protocol or simulation change",
+        "source": "authored strut/wheel assembly around existing candidate body"
+      },
+      {
+        "aircraft_id": "su35s",
+        "gear_travel_seconds": 1.15,
+        "legs": 3,
+        "replicated_control": "existing gear flag, no protocol or simulation change",
+        "source": "authored strut/wheel assembly around existing candidate body"
+      },
+      {
+        "aircraft_id": "rafale",
+        "gear_travel_seconds": 1.0,
+        "legs": 3,
+        "replicated_control": "existing gear flag, no protocol or simulation change",
+        "source": "authored strut/wheel assembly around existing candidate body"
+      },
+      {
+        "aircraft_id": "gripen",
+        "gear_travel_seconds": 0.85,
+        "legs": 3,
+        "replicated_control": "existing gear flag, no protocol or simulation change",
+        "source": "authored strut/wheel assembly around existing candidate body"
+      }
+    ],
+    "scope": "real rendered model nodes and deterministic replicated-flag transitions; not physical/device/recognition acceptance",
+    "status": "PASS"
+  },
+  "preview_sha256": {
+    "su35s-2-1.png": "5477626eb621244ff883878ea509eefde6b67b62716d8dce1fbd8a559714ad56",
+    "f16c-2-0.png": "3b4b08b0dd5df584471adcc2932b76b6df566d8296f327f41ec77187ba71f58b",
+    "f16c-2-1.png": "d762bd064639640ce033b1d304ed3d727dcfe679751080af4a4ecb062343771f",
+    "su35s-2-0.png": "4392bee1f15e79d23809562929dd00e0e494b13918c23554a0a4ce08dd04bb75",
+    "su35s-0-0.png": "6ae027fad12ad56094dc9a871f6fc4a5bd11fe5285532b9319c2148b436e70e5",
+    "f16c-0-1.png": "eba64f0866aa8288286f46a70c75b9cf63fb706a74ca4640a76eb0f99deeb6f3",
+    "f16c-0-0.png": "5051df3ed9cfef223d7559df5ff55b58a76982a1d7f16954f9312f8038fa7d6e",
+    "su35s-0-1.png": "427e4555e86b35936d2597e84c96ce11d357d5848b0624671f4222f29224de95",
+    "f16c-1-1.png": "e0454c9182d028b5c16efe3d6e398c362d6c95ddfe72f53a78d32f58e31f9163",
+    "su35s-1-0.png": "1323de0f6978d55a7ac5f3dee9d06740d0a7d4e737a4a0fff4dd360136eb97e4",
+    "su35s-1-1.png": "8859664be83f5e7aee24f7a0a746b32dc47224f889c15b2c81382cbfa6f1d231",
+    "f16c-1-0.png": "36af52a19d5c004f2282ee5199e5d00a8612880c98c08d4c881c88918ff71216",
+    "su27-1-1.png": "a91a424e202d92f4d6d008a51b65b95e602e65a65dbdafe4a3afdf7253d80f3f",
+    "rafale-1-1.png": "e78eb5fb2062f919d9eed320ffc1c6a8013c75dbd698aa2b9c352181ca0ae599",
+    "rafale-1-0.png": "207469cf67eafc4d006662e4c255255a4697217e05d90ac7ed82f213e7bfc687",
+    "su27-1-0.png": "f59c8dafe2f82a325b34c04f088b5105349e5f2be9fa234520e659e219381117",
+    "gripen-2-0.png": "c3db6748c3fedb0f2ab12dde71b67cbba646ba21ab0ce9a3943373fac6390399",
+    "f15c-0-1.png": "47b99007658d64ba3ba324ad59b762b79a4673d9dc112f7a6e3cc1e81807dbae",
+    "f15c-0-0.png": "5c22fe8133bc338a0a1de4b27a35971bb8681510e925a4d5c49506890fbffee9",
+    "gripen-2-1.png": "660751fc549abd5888f0424e1fb9a372897ec88e34c87368854a3041016bd144",
+    "f15c-2-0.png": "0ca183691c6395e4dc6a85e8df908e414e9fa07c7caa2bff3d91bbe30ed646a1",
+    "gripen-0-1.png": "889cb2ea52db764364b0df643126f54d6a25da9d17a34573d57a18af17749e8f",
+    "gripen-0-0.png": "895e0477f6868914d57ba79416f2caeb0538df5588d2205a90439f6e264e44a6",
+    "f15c-2-1.png": "1ff8577b0d7420adf96fa409a669bcd36fce2cb7d4dce3fad4a10969a29ea490",
+    "rafale-2-0.png": "d1ca4c2a047a0879449fe6f3bd11d3f2c3e598d818bbe7067b96d098471a10b7",
+    "su27-2-0.png": "7d4562a13603c885bea85c534a2c3b0e05128162da17dc847486ca993e0318dc",
+    "su27-2-1.png": "0c8b1388aced2a658794380248d36a72afdc5abb4ed686b45947dea60e83ca7d",
+    "rafale-2-1.png": "c90246618325195e9460c3252e11c1e4477fcdca7264c36268ad25a3c0c21a46",
+    "su27-0-1.png": "d8e57c95717cdb35b88b14fdbf0f281a1e856453dad6e8b84667e491606b5ccf",
+    "rafale-0-1.png": "5f1dc9a33461e0d772eea3241f4029c00e08c672c1f8ea81b27f22c3ef5e8a90",
+    "rafale-0-0.png": "74bdf504c4c5522e8f822c3364cd867a9998be68b8da1598679f0adb2f8b0e88",
+    "su27-0-0.png": "79bc7970ba4b087161e1932172cd9e848295116e94311d3bb9ddc205a4263797",
+    "gripen-1-1.png": "7405b80953c372e35d19aa4d4078b731987e7420b3f44f26aa99294e7cf9ea3a",
+    "gripen-1-0.png": "0d7d6f64cb2516f07559f28badc38d6c43093736328c242578635c179aeab599",
+    "f15c-1-1.png": "8381558ba377c7a14cc49971a38909466d059619f1bf01e344a1e59acbe67eb4",
+    "f15c-1-0.png": "c648539b93c07e9cd6f069735650c770734cdbb840981979c9673bb2466ec3a2"
+  },
+  "all_three_gear_states_differ_in_each_view": true,
+  "scope": "desktop renderer, deterministic flags and image captures; device/recognition/aircraft acceptance remains open",
+  "base_commit": "0a086f6ec13af26b146ebc124d4a0994e46b182b",
+  "code_sha256": {
+    "game/avia/client/aircraft.gd": "94ebc64b1ea943b22b8bfd7993d50521c5475ce565aabb8952d6b8d4844ee3fe",
+    "game/avia/client/fighter_visual.gd": "5f572173dcdbec44f3695d9fd9ef45c312e1d6f574b8c9ba5fb0c6e4db5436fd",
+    "game/avia/tests/aircraft_systems_check.gd": "8a7e7019dd6399f7415b508d6ce80141a8b61fa9572f3638ebbb75c2dff06994"
+  },
+  "visual_review": "Both contact sheets reviewed: three attached legs deployed, inward/aft movement, fully hidden endpoint. Stylized authored assembly; type-specific bays, doors and accurate strut geometry remain open."
+}

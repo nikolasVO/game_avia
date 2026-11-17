@@ -74,6 +74,7 @@
     "scene": "res://assets/su27_ai_candidate.glb",
     "offset_y_m": -0.5,
     "provenance": "assets/catalog/su27_candidate_20261117_v1/provenance.json",
-    "status": "candidate; variant recognition/articulation/phone/rights QA pending"
+    "status": "candidate; variant recognition/articulation/phone/rights QA pending",
+    "gear_retract_seconds": 1.25
   }
 }
