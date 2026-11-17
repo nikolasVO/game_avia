@@ -4,7 +4,18 @@ var camera_offset: Vector3=Vector3.ZERO
 var checkpoint_nodes: Array[MeshInstance3D]=[]
 var camera: Camera3D
 var camera_ready: bool=false
-var cockpit: bool=false
+signal camera_mode_changed
+enum CameraMode { CHASE, FORWARD, ORBIT, COCKPIT }
+var camera_mode: int=CameraMode.CHASE
+var cockpit: bool:
+ get:return camera_mode==CameraMode.COCKPIT
+var cockpit_shell: Node3D
+var look_pitch: float=0.0
+var camera_zoom: float=1.0
+var instrument_speed_unit: int=0
+var instrument_altitude_unit: int=0
+var instrument_throttle: float=0.0
+var language: String="en"
 var reduced_motion: bool=false
 var orbit: float=0.0
 func material(color: Color) -> StandardMaterial3D:
@@ -71,6 +82,7 @@ func _ready() -> void:
   torus.inner_radius=AviaRules.RADIUS-2;torus.outer_radius=AviaRules.RADIUS;torus.rings=24;torus.ring_segments=8
   ring.mesh=torus;ring.position=p;ring.rotation.x=PI/2;ring.material_override=material(Color("edc777"));add_child(ring);checkpoint_nodes.append(ring)
  camera=Camera3D.new();camera.near=0.5;camera.far=6500;camera.current=true;add_child(camera)
+ cockpit_shell=load("res://client/cockpit.gd").new();add_child(cockpit_shell)
  camera.position=Vector3(90,70,270);camera.look_at(Vector3(0,15,-200))
 func make_plane(index: int) -> Node3D:
  return AviaAircraft.build(index)
@@ -85,7 +97,7 @@ func update_plane(id: int, state: Dictionary) -> void:
 func update_session(session: Node, delta: float) -> void:
  if not session.joined or session.local_state.is_empty():
   for node: Node3D in planes.values():node.queue_free()
-  planes.clear();camera_ready=false
+  planes.clear();camera_ready=false;cockpit_shell.deactivate()
   for ring: MeshInstance3D in checkpoint_nodes:ring.visible=false
   return
  var mine: int=session.multiplayer.get_unique_id()
@@ -96,21 +108,41 @@ func update_session(session: Node, delta: float) -> void:
   update_plane(id,session.remote_state(id));active.append(id)
  for id: int in planes.keys():
   if not id in active:planes[id].queue_free();planes.erase(id)
- var s: Dictionary=visual_state
+ planes[mine].visible=not bool(visual_state.crashed) and camera_mode not in [CameraMode.FORWARD,CameraMode.COCKPIT]
+ instrument_throttle=float(session.controls.throttle)
+ update_camera(visual_state,delta)
+ for ring: MeshInstance3D in checkpoint_nodes:ring.visible=session.mode=="race"
+
+func set_camera_mode(value: int) -> void:
+ camera_mode=clampi(value,CameraMode.CHASE,CameraMode.COCKPIT)
+ camera_ready=false;orbit=0;look_pitch=0;camera_zoom=1
+ if cockpit_shell:cockpit_shell.deactivate()
+ camera_mode_changed.emit()
+func cycle_camera() -> void:set_camera_mode((camera_mode+1)%4)
+func camera_caption(lang: String) -> String:
+ return (["Chase","Forward","Orbit","Cockpit"] if lang=="en" else ["Сзади","Вперёд","Обзор","Кабина"])[camera_mode]
+func update_camera(s: Dictionary,delta: float) -> void:
  var basis: Basis=Basis.from_euler(Vector3(0,s.yaw+orbit,0))
  var chase: float=maxf(22.0,float(AviaFlight.PLANES[int(s.plane)].geometry.length_m)*1.6)
  var destination: Vector3=s.p+basis*Vector3(0,chase*.27,chase)
  var target: Vector3=s.p+Vector3.UP*1.8
- if cockpit:
-  destination=s.p+Vector3.UP*2-Basis.from_euler(Vector3(s.pitch,s.yaw,s.roll)).z*2
-  target=destination-Basis.from_euler(Vector3(s.pitch,s.yaw,s.roll)).z*200
+ var internal: bool=camera_mode in [CameraMode.FORWARD,CameraMode.COCKPIT]
+ var aircraft_basis: Basis=Basis.from_euler(Vector3(s.pitch,s.yaw,s.roll))
+ if camera_mode==CameraMode.ORBIT:
+  destination=s.p+Basis.from_euler(Vector3(-.27-look_pitch,s.yaw+orbit,0))*Vector3(0,0,chase*camera_zoom)
+ if internal:destination=s.p+aircraft_basis*Vector3(0,1.6,-float(AviaFlight.PLANES[int(s.plane)].geometry.length_m)*.15)
  if not camera_ready:camera_offset=destination-s.p;camera_ready=true
  # Smooth the relative chase vector; world-position lag grew with jet speed and hid the aircraft.
- camera_offset=camera_offset.lerp(destination-s.p,1.0 if cockpit else 1.0-exp(-delta*(8.0 if reduced_motion else 4.0)))
+ camera_offset=camera_offset.lerp(destination-s.p,1.0 if internal else 1.0-exp(-delta*(8.0 if reduced_motion else 4.0)))
  camera.position=s.p+camera_offset
- if camera.position.distance_to(target)>0.01:camera.look_at(target)
+ if internal:camera.basis=aircraft_basis*Basis.from_euler(Vector3(look_pitch,orbit,0))
+ elif camera.position.distance_to(target)>0.01:camera.look_at(target)
+ camera.near=.08 if internal else .5
+ if cockpit and not bool(s.crashed):
+  cockpit_shell.transform=Transform3D(aircraft_basis,destination)
+  cockpit_shell.show();cockpit_shell.update_instruments(s,delta,instrument_speed_unit,instrument_altitude_unit,language,instrument_throttle)
+ else:cockpit_shell.deactivate()
  camera.fov=70.0 if reduced_motion else lerpf(camera.fov,70.0+minf(s.v.length()*0.06,7.0),delta*2)
- for ring: MeshInstance3D in checkpoint_nodes:ring.visible=session.mode=="race"
 
 func prepare_aircraft(index: int) -> void:
  # Compile/upload the selected model's material variants before admission deadlines.

@@ -87,7 +87,11 @@ func _physics_process(_delta: float) -> void:
 func _process(delta: float) -> void:
  elapsed+=delta
  if world:
-  if ui:world.orbit=lerp_angle(world.orbit,ui.touch.look_yaw,delta*6)
+  if ui:
+   ui.touch.persistent_look=world.camera_mode==world.CameraMode.ORBIT
+   world.orbit=lerp_angle(world.orbit,ui.touch.look_yaw,minf(1,delta*6))
+   world.look_pitch=lerpf(world.look_pitch,ui.touch.look_pitch,minf(1,delta*6))
+   world.camera_zoom=ui.touch.look_zoom
   world.update_session(session,delta)
  if options.has("capture") and not headless and elapsed>8 and not captured:
   captured=true

@@ -34,11 +34,11 @@ var top_buttons: Array[Button]=[]
 var radar: Control
 const TEXT: Dictionary={
  "en":{"title":"TIDAL WINGS","subtitle":"GAME AVIA  ·  NATIVE FLIGHT PROTOTYPE","play":"Join flight","plane":"Aircraft","mode":"Mode","host":"Server address","private":"Private room","code":"Friend code · 4–12 uppercase letters/digits","help":"Shift / Ctrl: throttle  ·  W/S: pitch  ·  A/D: bank
-Q/E: rudder  ·  Space: brake  ·  R: recover  ·  F: fire
+Q/E: rudder  ·  Space: brake  ·  R: recover  ·  F: fire  ·  C: camera
 Touch: left stick, right throttle, upper brake (fire in combat). Lift off above 90 km/h.
 Land gently on either runway. Gold rings mark the race. Free flight is peaceful.","left":"Left handed","invert":"Invert pitch","assist":"Beginner help","motion":"Reduce camera motion","sound":"Sound","back":"Menu","camera":"Camera","recover":"Recover","brake":"Brake"},
  "ru":{"title":"ПРИЛИВНЫЕ КРЫЛЬЯ","subtitle":"GAME AVIA  ·  ПРОТОТИП НАТИВНОЙ ИГРЫ","play":"Начать полёт","plane":"Самолёт","mode":"Режим","host":"Адрес сервера","private":"Приватная комната","code":"Код друзей · 4–12 заглавных букв/цифр","help":"Shift / Ctrl: тяга  ·  W/S: тангаж  ·  A/D: крен
-Q/E: руль  ·  Пробел: тормоз  ·  R: восстановить  ·  F: огонь
+Q/E: руль  ·  Пробел: тормоз  ·  R: восстановить  ·  F: огонь  ·  C: камера
 Касания: слева джойстик, справа тяга, выше тормоз (огонь в бою). Взлёт от 90 км/ч.
 Садитесь плавно на полосу. Золотые кольца — гонка. Свободный полёт мирный.","left":"Для левшей","invert":"Инверсия тангажа","assist":"Помощь новичку","motion":"Меньше движения камеры","sound":"Звук","back":"Меню","camera":"Камера","recover":"Восстановить","brake":"Тормоз"}}
 func tr_text(key: String) -> String:return str(TEXT[language].get(key,key))
@@ -67,9 +67,11 @@ func _ready() -> void:
   var b: Button=Button.new();b.text=tr_text(action);labels[action]=b;top.add_child(b);top_buttons.append(b)
   match action:
    "back":b.pressed.connect(show_menu)
-   "camera":b.pressed.connect(func():world.cockpit=not world.cockpit)
+   "camera":b.pressed.connect(world.cycle_camera)
    "recover":b.pressed.connect(func():touch.respawn=true)
  var brake_button: Button=Button.new();brake_button.text=tr_text("brake");labels.brake=brake_button;top.add_child(brake_button);top_buttons.append(brake_button)
+ world.camera_mode_changed.connect(_camera_changed)
+ world.set_camera_mode(clampi(int(settings.get_value("ui","camera_mode",0)),0,3))
  brake_button.button_down.connect(func():touch.brake=true);brake_button.button_up.connect(func():touch.brake=false)
  notice=Label.new();notice.add_theme_font_size_override("font_size",19);layout.add_child(notice)
  menu=PanelContainer.new();menu.set_anchors_and_offsets_preset(Control.PRESET_TOP_LEFT);menu.position=Vector2(160,40);menu.size=Vector2(960,640);root.add_child(menu)
@@ -159,9 +161,19 @@ func _option(key: String,value: bool) -> void:
  settings.set_value("controls",key,value);settings.save("user://settings.cfg")
 func _translate() -> void:
  for key: String in labels:labels[key].text=tr_text(key)
+ _camera_label()
  if hangar:hangar.lang=language;hangar.localize()
  code.placeholder_text=tr_text("code");host.placeholder_text=tr_text("host")
  _update_help()
+func _camera_label() -> void:
+ labels.camera.text=tr_text("camera")+": "+world.camera_caption(language)
+ labels.camera.tooltip_text="C · Chase / Forward / Orbit / Cockpit. Drag centre or right mouse to look; orbit holds on release." if language=="en" else "C · Сзади / Вперёд / Обзор / Кабина. Ведите по центру или правой мышью; обзор сохраняется после отпускания."
+func _camera_changed() -> void:
+ touch.reset_look();touch.persistent_look=world.camera_mode==world.CameraMode.ORBIT
+ settings.set_value("ui","camera_mode",world.camera_mode);settings.save("user://settings.cfg");_camera_label()
+func _unhandled_key_input(event: InputEvent) -> void:
+ if session.joined and not menu.visible and event is InputEventKey and event.pressed and not event.echo and event.physical_keycode==KEY_C:
+  world.cycle_camera();get_viewport().set_input_as_handled()
 func _update_help() -> void:
  var rotation: int=int(AviaFlight.PLANES[select_plane.selected].flight.takeoff_speed_kmh)
  var english: String="Rotate near %d km/h." % rotation
@@ -218,6 +230,7 @@ func show_menu() -> void:
  join_generation+=1;preparing=false
  session.disconnect_session();touch.clear_pointers();touch.throttle=0;touch.hide();menu.show()
 func _process(delta: float) -> void:
+ world.instrument_speed_unit=speed_unit;world.instrument_altitude_unit=altitude_unit;world.language=language
  var now: int=Time.get_ticks_usec()
  if last_frame_us>0:
   var interval: float=float(now-last_frame_us)/1000.0

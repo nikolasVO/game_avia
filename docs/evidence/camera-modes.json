@@ -1,0 +1,585 @@
+{
+  "status": "PASS",
+  "scope": "desktop local camera implementation and functional tests; no physical mobile/public multiplayer/aircraft acceptance",
+  "base_commit": "26387c6b12dd2ca4dda1da322c41d88c02b305ee",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "camera_modes": [
+    "chase",
+    "forward",
+    "orbit",
+    "cockpit"
+  ],
+  "changes": [
+    "Internal views hide only own aircraft, follow pitch/bank; remote visual unchanged.",
+    "Orbit touch/right-mouse yaw/pitch persists after release, bounded zoom; focus loss and mode change reset pointers.",
+    "C and localized camera button cycle views; preference saved.",
+    "Authored generic cabin has five meshes/50triangles and640x160 instrument target refreshed at most10Hz while visible.",
+    "Instrument speed/altitude/heading/attitude/throttle/systems use state and chosen units/EN-RU locale."
+  ],
+  "rendered_views": 16,
+  "camera_suite": {
+    "checks": [
+      {
+        "check": "local-only visibility and near plane kite/0",
+        "ok": true
+      },
+      {
+        "check": "finite orthonormal camera 0/0",
+        "ok": true
+      },
+      {
+        "check": "local-only visibility and near plane kite/1",
+        "ok": true
+      },
+      {
+        "check": "finite orthonormal camera 0/1",
+        "ok": true
+      },
+      {
+        "check": "internal view follows pitch and bank 0/1",
+        "ok": true
+      },
+      {
+        "check": "local-only visibility and near plane kite/2",
+        "ok": true
+      },
+      {
+        "check": "finite orthonormal camera 0/2",
+        "ok": true
+      },
+      {
+        "check": "local-only visibility and near plane kite/3",
+        "ok": true
+      },
+      {
+        "check": "finite orthonormal camera 0/3",
+        "ok": true
+      },
+      {
+        "check": "internal view follows pitch and bank 0/3",
+        "ok": true
+      },
+      {
+        "check": "local-only visibility and near plane tern/0",
+        "ok": true
+      },
+      {
+        "check": "finite orthonormal camera 1/0",
+        "ok": true
+      },
+      {
+        "check": "local-only visibility and near plane tern/1",
+        "ok": true
+      },
+      {
+        "check": "finite orthonormal camera 1/1",
+        "ok": true
+      },
+      {
+        "check": "internal view follows pitch and bank 1/1",
+        "ok": true
+      },
+      {
+        "check": "local-only visibility and near plane tern/2",
+        "ok": true
+      },
+      {
+        "check": "finite orthonormal camera 1/2",
+        "ok": true
+      },
+      {
+        "check": "local-only visibility and near plane tern/3",
+        "ok": true
+      },
+      {
+        "check": "finite orthonormal camera 1/3",
+        "ok": true
+      },
+      {
+        "check": "internal view follows pitch and bank 1/3",
+        "ok": true
+      },
+      {
+        "check": "local-only visibility and near plane swift/0",
+        "ok": true
+      },
+      {
+        "check": "finite orthonormal camera 2/0",
+        "ok": true
+      },
+      {
+        "check": "local-only visibility and near plane swift/1",
+        "ok": true
+      },
+      {
+        "check": "finite orthonormal camera 2/1",
+        "ok": true
+      },
+      {
+        "check": "internal view follows pitch and bank 2/1",
+        "ok": true
+      },
+      {
+        "check": "local-only visibility and near plane swift/2",
+        "ok": true
+      },
+      {
+        "check": "finite orthonormal camera 2/2",
+        "ok": true
+      },
+      {
+        "check": "local-only visibility and near plane swift/3",
+        "ok": true
+      },
+      {
+        "check": "finite orthonormal camera 2/3",
+        "ok": true
+      },
+      {
+        "check": "internal view follows pitch and bank 2/3",
+        "ok": true
+      },
+      {
+        "check": "local-only visibility and near plane f16c/0",
+        "ok": true
+      },
+      {
+        "check": "finite orthonormal camera 3/0",
+        "ok": true
+      },
+      {
+        "check": "local-only visibility and near plane f16c/1",
+        "ok": true
+      },
+      {
+        "check": "finite orthonormal camera 3/1",
+        "ok": true
+      },
+      {
+        "check": "internal view follows pitch and bank 3/1",
+        "ok": true
+      },
+      {
+        "check": "local-only visibility and near plane f16c/2",
+        "ok": true
+      },
+      {
+        "check": "finite orthonormal camera 3/2",
+        "ok": true
+      },
+      {
+        "check": "local-only visibility and near plane f16c/3",
+        "ok": true
+      },
+      {
+        "check": "finite orthonormal camera 3/3",
+        "ok": true
+      },
+      {
+        "check": "internal view follows pitch and bank 3/3",
+        "ok": true
+      },
+      {
+        "check": "local-only visibility and near plane su27/0",
+        "ok": true
+      },
+      {
+        "check": "finite orthonormal camera 4/0",
+        "ok": true
+      },
+      {
+        "check": "local-only visibility and near plane su27/1",
+        "ok": true
+      },
+      {
+        "check": "finite orthonormal camera 4/1",
+        "ok": true
+      },
+      {
+        "check": "internal view follows pitch and bank 4/1",
+        "ok": true
+      },
+      {
+        "check": "local-only visibility and near plane su27/2",
+        "ok": true
+      },
+      {
+        "check": "finite orthonormal camera 4/2",
+        "ok": true
+      },
+      {
+        "check": "local-only visibility and near plane su27/3",
+        "ok": true
+      },
+      {
+        "check": "finite orthonormal camera 4/3",
+        "ok": true
+      },
+      {
+        "check": "internal view follows pitch and bank 4/3",
+        "ok": true
+      },
+      {
+        "check": "local-only visibility and near plane f15c/0",
+        "ok": true
+      },
+      {
+        "check": "finite orthonormal camera 5/0",
+        "ok": true
+      },
+      {
+        "check": "local-only visibility and near plane f15c/1",
+        "ok": true
+      },
+      {
+        "check": "finite orthonormal camera 5/1",
+        "ok": true
+      },
+      {
+        "check": "internal view follows pitch and bank 5/1",
+        "ok": true
+      },
+      {
+        "check": "local-only visibility and near plane f15c/2",
+        "ok": true
+      },
+      {
+        "check": "finite orthonormal camera 5/2",
+        "ok": true
+      },
+      {
+        "check": "local-only visibility and near plane f15c/3",
+        "ok": true
+      },
+      {
+        "check": "finite orthonormal camera 5/3",
+        "ok": true
+      },
+      {
+        "check": "internal view follows pitch and bank 5/3",
+        "ok": true
+      },
+      {
+        "check": "local-only visibility and near plane su35s/0",
+        "ok": true
+      },
+      {
+        "check": "finite orthonormal camera 6/0",
+        "ok": true
+      },
+      {
+        "check": "local-only visibility and near plane su35s/1",
+        "ok": true
+      },
+      {
+        "check": "finite orthonormal camera 6/1",
+        "ok": true
+      },
+      {
+        "check": "internal view follows pitch and bank 6/1",
+        "ok": true
+      },
+      {
+        "check": "local-only visibility and near plane su35s/2",
+        "ok": true
+      },
+      {
+        "check": "finite orthonormal camera 6/2",
+        "ok": true
+      },
+      {
+        "check": "local-only visibility and near plane su35s/3",
+        "ok": true
+      },
+      {
+        "check": "finite orthonormal camera 6/3",
+        "ok": true
+      },
+      {
+        "check": "internal view follows pitch and bank 6/3",
+        "ok": true
+      },
+      {
+        "check": "local-only visibility and near plane rafale/0",
+        "ok": true
+      },
+      {
+        "check": "finite orthonormal camera 7/0",
+        "ok": true
+      },
+      {
+        "check": "local-only visibility and near plane rafale/1",
+        "ok": true
+      },
+      {
+        "check": "finite orthonormal camera 7/1",
+        "ok": true
+      },
+      {
+        "check": "internal view follows pitch and bank 7/1",
+        "ok": true
+      },
+      {
+        "check": "local-only visibility and near plane rafale/2",
+        "ok": true
+      },
+      {
+        "check": "finite orthonormal camera 7/2",
+        "ok": true
+      },
+      {
+        "check": "local-only visibility and near plane rafale/3",
+        "ok": true
+      },
+      {
+        "check": "finite orthonormal camera 7/3",
+        "ok": true
+      },
+      {
+        "check": "internal view follows pitch and bank 7/3",
+        "ok": true
+      },
+      {
+        "check": "local-only visibility and near plane gripen/0",
+        "ok": true
+      },
+      {
+        "check": "finite orthonormal camera 8/0",
+        "ok": true
+      },
+      {
+        "check": "local-only visibility and near plane gripen/1",
+        "ok": true
+      },
+      {
+        "check": "finite orthonormal camera 8/1",
+        "ok": true
+      },
+      {
+        "check": "internal view follows pitch and bank 8/1",
+        "ok": true
+      },
+      {
+        "check": "local-only visibility and near plane gripen/2",
+        "ok": true
+      },
+      {
+        "check": "finite orthonormal camera 8/2",
+        "ok": true
+      },
+      {
+        "check": "local-only visibility and near plane gripen/3",
+        "ok": true
+      },
+      {
+        "check": "finite orthonormal camera 8/3",
+        "ok": true
+      },
+      {
+        "check": "internal view follows pitch and bank 8/3",
+        "ok": true
+      },
+      {
+        "check": "orbit changes perspective without changing simulation",
+        "ok": true
+      },
+      {
+        "check": "cockpit instruments receive units, locale and actual command throttle",
+        "ok": true
+      },
+      {
+        "check": "bounded five-mesh generic cabin and small instrument target",
+        "ok": true
+      },
+      {
+        "check": "actual camera button cycles all four views and updates caption",
+        "ok": true
+      },
+      {
+        "check": "camera preference persists in isolated settings",
+        "ok": true
+      },
+      {
+        "check": "camera mode caption translates to Russian",
+        "ok": true
+      },
+      {
+        "check": "free look drag persists and never steers aircraft",
+        "ok": true
+      },
+      {
+        "check": "chase/internal look returns after release",
+        "ok": true
+      },
+      {
+        "check": "focus loss clears camera pointers and controls",
+        "ok": true
+      },
+      {
+        "check": "right mouse orbit and zoom use same bounded look controls",
+        "ok": true
+      },
+      {
+        "check": "mode change clears retained orbit and zoom",
+        "ok": true
+      },
+      {
+        "check": "C keyboard shortcut cycles camera during flight",
+        "ok": true
+      },
+      {
+        "check": "disconnect stops cockpit texture updates and clears visuals",
+        "ok": true
+      },
+      {
+        "check": "render capture 0/0",
+        "ok": true
+      },
+      {
+        "check": "render capture 0/1",
+        "ok": true
+      },
+      {
+        "check": "render capture 0/2",
+        "ok": true
+      },
+      {
+        "check": "render capture 0/3",
+        "ok": true
+      },
+      {
+        "check": "render capture 3/0",
+        "ok": true
+      },
+      {
+        "check": "render capture 3/1",
+        "ok": true
+      },
+      {
+        "check": "render capture 3/2",
+        "ok": true
+      },
+      {
+        "check": "render capture 3/3",
+        "ok": true
+      },
+      {
+        "check": "render capture 6/0",
+        "ok": true
+      },
+      {
+        "check": "render capture 6/1",
+        "ok": true
+      },
+      {
+        "check": "render capture 6/2",
+        "ok": true
+      },
+      {
+        "check": "render capture 6/3",
+        "ok": true
+      },
+      {
+        "check": "camera test real ENet/DTLS admission",
+        "ok": true
+      },
+      {
+        "check": "camera 0 receives authoritative local/remote snapshots",
+        "ok": true
+      },
+      {
+        "check": "camera 0 hides only own network visual",
+        "ok": true
+      },
+      {
+        "check": "camera 0 actions remain inside viewport",
+        "ok": true
+      },
+      {
+        "check": "camera 1 receives authoritative local/remote snapshots",
+        "ok": true
+      },
+      {
+        "check": "camera 1 hides only own network visual",
+        "ok": true
+      },
+      {
+        "check": "camera 1 actions remain inside viewport",
+        "ok": true
+      },
+      {
+        "check": "camera 2 receives authoritative local/remote snapshots",
+        "ok": true
+      },
+      {
+        "check": "camera 2 hides only own network visual",
+        "ok": true
+      },
+      {
+        "check": "camera 2 actions remain inside viewport",
+        "ok": true
+      },
+      {
+        "check": "camera 3 receives authoritative local/remote snapshots",
+        "ok": true
+      },
+      {
+        "check": "camera 3 hides only own network visual",
+        "ok": true
+      },
+      {
+        "check": "camera 3 actions remain inside viewport",
+        "ok": true
+      },
+      {
+        "check": "real network menu disconnect clears cabin and planes",
+        "ok": true
+      }
+    ],
+    "event": "camera_summary",
+    "network": {
+      "commands": 274,
+      "joined": true,
+      "seen_peers": 2,
+      "snapshots": 135,
+      "tested": true
+    },
+    "rendered_views": 12,
+    "scope": "actual desktop Godot render/UI with synthetic states and optional actual two-client ENet/DTLS; no phone/human/public-network acceptance",
+    "status": "PASS"
+  },
+  "regressions": [
+    {
+      "script": "flight_check",
+      "exit": 0,
+      "ok": true
+    },
+    {
+      "script": "fighter_check",
+      "exit": 0,
+      "ok": true
+    },
+    {
+      "script": "fighter_circuit_check",
+      "exit": 0,
+      "ok": true
+    },
+    {
+      "script": "planned_circuit_check",
+      "exit": 0,
+      "ok": true
+    }
+  ],
+  "ui_preferences_checks": 7,
+  "hangar_checks": 37,
+  "pytest": "test_build_validation.py + test_mobile_archive_guards.py; see measured count before publication",
+  "acceptance_open": [
+    "physical Android/iPhone controls,FPS,memory,heat",
+    "external two-client UDP",
+    "type-specific cockpit model/recognition and full aircraft acceptance"
+  ],
+  "artifacts": {
+    "camera-four-views.png": "9ab0937a820eb33b1259aab313cfc709bc4a9e290eb42029354cdff1004aa87e",
+    "camera-network.png": "03c7c1e57740f06687add011eb1c569bd0fc903a40412bd8df7384c258367280"
+  }
+}
