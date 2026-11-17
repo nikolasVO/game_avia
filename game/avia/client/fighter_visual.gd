@@ -85,7 +85,7 @@ static func create_spec(spec: Dictionary, use_imported: bool=false) -> AviaAircr
   # Explicitly labelled authored repair: the AI candidate lacks clear engine exits.
   for side: float in ([-1.0,1.0] if twin else [0.0]):
    var nozzle: Node3D=Node3D.new();nozzle.name="RepairedNozzle"+str(side)
-   nozzle.position=Vector3(side*float(g.get("engine_spacing_m",length*.11))*.5,-.15,length*.44);root.add_child(nozzle)
+   nozzle.position=Vector3(side*float(g.get("engine_spacing_m",length*.11))*.5,float(g.get("nozzle_center_y_m",-.15)),length*.44);root.add_child(nozzle)
    var tube: SurfaceTool=SurfaceTool.new();tube.begin(Mesh.PRIMITIVE_TRIANGLES)
    for segment: int in 8:
     var a: float=TAU*segment/8.0;var b: float=TAU*(segment+1)/8.0
@@ -128,7 +128,7 @@ static func create_spec(spec: Dictionary, use_imported: bool=false) -> AviaAircr
  for side: float in ([-1.0,1.0] if twin else [0.0]):
   # Reuse the airframe's vertex-lit material path; no additional unshaded variant.
   var flame: SurfaceTool=SurfaceTool.new();flame.begin(Mesh.PRIMITIVE_TRIANGLES)
-  AviaAircraft._loft(flame,[Vector3(length*.46,.27,.27),Vector3(length*.46+1.9,.04,.04)],-.1,Color("f7b564"),6)
+  AviaAircraft._loft(flame,[Vector3(length*.46,.27,.27),Vector3(length*.46+1.9,.04,.04)],float(g.get("nozzle_center_y_m",-.1)),Color("f7b564"),6)
   var exhaust: MeshInstance3D=AviaAircraft._mesh(flame,root.exhaust,"Flame"+str(side),0,800)
   exhaust.position.x=side*float(g.get("engine_spacing_m",length*.11))*.5
  root.exhaust.hide()

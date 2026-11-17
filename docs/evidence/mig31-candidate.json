@@ -1,0 +1,85 @@
+{
+  "status": "PASS",
+  "scope": "planned candidate actual geometry/render/gear/effects only; not aircraft acceptance",
+  "candidate": "assets/catalog/mig31_candidate_20261118_v1",
+  "source_commit": "42494f77b785bf331082ea601c1db58b0433dd66",
+  "inference_seconds": 259.6799980729993,
+  "inference_rerun": false,
+  "assembly_checks": 44,
+  "assembly_views": 15,
+  "body_views": 12,
+  "body_triangles": [
+    19266,
+    5968,
+    1468
+  ],
+  "assembly_budgets": [
+    {
+      "distance_m": 100,
+      "limit": 20000,
+      "triangles": 19474
+    },
+    {
+      "distance_m": 400,
+      "limit": 7000,
+      "triangles": 6176
+    },
+    {
+      "distance_m": 600,
+      "limit": 7000,
+      "triangles": 6104
+    },
+    {
+      "distance_m": 950,
+      "limit": 2000,
+      "triangles": 1468
+    }
+  ],
+  "validation_sha256": "fa04a62ba4a07160684025fc74b1ec814b9319f86fb5845c53ce6a8319bfae0c",
+  "regressions": [
+    {
+      "script": "flight_check",
+      "ok": true,
+      "exit_code": 0
+    },
+    {
+      "script": "fighter_check",
+      "ok": true,
+      "exit_code": 0
+    },
+    {
+      "script": "fighter_geometry_check",
+      "ok": true,
+      "exit_code": 0
+    },
+    {
+      "script": "fighter_circuit_check",
+      "ok": true,
+      "exit_code": 0
+    },
+    {
+      "script": "interceptor_flight_check",
+      "ok": true,
+      "exit_code": 0
+    },
+    {
+      "script": "interceptor_candidate_check",
+      "ok": true,
+      "exit_code": 0
+    },
+    {
+      "script": "airbrake_check",
+      "ok": true,
+      "exit_code": 0
+    },
+    {
+      "script": "flap_check",
+      "ok": true,
+      "exit_code": 0
+    }
+  ],
+  "final_budget_checks": 78,
+  "pytest_tests": 17,
+  "production_accepted": false,
+  "playable": false
+}

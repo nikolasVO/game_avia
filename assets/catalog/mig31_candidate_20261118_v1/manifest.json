@@ -1,0 +1,388 @@
+{
+  "source_kind": "TRELLIS.2_image_to_3D",
+  "blender_version": "5.2.4 LTS",
+  "triangles_lod0": 19266,
+  "materials_lod0": 1,
+  "lods": [
+    {
+      "name": "LOD1",
+      "triangles": 5968,
+      "far_repair": null,
+      "dimensions_blender": [
+        13.50647258758545,
+        22.70476722717285,
+        4.895804405212402
+      ]
+    },
+    {
+      "name": "LOD2",
+      "triangles": 1468,
+      "far_repair": {
+        "method": "voxel topology repair then decimation",
+        "attempts": [
+          {
+            "voxel_size_m": 0.04540000110864639,
+            "triangles": 1468,
+            "dimensions_blender": [
+              13.488582611083984,
+              22.68838119506836,
+              4.891027927398682
+            ]
+          }
+        ],
+        "voxel_size_m": 0.04540000110864639,
+        "material": "plain sampled albedo; no far texture/UV required",
+        "rgba": [
+          0.5037847955299671,
+          0.5056087810748308,
+          0.5073415671092595,
+          1
+        ]
+      },
+      "dimensions_blender": [
+        13.488582611083984,
+        22.68838119506836,
+        4.891027927398682
+      ]
+    }
+  ],
+  "collision": "box metadata only; engine binding required",
+  "geometry": {
+    "uv_layers": 1,
+    "degenerate_triangles": 0,
+    "finite_vertices_and_normals": true,
+    "texture_sizes": [
+      [
+        1024,
+        1024
+      ],
+      [
+        1024,
+        1024
+      ]
+    ],
+    "symmetry": {
+      "mirror_axis": "Blender X",
+      "mean_distance_m": 7.019434436403566e-10,
+      "max_distance_m": 9.555351425660774e-07,
+      "mean_fraction_width": 5.1995810640026417e-11
+    }
+  },
+  "generator_script_sha256": "43f383b37d422eb76aa0395dce9e3cd41fb3fc3a18e8fa36dcd9c3d25d1b437a",
+  "dimensions_m": [
+    13.5,
+    4.900000095367432,
+    22.700000762939453
+  ],
+  "pivot": "bottom_center",
+  "source_yaw_degrees": 180.0,
+  "symmetry_enforced_x": true,
+  "export_axes": "glTF Y-up",
+  "unity_import_tested": false,
+  "license": "TRELLIS.2 MIT; DINOv3 custom license; BiRefNet MIT; reference terms apply; see provenance",
+  "checks": {
+    "triangle_budget": true,
+    "material_budget": true,
+    "finite_bounds": true,
+    "finite_geometry": true,
+    "no_degenerate_triangles": true,
+    "uv_present": true,
+    "texture_budget": true,
+    "lod_budgets": true,
+    "lod_silhouette_bounds": true,
+    "exact_mirror_symmetry": true
+  },
+  "files": {
+    "blender-manifest.json": {
+      "sha256": "9980c68a77915165e0fa2f3b3fd609b145adfdd64963f43ac9d42aa57ca16b27",
+      "bytes": 3052
+    },
+    "geometry-manifest.json": {
+      "sha256": "12ff825f9cabab017c6490160e32a9af71297836a97c3312c82011b9da7d92b5",
+      "bytes": 3787
+    },
+    "godot-front.png": {
+      "sha256": "cae990159a3dfab87a25684b5d82dd6d7b9b3dc355222725f75d3dd50ae62487",
+      "bytes": 14290
+    },
+    "godot-lod1-front.png": {
+      "sha256": "468ff911883c2663e4db5a5c1538d26c9361752a60c9bb44905ee6fe5ac7d875",
+      "bytes": 15081
+    },
+    "godot-lod1-orbit.png": {
+      "sha256": "b0a82e7ec38f8b2656fd518f56f87cc01c60ab657a6dfe6f0592d36a8870979d",
+      "bytes": 27612
+    },
+    "godot-lod1-side.png": {
+      "sha256": "0442835cb31958b24e2fecf68b4d84f1c62916d34717ba6bde3ca183bc7e2ecd",
+      "bytes": 10174
+    },
+    "godot-lod1-top.png": {
+      "sha256": "e60cfc2b7649551ba23a1462e3b0a2979fdc55e0e44fe4e36cf775686e32531d",
+      "bytes": 54754
+    },
+    "godot-lod2-front.png": {
+      "sha256": "f30a75571923c675e49dd40b4bdabf424aabe2df14460e62c0312a179caa502e",
+      "bytes": 8736
+    },
+    "godot-lod2-orbit.png": {
+      "sha256": "96b3fad5a22dac6e217eca87ba2aaa4561879bfce7d5f20a668cdc7fe361577f",
+      "bytes": 15232
+    },
+    "godot-lod2-side.png": {
+      "sha256": "29280677dca28860df5434289f567abde2e4e7cf015d268e857dbc633408ec39",
+      "bytes": 7824
+    },
+    "godot-lod2-top.png": {
+      "sha256": "77106896eb96a90d804875e393508c77fe81403eef736071bce45bdee1f996b2",
+      "bytes": 15953
+    },
+    "godot-preview.png": {
+      "sha256": "c548ef2d3e16889a5ce0e6959c54841cee57f58b3819c6785c9fed70cd30bb45",
+      "bytes": 27402
+    },
+    "godot-side.png": {
+      "sha256": "be380cdfc778d131a4683a8acbbd02fd5a5c35703dd0c73082bb43f8e863f4bf",
+      "bytes": 10389
+    },
+    "godot-top.png": {
+      "sha256": "408637933e79591086d96b137d73cdbdfd7f1b6e469adfa05a774398c7afc648",
+      "bytes": 57455
+    },
+    "godot-validation.json": {
+      "sha256": "3f85e77b1a134dbacf9f5fc7effd459ede456c72fe36985f94be91fa3c700bab",
+      "bytes": 2127
+    },
+    "inference-evidence.json": {
+      "sha256": "9972e79306e3cc4f30332e30e4ef6b4200ca3f94da6889edb15892f0dac08bd1",
+      "bytes": 281
+    },
+    "interceptor-candidate-validation.json": {
+      "sha256": "fa04a62ba4a07160684025fc74b1ec814b9319f86fb5845c53ce6a8319bfae0c",
+      "bytes": 5439
+    },
+    "interceptor-lod0-front.png": {
+      "sha256": "0e5851d080079600b0d3c9bdf142c76d9cab8df98539dd9c97ba66118f62d9e3",
+      "bytes": 16541
+    },
+    "interceptor-lod0-orbit.png": {
+      "sha256": "ed2fe98910ac2f92dc4cb6ff25c78995636ece4d167d179507270f0a93a265be",
+      "bytes": 39572
+    },
+    "interceptor-lod0-rear.png": {
+      "sha256": "85dfbad3bf5d69d3e348c408c4a49d3c2ac839b1989371569c52875253307331",
+      "bytes": 17969
+    },
+    "interceptor-lod0-side.png": {
+      "sha256": "0fc8ad3c7aaab41e4936fed3117541abfd452ce8c5c79aee49109f679bab4a45",
+      "bytes": 20275
+    },
+    "interceptor-lod0-top.png": {
+      "sha256": "5d129d496845513e218ae8d788701c0a3df4ecdd5930a976df7a2cf22db14425",
+      "bytes": 62864
+    },
+    "interceptor-lod1-front.png": {
+      "sha256": "da7438b44a4785676acd2018f43af286e5bec14e80a5e63d8f770bc7520acdb6",
+      "bytes": 17334
+    },
+    "interceptor-lod1-orbit.png": {
+      "sha256": "cae060c951f2c4a7ae7a8f039c5f1bec78e4a17b6bc58335f41ed59e060eb35e",
+      "bytes": 38856
+    },
+    "interceptor-lod1-rear.png": {
+      "sha256": "d1493536012f7e7d2a3a731ad0dfe531a3c42e95380061341379a581cbb2317b",
+      "bytes": 17492
+    },
+    "interceptor-lod1-side.png": {
+      "sha256": "af226230bb763d766b53abd81e5f381dd67c3905297f6261be86ff0ada6fa17f",
+      "bytes": 20919
+    },
+    "interceptor-lod1-top.png": {
+      "sha256": "79152cacb565627179294e9e01d587824693ee82fa2b9da45906a2142ad48d15",
+      "bytes": 62305
+    },
+    "interceptor-lod2-front.png": {
+      "sha256": "55ef9a38e858d02c3b9631d8dcba49c7d2f3453f56556b208bd0a37a72d42401",
+      "bytes": 8453
+    },
+    "interceptor-lod2-orbit.png": {
+      "sha256": "53b35f6984dfedc3c60c08683d84a872f3591c59ce078ff0c80ec8f4aa6f96b6",
+      "bytes": 15986
+    },
+    "interceptor-lod2-rear.png": {
+      "sha256": "7e6a2c028ceed7302bc02678f91471e2076d4072b6ad6e9dbc275c27a133de87",
+      "bytes": 9891
+    },
+    "interceptor-lod2-side.png": {
+      "sha256": "59c48241b8901e22b3110ef523d32f610a2d61550ba082c58b235f06f2ecc0b7",
+      "bytes": 8020
+    },
+    "interceptor-lod2-top.png": {
+      "sha256": "c0cd432dd913c453a4df579bdb01a6e4316c6151995624464eec7ee9a3b0fbfd",
+      "bytes": 20365
+    },
+    "lod0.glb": {
+      "sha256": "d3bb1e6d7e3c4ce044d90ecce95807c4e5ebeb64e3df326c6c1b1a90f7761c50",
+      "bytes": 2124480
+    },
+    "lod1.glb": {
+      "sha256": "0e832ca996e68b42402a2407301fe2a855c06147013d10c773c5275a4ba027af",
+      "bytes": 1702556
+    },
+    "lod2.glb": {
+      "sha256": "24acf3fc71fe8df9ea91bd4fac9fe96e36d150a145438220832f409fdb05f3d0",
+      "bytes": 115596
+    },
+    "optimized.glb": {
+      "sha256": "45e965b427c66d8f3bad60dfa599817ccc7c3ae8279234bd42fc900f7ad46d12",
+      "bytes": 2532920
+    },
+    "original.glb": {
+      "sha256": "9974b5c03b8b32416b8a651442545ed7f4458728a477197bbd4777efab144088",
+      "bytes": 4458412
+    },
+    "preview.png": {
+      "sha256": "5efad4b3829f1ee85c2b616a926d6599fb91c28ea02bb8e68c100854e65b7397",
+      "bytes": 123215
+    },
+    "provenance.json": {
+      "sha256": "d6d790e0c252045ffca5999dea63e4d87fa3a34aa2ae3a0e572ac70cf5554023",
+      "bytes": 5228
+    },
+    "validation-result.json": {
+      "sha256": "60f76aa9865e84a193f7fe04debbb5b7285b58300fa0affe98736651705a27c4",
+      "bytes": 4173
+    }
+  },
+  "verified": true,
+  "generation": {
+    "pipeline_type": "512",
+    "seed": 44,
+    "original_sha256": "9974b5c03b8b32416b8a651442545ed7f4458728a477197bbd4777efab144088",
+    "models": {
+      "microsoft/TRELLIS.2-4B": "af44b45f2e35a493886929c6d786e563ec68364d",
+      "microsoft/TRELLIS-image-large": "25e0d31ffbebe4b5a97464dd851910efc3002d96",
+      "facebook/dinov3-vitl16-pretrain-lvd1689m": "ea8dc2863c51be0a264bab82070e3e8836b02d51",
+      "ZhengPeng7/BiRefNet": "e2bf8e4460fc8fa32bba5ea4d94b3233d367b0e4"
+    }
+  },
+  "reference": [
+    {
+      "name": "reference.png",
+      "sha256": "50a07a902ae997bc43769e31f2001fb4f632544550e797648492c0b6810ad3a5"
+    }
+  ],
+  "godot_import_tested": true,
+  "asset_id": "mig31_candidate_20261118_v1",
+  "source_type": "AI",
+  "godot_import": {
+    "bounds_position": [
+      -6.75,
+      0.0,
+      -11.3500003814697
+    ],
+    "dimensions": [
+      13.5,
+      4.90000009536743,
+      22.7000007629395
+    ],
+    "dimensions_ok": true,
+    "display": "macOS",
+    "engine": {
+      "build": "official",
+      "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+      "hex": 263938,
+      "major": 4,
+      "minor": 7,
+      "patch": 2,
+      "status": "stable",
+      "string": "4.7.2-stable (official)",
+      "timestamp": 0
+    },
+    "import_passed": true,
+    "lod_triangles": [
+      19266,
+      5968,
+      1468
+    ],
+    "meshes": [
+      {
+        "degenerate_triangles": 0,
+        "materials": 1,
+        "name": "COLLISION_BOX",
+        "nonfinite_normals": 0,
+        "nonfinite_vertices": 0,
+        "surfaces": 1,
+        "textures": 0,
+        "triangles": 12
+      },
+      {
+        "degenerate_triangles": 0,
+        "materials": 1,
+        "name": "LOD0",
+        "nonfinite_normals": 0,
+        "nonfinite_vertices": 0,
+        "surfaces": 1,
+        "textures": 1,
+        "triangles": 19266
+      },
+      {
+        "degenerate_triangles": 0,
+        "materials": 1,
+        "name": "LOD1",
+        "nonfinite_normals": 0,
+        "nonfinite_vertices": 0,
+        "surfaces": 1,
+        "textures": 1,
+        "triangles": 5968
+      },
+      {
+        "degenerate_triangles": 0,
+        "materials": 1,
+        "name": "LOD2",
+        "nonfinite_normals": 0,
+        "nonfinite_vertices": 0,
+        "surfaces": 1,
+        "textures": 0,
+        "triangles": 1468
+      }
+    ],
+    "pivot_ok": true,
+    "preview_files": [
+      "godot-preview.png",
+      "godot-top.png",
+      "godot-front.png",
+      "godot-side.png",
+      "godot-lod1-orbit.png",
+      "godot-lod1-top.png",
+      "godot-lod1-front.png",
+      "godot-lod1-side.png",
+      "godot-lod2-orbit.png",
+      "godot-lod2-top.png",
+      "godot-lod2-front.png",
+      "godot-lod2-side.png"
+    ],
+    "preview_rendered": true,
+    "mesh_compression_disabled": false,
+    "explicit_lods_preserved": true,
+    "validator_files_sha256": {
+      "workers/assets/godot_validate.py": "dbd2430432f9ae6df25ecf37761e433eb2eea2e2af6e0467a0f7bb3cdfe303bb",
+      "workers/assets/godot_validate.gd": "927fe87a667b03f4b57f199dcb61be6a5a91cacf82dbf477e6c69c5274ff9a0f"
+    }
+  },
+  "pipeline_verified": true,
+  "production_accepted": false,
+  "verification_scope": "Strict actual imported body geometry and separately rendered planned assembly; not production acceptance",
+  "playable": false,
+  "game_assembly": {
+    "validation": "interceptor-candidate-validation.json",
+    "provenance": "provenance.json",
+    "worst_case_triangles": [
+      19474,
+      6176,
+      6104,
+      1468
+    ],
+    "planned_only": true
+  }
+}
