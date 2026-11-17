@@ -15,7 +15,7 @@ func _ready() -> void:
  if OS.is_debug_build() and OS.has_feature("android"):
   var diagnostic: ConfigFile=ConfigFile.new()
   if diagnostic.load("user://diagnostics.cfg")==OK:
-   for key: String in ["connect","port","duration","bot","diagnostics","disable3d"]:
+   for key: String in ["connect","port","duration","plane","profile","bot","diagnostics","disable3d"]:
     if diagnostic.has_section_key("run",key):options[key]=str(diagnostic.get_value("run",key))
  for arg: String in OS.get_cmdline_user_args():
   if arg.begins_with("--"):
