@@ -4,6 +4,7 @@ from orchestrator.store import Store
 from orchestrator.executor import execute
 load_environment()
 s=Store(state_dir()/"coordinator.sqlite3")
+if s.kv("bootstrap_finished_at"):raise RuntimeError("bootstrap_closed_requires_new_explicit_budget")
 goal="""Technical bounded smoke, not game design. In your FIRST reply call write_file twice then run_tests, in that order. Write budget_math.py with a function within_triangle_budget(triangles, limit=5000) returning whether 0 <= triangles <= limit. Write tests/test_budget_math.py with unittest.TestCase tests for 5000 accepted and 5001 rejected. Use from budget_math import within_triangle_budget. Then run_tests. After successful tool results reply DONE. Do not call read_file or list_files. Work only in game/ workspace."""
 t=s.create_task(goal)
 with s.db() as c:

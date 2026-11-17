@@ -11,7 +11,9 @@ from workers.coding.routes import Registry,RouteFailure
 from workers.coding.codex_runtime import codex_exec
 
 async def cloud_smoke(prefix,family):
-    s=Store(state_dir()/"coordinator.sqlite3");reg=Registry(s)
+    s=Store(state_dir()/"coordinator.sqlite3")
+    if s.kv("bootstrap_finished_at"):raise RouteFailure("bootstrap_closed_requires_new_explicit_budget","stop")
+    reg=Registry(s)
     task=s.create_task("Use read_file to read evidence.txt. Then reply exactly AVIA_SMOKE_42. Do not write files.",kind="diagnostic")
     s.transition(task["id"],"paused","Живая диагностическая проба.")
     with tempfile.TemporaryDirectory(prefix="agent-smoke-",dir="/srv/game-avia/worktrees") as d:
@@ -39,10 +41,11 @@ async def codex_smoke(prefix):
     import uvicorn
     from fastapi import FastAPI,Request,Response
     s=Store(state_dir()/"coordinator.sqlite3")
+    if s.kv("bootstrap_finished_at"):raise RouteFailure("bootstrap_closed_requires_new_explicit_budget","stop")
     cfg=Registry(s).config["providers"][prefix]
     base=os.getenv(prefix+"_BASE_URL",cfg["base_url"]).rstrip("/")
     key=os.environ[prefix+"_API_KEY"]
-    task=s.create_task("Official Codex runtime read-tool proof")
+    task=s.create_task("Official Codex runtime read-tool proof",kind="diagnostic")
     count=0
     errors=[]
     app=FastAPI()

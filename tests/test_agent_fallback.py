@@ -47,3 +47,12 @@ def test_cancelled_task_cannot_write(tmp_path):
     with pytest.raises(RuntimeError):Tools(s,task["id"],work,"worker").run("write_file",{"path":"forbidden.txt","content":"x"})
     assert not (work/"forbidden.txt").exists()
 
+
+async def test_closed_bootstrap_cannot_issue_another_paid_probe(tmp_path,monkeypatch):
+    from scripts.live_agent_smoke import cloud_smoke,codex_smoke
+    monkeypatch.setenv("GAME_AVIA_STATE_DIR",str(tmp_path))
+    s=Store(tmp_path/"coordinator.sqlite3");s.kv("bootstrap_finished_at","1")
+    for probe in (cloud_smoke("OPENLUX_CODEX","gpt"),codex_smoke("WHATSTOKEN_CODEX")):
+        with pytest.raises(RouteFailure,match="bootstrap_closed"):
+            await probe
+    with s.db() as c:assert c.execute("SELECT COUNT(*) FROM usage_ledger").fetchone()[0]==0
