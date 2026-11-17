@@ -34,6 +34,7 @@ async def execute(store,task,owner):
     registry=Registry(store)
     if not list(registry.candidates("gpt")):
         store.transition(tid,"blocked","Нет проверенного cloud tool-loop маршрута; /providers.",owner=owner);return
+    store.assert_active(tid,owner)
     branch="task/"+tid
     work=root/"worktrees"/tid
     if not work.exists():
@@ -44,7 +45,7 @@ async def execute(store,task,owner):
     result=await Agent(registry,store).run(task,workspace,max_calls=4)
     store.transition(tid,"verifying",owner=owner)
     check=Tools(store,tid,workspace).run("run_tests",{})
-    if check.get("exit_code")!=0 or not re.search(r"Ran [1-9][0-9]* tests?",check.get("output","")):
+    if check.get("exit_code")!=0 or not(check.get("passed") and check.get("tests_run",0)>0):
         store.transition(tid,"blocked","Проверка не подтвердила хотя бы один успешный тест. Изменения сохранены в "+branch,owner=owner);return
     with store.db() as c:c.execute("UPDATE tasks SET verification_status='passed' WHERE id=?",(tid,))
     store.transition(tid,"reviewing",owner=owner)
@@ -61,11 +62,13 @@ async def execute(store,task,owner):
     text=review["choices"][0]["message"].get("content","")
     if not text.strip().startswith("APPROVE"):
         store.transition(tid,"blocked","Ревью требует исправлений: "+text[:1000],owner=owner);return
+    store.assert_active(tid,owner)
     git(work,"-c","user.name=game_avia","-c","user.email=game-avia@localhost","commit","-m","Task "+tid+": bounded game change","-m","Updates-Ru: Выполнено ограниченное задание владельца; пройдены изолированные тесты и независимое ревью.")
     sha=git(work,"rev-parse","HEAD")
     with store.db() as c:
         c.execute("INSERT OR REPLACE INTO sync_jobs VALUES(?,?,?,?,?)",(tid,tid,branch,"pending",None))
     try:
+        store.assert_active(tid,owner)
         git(work,"push","origin",branch)
         with store.db() as c:
             c.execute("UPDATE sync_jobs SET status='synced' WHERE id=?",(tid,))
@@ -81,9 +84,11 @@ async def main():
     lock=open(state_dir()/"executor.lock","a")
     fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
     store=Store(state_dir()/"coordinator.sqlite3")
+    from integrations.github.sync import sync_pending
     owner=uuid.uuid4().hex
     while True:
         store.recover()
+        await asyncio.to_thread(sync_pending,store,os.getenv("GAME_AVIA_ROOT","/srv/game-avia"))
         if store.kv("paused")=="true":
             await asyncio.sleep(3);continue
         task=store.claim(owner,seconds=300)

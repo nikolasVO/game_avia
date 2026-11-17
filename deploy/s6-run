@@ -1,6 +1,7 @@
 #!/bin/sh
 set -eu
 export PATH=/srv/game-avia/tools/node-v24.22.3-linux-x64/bin:/command:/usr/local/bin:/usr/bin:/bin
-export GAME_AVIA_RELEASE_SHA="$(git -C /srv/game-avia/repo rev-parse HEAD)"
+GAME_AVIA_RELEASE_SHA="$(/usr/bin/git -c safe.directory=/srv/game-avia/repo -C /srv/game-avia/repo rev-parse HEAD)"
+export GAME_AVIA_RELEASE_SHA
 exec /command/s6-setuidgid ubuntu /srv/game-avia/venvs/core/bin/supervisord -c /srv/game-avia/repo/deploy/supervisord.conf
 

@@ -37,7 +37,7 @@ class Agent:
         return d
     async def run(self,task,root,family="gpt",max_calls=4,bootstrap=False):
         tid=task["id"];deadline=time.monotonic()+180
-        tools=Tools(self.store,tid,root)
+        tools=Tools(self.store,tid,root,owner=task.get("owner"))
         messages=[{"role":"system","content":"You are a bounded coding worker. Work only in provided workspace with tools. Preserve existing files. Never ask for or output secrets. Implement the request and run tests. Do not claim tests passed unless tool results prove it. Return a concise result. Tools are restricted; no publishing or external messaging."},
                   {"role":"user","content":task["goal"]}]
         calls=0;attempts=0
@@ -48,7 +48,9 @@ class Agent:
             try:
                 while calls<max_calls and time.monotonic()<deadline:
                     calls+=1
+                    self.store.assert_active(tid,task.get("owner"))
                     d=await self.chat(route,messages,tid)
+                    self.store.assert_active(tid,task.get("owner"))
                     msg=d["choices"][0]["message"]
                     messages.append({k:v for k,v in msg.items() if k in ("role","content","tool_calls")})
                     tc=msg.get("tool_calls",[])
@@ -58,7 +60,7 @@ class Agent:
                     for call in tc:
                         try:
                             args=json.loads(call["function"]["arguments"])
-                            out=tools.run(call["function"]["name"],args)
+                            out=tools.run(call["function"]["name"],args,operation_id=call["id"])
                         except (ValueError,KeyError,TypeError) as e: out={"error":type(e).__name__}
                         messages.append({"role":"tool","tool_call_id":call["id"],"content":json.dumps(out)})
                     # Readiness requires a separate verified tool-result continuation smoke.

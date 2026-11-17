@@ -38,3 +38,17 @@ def test_gpu_fencing(store):
     store.release_gpu("a",fence)
     assert store.acquire_gpu("c") is None
 
+
+def test_cancel_fences_tools_and_heartbeat(store):
+    from workers.coding.tools import Tools
+    task=store.create_task("cancel")
+    claimed=store.claim("worker")
+    store.transition(task["id"],"cancelled")
+    assert not store.heartbeat(task["id"],"worker")
+    with pytest.raises(RuntimeError):store.assert_active(task["id"],"worker")
+
+def test_explicit_tool_identity(store):
+    tid="task"
+    assert store.prepare_tool(tid,"one","write",{"value":"A"}) is None
+    store.finish_tool("one",{"done":True})
+    with pytest.raises(RuntimeError):store.prepare_tool(tid,"one","write",{"value":"B"})

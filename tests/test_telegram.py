@@ -30,3 +30,18 @@ async def test_pinned_recipient(bot):
     assert await bot.deliver_one()
     assert calls==[{"chat_id":123,"text":"[system] hello"}]
 
+
+async def test_unknown_delivery_is_not_resent(bot):
+    bot.store.event(None,"hello")
+    async def call(*a,**k):return {"ok":False,"unknown":True,"retry_after":1}
+    bot.call=call
+    assert await bot.deliver_one()
+    assert not await bot.deliver_one()
+    with bot.store.db() as c:assert c.execute("SELECT status FROM notification_outbox").fetchone()[0]=="unknown"
+
+def test_command_dedup_does_not_repeat_effect(bot):
+    u=update(text="/pause")
+    assert bot.ingest(u)
+    bot.store.kv("paused","false")
+    assert bot.ingest(u) is None
+    assert bot.store.kv("paused")=="false"

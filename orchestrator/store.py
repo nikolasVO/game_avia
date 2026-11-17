@@ -55,6 +55,7 @@ class Store:
         finally:
             c.close()
     def _event(self, c, task_id, text, event_type="progress"):
+        if task_id:c.execute("UPDATE tasks SET notification_status='pending' WHERE id=?",(task_id,))
         eid = uuid.uuid4().hex
         c.execute("INSERT INTO events VALUES(?,?,?,?,?)", (eid, task_id, event_type, text, time.time()))
         c.execute("INSERT INTO notification_outbox(event_id,text) VALUES(?,?)", (eid, f"[{task_id or 'system'}] {text}"[:3900]))
@@ -84,6 +85,14 @@ class Store:
             if reply:
                 self._event(c, None, reply, "command")
         return True
+    def ingest_command(self, update_id, text, handler):
+        with self.db() as c:
+            c.execute("BEGIN IMMEDIATE")
+            if c.execute("SELECT 1 FROM telegram_updates WHERE update_id=?",(update_id,)).fetchone():return None
+            c.execute("INSERT INTO telegram_updates VALUES(?,?)",(update_id,time.time()))
+            reply=handler(text,c)
+            self._event(c,None,reply,"command")
+        return True
     def get_task(self, tid):
         with self.db() as c:
             row = c.execute("SELECT * FROM tasks WHERE id=?", (tid,)).fetchone()
@@ -106,9 +115,16 @@ class Store:
         return self.get_task(row["id"])
     def heartbeat(self, tid, owner, seconds=120):
         with self.db() as c:
-            r=c.execute("UPDATE tasks SET lease_until=? WHERE id=? AND owner=? AND lease_until>?",
+            r=c.execute("UPDATE tasks SET lease_until=? WHERE id=? AND owner=? AND lease_until>? AND status IN ('running','planning','verifying','reviewing')",
                         (time.time()+seconds,tid,owner,time.time()))
             return bool(r.rowcount)
+    def assert_active(self,tid,owner=None):
+        task=self.get_task(tid)
+        if not task:return
+        if task["kind"]=="diagnostic":return
+        if task["status"] not in ("running","planning","verifying","reviewing") or (task["lease_until"] or 0)<time.time():
+            raise RuntimeError("task_cancelled_or_lease_lost")
+        if owner and task["owner"]!=owner:raise RuntimeError("stale_task_owner")
     def transition(self, tid, status, result=None, owner=None):
         if status not in STATES: raise ValueError("invalid_state")
         with self.db() as c:
@@ -137,6 +153,7 @@ class Store:
             c.execute("BEGIN IMMEDIATE")
             row=c.execute("SELECT * FROM tool_operations WHERE id=?",(opid,)).fetchone()
             if row:
+                if row["tool"]!=tool or json.loads(row["args"])!=args:raise RuntimeError("tool_call_id_argument_mismatch")
                 if row["status"]=="done": return json.loads(row["result"])
                 raise RuntimeError("tool_outcome_unknown")
             c.execute("INSERT INTO tool_operations VALUES(?,?,?,?,?,?,?,?)",
