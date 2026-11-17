@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "source": "fresh clone from GitHub, local LFS install and explicit pull/checkout after preserved pointer failure",
+  "commit": "5c0df281c459fd98f4a75a5a7d59a96c8814ff61",
+  "assets": {
+    "f16c_candidate_20261117_v1": {
+      "files": 21,
+      "hashes_verified": true,
+      "original_sha256": "9b5fb13063c8659d23b47c8fc5929c81df8ad48ba828bd35a60e2c423539bfec",
+      "production_accepted": false
+    }
+  },
+  "godot_build_dirty": false
+}

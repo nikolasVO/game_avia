@@ -1,0 +1,28 @@
+{
+  "measured_source": "f702b8129415bd40eca81b1d505b96dae4523283",
+  "current_source": "5c0df281c459fd98f4a75a5a7d59a96c8814ff61",
+  "scope": "exact shared forces/wire/rules; dedicated server still requires its own current native smoke",
+  "files": {
+    "game/avia/shared/flight.gd": {
+      "same": true,
+      "measured_sha256": "543fc282b43763e28aa4af936b0cc5ded8570143d6f9ef2c8bfe6972c285836e",
+      "current_sha256": "543fc282b43763e28aa4af936b0cc5ded8570143d6f9ef2c8bfe6972c285836e"
+    },
+    "game/avia/shared/fighter.gd": {
+      "same": true,
+      "measured_sha256": "367fb14c6d019a86dda887607bd41cf6839c3561c5b8c8d2619a1640b52e2f32",
+      "current_sha256": "367fb14c6d019a86dda887607bd41cf6839c3561c5b8c8d2619a1640b52e2f32"
+    },
+    "game/avia/shared/wire.gd": {
+      "same": true,
+      "measured_sha256": "6b88edb2b95c3f0624f90966acb6f4e381c9bb7cc4e0b2d9667b6bbed4656d65",
+      "current_sha256": "6b88edb2b95c3f0624f90966acb6f4e381c9bb7cc4e0b2d9667b6bbed4656d65"
+    },
+    "game/avia/shared/rules.gd": {
+      "same": true,
+      "measured_sha256": "483686152b97582d41778dc5a36940cc7d62b6d51a04aca8ed6a4bee1d582cc0",
+      "current_sha256": "483686152b97582d41778dc5a36940cc7d62b6d51a04aca8ed6a4bee1d582cc0"
+    }
+  },
+  "server_tick_body_identical": true
+}

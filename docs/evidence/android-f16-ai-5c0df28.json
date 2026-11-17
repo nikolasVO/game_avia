@@ -1,0 +1,107 @@
+{
+  "source_commit": "5c0df281c459fd98f4a75a5a7d59a96c8814ff61",
+  "apk_sha256": "7dac089888e1c03f1213c8b76ed20fd205714f20226fcb8c1be4382fbba90b26",
+  "environment": "existing owned GameAviaTest Android x86_64 emulator, host GLES translator,2cores/1536MiB; persistent AVD/app caches, not clean first-install or physical device",
+  "runtime_status": "PASS flight and tested controls; full acceptance incomplete",
+  "summary": {
+    "commands_sent": 3566,
+    "connection_status": "Connected",
+    "correction_max_m": 2755.65942382812,
+    "correction_p95_m": 0.00188998354133219,
+    "enet_rtt_ms": 31.0,
+    "event": "summary",
+    "frame_p50_ms": 33.342,
+    "frame_p95_ms": 36.156,
+    "joined": true,
+    "last_input_ack": 3562,
+    "pending_inputs": 4,
+    "rejected": 0,
+    "renderer": "gl_compatibility",
+    "seconds": 120.009510666662,
+    "seen_peers": 2,
+    "server": false,
+    "snapshots": 1783,
+    "state": {
+      "afterburner": false,
+      "age": 2799,
+      "airbrake": false,
+      "crashed": true,
+      "distance": 5958.31494140625,
+      "flaps": false,
+      "gear": true,
+      "grounded": false,
+      "health": 0.0,
+      "landed": false,
+      "p": "(30.60932, 1036.36, -5506.657)",
+      "pitch": 0.025000000372529,
+      "plane": 3,
+      "profile": 0,
+      "rates": "(0.0, 0.0, 0.0)",
+      "respawns": 0,
+      "roll": 0.0,
+      "v": "(0.0, 0.0, 0.0)",
+      "was_airborne": true,
+      "yaw": 0.0
+    },
+    "static_memory_mb": 51.3100538253784,
+    "wall_seconds": 121.955
+  },
+  "render_ready_wall_seconds": 5.893,
+  "ui_toggle_events": [
+    {
+      "control": "Flaps / \u0417\u0430\u043a\u0440\u044b\u043b\u043a\u0438",
+      "event": "ui_system_toggle",
+      "value": true
+    },
+    {
+      "control": "Gear / \u0428\u0430\u0441\u0441\u0438",
+      "event": "ui_system_toggle",
+      "value": false
+    },
+    {
+      "control": "AB / \u0424\u043e\u0440\u0441\u0430\u0436",
+      "event": "ui_system_toggle",
+      "value": true
+    },
+    {
+      "control": "AB / \u0424\u043e\u0440\u0441\u0430\u0436",
+      "event": "ui_system_toggle",
+      "value": false
+    },
+    {
+      "control": "Flaps / \u0417\u0430\u043a\u0440\u044b\u043b\u043a\u0438",
+      "event": "ui_system_toggle",
+      "value": false
+    },
+    {
+      "control": "Gear / \u0428\u0430\u0441\u0441\u0438",
+      "event": "ui_system_toggle",
+      "value": true
+    }
+  ],
+  "authority": {
+    "takeoff": 2,
+    "respawn": 1,
+    "crash": 1,
+    "samples": 239,
+    "gear_up_samples": 21,
+    "afterburner_samples": 2,
+    "flaps_samples": 38,
+    "noncrashed_airborne_samples": 108,
+    "crashed_samples": 116
+  },
+  "performance": "Whole120s summary includes crashed/hidden aircraft at end; p95>33.333ms. Physical30FPS/20\u201330min/thermals NOT VERIFIED. Do not causally attribute improvement to one code change; resource/cache state also differs.",
+  "controls": "ADB taps used actual Godot rectangle centers; server observed booleans and actual own takeoffs. This is not physical multi-finger QA.",
+  "scope_limits": [
+    "intentional respawn contributes to correction maximum",
+    "world-edge crash remains recorded",
+    "gear extension/retraction visibility boolean; articulated gear not complete",
+    "actual phones, iOS and external play NOT VERIFIED"
+  ],
+  "evidence_files_sha256": {
+    "runtime.log": "3d22f2e095930147890cc4c270d42763de1267768e25622fce824c5e3138f5b0",
+    "server.log": "b07c379583c6431c5577c5ef0353c4e32034ee2a4e68bd89169e7bbb167cf9c4",
+    "flight.png": "3c413b2846ae8719f575e23bc14907173404aebf0ab72fbd6448c52328bac967",
+    "gameplay.mp4": "ac2b6f5fa68ec59cfc94efdf4a604015ada01a88260cb364b174fb2c8087e499"
+  }
+}

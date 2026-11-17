@@ -41,6 +41,8 @@ python3 tools/build_game.py --godot "$GODOT" --target aab
 
 Android SDK/JDK/debug key задаются вне Git в Godot editor settings. APK использует debug-подпись, AAB — без release-подписи. Полный Xcode/SDK/Team ID/подпись iOS пока недоступны; Xcode-проект/IPA не заявлены. Эмулятор не доказывает30FPS на телефоне. Шестнадцать активных ботов прошли1850с на точном f702 сервере; публичный мультиплеер не готов до двух внешних играющих клиентов. [Измерения](docs/evidence/native-fighter-load-f702.json), [Android fb610](docs/evidence/android-f16-fb610.json).
 
+Текущие тестовые APK/AAB/Linux/macOS протокола4 и реальное видео: [P1 prerelease](https://github.com/nikolasVO/game_avia/releases/tag/game-avia-development-p1-20261117-r1), [SHA256/исходник](docs/evidence/artifact-index-p1.json). APK5c0df28 прошёл120с эмулятора с AI-корпусом, системными кнопками и отдельный85с Home/resume/rejoin; телефонная приёмка не закрыта.
+
 Исторические проверенные сборкиr2/c1922c7 и откат: [GitHub Release](https://github.com/nikolasVO/game_avia/releases/tag/game-avia-prototype-20261117-r2), [операции/rollback](docs/game-operations.md). Они не являются текущим новым клиентом. [Сеть](docs/network.md), [mobile](docs/mobile.md), [privacy draft](docs/privacy-draft.md).
 
 Существующие Store/API/coordinator/outbox и GPU lease сохранены; отчёты доставляет единственный координатор. Новых платных вызовов нет, Point и чужие модели сохранены. Секреты, базы, веса и подписи находятся вне Git. Деплой только вручную; автоматических Actions/таймеров и публикации в магазинах нет.
