@@ -34,6 +34,37 @@ def mirror_decimate(obj,budget):
     bm.to_mesh(obj.data);bm.free();obj.data.update()
     mod=obj.modifiers.new("TriangulateSymmetry","TRIANGULATE");bpy.ops.object.modifier_apply(modifier=mod.name)
 
+def remesh_far_lod(obj,dimensions,budget,symmetric):
+    """Close fragmented boundary topology for far LOD; use a plain sampled material."""
+    color=(.5,.6,.65,1)
+    if obj.data.materials:
+        source=obj.data.materials[0]
+        color=tuple(source.diffuse_color)
+        if source.use_nodes:
+            principled=next((n for n in source.node_tree.nodes if n.type=='BSDF_PRINCIPLED'),None)
+            if principled:color=tuple(principled.inputs['Base Color'].default_value)
+            image=next((n.image for n in source.node_tree.nodes if n.type=='TEX_IMAGE' and n.image and n.image.colorspace_settings.name=='sRGB'),None)
+            if image and obj.data.uv_layers.active:
+                pixels=image.pixels[:];w,h=image.size;uvs=obj.data.uv_layers.active.data
+                samples=[]
+                for face in list(obj.data.polygons)[::max(1,len(obj.data.polygons)//128)]:
+                    uv=sum((uvs[i].uv for i in face.loop_indices),Vector((0,0)))/len(face.loop_indices)
+                    offset=(min(h-1,max(0,int(uv.y*h)))*w+min(w-1,max(0,int(uv.x*w))))*4
+                    samples.append(pixels[offset:offset+3])
+                if samples:color=tuple(sum(v[i] for v in samples)/len(samples) for i in range(3))+(1,)
+    bpy.context.view_layer.objects.active=obj
+    mod=obj.modifiers.new('FarTopologyRepair','REMESH');mod.mode='VOXEL';mod.voxel_size=max(dimensions)*.002
+    voxel=mod.voxel_size
+    bpy.ops.object.modifier_apply(modifier=mod.name)
+    plain=bpy.data.materials.new('FarSampledAlbedo');plain.use_nodes=True;plain.diffuse_color=color
+    plain.node_tree.nodes.get('Principled BSDF').inputs['Base Color'].default_value=color
+    plain.node_tree.nodes.get('Principled BSDF').inputs['Roughness'].default_value=.9
+    obj.data.materials.clear();obj.data.materials.append(plain)
+    if symmetric:mirror_decimate(obj,budget)
+    elif triangles(obj)>budget:
+        mod=obj.modifiers.new('FarBudget','DECIMATE');mod.ratio=budget/triangles(obj)*.97;bpy.ops.object.modifier_apply(modifier=mod.name)
+    return {'method':'voxel topology repair then decimation','voxel_size_m':voxel,'material':'plain sampled albedo; no far texture/UV required','rgba':list(color)}
+
 def main():
     p=argparse.ArgumentParser();p.add_argument("--manifest-name",default="manifest.json");p.add_argument("--input");p.add_argument("--fixture",action="store_true");p.add_argument("--output-dir",required=True)
     p.add_argument("--symmetry-x",action="store_true");p.add_argument("--fixture-asymmetric",action="store_true");p.add_argument("--rotate-z-degrees",type=float,default=0);p.add_argument("--dimensions",type=float,nargs=3,default=[1,1,1]);p.add_argument("--triangles",type=int,default=5000);p.add_argument("--texture-size",type=int,default=1024)
@@ -95,8 +126,12 @@ def main():
         if a.symmetry_x:mirror_decimate(o,max(100,int(triangles(base)*ratio)))
         else:
             mod=o.modifiers.new("LOD","DECIMATE");mod.ratio=ratio;bpy.ops.object.modifier_apply(modifier=mod.name)
+        repair=None
+        target=6000 if level==1 else 1500
+        if level==2 and triangles(o)>target:repair=remesh_far_lod(o,a.dimensions,target,a.symmetry_x)
         o.hide_render=True
-        lods.append({"name":o.name,"triangles":triangles(o)})
+        bpy.context.view_layer.update()
+        lods.append({"name":o.name,"triangles":triangles(o),"far_repair":repair,"dimensions_blender":list(o.dimensions)})
     bpy.context.view_layer.objects.active=base
     bpy.ops.mesh.primitive_cube_add(size=1,location=(0,0,.5))
     collider=bpy.context.object;collider.name="COLLISION_BOX";collider["collision"]="box";collider.hide_render=True
@@ -138,6 +173,8 @@ def main():
               "unity_import_tested":False,"license":"CC0 procedural fixture" if a.fixture else "see source manifest",
               "checks":{"triangle_budget":tris<=a.triangles,"material_budget":mats<=2,"finite_bounds":True,"finite_geometry":finite_geometry,"no_degenerate_triangles":degenerate==0,"uv_present":uv_layers>0 if not a.fixture else True,"texture_budget":all(max(size)<=a.texture_size for size in texture_sizes)},
               "files":{n:{"sha256":digest(out/n),"bytes":(out/n).stat().st_size} for n in ["optimized.glb","preview.png",*lod_names]}}
+    manifest["checks"]["lod_budgets"]=all(row["triangles"]<=(7000 if row["name"]=="LOD1" else 2000) for row in lods)
+    manifest["checks"]["lod_silhouette_bounds"]=all(all(.85<=row["dimensions_blender"][i]/a.dimensions[i]<=1.1 for i in range(3)) for row in lods)
     if a.symmetry_x:manifest["checks"]["exact_mirror_symmetry"]=symmetry["max_distance_m"]<1e-4
     manifest["verified"]=all(manifest["checks"].values())
     temp=out/(a.manifest_name+".tmp");temp.write_text(json.dumps(manifest,indent=2));temp.replace(out/a.manifest_name)

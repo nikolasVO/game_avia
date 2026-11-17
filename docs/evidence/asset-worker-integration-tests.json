@@ -14,5 +14,11 @@
     "workers/assets/godot_validate.gd": "4ec07f7449cc607859462f04eac50b464ab99ea0b66a6c33ad6d51db00eca88e"
   },
   "prior_harness_error": "Initial temporary checkout omitted config/providers.yaml; collection failed, no tests passed then. Added tracked config and reran successfully.",
-  "postprocess_cli": "Additional prepublication/orientation/symmetry CLI changes compile; actual F-16C repair is validated separately, not inferred from fixture tests."
+  "postprocess_cli": "Additional prepublication/orientation/symmetry CLI changes compile; actual F-16C repair is validated separately, not inferred from fixture tests.",
+  "followup": {
+    "tests": 68,
+    "seconds": 25.62,
+    "scope": "after owner sequencing merge; Python/Blender fixtures pass. Actual F-16C far-LOD topology repair still requires its own real run.",
+    "blender_script_sha256": "f686635493b9bed04f9ec7abe8a47afb9a8f23c3d5c759bba14f732f549af431"
+  }
 }
