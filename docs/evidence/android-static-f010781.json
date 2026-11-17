@@ -1,0 +1,61 @@
+{
+  "status": "PASS static only",
+  "commit": "f0107818e7342022c4e922eec48abe2de0361feb",
+  "apk_sha256": "4df6229491ab48a3b645cc5e2778ef9be58cd930c4fcf329c039666a850a7db2",
+  "bytes": 69951165,
+  "apksigner": [
+    "Verifies",
+    "Verified using v1 scheme (JAR signing): false",
+    "Verified using v2 scheme (APK Signature Scheme v2): true",
+    "Verified using v3 scheme (APK Signature Scheme v3): false",
+    "Verified using v3.1 scheme (APK Signature Scheme v3.1): false",
+    "Verified using v4 scheme (APK Signature Scheme v4): false",
+    "Verified for SourceStamp: false",
+    "Number of signers: 1"
+  ],
+  "zipalign16_check_exit": 0,
+  "native_libraries": [
+    {
+      "path": "lib/arm64-v8a/libc++_shared.so",
+      "sha256": "c4c2fe5cbcb1fba0003a31fc7ab29a9bb12df6cc187ec45a806462540e83d93b",
+      "load_alignments": [
+        16384,
+        16384,
+        16384
+      ],
+      "compression": 8
+    },
+    {
+      "path": "lib/arm64-v8a/libgodot_android.so",
+      "sha256": "6517cb725565b0b3f009e6a559d8c0a5f66093384a6f48b5d18e2dc0998e1159",
+      "load_alignments": [
+        16384,
+        16384,
+        16384
+      ],
+      "compression": 8
+    },
+    {
+      "path": "lib/x86_64/libc++_shared.so",
+      "sha256": "683a1c7cd2f6829fd40bf805739166c5fce35235bf60d2c4e4a95e9f65a342ef",
+      "load_alignments": [
+        16384,
+        16384,
+        16384
+      ],
+      "compression": 8
+    },
+    {
+      "path": "lib/x86_64/libgodot_android.so",
+      "sha256": "7a103707ecbf1d24a053f59b90ddcd9945f4524e9ebbe87d513e0d60eff80443",
+      "load_alignments": [
+        16384,
+        16384,
+        16384
+      ],
+      "compression": 8
+    }
+  ],
+  "prohibited_paths": [],
+  "limits": "Debug key only, native libraries compressed; ELF LOAD alignment/ZIP tool success does not prove16KB runtime. No phone/iOS/release signing acceptance."
+}

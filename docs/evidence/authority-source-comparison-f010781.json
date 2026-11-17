@@ -1,0 +1,138 @@
+{
+  "status": "PASS source comparison only",
+  "measured_source": "f702b8129415bd40eca81b1d505b96dae4523283",
+  "client_source": "f0107818e7342022c4e922eec48abe2de0361feb",
+  "deployed_source": "5c0df281c459fd98f4a75a5a7d59a96c8814ff61",
+  "files": {
+    "game/avia/shared/flight.gd": {
+      "same": true,
+      "sha256": "543fc282b43763e28aa4af936b0cc5ded8570143d6f9ef2c8bfe6972c285836e"
+    },
+    "game/avia/shared/fighter.gd": {
+      "same": true,
+      "sha256": "367fb14c6d019a86dda887607bd41cf6839c3561c5b8c8d2619a1640b52e2f32"
+    },
+    "game/avia/shared/wire.gd": {
+      "same": true,
+      "sha256": "6b88edb2b95c3f0624f90966acb6f4e381c9bb7cc4e0b2d9667b6bbed4656d65"
+    },
+    "game/avia/shared/rules.gd": {
+      "same": true,
+      "sha256": "483686152b97582d41778dc5a36940cc7d62b6d51a04aca8ed6a4bee1d582cc0"
+    }
+  },
+  "all27_config_physics_fields_identical": {
+    "j20": {
+      "same": true,
+      "physics_fields_sha256": "be7fd243a9f59846a14c105e9616d4fabc1a082628860310065e878cc30d7450"
+    },
+    "mig29": {
+      "same": true,
+      "physics_fields_sha256": "71b1fd8c1b8974b69e667091d3494fdef141e3baf6f8c464cdb3661edd858b79"
+    },
+    "swift": {
+      "same": true,
+      "physics_fields_sha256": "4b6af4e53d718a1ab9892f66a520425a2f4a3419bba75d803f64d48c151aea05"
+    },
+    "f16c": {
+      "same": true,
+      "physics_fields_sha256": "0f6337f63e32692b021dbacf46e1a7865447dc6dcca973f0e34a3ac5ff1bb655"
+    },
+    "f15e": {
+      "same": true,
+      "physics_fields_sha256": "2ad2bc3fdde42ebc3e296a39893910ad77f2273156968538cf9c2f7f309f99ff"
+    },
+    "f2": {
+      "same": true,
+      "physics_fields_sha256": "44274296dd73330a477b3ca7e8cc0396612e38971ea5bfab0e3c09d46aecccd4"
+    },
+    "tejas": {
+      "same": true,
+      "physics_fields_sha256": "bc1a7dbfba9443367ab292c40a41898903f6f19aff410e799010085f32880973"
+    },
+    "rafale": {
+      "same": true,
+      "physics_fields_sha256": "5eaad0e25ec9023f609c26f32a89aadea8f621930a908a05888eb612542dcbd4"
+    },
+    "f15c": {
+      "same": true,
+      "physics_fields_sha256": "0a5769dd96cfe76a318bc576b279ff0abadac46f564a7b4bf01e601d97263eb5"
+    },
+    "su34": {
+      "same": true,
+      "physics_fields_sha256": "8ea20be38c2674cb5af4b9773e0797dd6f5c71d4b4f874b7d275a2cf48c5fb21"
+    },
+    "typhoon": {
+      "same": true,
+      "physics_fields_sha256": "dbda87bd259d47379105191498b336982f0a09b6fd1d2ea9cb89a651eb17d7d2"
+    },
+    "gripen": {
+      "same": true,
+      "physics_fields_sha256": "32dd0ebb161bf7d06a631b131a8716ef5157a00266c857cbf464fe16acdcc48a"
+    },
+    "f35a": {
+      "same": true,
+      "physics_fields_sha256": "38d3d6fc9d34c53a96b4b4ec76b2a9cdb2f435f446a8ece79319982fb3fd7cb8"
+    },
+    "su35s": {
+      "same": true,
+      "physics_fields_sha256": "6da569fc8a43f6e918edcae99175c898c31b7fbb9d3227e92e88ab04d2fead90"
+    },
+    "kf21": {
+      "same": true,
+      "physics_fields_sha256": "379c7aa6dc30f7d286dfa012d3b14dd21294e925afe7c6b85ff754c8cc707ecd"
+    },
+    "mig21": {
+      "same": true,
+      "physics_fields_sha256": "26ff1a8945d6eb4d612ae79aaf3c732264ff684ecb7b4e590fba59b515b0752c"
+    },
+    "su57": {
+      "same": true,
+      "physics_fields_sha256": "443f14f0232a44647d01b958d1f7d3d901cc6ca93cb27c69ae9b128479cd41d1"
+    },
+    "f22": {
+      "same": true,
+      "physics_fields_sha256": "d6ab09c598b5acdb13a2a3c9837e6e6f64fd928b518828b53b5e25da31eeb884"
+    },
+    "mig31": {
+      "same": true,
+      "physics_fields_sha256": "05e2bbc41580012c072084f9c79f08b4e2ef6ecbbd52315db50d1ebfbe68e6e6"
+    },
+    "kite": {
+      "same": true,
+      "physics_fields_sha256": "0ea4874d0f6d115e9618990ae9d3b25f0fbd44967757ac14edf0db899f999448"
+    },
+    "f14": {
+      "same": true,
+      "physics_fields_sha256": "1440d6d9f16f3855575a41a41da83408b6bf7904beab0e8eb1a34bb148b3e23b"
+    },
+    "tern": {
+      "same": true,
+      "physics_fields_sha256": "211172409a7d15027fe662d77edf3e1769b449878f8649b7958ccdf0c7e90ad4"
+    },
+    "tornado": {
+      "same": true,
+      "physics_fields_sha256": "3d64825ab4d46ca822b927cd509c3378ed44315e85e95998e9bef18ec7b9e4cb"
+    },
+    "su27": {
+      "same": true,
+      "physics_fields_sha256": "666fd17730fb319ba1c9e1b10c4cd030b74874225640cbc59663719539d66326"
+    },
+    "fa18e": {
+      "same": true,
+      "physics_fields_sha256": "4493a178fcb9cfd15c1c1b34e07e954a34bd1531367661ee9a390360c3d1c919"
+    },
+    "j10c": {
+      "same": true,
+      "physics_fields_sha256": "461f904aaf5762633716146b364d59f62df7ae340693954068847cc392399852"
+    },
+    "su30sm": {
+      "same": true,
+      "physics_fields_sha256": "fd27e524ddb9bdc3ed74eb82a98cc5f0b185bee38f6fe82c99abd92244b525f9"
+    }
+  },
+  "server_tick_body_identical_to_measured": true,
+  "session_file_identical_to_deployed5c": true,
+  "measured_session_file_diff": "Known fb610 client poll/timeout correction; server tick unchanged. Entire session is not claimed identical to f702.",
+  "limits": "No repeated31min load for client presentation/Android Java changes. Measured nativef702 load remains previous-source evidence; current APK/runtime smoke separate. No new capacity, phones or external networking claim."
+}

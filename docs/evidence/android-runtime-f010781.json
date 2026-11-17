@@ -1,0 +1,227 @@
+{
+  "status": "PASS tested emulator scenario",
+  "error": null,
+  "commit": "f0107818e7342022c4e922eec48abe2de0361feb",
+  "apk_sha256": "4df6229491ab48a3b645cc5e2778ef9be58cd930c4fcf329c039666a850a7db2",
+  "summary": {
+    "commands_sent": 3372,
+    "connection_status": "Connected",
+    "correction_max_m": 52.2251777648926,
+    "correction_p95_m": 8.70427513122559,
+    "enet_rtt_ms": 182.0,
+    "event": "summary",
+    "frame_p50_ms": 43.59,
+    "frame_p95_ms": 102.638,
+    "joined": true,
+    "last_input_ack": 2576,
+    "pending_inputs": 5,
+    "rejected": 0,
+    "renderer": "gl_compatibility",
+    "seconds": 120.053361,
+    "seen_peers": 2,
+    "server": false,
+    "snapshots": 1798,
+    "state": {
+      "afterburner": true,
+      "age": 2834,
+      "airbrake": false,
+      "crashed": true,
+      "distance": 6090.87451171875,
+      "flaps": true,
+      "gear": false,
+      "grounded": false,
+      "health": 0.0,
+      "landed": false,
+      "p": "(39.47292, 1187.575, -5503.004)",
+      "pitch": 0.0249999463558197,
+      "plane": 4,
+      "profile": 0,
+      "rates": "(0.0, 0.0, 0.0)",
+      "respawns": 0,
+      "roll": 0.0,
+      "v": "(0.0, 0.0, 0.0)",
+      "was_airborne": true,
+      "yaw": 0.0
+    },
+    "static_memory_mb": 51.3991317749023,
+    "wall_seconds": 133.274
+  },
+  "welcome_aircraft": [
+    4,
+    4
+  ],
+  "own_peer_ids": [
+    1189788343,
+    264700347
+  ],
+  "authoritative_own_samples": 242,
+  "airborne_samples": 106,
+  "gear_up_samples": 202,
+  "afterburner_samples": 168,
+  "flaps_samples": 234,
+  "recovery_markers": [
+    "11-17 19:21:15.135  1829  1859 I GLThread: GAME_AVIA_SURFACE_RECOVERY 1->2"
+  ],
+  "runtime_log_sha256": "aebc64afd0afdb59add960bf9325ab376caae5861c2458471dda4fc792913006",
+  "harness_wall_s": 146.087,
+  "adb_actions": [
+    {
+      "command": [
+        "shell",
+        "am"
+      ],
+      "wall_s": 0.18
+    },
+    {
+      "command": [
+        "shell",
+        "run-as"
+      ],
+      "wall_s": 0.18
+    },
+    {
+      "command": [
+        "shell",
+        "am"
+      ],
+      "wall_s": 0.179
+    },
+    {
+      "command": [
+        "shell",
+        "input"
+      ],
+      "wall_s": 0.18
+    },
+    {
+      "command": [
+        "shell",
+        "input"
+      ],
+      "wall_s": 0.179
+    },
+    {
+      "command": [
+        "shell",
+        "input"
+      ],
+      "wall_s": 6.182
+    },
+    {
+      "command": [
+        "shell",
+        "input"
+      ],
+      "wall_s": 0.178
+    },
+    {
+      "command": [
+        "shell",
+        "input"
+      ],
+      "wall_s": 0.18
+    },
+    {
+      "command": [
+        "exec-out",
+        "screencap"
+      ],
+      "wall_s": 0.716
+    },
+    {
+      "command": [
+        "shell",
+        "input"
+      ],
+      "wall_s": 0.223
+    },
+    {
+      "command": [
+        "shell",
+        "input"
+      ],
+      "wall_s": 5.22
+    },
+    {
+      "command": [
+        "pull",
+        "/sdcard/game-avia-f010-flight.mp4"
+      ],
+      "wall_s": 0.073
+    },
+    {
+      "command": [
+        "shell",
+        "input"
+      ],
+      "wall_s": 0.389
+    },
+    {
+      "command": [
+        "shell",
+        "am"
+      ],
+      "wall_s": 0.284
+    },
+    {
+      "command": [
+        "exec-out",
+        "screencap"
+      ],
+      "wall_s": 1.231
+    },
+    {
+      "command": [
+        "shell",
+        "input"
+      ],
+      "wall_s": 0.339
+    },
+    {
+      "command": [
+        "shell",
+        "input"
+      ],
+      "wall_s": 0.335
+    },
+    {
+      "command": [
+        "shell",
+        "input"
+      ],
+      "wall_s": 0.443
+    },
+    {
+      "command": [
+        "shell",
+        "input"
+      ],
+      "wall_s": 6.413
+    },
+    {
+      "command": [
+        "shell",
+        "input"
+      ],
+      "wall_s": 0.445
+    },
+    {
+      "command": [
+        "shell",
+        "input"
+      ],
+      "wall_s": 0.445
+    },
+    {
+      "command": [
+        "exec-out",
+        "screencap"
+      ],
+      "wall_s": 1.499
+    }
+  ],
+  "scope": "fresh owned host-GPU emulator process96787, existing AVD data, no simultaneous local Godot import/export/Gradle during runtime; separate Mac authoritative server and F16 bot; not phone, human landing, physical multitouch, public UDP or full aircraft acceptance",
+  "performance_status": "FAIL emulator30FPS target; whole-session distribution includes world-boundary crash/hidden aircraft; no physical device claim",
+  "production_accepted": false,
+  "old_failures": "ff88 late slow-render/disconnect FAIL and1cf intermittentblackFAIL retained separately; fresh test does not erase those"
+}
