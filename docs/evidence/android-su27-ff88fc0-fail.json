@@ -1,0 +1,74 @@
+{
+  "status": "FAIL sustained connected120s; PASS partial actual Su27 AI touch flight",
+  "commit": "ff88fc019d7a31c16f54edda68ce5e8790acbe96",
+  "apk_sha256": "79684edef888039968673c63e32df41926634f0c55af35e3617ce9f92addb91b",
+  "summary": {
+    "commands_sent": 2625,
+    "connection_status": "Disconnected \u2014 retry from menu",
+    "correction_max_m": 5070.66064453125,
+    "correction_p95_m": 15.2822780609131,
+    "enet_rtt_ms": 0.0,
+    "event": "summary",
+    "frame_p50_ms": 94.419,
+    "frame_p95_ms": 308.359,
+    "joined": false,
+    "last_input_ack": 0,
+    "pending_inputs": 0,
+    "rejected": 0,
+    "renderer": "gl_compatibility",
+    "seconds": 120.030740333333,
+    "seen_peers": 2,
+    "server": false,
+    "snapshots": 1685,
+    "state": {},
+    "static_memory_mb": 50.9247827529907,
+    "wall_seconds": 225.297
+  },
+  "actual_own_peer": 865858987,
+  "own_events": [
+    {
+      "data": {
+        "id": 865858987
+      },
+      "event": "takeoff",
+      "peer": 865858987
+    },
+    {
+      "data": {
+        "id": 865858987
+      },
+      "event": "respawn",
+      "peer": 865858987
+    },
+    {
+      "data": {
+        "id": 865858987
+      },
+      "event": "takeoff",
+      "peer": 865858987
+    },
+    {
+      "data": {
+        "id": 865858987
+      },
+      "event": "crash",
+      "peer": 865858987
+    }
+  ],
+  "authoritative_own_samples": 254,
+  "airborne_samples": 129,
+  "gear_up_samples": 42,
+  "afterburner_samples": 12,
+  "flaps_samples": 53,
+  "video_sha256": "23e8cb4835b953d472d09673ff9cfaec72aebe1b9018e1c968e63a351f73c0b3",
+  "runtime_log_sha256": "3d047295d14de63ada9b8b15ab67d44a697d5f60d3ce3e12a20351fa5f78a585",
+  "server_log_sha256": "256ec57deb189dee1838fcce463e978dfc3c6c33c76461f937ff76b59134d7b7",
+  "limits": [
+    "Owned host-GPU AVD after~2hours of lifecycle testing; not phone.",
+    "Scripted controls, AI candidate recognition/articulation/physical performance still unaccepted.",
+    "Flew beyond world edge and crashed after recovery; last portion hidden/crashed affects frame distribution.",
+    "Later huge render delays/disconnect remain unresolved; surface-generation fix does not claim to fix renderer pressure.",
+    "Harness interrupted after stalled log retrieval; actual120logical/225.297wall summary recovered from samePID6012 using bounded logcat tail, not rerun.",
+    "A concurrent owned headless editor import was performed during this run and may have affected ADB/host resources; preserve this interference and require fresh controlled run before comparative conclusions."
+  ]
+}

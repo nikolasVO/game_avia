@@ -37,6 +37,7 @@ func _ready() -> void:
    ui=load("res://client/ui.gd").new();ui.session=session;ui.world=world;add_child(ui)
    if options.has("hangar"):ui.hangar.show()
   if options.has("connect"):
+   if ui:ui.apply_connection_options(options)
    # First-frame shader compilation must finish before starting the network deadline.
    if not headless:
     await world.prepare_aircraft(int(options.get("plane","0")))

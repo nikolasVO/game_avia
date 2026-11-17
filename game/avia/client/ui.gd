@@ -87,6 +87,9 @@ func _ready() -> void:
  select_profile=OptionButton.new()
  for label: String in ["Arcade / Аркада","Realistic / Реализм","Expert / Эксперт"]:select_profile.add_item(label)
  col.add_child(select_profile)
+ select_plane.select(maxi(0,AviaCatalog.index_of(str(settings.get_value("flight","aircraft_id","kite")))))
+ select_profile.select(clampi(int(settings.get_value("flight","profile",0)),0,2))
+ select_mode.select(maxi(0,["free","race","pvp"].find(str(settings.get_value("flight","mode","free")))))
  var systems_row: HBoxContainer=HBoxContainer.new();systems_row.position=Vector2(380,630);root.add_child(systems_row)
  for label: String in ["AB / Форсаж","Flaps / Закрылки","Gear / Шасси"]:
   var system: CheckBox=CheckBox.new();system.text=label;system.custom_minimum_size.y=54;system.button_pressed=label.begins_with("Gear");systems_row.add_child(system);system_buttons[label]=system
@@ -157,10 +160,22 @@ func _update_help() -> void:
  labels.assist.disabled=select_plane.selected>=3
  labels.assist.visible=select_plane.selected<3
  labels.assist.tooltip_text="Fighter assistance uses the server flight profile / Помощь истребителя задаётся серверным профилем"
+func apply_connection_options(options: Dictionary) -> void:
+ # Diagnostic/deep-link admission and the visible retry menu must agree.
+ # These are preferences; the server still validates aircraft and locks assists.
+ if options.has("plane"):select_plane.select(clampi(int(options.plane),0,AviaFlight.PLANES.size()-1))
+ if options.has("profile"):select_profile.select(clampi(int(options.profile),0,2))
+ if options.has("mode"):select_mode.select(maxi(0,["free","race","pvp"].find(str(options.mode))))
+ if options.has("connect"):host.text=str(options.connect)
+ _update_help()
 func join() -> void:
  if preparing:return
  if host.text.strip_edges().is_empty():session.status="Enter a server address";return
- settings.set_value("net","host",host.text.strip_edges());settings.save("user://settings.cfg")
+ settings.set_value("net","host",host.text.strip_edges())
+ settings.set_value("flight","aircraft_id",AviaFlight.PLANES[select_plane.selected].aircraft_id)
+ settings.set_value("flight","profile",select_profile.selected)
+ settings.set_value("flight","mode",["free","race","pvp"][select_mode.selected])
+ settings.save("user://settings.cfg")
  join_generation+=1
  var generation: int=join_generation
  preparing=true;session.status="Preparing aircraft"
@@ -194,7 +209,9 @@ func _process(delta: float) -> void:
    rects[label]={"x":rect.position.x,"y":rect.position.y,"width":rect.size.x,"height":rect.size.y}
   print(JSON.stringify({"event":"ui_controls","viewport":str(root.size),"systems":rects}))
   diagnostic_controls_sent=true
- for button: Button in top_buttons:button.disabled=not session.joined
+ hud.visible=not menu.visible;notice.visible=not menu.visible;radar.visible=session.joined and not menu.visible
+ for button: Button in top_buttons:
+  button.disabled=not session.joined;button.visible=not menu.visible
  touch.combat=session.mode=="pvp"
  touch.action_label=("FIRE" if language=="en" else "ОГОНЬ") if touch.combat else ("BRAKE" if language=="en" else "ТОРМОЗ")
  status_label.visible=session.status not in ["Menu","Connected","Connecting","Joining"]

@@ -1,0 +1,42 @@
+{
+  "status": "PASS",
+  "exit_code": 0,
+  "summary": {
+    "checks": [
+      {
+        "check": "actual UI restores stable Su27 ID and profile/mode",
+        "ok": true
+      },
+      {
+        "check": "direct admission options agree with retry menu",
+        "ok": true
+      },
+      {
+        "check": "menu retains selection and hides flight-only HUD/buttons/radar",
+        "ok": true
+      },
+      {
+        "check": "actual join persists aircraft ID rather than mutable catalog index",
+        "ok": true
+      },
+      {
+        "check": "cancelled preparation keeps a usable retry menu",
+        "ok": true
+      },
+      {
+        "check": "unavailable aircraft/mode and out-of-range profile fall back safely",
+        "ok": true
+      }
+    ],
+    "event": "ui_preferences_summary",
+    "scope": "actual rendered desktop UI nodes/config and pending-join cancellation; not phone or multiplayer acceptance",
+    "status": "PASS"
+  },
+  "source_files_sha256": {
+    "game/avia/client/ui.gd": "d7de356a9a7b38e45a8c13ac4e6205b677d10e36a05d3225dd8119420c34bca6",
+    "game/avia/main.gd": "1101d0c7e813333d6e9428ffe1cce21e5ff85d6cc000e8611868686407ebcd61",
+    "game/avia/tests/ui_preferences_check.gd": "e2cdf34a36ea802140fa37e5e955b59830ee3135b988c53f94747866e69106c0",
+    "tools/ui_preferences_check.py": "cad081ef1b6b78bdd38b280aa8779f3007554c4be041cf3da32df6a9e3e1b581"
+  },
+  "test_isolation": "unique owned game-avia-ui-check-* user directory, copied materialized project"
+}

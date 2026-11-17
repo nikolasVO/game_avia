@@ -1,0 +1,64 @@
+{
+  "status": "PASS tested game lifecycle only",
+  "commit": "ff88fc019d7a31c16f54edda68ce5e8790acbe96",
+  "apk_sha256": "79684edef888039968673c63e32df41926634f0c55af35e3617ce9f92addb91b",
+  "scenario": "Actual installed two-AI-body APK on owned host-GPU AVD, separate authoritative Mac server+F16 peer, initialSu27 admission, Home3s/resume/pinnedJoin, actual scripted throttle/pitch",
+  "summary": {
+    "commands_sent": 2345,
+    "connection_status": "Connected",
+    "correction_max_m": 18.1326179504395,
+    "correction_p95_m": 4.02921915054321,
+    "enet_rtt_ms": 61.0,
+    "event": "summary",
+    "frame_p50_ms": 37.439,
+    "frame_p95_ms": 78.531,
+    "joined": true,
+    "last_input_ack": 2339,
+    "pending_inputs": 6,
+    "rejected": 0,
+    "renderer": "gl_compatibility",
+    "seconds": 85.0762463333329,
+    "seen_peers": 2,
+    "server": false,
+    "snapshots": 1174,
+    "state": {
+      "afterburner": false,
+      "age": 2362,
+      "airbrake": false,
+      "crashed": false,
+      "distance": 4362.64478635788,
+      "flaps": false,
+      "gear": true,
+      "grounded": false,
+      "health": 100.0,
+      "landed": false,
+      "p": "(-6.0, 894.0645, -4084.652)",
+      "pitch": 0.0199999995998072,
+      "plane": 0,
+      "profile": 0,
+      "rates": "(0.0, 0.0, 0.0)",
+      "respawns": 0,
+      "roll": 0.0,
+      "v": "(0.0, 11.76507, -59.28514)",
+      "was_airborne": true,
+      "yaw": 0.0
+    },
+    "static_memory_mb": 51.2957239151001,
+    "wall_seconds": 118.061
+  },
+  "welcome_aircraft": [
+    4,
+    0
+  ],
+  "recovery_markers": [
+    "11-17 19:03:53.432  5586  5627 I GLThread: GAME_AVIA_SURFACE_RECOVERY 1->2"
+  ],
+  "paused_neutral_samples": 3,
+  "runtime_log_sha256": "ed2d7a52b60ff0d4b5709f77d3edf0eb7c33eb6abefa5926a967c7bdf7dc17a1",
+  "limits": [
+    "Emulator only; first Su27 shader preparation delayed command loop and is not a verified Su27 takeoff.",
+    "Autoconnect diagnostics selectedSu27 but menu remained defaultKite; rejoin usedKite. UI synchronization follow-up planned.",
+    "Long cold shaders persist; this confirms recovery of one actual stale-surface failure, not all drivers/phones.",
+    "No physical30FPS, externalUDP, phone handover, full aircraft or version acceptance."
+  ]
+}
