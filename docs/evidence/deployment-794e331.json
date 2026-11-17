@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "scope": "Thunder dedicated headless native server startup; external reachability remains BLOCKED",
+  "source_commit": "794e331e172f15e50b716ac8e9ac150e9dc54c9b",
+  "binary_sha256": "1d03ddaf8cbb36f50660bc813497f8d43204978d2e539cafff7fbb856a607891",
+  "service": "game-avia-flight",
+  "process_owner": "ubuntu",
+  "port": 24567,
+  "transport": "ENet/DTLS over UDP",
+  "existing_api_coordinator_executor_pids_preserved": true,
+  "load_test": "RUNNING: 16 protocol bots for 1800 seconds on Thunder loopback",
+  "fresh_checkout_issue": "First bot invocation lacked Godot import/class registration; terminated only the 16 task-owned failed processes, imported project, restarted same worktree and recorded retry separately. Exported server itself started successfully."
+}

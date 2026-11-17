@@ -4,4 +4,4 @@ exec 2>&1
 umask 077
 ulimit -n 1024
 ulimit -v 3145728
-exec s6-setuidgid ubuntu /srv/game-avia/venvs/core/bin/supervisord -c /srv/game-avia/state/flight/supervisord.conf
+exec /command/s6-setuidgid ubuntu /srv/game-avia/venvs/core/bin/supervisord -c /srv/game-avia/state/flight/supervisord.conf

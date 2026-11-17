@@ -56,9 +56,10 @@ func _ready() -> void:
  var brake_button: Button=Button.new();brake_button.text=tr_text("brake");labels.brake=brake_button;top.add_child(brake_button)
  brake_button.button_down.connect(func():touch.brake=true);brake_button.button_up.connect(func():touch.brake=false)
  notice=Label.new();notice.add_theme_font_size_override("font_size",19);layout.add_child(notice)
- menu=PanelContainer.new();menu.set_anchors_and_offsets_preset(Control.PRESET_CENTER);menu.position=Vector2(260,55);menu.size=Vector2(760,610);root.add_child(menu)
+ menu=PanelContainer.new();menu.set_anchors_and_offsets_preset(Control.PRESET_TOP_LEFT);menu.position=Vector2(160,40);menu.size=Vector2(960,640);root.add_child(menu)
  var style: StyleBoxFlat=StyleBoxFlat.new();style.bg_color=Color(0.06,0.14,0.18,0.95);style.content_margin_left=28;style.content_margin_right=28;style.content_margin_top=20;style.content_margin_bottom=20;menu.add_theme_stylebox_override("panel",style)
- var col: VBoxContainer=VBoxContainer.new();col.add_theme_constant_override("separation",10);menu.add_child(col)
+ var scroll: ScrollContainer=ScrollContainer.new();scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED;menu.add_child(scroll)
+ var col: VBoxContainer=VBoxContainer.new();col.size_flags_horizontal=Control.SIZE_EXPAND_FILL;col.add_theme_constant_override("separation",8);scroll.add_child(col)
  for key: String in ["title","subtitle"]:
   var label: Label=Label.new();label.text=tr_text(key);label.add_theme_font_size_override("font_size",38 if key=="title" else 16);col.add_child(label);labels[key]=label
  var row: HBoxContainer=HBoxContainer.new();col.add_child(row)
@@ -74,12 +75,13 @@ func _ready() -> void:
  code=LineEdit.new();code.placeholder_text=tr_text("code");code.max_length=12;code.size_flags_horizontal=Control.SIZE_EXPAND_FILL;room_row.add_child(code)
  var controls_row: HBoxContainer=HBoxContainer.new();col.add_child(controls_row)
  for key: String in ["left","invert","assist","motion","sound"]:
+  if key=="motion":controls_row=HBoxContainer.new();col.add_child(controls_row)
   var check: CheckBox=CheckBox.new();check.text=tr_text(key);check.button_pressed=bool(settings.get_value("controls",key,key in ["assist","sound"]));labels[key]=check;controls_row.add_child(check)
   check.toggled.connect(func(value: bool):_option(key,value))
   _option(key,check.button_pressed)
  var sensitivity: HSlider=HSlider.new();sensitivity.min_value=0.3;sensitivity.max_value=1.5;sensitivity.step=0.05;sensitivity.value=float(settings.get_value("controls","sensitivity",1.0));col.add_child(sensitivity);touch.sensitivity=sensitivity.value
  sensitivity.value_changed.connect(func(value: float):touch.sensitivity=value;settings.set_value("controls","sensitivity",value);settings.save("user://settings.cfg"))
- var help: Label=Label.new();help.text=tr_text("help");help.add_theme_font_size_override("font_size",18);labels.help=help;col.add_child(help)
+ var help: Label=Label.new();help.text=tr_text("help");help.add_theme_font_size_override("font_size",16);labels.help=help;col.add_child(help)
  var bottom: HBoxContainer=HBoxContainer.new();col.add_child(bottom)
  var play: Button=Button.new();play.text=tr_text("play");labels.play=play;play.size_flags_horizontal=Control.SIZE_EXPAND_FILL;play.custom_minimum_size.y=56;bottom.add_child(play);play.pressed.connect(join)
  var lang: Button=Button.new();lang.text="EN / RU";bottom.add_child(lang);lang.pressed.connect(func():language="ru" if language=="en" else "en";settings.set_value("ui","language",language);settings.save("user://settings.cfg");_translate())

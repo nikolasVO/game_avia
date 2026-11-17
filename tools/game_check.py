@@ -4,6 +4,7 @@ import argparse,json,os,subprocess,time
 from pathlib import Path
 p=argparse.ArgumentParser();p.add_argument('--godot',default=os.getenv('GODOT','godot'));p.add_argument('--clients',type=int,default=2);p.add_argument('--seconds',type=int,default=20);p.add_argument('--render',action='store_true');p.add_argument('--out',type=Path,required=True);p.add_argument('--host',default='127.0.0.1');p.add_argument('--port',type=int,default=24567);p.add_argument('--external',action='store_true');p.add_argument('--route',action='store_true');p.add_argument('--renderer',default='gl_compatibility');p.add_argument('--mode',default='free');a=p.parse_args()
 a.out.mkdir(parents=True,exist_ok=True);project=Path(__file__).resolve().parents[1]/'game/avia'
+subprocess.run([a.godot,"--headless","--path",str(project),"--editor","--import","--quit"],check=True,timeout=120,stdout=subprocess.DEVNULL)
 processes=[];handles=[]
 def run(name,args):
  f=(a.out/(name+'.log')).open('w');handles.append(f)
