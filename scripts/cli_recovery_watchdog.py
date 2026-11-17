@@ -1,6 +1,6 @@
 """Resume the same external CLI task after interruptions, without buying quota.
 
-Uses existing Store/outbox, the same session and a shared local writer lock.
+Uses existing Store/outbox, the same task/worktree and a shared local writer lock.
 Config/state/logs belong outside Git; this is not an automatic deploy worker.
 """
 import argparse
@@ -14,6 +14,7 @@ import time
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from scripts.sequential_cli_handoff import cli_is_running, write_json
+from workers.coding.provider_runtime import configure_provider, select_route
 
 
 def tail_json(path, maximum=4 * 1024 * 1024):
@@ -100,12 +101,23 @@ def step(config, state, now=None, allow_launch=True):
     event_file = process["private_events"]
     events = tail_json(event_file)
     signature = event_file + ":" + str(Path(event_file).stat().st_mtime_ns)
-    if state.get("failure_signature") == signature and state.get("status") == "waiting":
+    api_route, cooldowns = (None, {})
+    if config.get("api_routes") and config.get("paid_work_authorized"):
+        api_route, cooldowns = select_route(config["api_routes"], process, state, events, signature, now)
+        if api_route is None:
+            retry_at = min(cooldowns.values()) if cooldowns else now + 3600
+            remote(config, "wait", task_id, "--reason", "transient_failure", "--retry-at", str(retry_at))
+            return dict(state, status="waiting", task_id=task_id, reason="providers_in_cooldown",
+                        retry_at=retry_at, api_cooldowns=cooldowns, api_failure_signature=signature)
+        # A subscription quota does not hold an independent, owner-authorized API route.
+        policy = {"reason": "provider_ready", "retry_at": now}
+    elif state.get("failure_signature") == signature and state.get("status") == "waiting":
         policy = {"reason": state["reason"], "retry_at": state["retry_at"]}
     else:
         policy = failure_policy(events, quota_buckets(config), now, state.get("attempts", 0))
     if now < policy["retry_at"] or not allow_launch:
-        remote(config, "wait", task_id, "--reason", policy["reason"], "--retry-at", str(policy["retry_at"]))
+        if policy["reason"] != "provider_ready":
+            remote(config, "wait", task_id, "--reason", policy["reason"], "--retry-at", str(policy["retry_at"]))
         return dict(policy, status="waiting", task_id=task_id, failure_signature=signature,
                     attempts=state.get("attempts", 0))
     # The stage dispatcher uses the same lock. Recheck process and durable state inside it.
@@ -127,19 +139,32 @@ def step(config, state, now=None, allow_launch=True):
                         "owner": owner, "attempts": attempt, "checkpoint": str(checkpoint)}
         write_json(runtime / "state.json", launch_state)
         prompt = runtime / ("resume-" + str(attempt) + ".txt")
-        prompt.write_text(config["resume_prompt"].replace("{task_id}", task_id).replace("{owner}", owner))
+        text = config["resume_prompt"].replace("{task_id}", task_id).replace("{owner}", owner)
+        if api_route:
+            text = Path(config["provider_handoff_file"]).read_text() + "\n\n" + text
+        prompt.write_text(text)
         prompt.chmod(0o600)
         events_path = runtime / ("resume-" + str(attempt) + "-events.jsonl")
         args = [process["cli"], "-a", "never", "exec", "--sandbox", "danger-full-access", "--cd", process["worktree"],
-                "--json", "--output-last-message", str(runtime / ("resume-" + str(attempt) + "-last-message.txt")),
-                "resume", config["session_id"], "-"]
+                "--json", "--output-last-message", str(runtime / ("resume-" + str(attempt) + "-last-message.txt"))]
+        child_env = None
+        if api_route:
+            args, child_env = configure_provider(args, api_route, config["provider_credentials_file"])
+            # Fresh provider context: do not transfer account-specific encrypted reasoning.
+            args.append("-")
+            launch_state.update(api_route=api_route["id"], api_cooldowns=cooldowns,
+                                api_failure_signature=signature)
+        else:
+            args.extend(["resume", config["session_id"], "-"])
         with prompt.open("rb") as incoming, events_path.open("wb") as outgoing, (runtime / ("resume-" + str(attempt) + "-stderr.log")).open("wb") as errors:
             child = subprocess.Popen(args, cwd=process["worktree"], stdin=incoming, stdout=outgoing,
-                                     stderr=errors, start_new_session=True)
+                                     stderr=errors, env=child_env, start_new_session=True)
         launch_state.update(status="running", pid=child.pid)
         write_json(runtime / "state.json", launch_state)
         process.update(pid=child.pid, started=time.time(), private_events=str(events_path),
                        continuation=process.get("continuation", 0) + 1)
+        if api_route:
+            process.update(account_mode="provider_api", api_route=api_route["id"], api_model=api_route["model"])
         write_json(process_file, process)
         # A lost response only retries confirmation of this PID, never Popen.
         for index in range(3):

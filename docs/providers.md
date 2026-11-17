@@ -1,5 +1,15 @@
 # Provider evidence and limits
 
+## Latest owner authorization and native runtime proof
+
+The owner explicitly authorized unrestricted access and continuation of generation through the connected accounts. This supersedes bootstrap-only blocking for the current development scope; the historical bootstrap ledger is retained. No new subscription, top-up or hosting purchase follows from it.
+
+Fresh native Codex CLI Responses proofs passed on OpenLux `gpt-6.1-sol` and WhatsToken's exact wire model `gpt-6.1-sol-pro`: actual shell read, file write, shell verification and a completed tool-result continuation. OpenLux performed three successful shell commands; WhatsToken performed two. Both produced the expected on-disk marker. This replaces the older unverified Responses status BELOW for these exact routes only. See `reports/provider-runtime-20261117.json`. No Claude Responses or other model/route is promoted by these results.
+
+The recovery controller can now continue the same task/worktree through these paid API routes instead of waiting for the owner's exhausted ChatGPT allowance. It uses a fresh provider context and the canonical brief/checkpoint, shares the existing writer lock with stage sequencing, retains per-provider cooldowns and preserves all full-scope acceptance gates. Keys stay in a private credentials file and process environment, not CLI arguments or Git. Reported CLI token usage is saved as evidence; no exact monetary spend is inferred from public minimum prices.
+
+The following describes historical bootstrap evidence and the remaining compatibility limits.
+
 config/providers.yaml preserves the owner's exact logical order and wire mapping. The primary GPT pool is GPTGE, OpenLux, WhatsToken, Xinfeng, XYC model-by-model; reserves follow only after the primary pool. GPTGE CODEX/Claude and APIBOST begin balance-blocked from the owner's latest audit. A shared hostname does not merge billing scopes. Xinfeng/XYC Claude remain quarantined.
 
 Only the first logical GPT route on OpenLux and WhatsToken and the first Claude route on OpenLux passed this implementation's live tool-result continuation proof. The other IDs retain the supplied text audit and are not promoted to agent readiness. WhatsToken's verified GPT wire ID is gpt-6.1-sol-pro. Alternative logical models use their exact configured suffixes.

@@ -1,0 +1,50 @@
+{
+  "client_date": "2026-11-17",
+  "owner_authorization": "даю тебе безграничный доступ; запусти дальше генерацию",
+  "scope": "existing Game Avia accounts and task; no automatic topups/subscriptions",
+  "native_cli_proofs": [
+    {
+      "provider": "OPENLUX_CODEX",
+      "model": "gpt-6.1-sol",
+      "native_codex_responses": true,
+      "turn_completed": true,
+      "shell_tools": 3,
+      "shell_exit_codes": [
+        0,
+        0,
+        0
+      ],
+      "read_write_verified": true,
+      "errors": [],
+      "usage": {
+        "input_tokens": 63057,
+        "cached_input_tokens": 49152,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 206,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "provider": "WHATSTOKEN_CODEX",
+      "model": "gpt-6.1-sol-pro",
+      "native_codex_responses": true,
+      "turn_completed": true,
+      "shell_tools": 2,
+      "shell_exit_codes": [
+        0,
+        0
+      ],
+      "read_write_verified": true,
+      "errors": [],
+      "usage": {
+        "input_tokens": 63189,
+        "cached_input_tokens": 39552,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 287,
+        "reasoning_output_tokens": 0
+      }
+    }
+  ],
+  "task_id": "68c406f99772",
+  "status": "native_provider_runtime_proven; full development acceptance remains incomplete"
+}

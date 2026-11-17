@@ -131,7 +131,8 @@ def test_repeated_wait_deduplicates_owner_notifications(task):
         assert c.execute("SELECT count(*) FROM events WHERE task_id=? AND type='automatic_recovery_wait'", (tid,)).fetchone()[0] == 1
 
 
-def test_controller_waits_for_reset_then_resumes_same_worktree_once(task, tmp_path, monkeypatch):
+@pytest.mark.parametrize("paid_route", [False, True])
+def test_controller_waits_for_reset_then_resumes_same_worktree_once(task, tmp_path, monkeypatch, paid_route):
     from scripts import cli_recovery_watchdog as controller
     from orchestrator.recovery import snapshot
     store, tid = task
@@ -152,6 +153,15 @@ def test_controller_waits_for_reset_then_resumes_same_worktree_once(task, tmp_pa
               "allowed_tasks": [tid], "owners": {tid: "owner"}, "session_id": "same-session",
               "rollout_file": str(rollout), "launch_lock": str(runtime / "writer.lock"),
               "resume_prompt": "Continue {task_id}, owner {owner}; preserve current brief."}
+    if paid_route:
+        handoff = runtime / "handoff.txt"
+        handoff.write_text("Full preserved owner brief; newly authorized provider work.")
+        credentials = runtime / "credentials.json"
+        credentials.write_text(json.dumps({"OPENLUX_CODEX": {
+            "base_url": "https://api.example.test/v1", "api_key": "private-test-credential-123"}}))
+        config.update(paid_work_authorized=True,
+                      api_routes=[{"id": "openlux", "env_prefix": "OPENLUX_CODEX", "model": "gpt-6.1-sol"}],
+                      provider_credentials_file=str(credentials), provider_handoff_file=str(handoff))
     monkeypatch.setattr(controller, "cli_is_running", lambda *args: False)
     def remote(config, command, task_id, *args):
         values = dict(zip(args[::2], args[1::2]))
@@ -172,13 +182,20 @@ def test_controller_waits_for_reset_then_resumes_same_worktree_once(task, tmp_pa
     def popen(args, **kwargs):
         spawned.append(args)
         assert tid in kwargs["stdin"].read().decode()
-        assert args[-2:] == ["same-session", "-"]
+        if paid_route:
+            assert "resume" not in args and "same-session" not in args
+            assert args[-1] == "-"
+            assert kwargs["env"]["GAME_AVIA_ROUTE_API_KEY"] == "private-test-credential-123"
+            assert "private-test-credential-123" not in str(args)
+        else:
+            assert args[-2:] == ["same-session", "-"]
         return Child()
     monkeypatch.setattr(controller.subprocess, "Popen", popen)
-    waiting = controller.step(config, {}, now=100)
-    assert waiting["retry_at"] == 10090 and not spawned
-    assert not controller.step(config, waiting, now=10089).get("pid")
-    started = controller.step(config, waiting, now=10091)
+    waiting = controller.step(config, {}, now=100, allow_launch=not paid_route)
+    assert waiting["retry_at"] == (100 if paid_route else 10090) and not spawned
+    if not paid_route:
+        assert not controller.step(config, waiting, now=10089).get("pid")
+    started = controller.step(config, waiting, now=101 if paid_route else 10091)
     assert started["confirmed"] and started["pid"] == 234 and len(spawned) == 1
     assert json.loads(process_file.read_text())["brief_sha256"] == "preserve-original"
     assert unfinished.read_text() == "preserve existing uncommitted game code"
