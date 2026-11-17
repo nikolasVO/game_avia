@@ -6,10 +6,10 @@ build-backend = "setuptools.build_meta"
 name = "game-avia"
 version = "0.1.0"
 requires-python = ">=3.12"
-dependencies = ["fastapi==0.121.2", "uvicorn==0.38.0", "httpx==0.28.1", "PyYAML==6.0.3", "python-dotenv==1.2.1", "supervisor==4.3.0"]
+dependencies = ["fastapi==0.163.1", "uvicorn==0.54.0", "httpx==0.28.1", "PyYAML==6.0.3", "python-dotenv==1.2.4", "supervisor==4.3.0"]
 
 [project.optional-dependencies]
-test = ["pytest==8.4.2", "pytest-asyncio==1.3.0"]
+test = ["pytest==9.2.0", "pytest-asyncio==1.5.0"]
 
 [tool.setuptools.packages.find]
 include = ["orchestrator*", "workers*", "integrations*"]

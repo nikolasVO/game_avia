@@ -1,0 +1,22 @@
+[Unit]
+Description=game_avia durable coordinator and private Telegram ingress
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=ubuntu
+WorkingDirectory=/srv/game-avia/repo
+EnvironmentFile=/etc/game-avia/environment
+Environment=PYTHONUNBUFFERED=1
+ExecStart=/srv/game-avia/venvs/core/bin/python -m orchestrator.runtime
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ReadWritePaths=/srv/game-avia/state /srv/game-avia/artifacts /srv/game-avia/worktrees
+UMask=0077
+
+[Install]
+WantedBy=multi-user.target
+

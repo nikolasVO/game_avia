@@ -1,0 +1,292 @@
+{
+  "version": 1,
+  "source": "owner_audit_2026-11-17",
+  "gpt_models": [
+    "gpt-6.1-sol",
+    "gpt-6-sol",
+    "gpt-5.6-sol"
+  ],
+  "claude_models": [
+    "claude-opus-5-5",
+    "claude-sonnet-5-5",
+    "claude-opus-5"
+  ],
+  "gpt_primary": [
+    "GPTGE",
+    "OPENLUX",
+    "WHATSTOKEN",
+    "XINFENG",
+    "XYC"
+  ],
+  "gpt_reserve": [
+    "SIX666",
+    "JUNWUSHEN",
+    "TOPGO",
+    "APIBOST"
+  ],
+  "claude_primary": [
+    "GPTGE",
+    "OPENLUX",
+    "WHATSTOKEN"
+  ],
+  "claude_reserve": [
+    "SIX666",
+    "APIBOST"
+  ],
+  "providers": {
+    "GPTGE_CODEX": {
+      "provider": "GPTGE",
+      "family": "gpt",
+      "base_url": "https://api.gpt.ge/v1",
+      "env_prefix": "GPTGE_CODEX",
+      "billing_scope": "GPTGE_CODEX",
+      "protocol": "chat_completions",
+      "state": "blocked_balance",
+      "models": {
+        "gpt-6.1-sol": "gpt-6.1-sol",
+        "gpt-6-sol": "gpt-6-sol",
+        "gpt-5.6-sol": "gpt-5.6-sol"
+      },
+      "capabilities": [],
+      "evidence": "owner supplied text audit; agent protocol unverified"
+    },
+    "GPTGE_CLAUDE": {
+      "provider": "GPTGE",
+      "family": "claude",
+      "base_url": "https://api.gpt.ge/v1",
+      "env_prefix": "GPTGE_CLAUDE",
+      "billing_scope": "GPTGE_CLAUDE",
+      "protocol": "chat_completions",
+      "state": "blocked_balance",
+      "models": {
+        "claude-opus-5-5": "claude-opus-5-5",
+        "claude-sonnet-5-5": "claude-sonnet-5-5",
+        "claude-opus-5": "claude-opus-5"
+      },
+      "capabilities": [],
+      "evidence": "owner supplied text audit; agent protocol unverified"
+    },
+    "OPENLUX_CODEX": {
+      "provider": "OPENLUX",
+      "family": "gpt",
+      "base_url": "https://api.openlux.ai/v1",
+      "env_prefix": "OPENLUX_CODEX",
+      "billing_scope": "OPENLUX_CODEX",
+      "protocol": "chat_completions",
+      "state": "text_verified",
+      "models": {
+        "gpt-6.1-sol": "gpt-6.1-sol",
+        "gpt-6-sol": "gpt-6-sol",
+        "gpt-5.6-sol": "gpt-5.6-sol"
+      },
+      "capabilities": [],
+      "evidence": "owner supplied text audit; agent protocol unverified"
+    },
+    "OPENLUX_CLAUDE": {
+      "provider": "OPENLUX",
+      "family": "claude",
+      "base_url": "https://api.openlux.ai/v1",
+      "env_prefix": "OPENLUX_CLAUDE",
+      "billing_scope": "OPENLUX_CLAUDE",
+      "protocol": "chat_completions",
+      "state": "text_verified",
+      "models": {
+        "claude-opus-5-5": "claude-opus-5-5",
+        "claude-sonnet-5-5": "claude-sonnet-5-5",
+        "claude-opus-5": "claude-opus-5"
+      },
+      "capabilities": [],
+      "evidence": "owner supplied text audit; agent protocol unverified"
+    },
+    "WHATSTOKEN_CODEX": {
+      "provider": "WHATSTOKEN",
+      "family": "gpt",
+      "base_url": "https://www.whatstoken.ai/v1",
+      "env_prefix": "WHATSTOKEN_CODEX",
+      "billing_scope": "WHATSTOKEN_CODEX",
+      "protocol": "chat_completions",
+      "state": "text_verified",
+      "models": {
+        "gpt-6.1-sol": "gpt-6.1-sol-pro",
+        "gpt-6-sol": "gpt-6-sol-special",
+        "gpt-5.6-sol": "gpt-5.6-sol-special"
+      },
+      "capabilities": [],
+      "evidence": "owner supplied text audit; agent protocol unverified"
+    },
+    "WHATSTOKEN_CLAUDE": {
+      "provider": "WHATSTOKEN",
+      "family": "claude",
+      "base_url": "https://www.whatstoken.ai/v1",
+      "env_prefix": "WHATSTOKEN_CLAUDE",
+      "billing_scope": "WHATSTOKEN_CLAUDE",
+      "protocol": "chat_completions",
+      "state": "text_verified",
+      "models": {
+        "claude-opus-5-5": "claude-opus-5-5-kiro",
+        "claude-sonnet-5-5": "claude-sonnet-5-5-kiro",
+        "claude-opus-5": "claude-opus-5-kiro"
+      },
+      "capabilities": [],
+      "evidence": "owner supplied text audit; agent protocol unverified"
+    },
+    "XINFENG_CODEX": {
+      "provider": "XINFENG",
+      "family": "gpt",
+      "base_url": "https://xinfeng.best/v1",
+      "env_prefix": "XINFENG_CODEX",
+      "billing_scope": "XINFENG_CODEX",
+      "protocol": "chat_completions",
+      "state": "text_verified",
+      "models": {
+        "gpt-6.1-sol": "gpt-6.1-sol",
+        "gpt-6-sol": "gpt-6-sol",
+        "gpt-5.6-sol": "gpt-5.6-sol"
+      },
+      "capabilities": [],
+      "evidence": "owner supplied text audit; agent protocol unverified"
+    },
+    "XINFENG_CLAUDE": {
+      "provider": "XINFENG",
+      "family": "claude",
+      "base_url": "https://xinfeng.best/v1",
+      "env_prefix": "XINFENG_CLAUDE",
+      "billing_scope": "XINFENG_CLAUDE",
+      "protocol": "chat_completions",
+      "state": "quarantined",
+      "models": {
+        "claude-opus-5-5": "claude-opus-5-5",
+        "claude-sonnet-5-5": "claude-sonnet-5-5",
+        "claude-opus-5": "claude-opus-5"
+      },
+      "capabilities": [],
+      "evidence": "owner supplied text audit; agent protocol unverified"
+    },
+    "XYC_CODEX": {
+      "provider": "XYC",
+      "family": "gpt",
+      "base_url": "https://apicdn.xycai.us/v1",
+      "env_prefix": "XYC_CODEX",
+      "billing_scope": "XYC_CODEX",
+      "protocol": "chat_completions",
+      "state": "text_verified",
+      "models": {
+        "gpt-6.1-sol": "gpt-6.1-sol",
+        "gpt-6-sol": "gpt-6-sol",
+        "gpt-5.6-sol": "gpt-5.6-sol"
+      },
+      "capabilities": [],
+      "evidence": "owner supplied text audit; agent protocol unverified"
+    },
+    "XYC_CLAUDE": {
+      "provider": "XYC",
+      "family": "claude",
+      "base_url": "https://apicdn.xycai.us/v1",
+      "env_prefix": "XYC_CLAUDE",
+      "billing_scope": "XYC_CLAUDE",
+      "protocol": "chat_completions",
+      "state": "quarantined",
+      "models": {
+        "claude-opus-5-5": "claude-opus-5-5",
+        "claude-sonnet-5-5": "claude-sonnet-5-5",
+        "claude-opus-5": "claude-opus-5"
+      },
+      "capabilities": [],
+      "evidence": "owner supplied text audit; agent protocol unverified"
+    },
+    "SIX666_CODEX": {
+      "provider": "SIX666",
+      "family": "gpt",
+      "base_url": "https://666six.top/v1",
+      "env_prefix": "SIX666_CODEX",
+      "billing_scope": "SIX666_CODEX",
+      "protocol": "chat_completions",
+      "state": "text_verified",
+      "models": {
+        "gpt-6.1-sol": "gpt-6.1-sol",
+        "gpt-6-sol": "gpt-6-sol",
+        "gpt-5.6-sol": "gpt-5.6-sol"
+      },
+      "capabilities": [],
+      "evidence": "owner supplied text audit; agent protocol unverified"
+    },
+    "SIX666_CLAUDE": {
+      "provider": "SIX666",
+      "family": "claude",
+      "base_url": "https://666six.top/v1",
+      "env_prefix": "SIX666_CLAUDE",
+      "billing_scope": "SIX666_CLAUDE",
+      "protocol": "chat_completions",
+      "state": "text_verified",
+      "models": {
+        "claude-opus-5-5": "claude-opus-5-5",
+        "claude-sonnet-5-5": "claude-sonnet-5-5",
+        "claude-opus-5": "claude-opus-5"
+      },
+      "capabilities": [],
+      "evidence": "owner supplied text audit; agent protocol unverified"
+    },
+    "JUNWUSHEN_CODEX": {
+      "provider": "JUNWUSHEN",
+      "family": "gpt",
+      "base_url": "https://junwushen.cn/v1",
+      "env_prefix": "JUNWUSHEN_CODEX",
+      "billing_scope": "JUNWUSHEN_CODEX",
+      "protocol": "chat_completions",
+      "state": "text_verified",
+      "models": {
+        "gpt-6.1-sol": "gpt-6.1-sol",
+        "gpt-6-sol": "gpt-6-sol",
+        "gpt-5.6-sol": "gpt-5.6-sol"
+      },
+      "capabilities": [],
+      "evidence": "owner supplied text audit; agent protocol unverified"
+    },
+    "TOPGO_CODEX": {
+      "provider": "TOPGO",
+      "family": "gpt",
+      "base_url": "https://router.91topgo.com/v1",
+      "env_prefix": "TOPGO_CODEX",
+      "billing_scope": "TOPGO_CODEX",
+      "protocol": "chat_completions",
+      "state": "text_verified",
+      "models": {
+        "gpt-6.1-sol": "gpt-6.1-sol"
+      },
+      "capabilities": [],
+      "evidence": "owner supplied text audit; agent protocol unverified"
+    },
+    "APIBOST_CODEX": {
+      "provider": "APIBOST",
+      "family": "gpt",
+      "base_url": "https://apibost.com/v1",
+      "env_prefix": "APIBOST_CODEX",
+      "billing_scope": "APIBOST_CODEX",
+      "protocol": "chat_completions",
+      "state": "blocked_balance",
+      "models": {
+        "gpt-6.1-sol": "gpt-6.1-sol",
+        "gpt-6-sol": "gpt-6-sol",
+        "gpt-5.6-sol": "gpt-5.6-sol"
+      },
+      "capabilities": [],
+      "evidence": "owner supplied text audit; agent protocol unverified"
+    },
+    "APIBOST_CLAUDE": {
+      "provider": "APIBOST",
+      "family": "claude",
+      "base_url": "https://apibost.com/v1",
+      "env_prefix": "APIBOST_CLAUDE",
+      "billing_scope": "APIBOST_CLAUDE",
+      "protocol": "chat_completions",
+      "state": "blocked_balance",
+      "models": {
+        "claude-opus-5-5": "claude-opus-5-5",
+        "claude-opus-5": "claude-opus-5"
+      },
+      "capabilities": [],
+      "evidence": "owner supplied text audit; agent protocol unverified"
+    }
+  }
+}
+
