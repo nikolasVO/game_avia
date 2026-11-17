@@ -16,5 +16,5 @@ with tempfile.TemporaryDirectory() as d:
         assert c.execute("PRAGMA integrity_check").fetchone()[0]=="ok"
         count=c.execute("SELECT COUNT(*) FROM tasks").fetchone()[0]
 source.kv("backup_tested","true")
-print(json.dumps({"local_backup_restore":"passed","restored_tasks":count,"off_server_backup":"not_configured"}))
+print(json.dumps({"local_backup_restore":"passed","restored_tasks":count,"off_server_backup":"previous_snapshot_tested" if source.kv("off_server_backup_tested")=="true" else "not_configured"}))
 

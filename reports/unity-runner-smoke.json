@@ -1,0 +1,22 @@
+{
+  "commit": "65bbc98b36235e72b69525bf4954f3db1e8f38e8",
+  "editor": "6000.3.28f1",
+  "urp": "17.3.0",
+  "gltfast": "6.15.1",
+  "installed": true,
+  "tested": true,
+  "build_passed": false,
+  "status": "blocked_license",
+  "exit_code": 198,
+  "elapsed_seconds": 0.5,
+  "source_kind": "procedural_test_fixture_not_TRELLIS",
+  "details": {},
+  "screenshot_tested": false,
+  "android_tested": false,
+  "ios_tested": false,
+  "log_sha256": "fca7d83e0b3bb0ddadb6a66de7e347dfe8f64439fbeb79e00cdda63e3a426c11",
+  "outbound_ssh_verified": true,
+  "exact_commit_worktree_verified": true,
+  "lfs_hash_verified": true,
+  "structured_report_returned_to_server": true
+}
