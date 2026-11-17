@@ -41,3 +41,5 @@ python3 tools/android_surface_probe.py --adb /path/to/adb \
 ```
 
 The probe filters its own PID and does not clear global logs, root the device, stop other applications or install packages. It keeps a failing fixture alive for investigation and exits nonzero on a recorded failure. Review its screenshot and `actual_cold` field; a warmed first frame does not prove the cold race.
+
+The builder now also accepts `--variant release` for the exact official release AAR (`8791eecfe7c96a4de2d188a0bccfe9b83b92589a5a6825847473416a990e8629`). Actual JDK17 compilation preserved all8 release native libraries and replaced the same15 Java classes. `tools/build_android_surface.py --target aab` prepares an unsigned AAB using that variant; APK remains the default target. Export/runtime evidence must be recorded separately. It never creates a release signing key.

@@ -1,0 +1,33 @@
+{
+  "status": "PASS",
+  "source_commit": "174ea7695cb956c823f3cc28435345a8a2c49334",
+  "assets": [
+    {
+      "aircraft_id": "f16c",
+      "files": 22
+    },
+    {
+      "aircraft_id": "su27",
+      "files": 22
+    },
+    {
+      "aircraft_id": "f15c",
+      "files": 22
+    },
+    {
+      "aircraft_id": "su35s",
+      "files": 22
+    },
+    {
+      "aircraft_id": "rafale",
+      "files": 22
+    },
+    {
+      "aircraft_id": "gripen",
+      "files": 22
+    }
+  ],
+  "total_hashes": 132,
+  "lfs_fsck": true,
+  "scope": "separate remote fetch/materialized LFS copy; not phone/full game acceptance"
+}

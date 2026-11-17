@@ -1,0 +1,37 @@
+{
+  "variant": "release",
+  "engine_commit": "ed1daf0bf001b61586d9930840f2f1394092c079",
+  "compiler": "javac 17.0.21",
+  "source_sha256": "ab21e6cafd19a4acc39d90f78e3aaedb94491eec0f9e6cb6e78960821d0d3b92",
+  "input_aar_sha256": "8791eecfe7c96a4de2d188a0bccfe9b83b92589a5a6825847473416a990e8629",
+  "output_aar_sha256": "262461ac5d32d06707de4afbcfbb7e41b5238b82daae4881bc7357244e698d3b",
+  "classes_recompiled": [
+    "org/godotengine/godot/gl/GLSurfaceView$BaseConfigChooser.class",
+    "org/godotengine/godot/gl/GLSurfaceView$ComponentSizeChooser.class",
+    "org/godotengine/godot/gl/GLSurfaceView$DefaultContextFactory.class",
+    "org/godotengine/godot/gl/GLSurfaceView$DefaultWindowSurfaceFactory.class",
+    "org/godotengine/godot/gl/GLSurfaceView$EGLConfigChooser.class",
+    "org/godotengine/godot/gl/GLSurfaceView$EGLContextFactory.class",
+    "org/godotengine/godot/gl/GLSurfaceView$EGLWindowSurfaceFactory.class",
+    "org/godotengine/godot/gl/GLSurfaceView$EglHelper.class",
+    "org/godotengine/godot/gl/GLSurfaceView$GLThread.class",
+    "org/godotengine/godot/gl/GLSurfaceView$GLThreadManager.class",
+    "org/godotengine/godot/gl/GLSurfaceView$GLWrapper.class",
+    "org/godotengine/godot/gl/GLSurfaceView$LogWriter.class",
+    "org/godotengine/godot/gl/GLSurfaceView$Renderer.class",
+    "org/godotengine/godot/gl/GLSurfaceView$SimpleEGLConfigChooser.class",
+    "org/godotengine/godot/gl/GLSurfaceView.class"
+  ],
+  "native_libraries_unchanged": {
+    "jni/arm64-v8a/libc++_shared.so": "c4c2fe5cbcb1fba0003a31fc7ab29a9bb12df6cc187ec45a806462540e83d93b",
+    "jni/arm64-v8a/libgodot_android.so": "6b1cbfa830c7f6addec89bb5a4a444be53b3527472668fede03ca8637e040198",
+    "jni/armeabi-v7a/libc++_shared.so": "af383654daf4cf0829615460419a180f84edd9d8bf51aa0f81ed0db811bf8491",
+    "jni/armeabi-v7a/libgodot_android.so": "c69d58bc3087791fa1841c535e2a5789c893c5db0a592598054ce68a1e6fd896",
+    "jni/x86/libc++_shared.so": "1b9fba4282c5a043994aa023c0a274b580534c5d72916cae7b42bec4e1a27d70",
+    "jni/x86/libgodot_android.so": "64f893709443c796b450c9064380edf52bf2875ba79e7f0a3e9c3dab9c8cfb5f",
+    "jni/x86_64/libc++_shared.so": "683a1c7cd2f6829fd40bf805739166c5fce35235bf60d2c4e4a95e9f65a342ef",
+    "jni/x86_64/libgodot_android.so": "7ce311ee6319c21d11740c29d636720ab219db13c7d17de4847fb6dd778e860f"
+  },
+  "runtime": "NOT VERIFIED by this build tool; see separate scenario evidence",
+  "status": "PASS actual javac/releaseAAR native integrity; export/runtime pending"
+}

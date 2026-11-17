@@ -8,7 +8,7 @@ run/max_fps=60
 run/main_scene="res://main.tscn"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
-config/description="Original native multiplayer flight prototype. Procedural development assets."
+config/description="Native multiplayer development prototype. AI candidate aircraft and procedural world/parts; production acceptance incomplete."
 
 [display]
 window/size/viewport_width=1280

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Build only the pinned Android GL Java classes; preserve every native library.
 Experimental until the accompanying runtime evidence says otherwise.
-Requires an existing official Godot4.7.2 debug AAR, JDK17, Android35 android.jar.
+Requires an existing official Godot4.7.2 debug/release AAR, JDK17, Android35 android.jar.
 No download, deployment, credentials or installed-template mutation.
 """
 import argparse,hashlib,io,json,subprocess,tempfile,zipfile
@@ -17,12 +17,13 @@ def replace_zip(data,replacements):
    new.writestr(info,replacements.get(info.filename,old.read(info.filename)))
  return out.getvalue()
 def main():
- p=argparse.ArgumentParser(description=__doc__);p.add_argument('--aar',type=Path,required=True);p.add_argument('--jdk',type=Path,required=True);p.add_argument('--android-jar',type=Path,required=True);p.add_argument('--out',type=Path,required=True);a=p.parse_args()
+ p=argparse.ArgumentParser(description=__doc__);p.add_argument('--aar',type=Path,required=True);p.add_argument('--variant',choices=['debug','release'],default='debug');p.add_argument('--jdk',type=Path,required=True);p.add_argument('--android-jar',type=Path,required=True);p.add_argument('--out',type=Path,required=True);a=p.parse_args()
  assert a.aar.resolve()!=a.out.resolve(),'never overwrite the input AAR'
  source=Path(__file__).with_name('GLSurfaceView.java');data=source.read_bytes()
  assert sha(data)=='ab21e6cafd19a4acc39d90f78e3aaedb94491eec0f9e6cb6e78960821d0d3b92','modified patch source'
  original=a.aar.read_bytes()
- assert sha(original)=='9cfb115e508ce98e8cf9b655927ef894cdfc2fede18a82f995842388f7754102','expected official pinned debug AAR; never patch an unknown library'
+ expected={'debug':'9cfb115e508ce98e8cf9b655927ef894cdfc2fede18a82f995842388f7754102','release':'8791eecfe7c96a4de2d188a0bccfe9b83b92589a5a6825847473416a990e8629'}
+ assert sha(original)==expected[a.variant],'expected official pinned '+a.variant+' AAR; never patch an unknown library'
  version=subprocess.check_output([str(a.jdk/'bin/javac'),'-version'],stderr=subprocess.STDOUT,text=True).strip();assert version.startswith('javac 17.'),version
  with zipfile.ZipFile(io.BytesIO(original)) as z:jar=z.read('classes.jar')
  with tempfile.TemporaryDirectory(prefix='avia-android-java-') as temp:
@@ -37,6 +38,6 @@ def main():
   natives={n:sha(old.read(n)) for n in old.namelist() if n.endswith('.so')};assert natives
   assert all(new.read(n)==old.read(n) for n in old.namelist() if n!='classes.jar')
  a.out.parent.mkdir(parents=True,exist_ok=True);tmp=a.out.with_suffix(a.out.suffix+'.tmp');tmp.write_bytes(result);tmp.replace(a.out)
- report={'engine_commit':'ed1daf0bf001b61586d9930840f2f1394092c079','compiler':version,'source_sha256':sha(data),'input_aar_sha256':sha(original),'output_aar_sha256':sha(result),'classes_recompiled':sorted(compiled),'native_libraries_unchanged':natives,'runtime':'NOT VERIFIED by this build tool; see separate scenario evidence'}
+ report={'variant':a.variant,'engine_commit':'ed1daf0bf001b61586d9930840f2f1394092c079','compiler':version,'source_sha256':sha(data),'input_aar_sha256':sha(original),'output_aar_sha256':sha(result),'classes_recompiled':sorted(compiled),'native_libraries_unchanged':natives,'runtime':'NOT VERIFIED by this build tool; see separate scenario evidence'}
  a.out.with_suffix(a.out.suffix+'.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps({'sha256':sha(result),'classes':len(compiled),'unchanged_native_libraries':len(natives)}))
 if __name__=='__main__':main()

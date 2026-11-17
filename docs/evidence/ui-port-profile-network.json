@@ -1,0 +1,49 @@
+{
+  "status": "PASS",
+  "exit_code": 0,
+  "summary": {
+    "checks": [
+      {
+        "check": "actual UI restores stable Su27 ID/UDP port and locks competitive profile while retaining preference",
+        "ok": true
+      },
+      {
+        "check": "direct admission options agree with retry menu",
+        "ok": true
+      },
+      {
+        "check": "free flight restores preferred Realistic profile after competitive Arcade",
+        "ok": true
+      },
+      {
+        "check": "menu retains selection and hides flight-only HUD/buttons/radar",
+        "ok": true
+      },
+      {
+        "check": "actual join persists aircraft ID rather than mutable catalog index",
+        "ok": true
+      },
+      {
+        "check": "cancelled preparation keeps a usable retry menu",
+        "ok": true
+      },
+      {
+        "check": "actual UI connects via configured nondefault UDP port and receives server-locked Arcade",
+        "ok": true
+      },
+      {
+        "check": "unavailable aircraft/mode and out-of-range profile fall back safely",
+        "ok": true
+      }
+    ],
+    "event": "ui_preferences_summary",
+    "scope": "actual rendered desktop UI nodes/config and pending-join cancellation; not phone or public multiplayer acceptance",
+    "status": "PASS"
+  },
+  "source_files_sha256": {
+    "game/avia/client/ui.gd": "22ee33b0423039b2202e5790e68bd6eff4e3799ea052c7c55fc068be0ff294b6",
+    "game/avia/tests/ui_preferences_check.gd": "72c47d69006cfa9f7f607fdeea96af70fb997d05c90dab57fb6a28d89d19ee9d",
+    "tools/ui_preferences_check.py": "94fabdbe1691fb88860b76efb0712ae2737a03f692afff5349300ccea5b99689"
+  },
+  "environment": "actual rendered desktop UI, separate loopback serverUDP24678, existing DTLS key outsideGit, unique test user directory"
+}

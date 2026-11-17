@@ -6,6 +6,9 @@ var menu: PanelContainer
 var hud: Label
 var notice: Label
 var host: LineEdit
+var port: SpinBox
+var preferred_profile: int=0
+var previous_mode: int=0
 var code: LineEdit
 var select_plane: OptionButton
 var speed_unit: int=0
@@ -90,6 +93,11 @@ func _ready() -> void:
  select_plane.select(maxi(0,AviaCatalog.index_of(str(settings.get_value("flight","aircraft_id","kite")))))
  select_profile.select(clampi(int(settings.get_value("flight","profile",0)),0,2))
  select_mode.select(maxi(0,["free","race","pvp"].find(str(settings.get_value("flight","mode","free")))))
+ preferred_profile=select_profile.selected
+ select_mode.item_selected.connect(_mode_changed)
+ select_profile.item_selected.connect(func(value: int):
+  if select_mode.selected==0:preferred_profile=value)
+ _mode_changed(select_mode.selected)
  var systems_row: HBoxContainer=HBoxContainer.new();systems_row.position=Vector2(380,630);root.add_child(systems_row)
  for label: String in ["AB / Форсаж","Flaps / Закрылки","Gear / Шасси"]:
   var system: CheckBox=CheckBox.new();system.text=label;system.custom_minimum_size.y=54;system.button_pressed=label.begins_with("Gear");systems_row.add_child(system);system_buttons[label]=system
@@ -98,7 +106,10 @@ func _ready() -> void:
    elif label.begins_with("Flaps"):touch.flaps=value
    else:touch.gear=value
    if session.diagnostics:print(JSON.stringify({"event":"ui_system_toggle","control":label,"value":value})))
- host=LineEdit.new();host.placeholder_text=tr_text("host");host.text=str(settings.get_value("net","host","127.0.0.1"));col.add_child(host)
+ var network_row: HBoxContainer=HBoxContainer.new();col.add_child(network_row)
+ host=LineEdit.new();host.placeholder_text=tr_text("host");host.text=str(settings.get_value("net","host","127.0.0.1"));host.size_flags_horizontal=Control.SIZE_EXPAND_FILL;network_row.add_child(host)
+ var port_label: Label=Label.new();port_label.text="UDP";network_row.add_child(port_label)
+ port=SpinBox.new();port.min_value=1;port.max_value=65535;port.step=1;port.value=clampi(int(settings.get_value("net","port",24567)),1,65535);port.custom_minimum_size.x=155;network_row.add_child(port)
  var room_row: HBoxContainer=HBoxContainer.new();col.add_child(room_row)
  private_room=CheckBox.new();private_room.text=tr_text("private");labels.private=private_room;room_row.add_child(private_room)
  code=LineEdit.new();code.placeholder_text=tr_text("code");code.max_length=12;code.size_flags_horizontal=Control.SIZE_EXPAND_FILL;room_row.add_child(code)
@@ -160,20 +171,38 @@ func _update_help() -> void:
  labels.assist.disabled=select_plane.selected>=3
  labels.assist.visible=select_plane.selected<3
  labels.assist.tooltip_text="Fighter assistance uses the server flight profile / Помощь истребителя задаётся серверным профилем"
+func _mode_changed(_index: int=0) -> void:
+ # Match the authority's fixed Arcade category for competitive modes.
+ if select_mode.selected==0:
+  if previous_mode!=0:select_profile.select(preferred_profile)
+  else:preferred_profile=select_profile.selected
+ else:
+  if previous_mode==0:preferred_profile=select_profile.selected
+  select_profile.select(0)
+ select_profile.disabled=select_mode.selected!=0
+ select_profile.tooltip_text="Race/PvP: Arcade locked by server / Гонка и бой: аркада закреплена сервером"
+ previous_mode=select_mode.selected
+ if labels.has("help"):_update_help()
 func apply_connection_options(options: Dictionary) -> void:
  # Diagnostic/deep-link admission and the visible retry menu must agree.
  # These are preferences; the server still validates aircraft and locks assists.
  if options.has("plane"):select_plane.select(clampi(int(options.plane),0,AviaFlight.PLANES.size()-1))
- if options.has("profile"):select_profile.select(clampi(int(options.profile),0,2))
+ if options.has("profile"):
+  preferred_profile=clampi(int(options.profile),0,2);select_profile.select(preferred_profile)
  if options.has("mode"):select_mode.select(maxi(0,["free","race","pvp"].find(str(options.mode))))
  if options.has("connect"):host.text=str(options.connect)
+ if options.has("port"):port.value=clampi(int(options.port),1,65535)
+ if options.has("private"):private_room.button_pressed=true
+ if options.has("code"):code.text=str(options.code)
+ _mode_changed(select_mode.selected)
  _update_help()
 func join() -> void:
  if preparing:return
  if host.text.strip_edges().is_empty():session.status="Enter a server address";return
  settings.set_value("net","host",host.text.strip_edges())
+ settings.set_value("net","port",int(port.value))
  settings.set_value("flight","aircraft_id",AviaFlight.PLANES[select_plane.selected].aircraft_id)
- settings.set_value("flight","profile",select_profile.selected)
+ settings.set_value("flight","profile",preferred_profile)
  settings.set_value("flight","mode",["free","race","pvp"][select_mode.selected])
  settings.save("user://settings.cfg")
  join_generation+=1
@@ -182,7 +211,7 @@ func join() -> void:
  await world.prepare_aircraft(select_plane.selected)
  if generation!=join_generation:return
  preparing=false
- var result: Error=session.connect_to(host.text.strip_edges(),24567,{"plane":select_plane.selected,"profile":select_profile.selected,"mode":["free","race","pvp"][select_mode.selected],"private":private_room.button_pressed,"code":code.text.strip_edges().to_upper()})
+ var result: Error=session.connect_to(host.text.strip_edges(),int(port.value),{"plane":select_plane.selected,"profile":select_profile.selected,"mode":["free","race","pvp"][select_mode.selected],"private":private_room.button_pressed,"code":code.text.strip_edges().to_upper()})
  if result==OK:menu.hide();touch.show()
  else:session.disconnect_session("Connection failed — check server address")
 func show_menu() -> void:
