@@ -1,0 +1,42 @@
+{
+  "source_commit": "3417828170d35a3ab2acac0c3fc1ad5ab2bf1046",
+  "classification": "prototype; version0.1 NOT ACCEPTED",
+  "artifacts": [
+    {
+      "name": "game-avia-0.1.0-debug.apk",
+      "bytes": 57076089,
+      "sha256": "2b242ce26c862d92a4d4c548b0ac01b557c9c4330235b8ca9446395e62c07f24"
+    },
+    {
+      "name": "game-avia-0.1.0-unsigned.aab",
+      "bytes": 52364308,
+      "sha256": "fe5fe0e9ca28efc75eddf5b8a3a6164caa783b0d5f0252ad57b77df634a206b9"
+    },
+    {
+      "name": "GameAvia.zip",
+      "bytes": 64498058,
+      "sha256": "58ed04ea184b1cc4b56394db64fbc448ae7be8af5716740991b26d23e2a78bdd"
+    },
+    {
+      "name": "game-avia-server.x86_64",
+      "bytes": 73653824,
+      "sha256": "5b884ac8ceae4c26821403c815a9361fed5afd6b8746a9fefbbcbc7840c01346"
+    },
+    {
+      "name": "game-avia-desktop-small.avi",
+      "bytes": 13879728,
+      "sha256": "56681838b5a9885e64a04e4f1b32b994841d318f4272c8bff6272b855d33c9cc"
+    }
+  ],
+  "release_url": "https://github.com/nikolasVO/game_avia/releases/tag/game-avia-prototype-20261117",
+  "prerelease": true,
+  "remote_digest_verification": "PASS",
+  "download_urls": {
+    "game-avia-0.1.0-debug.apk": "https://github.com/nikolasVO/game_avia/releases/download/game-avia-prototype-20261117/game-avia-0.1.0-debug.apk",
+    "game-avia-0.1.0-unsigned.aab": "https://github.com/nikolasVO/game_avia/releases/download/game-avia-prototype-20261117/game-avia-0.1.0-unsigned.aab",
+    "game-avia-desktop-small.avi": "https://github.com/nikolasVO/game_avia/releases/download/game-avia-prototype-20261117/game-avia-desktop-small.avi",
+    "game-avia-server.x86_64": "https://github.com/nikolasVO/game_avia/releases/download/game-avia-prototype-20261117/game-avia-server.x86_64",
+    "GameAvia.zip": "https://github.com/nikolasVO/game_avia/releases/download/game-avia-prototype-20261117/GameAvia.zip",
+    "SHA256SUMS.txt": "https://github.com/nikolasVO/game_avia/releases/download/game-avia-prototype-20261117/SHA256SUMS.txt"
+  }
+}

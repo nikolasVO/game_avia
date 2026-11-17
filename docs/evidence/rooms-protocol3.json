@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "scope": "19 real ENet/DTLS client processes in distinct private/public rooms; no claim of 32 in one room",
+  "private_room_joined": 16,
+  "public_room_isolated": 2,
+  "room_full_rejections": 1,
+  "errors": []
+}

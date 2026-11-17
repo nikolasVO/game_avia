@@ -1,13 +1,16 @@
-# Implementation backlog
+# Remaining acceptance work
 
-1. [done] Verify canonical brief/receipt, inspect existing state and select measured engine candidate.
-2. [done] Original shared flight model, server authority, procedural plane/runway/world, touch controls, two rendered clients.
-3. [done] Actual Android debug export; inspect signature and native alignment.
-4. [active] Secure game admission, protocol abuse and poor-network checks; reconcile prediction errors and smooth camera/aircraft presentation.
-5. [active] Complete 16 active-bot/30-minute run; measure CPU/RAM/tick/network and preserve evidence.
-6. [next] Manually deploy exact server SHA with supervised restart, progress persistence and rollback; preserve existing services.
-7. [next] Network race/PvP/room/recovery tests, gameplay recording, clean-checkout build.
-8. [blocked] Provider external UDP mapping; cross-network and phone clients. No new hosting purchase.
-9. [blocked] AI image/TRELLIS/Blender plane: paid budget unknown and gated DINOv3 access absent. Queue stable manifests; do not call paid providers.
-10. [blocked] Full Xcode/iOS signing and physical Android/iPhone 20–30-minute measurements.
-11. [next] AAB packaging feasibility without accepting account/SDK terms; RC privacy/store data map and reproduction instructions. No store publication.
+Implemented and verified milestones: brief receipt/audit, exact Godot/templates, shared flight, native client/UI/world, dedicated ENet/DTLS authority, two clients, real Android/APK/AAB/macOS/server exports, protocol validation, private/public rooms, repeated race/PvP bots, persistent anonymous totals,31-minute16-client native-server load, impaired network and encrypted backup restore.
+
+Priority order, preserving source/data and the single coordinator:
+
+1. Reproduce/fix the final3417828 Android client-cycle stall on a supported emulator or physical Android. The tested Mac was memory/CPU constrained; software rendering stalled and host graphics mode caused Quickstep ANR. Cause is not proven to be exclusively the environment. Do not promote current APK to passed mobile gameplay.
+2. Obtain a real externally reachable UDP mapping for existing Thunder hosting, or an already authorized host/transport with measured behavior. No new paid hosting or SSH-as-UDP substitution. Cross-network/mixed-platform sessions remain blocked.
+3. Run physical Android/iPhone20–30-minute tests: full manual flight/landing/crash/recovery, real multi-touch, background/resume, safe areas, thermal/memory/frame/network data. Select minimum devices/OS and renderer from these results.
+4. Finish real image→TRELLIS512/BiRefNet→Blender→GLB/LOD/import for the first plane/airfield prop, then3 production planes. Existing Store holds blocked jobs. Paid bootstrap stays closed; gated DINOv3 requires approved access. Procedural manifests remain truthful placeholders.
+5. Complete iOS path with actual full Xcode/SDK, TeamID and authorized provisioning/signing. No fabricated TeamID, IPA or store upload. Preserve Android progress independently.
+6. Complete remaining quality: preserve the specific timeout/error state and clear stale aircraft visuals on disconnect; repair per-packet security-test delivery instrumentation without inferring rejection from a missing packet; bounded server-history PvP lag compensation, hostile packet/resource-exhaustion audit, network handover/reconnect/background scenarios, user-readable world-boundary warnings, renderer coast/depth artifacts, production LOD/audio and flight-feel iteration.
+7. Decide whether persistent personal profiles are required. Current stats are anonymous global totals; introducing accounts requires secure storage and actual deletion paths before release. Fill operator/contact/provider retention facts in privacy draft.
+8. Build/reverify final signed mobile candidate from clean checkout, back up release key, finish name clearance, original store screenshots/rating and internal-testing accounts. Store submission/rollout is a separate owner instruction.
+
+32 players in one room is a future measurement; no promise. No advertising/economy/voice chat/payments/MMO scale are queued. No paid autonomous backlog is dispatched while money is unknown. Version0.1 stays unaccepted until actual criteria pass.

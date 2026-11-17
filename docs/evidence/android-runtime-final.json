@@ -1,0 +1,19 @@
+{
+  "status": "FAIL",
+  "scope": "Final3417828 APK on Android35 x86_64 emulator; not a physical phone",
+  "apk_sha256": "2b242ce26c862d92a4d4c548b0ac01b557c9c4330235b8ca9446395e62c07f24",
+  "install": "PASS",
+  "native_menu_world": "PASS",
+  "DTLS_admission_peer_render": "PASS",
+  "sustained_control_updates": "FAIL: server removed final client after10s without input; static recording not accepted as gameplay",
+  "earlier_protocol2_session": "Historical PASS: native peer and actual takeoff; does not accept protocol3",
+  "environment": {
+    "initial": "37.2.13 AOSP35 x86_64,1280x720,SwiftShader/ANGLE, MacIntel/Radeon560X",
+    "observed_host_pressure": "31GiB of32GiB used,792MiB unused; owned emulator RSS~4.8GiB,~154% CPU; other host applications preserved",
+    "fallback": "host graphics on Mac is deprecated per emulator warning;960x540 override; Quickstep launcher ANR observed"
+  },
+  "cause": "NOT ISOLATED: environment is constrained, but no exclusive environmental root cause claimed",
+  "diagnostic_apk": "Temporary instrumentation only; not committed/released",
+  "cleanup": "Owned emulator stopped, original user/hosting services preserved",
+  "physical_devices_thermals_fps": "NOT VERIFIED"
+}

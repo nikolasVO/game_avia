@@ -1,0 +1,46 @@
+{
+  "artifact": "game-avia-0.1.0-debug.apk",
+  "bytes": 57076089,
+  "sha256": "2b242ce26c862d92a4d4c548b0ac01b557c9c4330235b8ca9446395e62c07f24",
+  "native_libraries": [
+    {
+      "path": "lib/arm64-v8a/libc++_shared.so",
+      "load_alignments": [
+        16384,
+        16384,
+        16384
+      ],
+      "16kb_elf_alignment": true
+    },
+    {
+      "path": "lib/arm64-v8a/libgodot_android.so",
+      "load_alignments": [
+        16384,
+        16384,
+        16384
+      ],
+      "16kb_elf_alignment": true
+    },
+    {
+      "path": "lib/x86_64/libc++_shared.so",
+      "load_alignments": [
+        16384,
+        16384,
+        16384
+      ],
+      "16kb_elf_alignment": true
+    },
+    {
+      "path": "lib/x86_64/libgodot_android.so",
+      "load_alignments": [
+        16384,
+        16384,
+        16384
+      ],
+      "16kb_elf_alignment": true
+    }
+  ],
+  "prohibited_paths": [],
+  "status": "PASS",
+  "scope": "Static ELF LOAD alignment and package path inspection; not 16KB device runtime"
+}

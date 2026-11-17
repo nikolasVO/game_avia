@@ -28,7 +28,7 @@ finally:
   try:proc.wait(timeout=5)
   except subprocess.TimeoutExpired:proc.kill();proc.wait()
  for f in handles:f.close()
-report={'environment':'desktop-rendered-bots' if a.render else 'headless-protocol-bots','host_kind':'external' if a.external else 'localhost','clients':a.clients,'requested_seconds':a.seconds,'processes':[],'status':'PASS'}
+report={'environment':'desktop-rendered-bots' if a.render else 'headless-protocol-bots','host_kind':'loopback' if a.host in ('127.0.0.1','localhost','::1') else 'remote_endpoint','external_server_process':a.external,'clients':a.clients,'requested_seconds':a.seconds,'processes':[],'status':'PASS'}
 for name,proc in processes:
  text=(a.out/(name+'.log')).read_text();events=[]
  for line in text.splitlines():

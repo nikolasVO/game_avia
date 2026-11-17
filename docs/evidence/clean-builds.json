@@ -1,0 +1,43 @@
+{
+  "source_commit": "3417828170d35a3ab2acac0c3fc1ad5ab2bf1046",
+  "clean_checkout": "/Users/nik/.codex/tmp/game-avia-implementation-20261117/clean-3417828",
+  "artifacts": [
+    {
+      "artifact": "game-avia-0.1.0-debug.apk",
+      "bytes": 57076089,
+      "sha256": "2b242ce26c862d92a4d4c548b0ac01b557c9c4330235b8ca9446395e62c07f24",
+      "engine": "4.7.2.stable.official.ed1daf0bf",
+      "commit": "3417828170d35a3ab2acac0c3fc1ad5ab2bf1046",
+      "dirty": false,
+      "target": "apk",
+      "signature": "debug",
+      "device_tested": false
+    },
+    {
+      "artifact": "GameAvia.zip",
+      "bytes": 64498058,
+      "sha256": "58ed04ea184b1cc4b56394db64fbc448ae7be8af5716740991b26d23e2a78bdd",
+      "engine": "4.7.2.stable.official.ed1daf0bf",
+      "commit": "3417828170d35a3ab2acac0c3fc1ad5ab2bf1046",
+      "dirty": false,
+      "target": "mac",
+      "signature": "test",
+      "device_tested": false
+    },
+    {
+      "artifact": "game-avia-0.1.0-unsigned.aab",
+      "bytes": 52364308,
+      "sha256": "fe5fe0e9ca28efc75eddf5b8a3a6164caa783b0d5f0252ad57b77df634a206b9",
+      "engine": "4.7.2.stable.official.ed1daf0bf",
+      "commit": "3417828170d35a3ab2acac0c3fc1ad5ab2bf1046",
+      "dirty": false,
+      "target": "aab",
+      "signature": "unsigned",
+      "device_tested": false
+    }
+  ],
+  "android_apk_signature": "PASS: v2/v3",
+  "apk_16kb_elf_zip_alignment": "PASS static; runtime NOT VERIFIED",
+  "unsigned_aab_bundletool_validation": "PASS: bundletool1.18.3",
+  "ios": "BLOCKED: missing full Xcode/TeamID; actual export rejected; no IPA/Xcode project"
+}

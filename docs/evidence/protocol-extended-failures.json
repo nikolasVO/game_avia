@@ -1,0 +1,128 @@
+{
+  "status": "FAIL",
+  "scope": "Additional9-scenario instrumentation after the earlier accepted8-scenario run",
+  "individual_checks": [
+    {
+      "scenario": "invalid",
+      "exit": 0,
+      "summary": {
+        "connection_status": "Connected",
+        "event": "actor_summary",
+        "joined": true,
+        "scenario": "invalid",
+        "snapshots": 50,
+        "status": "PASS"
+      },
+      "ok": true
+    },
+    {
+      "scenario": "replay",
+      "exit": 0,
+      "summary": {
+        "connection_status": "Connected",
+        "event": "actor_summary",
+        "joined": true,
+        "scenario": "replay",
+        "snapshots": 75,
+        "status": "PASS"
+      },
+      "ok": true
+    },
+    {
+      "scenario": "expired",
+      "exit": 0,
+      "summary": {
+        "connection_status": "Disconnected \u2014 retry from menu",
+        "event": "actor_summary",
+        "joined": false,
+        "scenario": "expired",
+        "snapshots": 0,
+        "status": "PASS"
+      },
+      "ok": true
+    },
+    {
+      "scenario": "plain",
+      "exit": 0,
+      "summary": {
+        "connection_status": "Menu",
+        "event": "actor_summary",
+        "joined": false,
+        "scenario": "plain",
+        "snapshots": 0,
+        "status": "PASS"
+      },
+      "ok": true
+    },
+    {
+      "scenario": "wrong-cert",
+      "exit": 0,
+      "summary": {
+        "connection_status": "Disconnected \u2014 retry from menu",
+        "event": "actor_summary",
+        "joined": false,
+        "scenario": "wrong-cert",
+        "snapshots": 0,
+        "status": "PASS"
+      },
+      "ok": true
+    },
+    {
+      "scenario": "held-recovery",
+      "exit": 0,
+      "summary": {
+        "connection_status": "Connected",
+        "event": "actor_summary",
+        "joined": true,
+        "scenario": "held-recovery",
+        "snapshots": 78,
+        "status": "PASS"
+      },
+      "ok": true
+    },
+    {
+      "scenario": "rapid-leave",
+      "exit": 0,
+      "summary": {
+        "connection_status": "Menu",
+        "event": "actor_summary",
+        "joined": false,
+        "scenario": "rapid-leave",
+        "snapshots": 4,
+        "status": "PASS"
+      },
+      "ok": true
+    },
+    {
+      "scenario": "version",
+      "exit": 0,
+      "summary": {
+        "connection_status": "Version mismatch",
+        "event": "actor_summary",
+        "joined": false,
+        "scenario": "version",
+        "snapshots": 0,
+        "status": "PASS"
+      },
+      "ok": true
+    },
+    {
+      "scenario": "peaceful-fire",
+      "exit": 0,
+      "summary": {
+        "connection_status": "Connected",
+        "event": "actor_summary",
+        "joined": true,
+        "scenario": "peaceful-fire",
+        "snapshots": 78,
+        "status": "PASS"
+      },
+      "ok": true
+    }
+  ],
+  "observed_server_rejected": 5,
+  "peaceful_shots": 0,
+  "finding": "All9 client outcome assertions passed, but the aggregate rejection-count assertion failed. A later acknowledgement fixture received only2 of7 expected confirmations; per-packet delivery/observation is NOT VERIFIED. Experimental harness files retained outside Git; known8-scenario harness restored. No missing packet is counted as a rejection.",
+  "original_core_evidence": "docs/evidence/protocol3-regressions.json (8 scenarios PASS at source3417828)",
+  "production_code_changed": false
+}

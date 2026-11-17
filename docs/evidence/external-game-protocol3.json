@@ -1,0 +1,8 @@
+{
+  "status": "FAIL",
+  "scope": "Actual ENet/DTLS client from Mac to public hostname used by Thunder SSH, UDP24567; no TCP tunnel",
+  "exit": 0,
+  "joined": false,
+  "snapshots": 0,
+  "conclusion": "No reachable game UDP endpoint verified; provider mapping remains BLOCKED"
+}

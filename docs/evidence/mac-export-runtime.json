@@ -1,0 +1,38 @@
+{
+  "status": "PASS",
+  "scope": "Actual exported unsigned macOS app executable, headless client connected to separate server",
+  "source_commit": "3417828170d35a3ab2acac0c3fc1ad5ab2bf1046",
+  "exit": 0,
+  "summary": {
+    "correction_max_m": 0.0,
+    "correction_p95_m": 0.0,
+    "enet_rtt_ms": 20.0,
+    "event": "summary",
+    "frame_p50_ms": 0,
+    "frame_p95_ms": 0,
+    "joined": true,
+    "rejected": 0,
+    "renderer": "gl_compatibility",
+    "seconds": 10.0064386666667,
+    "seen_peers": 1,
+    "server": false,
+    "snapshots": 136,
+    "state": {
+      "age": 275,
+      "crashed": false,
+      "distance": 0.0,
+      "grounded": true,
+      "health": 100.0,
+      "landed": false,
+      "p": "(-18.0, 1.4, 180.0)",
+      "pitch": 0.0,
+      "plane": 0,
+      "respawns": 0,
+      "roll": 0.0,
+      "v": "(0.0, 0.0, 0.0)",
+      "was_airborne": false,
+      "yaw": 0.0
+    },
+    "static_memory_mb": 22.8775196075439
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "status": "PASS",
+  "scope": "localhost real ENet/DTLS processes through UDP impairment; not carrier/Wi-Fi handover",
+  "rtt_base_ms": 200,
+  "per_direction_jitter_uniform_ms": 50,
+  "loss_probability_each_direction": 0.03,
+  "seconds": 45,
+  "proxy": {
+    "received": 3780,
+    "dropped": 102,
+    "forwarded": 3678,
+    "bytes": 894105
+  },
+  "clients": [
+    {
+      "correction_max_m": 9.31789016723633,
+      "correction_p95_m": 3.65732932090759,
+      "enet_rtt_ms": 224.0,
+      "event": "summary",
+      "frame_p50_ms": 0,
+      "frame_p95_ms": 0,
+      "joined": true,
+      "rejected": 0,
+      "renderer": "gl_compatibility",
+      "seconds": 45.0063903333321,
+      "seen_peers": 2,
+      "server": false,
+      "snapshots": 583,
+      "state": {
+        "age": 1280,
+        "crashed": false,
+        "distance": 2044.11079216003,
+        "grounded": false,
+        "health": 100.0,
+        "landed": false,
+        "p": "(150.6717, 409.0523, 180.6599)",
+        "pitch": -0.0200000012444115,
+        "plane": 0,
+        "respawns": 0,
+        "roll": -0.237499999108261,
+        "v": "(-47.73344, 9.160906, -25.44081)",
+        "was_airborne": true,
+        "yaw": -5.24218041889737
+      },
+      "static_memory_mb": 24.2399072647095
+    },
+    {
+      "correction_max_m": 7.85411500930786,
+      "correction_p95_m": 3.65732622146606,
+      "enet_rtt_ms": 220.0,
+      "event": "summary",
+      "frame_p50_ms": 0,
+      "frame_p95_ms": 0,
+      "joined": true,
+      "rejected": 0,
+      "renderer": "gl_compatibility",
+      "seconds": 45.4109026666654,
+      "seen_peers": 2,
+      "server": false,
+      "snapshots": 593,
+      "state": {
+        "age": 1277,
+        "crashed": false,
+        "distance": 2060.25564277172,
+        "grounded": false,
+        "health": 100.0,
+        "landed": false,
+        "p": "(160.3274, 411.3741, 166.7495)",
+        "pitch": -0.0199999997449729,
+        "plane": 0,
+        "respawns": 0,
+        "roll": -0.237499999233105,
+        "v": "(-47.45124, 9.160906, -25.96335)",
+        "was_airborne": true,
+        "yaw": -5.25315996104369
+      },
+      "static_memory_mb": 24.2266397476196
+    }
+  ]
+}

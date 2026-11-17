@@ -1,0 +1,51 @@
+{
+  "status": "PASS",
+  "scope": "Real protocol3 control bots complete and repeat server-authoritative race",
+  "finishes": [
+    {
+      "data": {
+        "id": 1988980642,
+        "next": 5,
+        "seconds": 48.5666666666667
+      },
+      "event": "finish",
+      "room": "public:race:0",
+      "tick": 1946
+    },
+    {
+      "data": {
+        "id": 719458095,
+        "next": 5,
+        "seconds": 48.6
+      },
+      "event": "finish",
+      "room": "public:race:0",
+      "tick": 1947
+    },
+    {
+      "data": {
+        "id": 1988980642,
+        "next": 5,
+        "seconds": 48.6
+      },
+      "event": "finish",
+      "room": "public:race:0",
+      "tick": 3838
+    },
+    {
+      "data": {
+        "id": 719458095,
+        "next": 5,
+        "seconds": 48.6
+      },
+      "event": "finish",
+      "room": "public:race:0",
+      "tick": 3840
+    }
+  ],
+  "finish_counts": {
+    "1988980642": 2,
+    "719458095": 2
+  },
+  "respawns": 4
+}

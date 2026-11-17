@@ -1,0 +1,6 @@
+{
+  "status": "PASS",
+  "scope": "Tracked small text files: known private-key/token patterns; APK prohibited paths/ELF checked separately. Not a formal security audit.",
+  "flagged_paths": [],
+  "git_lfs_fsck": "PASS"
+}
