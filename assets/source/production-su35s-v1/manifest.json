@@ -1,0 +1,62 @@
+{
+  "aircraft_id": "su35s",
+  "authored_geometry": {
+    "body_half_height_m": 0.58,
+    "body_half_width_m": 1.25,
+    "engine_channel_length_m": 8.3,
+    "engine_spacing_m": 2.15,
+    "engines": 2.0,
+    "fin_cant_degrees": 10.0,
+    "fin_height_m": 3.0,
+    "intake_layout": "side_pair",
+    "length_m": 21.9,
+    "lerx_chord_m": 7.3,
+    "lerx_half_span_m": 2.7,
+    "lerx_z_m": -2.8,
+    "planform": "conventional",
+    "proportions_notice": "Authored stylized game proportions, not measured real variant geometry.",
+    "span_m": 14.7,
+    "wing_root_chord_m": 6.3,
+    "wing_sweep_m": 2.6
+  },
+  "conditioning": "single reference.png only, never the QC views as a collage",
+  "description": "Own approximate game fighter geometry, no logos/insignia or copied third-party model; variant recognition/proportions require further review",
+  "files": {
+    "front.png": {
+      "height": 1024,
+      "sha256": "e155a4c3474d22c392f532c5ac010a01dbe35f1d9eb2fb76d2ebb88f1e1b306a",
+      "width": 1024
+    },
+    "reference.png": {
+      "height": 1024,
+      "sha256": "be5379e0fe6b1964be5cebc3c10f28c85ce72907abb14c1cf6a6bf92916b3c56",
+      "width": 1024
+    },
+    "side.png": {
+      "height": 1024,
+      "sha256": "eed6c8eca672c0319a642eadeb1b04b52115442d9448a963742b03ac922b63c3",
+      "width": 1024
+    },
+    "top.png": {
+      "height": 1024,
+      "sha256": "bf8deef3a04bd74ee77b85f22ee81cf1efcd8e2664192f116e7a4de2ea9caf21",
+      "width": 1024
+    }
+  },
+  "generator": "game/avia/tests/fighter_reference.gd and client/fighter_visual.gd",
+  "generator_files_sha256": {
+    "res://client/aircraft.gd": "4ab632dca7b2dbb6d3f5a1213c29a3dc2fd6692f9e83d1de6d7a13a7d701b44d",
+    "res://client/fighter_visual.gd": "2be79aae947a764956186e6d35e9ad1f9240f39797255726a79053223144759a",
+    "res://tests/fighter_reference.gd": "4a7d82294e86844942b512b9b0b7ec975810ebe0de1f381e8818064540ae5752"
+  },
+  "imported_body_used": false,
+  "input_rights": "Project-authored geometry/render; no third-party pixels/models/logos. Commercial designation/design review remains pending.",
+  "input_view": "reference.png",
+  "paid_calls": 0,
+  "qc_views_only": [
+    "top.png",
+    "front.png",
+    "side.png"
+  ],
+  "source_type": "procedural_reference"
+}
