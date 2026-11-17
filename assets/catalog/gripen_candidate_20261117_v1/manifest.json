@@ -1,0 +1,306 @@
+{
+  "source_kind": "TRELLIS.2_image_to_3D",
+  "blender_version": "5.2.4 LTS",
+  "triangles_lod0": 19366,
+  "materials_lod0": 1,
+  "lods": [
+    {
+      "name": "LOD1",
+      "triangles": 5966,
+      "far_repair": null,
+      "dimensions_blender": [
+        8.37552547454834,
+        14.100313186645508,
+        2.998502492904663
+      ]
+    },
+    {
+      "name": "LOD2",
+      "triangles": 1466,
+      "far_repair": {
+        "method": "voxel topology repair then decimation",
+        "attempts": [
+          {
+            "voxel_size_m": 0.028200000524520874,
+            "triangles": 1466,
+            "dimensions_blender": [
+              8.39682674407959,
+              14.101829528808594,
+              3.005074977874756
+            ]
+          }
+        ],
+        "voxel_size_m": 0.028200000524520874,
+        "material": "plain sampled albedo; no far texture/UV required",
+        "rgba": [
+          0.5679890722498413,
+          0.6832649911096854,
+          0.6208238513894784,
+          1
+        ]
+      },
+      "dimensions_blender": [
+        8.39682674407959,
+        14.101829528808594,
+        3.005074977874756
+      ]
+    }
+  ],
+  "collision": "box metadata only; engine binding required",
+  "geometry": {
+    "uv_layers": 1,
+    "degenerate_triangles": 0,
+    "finite_vertices_and_normals": true,
+    "texture_sizes": [
+      [
+        1024,
+        1024
+      ],
+      [
+        1024,
+        1024
+      ]
+    ],
+    "symmetry": {
+      "mirror_axis": "Blender X",
+      "mean_distance_m": 2.1206203771106978e-10,
+      "max_distance_m": 8.156259241332009e-07,
+      "mean_fraction_width": 2.524548182636391e-11
+    }
+  },
+  "generator_script_sha256": "43f383b37d422eb76aa0395dce9e3cd41fb3fc3a18e8fa36dcd9c3d25d1b437a",
+  "dimensions_m": [
+    8.399999618530273,
+    3.0,
+    14.100000381469727
+  ],
+  "pivot": "bottom_center",
+  "source_yaw_degrees": 180.0,
+  "symmetry_enforced_x": true,
+  "export_axes": "glTF Y-up",
+  "unity_import_tested": false,
+  "license": "TRELLIS.2 MIT; DINOv3 custom license; BiRefNet MIT; reference terms apply; see provenance",
+  "checks": {
+    "triangle_budget": true,
+    "material_budget": true,
+    "finite_bounds": true,
+    "finite_geometry": true,
+    "no_degenerate_triangles": true,
+    "uv_present": true,
+    "texture_budget": true,
+    "lod_budgets": true,
+    "lod_silhouette_bounds": true,
+    "exact_mirror_symmetry": true
+  },
+  "files": {
+    "optimized.glb": {
+      "sha256": "69cbaff4fb2bc69b93d14cb625b6bf4150600c048b9f5be7a5f902ea07de2c52",
+      "bytes": 2056296
+    },
+    "preview.png": {
+      "sha256": "50c42dc3e79aa3d29852a959e58fa056cbe7476e88301d24e802de49fd0dbcd6",
+      "bytes": 124492
+    },
+    "lod0.glb": {
+      "sha256": "78b4ca0666b40565ae9497314ecef624ba79513868233dd3946fc88f5746d9fc",
+      "bytes": 1667128
+    },
+    "lod1.glb": {
+      "sha256": "e86fa06ea3a457aec63ca155bc354bc1199b95efa128fdd603e7ec50e1e22bac",
+      "bytes": 1259464
+    },
+    "lod2.glb": {
+      "sha256": "39d5135de7e46d9dba54b52f6664d65e8670f4349e863f219410422ee9ec7255",
+      "bytes": 115172
+    },
+    "original.glb": {
+      "sha256": "30c321403cd3358c5222d929856a9994d4b46ffc72f178c1dc9b5aeccda3e973",
+      "bytes": 3981540
+    },
+    "godot-validation.json": {
+      "sha256": "20197838c8a80b52e3fa8fbc2c57bd5290f3c333754bd4914e7c286e7855e2da",
+      "bytes": 2137
+    },
+    "inference-evidence.json": {
+      "sha256": "afd7a52facf86181e0d7186a2ebd4188a4f360a8813f8c1e1adca03935ca6dfc",
+      "bytes": 281
+    },
+    "godot-preview.png": {
+      "sha256": "f177fc8399669a696b3ceb3db5a7e5a8792db9322d677a17dfe5a33c57840d98",
+      "bytes": 28043
+    },
+    "godot-top.png": {
+      "sha256": "07d1d01a513a0cf4c387310dfe08c3259c6f6aa1516390b92847666e55a651d4",
+      "bytes": 31956
+    },
+    "godot-front.png": {
+      "sha256": "c6732cd18d0b851edd9fbd7e04d287ff70d4836dfc32e1cd66e5ae3e076cf4a0",
+      "bytes": 11578
+    },
+    "godot-side.png": {
+      "sha256": "239d4761f620e575e33427f3efc2ccc3b81b36b4780f2702ed017b7979b6c74d",
+      "bytes": 16180
+    },
+    "godot-lod1-orbit.png": {
+      "sha256": "7a19c00ecf779427f020ada344d358ab89cbe515e2f734370788317eb356b86b",
+      "bytes": 29048
+    },
+    "godot-lod1-top.png": {
+      "sha256": "69f573430949a8c998b8191a85e4c93b0c21aa285e50168c22cf5c5747e53d8f",
+      "bytes": 34822
+    },
+    "godot-lod1-front.png": {
+      "sha256": "4c7fdc5c3dce0c9cf20c2094e7213891fd6b86ba3e6b976df4776f5f53178546",
+      "bytes": 12128
+    },
+    "godot-lod1-side.png": {
+      "sha256": "b9fb84423f5c28e2c52280926325165ba52c52c9d5fe5305af9c2bad294e0970",
+      "bytes": 16277
+    },
+    "godot-lod2-orbit.png": {
+      "sha256": "4b4e81daab3ce87e7529fa837fb856aee98c39965cc372136a798a6441573250",
+      "bytes": 14386
+    },
+    "godot-lod2-top.png": {
+      "sha256": "46d49fbce7394d744395e13b38765e89b60b3908924863799807296a0387100e",
+      "bytes": 11981
+    },
+    "godot-lod2-front.png": {
+      "sha256": "eef0252d3113f514c14b6f45b784489d60f1e683150318d4a674f83ddf76b153",
+      "bytes": 7305
+    },
+    "godot-lod2-side.png": {
+      "sha256": "08e582c4b5565d249538f292be137151e6fdc54becf9934b01100b99b5730076",
+      "bytes": 7555
+    },
+    "provenance.json": {
+      "sha256": "d80de8d943179d59f82e43c0fd7aeeaba58d8b68fcfa7ea91d04b6ed232c574f",
+      "bytes": 2201
+    },
+    "game-native.png": {
+      "sha256": "790bde234edf921ac683595d47f4cf5b1a284beec74020083f9f4b23cd8cb695",
+      "bytes": 88144
+    }
+  },
+  "verified": true,
+  "generation": {
+    "pipeline_type": "512",
+    "seed": 42,
+    "original_sha256": "30c321403cd3358c5222d929856a9994d4b46ffc72f178c1dc9b5aeccda3e973",
+    "models": {
+      "microsoft/TRELLIS.2-4B": "af44b45f2e35a493886929c6d786e563ec68364d",
+      "microsoft/TRELLIS-image-large": "25e0d31ffbebe4b5a97464dd851910efc3002d96",
+      "facebook/dinov3-vitl16-pretrain-lvd1689m": "ea8dc2863c51be0a264bab82070e3e8836b02d51",
+      "ZhengPeng7/BiRefNet": "e2bf8e4460fc8fa32bba5ea4d94b3233d367b0e4"
+    }
+  },
+  "reference": [
+    {
+      "name": "reference.png",
+      "sha256": "340c89c076f91403220dc076f3ddc99e54c43712850f6000bc9b319657fe1cf4"
+    }
+  ],
+  "godot_import_tested": true,
+  "asset_id": "gripen_candidate_20261117_v1",
+  "source_type": "AI",
+  "godot_import": {
+    "bounds_position": [
+      -4.19999980926514,
+      0.0,
+      -7.05000019073486
+    ],
+    "dimensions": [
+      8.39999961853027,
+      3.0,
+      14.1000003814697
+    ],
+    "dimensions_ok": true,
+    "display": "macOS",
+    "engine": {
+      "build": "official",
+      "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+      "hex": 263938,
+      "major": 4,
+      "minor": 7,
+      "patch": 2,
+      "status": "stable",
+      "string": "4.7.2-stable (official)",
+      "timestamp": 0
+    },
+    "import_passed": true,
+    "lod_triangles": [
+      19366,
+      5966,
+      1466
+    ],
+    "meshes": [
+      {
+        "degenerate_triangles": 0,
+        "materials": 1,
+        "name": "COLLISION_BOX",
+        "nonfinite_normals": 0,
+        "nonfinite_vertices": 0,
+        "surfaces": 1,
+        "textures": 0,
+        "triangles": 12
+      },
+      {
+        "degenerate_triangles": 0,
+        "materials": 1,
+        "name": "LOD0",
+        "nonfinite_normals": 0,
+        "nonfinite_vertices": 0,
+        "surfaces": 1,
+        "textures": 1,
+        "triangles": 19366
+      },
+      {
+        "degenerate_triangles": 0,
+        "materials": 1,
+        "name": "LOD1",
+        "nonfinite_normals": 0,
+        "nonfinite_vertices": 0,
+        "surfaces": 1,
+        "textures": 1,
+        "triangles": 5966
+      },
+      {
+        "degenerate_triangles": 0,
+        "materials": 1,
+        "name": "LOD2",
+        "nonfinite_normals": 0,
+        "nonfinite_vertices": 0,
+        "surfaces": 1,
+        "textures": 0,
+        "triangles": 1466
+      }
+    ],
+    "pivot_ok": true,
+    "preview_files": [
+      "godot-preview.png",
+      "godot-top.png",
+      "godot-front.png",
+      "godot-side.png",
+      "godot-lod1-orbit.png",
+      "godot-lod1-top.png",
+      "godot-lod1-front.png",
+      "godot-lod1-side.png",
+      "godot-lod2-orbit.png",
+      "godot-lod2-top.png",
+      "godot-lod2-front.png",
+      "godot-lod2-side.png"
+    ],
+    "preview_rendered": true,
+    "mesh_compression_disabled": true,
+    "explicit_lods_preserved": true,
+    "validator_files_sha256": {
+      "workers/assets/godot_validate.py": "dbd2430432f9ae6df25ecf37761e433eb2eea2e2af6e0467a0f7bb3cdfe303bb",
+      "workers/assets/godot_validate.gd": "927fe87a667b03f4b57f199dcb61be6a5a91cacf82dbf477e6c69c5274ff9a0f"
+    }
+  },
+  "pipeline_verified": true,
+  "production_accepted": false,
+  "provenance_file": "provenance.json",
+  "forward_axis": "-Z",
+  "game_assembly_preview": "game-native.png; six actual rendered desktop bot clients, no phone/full aircraft acceptance"
+}

@@ -1,0 +1,41 @@
+{
+  "asset_id": "rafale_candidate_20261117_v1",
+  "source_type": "AI",
+  "generation": "TRELLIS.2 image-to-3D compact512",
+  "seed": 42,
+  "reference": {
+    "path": "assets/source/production-rafale-v1/reference.png",
+    "sha256": "a35a98440a422ccf89e42d77d6f0da272e8c15d5c0c8718ea85107cf769ffaab",
+    "source_type": "project-authored procedural reference",
+    "input_rights": "Project-authored geometry/render; no third-party pixels/models/logos. Commercial designation/design review remains pending.",
+    "qc_views": "separate top/front/side, never multi-view collage conditioning"
+  },
+  "model_revisions": {
+    "microsoft/TRELLIS.2-4B": "af44b45f2e35a493886929c6d786e563ec68364d",
+    "microsoft/TRELLIS-image-large": "25e0d31ffbebe4b5a97464dd851910efc3002d96",
+    "facebook/dinov3-vitl16-pretrain-lvd1689m": "ea8dc2863c51be0a264bab82070e3e8836b02d51",
+    "ZhengPeng7/BiRefNet": "e2bf8e4460fc8fa32bba5ea4d94b3233d367b0e4"
+  },
+  "inference_script_sha256": "7bcac94d7fd7a127eb30f4728faea31ab94d3ae42dc4bf391bba6b484e2876c8",
+  "paid_calls_this_continuation": 0,
+  "forward_axis": "-Z",
+  "postprocess": [
+    "Blender rotate yaw180",
+    "exact mirrorX",
+    "near UV/1024 textures retained",
+    "far voxel topology repair/sampled flat material"
+  ],
+  "output_license_clearance": "NOT VERIFIED for publication; TRELLIS MIT, approved DINOv3 custom license, BiRefNet MIT and input/design terms remain applicable",
+  "status": "pipeline candidate; production_accepted=false; variant recognition/articulation/mobile QA pending",
+  "prompt": "No image API: own sand-colored canard delta twin-engine single-fin game reference; provisional geometry and variant review.",
+  "game_import": {
+    "explicit_asset_lods": true,
+    "generate_additional_lods": false,
+    "mesh_compression_disabled": false,
+    "reason": "compression retained; actual imported triangles checked nondegenerate"
+  },
+  "assembly_code_sha256": {
+    "game/avia/client/aircraft.gd": "d52f9690dc9395588a1152c3c83d3dd402782ba9b5deaf9bcc766f9b51539649",
+    "game/avia/client/fighter_visual.gd": "1fed0b8d08692960f14514d1e00942f729b240d20b891667a5bbf7c9ed0522f5"
+  }
+}

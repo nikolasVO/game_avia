@@ -6,7 +6,7 @@
       "job_id": "aircraft-f16c-v1",
       "aircraft_id": "f16c",
       "state": "validating",
-      "source_type": "AI body/procedural gear/effects",
+      "source_type": "AI body/procedural assembly; Su35 authored nozzle repair",
       "stage": "mobile/articulation/recognition",
       "attempts": 1,
       "max_attempts": 2,
@@ -16,7 +16,7 @@
         "GPU lease",
         "10GiB reserve"
       ],
-      "next_action": "Candidate geometry/import/render/native two-client PASS; physical performance, articulated parts, complete recognition/landing and other aircraft acceptance gates remain",
+      "next_action": "Strict engine geometry/12views and six rendered clients25s PASS; all22files/hash and cache reuse verified. Full15gates, phone, rights, articulated parts and audio quality remain open.",
       "acceptance": "15 aircraft gates in brief section20; not accepted by config alone",
       "artifact_id": "f16c_candidate_20261117_v1",
       "task_id": "a842a8468efd"
@@ -25,26 +25,7 @@
       "job_id": "aircraft-su27-v1",
       "aircraft_id": "su27",
       "state": "validating",
-      "source_type": "AI body/procedural gear/effects",
-      "stage": "game_import/mobile/articulation/recognition",
-      "attempts": 1,
-      "max_attempts": 2,
-      "heartbeat": null,
-      "depends_on": [
-        "free authored reference",
-        "GPU lease",
-        "10GiB reserve"
-      ],
-      "next_action": "One real local inference232.32s, repaired LOD19364/5968/1468 and12 Godot views PASS; actual two rendered AI clients PASS. Complete variant recognition, articulated surfaces, physical mobile/performance and remaining15 acceptance gates.",
-      "acceptance": "15 aircraft gates in brief section20; not accepted by config alone",
-      "artifact_id": "su27_candidate_20261117_v1",
-      "task_id": "3b89d00b73bf"
-    },
-    {
-      "job_id": "aircraft-f15c-v1",
-      "aircraft_id": "f15c",
-      "state": "validating",
-      "source_type": "AI body/procedural gear/effects",
+      "source_type": "AI body/procedural assembly; Su35 authored nozzle repair",
       "stage": "mobile/articulation/recognition",
       "attempts": 1,
       "max_attempts": 2,
@@ -54,7 +35,26 @@
         "GPU lease",
         "10GiB reserve"
       ],
-      "next_action": "Local inference/Blender19362/5968/1468/Godot12views and actual two rendered AI clients PASS; same job cache reused. Complete variant, articulated surfaces, phone/rights and other15acceptance gates.",
+      "next_action": "Strict engine geometry/12views and six rendered clients25s PASS; all22files/hash and cache reuse verified. Full15gates, phone, rights, articulated parts and audio quality remain open.",
+      "acceptance": "15 aircraft gates in brief section20; not accepted by config alone",
+      "artifact_id": "su27_candidate_20261117_v1",
+      "task_id": "3b89d00b73bf"
+    },
+    {
+      "job_id": "aircraft-f15c-v1",
+      "aircraft_id": "f15c",
+      "state": "validating",
+      "source_type": "AI body/procedural assembly; Su35 authored nozzle repair",
+      "stage": "mobile/articulation/recognition",
+      "attempts": 1,
+      "max_attempts": 2,
+      "heartbeat": null,
+      "depends_on": [
+        "free authored reference",
+        "GPU lease",
+        "10GiB reserve"
+      ],
+      "next_action": "Strict engine geometry/12views and six rendered clients25s PASS; all22files/hash and cache reuse verified. Full15gates, phone, rights, articulated parts and audio quality remain open.",
       "acceptance": "15 aircraft gates in brief section20; not accepted by config alone",
       "task_id": "5296143b66de",
       "artifact_id": "f15c_candidate_20261117_v1"
@@ -62,10 +62,10 @@
     {
       "job_id": "aircraft-su35s-v1",
       "aircraft_id": "su35s",
-      "state": "queued",
-      "source_type": "AI/procedural repair planned",
-      "stage": "reference",
-      "attempts": 0,
+      "state": "validating",
+      "source_type": "AI body/procedural assembly; Su35 authored nozzle repair",
+      "stage": "mobile/articulation/recognition",
+      "attempts": 1,
       "max_attempts": 2,
       "heartbeat": null,
       "depends_on": [
@@ -73,16 +73,18 @@
         "GPU lease",
         "10GiB reserve"
       ],
-      "next_action": "Author recognizable multi-reference-checked silhouette; TRELLIS compact512; Blender symmetry/parts/LOD; Godot validation",
-      "acceptance": "15 aircraft gates in brief section20; not accepted by config alone"
+      "next_action": "Strict engine geometry/12views and six rendered clients25s PASS; all22files/hash and cache reuse verified. Full15gates, phone, rights, articulated parts and audio quality remain open.",
+      "acceptance": "15 aircraft gates in brief section20; not accepted by config alone",
+      "task_id": "c93023e1ddf1",
+      "artifact_id": "su35s_candidate_20261117_v1"
     },
     {
       "job_id": "aircraft-rafale-v1",
       "aircraft_id": "rafale",
-      "state": "queued",
-      "source_type": "AI/procedural repair planned",
-      "stage": "reference",
-      "attempts": 0,
+      "state": "validating",
+      "source_type": "AI body/procedural assembly; Su35 authored nozzle repair",
+      "stage": "mobile/articulation/recognition",
+      "attempts": 1,
       "max_attempts": 2,
       "heartbeat": null,
       "depends_on": [
@@ -90,16 +92,18 @@
         "GPU lease",
         "10GiB reserve"
       ],
-      "next_action": "Author recognizable multi-reference-checked silhouette; TRELLIS compact512; Blender symmetry/parts/LOD; Godot validation",
-      "acceptance": "15 aircraft gates in brief section20; not accepted by config alone"
+      "next_action": "Strict engine geometry/12views and six rendered clients25s PASS; all22files/hash and cache reuse verified. Full15gates, phone, rights, articulated parts and audio quality remain open.",
+      "acceptance": "15 aircraft gates in brief section20; not accepted by config alone",
+      "task_id": "d2f35fa62084",
+      "artifact_id": "rafale_candidate_20261117_v1"
     },
     {
       "job_id": "aircraft-gripen-v1",
       "aircraft_id": "gripen",
-      "state": "queued",
-      "source_type": "AI/procedural repair planned",
-      "stage": "reference",
-      "attempts": 0,
+      "state": "validating",
+      "source_type": "AI body/procedural assembly; Su35 authored nozzle repair",
+      "stage": "mobile/articulation/recognition",
+      "attempts": 1,
       "max_attempts": 2,
       "heartbeat": null,
       "depends_on": [
@@ -107,8 +111,10 @@
         "GPU lease",
         "10GiB reserve"
       ],
-      "next_action": "Author recognizable multi-reference-checked silhouette; TRELLIS compact512; Blender symmetry/parts/LOD; Godot validation",
-      "acceptance": "15 aircraft gates in brief section20; not accepted by config alone"
+      "next_action": "Strict engine geometry/12views and six rendered clients25s PASS; all22files/hash and cache reuse verified. Full15gates, phone, rights, articulated parts and audio quality remain open.",
+      "acceptance": "15 aircraft gates in brief section20; not accepted by config alone",
+      "task_id": "1f055be71c73",
+      "artifact_id": "gripen_candidate_20261117_v1"
     },
     {
       "job_id": "aircraft-f14-v1",

@@ -1,0 +1,135 @@
+{
+  "status": "PASS reproduced/fixed; originalFAIL retained",
+  "failure": {
+    "aircraft_id": "gripen",
+    "geometry": {
+      "lods": [
+        19458,
+        5966,
+        1466
+      ],
+      "surfaces": 5,
+      "triangles": 26890,
+      "unique_materials": 3
+    },
+    "low_speed_nozzle_cue_checked": false,
+    "meshes": [
+      {
+        "degenerate_triangles": 0,
+        "far_m": 350.0,
+        "level": 0,
+        "mesh": "LOD0",
+        "minimum_triangle_area_m2": 6.41851511318237e-06,
+        "near_m": 0.0,
+        "triangles": 19366
+      },
+      {
+        "degenerate_triangles": 2,
+        "far_m": 900.0,
+        "level": 1,
+        "mesh": "LOD1",
+        "minimum_triangle_area_m2": 0.0,
+        "near_m": 350.0,
+        "triangles": 5966
+      },
+      {
+        "degenerate_triangles": 0,
+        "far_m": 2500.0,
+        "level": 2,
+        "mesh": "LOD2",
+        "minimum_triangle_area_m2": 0.000846356153488159,
+        "near_m": 900.0,
+        "triangles": 1466
+      },
+      {
+        "degenerate_triangles": 0,
+        "far_m": 500.0,
+        "level": 0,
+        "mesh": "Gear",
+        "minimum_triangle_area_m2": 0.00839999224990606,
+        "near_m": 0.0,
+        "triangles": 72
+      },
+      {
+        "degenerate_triangles": 0,
+        "far_m": 800.0,
+        "level": 0,
+        "mesh": "Flame0_0",
+        "minimum_triangle_area_m2": 0.000692820409312844,
+        "near_m": 0.0,
+        "triangles": 20
+      }
+    ],
+    "source": "AI candidate with procedural landing gear/effects; production QA pending"
+  },
+  "fixed": {
+    "aircraft_id": "gripen",
+    "geometry": {
+      "lods": [
+        19458,
+        5966,
+        1466
+      ],
+      "surfaces": 5,
+      "triangles": 26890,
+      "unique_materials": 3
+    },
+    "low_speed_nozzle_cue_checked": false,
+    "meshes": [
+      {
+        "degenerate_triangles": 0,
+        "far_m": 350.0,
+        "level": 0,
+        "mesh": "LOD0",
+        "minimum_triangle_area_m2": 6.98833309797919e-06,
+        "near_m": 0.0,
+        "triangles": 19366
+      },
+      {
+        "degenerate_triangles": 0,
+        "far_m": 900.0,
+        "level": 1,
+        "mesh": "LOD1",
+        "minimum_triangle_area_m2": 1.39359815420903e-06,
+        "near_m": 350.0,
+        "triangles": 5966
+      },
+      {
+        "degenerate_triangles": 0,
+        "far_m": 2500.0,
+        "level": 2,
+        "mesh": "LOD2",
+        "minimum_triangle_area_m2": 0.000849020318128169,
+        "near_m": 900.0,
+        "triangles": 1466
+      },
+      {
+        "degenerate_triangles": 0,
+        "far_m": 500.0,
+        "level": 0,
+        "mesh": "Gear",
+        "minimum_triangle_area_m2": 0.00839999224990606,
+        "near_m": 0.0,
+        "triangles": 72
+      },
+      {
+        "degenerate_triangles": 0,
+        "far_m": 800.0,
+        "level": 0,
+        "mesh": "Flame0_0",
+        "minimum_triangle_area_m2": 0.000692820409312844,
+        "near_m": 0.0,
+        "triangles": 20
+      }
+    ],
+    "source": "AI candidate with procedural landing gear/effects; production QA pending"
+  },
+  "fix": "Gripen force_disable_compression=true; preserve all supplied explicit LODs, no additional generated LODs. Threshold unchanged1e-12. No new TRELLIS call or original/optimized GLB change.",
+  "strict_validator_default_detected_fail": true,
+  "strict_validator_full_precision_pass": true,
+  "validator_files_sha256": {
+    "workers/assets/godot_validate.py": "dbd2430432f9ae6df25ecf37761e433eb2eea2e2af6e0467a0f7bb3cdfe303bb",
+    "workers/assets/godot_validate.gd": "927fe87a667b03f4b57f199dcb61be6a5a91cacf82dbf477e6c69c5274ff9a0f"
+  },
+  "limits": "Engine import geometry only; no phone/full-aircraft acceptance"
+}

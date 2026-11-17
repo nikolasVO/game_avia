@@ -1,0 +1,600 @@
+{
+  "status": "PASS actual6assets/18LODs/72views",
+  "assets": [
+    {
+      "aircraft_id": "f16c",
+      "validation": {
+        "bounds_position": [
+          -4.90000009536743,
+          0.0,
+          -7.40000009536743
+        ],
+        "dimensions": [
+          9.80000019073486,
+          3.20000004768372,
+          14.8000001907349
+        ],
+        "dimensions_ok": true,
+        "display": "macOS",
+        "engine": {
+          "build": "official",
+          "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+          "hex": 263938,
+          "major": 4,
+          "minor": 7,
+          "patch": 2,
+          "status": "stable",
+          "string": "4.7.2-stable (official)",
+          "timestamp": 0
+        },
+        "import_passed": true,
+        "lod_triangles": [
+          19368,
+          5966,
+          1468
+        ],
+        "meshes": [
+          {
+            "degenerate_triangles": 0,
+            "materials": 1,
+            "name": "COLLISION_BOX",
+            "nonfinite_normals": 0,
+            "nonfinite_vertices": 0,
+            "surfaces": 1,
+            "textures": 0,
+            "triangles": 12
+          },
+          {
+            "degenerate_triangles": 0,
+            "materials": 1,
+            "name": "LOD0",
+            "nonfinite_normals": 0,
+            "nonfinite_vertices": 0,
+            "surfaces": 1,
+            "textures": 1,
+            "triangles": 19368
+          },
+          {
+            "degenerate_triangles": 0,
+            "materials": 1,
+            "name": "LOD1",
+            "nonfinite_normals": 0,
+            "nonfinite_vertices": 0,
+            "surfaces": 1,
+            "textures": 1,
+            "triangles": 5966
+          },
+          {
+            "degenerate_triangles": 0,
+            "materials": 1,
+            "name": "LOD2",
+            "nonfinite_normals": 0,
+            "nonfinite_vertices": 0,
+            "surfaces": 1,
+            "textures": 0,
+            "triangles": 1468
+          }
+        ],
+        "pivot_ok": true,
+        "preview_files": [
+          "godot-preview.png",
+          "godot-top.png",
+          "godot-front.png",
+          "godot-side.png",
+          "godot-lod1-orbit.png",
+          "godot-lod1-top.png",
+          "godot-lod1-front.png",
+          "godot-lod1-side.png",
+          "godot-lod2-orbit.png",
+          "godot-lod2-top.png",
+          "godot-lod2-front.png",
+          "godot-lod2-side.png"
+        ],
+        "preview_rendered": true,
+        "mesh_compression_disabled": false,
+        "explicit_lods_preserved": true,
+        "validator_files_sha256": {
+          "workers/assets/godot_validate.py": "dbd2430432f9ae6df25ecf37761e433eb2eea2e2af6e0467a0f7bb3cdfe303bb",
+          "workers/assets/godot_validate.gd": "927fe87a667b03f4b57f199dcb61be6a5a91cacf82dbf477e6c69c5274ff9a0f"
+        }
+      },
+      "manifest_sha256": "956ffd16a96127525d5ce1bdff77308346a924ec373750b37d10cb29784c65e6"
+    },
+    {
+      "aircraft_id": "su27",
+      "validation": {
+        "bounds_position": [
+          -7.34999990463257,
+          0.0,
+          -10.9499998092651
+        ],
+        "dimensions": [
+          14.6999998092651,
+          4.0,
+          21.8999996185303
+        ],
+        "dimensions_ok": true,
+        "display": "macOS",
+        "engine": {
+          "build": "official",
+          "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+          "hex": 263938,
+          "major": 4,
+          "minor": 7,
+          "patch": 2,
+          "status": "stable",
+          "string": "4.7.2-stable (official)",
+          "timestamp": 0
+        },
+        "import_passed": true,
+        "lod_triangles": [
+          19364,
+          5968,
+          1468
+        ],
+        "meshes": [
+          {
+            "degenerate_triangles": 0,
+            "materials": 1,
+            "name": "COLLISION_BOX",
+            "nonfinite_normals": 0,
+            "nonfinite_vertices": 0,
+            "surfaces": 1,
+            "textures": 0,
+            "triangles": 12
+          },
+          {
+            "degenerate_triangles": 0,
+            "materials": 1,
+            "name": "LOD0",
+            "nonfinite_normals": 0,
+            "nonfinite_vertices": 0,
+            "surfaces": 1,
+            "textures": 1,
+            "triangles": 19364
+          },
+          {
+            "degenerate_triangles": 0,
+            "materials": 1,
+            "name": "LOD1",
+            "nonfinite_normals": 0,
+            "nonfinite_vertices": 0,
+            "surfaces": 1,
+            "textures": 1,
+            "triangles": 5968
+          },
+          {
+            "degenerate_triangles": 0,
+            "materials": 1,
+            "name": "LOD2",
+            "nonfinite_normals": 0,
+            "nonfinite_vertices": 0,
+            "surfaces": 1,
+            "textures": 0,
+            "triangles": 1468
+          }
+        ],
+        "pivot_ok": true,
+        "preview_files": [
+          "godot-preview.png",
+          "godot-top.png",
+          "godot-front.png",
+          "godot-side.png",
+          "godot-lod1-orbit.png",
+          "godot-lod1-top.png",
+          "godot-lod1-front.png",
+          "godot-lod1-side.png",
+          "godot-lod2-orbit.png",
+          "godot-lod2-top.png",
+          "godot-lod2-front.png",
+          "godot-lod2-side.png"
+        ],
+        "preview_rendered": true,
+        "mesh_compression_disabled": false,
+        "explicit_lods_preserved": true,
+        "validator_files_sha256": {
+          "workers/assets/godot_validate.py": "dbd2430432f9ae6df25ecf37761e433eb2eea2e2af6e0467a0f7bb3cdfe303bb",
+          "workers/assets/godot_validate.gd": "927fe87a667b03f4b57f199dcb61be6a5a91cacf82dbf477e6c69c5274ff9a0f"
+        }
+      },
+      "manifest_sha256": "cbc8398870fa481e933d95bb7596258dbfd5dca550774a9261c56386e7272e7e"
+    },
+    {
+      "aircraft_id": "f15c",
+      "validation": {
+        "bounds_position": [
+          -6.5,
+          0.0,
+          -9.72000026702881
+        ],
+        "dimensions": [
+          13.0,
+          4.19999980926514,
+          19.4400005340576
+        ],
+        "dimensions_ok": true,
+        "display": "macOS",
+        "engine": {
+          "build": "official",
+          "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+          "hex": 263938,
+          "major": 4,
+          "minor": 7,
+          "patch": 2,
+          "status": "stable",
+          "string": "4.7.2-stable (official)",
+          "timestamp": 0
+        },
+        "import_passed": true,
+        "lod_triangles": [
+          19362,
+          5968,
+          1468
+        ],
+        "meshes": [
+          {
+            "degenerate_triangles": 0,
+            "materials": 1,
+            "name": "COLLISION_BOX",
+            "nonfinite_normals": 0,
+            "nonfinite_vertices": 0,
+            "surfaces": 1,
+            "textures": 0,
+            "triangles": 12
+          },
+          {
+            "degenerate_triangles": 0,
+            "materials": 1,
+            "name": "LOD0",
+            "nonfinite_normals": 0,
+            "nonfinite_vertices": 0,
+            "surfaces": 1,
+            "textures": 1,
+            "triangles": 19362
+          },
+          {
+            "degenerate_triangles": 0,
+            "materials": 1,
+            "name": "LOD1",
+            "nonfinite_normals": 0,
+            "nonfinite_vertices": 0,
+            "surfaces": 1,
+            "textures": 1,
+            "triangles": 5968
+          },
+          {
+            "degenerate_triangles": 0,
+            "materials": 1,
+            "name": "LOD2",
+            "nonfinite_normals": 0,
+            "nonfinite_vertices": 0,
+            "surfaces": 1,
+            "textures": 0,
+            "triangles": 1468
+          }
+        ],
+        "pivot_ok": true,
+        "preview_files": [
+          "godot-preview.png",
+          "godot-top.png",
+          "godot-front.png",
+          "godot-side.png",
+          "godot-lod1-orbit.png",
+          "godot-lod1-top.png",
+          "godot-lod1-front.png",
+          "godot-lod1-side.png",
+          "godot-lod2-orbit.png",
+          "godot-lod2-top.png",
+          "godot-lod2-front.png",
+          "godot-lod2-side.png"
+        ],
+        "preview_rendered": true,
+        "mesh_compression_disabled": false,
+        "explicit_lods_preserved": true,
+        "validator_files_sha256": {
+          "workers/assets/godot_validate.py": "dbd2430432f9ae6df25ecf37761e433eb2eea2e2af6e0467a0f7bb3cdfe303bb",
+          "workers/assets/godot_validate.gd": "927fe87a667b03f4b57f199dcb61be6a5a91cacf82dbf477e6c69c5274ff9a0f"
+        }
+      },
+      "manifest_sha256": "183275b33a10d208625e846e0f6aaae03cbe8f859615b0216d5669fc6e6b3950"
+    },
+    {
+      "aircraft_id": "su35s",
+      "validation": {
+        "bounds_position": [
+          -7.34999990463257,
+          0.0,
+          -10.9499998092651
+        ],
+        "dimensions": [
+          14.6999998092651,
+          4.0,
+          21.8999996185303
+        ],
+        "dimensions_ok": true,
+        "display": "macOS",
+        "engine": {
+          "build": "official",
+          "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+          "hex": 263938,
+          "major": 4,
+          "minor": 7,
+          "patch": 2,
+          "status": "stable",
+          "string": "4.7.2-stable (official)",
+          "timestamp": 0
+        },
+        "import_passed": true,
+        "lod_triangles": [
+          19346,
+          5966,
+          1466
+        ],
+        "meshes": [
+          {
+            "degenerate_triangles": 0,
+            "materials": 1,
+            "name": "COLLISION_BOX",
+            "nonfinite_normals": 0,
+            "nonfinite_vertices": 0,
+            "surfaces": 1,
+            "textures": 0,
+            "triangles": 12
+          },
+          {
+            "degenerate_triangles": 0,
+            "materials": 1,
+            "name": "LOD0",
+            "nonfinite_normals": 0,
+            "nonfinite_vertices": 0,
+            "surfaces": 1,
+            "textures": 1,
+            "triangles": 19346
+          },
+          {
+            "degenerate_triangles": 0,
+            "materials": 1,
+            "name": "LOD1",
+            "nonfinite_normals": 0,
+            "nonfinite_vertices": 0,
+            "surfaces": 1,
+            "textures": 1,
+            "triangles": 5966
+          },
+          {
+            "degenerate_triangles": 0,
+            "materials": 1,
+            "name": "LOD2",
+            "nonfinite_normals": 0,
+            "nonfinite_vertices": 0,
+            "surfaces": 1,
+            "textures": 0,
+            "triangles": 1466
+          }
+        ],
+        "pivot_ok": true,
+        "preview_files": [
+          "godot-preview.png",
+          "godot-top.png",
+          "godot-front.png",
+          "godot-side.png",
+          "godot-lod1-orbit.png",
+          "godot-lod1-top.png",
+          "godot-lod1-front.png",
+          "godot-lod1-side.png",
+          "godot-lod2-orbit.png",
+          "godot-lod2-top.png",
+          "godot-lod2-front.png",
+          "godot-lod2-side.png"
+        ],
+        "preview_rendered": true,
+        "mesh_compression_disabled": false,
+        "explicit_lods_preserved": true,
+        "validator_files_sha256": {
+          "workers/assets/godot_validate.py": "dbd2430432f9ae6df25ecf37761e433eb2eea2e2af6e0467a0f7bb3cdfe303bb",
+          "workers/assets/godot_validate.gd": "927fe87a667b03f4b57f199dcb61be6a5a91cacf82dbf477e6c69c5274ff9a0f"
+        }
+      },
+      "manifest_sha256": "f3acbe22453f635b8e076677f429b6f23bffd864111312c9a5951aee7f0a8075"
+    },
+    {
+      "aircraft_id": "rafale",
+      "validation": {
+        "bounds_position": [
+          -5.44999980926514,
+          0.0,
+          -7.65000009536743
+        ],
+        "dimensions": [
+          10.8999996185303,
+          3.29999995231628,
+          15.3000001907349
+        ],
+        "dimensions_ok": true,
+        "display": "macOS",
+        "engine": {
+          "build": "official",
+          "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+          "hex": 263938,
+          "major": 4,
+          "minor": 7,
+          "patch": 2,
+          "status": "stable",
+          "string": "4.7.2-stable (official)",
+          "timestamp": 0
+        },
+        "import_passed": true,
+        "lod_triangles": [
+          19336,
+          5964,
+          1466
+        ],
+        "meshes": [
+          {
+            "degenerate_triangles": 0,
+            "materials": 1,
+            "name": "COLLISION_BOX",
+            "nonfinite_normals": 0,
+            "nonfinite_vertices": 0,
+            "surfaces": 1,
+            "textures": 0,
+            "triangles": 12
+          },
+          {
+            "degenerate_triangles": 0,
+            "materials": 1,
+            "name": "LOD0",
+            "nonfinite_normals": 0,
+            "nonfinite_vertices": 0,
+            "surfaces": 1,
+            "textures": 1,
+            "triangles": 19336
+          },
+          {
+            "degenerate_triangles": 0,
+            "materials": 1,
+            "name": "LOD1",
+            "nonfinite_normals": 0,
+            "nonfinite_vertices": 0,
+            "surfaces": 1,
+            "textures": 1,
+            "triangles": 5964
+          },
+          {
+            "degenerate_triangles": 0,
+            "materials": 1,
+            "name": "LOD2",
+            "nonfinite_normals": 0,
+            "nonfinite_vertices": 0,
+            "surfaces": 1,
+            "textures": 0,
+            "triangles": 1466
+          }
+        ],
+        "pivot_ok": true,
+        "preview_files": [
+          "godot-preview.png",
+          "godot-top.png",
+          "godot-front.png",
+          "godot-side.png",
+          "godot-lod1-orbit.png",
+          "godot-lod1-top.png",
+          "godot-lod1-front.png",
+          "godot-lod1-side.png",
+          "godot-lod2-orbit.png",
+          "godot-lod2-top.png",
+          "godot-lod2-front.png",
+          "godot-lod2-side.png"
+        ],
+        "preview_rendered": true,
+        "mesh_compression_disabled": false,
+        "explicit_lods_preserved": true,
+        "validator_files_sha256": {
+          "workers/assets/godot_validate.py": "dbd2430432f9ae6df25ecf37761e433eb2eea2e2af6e0467a0f7bb3cdfe303bb",
+          "workers/assets/godot_validate.gd": "927fe87a667b03f4b57f199dcb61be6a5a91cacf82dbf477e6c69c5274ff9a0f"
+        }
+      },
+      "manifest_sha256": "35098ca2ccb55ec8bc8b9e481a3f615eff45fd5929fb898cd34d622c7c2ee1c4"
+    },
+    {
+      "aircraft_id": "gripen",
+      "validation": {
+        "bounds_position": [
+          -4.19999980926514,
+          0.0,
+          -7.05000019073486
+        ],
+        "dimensions": [
+          8.39999961853027,
+          3.0,
+          14.1000003814697
+        ],
+        "dimensions_ok": true,
+        "display": "macOS",
+        "engine": {
+          "build": "official",
+          "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+          "hex": 263938,
+          "major": 4,
+          "minor": 7,
+          "patch": 2,
+          "status": "stable",
+          "string": "4.7.2-stable (official)",
+          "timestamp": 0
+        },
+        "import_passed": true,
+        "lod_triangles": [
+          19366,
+          5966,
+          1466
+        ],
+        "meshes": [
+          {
+            "degenerate_triangles": 0,
+            "materials": 1,
+            "name": "COLLISION_BOX",
+            "nonfinite_normals": 0,
+            "nonfinite_vertices": 0,
+            "surfaces": 1,
+            "textures": 0,
+            "triangles": 12
+          },
+          {
+            "degenerate_triangles": 0,
+            "materials": 1,
+            "name": "LOD0",
+            "nonfinite_normals": 0,
+            "nonfinite_vertices": 0,
+            "surfaces": 1,
+            "textures": 1,
+            "triangles": 19366
+          },
+          {
+            "degenerate_triangles": 0,
+            "materials": 1,
+            "name": "LOD1",
+            "nonfinite_normals": 0,
+            "nonfinite_vertices": 0,
+            "surfaces": 1,
+            "textures": 1,
+            "triangles": 5966
+          },
+          {
+            "degenerate_triangles": 0,
+            "materials": 1,
+            "name": "LOD2",
+            "nonfinite_normals": 0,
+            "nonfinite_vertices": 0,
+            "surfaces": 1,
+            "textures": 0,
+            "triangles": 1466
+          }
+        ],
+        "pivot_ok": true,
+        "preview_files": [
+          "godot-preview.png",
+          "godot-top.png",
+          "godot-front.png",
+          "godot-side.png",
+          "godot-lod1-orbit.png",
+          "godot-lod1-top.png",
+          "godot-lod1-front.png",
+          "godot-lod1-side.png",
+          "godot-lod2-orbit.png",
+          "godot-lod2-top.png",
+          "godot-lod2-front.png",
+          "godot-lod2-side.png"
+        ],
+        "preview_rendered": true,
+        "mesh_compression_disabled": true,
+        "explicit_lods_preserved": true,
+        "validator_files_sha256": {
+          "workers/assets/godot_validate.py": "dbd2430432f9ae6df25ecf37761e433eb2eea2e2af6e0467a0f7bb3cdfe303bb",
+          "workers/assets/godot_validate.gd": "927fe87a667b03f4b57f199dcb61be6a5a91cacf82dbf477e6c69c5274ff9a0f"
+        }
+      },
+      "manifest_sha256": "c7f75b42bfff480bfe047050856e940e5900df4ad73b7764b127af8a5c33d323"
+    }
+  ],
+  "limits": "Godot imported geometry and render only; variant/rights/physicalphone/articulation/full15gates not accepted"
+}

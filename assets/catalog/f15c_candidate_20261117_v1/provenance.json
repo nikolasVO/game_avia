@@ -27,5 +27,15 @@
   ],
   "output_license_clearance": "NOT VERIFIED for publication; TRELLIS MIT, approved DINOv3 custom license, BiRefNet MIT and input/design terms remain applicable",
   "status": "pipeline candidate; production_accepted=false; variant recognition/articulation/mobile QA pending",
-  "prompt": "No image API: owned gray twin-engine twin-fin side-intake swept-wing fighter game reference. Provisional stylized geometry; no copied third-party model/pixels/logos."
+  "prompt": "No image API: owned gray twin-engine twin-fin side-intake swept-wing fighter game reference. Provisional stylized geometry; no copied third-party model/pixels/logos.",
+  "game_import": {
+    "explicit_asset_lods": true,
+    "generate_additional_lods": false,
+    "mesh_compression_disabled": false,
+    "reason": "compression retained; actual imported triangles checked nondegenerate"
+  },
+  "assembly_code_sha256": {
+    "game/avia/client/aircraft.gd": "d52f9690dc9395588a1152c3c83d3dd402782ba9b5deaf9bcc766f9b51539649",
+    "game/avia/client/fighter_visual.gd": "1fed0b8d08692960f14514d1e00942f729b240d20b891667a5bbf7c9ed0522f5"
+  }
 }

@@ -1,0 +1,14 @@
+{
+  "status": "PASS source comparison only",
+  "measured_source": "f702b8129415bd40eca81b1d505b96dae4523283",
+  "shared_files_sha256": {
+    "game/avia/shared/flight.gd": "543fc282b43763e28aa4af936b0cc5ded8570143d6f9ef2c8bfe6972c285836e",
+    "game/avia/shared/fighter.gd": "367fb14c6d019a86dda887607bd41cf6839c3561c5b8c8d2619a1640b52e2f32",
+    "game/avia/shared/wire.gd": "6b88edb2b95c3f0624f90966acb6f4e381c9bb7cc4e0b2d9667b6bbed4656d65",
+    "game/avia/shared/rules.gd": "483686152b97582d41778dc5a36940cc7d62b6d51a04aca8ed6a4bee1d582cc0"
+  },
+  "server_tick_body_identical": true,
+  "physics_configs_identical": 27,
+  "session_file_note": "Client performance diagnostics changed; do not claim entire session file identical. Production server diagnostics disabled; authority/wire/numerical settings unchanged.",
+  "limits": "Prior1850s native load remains previous-source evidence; no new31min/32player/phone/publicUDP claim"
+}

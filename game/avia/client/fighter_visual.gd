@@ -40,6 +40,24 @@ static func create(index: int, use_imported: bool=true) -> AviaAircraft:
     AviaAircraft._loft(st,[Vector3(length*.29,.48,.42),Vector3(length*.46,.40,.36)],-.1,dark,sides,intake_x)
    AviaAircraft._loft(st,[Vector3(-length*.30,.03,.05),Vector3(-length*.22,.42,.60),Vector3(-length*.10,.4,.50),Vector3(-length*.02,.04,.05)],.65,glass,sides)
   AviaAircraft._mesh(st,root,"Airframe" if lod==0 else "LOD1" if lod==1 else "Distant",[0,250,800][lod],[250,800,4500][lod])
+ if imported and bool(spec.visual.get("nozzle_repair",false)):
+  # Explicitly labelled authored repair: the AI candidate lacks clear engine exits.
+  for side: float in ([-1.0,1.0] if twin else [0.0]):
+   var nozzle: Node3D=Node3D.new();nozzle.name="RepairedNozzle"+str(side)
+   nozzle.position=Vector3(side*float(g.get("engine_spacing_m",length*.11))*.5,-.15,length*.44);root.add_child(nozzle)
+   var tube: SurfaceTool=SurfaceTool.new();tube.begin(Mesh.PRIMITIVE_TRIANGLES)
+   for segment: int in 8:
+    var a: float=TAU*segment/8.0;var b: float=TAU*(segment+1)/8.0
+    var radial: Vector3=Vector3(cos((a+b)*.5),sin((a+b)*.5),0)
+    var outer_a: Vector3=Vector3(cos(a)*.46,sin(a)*.46,0);var outer_b: Vector3=Vector3(cos(b)*.46,sin(b)*.46,0)
+    var inner_a: Vector3=Vector3(cos(a)*.34,sin(a)*.34,0);var inner_b: Vector3=Vector3(cos(b)*.34,sin(b)*.34,0)
+    var depth: Vector3=Vector3(0,0,length*.06+.35)
+    AviaAircraft._face(tube,[outer_a,outer_b,outer_b+depth,outer_a+depth],dark,radial)
+    AviaAircraft._face(tube,[inner_b,inner_a,inner_a+depth,inner_b+depth],Color("11222a"),-radial)
+    AviaAircraft._face(tube,[outer_a+depth,outer_b+depth,inner_b+depth,inner_a+depth],Color("687c83"),Vector3.BACK)
+   AviaAircraft._mesh(tube,nozzle,"Nozzle",0,800)
+   if bool(spec.systems.get("thrust_vectoring",false)):root.vectoring_nozzles.append(nozzle)
+  root.airframe_source="AI candidate body with procedural nozzle repair, landing gear/effects; production QA pending"
  root.landing_gear=Node3D.new();root.landing_gear.name="LandingGear";root.add_child(root.landing_gear)
  var gear: SurfaceTool=SurfaceTool.new();gear.begin(Mesh.PRIMITIVE_TRIANGLES)
  for location: Vector3 in [Vector3(0,-.8,-length*.25),Vector3(-length*.09,-.8,length*.07),Vector3(length*.09,-.8,length*.07)]:

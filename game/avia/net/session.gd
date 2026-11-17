@@ -46,6 +46,8 @@ var diagnostics: bool=false
 var diagnostic_last_ms: int=0
 var diagnostic_frames: int=0
 var diagnostic_physics: int=0
+var diagnostic_previous_frame_us: int=0
+var diagnostic_gap_max_ms: float=0.0
 var commands_sent: int=0
 signal state_audit(peer_id: int, state: Dictionary, ack: int)
 signal input_audit(peer_id: int, number: int, result: String)
@@ -113,9 +115,17 @@ func _process(_delta: float) -> void:
  if not server and peer and not waiting_connection:multiplayer.poll()
  if not server:_check_snapshot_timeout()
  diagnostic_frames+=1
- if diagnostics and Time.get_ticks_msec()-diagnostic_last_ms>=2000:
-  diagnostic_last_ms=Time.get_ticks_msec()
-  print(JSON.stringify({"event":"client_loop","wall_ms":diagnostic_last_ms,"frames":diagnostic_frames,"physics":diagnostic_physics,"sent":commands_sent,"acked":seq-pending.size(),"pending":pending.size(),"snapshots":snapshots,"joined":joined,"status":status,"throttle":controls.throttle}))
+ if diagnostics:
+  var frame_us: int=Time.get_ticks_usec()
+  if diagnostic_previous_frame_us>0:diagnostic_gap_max_ms=maxf(diagnostic_gap_max_ms,float(frame_us-diagnostic_previous_frame_us)/1000.0)
+  diagnostic_previous_frame_us=frame_us
+  if Time.get_ticks_msec()-diagnostic_last_ms>=2000:
+   diagnostic_last_ms=Time.get_ticks_msec()
+   var report: Dictionary={"event":"client_loop","wall_ms":diagnostic_last_ms,"frames":diagnostic_frames,"physics":diagnostic_physics,"sent":commands_sent,"acked":seq-pending.size(),"pending":pending.size(),"snapshots":snapshots,"joined":joined,"status":status,"throttle":controls.throttle,"frame_gap_max_ms":diagnostic_gap_max_ms}
+   if not server:
+    # Engine-reported counters, not physical GPU timing or OS process memory.
+    report.engine_monitors={"process_ms":Performance.get_monitor(Performance.TIME_PROCESS)*1000.0,"physics_ms":Performance.get_monitor(Performance.TIME_PHYSICS_PROCESS)*1000.0,"draw_calls":int(Performance.get_monitor(Performance.RENDER_TOTAL_DRAW_CALLS_IN_FRAME)),"primitives":int(Performance.get_monitor(Performance.RENDER_TOTAL_PRIMITIVES_IN_FRAME)),"video_memory_bytes":int(Performance.get_monitor(Performance.RENDER_VIDEO_MEM_USED)),"static_memory_bytes":int(Performance.get_monitor(Performance.MEMORY_STATIC))}
+   print(JSON.stringify(report));diagnostic_gap_max_ms=0.0
  if not waiting_connection:return
  var event: Array=connection.service(0)
  if event[0]==ENetConnection.EVENT_CONNECT:

@@ -1,0 +1,60 @@
+{
+  "status": "PASS actual desktop counters",
+  "clients": [
+    {
+      "client": "client-0",
+      "samples": 13,
+      "sample": {
+        "acked": 703,
+        "engine_monitors": {
+          "draw_calls": 64,
+          "physics_ms": 0.516,
+          "primitives": 50911,
+          "process_ms": 20.348,
+          "static_memory_bytes": 52696680,
+          "video_memory_bytes": 52529343
+        },
+        "event": "client_loop",
+        "frame_gap_max_ms": 21.217,
+        "frames": 1436,
+        "joined": true,
+        "pending": 2,
+        "physics": 739,
+        "sent": 705,
+        "snapshots": 338,
+        "status": "Connected",
+        "throttle": 1.0,
+        "wall_ms": 27433
+      },
+      "maximum_observed_frame_gap_ms": 1383.533
+    },
+    {
+      "client": "client-1",
+      "samples": 13,
+      "sample": {
+        "acked": 705,
+        "engine_monitors": {
+          "draw_calls": 56,
+          "physics_ms": 0.345,
+          "primitives": 31333,
+          "process_ms": 3.441,
+          "static_memory_bytes": 52695140,
+          "video_memory_bytes": 52529343
+        },
+        "event": "client_loop",
+        "frame_gap_max_ms": 18.779,
+        "frames": 1438,
+        "joined": true,
+        "pending": 1,
+        "physics": 739,
+        "sent": 706,
+        "snapshots": 351,
+        "status": "Connected",
+        "throttle": 1.0,
+        "wall_ms": 27458
+      },
+      "maximum_observed_frame_gap_ms": 1411.794
+    }
+  ],
+  "limits": "Godot engine-reported counters, not GPU timing/OSprocess PSS/phone results"
+}

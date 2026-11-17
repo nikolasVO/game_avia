@@ -3,6 +3,7 @@ extends Node3D
 ## Original procedural development models; not AI output. One colored surface per LOD.
 var landing_gear: Node3D
 var exhaust: Node3D
+var vectoring_nozzles: Array[Node3D]=[]
 var propeller: Node3D
 var spin_speed: float=30.0
 var airframe_source: String="procedural flight prototype"
@@ -84,3 +85,10 @@ func _process(delta: float) -> void:
 func update_state(state: Dictionary) -> void:
  if landing_gear:landing_gear.visible=bool(state.get("gear",true))
  if exhaust:exhaust.visible=bool(state.get("afterburner",false)) and not state.crashed
+ for nozzle: Node3D in vectoring_nozzles:
+  # Cosmetic cue for the existing simplified low-speed thrust-vectoring forces.
+  # Server-approved velocity/angular state drives it; this adds no simulation force.
+  var authority: float=clampf(1.0-(state.v as Vector3).length()/100.0,0,1)
+  var rates: Vector3=state.get("rates",Vector3.ZERO)
+  nozzle.rotation.x=clampf(-rates.x*0.18,-0.22,0.22)*authority
+  nozzle.rotation.y=clampf(-rates.y*0.18,-0.16,0.16)*authority

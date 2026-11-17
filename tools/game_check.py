@@ -2,7 +2,7 @@
 """Run actual separate Godot processes. Bots are explicitly labelled; never human/device proof."""
 import argparse,json,os,subprocess,time
 from pathlib import Path
-p=argparse.ArgumentParser();p.add_argument('--godot',default=os.getenv('GODOT','godot'));p.add_argument('--clients',type=int,default=2);p.add_argument('--seconds',type=int,default=20);p.add_argument('--render',action='store_true');p.add_argument('--out',type=Path,required=True);p.add_argument('--host',default='127.0.0.1');p.add_argument('--port',type=int,default=24567);p.add_argument('--external',action='store_true');p.add_argument('--route',action='store_true');p.add_argument('--renderer',default='gl_compatibility');p.add_argument('--mode',default='free');p.add_argument('--planes',default='');p.add_argument('--profiles',default='');p.add_argument('--systems-cycle',action='store_true');p.add_argument('--authority-audit',action='store_true');a=p.parse_args()
+p=argparse.ArgumentParser();p.add_argument('--godot',default=os.getenv('GODOT','godot'));p.add_argument('--clients',type=int,default=2);p.add_argument('--seconds',type=int,default=20);p.add_argument('--render',action='store_true');p.add_argument('--out',type=Path,required=True);p.add_argument('--host',default='127.0.0.1');p.add_argument('--port',type=int,default=24567);p.add_argument('--external',action='store_true');p.add_argument('--route',action='store_true');p.add_argument('--renderer',default='gl_compatibility');p.add_argument('--mode',default='free');p.add_argument('--planes',default='');p.add_argument('--profiles',default='');p.add_argument('--systems-cycle',action='store_true');p.add_argument('--authority-audit',action='store_true');p.add_argument('--diagnostics',action='store_true');a=p.parse_args()
 a.out.mkdir(parents=True,exist_ok=True);project=Path(__file__).resolve().parents[1]/'game/avia'
 subprocess.run([a.godot,"--headless","--path",str(project),"--editor","--import","--quit"],check=True,timeout=120,stdout=subprocess.DEVNULL)
 processes=[];handles=[]
@@ -19,6 +19,7 @@ try:
   if a.planes:args+=[f'--plane={a.planes.split(chr(44))[i % len(a.planes.split(chr(44)))]}']
   if a.profiles:args+=[f'--profile={a.profiles.split(chr(44))[i % len(a.profiles.split(chr(44)))]}']
   if a.systems_cycle:args+=['--systems-cycle']
+  if a.diagnostics:args+=['--diagnostics']
   if a.route:args+=['--route']
   if a.render:args += [f'--capture={a.out.resolve()}/client-{i}.png']
   run(f'client-{i}',args)
@@ -31,7 +32,7 @@ finally:
   try:proc.wait(timeout=5)
   except subprocess.TimeoutExpired:proc.kill();proc.wait()
  for f in handles:f.close()
-report={'environment':'desktop-rendered-bots' if a.render else 'headless-protocol-bots','host_kind':'loopback' if a.host in ('127.0.0.1','localhost','::1') else 'remote_endpoint','external_server_process':a.external,'clients':a.clients,'requested_seconds':a.seconds,'planes':a.planes,'profiles':a.profiles,'systems_cycle':a.systems_cycle,'processes':[],'status':'PASS'}
+report={'environment':'desktop-rendered-bots' if a.render else 'headless-protocol-bots','host_kind':'loopback' if a.host in ('127.0.0.1','localhost','::1') else 'remote_endpoint','external_server_process':a.external,'clients':a.clients,'requested_seconds':a.seconds,'planes':a.planes,'profiles':a.profiles,'systems_cycle':a.systems_cycle,'diagnostics':a.diagnostics,'processes':[],'status':'PASS'}
 for name,proc in processes:
  text=(a.out/(name+'.log')).read_text();events=[]
  for line in text.splitlines():

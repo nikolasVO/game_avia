@@ -5,7 +5,7 @@
   "class": "light_fighter",
   "status": "flight_prototype",
   "playable": true,
-  "source_type": "procedural_placeholder",
+  "source_type": "AI_with_procedural_gear_and_effects",
   "physics_model": "fighter_v1",
   "color": "a8b8a3",
   "flight": {
@@ -69,5 +69,11 @@
     "free",
     "combat"
   ],
-  "balance_notice": "Authored arcade values; not real aircraft technical specifications."
+  "balance_notice": "Authored arcade values; not real aircraft technical specifications.",
+  "visual": {
+    "scene": "res://assets/gripen_ai_candidate.glb",
+    "offset_y_m": -0.5,
+    "provenance": "assets/catalog/gripen_candidate_20261117_v1/provenance.json",
+    "status": "recognition/animation/mobile QA pending"
+  }
 }

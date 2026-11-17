@@ -14,16 +14,29 @@ func _initialize() -> void:
 func walk(node: Node) -> void:
     if node is MeshInstance3D:
         var instance := node as MeshInstance3D
-        var row := {"name": str(node.name), "triangles": 0, "surfaces": instance.mesh.get_surface_count(), "materials": 0, "textures": 0}
+        var row := {"name": str(node.name), "triangles": 0, "surfaces": instance.mesh.get_surface_count(), "materials": 0, "textures": 0,"degenerate_triangles":0,"nonfinite_vertices":0,"nonfinite_normals":0}
         for i in range(instance.mesh.get_surface_count()):
             var arrays := instance.mesh.surface_get_arrays(i)
             var indices = arrays[Mesh.ARRAY_INDEX]
             row.triangles += (indices.size() if indices != null and indices.size() else arrays[Mesh.ARRAY_VERTEX].size()) / 3
+            var vertices: PackedVector3Array=arrays[Mesh.ARRAY_VERTEX]
+            var normals: PackedVector3Array=arrays[Mesh.ARRAY_NORMAL] if arrays[Mesh.ARRAY_NORMAL]!=null else PackedVector3Array()
+            for vertex: Vector3 in vertices:
+                if not vertex.is_finite():row.nonfinite_vertices+=1
+            for normal: Vector3 in normals:
+                if not normal.is_finite():row.nonfinite_normals+=1
+            var count: int=indices.size() if indices!=null and indices.size() else vertices.size()
+            for j: int in range(0,count,3):
+                var a: Vector3=vertices[indices[j] if indices!=null and indices.size() else j]
+                var b: Vector3=vertices[indices[j+1] if indices!=null and indices.size() else j+1]
+                var c: Vector3=vertices[indices[j+2] if indices!=null and indices.size() else j+2]
+                if (b-a).cross(c-a).length()*.5<=1e-12:row.degenerate_triangles+=1
             var material := instance.get_active_material(i)
             if material != null:
                 row.materials += 1
                 if material is StandardMaterial3D and material.albedo_texture != null:
                     row.textures += 1
+        check_ok=check_ok and row.degenerate_triangles==0 and row.nonfinite_vertices==0 and row.nonfinite_normals==0
         var level := -1
         for i in 3:
             if str(node.name).begins_with("LOD"+str(i)): level=i

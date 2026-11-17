@@ -25,3 +25,7 @@ Active task68c406f99772, full21-section development brief. Current stage remains
 |P6|Release/testing/signing/rights|Physical20–30min sessions, full Xcode/SDK/signing, Android AAB/releasekey,16KB runtime, internal testing rights, commercial name/design/material review. No store submission.|
 
 Common quality: EN/RU, readable native mobile layout, speed/altitude unit settings, simple/advanced HUD, flight sounds/warnings, fixed-step fairness, malicious input/version/ticket/rate validation, guarded resource use. Keep persistence restore/secrets/LFS/clean-rebuild checks current. All15 aircraft checks in owner section20 remain mandatory. Scripted touchdown fixtures do not prove a human landing.
+
+|P1/P2|Six AI candidate bodies|PASS actual local inference/Blender/strict18LOD72view validation, six rendered native clients25s,22file hashes and cache reuse. Su35 nozzle repair/gimbal cosmetic; Gripen full precision fixes2collapsed imported triangles. All15production gates incomplete; AndroidR2 has2bodies, new APK pending.|
+|P2|Versioned cache migration|Spec/reference/model revisions and file hashes verified. Validator/engine versions recorded. Automatic invalidation/migration for all code/toolchain changes remains pending; never rerun paid/local inference merely for import QA.|
+|P6|Current fighter impaired network|PASS four45s protocol4 F16/Su27 proxy cases100/200ms RTT,30/50jitter,1/3% loss. Headless loopback only; public/handover/phone/human correction quality open.|

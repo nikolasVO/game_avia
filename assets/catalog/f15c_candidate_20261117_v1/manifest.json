@@ -118,8 +118,8 @@
       "bytes": 4018552
     },
     "godot-validation.json": {
-      "sha256": "f1a9ba0874b239aee153a0e8462e25b42c526e1236a763affe7df5ec748cdfee",
-      "bytes": 1427
+      "sha256": "1a11eb50e4df133640b0756301d47fbdba253310bb9a8221c94c47b79e8ca162",
+      "bytes": 2126
     },
     "inference-evidence.json": {
       "sha256": "654e240b243be9d204455cd48979b9cad57fb8106c0688c7b9f714807bf61a58",
@@ -174,8 +174,12 @@
       "bytes": 6731
     },
     "provenance.json": {
-      "sha256": "ddd8cb3eb78017fcf33c19a8aa69423b2d1f89f852fafcce189594c891911ef2",
-      "bytes": 1715
+      "sha256": "ab893f6695b208353a5efbb18e358b238c9acdbd058d3a93cc8a316003ea3765",
+      "bytes": 2183
+    },
+    "game-native.png": {
+      "sha256": "8a59f684adb660139ca371194e103e082ff417e888b60e638f195087294f17e5",
+      "bytes": 69008
     }
   },
   "verified": true,
@@ -231,29 +235,41 @@
     ],
     "meshes": [
       {
+        "degenerate_triangles": 0,
         "materials": 1,
         "name": "COLLISION_BOX",
+        "nonfinite_normals": 0,
+        "nonfinite_vertices": 0,
         "surfaces": 1,
         "textures": 0,
         "triangles": 12
       },
       {
+        "degenerate_triangles": 0,
         "materials": 1,
         "name": "LOD0",
+        "nonfinite_normals": 0,
+        "nonfinite_vertices": 0,
         "surfaces": 1,
         "textures": 1,
         "triangles": 19362
       },
       {
+        "degenerate_triangles": 0,
         "materials": 1,
         "name": "LOD1",
+        "nonfinite_normals": 0,
+        "nonfinite_vertices": 0,
         "surfaces": 1,
         "textures": 1,
         "triangles": 5968
       },
       {
+        "degenerate_triangles": 0,
         "materials": 1,
         "name": "LOD2",
+        "nonfinite_normals": 0,
+        "nonfinite_vertices": 0,
         "surfaces": 1,
         "textures": 0,
         "triangles": 1468
@@ -274,10 +290,17 @@
       "godot-lod2-front.png",
       "godot-lod2-side.png"
     ],
-    "preview_rendered": true
+    "preview_rendered": true,
+    "mesh_compression_disabled": false,
+    "explicit_lods_preserved": true,
+    "validator_files_sha256": {
+      "workers/assets/godot_validate.py": "dbd2430432f9ae6df25ecf37761e433eb2eea2e2af6e0467a0f7bb3cdfe303bb",
+      "workers/assets/godot_validate.gd": "927fe87a667b03f4b57f199dcb61be6a5a91cacf82dbf477e6c69c5274ff9a0f"
+    }
   },
   "pipeline_verified": true,
   "production_accepted": false,
   "provenance_file": "provenance.json",
-  "forward_axis": "-Z"
+  "forward_axis": "-Z",
+  "game_assembly_preview": "game-native.png; six actual rendered desktop bot clients, no phone/full aircraft acceptance"
 }
