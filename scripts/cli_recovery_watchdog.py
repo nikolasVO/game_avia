@@ -14,7 +14,7 @@ import time
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from scripts.sequential_cli_handoff import cli_is_running, write_json
-from workers.coding.provider_runtime import configure_provider, select_route
+from workers.coding.provider_runtime import configure_provider, select_route, save_reported_usage
 
 
 def tail_json(path, maximum=4 * 1024 * 1024):
@@ -89,6 +89,9 @@ def step(config, state, now=None, allow_launch=True):
             return dict(state, status="running", task_id=task_id, pid=process["pid"], attempts=state.get("attempts", 0))
         # Never steal another writer's task or clear unknown effects to extend a lease.
         return {"status": "live_cli_lease_needs_reconciliation", "task_id": task_id}
+    event_file = process["private_events"]
+    events = tail_json(event_file)
+    save_reported_usage(runtime, process, events)
     task = remote(config, "inspect", task_id)
     if task["status"] in {"completed", "cancelled", "paused", "failed"}:
         return {"status": "protected_task_state", "task_id": task_id, "task_status": task["status"]}
@@ -98,8 +101,6 @@ def step(config, state, now=None, allow_launch=True):
             retry = state.get("retry_at") if state.get("reason") == "unknown_operation" and state.get("retry_at", 0) > now else now + 3600
             remote(config, "wait", task_id, "--reason", "unknown_operation", "--retry-at", str(retry))
             return {"status": "waiting", "task_id": task_id, "reason": "unknown_operation", "retry_at": retry}
-    event_file = process["private_events"]
-    events = tail_json(event_file)
     signature = event_file + ":" + str(Path(event_file).stat().st_mtime_ns)
     api_route, cooldowns = (None, {})
     if config.get("api_routes") and config.get("paid_work_authorized"):
@@ -129,7 +130,8 @@ def step(config, state, now=None, allow_launch=True):
         operation_id = "automatic-cli-resume-" + task_id + "-" + str(time.time_ns())
         reservation = remote(config, "reserve", task_id, "--owner", owner, "--operation-id", operation_id)
         if not reservation["reserved"]:
-            return {"status": "resume_not_reserved", "task_id": task_id, "reason": reservation["reason"]}
+            return dict(state, status="resume_not_reserved", task_id=task_id, reason=reservation["reason"],
+                        api_cooldowns=cooldowns, api_failure_signature=signature)
         checkpoint = runtime / ("checkpoint-" + str(attempt) + ".json")
         write_json(checkpoint, {"process": process, "task_id": task_id,
                                "head": subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=process["worktree"], text=True).strip(),
@@ -162,7 +164,7 @@ def step(config, state, now=None, allow_launch=True):
         launch_state.update(status="running", pid=child.pid)
         write_json(runtime / "state.json", launch_state)
         process.update(pid=child.pid, started=time.time(), private_events=str(events_path),
-                       continuation=process.get("continuation", 0) + 1)
+                       continuation=process.get("continuation", 0) + 1, prompt_bytes=prompt.stat().st_size)
         if api_route:
             process.update(account_mode="provider_api", api_route=api_route["id"], api_model=api_route["model"])
         write_json(process_file, process)

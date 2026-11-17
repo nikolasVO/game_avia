@@ -43,3 +43,19 @@ def test_all_blocked_routes_wait_and_success_keeps_healthy_route():
     assert route is None
     route, _ = select_route(ROUTES, {"api_route": "whatstoken"}, {}, [{"type": "turn.completed"}], "ok", 100)
     assert route == ROUTES[1]
+
+
+def test_actual_usage_is_private_and_does_not_invent_cost_or_request_counts(tmp_path):
+    from workers.coding.provider_runtime import save_reported_usage
+    process = {"account_mode": "provider_api", "pid": 123, "server_task_id": "task",
+               "api_route": "openlux", "api_model": "gpt-6.1-sol", "private_events": "events.jsonl"}
+    events = [{"type": "turn.completed", "usage": {"input_tokens": 120, "cached_input_tokens": 80,
+               "output_tokens": 7, "unrelated_private_text": "excluded"}}]
+    save_reported_usage(tmp_path, process, events)
+    path = tmp_path / "usage-123.json"
+    value = json.loads(path.read_text())
+    assert value["turns"] == [{"input_tokens": 120, "cached_input_tokens": 80, "output_tokens": 7}]
+    assert value["cost_status"] == "cost_unknown" and value["http_requests"] is None
+    assert path.stat().st_mode & 0o777 == 0o600
+    save_reported_usage(tmp_path, process, events)
+    assert len(list(tmp_path.glob("usage-*.json"))) == 1

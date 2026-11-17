@@ -44,3 +44,22 @@ def select_route(routes, process, state, events, signature, now):
     if not failures and route_id:
         eligible.sort(key=lambda r: r["id"] != route_id)
     return (eligible[0] if eligible else None), cooldowns
+
+
+def save_reported_usage(runtime, process, events):
+    """Keep actual per-turn counters privately; no inferred HTTP count or price."""
+    if process.get("account_mode") != "provider_api":
+        return
+    turns = []
+    for event in events:
+        if event.get("type") != "turn.completed" or not isinstance(event.get("usage"), dict):
+            continue
+        turns.append({key: value for key, value in event["usage"].items()
+                      if key.endswith("_tokens") and isinstance(value, int) and value >= 0})
+    if not turns:
+        return
+    from scripts.sequential_cli_handoff import write_json
+    write_json(Path(runtime) / ("usage-" + str(process["pid"]) + ".json"), {
+        "task_id": process["server_task_id"], "provider": process.get("api_route"),
+        "wire_model": process.get("api_model"), "source_events": process["private_events"],
+        "turns": turns, "cost_status": "cost_unknown", "http_requests": None})

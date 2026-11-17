@@ -195,6 +195,17 @@ def test_controller_waits_for_reset_then_resumes_same_worktree_once(task, tmp_pa
     assert waiting["retry_at"] == (100 if paid_route else 10090) and not spawned
     if not paid_route:
         assert not controller.step(config, waiting, now=10089).get("pid")
+    if paid_route:
+        waiting["api_cooldowns"] = {"other-provider": 10000}
+        def lease_not_expired(config, command, task_id, *args):
+            if command == "reserve":
+                return {"reserved": False, "reason": "another_live_lease"}
+            return remote(config, command, task_id, *args)
+        monkeypatch.setattr(controller, "remote", lease_not_expired)
+        waiting = controller.step(config, waiting, now=101)
+        assert waiting["api_cooldowns"] == {"other-provider": 10000}
+        assert not spawned
+        monkeypatch.setattr(controller, "remote", remote)
     started = controller.step(config, waiting, now=101 if paid_route else 10091)
     assert started["confirmed"] and started["pid"] == 234 and len(spawned) == 1
     assert json.loads(process_file.read_text())["brief_sha256"] == "preserve-original"
