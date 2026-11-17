@@ -6,6 +6,7 @@ Hello. Please check a synchronous image generation through your GPT Image 2 rout
 
 - Endpoint: POST https://api.openlux.ai/v1/images/generations
 - Exact model: gpt-image-2
+- Caller request start: 2026-11-17 03:38:08.960 +03:00 (Europe/Moscow)
 - Parameters: n=1, size=1024x1024; a neutral prompt describing one orange wooden toy cube on a white background.
 - Expected: one 1024×1024 image. Your [GPT Image 2 example](https://doc.openlux.ai/tutorials/python-5459039) supplies this exact model and size.
 - Observed: HTTP response returned an image; the downloaded original PNG is 1254×1254, 1,592,985 bytes.
