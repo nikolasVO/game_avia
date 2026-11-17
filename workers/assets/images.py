@@ -6,10 +6,11 @@ import time
 import uuid
 from pathlib import Path
 import httpx
+import yaml
 from workers.coding.routes import classify
 
 # Separate catalog-only groups. Nano/Seedream intentionally require their own contract.
-CONFIG=json.loads((Path(__file__).resolve().parents[2]/"config/providers.yaml").read_text())
+CONFIG=yaml.safe_load((Path(__file__).resolve().parents[2]/"config/providers.yaml").read_text())
 CATALOG={k:v["models"] for k,v in CONFIG["image_routes"].items()}
 
 async def generate_reference(store,prefix,model,prompt,output):

@@ -55,7 +55,9 @@ class Agent:
                 while calls<max_calls and time.monotonic()<deadline:
                     calls+=1
                     self.store.assert_active(tid,task.get("owner"))
-                    d=await self.chat(route,messages,tid)
+                    try:
+                        d=await asyncio.wait_for(self.chat(route,messages,tid),timeout=max(1,deadline-time.monotonic()))
+                    except asyncio.TimeoutError:raise RouteFailure("task_deadline","stop") from None
                     self.store.assert_active(tid,task.get("owner"))
                     msg=d["choices"][0]["message"]
                     messages.append({k:v for k,v in msg.items() if k in ("role","content","tool_calls")})
