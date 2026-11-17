@@ -49,6 +49,7 @@ func _physics_process(_delta: float) -> void:
      if s.p.y<15:desired_pitch=0.15
      c.pitch=clampf((desired_pitch-float(s.pitch))*3,-1,1)
      c.throttle=0.7
+    else:c.respawn=true
 
   session.controls=c
   if ui:ui.touch.throttle=float(c.throttle)
@@ -58,7 +59,9 @@ func _physics_process(_delta: float) -> void:
    session.controls.pitch=clampf((0.02-float(session.local_state.pitch))*0.9,-0.35,0.35)
 func _process(delta: float) -> void:
  elapsed+=delta
- if world:world.update_session(session,delta)
+ if world:
+  if ui:world.orbit=lerp_angle(world.orbit,ui.touch.look_yaw,delta*6)
+  world.update_session(session,delta)
  if options.has("capture") and not headless and elapsed>8 and not captured:
   captured=true
   _capture.call_deferred(str(options.capture))
@@ -68,7 +71,7 @@ func _process(delta: float) -> void:
   var frames: Array[float]=[]
   if ui:frames=ui.frame_times.duplicate();frames.sort()
   var ping: float=session.peer.get_peer(1).get_statistic(ENetPacketPeer.PEER_ROUND_TRIP_TIME) if session.joined else 0
-  print(JSON.stringify({"correction_p95_m":errors[int(errors.size()*0.95)] if errors.size()>0 else 0,"frame_p50_ms":frames[int(frames.size()*0.5)] if frames.size()>0 else 0,"frame_p95_ms":frames[int(frames.size()*0.95)] if frames.size()>0 else 0,"enet_rtt_ms":ping,"event":"summary","server":session.server,"seconds":elapsed,"joined":session.joined,"snapshots":session.snapshots,"seen_peers":session.seen_peers,"correction_max_m":session.correction_max,"rejected":session.rejected,"state":session.local_state,"renderer":RenderingServer.get_current_rendering_method()}))
+  print(JSON.stringify({"correction_p95_m":errors[int(errors.size()*0.95)] if errors.size()>0 else 0,"frame_p50_ms":frames[int(frames.size()*0.5)] if frames.size()>0 else 0,"frame_p95_ms":frames[int(frames.size()*0.95)] if frames.size()>0 else 0,"enet_rtt_ms":ping,"static_memory_mb":Performance.get_monitor(Performance.MEMORY_STATIC)/1048576.0,"event":"summary","server":session.server,"seconds":elapsed,"joined":session.joined,"snapshots":session.snapshots,"seen_peers":session.seen_peers,"correction_max_m":session.correction_max,"rejected":session.rejected,"state":session.local_state,"renderer":RenderingServer.get_current_rendering_method()}))
   if not session.server and session.joined:
    session.joined=false
    session.peer.get_peer(1).peer_disconnect()

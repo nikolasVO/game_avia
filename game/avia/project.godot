@@ -1,6 +1,8 @@
 config_version=5
 
 [application]
+boot_splash/show_image=false
+boot_splash/bg_color=Color(0.09, 0.23, 0.29, 1)
 config/name="Game Avia — Tidal Wings prototype"
 run/max_fps=60
 run/main_scene="res://main.tscn"

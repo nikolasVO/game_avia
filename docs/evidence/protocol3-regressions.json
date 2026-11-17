@@ -1,0 +1,111 @@
+{
+  "checks": [
+    {
+      "scenario": "invalid",
+      "exit": 0,
+      "summary": {
+        "connection_status": "Connected",
+        "event": "actor_summary",
+        "joined": true,
+        "scenario": "invalid",
+        "snapshots": 74,
+        "status": "PASS"
+      },
+      "ok": true
+    },
+    {
+      "scenario": "replay",
+      "exit": 0,
+      "summary": {
+        "connection_status": "Connected",
+        "event": "actor_summary",
+        "joined": true,
+        "scenario": "replay",
+        "snapshots": 74,
+        "status": "PASS"
+      },
+      "ok": true
+    },
+    {
+      "scenario": "expired",
+      "exit": 0,
+      "summary": {
+        "connection_status": "Joining",
+        "event": "actor_summary",
+        "joined": false,
+        "scenario": "expired",
+        "snapshots": 0,
+        "status": "PASS"
+      },
+      "ok": true
+    },
+    {
+      "scenario": "plain",
+      "exit": 0,
+      "summary": {
+        "connection_status": "Menu",
+        "event": "actor_summary",
+        "joined": false,
+        "scenario": "plain",
+        "snapshots": 0,
+        "status": "PASS"
+      },
+      "ok": true
+    },
+    {
+      "scenario": "wrong-cert",
+      "exit": 0,
+      "summary": {
+        "connection_status": "Disconnected \u2014 retry from menu",
+        "event": "actor_summary",
+        "joined": false,
+        "scenario": "wrong-cert",
+        "snapshots": 0,
+        "status": "PASS"
+      },
+      "ok": true
+    },
+    {
+      "scenario": "held-recovery",
+      "exit": 0,
+      "summary": {
+        "connection_status": "Connected",
+        "event": "actor_summary",
+        "joined": true,
+        "scenario": "held-recovery",
+        "snapshots": 75,
+        "status": "PASS"
+      },
+      "ok": true
+    },
+    {
+      "scenario": "rapid-leave",
+      "exit": 0,
+      "summary": {
+        "connection_status": "Menu",
+        "event": "actor_summary",
+        "joined": false,
+        "scenario": "rapid-leave",
+        "snapshots": 0,
+        "status": "PASS"
+      },
+      "ok": true
+    },
+    {
+      "scenario": "version",
+      "exit": 0,
+      "summary": {
+        "connection_status": "Version mismatch",
+        "event": "actor_summary",
+        "joined": false,
+        "scenario": "version",
+        "snapshots": 0,
+        "status": "PASS"
+      },
+      "ok": true
+    }
+  ],
+  "server_rejected": 10,
+  "status": "PASS",
+  "scope": "Real localhost ENet/DTLS processes; invalid numeric/position/sequence/ticket packets and admission replay/expiry/plaintext rejection"
+}

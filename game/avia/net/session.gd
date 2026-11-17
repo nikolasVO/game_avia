@@ -1,6 +1,6 @@
 extends Node
 ## Server authority. No client position/score RPC exists. Separate reliable/control/state channels.
-const PROTOCOL: int=2
+const PROTOCOL: int=3
 const MAX_ROOM: int=16
 var tickets: Dictionary={}
 var ticket_rate: Dictionary={}
@@ -19,6 +19,9 @@ var pending: Array[Dictionary]=[]
 var seq: int=0
 var tick: int=0
 var status: String="Menu"
+var last_error: String=""
+var recover_down: bool=false
+var recover_number: int=0
 var joined: bool=false
 var mode: String="free"
 var room: String=""
@@ -35,6 +38,7 @@ var seen_peers: int=0
 var tick_us: Array[int]=[]
 var totals: Dictionary={"flights":0,"landings":0,"races":0,"best_race_seconds":0.0}
 var stats_path: String="user://server-progress.json"
+var clock_offset_ms: float=0.0
 var server_tick_seen: int=-1
 var last_snapshot_ms: int=0
 var join_options: Dictionary={}
@@ -64,6 +68,7 @@ func start_server(port: int) -> Error:
 func connect_to(host: String, port: int, options: Dictionary) -> Error:
  disconnect_session()
  server=false
+ last_error="";recover_down=false;recover_number=0
  plane=int(options.get("plane",0));mode=str(options.get("mode","free"));join_options=options
  peer=ENetMultiplayerPeer.new()
  var bytes: PackedByteArray=Crypto.new().generate_random_bytes(4)
@@ -106,16 +111,17 @@ func disconnect_session() -> void:
  if peer:peer.close()
  multiplayer.multiplayer_peer=null
  pending.clear();others.clear();local_state.clear()
- seq=0;server_tick_seen=-1
+ seq=0;server_tick_seen=-1;status="Menu"
 func _on_connected() -> void:
  status="Joining"
+ last_snapshot_ms=Time.get_ticks_msec()
  request_ticket.rpc_id(1,PROTOCOL,plane,mode,str(join_options.get("code","")),bool(join_options.get("private",false)))
 func _connection_failed() -> void:
- joined=false;status="Disconnected — retry from menu";message.emit(status)
+ joined=false;status=last_error if not last_error.is_empty() else "Disconnected — retry from menu";message.emit(status)
 func _connected(id: int) -> void:
  # Unauthenticated connections get five seconds, then are removed.
  get_tree().create_timer(5.0).timeout.connect(func():
-  if peer and peer.get_connection_status()==MultiplayerPeer.CONNECTION_CONNECTED and not players.has(id):peer.disconnect_peer(id))
+  if peer and peer.get_connection_status()==MultiplayerPeer.CONNECTION_CONNECTED and not players.has(id) and id in multiplayer.get_peers():peer.disconnect_peer(id))
 func _departed(id: int) -> void:
  tickets.erase(id);ticket_rate.erase(id)
  if not players.has(id):return
@@ -170,7 +176,8 @@ func _admit(id: int, version: int, selected: int, requested_mode: String, code: 
  if selected<0 or selected>=AviaFlight.PLANES.size() or requested_mode not in ["free","race","pvp"] or code.length()>12:
   rejected+=1;return
  for ch: String in code:
-  if not ch in "ABCDEFGHJKLMNPQRSTUVWXYZ23456789": rejected+=1;return
+  if not ch in "ABCDEFGHJKLMNPQRSTUVWXYZ23456789":
+   rejected+=1;game_event.rpc_id(id,"error",{"reason":"Invalid room code"});return
  if private_room and code.length()<4:
   game_event.rpc_id(id,"error",{"reason":"Private code needs 4–12 uppercase letters/digits"});return
  var key: String="private:"+code if private_room else "public:"+requested_mode+":0"
@@ -185,7 +192,7 @@ func _admit(id: int, version: int, selected: int, requested_mode: String, code: 
  rooms[key]=requested_mode
  var state: Dictionary=AviaFlight.spawn(selected,_room_count(key))
  players[id]={"state":state,"input":AviaFlight.neutral(),"room":key,"seq":0,"ack":0,"last":tick,"window":tick,
- "packets":0,"race":{"next":0},"score":0,"last_shot":-30,"crash_tick":-1,"callsign":"Pilot-"+str(id % 10000)}
+ "recover_pending":false,"recover_seq":0,"recover_tick":-90,"packets":0,"race":{"next":0},"score":0,"last_shot":-30,"crash_tick":-1,"callsign":"Pilot-"+str(id % 10000)}
  game_event.rpc_id(id,"welcome",{"id":id,"room":key,"mode":requested_mode,"state":state,"protocol":PROTOCOL})
  _broadcast(key,"arrival",{"id":id,"callsign":players[id].callsign})
 @rpc("any_peer","call_remote","unreliable_ordered",1)
@@ -199,12 +206,23 @@ func command(number: int, input: Dictionary) -> void:
  if int(p.packets)>65 or number<=int(p.seq) or number>int(p.seq)+120 or not AviaFlight.valid_input(input):
   rejected+=1;return
  p.input=input;p.seq=number;p.last=tick;accepted+=1
+@rpc("any_peer","call_remote","reliable",0)
+func recover(number: int) -> void:
+ if not server:return
+ var id: int=multiplayer.get_remote_sender_id()
+ if not players.has(id):rejected+=1;return
+ var p: Dictionary=players[id]
+ if number<=int(p.recover_seq) or number>int(p.recover_seq)+120:rejected+=1;return
+ p.recover_seq=number
+ if tick-int(p.recover_tick)<30:rejected+=1;return
+ p.recover_tick=tick;p.recover_pending=true
 @rpc("authority","call_remote","reliable",0)
 func game_event(kind: String, data: Dictionary) -> void:
  if server:return
  if kind=="welcome":
+  last_snapshot_ms=Time.get_ticks_msec()
   joined=true;room=data.room;mode=data.mode;local_state=data.state;status="Connected"
- elif kind=="error":status=str(data.reason);joined=false
+ elif kind=="error":last_error=str(data.reason);status=last_error;joined=false
  elif kind=="departure":others.erase(int(data.id))
  var line: String=kind+" "+str(data)
  if kind!="welcome":
@@ -216,7 +234,11 @@ func snapshot(server_tick: int, packed: PackedByteArray, progress: Dictionary) -
  if server or not joined or server_tick<=server_tick_seen:return
  var states: Dictionary=AviaWire.unpack(packed)
  if states.is_empty():return
- server_tick_seen=server_tick;snapshots+=1;last_snapshot_ms=Time.get_ticks_msec()
+ var now: int=Time.get_ticks_msec()
+ var half_rtt: float=peer.get_peer(1).get_statistic(ENetPacketPeer.PEER_ROUND_TRIP_TIME)*0.5
+ var offset: float=server_tick/30.0*1000.0+half_rtt-now
+ clock_offset_ms=offset if server_tick_seen<0 else lerpf(clock_offset_ms,offset,0.1)
+ server_tick_seen=server_tick;snapshots+=1;last_snapshot_ms=now
  seen_peers=maxi(seen_peers,states.size())
  totals=progress
  var mine: int=multiplayer.get_unique_id()
@@ -248,7 +270,7 @@ func snapshot(server_tick: int, packed: PackedByteArray, progress: Dictionary) -
 func remote_state(id: int) -> Dictionary:
  var buffer: Array=others[id]
  var latest: Dictionary=buffer[-1].state
- var render_tick: float=float(server_tick_seen)+(Time.get_ticks_msec()-last_snapshot_ms)/1000.0*30.0-3.0
+ var render_tick: float=(Time.get_ticks_msec()+clock_offset_ms)/1000.0*30.0-3.0
  for i: int in range(1,buffer.size()):
   if float(buffer[i].tick)>=render_tick:
    var a: Dictionary=buffer[i-1];var b: Dictionary=buffer[i]
@@ -269,8 +291,9 @@ func _physics_process(_delta: float) -> void:
    if tick-int(p.last)>300:peer.disconnect_peer(id);_departed(id);continue
    var c: Dictionary=p.input if tick-int(p.last)<=15 else AviaFlight.neutral()
    var before: Dictionary=p.state
-   if c.respawn and (not before.crashed or tick-int(p.crash_tick)>45):
-    p.state=AviaFlight.spawn(before.plane,0);p.race={"next":0};p.input.respawn=false
+   if p.recover_pending and (not before.crashed or tick-int(p.crash_tick)>45):
+    p.recover_pending=false
+    p.state=AviaFlight.spawn(before.plane,0);p.race={"next":0}
     _broadcast(p.room,"respawn",{"id":id})
    else:p.state=AviaFlight.step(before,c)
    p.ack=p.seq
@@ -316,6 +339,9 @@ func _physics_process(_delta: float) -> void:
    print(JSON.stringify({"event":"health","tick":tick,"connections":players.size(),"accepted":accepted,"rejected":rejected,"tick_p95_ms":float(sorted[int(sorted.size()*0.95)])/1000.0,"totals":totals,"sent_bytes_10s":peer.host.pop_statistic(ENetConnection.HOST_TOTAL_SENT_DATA),"received_bytes_10s":peer.host.pop_statistic(ENetConnection.HOST_TOTAL_RECEIVED_DATA)}))
  elif joined and not local_state.is_empty():
   visual_offset*=0.78
+  if controls.respawn and not recover_down:
+   recover_number+=1;recover.rpc_id(1,recover_number)
+  recover_down=controls.respawn
   seq+=1
   command.rpc_id(1,seq,controls)
   pending.append({"seq":seq,"input":controls.duplicate()})

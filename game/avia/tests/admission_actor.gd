@@ -11,3 +11,7 @@ func admission_ticket(token: String) -> void:
   redeem_ticket.rpc_id(1,token)
   await get_tree().create_timer(0.3).timeout
   redeem_ticket.rpc_id(1,token)
+
+func _on_connected() -> void:
+ if scenario=="version":request_ticket.rpc_id(1,PROTOCOL-1,0,"free","",false)
+ else:super._on_connected()

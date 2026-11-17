@@ -1,0 +1,189 @@
+{
+  "environment": "desktop-rendered-bots",
+  "host_kind": "localhost",
+  "clients": 2,
+  "requested_seconds": 15,
+  "processes": [
+    {
+      "name": "server",
+      "exit": 0,
+      "ok": true,
+      "summary": {
+        "correction_max_m": 0.0,
+        "correction_p95_m": 0,
+        "enet_rtt_ms": 0.0,
+        "event": "summary",
+        "frame_p50_ms": 0,
+        "frame_p95_ms": 0,
+        "joined": false,
+        "rejected": 0,
+        "renderer": "gl_compatibility",
+        "seconds": 35.8065646666659,
+        "seen_peers": 0,
+        "server": true,
+        "snapshots": 0,
+        "state": {},
+        "static_memory_mb": 24.0191259384155
+      },
+      "engine_errors": [
+        "ERROR: TLS handshake error: -30464",
+        "ERROR: TLS handshake error: -30464"
+      ],
+      "known_dtls_shutdown_diagnostic": true,
+      "events": [
+        "arrival",
+        "departure",
+        "health",
+        "server_ready",
+        "summary",
+        "takeoff"
+      ],
+      "health": [
+        {
+          "accepted": 22,
+          "connections": 1,
+          "event": "health",
+          "received_bytes_10s": 4604.0,
+          "rejected": 0,
+          "sent_bytes_10s": 15955.0,
+          "tick": 300,
+          "tick_p95_ms": 0.432,
+          "totals": {
+            "best_race_seconds": 0.0,
+            "flights": 1,
+            "landings": 0,
+            "races": 0
+          }
+        },
+        {
+          "accepted": 234,
+          "connections": 2,
+          "event": "health",
+          "received_bytes_10s": 40712.0,
+          "rejected": 0,
+          "sent_bytes_10s": 42574.0,
+          "tick": 600,
+          "tick_p95_ms": 0.476,
+          "totals": {
+            "best_race_seconds": 0.0,
+            "flights": 1,
+            "landings": 0,
+            "races": 0
+          }
+        },
+        {
+          "accepted": 322,
+          "connections": 1,
+          "event": "health",
+          "received_bytes_10s": 17102.0,
+          "rejected": 0,
+          "sent_bytes_10s": 39922.0,
+          "tick": 900,
+          "tick_p95_ms": 0.545,
+          "totals": {
+            "best_race_seconds": 0.0,
+            "flights": 2,
+            "landings": 0,
+            "races": 0
+          }
+        }
+      ]
+    },
+    {
+      "name": "client-0",
+      "exit": 0,
+      "ok": true,
+      "summary": {
+        "correction_max_m": 11.121600151062,
+        "correction_p95_m": 8.33402442932129,
+        "enet_rtt_ms": 17.0,
+        "event": "summary",
+        "frame_p50_ms": 16.697,
+        "frame_p95_ms": 18.529,
+        "joined": true,
+        "rejected": 0,
+        "renderer": "mobile",
+        "seconds": 15.0090812890816,
+        "seen_peers": 2,
+        "server": false,
+        "snapshots": 176,
+        "state": {
+          "age": 373,
+          "crashed": false,
+          "distance": 400.182611703873,
+          "grounded": false,
+          "health": 100.0,
+          "landed": false,
+          "p": "(2.013661, 128.5311, -196.1862)",
+          "pitch": -0.00259463306470336,
+          "plane": 0,
+          "respawns": 0,
+          "roll": -0.23739158334822,
+          "v": "(10.72398, 13.03435, -47.72666)",
+          "was_airborne": true,
+          "yaw": -0.246554031563046
+        },
+        "static_memory_mb": 55.2445726394653
+      },
+      "engine_errors": [],
+      "known_dtls_shutdown_diagnostic": false,
+      "events": [
+        "arrival",
+        "capture",
+        "departure",
+        "summary",
+        "takeoff",
+        "welcome"
+      ],
+      "health": []
+    },
+    {
+      "name": "client-1",
+      "exit": 0,
+      "ok": true,
+      "summary": {
+        "correction_max_m": 5.17262268066406,
+        "correction_p95_m": 3.28670835494995,
+        "enet_rtt_ms": 22.0,
+        "event": "summary",
+        "frame_p50_ms": 16.597,
+        "frame_p95_ms": 18.524,
+        "joined": true,
+        "rejected": 0,
+        "renderer": "mobile",
+        "seconds": 15.403316666667,
+        "seen_peers": 2,
+        "server": false,
+        "snapshots": 235,
+        "state": {
+          "age": 491,
+          "crashed": false,
+          "distance": 561.871361613274,
+          "grounded": false,
+          "health": 100.0,
+          "landed": false,
+          "p": "(61.83766, 160.4459, -335.6212)",
+          "pitch": -0.0199576684428704,
+          "plane": 0,
+          "respawns": 0,
+          "roll": -0.23749999779582,
+          "v": "(34.77575, 9.328605, -39.62381)",
+          "was_airborne": true,
+          "yaw": -0.757082480139103
+        },
+        "static_memory_mb": 55.4052438735962
+      },
+      "engine_errors": [],
+      "known_dtls_shutdown_diagnostic": false,
+      "events": [
+        "arrival",
+        "capture",
+        "summary",
+        "takeoff",
+        "welcome"
+      ],
+      "health": []
+    }
+  ],
+  "status": "PASS"
+}

@@ -74,6 +74,12 @@ func update_plane(id: int, state: Dictionary) -> void:
  var node: Node3D=planes[id]
  node.position=state.p;node.rotation=Vector3(state.pitch,state.yaw,state.roll)
  node.visible=not bool(state.crashed)
+ if id!=multiplayer.get_unique_id():
+  var engine: AudioStreamPlayer3D=node.get_node_or_null("Engine")
+  if not engine:
+   engine=AudioStreamPlayer3D.new();engine.name="Engine";engine.stream=AviaSound.engine_stream();engine.unit_size=24;engine.max_distance=700;node.add_child(engine);engine.play()
+  engine.volume_db=-70 if state.crashed else -25
+  engine.pitch_scale=0.8+minf(state.v.length()/80.0,1.5)
 func update_session(session: Node, delta: float) -> void:
  if not session.joined or session.local_state.is_empty():return
  var mine: int=session.multiplayer.get_unique_id()

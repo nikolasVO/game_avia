@@ -15,6 +15,8 @@ var settings: ConfigFile=ConfigFile.new()
 var labels: Dictionary={}
 var root: Control
 var frame_times: Array[float]=[]
+var last_frame_us: int=0
+var frame_cursor: int=0
 var radar: Control
 const TEXT: Dictionary={
  "en":{"title":"TIDAL WINGS","subtitle":"GAME AVIA  ·  NATIVE FLIGHT PROTOTYPE","play":"Join flight","plane":"Aircraft","mode":"Mode","host":"Server address","private":"Private room","code":"Friend code · 4–12 uppercase letters/digits","help":"Shift / Ctrl: throttle  ·  W/S: pitch  ·  A/D: bank
@@ -79,12 +81,19 @@ func _ready() -> void:
   var check: CheckBox=CheckBox.new();check.text=tr_text(key);check.button_pressed=bool(settings.get_value("controls",key,key in ["assist","sound"]));labels[key]=check;controls_row.add_child(check)
   check.toggled.connect(func(value: bool):_option(key,value))
   _option(key,check.button_pressed)
+ var quality: OptionButton=OptionButton.new();quality.add_item("30 FPS · Low / Низкое");quality.add_item("60 FPS · Standard / Обычное")
+ quality.select(int(settings.get_value("controls","quality",0 if OS.has_feature("mobile") else 1)));col.add_child(quality)
+ _quality(quality.selected);quality.item_selected.connect(_quality)
  var sensitivity: HSlider=HSlider.new();sensitivity.min_value=0.3;sensitivity.max_value=1.5;sensitivity.step=0.05;sensitivity.value=float(settings.get_value("controls","sensitivity",1.0));col.add_child(sensitivity);touch.sensitivity=sensitivity.value
  sensitivity.value_changed.connect(func(value: float):touch.sensitivity=value;settings.set_value("controls","sensitivity",value);settings.save("user://settings.cfg"))
  var help: Label=Label.new();help.text=tr_text("help");help.add_theme_font_size_override("font_size",16);labels.help=help;col.add_child(help)
  var bottom: HBoxContainer=HBoxContainer.new();col.add_child(bottom)
  var play: Button=Button.new();play.text=tr_text("play");labels.play=play;play.size_flags_horizontal=Control.SIZE_EXPAND_FILL;play.custom_minimum_size.y=56;bottom.add_child(play);play.pressed.connect(join)
  var lang: Button=Button.new();lang.text="EN / RU";bottom.add_child(lang);lang.pressed.connect(func():language="ru" if language=="en" else "en";settings.set_value("ui","language",language);settings.save("user://settings.cfg");_translate())
+func _quality(index: int) -> void:
+ Engine.max_fps=30 if index==0 else 60
+ world.camera.far=3500 if index==0 else 6500
+ settings.set_value("controls","quality",index);settings.save("user://settings.cfg")
 func _option(key: String,value: bool) -> void:
  match key:
   "left":touch.left_handed=value
@@ -103,8 +112,12 @@ func join() -> void:
 func show_menu() -> void:
  session.disconnect_session();touch.clear_pointers();touch.throttle=0;touch.hide();menu.show()
 func _process(delta: float) -> void:
- frame_times.append(delta*1000)
- if frame_times.size()>54000:frame_times.pop_front()
+ var now: int=Time.get_ticks_usec()
+ if last_frame_us>0:
+  var interval: float=float(now-last_frame_us)/1000.0
+  if frame_times.size()<108000:frame_times.append(interval)
+  else:frame_times[frame_cursor]=interval;frame_cursor=(frame_cursor+1) % 108000
+ last_frame_us=now
  if not session.joined or session.local_state.is_empty():hud.text=session.status;notice.text="";return
  var s: Dictionary=session.local_state
  var warning: String=""

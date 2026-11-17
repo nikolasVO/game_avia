@@ -1,5 +1,7 @@
 extends Control
 ## Pointer IDs are captured independently; releases outside widgets and focus loss clear state.
+var look_id: int=-1
+var look_yaw: float=0.0
 var stick_id: int=-1
 var throttle_id: int=-1
 var action_id: int=-1
@@ -21,6 +23,7 @@ func centers() -> Array:
  var right: Vector2=Vector2(size.x-140*scale,size.y-145*scale)
  return [right,left] if left_handed else [left,right]
 func clear_pointers() -> void:
+ look_id=-1;look_yaw=0
  stick_id=-1;throttle_id=-1;action_id=-1;stick=Vector2.ZERO;fire=false;respawn=false;brake=false
 func _notification(what: int) -> void:
  if what==NOTIFICATION_APPLICATION_FOCUS_OUT or what==NOTIFICATION_APPLICATION_PAUSED:clear_pointers();throttle=0
@@ -34,11 +37,14 @@ func _input(event: InputEvent) -> void:
    if touch.index==stick_id:stick_id=-1;stick=Vector2.ZERO
    if touch.index==throttle_id:throttle_id=-1
    if touch.index==action_id:action_id=-1;fire=false
+   if touch.index==look_id:look_id=-1;look_yaw=0
   elif touch.position.distance_to(center[0])<radius*1.5 and stick_id==-1:stick_id=touch.index;stick=(touch.position-center[0])/radius
   elif touch.position.distance_to(center[1])<radius*1.5 and throttle_id==-1:throttle_id=touch.index;throttle=clampf(0.5-(touch.position.y-center[1].y)/(radius*2),0,1)
   elif touch.position.distance_to(Vector2(center[1].x,size.y-330*size.y/720))<radius*0.7 and action_id==-1:action_id=touch.index;fire=true
+  elif touch.position.y>size.y*0.25 and touch.position.x>250 and touch.position.x<size.x-250 and look_id==-1:look_id=touch.index
  elif event is InputEventScreenDrag:
   var drag: InputEventScreenDrag=event
+  if drag.index==look_id:look_yaw=clampf(look_yaw-drag.relative.x*0.006,-PI,PI)
   if drag.index==stick_id:stick=((drag.position-center[0])/radius).limit_length()
   if drag.index==throttle_id:throttle=clampf(0.5-(drag.position.y-center[1].y)/(radius*2),0,1)
  queue_redraw()

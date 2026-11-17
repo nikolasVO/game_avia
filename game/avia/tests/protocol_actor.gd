@@ -14,8 +14,8 @@ func _start() -> void:
   options[pair[0]]=pair[1] if pair.size()>1 else "true"
  scenario=options.get("scenario","invalid")
  var parent: Node=Node.new();parent.name="Avia";root.add_child(parent)
- session=load("res://tests/admission_actor.gd" if scenario in ["replay","expired"] else "res://net/session.gd").new();session.name="Session";parent.add_child(session)
- if scenario in ["replay","expired"]:session.scenario=scenario
+ session=load("res://tests/admission_actor.gd" if scenario in ["replay","expired","version"] else "res://net/session.gd").new();session.name="Session";parent.add_child(session)
+ if scenario in ["replay","expired","version"]:session.scenario=scenario
  if scenario in ["plain","wrong-cert"]:
   session.peer=ENetMultiplayerPeer.new()
   if scenario=="plain":session.peer.create_client("127.0.0.1",int(options.port),3)
@@ -33,12 +33,16 @@ func _process(delta: float) -> bool:
   if scenario=="invalid":
    session.set_physics_process(false)
    _attack()
+  elif scenario=="held-recovery":session.controls.respawn=true
+  elif scenario=="rapid-leave":session.disconnect_session()
  if elapsed>=6:
-  var ok: bool=not session.joined if scenario in ["plain","expired","wrong-cert"] else session.joined
+  var ok: bool=not session.joined if scenario in ["plain","expired","wrong-cert","rapid-leave","version"] else session.joined
   if scenario in ["replay","expired"]:ok=ok and session.offered
+  if scenario=="version":ok=ok and session.status=="Version mismatch"
+  if scenario=="held-recovery":ok=ok and int(session.local_state.get("age",0))>90
   if scenario=="plain":ok=ok and session.peer.get_connection_status()!=MultiplayerPeer.CONNECTION_CONNECTED
   if scenario=="invalid":ok=ok and not session.local_state.is_empty() and session.local_state.p.distance_to(begin.p)<0.1
-  print(JSON.stringify({"event":"actor_summary","scenario":scenario,"joined":session.joined,"snapshots":session.snapshots,"status":"PASS" if ok else "FAIL"}))
+  print(JSON.stringify({"event":"actor_summary","scenario":scenario,"joined":session.joined,"connection_status":session.status,"snapshots":session.snapshots,"status":"PASS" if ok else "FAIL"}))
   quit(0 if ok else 1)
  return false
 

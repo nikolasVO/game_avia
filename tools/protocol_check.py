@@ -5,8 +5,8 @@ p=argparse.ArgumentParser();p.add_argument('--godot',default=os.getenv('GODOT','
 files=[];procs=[]
 def run(name,args):
  f=(a.out/(name+'.log')).open('w');files.append(f);proc=subprocess.Popen([a.godot,'--headless','--path',str(project)]+args,stdout=f,stderr=subprocess.STDOUT);procs.append(proc);return proc
-server=run('server',['--','--server',f'--port={port}','--duration=39',f'--stats={a.out.resolve()}/progress.json']);time.sleep(1);actors=[]
-for scenario in ['invalid','replay','expired','plain','wrong-cert']:
+server=run('server',['--','--server',f'--port={port}','--duration=60',f'--stats={a.out.resolve()}/progress.json']);time.sleep(1);actors=[]
+for scenario in ['invalid','replay','expired','plain','wrong-cert','held-recovery','rapid-leave','version']:
  actor=run(scenario,['--script','res://tests/protocol_actor.gd','--',f'--port={port}',f'--scenario={scenario}']);actors.append((scenario,actor));actor.wait(timeout=15)
 server.wait(timeout=15)
 for f in files:f.close()

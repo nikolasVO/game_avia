@@ -3,7 +3,7 @@
   "purpose": "Flight prototype tern",
   "source_type": "procedural",
   "source": "game/avia/client/world.gd::make_plane",
-  "source_sha256": "714326f378e610ce32c3039cb591708f1e6d9a4fec308b60db515965d69e1ac0",
+  "source_sha256": "3e2eaee82d48a40160a9c1f6f383debd37b5a43e111a9c68a64b336f02f4a23f",
   "prompt": null,
   "provider": null,
   "model": null,

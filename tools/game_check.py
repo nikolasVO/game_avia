@@ -12,14 +12,14 @@ def run(name,args):
  processes.append((name,proc));return proc
 try:
  if not a.external:
-  run('server',['--headless','--','--server',f'--port={a.port}',f'--duration={a.seconds+a.clients*0.4+5}',f'--stats={a.out.resolve()}/progress.json']);time.sleep(1)
+  run('server',['--headless','--','--server',f'--port={a.port}',f'--duration={a.seconds+a.clients*0.4+20}',f'--stats={a.out.resolve()}/progress.json']);time.sleep(1)
  for i in range(a.clients):
   args=['--rendering-method',a.renderer] if a.render else ['--headless']
   args+=['--',f'--connect={a.host}',f'--port={a.port}','--bot',f'--mode={a.mode}',f'--duration={a.seconds+i*0.4}']
   if a.route:args+=['--route']
   if a.render:args += [f'--capture={a.out.resolve()}/client-{i}.png']
   run(f'client-{i}',args)
- deadline=time.monotonic()+a.seconds+30
+ deadline=time.monotonic()+a.seconds+a.clients*0.4+50
  while any(proc.poll() is None for _,proc in processes) and time.monotonic()<deadline:time.sleep(.2)
 finally:
  for _,proc in processes:
