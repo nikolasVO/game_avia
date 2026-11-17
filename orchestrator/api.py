@@ -2,6 +2,8 @@ import hmac
 import os
 from pathlib import Path
 from fastapi import Depends,FastAPI,Header,HTTPException
+from fastapi.responses import FileResponse
+import json
 from pydantic import BaseModel,ConfigDict,Field
 from orchestrator.settings import load_environment,state_dir
 from orchestrator.store import Store
@@ -44,3 +46,21 @@ def cancel_asset(tid:str):
     get_asset(tid);get_store().transition(tid,"cancelled","Отменено через локальный API.")
     return get_asset(tid)
 
+
+@app.get("/assets/{tid}/result",dependencies=[Depends(auth)])
+def asset_result(tid:str):
+    r=get_asset(tid)
+    spec=AssetSpec.model_validate(r["spec"])
+    root=Path(os.getenv("GAME_AVIA_ROOT","/srv/game-avia"))/"artifacts"/spec.asset_id
+    path=root/"manifest.json"
+    if not path.is_file():raise HTTPException(409,"not_generated")
+    manifest=json.loads(path.read_text())
+    if not manifest.get("verified"):raise HTTPException(409,"not_verified")
+    return manifest
+
+@app.get("/assets/{tid}/files/{filename}",dependencies=[Depends(auth)])
+def asset_file(tid:str,filename:str):
+    asset_result(tid)
+    if filename not in ("original.glb","optimized.glb","preview.png","manifest.json"):raise HTTPException(404,"not_found")
+    spec=AssetSpec.model_validate(get_asset(tid)["spec"])
+    return FileResponse(Path(os.getenv("GAME_AVIA_ROOT","/srv/game-avia"))/"artifacts"/spec.asset_id/filename)

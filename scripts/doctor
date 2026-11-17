@@ -1,0 +1,4 @@
+#!/bin/sh
+set -eu
+exec /srv/game-avia/venvs/core/bin/python -m scripts.doctor "$@"
+

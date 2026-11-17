@@ -41,7 +41,7 @@ class Agent:
     async def run(self,task,root,family="gpt",max_calls=4,bootstrap=False):
         tid=task["id"];deadline=time.monotonic()+180
         tools=Tools(self.store,tid,root,owner=task.get("owner"))
-        messages=[{"role":"system","content":"You are a bounded coding worker. Work only in provided workspace with tools. Preserve existing files. Never ask for or output secrets. Implement the request and run tests. Do not claim tests passed unless tool results prove it. Return a concise result. Paths are relative to an already selected game workspace; do not prepend game/. Tools are restricted; no publishing or external messaging."},
+        messages=[{"role":"system","content":"You are a bounded coding worker. Work only in provided workspace with tools. Preserve existing files. Never ask for or output secrets. Implement the request and run tests. Do not claim tests passed unless tool results prove it. Return a concise result. Full game or mobile release claims require an approved game brief and real Unity/device acceptance; unit tests alone are insufficient. Paths are relative to an already selected game workspace; do not prepend game/. Tools are restricted; no publishing or external messaging."},
                   {"role":"user","content":task["goal"]}]
         calls=0;attempts=0
         import itertools

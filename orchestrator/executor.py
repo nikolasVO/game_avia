@@ -60,7 +60,7 @@ async def execute(store,task,owner):
     # Include new files in reviewer context after staging; no credentials exist in game/ sandbox.
     git(work,"add","--","game")
     diff=git(work,"diff","--cached","--","game")
-    review=await Agent(registry,store).chat(reviewer,[{"role":"system","content":"Independent code review. Check correctness, tests and task acceptance. First line APPROVE only if no material issue; otherwise REQUEST_CHANGES. Never execute tools."},
+    review=await Agent(registry,store).chat(reviewer,[{"role":"system","content":"Independent code review. Check correctness, tests and every task acceptance criterion. Never approve an entire game or mobile release from unit tests; require actual Unity/device evidence and a game brief. First line APPROVE only if no material issue; otherwise REQUEST_CHANGES. Never execute tools."},
         {"role":"user","content":"Task: "+task["goal"]+"\nDiff:\n"+diff[:18000]+"\nTests:\n"+check.get("output","")[-3000:]}],tid,tools=[],max_tokens=1024)
     text=review["choices"][0]["message"].get("content","")
     if not text.strip().startswith("APPROVE"):

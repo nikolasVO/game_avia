@@ -102,6 +102,10 @@ class Telegram:
         with self.store.db() as c:
             if r.get("ok"):
                 c.execute("UPDATE notification_outbox SET status='sent',message_id=?,attempts=attempts+1 WHERE event_id=?",(r["result"]["message_id"],row["event_id"]))
+                task=c.execute("SELECT task_id FROM events WHERE id=?",(row["event_id"],)).fetchone()
+                if task and task[0]:
+                    unsent=c.execute("SELECT 1 FROM notification_outbox o JOIN events e ON e.id=o.event_id WHERE e.task_id=? AND o.status!='sent' LIMIT 1",(task[0],)).fetchone()
+                    if not unsent:c.execute("UPDATE tasks SET notification_status='sent' WHERE id=?",(task[0],))
             else:
                 c.execute("UPDATE notification_outbox SET status=?,attempts=attempts+1,next_at=? WHERE event_id=?",
                           ("unknown" if r.get("unknown") else "pending",time.time()+max(2,r["retry_after"]),row["event_id"]))
