@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "published_milestone_commit": "f19a6f31631d479aab6001e30bba5d8a962bb1e6",
+  "remote_branch_sha": "f19a6f31631d479aab6001e30bba5d8a962bb1e6",
+  "game_source_sha": "3417828170d35a3ab2acac0c3fc1ad5ab2bf1046",
+  "game_tree_unchanged_since_build": true,
+  "release": "https://github.com/nikolasVO/game_avia/releases/tag/game-avia-prototype-20261117",
+  "all5_remote_asset_sha256": "PASS",
+  "apk_redownload_sha256": "2b242ce26c862d92a4d4c548b0ac01b557c9c4330235b8ca9446395e62c07f24",
+  "new_evidence_lfs_objects_redownloaded": 3,
+  "main_checkout": "preserved; clean at final inspection",
+  "not_version_0_1_acceptance": true
+}
