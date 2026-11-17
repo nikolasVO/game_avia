@@ -1,0 +1,73 @@
+{
+  "authoring_collider_hidden": true,
+  "event": "catalog_import",
+  "meshes": [
+    {
+      "bounds_position": "(-0.500021, 0.0, -0.5)",
+      "bounds_size": "(1.000041, 1.000063, 1.0)",
+      "name": "COLLISION_BOX",
+      "ranges": [
+        0.0,
+        0.0
+      ],
+      "texture_sizes": [],
+      "triangles": 12,
+      "valid_vertices_normals_uv_texture_budget": true,
+      "visible": false
+    },
+    {
+      "bounds_position": "(-0.500028, -0.000063, -0.5)",
+      "bounds_size": "(1.000041, 1.000063, 1.0)",
+      "name": "LOD0",
+      "ranges": [
+        0.0,
+        350.0
+      ],
+      "texture_sizes": [
+        "(1024, 1024)",
+        "(1024, 1024)",
+        "(1024, 1024)"
+      ],
+      "triangles": 4849,
+      "valid_vertices_normals_uv_texture_budget": true,
+      "visible": true
+    },
+    {
+      "bounds_position": "(-0.500028, -0.000063, -0.5)",
+      "bounds_size": "(1.000121, 1.000063, 1.000002)",
+      "name": "LOD1",
+      "ranges": [
+        350.0,
+        900.0
+      ],
+      "texture_sizes": [
+        "(1024, 1024)",
+        "(1024, 1024)",
+        "(1024, 1024)"
+      ],
+      "triangles": 2424,
+      "valid_vertices_normals_uv_texture_budget": true,
+      "visible": true
+    },
+    {
+      "bounds_position": "(-0.500028, -0.001054, -0.5)",
+      "bounds_size": "(1.000041, 1.001054, 1.000002)",
+      "name": "LOD2",
+      "ranges": [
+        900.0,
+        2500.0
+      ],
+      "texture_sizes": [
+        "(1024, 1024)",
+        "(1024, 1024)",
+        "(1024, 1024)"
+      ],
+      "triangles": 1211,
+      "valid_vertices_normals_uv_texture_budget": true,
+      "visible": true
+    }
+  ],
+  "scope": "Actual GLB import/runtime configuration, not an AI aircraft or physics collision claim",
+  "source_type": "AI/TRELLIS from preserved existing AI reference",
+  "status": "PASS"
+}

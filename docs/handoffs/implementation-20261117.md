@@ -17,4 +17,4 @@ Verified baseline at main/runtime `945bbe93f121732f1cbb946acda77d9ceb047e61`:
 
 Preserve Point services, model files, private configuration and GPU ownership. Keep operational DB, secrets, certificates, keystores and raw private logs outside Git. Use task worktrees and one integrator, verify checks and push, report the exact deployed SHA separately. No new hosting purchases, paid limit increases or store publication are authorized.
 
-Implementation continuation is now documented in [prototype r2 handoff](game-prototype-r2-20261117.md). The baseline license/DINO/network notes above are historical: Unity license passed after activation; DINO access application awaits Meta; Godot remains selected. The live flight server is separate from this coordinator checkout.
+Implementation continuation is now documented in [prototype r2 handoff](game-prototype-r2-20261117.md). The baseline license/DINO/network notes above are historical: Unity license passed after activation; DINO approval/weights are now verified in1f0dd2d; actual safety-block result is being integrated separately; Godot remains selected. The live flight server is separate from this coordinator checkout.

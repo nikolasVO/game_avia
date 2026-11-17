@@ -56,6 +56,11 @@ func _ready() -> void:
  box(self,Vector3(85,30,70),Vector3(21,5,21),Color("407c85"))
  for z: int in [0,65,130]:
   box(self,Vector3(-100,8,z),Vector3(45,16,40),Color("b6bca6"))
+ # AI safety blocks from the existing image -> TRELLIS -> Blender artifact, outside the strip.
+ var catalog: PackedScene=load("res://assets/airfield_safety_block.glb")
+ for location: Vector3 in [Vector3(-36,0,160),Vector3(-36,0,162),Vector3(-38,0,161)]:
+  var safety: Node3D=AviaCatalogProp.build(catalog);safety.position=location;safety.position.y=AviaFlight.height(location);add_child(safety)
+ print(JSON.stringify({"event":"catalog_prop_ready","asset":"airfield_safety_block","source_type":"AI/TRELLIS","instances":3}))
  for p: Vector3 in AviaRules.CHECKPOINTS:
   var ring: MeshInstance3D=MeshInstance3D.new();var torus: TorusMesh=TorusMesh.new()
   torus.inner_radius=AviaRules.RADIUS-2;torus.outer_radius=AviaRules.RADIUS;torus.rings=24;torus.ring_segments=8

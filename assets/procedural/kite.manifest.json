@@ -21,6 +21,6 @@
   "lod_policy": "Near detailed airframe/animated propeller0\u2013800m; distant silhouette800\u20134500m. Data and desktop render checked; physical-phone transitions NOT VERIFIED.",
   "materials": "One opaque vertex-color surface per LOD; separate propeller surface on Kite/Tern; no textures/UV dependency.",
   "validation": "Finite, nondegenerate mesh data; three-aircraft rendered preview; actual two-client native desktop flight. No AI pipeline acceptance.",
-  "production_replacement": "BLOCKED: DINOv3 pending Meta approval; owner will configure HF_TOKEN after approval. No gate polling or paid probes.",
+  "production_replacement": "DINO access/weights and real TRELLIS safety-block result are now verified. Aircraft remain procedural; production aircraft references/AI generation and import are still pending. No new paid images authorized.",
   "triangles_lod1": 96
 }

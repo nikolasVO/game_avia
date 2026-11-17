@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "regression_before": "Actual AssetRunner.prepare on the real verified asset raised asset_id_conflict for identical dimensions: persisted JSON list versus fresh tuple. No artifact overwritten.",
+  "fix": "Canonical JSON mode for spec; hash input/spec/reference/model revisions; model revision changes reject reuse.",
+  "unit_checks": "6 asset tests PASS in isolated existing core venv (0.15s). No provider or inference proof from unit tests.",
+  "actual_cache_state": "reused",
+  "actual_input_hash": "ebb2e7eb33cac98d444209de396cea1cfeecbd96b6dbafa731a66ab47382ced8",
+  "actual_model_revisions_checked": 4,
+  "new_inference_launched": false,
+  "scope": "New module tested in isolated process against existing Store/artifact; running coordinator not restarted or monkeypatched."
+}

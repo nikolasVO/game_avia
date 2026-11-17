@@ -25,3 +25,5 @@ This becomes a durable asset task. prepared means metadata/specification accepte
 
 Sources: [TRELLIS.2](https://github.com/microsoft/TRELLIS.2), [pipeline configuration](https://huggingface.co/microsoft/TRELLIS.2-4B/blob/main/pipeline.json), [bubblewrap isolation model](https://github.com/containers/bubblewrap).
 
+
+Godot continuation: the actual validated TRELLIS safety-block GLB from task59adab633cd7 is imported with three LOD ranges and authoring collider hidden. Scale/pivot, vertices/normals/UV and1024 textures passed engine checks; two rendered gameplay clients passed. It is decorative, not authoritative collision geometry or an AI aircraft. Original/optimized hashes and provenance are in assets/catalog/trellis-safety-block; old beveled fixture remains procedural. No new paid/reference-image call was made. Subsequent native asset exports are a separate check.

@@ -95,15 +95,21 @@ class AssetRunner:
         status=readiness(self.root/"models/trellis512")
         out=self.root/"artifacts"/spec.asset_id
         out.mkdir(parents=True,exist_ok=True)
-        manifest={"spec":spec.model_dump(),"references":[{"name":p.name,"sha256":sha256(p)} for p in refs],
+        model_manifest=self.root/"models/trellis512/model-manifest.json"
+        revisions=json.loads(model_manifest.read_text()).get("revisions",{}) if model_manifest.is_file() else {}
+        manifest={"model_revisions":revisions,"spec":spec.model_dump(mode="json"),"references":[{"name":p.name,"sha256":sha256(p)} for p in refs],
                   "state":"prepared","readiness":status,"generated":False,"reference_path":str(refs[0])}
+        identity={k:manifest[k] for k in ("spec","references","model_revisions")}
+        manifest["input_hash"]=hashlib.sha256(json.dumps(identity,sort_keys=True,separators=(",",":")).encode()).hexdigest()
         previous=out/"manifest.json"
         if previous.is_file() and json.loads(previous.read_text()).get("verified"):
             old=json.loads((out/"request.json").read_text()) if (out/"request.json").is_file() else {}
-            if old.get("spec")!=manifest["spec"] or old.get("references")!=manifest["references"]:
+            existing=json.loads(previous.read_text())
+            old_versions=old.get("model_revisions",existing.get("generation",{}).get("models",{}))
+            if old.get("spec")!=manifest["spec"] or old.get("references")!=manifest["references"] or (revisions and old_versions!=revisions):
                 raise RuntimeError("asset_id_conflict; existing verified artifact preserved")
             manifest["state"]="reused"
-            manifest["existing_manifest"]=json.loads(previous.read_text())
+            manifest["existing_manifest"]=existing
             return manifest
         (out/"request.json").write_text(json.dumps(manifest,indent=2))
         return manifest

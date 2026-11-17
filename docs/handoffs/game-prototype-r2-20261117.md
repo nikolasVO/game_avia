@@ -58,3 +58,5 @@ tail -n 30 /srv/game-avia/logs/flight.log
 - **OPEN code/QA:** bounded-history PvP lag compensation, hostile RPC/resource audit, production AI LOD/audio, flight feel/manual landing QA. Нынешние globals не являются per-user persistent account; accounts требуют secure tokens/deletion. Для будущего RC нужны name clearance, privacy operator/contact/retention, реальные store материалы/рейтинг и актуальные требования магазинов.
 
 Telegram отчёты/видео помещаются через существующий Store/outbox, доставляет единственный coordinator. Старый handoff_final доставлен родителем и не повторялся. Код/конфиги/очищенные evidence в Git; ключи, credentials, БД, weights/cache исключены. Store submission, новые покупки/terms, Actions, timers и autodeploy не выполнялись.
+
+Позднее обновление после r2: main1f0dd2d подтвердил одобрение DINO/weights, а managed task59adab633cd7 создал настоящий TRELLIS safety block. Он импортирован в Godot desktop отдельным последующим asset milestone; aircraft всё ещё procedural. Состояние pending Meta выше историческое для опубликованногоc192 r2. Gate повторно не опрашивался, платных вызовов не добавлено.

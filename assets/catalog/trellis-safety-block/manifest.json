@@ -1,0 +1,156 @@
+{
+  "asset_id": "airfield-safety-block-ai-v1",
+  "purpose": "Decorative original safety block outside the main runway",
+  "source_type": "AI",
+  "generation_source": "Existing AI reference -> local TRELLIS.2 compact512 -> Blender5.2.4 -> GLB -> Godot",
+  "reference": {
+    "path": "assets/source/reference-smoke.png",
+    "sha256": "8720294d2190609e97e19302118df8e391a4dfcaf057ae98604d26ac0873106a",
+    "provider": "OpenLux",
+    "image_model": "gpt-image-2",
+    "seed": null,
+    "revision": null,
+    "requested_size": [
+      1024,
+      1024
+    ],
+    "actual_size": [
+      1254,
+      1254
+    ],
+    "prompt_source": "scripts/image_smoke.py; original neutral cube prompt",
+    "image_generation_calls_this_import": 0,
+    "prompt": "A simple matte orange wooden toy cube with beveled edges, one object centered, three-quarter view, neutral white background, even studio lighting, no text or symbols. Technical 3D reference."
+  },
+  "generation": {
+    "pipeline_type": "512",
+    "seed": 42,
+    "original_sha256": "c955f24eb053eb02d313813996dec69e81416a61872d9c6e7e424cec76d91ef2",
+    "models": {
+      "microsoft/TRELLIS.2-4B": "af44b45f2e35a493886929c6d786e563ec68364d",
+      "microsoft/TRELLIS-image-large": "25e0d31ffbebe4b5a97464dd851910efc3002d96",
+      "facebook/dinov3-vitl16-pretrain-lvd1689m": "ea8dc2863c51be0a264bab82070e3e8836b02d51",
+      "ZhengPeng7/BiRefNet": "e2bf8e4460fc8fa32bba5ea4d94b3233d367b0e4"
+    }
+  },
+  "parent_generation_task": "59adab633cd7",
+  "inference_evidence": {
+    "inference_succeeded": true,
+    "seconds": 214.8763945640021,
+    "vertices": 1710768,
+    "faces": 3561294,
+    "peak_vram_allocated_bytes": 3343810048,
+    "peak_vram_reserved_bytes": 3810525184,
+    "reference_sha256": "8720294d2190609e97e19302118df8e391a4dfcaf057ae98604d26ac0873106a"
+  },
+  "license": "TRELLIS.2 MIT; DINOv3 custom license; BiRefNet MIT; reference terms apply; see provenance",
+  "runtime_file": "game/avia/assets/airfield_safety_block.glb",
+  "runtime_sha256": "5d6e5314c6e35b998d19ce0671b3d7e3578107bfab72f0c315640f3abe80c346",
+  "original_file": "assets/catalog/trellis-safety-block/original.glb",
+  "original_sha256": "c955f24eb053eb02d313813996dec69e81416a61872d9c6e7e424cec76d91ef2",
+  "dimensions_m": [
+    1.000041127204895,
+    1.0000630617141724,
+    1.0000001192092896
+  ],
+  "axes": "Y-up",
+  "pivot": "bottom_center",
+  "lod_triangles": [
+    4849,
+    2424,
+    1211
+  ],
+  "materials": 1,
+  "textures": "1024, checked in engine",
+  "runtime_lod_ranges_m": [
+    [
+      0,
+      350
+    ],
+    [
+      350,
+      900
+    ],
+    [
+      900,
+      2500
+    ]
+  ],
+  "collider": "Authoring box hidden; decorative placement. Not added to authoritative flight collision.",
+  "godot_import": {
+    "authoring_collider_hidden": true,
+    "event": "catalog_import",
+    "meshes": [
+      {
+        "bounds_position": "(-0.500021, 0.0, -0.5)",
+        "bounds_size": "(1.000041, 1.000063, 1.0)",
+        "name": "COLLISION_BOX",
+        "ranges": [
+          0.0,
+          0.0
+        ],
+        "texture_sizes": [],
+        "triangles": 12,
+        "valid_vertices_normals_uv_texture_budget": true,
+        "visible": false
+      },
+      {
+        "bounds_position": "(-0.500028, -0.000063, -0.5)",
+        "bounds_size": "(1.000041, 1.000063, 1.0)",
+        "name": "LOD0",
+        "ranges": [
+          0.0,
+          350.0
+        ],
+        "texture_sizes": [
+          "(1024, 1024)",
+          "(1024, 1024)",
+          "(1024, 1024)"
+        ],
+        "triangles": 4849,
+        "valid_vertices_normals_uv_texture_budget": true,
+        "visible": true
+      },
+      {
+        "bounds_position": "(-0.500028, -0.000063, -0.5)",
+        "bounds_size": "(1.000121, 1.000063, 1.000002)",
+        "name": "LOD1",
+        "ranges": [
+          350.0,
+          900.0
+        ],
+        "texture_sizes": [
+          "(1024, 1024)",
+          "(1024, 1024)",
+          "(1024, 1024)"
+        ],
+        "triangles": 2424,
+        "valid_vertices_normals_uv_texture_budget": true,
+        "visible": true
+      },
+      {
+        "bounds_position": "(-0.500028, -0.001054, -0.5)",
+        "bounds_size": "(1.000041, 1.001054, 1.000002)",
+        "name": "LOD2",
+        "ranges": [
+          900.0,
+          2500.0
+        ],
+        "texture_sizes": [
+          "(1024, 1024)",
+          "(1024, 1024)",
+          "(1024, 1024)"
+        ],
+        "triangles": 1211,
+        "valid_vertices_normals_uv_texture_budget": true,
+        "visible": true
+      }
+    ],
+    "scope": "Actual GLB import/runtime configuration, not an AI aircraft or physics collision claim",
+    "source_type": "AI/TRELLIS from preserved existing AI reference",
+    "status": "PASS"
+  },
+  "gameplay_placement": "Three instances outside the runway, x=-36/-38,z=160..162; global resource materials shared.",
+  "status": "PASS actual Godot import and rendered scene; Android export/runtime pending",
+  "aircraft_ai_requirement": "NOT MET; all three aircraft remain procedural."
+}

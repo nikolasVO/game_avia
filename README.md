@@ -41,6 +41,6 @@ APK9412be7 прошёл300s, APKc1922c7 —120s реального эмулят�
 - [Полный бриф](docs/briefs/game-avia-20261117.md), [backlog](docs/backlog.md), [privacy/data map](docs/privacy-draft.md)
 - [Сервер, обновление и rollback](docs/game-operations.md), [реальные доказательства](docs/evidence/)
 
-Все игровые самолёты сейчас **процедурные placeholders**, не AI-модели. Image→TRELLIS→Blender заблокирован закрытым paid bootstrap и ожиданием одобрения Meta для DINOv3; HF_TOKEN владелец настроит после одобрения; три задания сохранены в существующем Store. Платных вызовов за реализацию0. Point GPU-процессы/модели сохранены.
+Все игровые самолёты сейчас **процедурные placeholders**, не AI-модели. Image→TRELLIS→Blender заблокирован закрытым paid bootstrap и производством целевых самолётов; DINO доступ/weights теперь подтверждены родителем, первый настоящий AI safety block импортирован в Godot desktop; три задания сохранены в существующем Store. Платных вызовов за реализацию0. Point GPU-процессы/модели сохранены.
 
 Существующие API, coordinator, outbox, GPU lease и инструменты сохранены.36 инфраструктурных тестов снова PASS; они учитываются отдельно от23 проверок Godot. Отчёты идут через Store/event/outbox единственному координатору. Зашифрованная off-server копия восстановлена с integrity_check (20 задач); ключ/БД не входят в Git. Ни автодеплоя, ни Actions, ни публикации в магазинах нет.
