@@ -1,0 +1,16 @@
+{
+  "status": "BLOCKED",
+  "task_id": "43ba841d9af6",
+  "operation": "final Store/event/outbox update after verified Git publication",
+  "ssh_alias": "thunder",
+  "exact_error": "Permission denied (publickey).",
+  "attempts": "Normal BatchMode+UseKeychain, then read-only check, then IdentitiesOnly retry; all refused before remote execution",
+  "side_effect_outcome": "NOT EXECUTED: authentication refused before the final remote Python script could run",
+  "verified_code_and_artifact_source": "3417828170d35a3ab2acac0c3fc1ad5ab2bf1046",
+  "verified_remote_branch_milestone": "fdbe2b6c6944248ebfbfe4f62e7b28b5c49517be",
+  "release_url": "https://github.com/nikolasVO/game_avia/releases/tag/game-avia-prototype-20261117",
+  "already_verified_reports": "Earlier9 owner-report outbox records were sent; later artifact/handoff delivery not reverified after access failure",
+  "pending_journal_reconciliation": "After SSH access returns, inspect implementation-20261117-final-docs-push and actual branch SHA; mark known successful publication done, then enqueue one handoff_final event. Do not repeat commit/push/deployment or instantiate Telegram.",
+  "server_current_availability": "Last verified running native3417828 before auth failure; not reverified afterward",
+  "full_0_1": "NOT ACCEPTED"
+}
