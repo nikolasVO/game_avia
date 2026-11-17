@@ -6,7 +6,7 @@
       "job_id": "aircraft-f16c-v1",
       "aircraft_id": "f16c",
       "state": "validating",
-      "source_type": "AI/procedural repair planned",
+      "source_type": "AI body/procedural gear/effects",
       "stage": "mobile/articulation/recognition",
       "attempts": 1,
       "max_attempts": 2,
@@ -43,10 +43,10 @@
     {
       "job_id": "aircraft-f15c-v1",
       "aircraft_id": "f15c",
-      "state": "queued",
-      "source_type": "AI/procedural repair planned",
-      "stage": "reference",
-      "attempts": 0,
+      "state": "validating",
+      "source_type": "AI body/procedural gear/effects",
+      "stage": "mobile/articulation/recognition",
+      "attempts": 1,
       "max_attempts": 2,
       "heartbeat": null,
       "depends_on": [
@@ -54,8 +54,10 @@
         "GPU lease",
         "10GiB reserve"
       ],
-      "next_action": "Author recognizable multi-reference-checked silhouette; TRELLIS compact512; Blender symmetry/parts/LOD; Godot validation",
-      "acceptance": "15 aircraft gates in brief section20; not accepted by config alone"
+      "next_action": "Local inference/Blender19362/5968/1468/Godot12views and actual two rendered AI clients PASS; same job cache reused. Complete variant, articulated surfaces, phone/rights and other15acceptance gates.",
+      "acceptance": "15 aircraft gates in brief section20; not accepted by config alone",
+      "task_id": "5296143b66de",
+      "artifact_id": "f15c_candidate_20261117_v1"
     },
     {
       "job_id": "aircraft-su35s-v1",

@@ -1,0 +1,36 @@
+{
+  "status": "PASS remote complete-file downloads/hash comparison",
+  "release": "https://github.com/nikolasVO/game_avia/releases/tag/game-avia-development-p1-20261117-r2",
+  "source_commit": "f0107818e7342022c4e922eec48abe2de0361feb",
+  "android_java": "custom SurfaceHolder generation recovery; unchanged native engine libraries",
+  "assets": {
+    "android-runtime-f010781.json": {
+      "sha256": "7ac7f89254a62faeb8fc0518268445f4851c2dd2e92c788beebb4984628f3ea0",
+      "bytes": 4543,
+      "url": "https://github.com/nikolasVO/game_avia/releases/download/game-avia-development-p1-20261117-r2/android-runtime-f010781.json"
+    },
+    "game-avia-p1-r2-actual-emulator.mp4": {
+      "sha256": "77e78da53f40ffc7d8b009147a59272e557ee78b14449d46ec69bfd47b13819a",
+      "bytes": 578084,
+      "url": "https://github.com/nikolasVO/game_avia/releases/download/game-avia-development-p1-20261117-r2/game-avia-p1-r2-actual-emulator.mp4"
+    },
+    "game-avia-p1-r2-build.json": {
+      "sha256": "a854d748050d337ddf8db7e1332dfdca4f45ffc3637dc8c25f395d24d23119b4",
+      "bytes": 16330,
+      "url": "https://github.com/nikolasVO/game_avia/releases/download/game-avia-development-p1-20261117-r2/game-avia-p1-r2-build.json"
+    },
+    "game-avia-p1-r2-debug.apk": {
+      "sha256": "4df6229491ab48a3b645cc5e2778ef9be58cd930c4fcf329c039666a850a7db2",
+      "bytes": 69951165,
+      "url": "https://github.com/nikolasVO/game_avia/releases/download/game-avia-development-p1-20261117-r2/game-avia-p1-r2-debug.apk"
+    }
+  },
+  "video": {
+    "actual_duration_seconds": 14.9464,
+    "capture": "actual emulator screenrecord, no acceleration",
+    "width": 640,
+    "height": 360,
+    "frame5s_visually_inspected": true
+  },
+  "limits": "Android debug only; previous R1 AAB/Linux/macOS not equivalent R2 builds; full P0-P6/phone/publicUDP acceptance incomplete"
+}

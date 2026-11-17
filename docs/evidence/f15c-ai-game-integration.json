@@ -1,0 +1,179 @@
+{
+  "status": "PASS",
+  "scope": "actual F15C+Su27 AI bodies in two separate rendered Mac clients and separate authoritative server, loopback25s; not humans/phone/publicUDP/full aircraft acceptance",
+  "inference": {
+    "inference_succeeded": true,
+    "seconds": 236.41979133800487,
+    "vertices": 215915,
+    "faces": 437226,
+    "peak_vram_allocated_bytes": 2815540224,
+    "peak_vram_reserved_bytes": 2860515328,
+    "reference_sha256": "ea5a65c61b5c6c035f1fcdd4584cf17990cb3c1079bb7e41baecb4dba6c7871d"
+  },
+  "clients": [
+    {
+      "name": "client-0",
+      "exit": 0,
+      "ok": true,
+      "summary": {
+        "commands_sent": 716,
+        "connection_status": "Connected",
+        "correction_max_m": 4722.4853515625,
+        "correction_p95_m": 0.00323083926923573,
+        "enet_rtt_ms": 19.0,
+        "event": "summary",
+        "frame_p50_ms": 16.648,
+        "frame_p95_ms": 18.319,
+        "joined": true,
+        "last_input_ack": 713,
+        "pending_inputs": 3,
+        "rejected": 0,
+        "renderer": "gl_compatibility",
+        "seconds": 25.0074546666665,
+        "seen_peers": 2,
+        "server": false,
+        "snapshots": 356,
+        "state": {
+          "afterburner": true,
+          "age": 117,
+          "airbrake": false,
+          "crashed": false,
+          "distance": 341.285087585449,
+          "flaps": true,
+          "gear": true,
+          "grounded": false,
+          "health": 100.0,
+          "landed": false,
+          "p": "(-15.11533, 57.17107, -155.6459)",
+          "pitch": 0.131898148939945,
+          "plane": 5,
+          "profile": 0,
+          "rates": "(0.008337, 0.0, -0.000009)",
+          "respawns": 0,
+          "roll": 2.3921969765676e-05,
+          "v": "(1.90961, 33.67928, -156.0653)",
+          "was_airborne": true,
+          "yaw": -1.20376364634044e-05
+        },
+        "static_memory_mb": 50.2588119506836,
+        "wall_seconds": 26.594
+      }
+    },
+    {
+      "name": "client-1",
+      "exit": 0,
+      "ok": true,
+      "summary": {
+        "commands_sent": 727,
+        "connection_status": "Connected",
+        "correction_max_m": 4728.81103515625,
+        "correction_p95_m": 0.00297902221791446,
+        "enet_rtt_ms": 21.0,
+        "event": "summary",
+        "frame_p50_ms": 16.607,
+        "frame_p95_ms": 18.747,
+        "joined": true,
+        "last_input_ack": 724,
+        "pending_inputs": 3,
+        "rejected": 0,
+        "renderer": "gl_compatibility",
+        "seconds": 25.4060006666665,
+        "seen_peers": 2,
+        "server": false,
+        "snapshots": 363,
+        "state": {
+          "afterburner": true,
+          "age": 80,
+          "airbrake": false,
+          "crashed": false,
+          "distance": 144.321396112442,
+          "flaps": true,
+          "gear": true,
+          "grounded": false,
+          "health": 100.0,
+          "landed": false,
+          "p": "(-17.18119, 16.86859, 36.93153)",
+          "pitch": 0.164260135094325,
+          "plane": 4,
+          "profile": 0,
+          "rates": "(-0.063451, 0.0, 0.000058)",
+          "respawns": 0,
+          "roll": -0.000147856440344185,
+          "v": "(1.370314, 20.60697, -101.1877)",
+          "was_airborne": true,
+          "yaw": -0.000264578141041524
+        },
+        "static_memory_mb": 50.1489028930664,
+        "wall_seconds": 26.974
+      }
+    }
+  ],
+  "server_exit": 0,
+  "game_geometry": {
+    "aircraft_id": "f15c",
+    "geometry": {
+      "lods": [
+        19474,
+        5968,
+        1468
+      ],
+      "surfaces": 6,
+      "triangles": 26910,
+      "unique_materials": 3
+    },
+    "meshes": [
+      {
+        "far_m": 350.0,
+        "level": 0,
+        "mesh": "LOD0",
+        "near_m": 0.0,
+        "triangles": 19362
+      },
+      {
+        "far_m": 900.0,
+        "level": 1,
+        "mesh": "LOD1",
+        "near_m": 350.0,
+        "triangles": 5968
+      },
+      {
+        "far_m": 2500.0,
+        "level": 2,
+        "mesh": "LOD2",
+        "near_m": 900.0,
+        "triangles": 1468
+      },
+      {
+        "far_m": 500.0,
+        "level": 0,
+        "mesh": "Gear",
+        "near_m": 0.0,
+        "triangles": 72
+      },
+      {
+        "far_m": 800.0,
+        "level": 0,
+        "mesh": "Flame-1_0",
+        "near_m": 0.0,
+        "triangles": 20
+      },
+      {
+        "far_m": 800.0,
+        "level": 0,
+        "mesh": "Flame1_0",
+        "near_m": 0.0,
+        "triangles": 20
+      }
+    ],
+    "source": "AI candidate with procedural landing gear/effects; production QA pending"
+  },
+  "source_files_sha256": {
+    "game/avia/data/aircraft/f15c.json": "65c1744524b1f5748fa9d2af1b4aa07d62f5efabb7ff758d8b24fd7234b6b747",
+    "game/avia/assets/f15c_ai_candidate.glb": "10e5cc07a6e6f96642ea03bc472a0fdcf946c71bc1c8ce316927af984a7d90f4",
+    "game/avia/client/fighter_visual.gd": "2be79aae947a764956186e6d35e9ad1f9240f39797255726a79053223144759a",
+    "game/avia/client/aircraft.gd": "4ab632dca7b2dbb6d3f5a1213c29a3dc2fd6692f9e83d1de6d7a13a7d701b44d"
+  },
+  "manifest_hashes_checked": 21,
+  "production_accepted": false,
+  "limits": "R2 Android release sourcef010 has2AI bodies; this later F15C body is native-rendered only. Six-plane prior native circuits and f702load remain previous-source proofs; authority unchanged, no repeat31min."
+}

@@ -1,0 +1,118 @@
+{
+  "source_kind": "imported_mesh; consult_generation_manifest",
+  "blender_version": "5.2.4 LTS",
+  "triangles_lod0": 19362,
+  "materials_lod0": 1,
+  "lods": [
+    {
+      "name": "LOD1",
+      "triangles": 5968,
+      "far_repair": null,
+      "dimensions_blender": [
+        13.002753257751465,
+        19.43819808959961,
+        4.204127311706543
+      ]
+    },
+    {
+      "name": "LOD2",
+      "triangles": 1468,
+      "far_repair": {
+        "method": "voxel topology repair then decimation",
+        "attempts": [
+          {
+            "voxel_size_m": 0.03888000175356865,
+            "triangles": 1468,
+            "dimensions_blender": [
+              12.988001823425293,
+              19.424623489379883,
+              4.192460536956787
+            ]
+          }
+        ],
+        "voxel_size_m": 0.03888000175356865,
+        "material": "plain sampled albedo; no far texture/UV required",
+        "rgba": [
+          0.6752698555473209,
+          0.6922025218490482,
+          0.7048184201698895,
+          1
+        ]
+      },
+      "dimensions_blender": [
+        12.988001823425293,
+        19.424623489379883,
+        4.192460536956787
+      ]
+    }
+  ],
+  "collision": "box metadata only; engine binding required",
+  "geometry": {
+    "uv_layers": 1,
+    "degenerate_triangles": 0,
+    "finite_vertices_and_normals": true,
+    "texture_sizes": [
+      [
+        1024,
+        1024
+      ],
+      [
+        1024,
+        1024
+      ]
+    ],
+    "symmetry": {
+      "mirror_axis": "Blender X",
+      "mean_distance_m": 1.159093874569121e-10,
+      "max_distance_m": 8.724499593881774e-07,
+      "mean_fraction_width": 8.916106727454777e-12
+    }
+  },
+  "generator_script_sha256": "43f383b37d422eb76aa0395dce9e3cd41fb3fc3a18e8fa36dcd9c3d25d1b437a",
+  "dimensions_m": [
+    13.0,
+    4.199999809265137,
+    19.440000534057617
+  ],
+  "pivot": "bottom_center",
+  "source_yaw_degrees": 180.0,
+  "symmetry_enforced_x": true,
+  "export_axes": "glTF Y-up",
+  "unity_import_tested": false,
+  "license": "see source manifest",
+  "checks": {
+    "triangle_budget": true,
+    "material_budget": true,
+    "finite_bounds": true,
+    "finite_geometry": true,
+    "no_degenerate_triangles": true,
+    "uv_present": true,
+    "texture_budget": true,
+    "lod_budgets": true,
+    "lod_silhouette_bounds": true,
+    "exact_mirror_symmetry": true
+  },
+  "files": {
+    "optimized.glb": {
+      "sha256": "10e5cc07a6e6f96642ea03bc472a0fdcf946c71bc1c8ce316927af984a7d90f4",
+      "bytes": 2051640
+    },
+    "preview.png": {
+      "sha256": "5645453b680972a5f1e78949d62438b927c824d3b02ec8084eb8421593f4ccc5",
+      "bytes": 124365
+    },
+    "lod0.glb": {
+      "sha256": "d211b9c141eadc6ab0c7c326716c49b28b1e02ae1b77c68396aa749029c7076f",
+      "bytes": 1653828
+    },
+    "lod1.glb": {
+      "sha256": "12ce7f49f51addfa1b6c0ab9a624e0a3d4d33182325e072b2ea87e471bc3bff7",
+      "bytes": 1200976
+    },
+    "lod2.glb": {
+      "sha256": "412117ca2ef843770119b3a25cc549e37e032225601afc5a84e93331cd227321",
+      "bytes": 115520
+    }
+  },
+  "verified": true
+}

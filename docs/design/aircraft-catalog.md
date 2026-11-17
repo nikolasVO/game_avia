@@ -9,7 +9,7 @@ Data: `game/avia/data/aircraft/`, schema1; stable original indices0–2. 24 name
 |swift|Swift|Game Avia|flight prototype|522/522|115.2/134.4|55|procedural|
 |f16c|F-16C Fighting Falcon|USA|flight prototype|1344/2100|220/262|35|AI candidate body; procedural gear/effects|
 |su27|Su-27|Russia|flight prototype|1568/2450|240/286|64|AI candidate body; procedural gear/effects|
-|f15c|F-15C Eagle|USA|flight prototype|1696/2650|250/298|70|procedural_placeholder|
+|f15c|F-15C Eagle|USA|flight prototype|1696/2650|250/298|70|AI candidate body; procedural gear/effects|
 |su35s|Su-35S|Russia|flight prototype|1600/2500|215/256|58|procedural_placeholder|
 |rafale|Dassault Rafale C|France|flight prototype|1280/2000|205/244|45|procedural_placeholder|
 |gripen|Saab JAS 39 Gripen C|Sweden|flight prototype|1344/2100|195/232|30|procedural_placeholder|
@@ -34,4 +34,4 @@ Data: `game/avia/data/aircraft/`, schema1; stable original indices0–2. 24 name
 
 P1 six: F-16C, Su-27, F-15C, Su-35S, Rafale C, Gripen C. Scripted force/ground/landing comparisons are separate from human flight, recognized production geometry, phone performance and public networking. The other18 are configured production backlog and are deliberately unavailable for flight.
 
-Authored visual proportions now live in each P1 JSON: body width/height, wing chord/sweep, LERX, fin height/cant, intake layout and engine channels. These are stylized game geometry, not verified manufacturer dimensions. Gripen side intakes are separated from its single engine count. Procedural body/nozzle/channel draws share one vertex material; F16/Su27 candidate+far+procedural use3. Per-LOD budgets/material counts are checked, physical-device quality remains unverified.
+Authored visual proportions now live in each P1 JSON: body width/height, wing chord/sweep, LERX, fin height/cant, intake layout and engine channels. These are stylized game geometry, not verified manufacturer dimensions. Gripen side intakes are separated from its single engine count. Procedural body/nozzle/channel draws share one vertex material; F16/Su27/F15C candidate+far+procedural use3. Per-LOD budgets/material counts are checked, physical-device quality remains unverified.
