@@ -1,0 +1,38 @@
+"""Import a GLB into an isolated Godot project, measure it, optionally render it."""
+import argparse
+import json
+import shutil
+import subprocess
+import tempfile
+from pathlib import Path
+from workers.assets.files import atomic_json,sha256
+
+
+def main():
+    p=argparse.ArgumentParser();p.add_argument('--artifact-dir',required=True);p.add_argument('--godot',required=True)
+    p.add_argument('--dimensions',type=float,nargs=3,required=True);p.add_argument('--render',action='store_true')
+    a=p.parse_args();out=Path(a.artifact_dir).resolve()
+    with tempfile.TemporaryDirectory(prefix='avia-asset-import-') as tmp:
+        project=Path(tmp)
+        shutil.copy2(out/'optimized.glb',project/'optimized.glb')
+        shutil.copy2(Path(__file__).with_suffix('.gd'),project/'validate.gd')
+        (project/'project.godot').write_text('config_version=5\n[application]\nconfig/name="Isolated asset validation"\n[rendering]\nrenderer/rendering_method="gl_compatibility"\n[display]\nwindow/size/viewport_width=768\nwindow/size/viewport_height=768\n')
+        commands=[[a.godot,'--headless','--path',tmp,'--editor','--import'],[a.godot,*([] if a.render else ['--headless']),'--path',tmp,'--script','res://validate.gd','--',str(out/'godot-validation.json'),*[str(x) for x in a.dimensions]]]
+        for i,command in enumerate(commands):
+            result=subprocess.run(command,capture_output=True,text=True,timeout=180)
+            (out/('godot-import.log' if i==0 else 'godot-validation.log')).write_text(result.stdout+result.stderr)
+            if result.returncode:raise RuntimeError('godot_validation_failed; see isolated log')
+        result=json.loads((out/'godot-validation.json').read_text())
+        if not result['import_passed'] or (a.render and not result['preview_rendered']):raise RuntimeError('godot_geometry_or_preview_failed')
+        manifest=json.loads((out/'geometry-manifest.json').read_text())
+        manifest.update({'asset_id':out.name,'source_type':'AI','godot_import_tested':True,'godot_import':result,'pipeline_verified':True,'production_accepted':False})
+        for name in ('original.glb','godot-validation.json','inference-evidence.json',*result.get("preview_files",[])):
+            manifest['files'][name]={'sha256':sha256(out/name),'bytes':(out/name).stat().st_size}
+        if (out/'provenance.json').is_file():
+            manifest['provenance_file']='provenance.json'
+            manifest['forward_axis']=json.loads((out/'provenance.json').read_text()).get('forward_axis','not_verified')
+            manifest['files']['provenance.json']={'sha256':sha256(out/'provenance.json'),'bytes':(out/'provenance.json').stat().st_size}
+        atomic_json(out/'manifest.json',manifest)
+        print(json.dumps({'pipeline_verified':True,'production_accepted':False,'artifact_dir':str(out)}))
+
+if __name__=='__main__':main()

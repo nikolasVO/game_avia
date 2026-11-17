@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "tests": 67,
+  "scope": "isolated Thunder copy of current Python sources;67 tests include two actual installed Blender5.2.4 integration tests, not phone/game acceptance",
+  "command": "BLENDER_EXE=/srv/game-avia/tools/blender-5.2.4-linux-x64/blender /srv/game-avia/venvs/core/bin/python -m pytest -q",
+  "seconds": 25.97,
+  "source_files_sha256": {
+    "scripts/blender_optimize.py": "d175651d18ecffb5eb4945d7e9348c718eb40a483d78c763ba1754d5d146650f",
+    "scripts/trellis_generate.py": "7bcac94d7fd7a127eb30f4728faea31ab94d3ae42dc4bf391bba6b484e2876c8",
+    "workers/assets/pipeline.py": "71b9cfc71112f8ffab00f49518dc605097a93b9a0bf990960ff7628ad19d3b97",
+    "workers/assets/run.py": "2a9f9f48ab04c29369944bb5f6e47d52ba8de3c2a3a44cf68b85e6b176d991be",
+    "workers/assets/validate.py": "b8732ce8abbeb3bfa77e2c9f8c27ff7b18d215713e9e6aa43776618baf3d3aef",
+    "workers/assets/godot_validate.py": "0f475ad5cea736a52154b33df76974983535afc7e6640aca78d1182754e3a8e0",
+    "workers/assets/godot_validate.gd": "4ec07f7449cc607859462f04eac50b464ab99ea0b66a6c33ad6d51db00eca88e"
+  },
+  "prior_harness_error": "Initial temporary checkout omitted config/providers.yaml; collection failed, no tests passed then. Added tracked config and reran successfully."
+}
