@@ -24,10 +24,10 @@
     {
       "job_id": "aircraft-su27-v1",
       "aircraft_id": "su27",
-      "state": "queued",
-      "source_type": "AI/procedural repair planned",
-      "stage": "reference",
-      "attempts": 0,
+      "state": "validating",
+      "source_type": "AI body/procedural gear/effects",
+      "stage": "game_import/mobile/articulation/recognition",
+      "attempts": 1,
       "max_attempts": 2,
       "heartbeat": null,
       "depends_on": [
@@ -35,8 +35,10 @@
         "GPU lease",
         "10GiB reserve"
       ],
-      "next_action": "Author recognizable multi-reference-checked silhouette; TRELLIS compact512; Blender symmetry/parts/LOD; Godot validation",
-      "acceptance": "15 aircraft gates in brief section20; not accepted by config alone"
+      "next_action": "One real local inference232.32s, repaired LOD19364/5968/1468 and12 Godot views PASS; actual two rendered AI clients PASS. Complete variant recognition, articulated surfaces, physical mobile/performance and remaining15 acceptance gates.",
+      "acceptance": "15 aircraft gates in brief section20; not accepted by config alone",
+      "artifact_id": "su27_candidate_20261117_v1",
+      "task_id": "3b89d00b73bf"
     },
     {
       "job_id": "aircraft-f15c-v1",

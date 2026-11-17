@@ -64,7 +64,7 @@ func refresh() -> void:
  var pattern: String="%s\n%s\n\nGAME BALANCE\nSea level: %d km/h\nAltitude ceiling: %d km/h\nStall: %d km/h\nApproach: %d km/h\nAcceleration: %.1f m/s²\nAfterburner: %.1f m/s²\n\nProcedural flight prototype"
  if lang=="ru":pattern="%s\n%s\n\nИГРОВЫЕ ПАРАМЕТРЫ\nУ земли: %d км/ч\nПредел на высоте: %d км/ч\nСваливание: %d км/ч\nПосадка: %d км/ч\nРазгон: %.1f м/с²\nФорсаж: %.1f м/с²\n\nПроцедурный лётный прототип"
  detail.text=pattern % [spec.name,spec.country,f.max_speed_sea_kmh,f.max_speed_altitude_kmh,f.stall_speed_kmh,f.landing_speed_kmh,f.acceleration_mps2,f.afterburner_acceleration_mps2]
- if first.selected==AviaCatalog.index_of("f16c"):
+ if spec.has("visual"):
   detail.text=detail.text.replace("Procedural flight prototype","AI body candidate; procedural gear/effects\nProduction acceptance pending").replace("Процедурный лётный прототип","AI-кандидат корпуса; шасси/эффекты процедурные\nПриёмка модели не завершена")
  compare.text="%s  /  %s · %s" % [spec.name,AviaFlight.PLANES[second.selected].name,"Вращайте модель" if lang=="ru" else "Drag to rotate"]
  chart.queue_redraw()

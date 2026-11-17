@@ -1,0 +1,77 @@
+{
+  "bounds_position": [
+    -7.34999990463257,
+    0.0,
+    -10.9499998092651
+  ],
+  "dimensions": [
+    14.6999998092651,
+    4.0,
+    21.8999996185303
+  ],
+  "dimensions_ok": true,
+  "display": "macOS",
+  "engine": {
+    "build": "official",
+    "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+    "hex": 263938,
+    "major": 4,
+    "minor": 7,
+    "patch": 2,
+    "status": "stable",
+    "string": "4.7.2-stable (official)",
+    "timestamp": 0
+  },
+  "import_passed": true,
+  "lod_triangles": [
+    19364,
+    5968,
+    1468
+  ],
+  "meshes": [
+    {
+      "materials": 1,
+      "name": "COLLISION_BOX",
+      "surfaces": 1,
+      "textures": 0,
+      "triangles": 12
+    },
+    {
+      "materials": 1,
+      "name": "LOD0",
+      "surfaces": 1,
+      "textures": 1,
+      "triangles": 19364
+    },
+    {
+      "materials": 1,
+      "name": "LOD1",
+      "surfaces": 1,
+      "textures": 1,
+      "triangles": 5968
+    },
+    {
+      "materials": 1,
+      "name": "LOD2",
+      "surfaces": 1,
+      "textures": 0,
+      "triangles": 1468
+    }
+  ],
+  "pivot_ok": true,
+  "preview_files": [
+    "godot-preview.png",
+    "godot-top.png",
+    "godot-front.png",
+    "godot-side.png",
+    "godot-lod1-orbit.png",
+    "godot-lod1-top.png",
+    "godot-lod1-front.png",
+    "godot-lod1-side.png",
+    "godot-lod2-orbit.png",
+    "godot-lod2-top.png",
+    "godot-lod2-front.png",
+    "godot-lod2-side.png"
+  ],
+  "preview_rendered": true
+}

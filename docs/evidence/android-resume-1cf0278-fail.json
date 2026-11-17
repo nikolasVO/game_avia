@@ -1,0 +1,14 @@
+{
+  "status": "FAIL",
+  "source_commit": "1cf0278b783f5179a3c9d50494f6b96f451e5afc",
+  "apk_sha256": "3b327fb05da9624e3d653a41346c370b9e05f8e47ff932fae08cac8549f508a0",
+  "scenario": "existing host-GPU AVD; actual initialSu27/peerF16 admission, throttle/pitch, Home, resume, direct pinned Join tap",
+  "observed": "Android Activity RESUMED/visible but screenshots pure black and Godot client_loop stopped afterwall_ms9432; no final summary/rejoin. Harness timed out, terminated only its owned Mac server/peer.",
+  "scope": "FAIL emulator resume; cause not isolated, do not infer physical failure or code root cause",
+  "next": "same AVD/source5c control then renderer/scene isolation; no presentation main promotion until reproduced/fixed",
+  "raw_evidence_sha256": {
+    "runtime.log": "016ac18452165d06bfa8011f773b86accf359c6086592cc8220d2e196a129c7e",
+    "resume-menu.png": "527f19e0c37f93a2060574f4162d7eafc016fafb91db4b3b7a1fbbf8fa6669a6",
+    "server.log": "3038cb7c408c5596e07891c1f0840b050cd4d2d185da85319d1cee24e64b9aa8"
+  }
+}

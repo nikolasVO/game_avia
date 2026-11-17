@@ -1,0 +1,59 @@
+{
+  "status": "PASS tested repeat; initialFAIL remains unresolved",
+  "source_commit": "1cf0278b783f5179a3c9d50494f6b96f451e5afc",
+  "apk_sha256": "3b327fb05da9624e3d653a41346c370b9e05f8e47ff932fae08cac8549f508a0",
+  "scenario": "Same1cf binary reinstalled after old5c control, same hostAVD/Su27 first/peerF16/Home/resume/direct pinnedJoin withoutscroll; no code change",
+  "welcome_aircraft": [
+    4,
+    0
+  ],
+  "summary": {
+    "commands_sent": 2310,
+    "connection_status": "Connected",
+    "correction_max_m": 16.1177616119385,
+    "correction_p95_m": 4.0277042388916,
+    "enet_rtt_ms": 78.0,
+    "event": "summary",
+    "frame_p50_ms": 37.885,
+    "frame_p95_ms": 71.397,
+    "joined": true,
+    "last_input_ack": 2184,
+    "pending_inputs": 4,
+    "rejected": 0,
+    "renderer": "gl_compatibility",
+    "seconds": 85.0170096666665,
+    "seen_peers": 2,
+    "server": false,
+    "snapshots": 1151,
+    "state": {
+      "afterburner": false,
+      "age": 2202,
+      "airbrake": false,
+      "crashed": false,
+      "distance": 4054.96810626984,
+      "flaps": false,
+      "gear": true,
+      "grounded": false,
+      "health": 100.0,
+      "landed": false,
+      "p": "(-6.0, 832.8196, -3783.457)",
+      "pitch": 0.0199999995534827,
+      "plane": 0,
+      "profile": 0,
+      "rates": "(0.0, 0.0, 0.0)",
+      "respawns": 0,
+      "roll": 0.0,
+      "v": "(0.0, 11.76507, -59.28514)",
+      "was_airborne": true,
+      "yaw": 0.0
+    },
+    "static_memory_mb": 51.2910795211792,
+    "wall_seconds": 96.368
+  },
+  "conclusion": "Intermittent lifecycle/surface failure, not a demonstrated deterministic code regression or proven fix. Keep firstblackFAIL and physicalQA open.",
+  "related_primary_report": {
+    "url": "https://github.com/godotengine/godot/issues/124773",
+    "limit": "external first-hand4.6.3 emulator report, archived; similarEGLwarning can recover. Not proof of4.7.2 root cause/fix."
+  },
+  "runtime_log_sha256": "b38efebc90f40eadadf931c295679c91097e3e06995f25c7e3927859364317fe"
+}
