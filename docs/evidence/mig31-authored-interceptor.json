@@ -1,0 +1,191 @@
+{
+  "status": "PASS",
+  "scope": "own authored planned reference and shared arcade forces, not production aircraft",
+  "source_base": "9ace80269db8f33960ccc98c1fc41907fa98044f",
+  "geometry": {
+    "bounds": "[P: (-6.75, -1.075, -11.35), S: (13.5, 4.575, 22.7)]",
+    "checks": [
+      {
+        "check": "planned interceptor never enters nine playable prototypes",
+        "ok": true
+      },
+      {
+        "check": "conditioning uses only own authored geometry",
+        "ok": true
+      },
+      {
+        "check": "explicit pointed nose and rectangular rear metre sections",
+        "ok": true
+      },
+      {
+        "check": "two engines with large rectangular paired intakes",
+        "ok": true
+      },
+      {
+        "check": "separate elongated tandem-style canopy",
+        "ok": true
+      },
+      {
+        "check": "angular paired outward fins and slight negative wing dihedral",
+        "ok": true
+      },
+      {
+        "check": "all authored LOD triangles finite, nondegenerate with unit normals",
+        "ok": true
+      },
+      {
+        "check": "all body LOD vertices have exact mirrored partners",
+        "ok": true
+      },
+      {
+        "check": "explicit decreasing lightweight conditioning tiers",
+        "ok": true
+      },
+      {
+        "check": "built bounds match labelled provisional span and length",
+        "ok": true
+      },
+      {
+        "check": "twin exhaust without invented swing wing or thrust vectoring",
+        "ok": true
+      },
+      {
+        "check": "existing deployable gear retained for later fidelity review",
+        "ok": true
+      },
+      {
+        "check": "construction leaves authoritative catalog unchanged",
+        "ok": true
+      }
+    ],
+    "event": "interceptor_reference_summary",
+    "playable": false,
+    "production_accepted": false,
+    "scope": "own provisional conditioning geometry only; primary dimensions/recognition and full15gates open",
+    "status": "PASS",
+    "triangles": [
+      368,
+      308,
+      124
+    ]
+  },
+  "flight": {
+    "checks": [
+      {
+        "check": "mig31: afterburner changes actual acceleration",
+        "ok": true
+      },
+      {
+        "check": "mig31: achievable speed changes with density/altitude inside current world",
+        "ok": true
+      },
+      {
+        "check": "f16c: afterburner changes actual acceleration",
+        "ok": true
+      },
+      {
+        "check": "f16c: achievable speed changes with density/altitude inside current world",
+        "ok": true
+      },
+      {
+        "check": "heavy interceptor has materially less low-speed roll authority than light F16",
+        "ok": true
+      },
+      {
+        "check": "heavy interceptor retains more angular inertia after release",
+        "ok": true
+      },
+      {
+        "check": "interceptor trades close manoeuvres for faster altitude envelope",
+        "ok": true
+      },
+      {
+        "check": "isolated planned test preserves playable catalog",
+        "ok": true
+      }
+    ],
+    "event": "interceptor_flight_summary",
+    "measurements": [
+      {
+        "aircraft_id": "mig31",
+        "altitude4s_mps": 530.768188476562,
+        "boost4s_mps": 309.018890380859,
+        "dry4s_mps": 246.338897705078,
+        "fast_bank_rad": 0.213019333717724,
+        "low_speed_bank_rad": 0.135556083607177,
+        "residual_roll_fraction": 0.712658084481016,
+        "sea4s_mps": 514.731811523438
+      },
+      {
+        "aircraft_id": "f16c",
+        "altitude4s_mps": 425.839569091797,
+        "boost4s_mps": 276.142761230469,
+        "dry4s_mps": 226.199417114258,
+        "fast_bank_rad": 0.595823261886835,
+        "low_speed_bank_rad": 0.554347192496061,
+        "residual_roll_fraction": 0.464736994516118,
+        "sea4s_mps": 392.492340087891
+      }
+    ],
+    "scope": "actual shared-force game balance only; no real flight, human/network/phone or production acceptance",
+    "status": "PASS"
+  },
+  "circuit": {
+    "aircraft_id": "mig31",
+    "commands_valid": true,
+    "crashed": false,
+    "distance_m": 15350.948244296,
+    "event": "planned_circuit_summary",
+    "final_speed_mps": 1.99046409130096,
+    "landing_seconds": 154.766666666667,
+    "maximum_altitude_m": 243.917404174805,
+    "maximum_speed_mps": 103.554496765137,
+    "production_accepted": false,
+    "scope": "planned-only command-driven parked/takeoff/circuit/approach/braked-stop simulation; no coordinate injection; no human/network/device acceptance",
+    "stage": 4,
+    "status": "PASS",
+    "takeoff_seconds": 3.03333333333333
+  },
+  "reference_manifest_sha256": "3c699a3db5707c55ffe20cd374e92f285b8198b9652a4684eb6603794762ce25",
+  "other_geometry_regressions": [
+    {
+      "script": "interceptor_reference_check",
+      "ok": true
+    },
+    {
+      "script": "carrier_reference_check",
+      "ok": true
+    },
+    {
+      "script": "sweep_reference_check",
+      "ok": true
+    },
+    {
+      "script": "catalog_check",
+      "ok": true
+    }
+  ],
+  "shared_regressions": [
+    {
+      "script": "flight_check",
+      "ok": true
+    },
+    {
+      "script": "fighter_check",
+      "ok": true
+    },
+    {
+      "script": "fighter_geometry_check",
+      "ok": true
+    },
+    {
+      "script": "fighter_circuit_check",
+      "ok": true
+    }
+  ],
+  "pytest_tests": 10,
+  "primary_specifications_verified": false,
+  "world_ceiling_m": 2500,
+  "production_accepted": false,
+  "playable": false
+}

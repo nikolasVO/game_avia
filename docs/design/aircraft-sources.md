@@ -16,3 +16,8 @@ Each JSON `flight` and `handling` value is proposed GAME BALANCE, including sea-
 ## F-14 reference work, 17 November 2026
 
 The own-authored F14-style conditioning render is a provisional game silhouette: twin engines, paired intakes, twin fins, a long canopy and separate pivoted wing panels. No external model/pixels/logos were copied. Primary Navy page retrieval failed in this runtime; no additional real F-14 facts or variant dimensions are claimed. Existing 19.1 m/19.5 m values remain proposed geometry, not verified specifications. A generated static body requires movable-wing repair and inspection before game admission. See `../evidence/f14-authored-sweep.json`: 13 geometry/animation checks, not flight or production acceptance.
+
+
+## MiG-31 reference work, 18 November 2026
+
+Primary-source search/retrieval returned no usable page in this runtime; no new source-derived dimensions or performance facts are claimed. The22.7m/13.5m catalogue dimensions and all speed/handling figures remain provisional authored game values. The own render uses a long nose, tandem-style canopy, broad rectangular rear fuselage/side intakes, swept clipped wings and paired angular fins. No external image/model/logo was copied. Independent primary-reference/variant recognition and commercial rights remain open. Shared-force tests use100m/2000m within the existing2500m world ceiling; the proposed high-altitude speed is not a reachable gameplay guarantee.

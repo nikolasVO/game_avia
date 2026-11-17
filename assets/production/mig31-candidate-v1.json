@@ -1,0 +1,22 @@
+{
+  "asset_id": "mig31_candidate_20261118_v1",
+  "purpose": "MiG31-style own authored heavy interceptor candidate; not production acceptance",
+  "description": "Own provisional long pointed nose, elongated tandem canopy, broad rectangular rear fuselage, swept clipped wings, paired mildly canted fins, rectangular side intakes and separated twin nozzles. No verified primary-source dimensions or recognition claim; no copied pixels/models/logos. Primary dimensions unavailable in this pass; proposed game geometry only.",
+  "style": "coherent stylized Game Avia aviation",
+  "reference_images": [
+    "production-mig31-v1/reference.png"
+  ],
+  "dimensions_m": [
+    13.5,
+    4.9,
+    22.7
+  ],
+  "source_yaw_degrees": 180,
+  "symmetry_policy": "mirror_x",
+  "triangle_budget": 19300,
+  "texture_budget": 1024,
+  "deadline_seconds": 1800,
+  "cost_limit": 0,
+  "seed": 44,
+  "pipeline_type": "512"
+}

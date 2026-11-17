@@ -41,13 +41,14 @@ static func create_spec(spec: Dictionary, use_imported: bool=false) -> AviaAircr
  for lod: int in (0 if imported else 3):
   var st: SurfaceTool=SurfaceTool.new();st.begin(Mesh.PRIMITIVE_TRIANGLES)
   var sides: int=8 if lod==0 else 6 if lod==1 else 4
-  AviaAircraft._loft(st,[Vector3(-length*.51,.04,.06),Vector3(-length*.3,width*.55,height*.9),Vector3(-length*.12,width,height),Vector3(length*.17,width*1.1,height*.9),Vector3(length*.44,width*.65,height*.55)],0.1,color,sides)
+  if g.has("box_body_sections_m"):_box_body(st,g.box_body_sections_m,color)
+  else:AviaAircraft._loft(st,[Vector3(-length*.51,.04,.06),Vector3(-length*.3,width*.55,height*.9),Vector3(-length*.12,width,height),Vector3(length*.17,width*1.1,height*.9),Vector3(length*.44,width*.65,height*.55)],0.1,color,sides)
   # Cropped swept wing or canard delta; source geometry is authored independently.
   if bool(spec.systems.get("variable_sweep",false)):
    # Fixed glove; articulated panels are separate from every body LOD.
    AviaAircraft._wing(st,float(g.get("glove_half_span_m",span*.18)),length*.31,-.35,-.1,.9,color)
   elif g.has("wing_outline_m"):
-   _surface_pair(st,g.wing_outline_m,-.1,.16,color)
+   _surface_pair(st,g.wing_outline_m,float(g.get("wing_y_m",-.1)),.16,color,float(g.get("wing_dihedral_degrees",0)))
   else:
    AviaAircraft._wing(st,span*.5,float(g.get("wing_root_chord_m",length*(.36 if delta else .23))),length*.02,-.1,float(g.get("wing_sweep_m",length*(.22 if delta else .13))),color)
   if g.has("lerx_outline_m"):_surface_pair(st,g.lerx_outline_m,-.02,.14,color)
@@ -59,7 +60,8 @@ static func create_spec(spec: Dictionary, use_imported: bool=false) -> AviaAircr
   for side: float in fins:
    var x: float=side*float(g.get("fin_half_spacing_m",length*.08))
    var fin_height: float=float(g.get("fin_height_m",length*.16));var tip_x: float=x+side*tan(deg_to_rad(float(g.get("fin_cant_degrees",0))))*fin_height
-   AviaAircraft._solid(st,[Vector3(x-.07,.25,length*.23),Vector3(x+.07,.25,length*.23),Vector3(x+.07,.25,length*.44),Vector3(x-.07,.25,length*.44),Vector3(tip_x-.07,fin_height,length*.34),Vector3(tip_x+.07,fin_height,length*.34),Vector3(tip_x+.07,fin_height*.7,length*.44),Vector3(tip_x-.07,fin_height*.7,length*.44)],color)
+   if g.has("fin_outline_m"):_fin(st,g.fin_outline_m,x,side,float(g.get("fin_cant_degrees",0)),color)
+   else:AviaAircraft._solid(st,[Vector3(x-.07,.25,length*.23),Vector3(x+.07,.25,length*.23),Vector3(x+.07,.25,length*.44),Vector3(x-.07,.25,length*.44),Vector3(tip_x-.07,fin_height,length*.34),Vector3(tip_x+.07,fin_height,length*.34),Vector3(tip_x+.07,fin_height*.7,length*.44),Vector3(tip_x-.07,fin_height*.7,length*.44)],color)
   if lod<2:
    # Intake count and engine count differ: Gripen has side intakes and one nozzle.
    var intake_sides: Array=[-1.0,1.0] if str(g.get("intake_layout","side_pair" if twin else "chin_single"))=="side_pair" else [0.0]
@@ -133,13 +135,41 @@ static func create_spec(spec: Dictionary, use_imported: bool=false) -> AviaAircr
  _build_airbrakes(root,spec,color)
  return root
 
-static func _surface_pair(st: SurfaceTool,outline: Array,y: float,thickness: float,color: Color) -> void:
+static func _box_body(st: SurfaceTool,sections: Array,color: Color) -> void:
+ # Explicit authored metre sections [z, half-width, half-height, centre-y].
+ var rings: Array=[]
+ for section: Array in sections:
+  var z: float=float(section[0]);var w: float=float(section[1]);var h: float=float(section[2]);var y: float=float(section[3])
+  rings.append([Vector3(-w,y-h,z),Vector3(w,y-h,z),Vector3(w,y+h,z),Vector3(-w,y+h,z)])
+ var first: Array[Vector3]=[];var last: Array[Vector3]=[]
+ for point: Vector3 in rings[0]:first.append(point)
+ for point: Vector3 in rings[-1]:last.append(point)
+ AviaAircraft._face(st,first,color,Vector3.FORWARD);AviaAircraft._face(st,last,color,Vector3.BACK)
+ for i: int in range(1,rings.size()):
+  for side: int in 4:
+   var next: int=(side+1)%4
+   AviaAircraft._face(st,[rings[i-1][side],rings[i-1][next],rings[i][next],rings[i][side]],color,[Vector3.DOWN,Vector3.RIGHT,Vector3.UP,Vector3.LEFT][side])
+
+static func _fin(st: SurfaceTool,outline: Array,x: float,side: float,cant_degrees: float,color: Color) -> void:
+ var left: Array[Vector3]=[];var right: Array[Vector3]=[]
+ for point: Array in outline:
+  var y: float=float(point[1]);var lean: float=side*tan(deg_to_rad(cant_degrees))*maxf(0,y-.25)
+  left.append(Vector3(x+lean-.07,y,float(point[0])));right.append(Vector3(x+lean+.07,y,float(point[0])))
+ AviaAircraft._face(st,left.duplicate(),color,Vector3.LEFT);AviaAircraft._face(st,right.duplicate(),color,Vector3.RIGHT)
+ var center: Vector3=Vector3.ZERO
+ for point: Vector3 in left:center+=point/float(left.size())
+ for i: int in left.size():
+  var j: int=(i+1)%left.size();var out: Vector3=(left[i]+left[j])*.5-center;out.x=0
+  AviaAircraft._face(st,[left[i],left[j],right[j],right[i]],color,out)
+
+static func _surface_pair(st: SurfaceTool,outline: Array,y: float,thickness: float,color: Color,dihedral_degrees: float=0) -> void:
  # Explicit authored convex half-planform, mirrored exactly; metres, nose -Z.
  for side: float in [-1.0,1.0]:
   var top: Array[Vector3]=[];var bottom: Array[Vector3]=[]
   for point: Array in outline:
-   top.append(Vector3(side*float(point[0]),y+thickness*.5,float(point[1])))
-   bottom.append(Vector3(side*float(point[0]),y-thickness*.5,float(point[1])))
+   var height: float=y+tan(deg_to_rad(dihedral_degrees))*float(point[0])
+   top.append(Vector3(side*float(point[0]),height+thickness*.5,float(point[1])))
+   bottom.append(Vector3(side*float(point[0]),height-thickness*.5,float(point[1])))
   AviaAircraft._face(st,top.duplicate(),color,Vector3.UP);AviaAircraft._face(st,bottom.duplicate(),color,Vector3.DOWN)
   var center: Vector3=Vector3.ZERO
   for point: Vector3 in top:center+=point/float(top.size())
