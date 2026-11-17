@@ -1,0 +1,252 @@
+{
+  "status": "PASS",
+  "base_commit": "12ccbe9a9da9e23077418c0063003b8dfeb3cbda",
+  "scope": "Actual rendered Godot desktop hangar/config/selector signals and local ENet/DTLS UI connection. Not physical touch/FPS, public multiplayer or aircraft production acceptance.",
+  "hangar_checks": {
+    "checks": [
+      {
+        "check": "opening follows menu aircraft stable ID",
+        "ok": true
+      },
+      {
+        "check": "saved favorites discard duplicates, unavailable IDs and invalid types",
+        "ok": true
+      },
+      {
+        "check": "both selectors retain nine playable prototypes; no planned aircraft exposed",
+        "ok": true
+      },
+      {
+        "check": "country filtering preserves selected stable ID",
+        "ok": true
+      },
+      {
+        "check": "combined class/agility filters map row zero to catalog index six",
+        "ok": true
+      },
+      {
+        "check": "favorite button persists stable IDs",
+        "ok": true
+      },
+      {
+        "check": "new hangar instance restores persisted favorite IDs",
+        "ok": true
+      },
+      {
+        "check": "filtered actual Select signal updates menu with Su35, not row zero",
+        "ok": true
+      },
+      {
+        "check": "opening another menu aircraft clears excluding filters",
+        "ok": true
+      },
+      {
+        "check": "favorites filter intersects available catalog and retains selected Gripen",
+        "ok": true
+      },
+      {
+        "check": "removing selected favorite safely selects remaining result",
+        "ok": true
+      },
+      {
+        "check": "empty favorites clears model and disables actions",
+        "ok": true
+      },
+      {
+        "check": "empty results cannot emit an aircraft selection",
+        "ok": true
+      },
+      {
+        "check": "render capture hangar-empty",
+        "ok": true
+      },
+      {
+        "check": "inclusive 2000 km/h and 90 agility boundaries retain Rafale",
+        "ok": true
+      },
+      {
+        "check": "filtered comparison and authored English handling card use correct aircraft",
+        "ok": true
+      },
+      {
+        "check": "render capture hangar-en",
+        "ok": true
+      },
+      {
+        "check": "translation preserves all filter identities and thresholds",
+        "ok": true
+      },
+      {
+        "check": "Russian flight card and country caption are localized",
+        "ok": true
+      },
+      {
+        "check": "render capture hangar-ru",
+        "ok": true
+      },
+      {
+        "check": "scrolling content keeps Select and Back pinned inside viewport",
+        "ok": true
+      },
+      {
+        "check": "scrolled comparison chart is reachable",
+        "ok": true
+      },
+      {
+        "check": "render capture hangar-comparison",
+        "ok": true
+      },
+      {
+        "check": "mutually exclusive speed/class filters return empty safely",
+        "ok": true
+      },
+      {
+        "check": "Reset restores playable list from empty filters",
+        "ok": true
+      },
+      {
+        "check": "all playable cards and stable selection kite",
+        "ok": true
+      },
+      {
+        "check": "all playable cards and stable selection tern",
+        "ok": true
+      },
+      {
+        "check": "all playable cards and stable selection swift",
+        "ok": true
+      },
+      {
+        "check": "all playable cards and stable selection f16c",
+        "ok": true
+      },
+      {
+        "check": "all playable cards and stable selection su27",
+        "ok": true
+      },
+      {
+        "check": "all playable cards and stable selection f15c",
+        "ok": true
+      },
+      {
+        "check": "all playable cards and stable selection su35s",
+        "ok": true
+      },
+      {
+        "check": "all playable cards and stable selection rafale",
+        "ok": true
+      },
+      {
+        "check": "all playable cards and stable selection gripen",
+        "ok": true
+      },
+      {
+        "check": "original aircraft card does not advertise an unsupported afterburner",
+        "ok": true
+      },
+      {
+        "check": "collection writes preserve menu settings file",
+        "ok": true
+      },
+      {
+        "check": "malformed favorite collection falls back safely",
+        "ok": true
+      }
+    ],
+    "event": "hangar_summary",
+    "scope": "actual rendered desktop UI/config/selector signals; not phone input, production aircraft or public multiplayer acceptance",
+    "status": "PASS"
+  },
+  "network_checks": {
+    "checks": [
+      {
+        "check": "actual UI restores stable Su27 ID/UDP port and locks competitive profile while retaining preference",
+        "ok": true
+      },
+      {
+        "check": "direct admission options agree with retry menu",
+        "ok": true
+      },
+      {
+        "check": "free flight restores preferred Realistic profile after competitive Arcade",
+        "ok": true
+      },
+      {
+        "check": "menu retains selection and hides flight-only HUD/buttons/radar",
+        "ok": true
+      },
+      {
+        "check": "actual join persists aircraft ID rather than mutable catalog index",
+        "ok": true
+      },
+      {
+        "check": "cancelled preparation keeps a usable retry menu",
+        "ok": true
+      },
+      {
+        "check": "actual UI connects via configured nondefault UDP port and receives server-locked Arcade",
+        "ok": true
+      },
+      {
+        "check": "unavailable aircraft/mode and out-of-range profile fall back safely",
+        "ok": true
+      }
+    ],
+    "event": "ui_preferences_summary",
+    "scope": "actual rendered desktop UI nodes/config and pending-join cancellation; not phone or public multiplayer acceptance",
+    "status": "PASS"
+  },
+  "regressions": [
+    {
+      "script": "flight_check",
+      "ok": true,
+      "exit": 0
+    },
+    {
+      "script": "fighter_check",
+      "ok": true,
+      "exit": 0
+    },
+    {
+      "script": "fighter_geometry_check",
+      "ok": true,
+      "exit": 0
+    },
+    {
+      "script": "fighter_circuit_check",
+      "ok": true,
+      "exit": 0
+    }
+  ],
+  "screenshots": {
+    "hangar-en": {
+      "sha256": "4ac980fa2593716c7693dce8d25ed70a93587eaff50fe9dccfeda813c3ebe873",
+      "size": [
+        1280,
+        720
+      ]
+    },
+    "hangar-ru": {
+      "sha256": "6c8dd21e7d46b8cd8d378c290844a04df2e5126362a1f69d3fdc36b930b6b61b",
+      "size": [
+        1280,
+        720
+      ]
+    },
+    "hangar-comparison": {
+      "sha256": "4cdd28d086ac58904819950cb107de31acfdf4edbeb3d25e2311e83a207a1c62",
+      "size": [
+        1280,
+        720
+      ]
+    },
+    "hangar-empty": {
+      "sha256": "80386cf87767d4d5de6879101441e388521377f059dff343fda5a9ae12947ef4",
+      "size": [
+        1280,
+        720
+      ]
+    }
+  },
+  "contact_sheet": "hangar-collection-contact.png"
+}

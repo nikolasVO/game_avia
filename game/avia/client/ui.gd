@@ -142,7 +142,7 @@ func _ready() -> void:
  var bottom: HBoxContainer=HBoxContainer.new();menu_stack.add_child(bottom)
  var play: Button=Button.new();play.text=tr_text("play");labels.play=play;play.size_flags_horizontal=Control.SIZE_EXPAND_FILL;play.custom_minimum_size.y=56;bottom.add_child(play);play.pressed.connect(join)
  hangar=load("res://client/hangar.gd").new();hangar.lang=language;root.add_child(hangar);hangar.hide();hangar.selected.connect(func(index: int):select_plane.select(index);_update_help())
- var hangar_button: Button=Button.new();hangar_button.text="Hangar / Ангар";bottom.add_child(hangar_button);hangar_button.pressed.connect(func():hangar.show())
+ var hangar_button: Button=Button.new();hangar_button.text="Hangar / Ангар";bottom.add_child(hangar_button);hangar_button.pressed.connect(func():hangar.open_for(select_plane.selected))
  var lang: Button=Button.new();lang.text="EN / RU";bottom.add_child(lang);lang.pressed.connect(func():language="ru" if language=="en" else "en";settings.set_value("ui","language",language);settings.save("user://settings.cfg");_translate())
 func _quality(index: int) -> void:
  Engine.max_fps=30 if index==0 else 60

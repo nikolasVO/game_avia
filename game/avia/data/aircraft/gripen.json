@@ -76,5 +76,9 @@
     "provenance": "assets/catalog/gripen_candidate_20261117_v1/provenance.json",
     "status": "recognition/animation/mobile QA pending",
     "gear_retract_seconds": 0.85
+  },
+  "hangar": {
+    "en": "The lowest inertia and approach speed of these six prototypes. Responsive controls suit compact flight circuits.",
+    "ru": "Наименьшие инерция и посадочная скорость среди шести прототипов. Отзывчивое управление удобно для компактного круга."
   }
 }

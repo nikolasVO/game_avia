@@ -60,5 +60,9 @@
     "training",
     "race",
     "free"
-  ]
+  ],
+  "hangar": {
+    "en": "A calm original trainer with low takeoff speed. Start with gentle turns and runway circuits.",
+    "ru": "Спокойный авторский учебный самолёт с малой скоростью отрыва. Начните с плавных поворотов и полётов по кругу."
+  }
 }

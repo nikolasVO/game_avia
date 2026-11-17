@@ -60,5 +60,9 @@
     "training",
     "race",
     "free"
-  ]
+  ],
+  "hangar": {
+    "en": "The fastest original aircraft. Plan approaches earlier and allow more room for turns.",
+    "ru": "Самый быстрый авторский самолёт. Планируйте заход заранее и оставляйте больше места для разворота."
+  }
 }

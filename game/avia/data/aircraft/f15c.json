@@ -76,5 +76,9 @@
     "provenance": "assets/catalog/f15c_candidate_20261117_v1/provenance.json",
     "status": "recognition/animation/mobile QA pending",
     "gear_retract_seconds": 1.2
+  },
+  "hangar": {
+    "en": "Strong acceleration and the highest altitude speed limit of these six prototypes. Greater inertia needs room to turn.",
+    "ru": "Мощный разгон и наибольший высотный предел скорости среди шести прототипов. Большая инерция требует места для разворота."
   }
 }

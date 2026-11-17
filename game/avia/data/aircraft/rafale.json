@@ -76,5 +76,9 @@
     "provenance": "assets/catalog/rafale_candidate_20261117_v1/provenance.json",
     "status": "recognition/animation/mobile QA pending",
     "gear_retract_seconds": 1.0
+  },
+  "hangar": {
+    "en": "A balanced multirole game profile with moderate inertia and a lower approach speed than the heavy fighters.",
+    "ru": "Сбалансированный многоцелевой игровой профиль с умеренной инерцией и меньшей посадочной скоростью, чем у тяжёлых истребителей."
   }
 }

@@ -76,5 +76,9 @@
     "provenance": "assets/catalog/su27_candidate_20261117_v1/provenance.json",
     "status": "candidate; variant recognition/articulation/phone/rights QA pending",
     "gear_retract_seconds": 1.25
+  },
+  "hangar": {
+    "en": "A stable heavy fighter profile. More inertia than F-16C rewards smooth inputs and planned approaches.",
+    "ru": "Устойчивый тяжёлый игровой профиль. Инерция выше, чем у F-16C: полезны плавные команды и заблаговременный заход."
   }
 }

@@ -60,5 +60,9 @@
     "training",
     "race",
     "free"
-  ]
+  ],
+  "hangar": {
+    "en": "An original touring aircraft: steadier and heavier than Kite, with more cruise speed.",
+    "ru": "Авторский маршрутный самолёт: устойчивее и тяжелее Kite, с большей крейсерской скоростью."
+  }
 }

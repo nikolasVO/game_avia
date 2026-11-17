@@ -76,5 +76,9 @@
     "provenance": "assets/catalog/f16c_candidate_20261117_v1/provenance.json",
     "status": "recognition/animation/mobile QA pending",
     "gear_retract_seconds": 0.95
+  },
+  "hangar": {
+    "en": "Light, responsive game handling. Quick roll and low inertia suit active turns; watch energy in tight manoeuvres.",
+    "ru": "Лёгкое, отзывчивое игровое управление. Быстрый крен и малая инерция удобны для активных манёвров; следите за потерей скорости."
   }
 }
