@@ -156,6 +156,8 @@ func _process(delta: float) -> void:
  if session.status=="Joining" and Time.get_ticks_msec()-session.last_snapshot_ms>8000:session.disconnect_session("Admission timeout — retry from menu")
  for label: String in system_buttons:
   var key: String="afterburner" if label.begins_with("AB") else "flaps" if label.begins_with("Flaps") else "gear"
+  if key=="gear" and session.joined and session.local_state.get("grounded",false):touch.gear=true
+  system_buttons[label].disabled=key=="gear" and bool(session.local_state.get("grounded",false))
   system_buttons[label].set_pressed_no_signal(touch.get(key));system_buttons[label].visible=session.joined and int(session.local_state.get("plane",0))>=3
  for button: Button in top_buttons:button.disabled=not session.joined
  touch.combat=session.mode=="pvp"

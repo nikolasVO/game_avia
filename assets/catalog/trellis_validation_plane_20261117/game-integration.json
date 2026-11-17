@@ -6,10 +6,11 @@
   "production_accepted": false,
   "collision": "decorative only, authoring collision mesh hidden; no new gameplay collider",
   "materials": "original albedo retained; matte vertex shader, no normal/metallic maps",
-  "validation": "Actual Godot desktop rendered scene import; Android and physical devices pending",
+  "validation": "Actual Godot desktop and clean e632 Android emulator scene import PASS; physical devices NOT VERIFIED",
   "known_limits": [
     "generated asymmetry",
     "propeller/surfaces not separated",
     "publication license review pending"
-  ]
+  ],
+  "native_apk_sha256": "a725c87061733b35d0a556a493ec714d190b1b717ad126edf6d4c4bd34f410bd"
 }

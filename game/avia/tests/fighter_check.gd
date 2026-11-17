@@ -46,6 +46,13 @@ func _initialize() -> void:
  var unique: Dictionary={}
  for row: Dictionary in measurements:unique[str(snappedf(row.bank_after_1s_rad,0.001))]=true
  check(unique.size()==6,"six different measured roll responses, not display-only stats")
+ var recovery: Dictionary=AviaFlight.spawn(3)
+ var stale: Dictionary=AviaFlight.neutral();stale.gear=false;stale.throttle=1.0
+ for i: int in 10:recovery=AviaFlight.step(recovery,stale)
+ check(not recovery.crashed and recovery.gear and recovery.grounded,"weight-on-wheels interlock rejects stale gear-up commands after respawn")
+ var parked: Dictionary=AviaFlight.spawn(3)
+ for i: int in 3000:parked=AviaFlight.step(parked,AviaFlight.neutral())
+ check(not parked.crashed and parked.p.distance_to(AviaFlight.spawn(3).p)<0.01,"parked fighter remains on its wheels with engine off and light wind")
  var profiles: Array[Dictionary]=[]
  for profile: int in 3:
   var state: Dictionary=airborne(3,80);state.profile=profile;state.roll=.6;state.pitch=.3

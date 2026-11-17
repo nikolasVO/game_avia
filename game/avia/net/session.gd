@@ -372,8 +372,12 @@ func _physics_process(_delta: float) -> void:
   tick_us.append(Time.get_ticks_usec()-start)
   if tick_us.size()>54000:tick_us.pop_front()
   if tick % 300==0:
+   var flying: int=0;var crashed: int=0
+   for p: Dictionary in players.values():
+    if p.state.crashed:crashed+=1
+    elif not p.state.grounded:flying+=1
    var sorted: Array[int]=tick_us.duplicate();sorted.sort()
-   print(JSON.stringify({"event":"health","tick":tick,"connections":players.size(),"accepted":accepted,"rejected":rejected,"tick_p95_ms":float(sorted[int(sorted.size()*0.95)])/1000.0,"totals":totals,"sent_bytes_10s":peer.host.pop_statistic(ENetConnection.HOST_TOTAL_SENT_DATA),"received_bytes_10s":peer.host.pop_statistic(ENetConnection.HOST_TOTAL_RECEIVED_DATA)}))
+   print(JSON.stringify({"event":"health","tick":tick,"connections":players.size(),"flying_aircraft":flying,"crashed_aircraft":crashed,"accepted":accepted,"rejected":rejected,"tick_p95_ms":float(sorted[int(sorted.size()*0.95)])/1000.0,"totals":totals,"sent_bytes_10s":peer.host.pop_statistic(ENetConnection.HOST_TOTAL_SENT_DATA),"received_bytes_10s":peer.host.pop_statistic(ENetConnection.HOST_TOTAL_RECEIVED_DATA)}))
  elif joined and not local_state.is_empty():
   visual_offset*=0.78
   if controls.respawn and not recover_down:

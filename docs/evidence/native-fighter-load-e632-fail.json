@@ -1,0 +1,10 @@
+{
+  "status": "FAIL early stopped",
+  "source_commit": "e632c149458bed1de39133aa1be6bd4c2d6cad60",
+  "server_sha256": "7ecec08a266b6a1c38dc742c8ba857586c1052c96bf8135e03b85101ab607f3c",
+  "scope": "actual exported native server,16 protocol bots, short run before full30min",
+  "observed": "16 initial takeoffs,16 respawns then16 crashes; input delivery continued ~30Hz but aircraft stopped flying",
+  "reason": "queued gear-up command immediately crashed grounded respawn",
+  "fix": "server/shared weight-on-wheels interlock; client gear toggle disabled while grounded; load acceptance now also requires active airborne aircraft/cycles",
+  "full_30min_acceptance": false
+}

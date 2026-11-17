@@ -13,8 +13,10 @@ static func step(s: Dictionary,c: Dictionary) -> Dictionary:
  var density: float=exp(-maxf(p.y,0.0)/8500.0)
  # Shared deterministic light wind; server age is carried in every snapshot.
  var wind: Vector3=Vector3(1.5+sin(float(n.age)*0.009)*0.7,0,sin(float(n.age)*0.013)*0.5)
+ if n.grounded:wind=Vector3.ZERO # Tyre/static-friction approximation prevents parked wind drift.
  var air: Vector3=v-wind;var speed: float=air.length()
- n.gear=bool(c.gear);n.flaps=bool(c.flaps) and spec.systems.flaps
+ # Weight-on-wheels interlock also protects a fresh spawn from in-flight queued inputs.
+ n.gear=bool(c.gear) or bool(n.grounded);n.flaps=bool(c.flaps) and spec.systems.flaps
  n.afterburner=bool(c.afterburner) and spec.systems.afterburner and float(c.throttle)>0.8
  n.airbrake=bool(c.brake) and spec.systems.airbrake
  var stall: float=float(spec.stall)*(0.85 if n.flaps else 1.0)/sqrt(density)
