@@ -1,0 +1,3465 @@
+{
+  "health_samples_with_at_least_8_airborne_fraction": 0.9946236559139785,
+  "takeoff_cycles": 1404,
+  "accepted_inputs_per_second_per_client": 29.9997972972973,
+  "accepted_inputs_during_16": 887994,
+  "status": "PASS",
+  "scope": "Thunder loopback, 16 active protocol bots, actual exported dedicated server; not humans/phones/external network",
+  "server_exit": 0,
+  "requested_client_seconds": 1860,
+  "planes": "3,4,5,6,7,8",
+  "systems_cycle": true,
+  "continuous_16_connections_seconds_conservative": 1850.0,
+  "max_reported_simulation_tick_p95_ms": 4.345,
+  "server_engine_errors": [
+    "ERROR: TLS handshake error: -30464",
+    "ERROR: TLS handshake error: -30464",
+    "ERROR: TLS handshake error: -30464",
+    "ERROR: TLS handshake error: -30464",
+    "ERROR: TLS handshake error: -30464",
+    "ERROR: TLS handshake error: -30464",
+    "ERROR: TLS handshake error: -30464",
+    "ERROR: TLS handshake error: -30464",
+    "ERROR: TLS handshake error: -30464",
+    "ERROR: TLS handshake error: -30464",
+    "ERROR: TLS handshake error: -30464",
+    "ERROR: TLS handshake error: -30464",
+    "ERROR: TLS handshake error: -30464",
+    "ERROR: TLS handshake error: -30464",
+    "ERROR: TLS handshake error: -30464",
+    "ERROR: TLS handshake error: -30464"
+  ],
+  "known_dtls_shutdown_diagnostic": true,
+  "health": [
+    {
+      "accepted": 558,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 1,
+      "received_bytes_10s": 149882.0,
+      "rejected": 0,
+      "sent_bytes_10s": 448405.0,
+      "tick": 300,
+      "tick_p95_ms": 3.931,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 1,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 5358,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1239067.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3684016.0,
+      "tick": 600,
+      "tick_p95_ms": 4.065,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 16,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 10158,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 10,
+      "received_bytes_10s": 1239504.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3646886.0,
+      "tick": 900,
+      "tick_p95_ms": 4.079,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 16,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 14958,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1241622.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3565378.0,
+      "tick": 1200,
+      "tick_p95_ms": 4.112,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 32,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 19758,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 10,
+      "received_bytes_10s": 1239500.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3656010.0,
+      "tick": 1500,
+      "tick_p95_ms": 4.115,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 32,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 24558,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1241406.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3613184.0,
+      "tick": 1800,
+      "tick_p95_ms": 4.122,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 48,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 29358,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 13,
+      "received_bytes_10s": 1239158.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3656944.0,
+      "tick": 2100,
+      "tick_p95_ms": 4.111,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 48,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 34158,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1242030.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3639383.0,
+      "tick": 2400,
+      "tick_p95_ms": 4.11,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 64,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 38958,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 13,
+      "received_bytes_10s": 1238996.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3669184.0,
+      "tick": 2700,
+      "tick_p95_ms": 4.111,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 64,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 43758,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 13,
+      "received_bytes_10s": 1241502.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3637520.0,
+      "tick": 3000,
+      "tick_p95_ms": 4.126,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 76,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 48558,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 14,
+      "received_bytes_10s": 1239562.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3675882.0,
+      "tick": 3300,
+      "tick_p95_ms": 4.129,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 81,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 53358,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 13,
+      "received_bytes_10s": 1240782.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3663051.0,
+      "tick": 3600,
+      "tick_p95_ms": 4.128,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 89,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 58158,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 14,
+      "received_bytes_10s": 1240044.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3662060.0,
+      "tick": 3900,
+      "tick_p95_ms": 4.126,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 97,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 62958,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1240262.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3677610.0,
+      "tick": 4200,
+      "tick_p95_ms": 4.121,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 105,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 67758,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 14,
+      "received_bytes_10s": 1240572.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3664302.0,
+      "tick": 4500,
+      "tick_p95_ms": 4.118,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 113,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 72556,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 13,
+      "received_bytes_10s": 1239612.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3678260.0,
+      "tick": 4800,
+      "tick_p95_ms": 4.115,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 118,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 77355,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 14,
+      "received_bytes_10s": 1240629.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3656704.0,
+      "tick": 5100,
+      "tick_p95_ms": 4.118,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 129,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 82155,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1239734.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3676738.0,
+      "tick": 5400,
+      "tick_p95_ms": 4.112,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 134,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 86955,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 12,
+      "received_bytes_10s": 1240616.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3656566.0,
+      "tick": 5700,
+      "tick_p95_ms": 4.124,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 141,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 91755,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1240334.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3663430.0,
+      "tick": 6000,
+      "tick_p95_ms": 4.131,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 150,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 96562,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 15,
+      "received_bytes_10s": 1242383.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3665872.0,
+      "tick": 6300,
+      "tick_p95_ms": 4.132,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 158,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 101362,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1240042.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3655224.0,
+      "tick": 6600,
+      "tick_p95_ms": 4.142,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 166,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 106162,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 13,
+      "received_bytes_10s": 1240762.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3661940.0,
+      "tick": 6900,
+      "tick_p95_ms": 4.14,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 172,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 110962,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1240352.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3659752.0,
+      "tick": 7200,
+      "tick_p95_ms": 4.159,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 182,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 115762,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1240092.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3665108.0,
+      "tick": 7500,
+      "tick_p95_ms": 4.163,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 188,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 120561,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 15,
+      "received_bytes_10s": 1240735.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3662330.0,
+      "tick": 7800,
+      "tick_p95_ms": 4.166,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 197,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 125361,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1240204.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3667892.0,
+      "tick": 8100,
+      "tick_p95_ms": 4.164,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 204,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 130161,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 14,
+      "received_bytes_10s": 1240418.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670934.0,
+      "tick": 8400,
+      "tick_p95_ms": 4.17,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 210,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 134959,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 13,
+      "received_bytes_10s": 1239752.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3656352.0,
+      "tick": 8700,
+      "tick_p95_ms": 4.178,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 217,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 139758,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1240203.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3663918.0,
+      "tick": 9000,
+      "tick_p95_ms": 4.19,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 226,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 144558,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1239920.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3671832.0,
+      "tick": 9300,
+      "tick_p95_ms": 4.2,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 233,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 149358,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1240862.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3678938.0,
+      "tick": 9600,
+      "tick_p95_ms": 4.211,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 242,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 154158,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1239902.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3663190.0,
+      "tick": 9900,
+      "tick_p95_ms": 4.212,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 249,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 158958,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 14,
+      "received_bytes_10s": 1240362.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3676454.0,
+      "tick": 10200,
+      "tick_p95_ms": 4.221,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 255,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 163756,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 15,
+      "received_bytes_10s": 1239742.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3657022.0,
+      "tick": 10500,
+      "tick_p95_ms": 4.222,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 263,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 168556,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1240414.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3667072.0,
+      "tick": 10800,
+      "tick_p95_ms": 4.224,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 271,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 173355,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 14,
+      "received_bytes_10s": 1240155.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3667848.0,
+      "tick": 11100,
+      "tick_p95_ms": 4.229,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 277,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 178155,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1240420.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3661000.0,
+      "tick": 11400,
+      "tick_p95_ms": 4.236,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 287,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 182955,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1240218.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3677134.0,
+      "tick": 11700,
+      "tick_p95_ms": 4.247,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 293,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 187755,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1241008.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3648672.0,
+      "tick": 12000,
+      "tick_p95_ms": 4.253,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 303,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 192555,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1240080.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3661796.0,
+      "tick": 12300,
+      "tick_p95_ms": 4.266,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 309,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 197353,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 13,
+      "received_bytes_10s": 1240142.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3639686.0,
+      "tick": 12600,
+      "tick_p95_ms": 4.266,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 316,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 202153,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1240208.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3662418.0,
+      "tick": 12900,
+      "tick_p95_ms": 4.27,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 325,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 206953,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1239870.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670110.0,
+      "tick": 13200,
+      "tick_p95_ms": 4.274,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 330,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 211753,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1240472.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3665274.0,
+      "tick": 13500,
+      "tick_p95_ms": 4.274,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 338,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 216553,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 14,
+      "received_bytes_10s": 1240260.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3667902.0,
+      "tick": 13800,
+      "tick_p95_ms": 4.274,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 344,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 221353,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1240472.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3662166.0,
+      "tick": 14100,
+      "tick_p95_ms": 4.274,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 354,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 226153,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1240246.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3678808.0,
+      "tick": 14400,
+      "tick_p95_ms": 4.275,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 360,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 230953,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1240640.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3655744.0,
+      "tick": 14700,
+      "tick_p95_ms": 4.279,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 370,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 235753,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1240260.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3677283.0,
+      "tick": 15000,
+      "tick_p95_ms": 4.279,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 376,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 240553,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 15,
+      "received_bytes_10s": 1240532.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3649417.0,
+      "tick": 15300,
+      "tick_p95_ms": 4.284,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 385,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 245353,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 13,
+      "received_bytes_10s": 1239940.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3667276.0,
+      "tick": 15600,
+      "tick_p95_ms": 4.281,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 389,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 250153,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1240984.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3653302.0,
+      "tick": 15900,
+      "tick_p95_ms": 4.281,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 400,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 254953,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 11,
+      "received_bytes_10s": 1240110.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3659310.0,
+      "tick": 16200,
+      "tick_p95_ms": 4.281,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 403,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 259753,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 14,
+      "received_bytes_10s": 1240998.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3651432.0,
+      "tick": 16500,
+      "tick_p95_ms": 4.28,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 414,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 264553,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 13,
+      "received_bytes_10s": 1239540.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3672028.0,
+      "tick": 16800,
+      "tick_p95_ms": 4.279,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 418,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 269353,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 13,
+      "received_bytes_10s": 1240856.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3658496.0,
+      "tick": 17100,
+      "tick_p95_ms": 4.279,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 427,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 274153,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1239698.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670110.0,
+      "tick": 17400,
+      "tick_p95_ms": 4.276,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 434,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 278952,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1240599.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3673512.0,
+      "tick": 17700,
+      "tick_p95_ms": 4.275,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 443,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 283752,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 15,
+      "received_bytes_10s": 1239864.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3673509.0,
+      "tick": 18000,
+      "tick_p95_ms": 4.274,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 448,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 288552,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1241014.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3665060.0,
+      "tick": 18300,
+      "tick_p95_ms": 4.27,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 459,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 293352,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1239714.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3675429.0,
+      "tick": 18600,
+      "tick_p95_ms": 4.269,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 464,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 298158,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1243172.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3669324.0,
+      "tick": 18900,
+      "tick_p95_ms": 4.273,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 475,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 302958,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 15,
+      "received_bytes_10s": 1239468.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3674280.0,
+      "tick": 19200,
+      "tick_p95_ms": 4.273,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 478,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 307758,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 13,
+      "received_bytes_10s": 1241082.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3650010.0,
+      "tick": 19500,
+      "tick_p95_ms": 4.27,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 488,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 312558,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1239772.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3661954.0,
+      "tick": 19800,
+      "tick_p95_ms": 4.279,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 494,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 317358,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1240772.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3637399.0,
+      "tick": 20100,
+      "tick_p95_ms": 4.284,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 504,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 322158,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1239968.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3674902.0,
+      "tick": 20400,
+      "tick_p95_ms": 4.284,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 510,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 326958,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1240576.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3668008.0,
+      "tick": 20700,
+      "tick_p95_ms": 4.285,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 518,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 331757,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 13,
+      "received_bytes_10s": 1239883.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3668928.0,
+      "tick": 21000,
+      "tick_p95_ms": 4.284,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 523,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 336556,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1240509.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3671478.0,
+      "tick": 21300,
+      "tick_p95_ms": 4.282,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 534,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 341355,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1239599.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3664506.0,
+      "tick": 21600,
+      "tick_p95_ms": 4.28,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 539,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 346155,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 15,
+      "received_bytes_10s": 1240810.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3672276.0,
+      "tick": 21900,
+      "tick_p95_ms": 4.284,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 548,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 350955,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1239916.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3666442.0,
+      "tick": 22200,
+      "tick_p95_ms": 4.284,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 555,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 355755,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1240738.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3665346.0,
+      "tick": 22500,
+      "tick_p95_ms": 4.287,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 564,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 360555,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 11,
+      "received_bytes_10s": 1239824.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3666990.0,
+      "tick": 22800,
+      "tick_p95_ms": 4.296,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 566,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 365354,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1241319.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3671702.0,
+      "tick": 23100,
+      "tick_p95_ms": 4.298,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 580,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 370154,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1239086.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3672748.0,
+      "tick": 23400,
+      "tick_p95_ms": 4.299,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 582,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 374953,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1241729.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3627028.0,
+      "tick": 23700,
+      "tick_p95_ms": 4.301,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 596,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 379753,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1239088.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3671223.0,
+      "tick": 24000,
+      "tick_p95_ms": 4.303,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 598,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 384553,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1241600.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3591942.0,
+      "tick": 24300,
+      "tick_p95_ms": 4.303,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 612,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 389353,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 15,
+      "received_bytes_10s": 1238916.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670884.0,
+      "tick": 24600,
+      "tick_p95_ms": 4.3,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 612,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 394153,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 14,
+      "received_bytes_10s": 1241798.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3592111.0,
+      "tick": 24900,
+      "tick_p95_ms": 4.301,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 626,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 398953,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1238892.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3672030.0,
+      "tick": 25200,
+      "tick_p95_ms": 4.309,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 628,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 403753,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 12,
+      "received_bytes_10s": 1241376.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3609210.0,
+      "tick": 25500,
+      "tick_p95_ms": 4.316,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 639,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 408553,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1239318.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3671990.0,
+      "tick": 25800,
+      "tick_p95_ms": 4.321,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 644,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 413353,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 13,
+      "received_bytes_10s": 1240718.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3650511.0,
+      "tick": 26100,
+      "tick_p95_ms": 4.333,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 652,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 418153,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1240146.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3651528.0,
+      "tick": 26400,
+      "tick_p95_ms": 4.335,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 660,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 422953,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1240656.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3654967.0,
+      "tick": 26700,
+      "tick_p95_ms": 4.333,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 668,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 427753,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1240484.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3655221.0,
+      "tick": 27000,
+      "tick_p95_ms": 4.334,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 676,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 432553,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1240226.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3649823.0,
+      "tick": 27300,
+      "tick_p95_ms": 4.334,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 682,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 437353,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 15,
+      "received_bytes_10s": 1240714.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3663020.0,
+      "tick": 27600,
+      "tick_p95_ms": 4.334,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 691,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 442153,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1240070.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3661638.0,
+      "tick": 27900,
+      "tick_p95_ms": 4.333,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 698,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 446953,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1240374.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3666556.0,
+      "tick": 28200,
+      "tick_p95_ms": 4.333,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 706,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 451753,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1240552.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3664364.0,
+      "tick": 28500,
+      "tick_p95_ms": 4.334,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 714,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 456553,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1240712.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3663540.0,
+      "tick": 28800,
+      "tick_p95_ms": 4.335,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 722,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 461353,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1240520.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3659648.0,
+      "tick": 29100,
+      "tick_p95_ms": 4.337,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 730,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 466153,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 11,
+      "received_bytes_10s": 1239984.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3639356.0,
+      "tick": 29400,
+      "tick_p95_ms": 4.339,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 732,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 470953,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1241370.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3657749.0,
+      "tick": 29700,
+      "tick_p95_ms": 4.342,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 746,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 475753,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1238606.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3665559.0,
+      "tick": 30000,
+      "tick_p95_ms": 4.344,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 746,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 480552,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 14,
+      "received_bytes_10s": 1242007.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3635038.0,
+      "tick": 30300,
+      "tick_p95_ms": 4.345,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 760,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 485352,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1238710.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3671902.0,
+      "tick": 30600,
+      "tick_p95_ms": 4.345,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 762,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 490152,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 13,
+      "received_bytes_10s": 1241650.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3623218.0,
+      "tick": 30900,
+      "tick_p95_ms": 4.344,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 773,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 494952,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1239488.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3671422.0,
+      "tick": 31200,
+      "tick_p95_ms": 4.343,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 778,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 499758,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 13,
+      "received_bytes_10s": 1243572.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3614149.0,
+      "tick": 31500,
+      "tick_p95_ms": 4.342,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 789,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 504558,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1239398.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3674540.0,
+      "tick": 31800,
+      "tick_p95_ms": 4.34,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 794,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 509358,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 13,
+      "received_bytes_10s": 1241884.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3625930.0,
+      "tick": 32100,
+      "tick_p95_ms": 4.338,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 805,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 514158,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1239396.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3674562.0,
+      "tick": 32400,
+      "tick_p95_ms": 4.336,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 810,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 518958,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1239974.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3660012.0,
+      "tick": 32700,
+      "tick_p95_ms": 4.335,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 816,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 523758,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 15,
+      "received_bytes_10s": 1240908.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3666054.0,
+      "tick": 33000,
+      "tick_p95_ms": 4.334,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 824,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 528558,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 13,
+      "received_bytes_10s": 1248710.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3678059.0,
+      "tick": 33300,
+      "tick_p95_ms": 4.333,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 829,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 533357,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1249861.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3644164.0,
+      "tick": 33600,
+      "tick_p95_ms": 4.332,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 840,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 538155,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1248874.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670390.0,
+      "tick": 33900,
+      "tick_p95_ms": 4.331,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 845,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 542955,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1250706.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3662628.0,
+      "tick": 34200,
+      "tick_p95_ms": 4.331,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 856,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 547755,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1249528.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3672038.0,
+      "tick": 34500,
+      "tick_p95_ms": 4.331,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 861,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 552555,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1251136.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3665768.0,
+      "tick": 34800,
+      "tick_p95_ms": 4.331,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 872,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 557355,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 15,
+      "received_bytes_10s": 1249212.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3677004.0,
+      "tick": 35100,
+      "tick_p95_ms": 4.33,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 876,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 562155,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 14,
+      "received_bytes_10s": 1250314.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3669640.0,
+      "tick": 35400,
+      "tick_p95_ms": 4.33,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 884,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 566954,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1249205.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3675342.0,
+      "tick": 35700,
+      "tick_p95_ms": 4.328,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 891,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 571753,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1249843.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3672048.0,
+      "tick": 36000,
+      "tick_p95_ms": 4.329,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 899,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 576553,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1250108.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3669712.0,
+      "tick": 36300,
+      "tick_p95_ms": 4.328,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 907,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 581353,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1250138.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3671004.0,
+      "tick": 36600,
+      "tick_p95_ms": 4.329,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 915,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 586153,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1249634.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3659784.0,
+      "tick": 36900,
+      "tick_p95_ms": 4.33,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 923,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 590953,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1250460.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3676070.0,
+      "tick": 37200,
+      "tick_p95_ms": 4.33,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 931,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 595753,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1250076.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3679862.0,
+      "tick": 37500,
+      "tick_p95_ms": 4.33,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 939,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 600553,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 11,
+      "received_bytes_10s": 1249680.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3674724.0,
+      "tick": 37800,
+      "tick_p95_ms": 4.33,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 942,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 605353,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1249924.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3672856.0,
+      "tick": 38100,
+      "tick_p95_ms": 4.33,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 953,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 610153,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1249630.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670985.0,
+      "tick": 38400,
+      "tick_p95_ms": 4.329,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 958,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 614953,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 13,
+      "received_bytes_10s": 1250116.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3673028.0,
+      "tick": 38700,
+      "tick_p95_ms": 4.328,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 966,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 619753,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1249594.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3673364.0,
+      "tick": 39000,
+      "tick_p95_ms": 4.326,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 974,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 624553,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1250128.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3651782.0,
+      "tick": 39300,
+      "tick_p95_ms": 4.325,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 982,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 629353,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1250162.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3674882.0,
+      "tick": 39600,
+      "tick_p95_ms": 4.323,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 990,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 634153,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1250276.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670697.0,
+      "tick": 39900,
+      "tick_p95_ms": 4.321,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 998,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 638953,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 15,
+      "received_bytes_10s": 1250000.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3671816.0,
+      "tick": 40200,
+      "tick_p95_ms": 4.319,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 1005,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 643753,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 15,
+      "received_bytes_10s": 1249774.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3667560.0,
+      "tick": 40500,
+      "tick_p95_ms": 4.318,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 1012,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 648553,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1250308.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3678310.0,
+      "tick": 40800,
+      "tick_p95_ms": 4.317,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 1020,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 653353,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1249820.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3683976.0,
+      "tick": 41100,
+      "tick_p95_ms": 4.317,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 1028,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 658153,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1250166.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3664320.0,
+      "tick": 41400,
+      "tick_p95_ms": 4.316,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 1036,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 662953,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 13,
+      "received_bytes_10s": 1249472.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3671554.0,
+      "tick": 41700,
+      "tick_p95_ms": 4.316,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 1041,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 667753,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 13,
+      "received_bytes_10s": 1250016.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3677176.0,
+      "tick": 42000,
+      "tick_p95_ms": 4.315,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 1049,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 672553,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1249640.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3673098.0,
+      "tick": 42300,
+      "tick_p95_ms": 4.315,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 1057,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 677352,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 15,
+      "received_bytes_10s": 1249881.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3675694.0,
+      "tick": 42600,
+      "tick_p95_ms": 4.314,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 1064,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 682152,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 15,
+      "received_bytes_10s": 1249824.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3675243.0,
+      "tick": 42900,
+      "tick_p95_ms": 4.315,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 1072,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 686952,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1249754.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3678688.0,
+      "tick": 43200,
+      "tick_p95_ms": 4.317,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 1079,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 691752,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1249794.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3657804.0,
+      "tick": 43500,
+      "tick_p95_ms": 4.316,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 1087,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 696558,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1251654.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3681522.0,
+      "tick": 43800,
+      "tick_p95_ms": 4.318,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 1095,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 701358,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1250032.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3648722.0,
+      "tick": 44100,
+      "tick_p95_ms": 4.319,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 1103,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 706158,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1250196.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3665296.0,
+      "tick": 44400,
+      "tick_p95_ms": 4.318,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 1111,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 710958,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1249898.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3667660.0,
+      "tick": 44700,
+      "tick_p95_ms": 4.318,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 1119,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 715758,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1250054.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3650560.0,
+      "tick": 45000,
+      "tick_p95_ms": 4.317,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 1127,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 720558,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 11,
+      "received_bytes_10s": 1249414.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3671632.0,
+      "tick": 45300,
+      "tick_p95_ms": 4.316,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 1130,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 725358,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 12,
+      "received_bytes_10s": 1250676.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3678722.0,
+      "tick": 45600,
+      "tick_p95_ms": 4.317,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 1139,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 730158,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1249498.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3681796.0,
+      "tick": 45900,
+      "tick_p95_ms": 4.316,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 1146,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 734956,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 12,
+      "received_bytes_10s": 1249642.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3660318.0,
+      "tick": 46200,
+      "tick_p95_ms": 4.316,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 1151,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 739755,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1249951.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3661708.0,
+      "tick": 46500,
+      "tick_p95_ms": 4.316,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 1162,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 744555,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 13,
+      "received_bytes_10s": 1249736.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3672458.0,
+      "tick": 46800,
+      "tick_p95_ms": 4.315,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 1167,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 749355,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1250542.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3651862.0,
+      "tick": 47100,
+      "tick_p95_ms": 4.315,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 1178,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 754155,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 13,
+      "received_bytes_10s": 1249922.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3662668.0,
+      "tick": 47400,
+      "tick_p95_ms": 4.315,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 1183,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 758955,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1250270.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3669912.0,
+      "tick": 47700,
+      "tick_p95_ms": 4.315,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 1194,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 763754,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 15,
+      "received_bytes_10s": 1248981.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3662576.0,
+      "tick": 48000,
+      "tick_p95_ms": 4.316,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 1197,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 768554,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 14,
+      "received_bytes_10s": 1250592.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3662784.0,
+      "tick": 48300,
+      "tick_p95_ms": 4.316,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 1208,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 773353,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 13,
+      "received_bytes_10s": 1248771.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3674148.0,
+      "tick": 48600,
+      "tick_p95_ms": 4.315,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 1210,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 778153,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1250890.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3655371.0,
+      "tick": 48900,
+      "tick_p95_ms": 4.315,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 1224,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 782953,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1248642.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3677548.0,
+      "tick": 49200,
+      "tick_p95_ms": 4.315,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 1226,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 787753,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1251418.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3637160.0,
+      "tick": 49500,
+      "tick_p95_ms": 4.314,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 1240,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 792553,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1248626.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3677526.0,
+      "tick": 49800,
+      "tick_p95_ms": 4.313,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 1242,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 797353,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 12,
+      "received_bytes_10s": 1250996.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3645098.0,
+      "tick": 50100,
+      "tick_p95_ms": 4.313,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 1252,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 802153,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1249120.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3681170.0,
+      "tick": 50400,
+      "tick_p95_ms": 4.312,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 1258,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 806953,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1250378.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3667376.0,
+      "tick": 50700,
+      "tick_p95_ms": 4.312,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 1267,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 811753,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 14,
+      "received_bytes_10s": 1249360.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3673508.0,
+      "tick": 51000,
+      "tick_p95_ms": 4.311,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 1272,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 816553,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1250578.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3670992.0,
+      "tick": 51300,
+      "tick_p95_ms": 4.31,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 1283,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 821353,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1249304.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3669994.0,
+      "tick": 51600,
+      "tick_p95_ms": 4.309,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 1288,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 826153,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1250148.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3650256.0,
+      "tick": 51900,
+      "tick_p95_ms": 4.309,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 1296,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 830953,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1249988.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3678088.0,
+      "tick": 52200,
+      "tick_p95_ms": 4.308,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 1304,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 835753,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1250272.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3656568.0,
+      "tick": 52500,
+      "tick_p95_ms": 4.308,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 1312,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 840553,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 14,
+      "received_bytes_10s": 1249858.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3682218.0,
+      "tick": 52800,
+      "tick_p95_ms": 4.308,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 1318,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 845353,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1250290.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3679296.0,
+      "tick": 53100,
+      "tick_p95_ms": 4.307,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 1328,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 850153,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1249688.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3680290.0,
+      "tick": 53400,
+      "tick_p95_ms": 4.307,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 1334,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 854953,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 14,
+      "received_bytes_10s": 1250310.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3649368.0,
+      "tick": 53700,
+      "tick_p95_ms": 4.307,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 1342,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 859753,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 13,
+      "received_bytes_10s": 1249498.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3673634.0,
+      "tick": 54000,
+      "tick_p95_ms": 4.306,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 1347,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 864553,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1250318.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3639834.0,
+      "tick": 54300,
+      "tick_p95_ms": 4.306,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 1358,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 869353,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 15,
+      "received_bytes_10s": 1249038.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3677216.0,
+      "tick": 54600,
+      "tick_p95_ms": 4.306,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 1362,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 874153,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1250888.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3652158.0,
+      "tick": 54900,
+      "tick_p95_ms": 4.306,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 1374,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 878952,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1248443.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3668270.0,
+      "tick": 55200,
+      "tick_p95_ms": 4.305,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 1376,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 883752,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 15,
+      "received_bytes_10s": 1251226.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3634656.0,
+      "tick": 55500,
+      "tick_p95_ms": 4.306,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 1388,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 888552,
+      "connections": 16,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 16,
+      "received_bytes_10s": 1248974.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3678692.0,
+      "tick": 55800,
+      "tick_p95_ms": 4.306,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 1392,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 893152,
+      "connections": 10,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 10,
+      "received_bytes_10s": 1199908.0,
+      "rejected": 0,
+      "sent_bytes_10s": 3350183.0,
+      "tick": 56100,
+      "tick_p95_ms": 4.307,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 1404,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 893811,
+      "connections": 0,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 0,
+      "received_bytes_10s": 172018.0,
+      "rejected": 0,
+      "sent_bytes_10s": 238231.0,
+      "tick": 56400,
+      "tick_p95_ms": 4.307,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 1404,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 893811,
+      "connections": 0,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 0,
+      "received_bytes_10s": 0.0,
+      "rejected": 0,
+      "sent_bytes_10s": 0.0,
+      "tick": 56700,
+      "tick_p95_ms": 4.307,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 1404,
+        "landings": 0,
+        "races": 0
+      }
+    },
+    {
+      "accepted": 893811,
+      "connections": 0,
+      "crashed_aircraft": 0,
+      "event": "health",
+      "flying_aircraft": 0,
+      "received_bytes_10s": 0.0,
+      "rejected": 0,
+      "sent_bytes_10s": 0.0,
+      "tick": 57000,
+      "tick_p95_ms": 4.306,
+      "totals": {
+        "best_race_seconds": 0.0,
+        "flights": 1404,
+        "landings": 0,
+        "races": 0
+      }
+    }
+  ],
+  "source_commit": "f702b8129415bd40eca81b1d505b96dae4523283",
+  "server_sha256": "ca1e855c646355126c06612e465bcc437c0605176a31a1989a0f76adbe160f18",
+  "resources": {
+    "samples": 380,
+    "max_rss_mib": 105.984375,
+    "median_cpu_percent_one_core_100": 8.796,
+    "max_cpu_percent_one_core_100": 9.796
+  },
+  "coexistence": "One local TRELLIS F-16C candidate inference/postprocess ran during this test; Point12876/37381 preserved. Actual server/clients are isolated, production flightc192 not restarted.",
+  "limits": "Simulation-body p95 excludes engine polling outside that function; no phones/humans/off-host proof."
+}
